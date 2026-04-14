@@ -1,0 +1,42 @@
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Left Side: Logo + Menu -->
+            <div class="flex items-center gap-8 lg:gap-12">
+                <!-- Logo -->
+                <a routerLink="/" class="flex items-center gap-2 cursor-pointer group">
+                    <div class="text-brand-500 font-bold text-2xl group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-code"></i></div>
+                    <span class="font-bold text-xl text-slate-900 tracking-tight">Coding <span
+                            class="text-brand-500">Tamilan</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 pt-1">
+                    <a routerLink="/" routerLinkActive="border-brand-500 !text-slate-900" [routerLinkActiveOptions]="{exact: true}" class="text-slate-500 hover:text-slate-900 font-medium border-b-2 border-transparent pb-1.5 transition-colors">Home</a>
+                    <a routerLink="/courses" routerLinkActive="border-brand-500 !text-slate-900" class="text-slate-500 hover:text-slate-900 font-medium border-b-2 border-transparent pb-1.5 transition-colors">Courses</a>
+                    <a routerLink="/notes" routerLinkActive="border-brand-500 !text-slate-900" class="text-slate-500 hover:text-slate-900 font-medium border-b-2 border-transparent pb-1.5 transition-colors">Notes</a>
+                    <a routerLink="/community" routerLinkActive="border-brand-500 !text-slate-900" class="text-slate-500 hover:text-slate-900 font-medium border-b-2 border-transparent pb-1.5 transition-colors">Community</a>
+                </div>
+            </div>
+
+            <!-- Right Side: Search & Actions -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <!-- Search -->
+                <div class="relative group">
+                    <i class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-brand-500 transition-colors"></i>
+                    <input type="text" placeholder="Search courses..." class="pl-11 pr-4 py-2.5 bg-slate-100 hover:bg-slate-200/70 border border-transparent rounded-full text-sm text-slate-700 focus:bg-white focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 outline-none transition-all w-64 lg:w-72 placeholder-slate-400">
+                </div>
+                <button class="text-slate-600 font-semibold hover:text-slate-900 transition-colors whitespace-nowrap">Login</button>
+                <button class="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-medium shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 hover:-translate-y-0.5 transition-all whitespace-nowrap">Sign Up Free</button>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button class="text-slate-500 hover:text-slate-900 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

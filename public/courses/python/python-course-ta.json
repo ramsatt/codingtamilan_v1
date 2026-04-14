@@ -1,0 +1,1365 @@
+{
+  "intro": {
+    "title": "Python அறிமுகம்",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python ஒரு popular-ஆன programming language. இதை Guido van Rossum உருவாக்கினாங்க — 1991-ல release ஆச்சு." },
+      { "type": "paragraph", "text": "Python எதுக்கெல்லாம் use ஆகுதுன்னா:" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Web development (server-side)",
+          "Software development",
+          "Mathematics மற்றும் data science",
+          "System scripting"
+        ]
+      },
+      { "type": "header", "level": 3, "text": "Python என்ன என்ன செய்யும்?" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Server-ல web applications create பண்ண use ஆகும்",
+          "Software-ஓட சேர்ந்து workflows உருவாக்கலாம்",
+          "Database systems-கிட்ட connect ஆகும், files read/modify பண்ணலாம்",
+          "Big data handle பண்ணலாம், complex mathematics பண்ணலாம்",
+          "Rapid prototyping-க்கும் production-ready software-க்கும் use ஆகும்"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "Python ஏன் படிக்கணும்?" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Windows, Mac, Linux, Raspberry Pi — எல்லா platforms-லயும் ரன் ஆகும்",
+          "English language மாதிரி simple-ஆன syntax இருக்கு",
+          "குறைஞ்ச lines-ல programs எழுதலாம்",
+          "Interpreter system — code எழுதியதும் உடனே execute ஆகும்",
+          "Procedural, object-oriented, functional — எல்லா styles-லயும் எழுதலாம்"
+        ]
+      },
+      { "type": "header", "level": 3, "text": "தெரிஞ்சுக்க வேண்டியவை" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Python-ஓட latest major version Python 3 — இந்த tutorial-ல இதையே use பண்றோம்",
+          "Text editor-ல Python எழுதலாம். Thonny, PyCharm, VS Code மாதிரி IDE use பண்ணலாம் — பெரிய projects-க்கு மிகவும் useful"
+        ]
+      },
+      { "type": "header", "level": 3, "text": "Python Syntax — மற்ற languages-ஓட comparison" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Python readability-க்காக design பண்ணப்பட்டது — English மாதிரி படிக்கலாம்",
+          "Semicolon இல்லாம new line-ல command முடியும்",
+          "Indentation (spaces) use பண்ணி scope define பண்றாங்க — curly brackets இல்ல"
+        ]
+      },
+      { "type": "example", "title": "Example", "code": "print(\"Hello, World!\")" },
+      {
+        "type": "table",
+        "headers": ["Feature", "Python", "மற்ற Languages"],
+        "rows": [
+          ["Syntax", "Simple, readable", "Complex"],
+          ["Scope", "Indentation", "Curly brackets {}"],
+          ["Execution", "Interpreter", "Compiler / Interpreter"],
+          ["Lines of code", "குறைவு", "அதிகம்"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல indentation மிகவும் important — தப்பான indentation error-ஐ உருவாக்கும்.</p>" }
+    ]
+  },
+  "get-started": {
+    "title": "Python தொடங்குவோம்",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python-ஐ தொடங்குவோம்" },
+      { "type": "paragraph", "text": "Coding Tamilan-ல Python-ஐ எந்த installation-உம் இல்லாம try பண்ணலாம்." },
+      { "type": "paragraph", "text": "நம்ம Online Python Editor browser-லயே ரன் ஆகும் — code-உம் result-உம் ஒரே நேரத்துல பாக்கலாம்:" },
+      { "type": "example", "title": "Example", "code": "print(\"Hello, World!\")" },
+      { "type": "header", "level": 2, "text": "Python Install பண்றது எப்படி?" },
+      { "type": "paragraph", "text": "உன்னோட computer-ல Python install பண்ணணும்னா கீழே இருக்குற steps follow பண்ணு." },
+      { "type": "paragraph", "text": "சில Windows PC-கள்லயும் Mac computers-லயும் Python already install ஆகியிருக்கும்." },
+      { "type": "paragraph", "text": "Windows-ல Python இருக்கான்னு check பண்ண Command Line (cmd.exe)-ல இதை type பண்ணு:" },
+      { "type": "example", "title": "Example", "code": "C:\\Users\\Your Name>python --version" },
+      { "type": "paragraph", "text": "Linux அல்லது Mac-ல check பண்ண Terminal-ல இதை type பண்ணு:" },
+      { "type": "example", "title": "Example", "code": "python --version" },
+      { "type": "paragraph", "text": "Python install ஆகல-ன்னா <a href=\"https://www.python.org/\" target=\"_blank\">https://www.python.org/</a>-ல free-யா download பண்ணிக்கோ." },
+      { "type": "header", "level": 2, "text": "Python Quickstart" },
+      { "type": "paragraph", "text": "Python ஒரு interpreted language — .py files எழுதி interpreter-ல run பண்றோம்." },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">hello.py</code>ன்னு file create பண்ணி கீழே இருக்குற code எழுது:" },
+      { "type": "example", "title": "Example", "code": "C:\\Users\\Your Name>python hello.py" },
+      { "type": "header", "level": 2, "text": "Python Version Check" },
+      { "type": "example", "title": "Example", "code": "import sys\n\nprint(sys.version)" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "python --version — installed version பாக்கலாம்",
+          "python hello.py — Python file run பண்ணலாம்",
+          "exit() — Python command line-இல இருந்து வெளியே வரலாம்",
+          "import sys — system module import பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Command", "என்ன செய்யும்"],
+        "rows": [
+          ["python --version", "Python version காட்டும்"],
+          ["python filename.py", "Python file-ஐ run பண்ணும்"],
+          ["python", "Interactive mode start ஆகும்"],
+          ["exit()", "Interactive mode-இல இருந்து வெளியே வரும்"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> PyCharm, VS Code மாதிரி IDE use பண்றது beginners-க்கு மிகவும் helpful — auto-complete, error highlight கிடைக்கும்.</p>" }
+    ]
+  },
+  "syntax": {
+    "title": "Python Syntax",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Syntax என்னன்னு பார்ப்போம்" },
+      { "type": "paragraph", "text": "Python syntax-ஐ Command Line-ல directly execute பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": ">>> print(\"Hello, World!\")\nHello, World!" },
+      { "type": "paragraph", "text": "அல்லது .py file create பண்ணி Command Line-ல run பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "C:\\Users\\Your Name>python myfile.py" },
+      { "type": "header", "level": 2, "text": "Python Indentation" },
+      { "type": "paragraph", "text": "Indentation என்பது code line-ஓட ஆரம்பத்துல இருக்குற spaces." },
+      { "type": "paragraph", "text": "மற்ற languages-ல indentation readability-க்கு மட்டும் — ஆனா Python-ல இது மிகவும் important, code block-ஐ define பண்றது." },
+      { "type": "example", "title": "Example", "code": "if 5 > 2:\n    print(\"Five is greater than two!\")" },
+      { "type": "paragraph", "text": "Indentation இல்லன்னா Python error குடுக்கும்:" },
+      { "type": "example", "title": "Example", "code": "if 5 > 2:\nprint(\"Five is greater than two!\")  # IndentationError!" },
+      { "type": "header", "level": 2, "text": "Python Variables" },
+      { "type": "paragraph", "text": "Python-ல variables create பண்ண type declare பண்ண வேண்டாம் — directly value assign பண்ணினாலே போதும்:" },
+      { "type": "example", "title": "Example", "code": "x = 5\ny = \"Hello, World!\"" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Indentation 4 spaces use பண்றது common practice",
+          "Same block-ல same number of spaces use பண்ணணும்",
+          "Variables-க்கு type declare பண்ண வேண்டாம்",
+          "Python case-sensitive — x-உம் X-உம் different variables"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Concept", "Python", "விளக்கம்"],
+        "rows": [
+          ["Indentation", "Spaces / Tabs", "Code blocks define பண்ற"],
+          ["Variables", "x = 5", "Type declare வேண்டாம்"],
+          ["Statements", "New line", "Semicolon வேண்டாம்"],
+          ["Comments", "# comment", "# symbol use பண்றோம்"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல indentation error மிகவும் common mistake — எப்பவும் consistent-ஆ spaces அல்லது tabs use பண்ணு, mix பண்ணாத.</p>" }
+    ]
+  },
+  "comments": {
+    "title": "Python Comments",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Comments என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Comments என்பது code-ஐ explain பண்ண எழுதுற text. Python இதை execute பண்றதில்ல. Code readable-ஆ வைக்கவும், testing போது code skip பண்ணவும் use ஆகும்." },
+      { "type": "header", "level": 2, "text": "Single-line Comments" },
+      { "type": "paragraph", "text": "Single-line comment <code class=\"w3-codespan\">#</code> symbol-ல ஆரம்பிக்கும். அந்த line-ல # -க்கு பிறகு இருக்குற எல்லாத்தையும் Python ignore பண்ணும்:" },
+      { "type": "example", "title": "Example", "code": "# This is a comment\nprint(\"Hello, World!\")" },
+      { "type": "paragraph", "text": "Comment-ஐ code-ஓட same line-லயும் போடலாம்:" },
+      { "type": "example", "title": "Example", "code": "print(\"Hello, World!\")  # This prints a greeting" },
+      { "type": "header", "level": 2, "text": "Multi-line Comments" },
+      { "type": "paragraph", "text": "Python-ல multi-line comment-க்கு official syntax இல்ல. ஆனா மூன்று quotes use பண்ணி multi-line string மாதிரி எழுதலாம் — Python இதை execute பண்றதில்ல:" },
+      { "type": "example", "title": "Example", "code": "\"\"\"\nThis is a comment\nwritten in\nmore than just one line\n\"\"\"\nprint(\"Hello, World!\")" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "# — single-line comment",
+          "\"\"\" ... \"\"\" — multi-line comment (docstring)",
+          "Comments code execute ஆகாது",
+          "Code-ஐ explain பண்ண, debug பண்ண comments மிகவும் useful"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Comment Type", "Syntax", "Use Case"],
+        "rows": [
+          ["Single-line", "# comment", "ஒரு line explanation"],
+          ["Multi-line", "\"\"\" ... \"\"\"", "Multiple lines explanation"],
+          ["Inline", "code  # comment", "Code-ஓட same line-ல"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Good comments எழுதுற பழக்கம் வச்சுக்கோ — code என்ன செய்யுதுன்னு மட்டும் இல்ல, ஏன் செய்யுதுன்னும் explain பண்ணு.</p>" }
+    ]
+  },
+  "variables": {
+    "title": "Python Variables",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Variables என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Variables என்பது data store பண்ண use ஆகுற containers. Python-ல variable create பண்ண keyword use பண்ண வேண்டாம் — directly value assign பண்ணினாலே variable create ஆகும்." },
+      { "type": "example", "title": "Example", "code": "x = 5\ny = \"John\"\nprint(x)\nprint(y)" },
+      { "type": "header", "level": 2, "text": "Variable Naming Rules" },
+      { "type": "paragraph", "text": "Python-ல variables name பண்ற போது சில rules follow பண்ணணும்:" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Letter அல்லது underscore (_) -ல ஆரம்பிக்கணும்",
+          "Number-ல ஆரம்பிக்க கூடாது",
+          "Letters, numbers, underscores மட்டுமே use பண்ணலாம்",
+          "Case-sensitive — age, Age, AGE மூணும் different variables",
+          "Python keywords (if, for, while, etc.) variable name-ஆ use பண்ண கூடாது"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "Multiple Values Assign பண்றது" },
+      { "type": "paragraph", "text": "Python-ல ஒரே line-ல multiple variables-க்கு values assign பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "x, y, z = \"Orange\", \"Banana\", \"Cherry\"\nprint(x)\nprint(y)\nprint(z)" },
+      { "type": "paragraph", "text": "Multiple variables-க்கு same value assign பண்ண:" },
+      { "type": "example", "title": "Example", "code": "x = y = z = \"Orange\"\nprint(x)\nprint(y)\nprint(z)" },
+      {
+        "type": "table",
+        "headers": ["Valid Names", "Invalid Names", "காரணம்"],
+        "rows": [
+          ["myvar", "2myvar", "Number-ல ஆரம்பிக்க கூடாது"],
+          ["my_var", "my-var", "Hyphen use பண்ண கூடாது"],
+          ["_my_var", "my var", "Space use பண்ண கூடாது"],
+          ["myVar2", "for", "Keyword use பண்ண கூடாது"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல variable-ஓட type எப்பவும் change பண்ணலாம் — இதை <strong>dynamic typing</strong> சொல்றோம். x = 5 போட்டு பிறகு x = \"hello\" போடலாம்.</p>" }
+    ]
+  },
+  "data-types": {
+    "title": "Python Data Types",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Data Types என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Programming-ல data types மிகவும் important concept. Variables different types-ஓட data store பண்ணலாம். Python-ல built-in data types நிறைய இருக்கு." },
+      { "type": "paragraph", "text": "Variable-ஓட type என்னன்னு பாக்க <code class=\"w3-codespan\">type()</code> function use பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "x = 5\nprint(type(x))\n\ny = \"Hello\"\nprint(type(y))" },
+      { "type": "header", "level": 2, "text": "Built-in Data Types" },
+      { "type": "paragraph", "text": "Python-ல default-ஆ கிடைக்குற data types:" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Text Type: str",
+          "Numeric Types: int, float, complex",
+          "Sequence Types: list, tuple, range",
+          "Mapping Type: dict",
+          "Set Types: set, frozenset",
+          "Boolean Type: bool",
+          "Binary Types: bytes, bytearray, memoryview",
+          "None Type: NoneType"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "Type Setting — Type Specify பண்றது" },
+      { "type": "paragraph", "text": "Specific type-ல variable create பண்ண constructor functions use பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "x = str(\"Hello World\")\ny = int(20)\nz = float(20.5)\nprint(type(x))\nprint(type(y))\nprint(type(z))" },
+      {
+        "type": "table",
+        "headers": ["Data Type", "Example", "விளக்கம்"],
+        "rows": [
+          ["str", "\"Hello\"", "Text / String"],
+          ["int", "20", "Integer — முழு எண்"],
+          ["float", "20.5", "Decimal number"],
+          ["bool", "True", "True அல்லது False"],
+          ["list", "[1, 2, 3]", "Ordered, changeable collection"],
+          ["tuple", "(1, 2, 3)", "Ordered, unchangeable collection"],
+          ["dict", "{\"key\": \"value\"}", "Key-value pairs"],
+          ["set", "{1, 2, 3}", "Unordered, unique collection"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல type automatically assign ஆகும் — இதை <strong>dynamic typing</strong> சொல்றோம். <code class=\"w3-codespan\">type()</code> function-ஐ use பண்ணி எப்பவும் check பண்ணலாம்.</p>" }
+    ]
+  },
+  "numbers": {
+    "title": "Python Numbers",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Numbers என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல மூன்று numeric types இருக்கு: <code class=\"w3-codespan\">int</code>, <code class=\"w3-codespan\">float</code>, மற்றும் <code class=\"w3-codespan\">complex</code>." },
+      { "type": "example", "title": "Example", "code": "x = 1      # int\ny = 2.8    # float\nz = 1j     # complex\n\nprint(type(x))\nprint(type(y))\nprint(type(z))" },
+      { "type": "header", "level": 2, "text": "Int (Integer)" },
+      { "type": "paragraph", "text": "Int என்பது positive அல்லது negative whole number — unlimited length-ல இருக்கலாம்:" },
+      { "type": "example", "title": "Example", "code": "x = 1\ny = 35656222554887711\nz = -3255522\nprint(type(x))" },
+      { "type": "header", "level": 2, "text": "Float" },
+      { "type": "paragraph", "text": "Float என்பது decimal point இருக்குற number. Scientific numbers-க்கு \"e\" use பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "x = 1.10\ny = 1.0\nz = -35.59\nw = 35e3    # 35000.0\nprint(type(x))" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "int — decimal point இல்லாத எண்கள்",
+          "float — decimal point இருக்குற எண்கள்",
+          "complex — j suffix-ஓட imaginary numbers",
+          "int() / float() / complex() — type conversion பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Type", "Example", "விளக்கம்"],
+        "rows": [
+          ["int", "100, -50, 0", "Whole numbers"],
+          ["float", "3.14, -0.5", "Decimal numbers"],
+          ["complex", "2+3j, 1j", "Real + Imaginary part"],
+          ["Scientific", "35e3, 12E4", "Exponential notation"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Numbers-ஐ random-ஆ generate பண்ண <code class=\"w3-codespan\">random</code> module use பண்ணலாம்: <code class=\"w3-codespan\">import random; print(random.randrange(1, 10))</code></p>" }
+    ]
+  },
+  "casting": {
+    "title": "Python Casting",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Casting என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Casting என்பது ஒரு data type-ஐ இன்னொரு type-ஆ மாத்துறது. Python-ல இதை constructor functions use பண்ணி செய்யலாம்." },
+      { "type": "paragraph", "text": "Python-ல மூன்று main casting functions இருக்கு:" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "int() — integer-ஆ convert பண்றது",
+          "float() — float-ஆ convert பண்றது",
+          "str() — string-ஆ convert பண்றது"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "int() Conversion" },
+      { "type": "example", "title": "Example", "code": "x = int(1)      # x = 1\ny = int(2.8)    # y = 2\nz = int(\"3\")    # z = 3\nprint(x, y, z)" },
+      { "type": "header", "level": 2, "text": "float() Conversion" },
+      { "type": "example", "title": "Example", "code": "x = float(1)      # x = 1.0\ny = float(2.8)    # y = 2.8\nz = float(\"3\")    # z = 3.0\nw = float(\"4.2\")  # w = 4.2\nprint(x, y, z, w)" },
+      { "type": "paragraph", "text": "String-ஐ int-ஆ convert பண்ண அந்த string numeric-ஆ இருக்கணும், இல்லன்னா error வரும்:" },
+      { "type": "example", "title": "Example", "code": "# This works\nx = int(\"10\")   # 10\n\n# This will give an error\n# y = int(\"hello\")  # ValueError!" },
+      {
+        "type": "table",
+        "headers": ["Function", "Input", "Output", "விளக்கம்"],
+        "rows": [
+          ["int()", "2.9", "2", "Decimal part drop ஆகும்"],
+          ["int()", "\"5\"", "5", "String to integer"],
+          ["float()", "5", "5.0", "Integer to float"],
+          ["str()", "100", "\"100\"", "Number to string"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> <code class=\"w3-codespan\">int(2.9)</code> = 2 — round ஆகாது, decimal part-ஐ cut பண்ணும். Round பண்ண <code class=\"w3-codespan\">round()</code> function use பண்ணு.</p>" }
+    ]
+  },
+  "strings": {
+    "title": "Python Strings",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Strings என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல strings single quotes அல்லது double quotes-க்கு உள்ளே எழுதலாம். String என்பது characters-ஓட sequence." },
+      { "type": "example", "title": "Example", "code": "print(\"Hello\")\nprint('Hello')\n\n# Multi-line string\na = \"\"\"Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor\"\"\"\nprint(a)" },
+      { "type": "header", "level": 2, "text": "String Slicing மற்றும் Indexing" },
+      { "type": "paragraph", "text": "Python-ல strings-ஓட characters index-ல access பண்ணலாம். Index 0-ல ஆரம்பிக்கும்:" },
+      { "type": "example", "title": "Example", "code": "b = \"Hello, World!\"\nprint(b[2:5])    # llo\nprint(b[:5])     # Hello\nprint(b[2:])     # llo, World!\nprint(b[-5:-2])  # orl" },
+      { "type": "header", "level": 2, "text": "String Methods" },
+      { "type": "paragraph", "text": "Python-ல strings-க்கு நிறைய built-in methods இருக்கு:" },
+      { "type": "example", "title": "Example", "code": "a = \"Hello, World!\"\nprint(len(a))          # length\nprint(a.upper())       # HELLO, WORLD!\nprint(a.lower())       # hello, world!\nprint(a.replace(\"H\", \"J\"))  # Jello, World!\nprint(a.split(\",\"))    # ['Hello', ' World!']" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "len() — string length கண்டுபிடிக்கலாம்",
+          "upper() / lower() — case மாத்தலாம்",
+          "strip() — leading/trailing spaces remove பண்ணலாம்",
+          "replace() — characters replace பண்ணலாம்",
+          "split() — string-ஐ list-ஆ split பண்ணலாம்",
+          "in — string-ல உள்ளே check பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "Example", "Result"],
+        "rows": [
+          ["upper()", "\"hello\".upper()", "\"HELLO\""],
+          ["lower()", "\"HELLO\".lower()", "\"hello\""],
+          ["strip()", "\" hi \".strip()", "\"hi\""],
+          ["replace()", "\"Hi\".replace(\"H\",\"J\")", "\"Ji\""],
+          ["split()", "\"a,b\".split(\",\")", "['a', 'b']"],
+          ["len()", "len(\"Hello\")", "5"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> String concatenation-க்கு <code class=\"w3-codespan\">+</code> use பண்ணலாம். F-strings use பண்ணி variables-ஐ string-ல easily insert பண்ணலாம்: <code class=\"w3-codespan\">f\"My name is {name}\"</code></p>" }
+    ]
+  },
+  "booleans": {
+    "title": "Python Booleans",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Booleans என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Boolean என்பது இரண்டு values மட்டுமே: <code class=\"w3-codespan\">True</code> அல்லது <code class=\"w3-codespan\">False</code>. Programming-ல conditions check பண்ண இது மிகவும் use ஆகும்." },
+      { "type": "example", "title": "Example", "code": "print(10 > 9)   # True\nprint(10 == 9)  # False\nprint(10 < 9)   # False" },
+      { "type": "header", "level": 2, "text": "bool() Function" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">bool()</code> function use பண்ணி எந்த value-உம் True/False-ஆ evaluate ஆகுதுன்னு பாக்கலாம்:" },
+      { "type": "example", "title": "Example", "code": "print(bool(\"Hello\"))  # True\nprint(bool(15))        # True\nprint(bool(0))         # False\nprint(bool(\"\"))        # False\nprint(bool(None))      # False" },
+      { "type": "header", "level": 2, "text": "Falsy Values" },
+      { "type": "paragraph", "text": "Python-ல சில values False-ஆ evaluate ஆகும்:" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Empty string: \"\"",
+          "Zero: 0 அல்லது 0.0",
+          "Empty list: []",
+          "Empty tuple: ()",
+          "Empty dict: {}",
+          "None value"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Value", "bool() Result", "விளக்கம்"],
+        "rows": [
+          ["\"Hello\"", "True", "Non-empty string"],
+          ["\"\"", "False", "Empty string"],
+          ["15", "True", "Non-zero number"],
+          ["0", "False", "Zero"],
+          ["[1,2]", "True", "Non-empty list"],
+          ["None", "False", "None value"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல <code class=\"w3-codespan\">True</code> = 1 மற்றும் <code class=\"w3-codespan\">False</code> = 0 — arithmetic operations-ல use பண்ணலாம்: <code class=\"w3-codespan\">True + True = 2</code></p>" }
+    ]
+  },
+  "operators": {
+    "title": "Python Operators",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Operators என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Operators என்பது variables மற்றும் values-ல operations perform பண்ண use ஆகுற symbols. Python-ல பல types of operators இருக்கு." },
+      { "type": "example", "title": "Example", "code": "x = 5 + 3\nprint(x)   # 8" },
+      { "type": "header", "level": 2, "text": "Arithmetic Operators" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "+ Addition: x + y",
+          "- Subtraction: x - y",
+          "* Multiplication: x * y",
+          "/ Division: x / y",
+          "% Modulus: x % y (remainder)",
+          "** Exponentiation: x ** y (power)",
+          "// Floor division: x // y"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "Comparison Operators" },
+      { "type": "example", "title": "Example", "code": "x = 5\ny = 3\nprint(x == y)   # False\nprint(x != y)   # True\nprint(x > y)    # True\nprint(x < y)    # False\nprint(x >= y)   # True\nprint(x <= y)   # False" },
+      { "type": "paragraph", "text": "Logical operators — and, or, not — multiple conditions combine பண்ண use ஆகும்:" },
+      { "type": "example", "title": "Example", "code": "x = 5\nprint(x > 3 and x < 10)   # True\nprint(x > 3 or x > 10)    # True\nprint(not(x > 3))          # False" },
+      {
+        "type": "table",
+        "headers": ["Operator", "Example", "Result"],
+        "rows": [
+          ["+", "5 + 3", "8"],
+          ["-", "5 - 3", "2"],
+          ["*", "5 * 3", "15"],
+          ["/", "10 / 3", "3.333..."],
+          ["//", "10 // 3", "3"],
+          ["%", "10 % 3", "1"],
+          ["**", "2 ** 3", "8"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Assignment operators shortcut-ஆ use ஆகும்: <code class=\"w3-codespan\">x += 5</code> என்பது <code class=\"w3-codespan\">x = x + 5</code>-க்கு same.</p>" }
+    ]
+  },
+  "lists": {
+    "title": "Python Lists",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Lists என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "List என்பது multiple values ஒரே variable-ல store பண்ண use ஆகுற data structure. Square brackets [] use பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "mylist = [\"apple\", \"banana\", \"cherry\"]\nprint(mylist)\nprint(mylist[0])   # apple\nprint(len(mylist)) # 3" },
+      { "type": "header", "level": 2, "text": "List Properties" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Ordered — items fixed order-ல இருக்கும்",
+          "Changeable (Mutable) — items add, remove, change பண்ணலாம்",
+          "Duplicates allowed — same value multiple times இருக்கலாம்",
+          "Different data types — integers, strings, booleans எல்லாம் mix பண்ணலாம்"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "List Methods" },
+      { "type": "example", "title": "Example", "code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n\n# Add items\nfruits.append(\"orange\")\nfruits.insert(1, \"mango\")\n\n# Remove items\nfruits.remove(\"banana\")\npopped = fruits.pop()  # removes last\n\n# Sort\nfruits.sort()\nprint(fruits)" },
+      {
+        "type": "table",
+        "headers": ["Method", "விளக்கம்"],
+        "rows": [
+          ["append()", "List-ஓட கடைசில item add பண்றது"],
+          ["insert()", "Specific position-ல item add பண்றது"],
+          ["remove()", "Specific item remove பண்றது"],
+          ["pop()", "Specific index-ல item remove பண்றது"],
+          ["sort()", "List-ஐ sort பண்றது"],
+          ["reverse()", "List-ஐ reverse பண்றது"],
+          ["len()", "List-ஓட length காட்டுவது"],
+          ["copy()", "List-ஓட copy உருவாக்குவது"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> List comprehension use பண்ணி ஒரே line-ல list create பண்ணலாம்: <code class=\"w3-codespan\">newlist = [x for x in fruits if \"a\" in x]</code></p>" }
+    ]
+  },
+  "tuples": {
+    "title": "Python Tuples",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Tuples என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Tuple என்பது list மாதிரியே ஆனா ஒரு முக்கிய வித்தியாசம் — tuple-ஐ create பண்ணிட்டா அதை change பண்ண முடியாது (immutable). Parentheses () use பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "mytuple = (\"apple\", \"banana\", \"cherry\")\nprint(mytuple)\nprint(mytuple[0])   # apple\nprint(len(mytuple)) # 3" },
+      { "type": "header", "level": 2, "text": "Tuple vs List" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Tuple immutable — create பண்ணிட்டா change பண்ண முடியாது",
+          "List mutable — எப்பவும் change பண்ணலாம்",
+          "Tuple () parentheses use பண்றோம்",
+          "List [] square brackets use பண்றோம்",
+          "Tuple faster than list — memory efficient",
+          "Data change ஆகக்கூடாதுன்னா tuple use பண்ணு"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "Tuple Unpacking" },
+      { "type": "paragraph", "text": "Tuple-ல இருக்குற values-ஐ variables-க்கு assign பண்றது tuple unpacking:" },
+      { "type": "example", "title": "Example", "code": "fruits = (\"apple\", \"banana\", \"cherry\")\n(green, yellow, red) = fruits\nprint(green)   # apple\nprint(yellow)  # banana\nprint(red)     # cherry" },
+      {
+        "type": "table",
+        "headers": ["Feature", "Tuple", "List"],
+        "rows": [
+          ["Syntax", "(1, 2, 3)", "[1, 2, 3]"],
+          ["Mutable", "No", "Yes"],
+          ["Speed", "Faster", "Slower"],
+          ["Methods", "2 only", "Many"],
+          ["Use case", "Fixed data", "Dynamic data"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Single item tuple create பண்ண trailing comma use பண்ணணும்: <code class=\"w3-codespan\">mytuple = (\"apple\",)</code> — comma இல்லன்னா string-ஆ treat ஆகும்.</p>" }
+    ]
+  },
+  "sets": {
+    "title": "Python Sets",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Sets என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Set என்பது unordered, unindexed collection. Duplicate values இல்ல — same value multiple times போட்டாலும் ஒரே ஒரு value மட்டும் store ஆகும். Curly braces {} use பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "myset = {\"apple\", \"banana\", \"cherry\"}\nprint(myset)  # order guaranteed இல்ல\nprint(len(myset))  # 3" },
+      { "type": "header", "level": 2, "text": "Set Operations" },
+      { "type": "paragraph", "text": "Set-ல items add/remove பண்ணலாம். ஆனா index use பண்ணி access பண்ண முடியாது:" },
+      { "type": "example", "title": "Example", "code": "myset = {\"apple\", \"banana\", \"cherry\"}\nmyset.add(\"orange\")\nmyset.discard(\"banana\")\nprint(myset)" },
+      { "type": "header", "level": 2, "text": "Set Math Operations" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "union() — இரண்டு sets-ஓட எல்லா items combine பண்றது",
+          "intersection() — இரண்டிலயும் common items மட்டும்",
+          "difference() — ஒரு set-ல மட்டும் இருக்குற items",
+          "issubset() — ஒரு set இன்னொரு set-ஓட subset-ஆ இருக்கா check பண்றது"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "விளக்கம்"],
+        "rows": [
+          ["add()", "ஒரு item add பண்றது"],
+          ["discard()", "Item remove பண்றது (error இல்ல)"],
+          ["remove()", "Item remove பண்றது (error வரும்)"],
+          ["union()", "Sets combine பண்றது"],
+          ["intersection()", "Common items மட்டும்"],
+          ["difference()", "Unique items மட்டும்"],
+          ["clear()", "எல்லாத்தையும் remove பண்றது"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Set-ல duplicate values automatically remove ஆகும் — duplicate check பண்ண sets use பண்றது ஒரு common technique: <code class=\"w3-codespan\">unique = list(set(mylist))</code></p>" }
+    ]
+  },
+  "dictionaries": {
+    "title": "Python Dictionaries",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Dictionaries என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Dictionary என்பது key-value pairs store பண்ண use ஆகுற collection. Keys unique-ஆ இருக்கணும். Curly braces {} use பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "thisdict = {\n    \"brand\": \"Ford\",\n    \"model\": \"Mustang\",\n    \"year\": 1964\n}\nprint(thisdict)\nprint(thisdict[\"brand\"])  # Ford" },
+      { "type": "header", "level": 2, "text": "Dictionary Properties" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Ordered (Python 3.7+) — insertion order maintain ஆகும்",
+          "Mutable — items add, remove, change பண்ணலாம்",
+          "Duplicate keys இல்ல — same key twice போட்டா last value மட்டும் இருக்கும்",
+          "Values எந்த type-உம் ஆகலாம்"
+        ]
+      },
+      { "type": "header", "level": 2, "text": "Dictionary Methods" },
+      { "type": "example", "title": "Example", "code": "car = {\"brand\": \"Ford\", \"year\": 1964}\n\n# Access\nprint(car.get(\"brand\"))   # Ford\nprint(car.keys())          # dict_keys\nprint(car.values())        # dict_values\n\n# Add / Update\ncar[\"color\"] = \"red\"\ncar.update({\"year\": 2020})\n\n# Remove\ncar.pop(\"year\")\nprint(car)" },
+      {
+        "type": "table",
+        "headers": ["Method", "விளக்கம்"],
+        "rows": [
+          ["get(key)", "Key-ஓட value return பண்றது"],
+          ["keys()", "எல்லா keys return பண்றது"],
+          ["values()", "எல்லா values return பண்றது"],
+          ["items()", "Key-value pairs return பண்றது"],
+          ["update()", "Dictionary update பண்றது"],
+          ["pop(key)", "Specific key remove பண்றது"],
+          ["clear()", "எல்லாத்தையும் remove பண்றது"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Dictionary-ல loop பண்ண: <code class=\"w3-codespan\">for key, value in mydict.items():</code> — இப்படி key-value both-ஐ access பண்ணலாம்.</p>" }
+    ]
+  },
+  "if-else": {
+    "title": "Python If...Else",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Conditions என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல conditions-ஐ பொறுத்து different code execute பண்ண if, elif, else keywords use பண்றோம். Usual mathematical comparisons use ஆகும்." },
+      { "type": "example", "title": "Example", "code": "a = 33\nb = 200\nif b > a:\n    print(\"b is greater than a\")\nelif a == b:\n    print(\"a and b are equal\")\nelse:\n    print(\"a is greater than b\")" },
+      { "type": "header", "level": 2, "text": "Elif மற்றும் Else" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">elif</code> என்பது \"else if\" — முந்தைய condition false-ஆ இருந்தா இந்த condition try பண்றது. <code class=\"w3-codespan\">else</code> என்பது எல்லா conditions-உம் false ஆனா execute ஆகும்:" },
+      { "type": "example", "title": "Example", "code": "x = 5\nif x > 10:\n    print(\"Greater than 10\")\nelif x > 3:\n    print(\"Greater than 3\")  # This runs\nelse:\n    print(\"3 or less\")" },
+      { "type": "header", "level": 2, "text": "Short Hand If" },
+      { "type": "paragraph", "text": "Simple if statements-ஐ one line-ல எழுதலாம்:" },
+      { "type": "example", "title": "Example", "code": "# Short hand if\nif a > b: print(\"a is greater than b\")\n\n# Ternary operator\nprint(\"A\") if a > b else print(\"B\")" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "if — condition true-ஆ இருந்தா execute ஆகும்",
+          "elif — முந்தைய condition false-ஆ இருந்தா try ஆகும்",
+          "else — எல்லாமே false ஆனா execute ஆகும்",
+          "Nested if — if-க்கு உள்ளே if எழுதலாம்",
+          "pass — empty if block-க்கு use ஆகும்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Keyword", "என்ன செய்யும்"],
+        "rows": [
+          ["if", "Condition check பண்றது"],
+          ["elif", "Additional condition check"],
+          ["else", "Default case"],
+          ["and", "Both conditions true-ஆ இருக்கணும்"],
+          ["or", "ஏதாவது ஒண்ணு true-ஆ இருந்தா போதும்"],
+          ["not", "Condition-ஐ reverse பண்றது"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Empty if block-ல <code class=\"w3-codespan\">pass</code> statement use பண்றது — error வராம இருக்கும்: <code class=\"w3-codespan\">if condition: pass</code></p>" }
+    ]
+  },
+  "while-loops": {
+    "title": "Python While Loops",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python While Loop என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "While loop என்பது condition true-ஆ இருக்குற வரைக்கும் code block-ஐ repeatedly execute பண்றது." },
+      { "type": "example", "title": "Example", "code": "i = 1\nwhile i < 6:\n    print(i)\n    i += 1\n# Prints 1, 2, 3, 4, 5" },
+      { "type": "header", "level": 2, "text": "Break மற்றும் Continue" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">break</code> statement loop-ஐ stop பண்ணும். <code class=\"w3-codespan\">continue</code> statement current iteration skip பண்ணும்:" },
+      { "type": "example", "title": "Example", "code": "# Break example\ni = 1\nwhile i < 6:\n    print(i)\n    if i == 3:\n        break\n    i += 1\n\n# Continue example\ni = 0\nwhile i < 6:\n    i += 1\n    if i == 3:\n        continue\n    print(i)  # Skips 3" },
+      { "type": "header", "level": 2, "text": "While Else" },
+      { "type": "paragraph", "text": "While loop-ஓட else block — condition false ஆனா (loop நோர்மல்-ஆ முடிஞ்சா) execute ஆகும்:" },
+      { "type": "example", "title": "Example", "code": "i = 1\nwhile i < 6:\n    print(i)\n    i += 1\nelse:\n    print(\"i is no longer less than 6\")" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "while condition: — condition true-ஆ இருக்குற வரை loop ஓடும்",
+          "break — loop-ஐ immediately stop பண்றது",
+          "continue — current iteration skip பண்றது",
+          "else — loop normally முடிஞ்சா execute ஆகும்",
+          "Infinite loop — condition எப்பவும் true-ஆ இருந்தா loop நின்னே நிக்காது — கவனம்!"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Statement", "விளக்கம்"],
+        "rows": [
+          ["while condition:", "Condition true-ஆ இருக்கும் வரை loop"],
+          ["break", "Loop-ஐ stop பண்றது"],
+          ["continue", "Current iteration skip பண்றது"],
+          ["else:", "Loop normally முடிஞ்சா execute ஆகும்"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> While loop-ல counter variable-ஐ update பண்றதை மறந்தா infinite loop create ஆகும் — program crash ஆகும். எப்பவும் loop termination condition check பண்ணு.</p>" }
+    ]
+  },
+  "for-loops": {
+    "title": "Python For Loops",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python For Loop என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "For loop என்பது sequence (list, tuple, string, range) -ஓட ஒவ்வொரு item-ஐயும் iterate பண்ண use ஆகும். While loop மாதிரி counter வேண்டாம்." },
+      { "type": "example", "title": "Example", "code": "fruits = [\"apple\", \"banana\", \"cherry\"]\nfor x in fruits:\n    print(x)" },
+      { "type": "header", "level": 2, "text": "range() Function" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">range()</code> function numbers-ஓட sequence create பண்றது. For loop-ல specific times loop பண்ண use ஆகும்:" },
+      { "type": "example", "title": "Example", "code": "for x in range(6):       # 0 to 5\n    print(x)\n\nfor x in range(2, 6):    # 2 to 5\n    print(x)\n\nfor x in range(2, 30, 3): # 2, 5, 8... step 3\n    print(x)" },
+      { "type": "header", "level": 2, "text": "Nested Loops" },
+      { "type": "paragraph", "text": "Loop-க்கு உள்ளே loop எழுதலாம் — inner loop outer loop-ஓட ஒவ்வொரு iteration-க்கும் complete ஆகும்:" },
+      { "type": "example", "title": "Example", "code": "adj = [\"red\", \"big\", \"tasty\"]\nfruits = [\"apple\", \"banana\"]\nfor x in adj:\n    for y in fruits:\n        print(x, y)" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "for x in sequence: — sequence-ஓட ஒவ்வொரு item-உம் iterate ஆகும்",
+          "range(n) — 0 to n-1 numbers",
+          "range(start, stop) — start to stop-1",
+          "range(start, stop, step) — step values-ஓட",
+          "break / continue — for loop-லயும் use ஆகும்",
+          "else — loop normally முடிஞ்சா execute ஆகும்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Usage", "Example", "விளக்கம்"],
+        "rows": [
+          ["List iterate", "for x in mylist:", "List items loop பண்றது"],
+          ["String iterate", "for c in \"hello\":", "Characters loop பண்றது"],
+          ["Range", "for i in range(5):", "0 to 4 numbers"],
+          ["Enumerate", "for i, v in enumerate(list):", "Index மற்றும் value both"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> <code class=\"w3-codespan\">enumerate()</code> use பண்ணி index மற்றும் value same time-ல access பண்ணலாம்: <code class=\"w3-codespan\">for i, x in enumerate(fruits):</code></p>" }
+    ]
+  },
+  "functions": {
+    "title": "Python Functions",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Functions என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Function என்பது specific task perform பண்ண write பண்ற reusable code block. <code class=\"w3-codespan\">def</code> keyword use பண்ணி function define பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "def my_function():\n    print(\"Hello from a function\")\n\n# Call the function\nmy_function()" },
+      { "type": "header", "level": 2, "text": "Parameters மற்றும் Arguments" },
+      { "type": "paragraph", "text": "Function-க்கு data pass பண்ண parameters use பண்றோம். Function call பண்ணும்போது pass பண்ற values arguments சொல்றோம்:" },
+      { "type": "example", "title": "Example", "code": "def greet(name):\n    print(\"Hello, \" + name)\n\ngreet(\"Tamil\")\ngreet(\"Kumar\")\n\n# Default parameter\ndef greet2(name=\"World\"):\n    print(\"Hello, \" + name)\n\ngreet2()         # Hello, World\ngreet2(\"Python\") # Hello, Python" },
+      { "type": "header", "level": 2, "text": "Return Statement" },
+      { "type": "example", "title": "Example", "code": "def add(x, y):\n    return x + y\n\nresult = add(5, 3)\nprint(result)  # 8" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "def — function define பண்ற keyword",
+          "Parameters — function-க்கு input values",
+          "return — value return பண்றது",
+          "Default parameters — call-ல value pass பண்ணலன்னா default value use ஆகும்",
+          "*args — variable number of arguments",
+          "**kwargs — keyword arguments"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Concept", "Syntax", "விளக்கம்"],
+        "rows": [
+          ["Define", "def func():", "Function create பண்றது"],
+          ["Call", "func()", "Function execute பண்றது"],
+          ["Parameter", "def func(x):", "Input accept பண்றது"],
+          ["Return", "return value", "Value return பண்றது"],
+          ["Default", "def func(x=5):", "Default value set பண்றது"],
+          ["*args", "def func(*args):", "Multiple arguments"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Function-ல return statement இல்லன்னா <code class=\"w3-codespan\">None</code> return ஆகும். Functions-ஐ variables-ல store பண்ணலாம், other functions-க்கு pass பண்ணலாம்.</p>" }
+    ]
+  },
+  "lambda": {
+    "title": "Python Lambda",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Lambda என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Lambda என்பது anonymous (பெயரில்லாத) small function. <code class=\"w3-codespan\">lambda</code> keyword use பண்றோம். ஒரே expression மட்டும் have பண்ணலாம்." },
+      { "type": "example", "title": "Example", "code": "# Regular function\ndef add(x):\n    return x + 10\n\n# Lambda equivalent\nadd_lambda = lambda x: x + 10\n\nprint(add(5))         # 15\nprint(add_lambda(5))  # 15" },
+      { "type": "header", "level": 2, "text": "Multiple Arguments" },
+      { "type": "paragraph", "text": "Lambda function-ல multiple arguments use பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "x = lambda a, b: a * b\nprint(x(5, 6))  # 30\n\ny = lambda a, b, c: a + b + c\nprint(y(5, 6, 2))  # 13" },
+      { "type": "header", "level": 2, "text": "Lambda with map() மற்றும் filter()" },
+      { "type": "example", "title": "Example", "code": "numbers = [1, 2, 3, 4, 5]\n\n# map - apply function to each item\ndoubled = list(map(lambda x: x * 2, numbers))\nprint(doubled)  # [2, 4, 6, 8, 10]\n\n# filter - keep items where condition is True\nevens = list(filter(lambda x: x % 2 == 0, numbers))\nprint(evens)  # [2, 4]" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "lambda arguments: expression — basic syntax",
+          "Short, one-line functions-க்கு use ஆகும்",
+          "map(), filter(), sorted() -ஓட சேர்ந்து use பண்றது common",
+          "Complex logic-க்கு regular function use பண்றது better"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Feature", "Lambda", "Regular Function"],
+        "rows": [
+          ["Syntax", "lambda x: x+1", "def func(x): return x+1"],
+          ["Name", "Anonymous", "Named"],
+          ["Body", "Single expression", "Multiple statements"],
+          ["Return", "Implicit", "Explicit return needed"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Lambda functions powerful-ஆ இருக்கும் ஆனா complex logic-க்கு regular function-ஐ use பண்றது readability-க்கு better. Simple transformations-க்கு lambda ideal.</p>" }
+    ]
+  },
+  "arrays": {
+    "title": "Python Arrays",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Arrays என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல built-in array data type இல்ல. ஆனா lists-ஐ arrays மாதிரி use பண்ணலாம். NumPy library install பண்ணி real arrays use பண்ணலாம் — data science-க்கு மிகவும் useful." },
+      { "type": "paragraph", "text": "Python lists-ஐ arrays மாதிரி use பண்றது:" },
+      { "type": "example", "title": "Example", "code": "cars = [\"Ford\", \"Volvo\", \"BMW\"]\nprint(cars[0])    # Ford\nprint(len(cars))  # 3\n\ncars[0] = \"Toyota\"  # Modify\nprint(cars)" },
+      { "type": "header", "level": 2, "text": "Array Operations" },
+      { "type": "example", "title": "Example", "code": "cars = [\"Ford\", \"Volvo\", \"BMW\"]\ncars.append(\"Honda\")   # Add\ncars.pop(1)             # Remove Volvo\nprint(cars)\n\n# Loop through array\nfor x in cars:\n    print(x)" },
+      { "type": "header", "level": 2, "text": "NumPy Arrays" },
+      { "type": "paragraph", "text": "NumPy use பண்ணி real arrays create பண்ணலாம் — mathematical operations மிகவும் fast-ஆ நடக்கும்:" },
+      { "type": "example", "title": "Example", "code": "import numpy as np\n\narr = np.array([1, 2, 3, 4, 5])\nprint(arr)\nprint(arr * 2)  # [2, 4, 6, 8, 10]" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Python lists arrays-ஆ use ஆகும்",
+          "append() — element add பண்றது",
+          "pop() — element remove பண்றது",
+          "NumPy — real array operations-க்கு",
+          "array module — built-in array support"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Operation", "List", "NumPy Array"],
+        "rows": [
+          ["Create", "[1, 2, 3]", "np.array([1,2,3])"],
+          ["Speed", "Slower", "Much faster"],
+          ["Math ops", "Manual loop", "Direct operations"],
+          ["Memory", "More", "Less"],
+          ["Data types", "Mixed", "Same type"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Data science, machine learning, numerical computing-க்கு NumPy arrays மிகவும் important. <code class=\"w3-codespan\">pip install numpy</code> பண்ணி install பண்ணிக்கோ.</p>" }
+    ]
+  },
+  "classes": {
+    "title": "Python Classes மற்றும் Objects",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Classes என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python ஒரு object-oriented programming language. Class என்பது object-ஐ create பண்றதுக்கான blueprint. Object என்பது class-ஓட instance." },
+      { "type": "example", "title": "Example", "code": "class MyClass:\n    x = 5\n\nobj = MyClass()\nprint(obj.x)  # 5" },
+      { "type": "header", "level": 2, "text": "__init__() Function" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">__init__()</code> என்பது constructor — object create ஆகும்போது automatically call ஆகும். Object-ஓட initial values set பண்ண use ஆகும்:" },
+      { "type": "example", "title": "Example", "code": "class Person:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n    \n    def greet(self):\n        print(f\"Hi, I'm {self.name}, {self.age} years old\")\n\np1 = Person(\"Tamil\", 25)\np1.greet()  # Hi, I'm Tamil, 25 years old" },
+      { "type": "header", "level": 2, "text": "Class vs Object" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "class — blueprint/template",
+          "object — class-ஓட instance (actual thing)",
+          "self — current object-ஐ refer பண்றது",
+          "__init__ — constructor method",
+          "Attributes — object-ஓட data",
+          "Methods — object-ஓட functions"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Concept", "Example", "விளக்கம்"],
+        "rows": [
+          ["Class", "class Car:", "Blueprint"],
+          ["Object", "my_car = Car()", "Instance"],
+          ["Attribute", "self.brand = brand", "Data"],
+          ["Method", "def drive(self):", "Function"],
+          ["Constructor", "__init__(self)", "Object creation"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல எல்லாமே object — integers, strings, lists எல்லாம் objects. <code class=\"w3-codespan\">del</code> keyword use பண்ணி object properties அல்லது objects-ஐ delete பண்ணலாம்.</p>" }
+    ]
+  },
+  "inheritance": {
+    "title": "Python Inheritance",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Inheritance என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Inheritance என்பது ஒரு class இன்னொரு class-ஓட properties மற்றும் methods-ஐ inherit (பெறுவது) பண்றது. Code reuse பண்ண மிகவும் useful." },
+      { "type": "example", "title": "Example", "code": "# Parent class\nclass Animal:\n    def __init__(self, name):\n        self.name = name\n    \n    def speak(self):\n        print(f\"{self.name} makes a sound\")\n\n# Child class\nclass Dog(Animal):\n    def speak(self):\n        print(f\"{self.name} says Woof!\")\n\nd = Dog(\"Rex\")\nd.speak()  # Rex says Woof!" },
+      { "type": "header", "level": 2, "text": "super() Function" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">super()</code> function use பண்ணி parent class-ஓட methods call பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "class Student(Person):\n    def __init__(self, name, age, year):\n        super().__init__(name, age)  # Parent init\n        self.year = year\n    \n    def welcome(self):\n        print(f\"Welcome {self.name}, year {self.year}\")" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Parent class (Base class) — properties குடுக்குற class",
+          "Child class (Derived class) — properties பெறுற class",
+          "super() — parent class-ஓட methods access பண்றது",
+          "Method overriding — child class-ல parent method-ஐ redefine பண்றது",
+          "Multiple inheritance — multiple parent classes-இல இருந்து inherit பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Concept", "Syntax", "விளக்கம்"],
+        "rows": [
+          ["Inherit", "class Child(Parent):", "Parent properties inherit பண்றது"],
+          ["super()", "super().__init__()", "Parent constructor call"],
+          ["Override", "def method(self):", "Parent method redefine"],
+          ["isinstance()", "isinstance(obj, Class)", "Object type check"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல multiple inheritance support ஆகும்: <code class=\"w3-codespan\">class Child(Parent1, Parent2):</code> — ஆனா complex cases-ல MRO (Method Resolution Order) புரிஞ்சுக்கணும்.</p>" }
+    ]
+  },
+  "iterators": {
+    "title": "Python Iterators",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Iterators என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Iterator என்பது countable number of values-ஓட object. Iterable object என்பது iterate பண்ண முடியுற object — list, tuple, dict, set, string எல்லாம் iterables." },
+      { "type": "example", "title": "Example", "code": "mytuple = (\"apple\", \"banana\", \"cherry\")\nmyit = iter(mytuple)\n\nprint(next(myit))  # apple\nprint(next(myit))  # banana\nprint(next(myit))  # cherry" },
+      { "type": "header", "level": 2, "text": "Custom Iterator Create பண்றது" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">__iter__()</code> மற்றும் <code class=\"w3-codespan\">__next__()</code> methods implement பண்ணி custom iterator create பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "class Numbers:\n    def __iter__(self):\n        self.n = 1\n        return self\n    \n    def __next__(self):\n        if self.n <= 5:\n            x = self.n\n            self.n += 1\n            return x\n        else:\n            raise StopIteration\n\nnums = Numbers()\nfor x in nums:\n    print(x)  # 1, 2, 3, 4, 5" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "iter() — iterable-இல இருந்து iterator create பண்றது",
+          "next() — iterator-ஓட அடுத்த element return பண்றது",
+          "__iter__() — iterator object return பண்றது",
+          "__next__() — அடுத்த value return பண்றது",
+          "StopIteration — elements முடிஞ்சப்போ raise பண்றது"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "விளக்கம்"],
+        "rows": [
+          ["iter(obj)", "Iterator object create பண்றது"],
+          ["next(iter)", "அடுத்த value return பண்றது"],
+          ["__iter__()", "Iterator protocol - இதை implement பண்ணணும்"],
+          ["__next__()", "Next value logic"],
+          ["StopIteration", "End of iteration signal"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> For loops internally iterators use பண்றது. Generator functions (<code class=\"w3-codespan\">yield</code> keyword) use பண்ணி memory-efficient iterators create பண்ணலாம்.</p>" }
+    ]
+  },
+  "polymorphism": {
+    "title": "Python Polymorphism",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Polymorphism என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Polymorphism என்பது \"many forms\" என்று அர்த்தம். Same method name different classes-ல different behavior பண்றது. Python-ல இது மிகவும் naturally இருக்கும்." },
+      { "type": "example", "title": "Example", "code": "class Cat:\n    def sound(self):\n        print(\"Meow\")\n\nclass Dog:\n    def sound(self):\n        print(\"Woof\")\n\n# Polymorphism in action\nanimals = [Cat(), Dog()]\nfor animal in animals:\n    animal.sound()  # Each calls its own version" },
+      { "type": "header", "level": 2, "text": "Inheritance-ல Polymorphism" },
+      { "type": "example", "title": "Example", "code": "class Animal:\n    def speak(self):\n        print(\"Animal makes sound\")\n\nclass Dog(Animal):\n    def speak(self):\n        print(\"Woof!\")\n\nclass Cat(Animal):\n    def speak(self):\n        print(\"Meow!\")\n\ndef make_sound(animal):\n    animal.speak()\n\nmake_sound(Dog())  # Woof!\nmake_sound(Cat())  # Meow!" },
+      { "type": "header", "level": 2, "text": "Built-in Polymorphism" },
+      { "type": "paragraph", "text": "Python-ல built-in functions பல types-ஓட work ஆகும் — இதுவும் polymorphism:" },
+      { "type": "example", "title": "Example", "code": "print(len(\"Hello\"))    # 5 (string)\nprint(len([1, 2, 3])) # 3 (list)\nprint(len({\"a\": 1}))  # 1 (dict)" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Same method name, different implementations",
+          "Method overriding — inheritance-ல parent method redefine பண்றது",
+          "Duck typing — Python-ல type check இல்லாம method check பண்றது",
+          "len(), str(), + போன்றவை built-in polymorphic functions"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Type", "விளக்கம்", "Example"],
+        "rows": [
+          ["Method Overriding", "Child class parent method redefine", "speak() in Dog, Cat"],
+          ["Duck Typing", "Type-க்கு பதிலா behavior check", "If it walks like a duck..."],
+          ["Operator Overloading", "Operators redefine பண்றது", "+ for str and int"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Python-ல duck typing popular — \"if it has the method, use it\" approach. Type check பண்றதை விட capability check பண்றது Python way.</p>" }
+    ]
+  },
+  "scope": {
+    "title": "Python Scope",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Scope என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Scope என்பது variable accessible-ஆ இருக்குற area. Python-ல 4 types of scope இருக்கு — LEGB rule சொல்றோம்." },
+      { "type": "example", "title": "Example", "code": "x = 300  # Global scope\n\ndef myfunc():\n    x = 200  # Local scope\n    print(x)  # 200\n\nmyfunc()\nprint(x)  # 300" },
+      { "type": "header", "level": 2, "text": "Local மற்றும் Global Variables" },
+      { "type": "paragraph", "text": "Function-க்கு உள்ளே create ஆகுற variable local. Function-க்கு வெளியே இருக்குற variable global. Global variable-ஐ function-ல modify பண்ண <code class=\"w3-codespan\">global</code> keyword use பண்றோம்:" },
+      { "type": "example", "title": "Example", "code": "x = 300\n\ndef myfunc():\n    global x  # Use global x\n    x = 200\n\nmyfunc()\nprint(x)  # 200 - changed globally!" },
+      { "type": "header", "level": 2, "text": "LEGB Rule" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "L — Local: Function-க்கு உள்ளே இருக்குற variables",
+          "E — Enclosing: Nested function-ல outer function-ஓட variables",
+          "G — Global: Module level-ல இருக்குற variables",
+          "B — Built-in: Python built-in names (print, len, etc.)"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Scope", "விளக்கம்", "Keyword"],
+        "rows": [
+          ["Local", "Function-க்கு உள்ளே", "—"],
+          ["Enclosing", "Outer function-ல", "nonlocal"],
+          ["Global", "Module level", "global"],
+          ["Built-in", "Python built-ins", "—"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Global variables-ஐ functions-ல modify பண்றதை avoid பண்றது good practice — side effects create ஆகும். Function parameters மற்றும் return values use பண்றது better.</p>" }
+    ]
+  },
+  "modules": {
+    "title": "Python Modules",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Modules என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Module என்பது Python code இருக்குற file. Functions, variables, classes அடங்கும். <code class=\"w3-codespan\">import</code> keyword use பண்ணி module-ஐ use பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "# mymodule.py\ndef greeting(name):\n    print(\"Hello, \" + name)\n\nperson = {\"name\": \"John\", \"age\": 36}\n\n# main.py\nimport mymodule\nmymodule.greeting(\"Jonathan\")\nprint(mymodule.person[\"age\"])" },
+      { "type": "header", "level": 2, "text": "Built-in Modules" },
+      { "type": "paragraph", "text": "Python-ல நிறைய built-in modules இருக்கு — install பண்ண வேண்டாம்:" },
+      { "type": "example", "title": "Example", "code": "import platform\nprint(platform.system())  # Windows/Linux/Darwin\n\nimport math\nprint(math.pi)  # 3.14159...\nprint(math.sqrt(16))  # 4.0\n\nimport random\nprint(random.randrange(1, 10))" },
+      { "type": "header", "level": 2, "text": "from...import மற்றும் as Alias" },
+      { "type": "example", "title": "Example", "code": "# Import specific items\nfrom math import pi, sqrt\nprint(pi)       # 3.14159\nprint(sqrt(25)) # 5.0\n\n# Alias\nimport numpy as np\nimport pandas as pd" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "import module — whole module import பண்றது",
+          "from module import item — specific item import",
+          "import module as alias — alias name use பண்றது",
+          "dir(module) — module-ல இருக்குற names list பண்றது",
+          "math, random, os, sys, datetime — useful built-in modules"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Module", "Use Case", "Example"],
+        "rows": [
+          ["math", "Mathematical operations", "math.sqrt(), math.pi"],
+          ["random", "Random numbers", "random.randrange()"],
+          ["os", "Operating system", "os.getcwd()"],
+          ["sys", "System functions", "sys.version"],
+          ["datetime", "Date and time", "datetime.datetime.now()"],
+          ["json", "JSON handling", "json.loads(), json.dumps()"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Third-party modules install பண்ண <code class=\"w3-codespan\">pip install module_name</code> use பண்றோம். NumPy, Pandas, Requests மாதிரி popular modules நிறைய இருக்கு.</p>" }
+    ]
+  },
+  "dates": {
+    "title": "Python Dates",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Dates என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல dates built-in type இல்ல. ஆனா <code class=\"w3-codespan\">datetime</code> module import பண்ணி date/time work பண்ணலாம்." },
+      { "type": "example", "title": "Example", "code": "import datetime\n\nx = datetime.datetime.now()\nprint(x)  # 2024-01-15 10:30:45.123456\nprint(x.year)    # 2024\nprint(x.month)   # 1\nprint(x.day)     # 15\nprint(x.hour)    # 10\nprint(x.minute)  # 30" },
+      { "type": "header", "level": 2, "text": "datetime Object Create பண்றது" },
+      { "type": "example", "title": "Example", "code": "import datetime\n\nx = datetime.datetime(2024, 6, 15)\nprint(x)  # 2024-06-15 00:00:00" },
+      { "type": "header", "level": 2, "text": "strftime() — Date Formatting" },
+      { "type": "paragraph", "text": "<code class=\"w3-codespan\">strftime()</code> method use பண்ணி date-ஐ desired format-ல string-ஆ format பண்ணலாம்:" },
+      { "type": "example", "title": "Example", "code": "import datetime\n\nx = datetime.datetime(2024, 6, 15)\nprint(x.strftime(\"%B\"))          # June\nprint(x.strftime(\"%d %B %Y\"))    # 15 June 2024\nprint(x.strftime(\"%A\"))          # Saturday" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "datetime.now() — current date/time",
+          "%Y — 4-digit year",
+          "%m — 2-digit month",
+          "%d — 2-digit day",
+          "%H — hour (24-hour)",
+          "%M — minutes",
+          "%B — full month name",
+          "%A — full weekday name"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Directive", "விளக்கம்", "Example"],
+        "rows": [
+          ["%Y", "Year (4 digit)", "2024"],
+          ["%m", "Month (01-12)", "06"],
+          ["%d", "Day (01-31)", "15"],
+          ["%H", "Hour (00-23)", "14"],
+          ["%M", "Minute (00-59)", "30"],
+          ["%B", "Full month name", "June"],
+          ["%A", "Full weekday", "Saturday"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Date calculations-க்கு <code class=\"w3-codespan\">timedelta</code> use பண்ணலாம்: <code class=\"w3-codespan\">datetime.timedelta(days=7)</code> — 7 days add/subtract பண்ணலாம்.</p>" }
+    ]
+  },
+  "math": {
+    "title": "Python Math",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Math என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல built-in math functions இருக்கு. Advanced math operations-க்கு <code class=\"w3-codespan\">math</code> module import பண்ணணும்." },
+      { "type": "example", "title": "Example", "code": "# Built-in\nprint(min(5, 10, 25))  # 5\nprint(max(5, 10, 25))  # 25\nprint(abs(-7.25))      # 7.25\nprint(pow(4, 3))       # 64 (4^3)\nprint(round(3.14159, 2))  # 3.14" },
+      { "type": "header", "level": 2, "text": "math Module" },
+      { "type": "example", "title": "Example", "code": "import math\n\nprint(math.sqrt(64))    # 8.0\nprint(math.ceil(1.4))   # 2\nprint(math.floor(1.4))  # 1\nprint(math.pi)          # 3.14159...\nprint(math.e)           # 2.71828..." },
+      { "type": "header", "level": 2, "text": "Trigonometry" },
+      { "type": "example", "title": "Example", "code": "import math\n\nprint(math.sin(math.pi/2))  # 1.0\nprint(math.cos(0))           # 1.0\nprint(math.tan(math.pi/4))  # 1.0\nprint(math.log(100, 10))     # 2.0" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "min() / max() — minimum / maximum value",
+          "abs() — absolute value",
+          "round() — round to N decimal places",
+          "math.sqrt() — square root",
+          "math.ceil() — round up",
+          "math.floor() — round down",
+          "math.pi — PI constant (3.14159...)",
+          "math.pow() — power calculation"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Function", "Example", "Result"],
+        "rows": [
+          ["math.sqrt()", "math.sqrt(16)", "4.0"],
+          ["math.ceil()", "math.ceil(1.1)", "2"],
+          ["math.floor()", "math.floor(1.9)", "1"],
+          ["math.pi", "math.pi", "3.14159..."],
+          ["abs()", "abs(-5)", "5"],
+          ["round()", "round(3.567, 2)", "3.57"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Complex math operations-க்கு <code class=\"w3-codespan\">numpy</code> library use பண்றது better — <code class=\"w3-codespan\">scipy</code> scientific computing-க்கு use ஆகும்.</p>" }
+    ]
+  },
+  "json": {
+    "title": "Python JSON",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python JSON என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "JSON (JavaScript Object Notation) என்பது data exchange-க்கு use ஆகுற popular format. Python-ல <code class=\"w3-codespan\">json</code> module built-in-ஆ கிடைக்கும்." },
+      { "type": "example", "title": "Example", "code": "import json\n\n# JSON string to Python dict\njson_str = '{\"name\": \"John\", \"age\": 30}'\npython_obj = json.loads(json_str)\nprint(python_obj[\"name\"])  # John\nprint(type(python_obj))    # <class 'dict'>" },
+      { "type": "header", "level": 2, "text": "Python to JSON (dumps)" },
+      { "type": "example", "title": "Example", "code": "import json\n\n# Python dict to JSON string\npy_dict = {\"name\": \"John\", \"age\": 30, \"city\": \"Chennai\"}\njson_str = json.dumps(py_dict)\nprint(json_str)\nprint(type(json_str))  # <class 'str'>\n\n# Formatted (pretty print)\nprint(json.dumps(py_dict, indent=4))" },
+      { "type": "header", "level": 2, "text": "JSON Files" },
+      { "type": "example", "title": "Example", "code": "import json\n\n# Write JSON to file\ndata = {\"name\": \"Tamil\", \"language\": \"Python\"}\nwith open(\"data.json\", \"w\") as f:\n    json.dump(data, f)\n\n# Read JSON from file\nwith open(\"data.json\", \"r\") as f:\n    loaded = json.load(f)\nprint(loaded[\"name\"])" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "json.loads() — JSON string → Python object",
+          "json.dumps() — Python object → JSON string",
+          "json.load() — JSON file → Python object",
+          "json.dump() — Python object → JSON file",
+          "indent parameter — pretty print JSON"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Python Type", "JSON Type"],
+        "rows": [
+          ["dict", "Object {}"],
+          ["list, tuple", "Array []"],
+          ["str", "String \"\""],
+          ["int, float", "Number"],
+          ["True/False", "true/false"],
+          ["None", "null"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> APIs-ல data send/receive பண்ண JSON மிகவும் use ஆகும். <code class=\"w3-codespan\">requests</code> library-ஓட சேர்ந்து REST APIs call பண்ணும்போது JSON handling essential.</p>" }
+    ]
+  },
+  "regex": {
+    "title": "Python RegEx",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python RegEx என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "RegEx (Regular Expression) என்பது string-ல patterns search பண்ண use ஆகுற sequence of characters. Python-ல <code class=\"w3-codespan\">re</code> module use பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "import re\n\ntxt = \"The rain in Spain\"\nx = re.search(\"Spain\", txt)\nprint(x)  # Match object\nprint(x.span())  # (12, 17) - start, end position" },
+      { "type": "header", "level": 2, "text": "RegEx Functions" },
+      { "type": "example", "title": "Example", "code": "import re\n\ntxt = \"The rain in Spain stays mainly\"\n\n# findall - returns list of all matches\nresult = re.findall(\"ain\", txt)\nprint(result)  # ['ain', 'ain', 'ain']\n\n# sub - replace matches\nnew_txt = re.sub(\"ain\", \"xyz\", txt)\nprint(new_txt)" },
+      { "type": "header", "level": 2, "text": "RegEx Metacharacters" },
+      { "type": "example", "title": "Example", "code": "import re\n\n# ^ - starts with\nresult = re.search(\"^The\", \"The rain\")\n\n# $ - ends with\nresult = re.search(\"Spain$\", \"The rain in Spain\")\n\n# . - any character\nresult = re.findall(\"h.t\", \"hat hit hot\")\nprint(result)  # ['hat', 'hit', 'hot']" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "re.search() — pattern-ஐ string-ல search பண்றது",
+          "re.findall() — எல்லா matches-ஐயும் list-ஆ return பண்றது",
+          "re.sub() — matches-ஐ replace பண்றது",
+          "re.split() — pattern-ல split பண்றது",
+          "re.compile() — pattern-ஐ compile பண்றது"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Metacharacter", "விளக்கம்", "Example"],
+        "rows": [
+          [".", "Any character", "h.t → hat, hit"],
+          ["^", "Starts with", "^Hello"],
+          ["$", "Ends with", "World$"],
+          ["*", "0 or more", "lo*"],
+          ["+", "1 or more", "lo+"],
+          ["\\d", "Digit", "\\d → 0-9"],
+          ["\\w", "Word character", "\\w → a-z, 0-9"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Email validation, phone number check, URL parsing போன்ற tasks-க்கு regex மிகவும் use ஆகும். Pattern எழுதும்போது raw string (<code class=\"w3-codespan\">r\"pattern\"</code>) use பண்றது best practice.</p>" }
+    ]
+  },
+  "pip": {
+    "title": "Python PIP",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python PIP என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "PIP என்பது Python-ஓட package manager. Third-party libraries download பண்ணி install பண்ண use ஆகும். Python 3.4+ -ல automatically include ஆகியிருக்கும்." },
+      { "type": "example", "title": "Example", "code": "# Check pip version\npip --version\n\n# Install a package\npip install requests\n\n# Install specific version\npip install requests==2.25.1\n\n# Uninstall\npip uninstall requests\n\n# List installed packages\npip list" },
+      { "type": "header", "level": 2, "text": "Package Use பண்றது" },
+      { "type": "example", "title": "Example", "code": "# After installing requests package\nimport requests\n\nresponse = requests.get(\"https://api.example.com/data\")\nprint(response.status_code)  # 200\nprint(response.json())" },
+      { "type": "header", "level": 2, "text": "Popular Python Packages" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "NumPy — numerical computing, arrays",
+          "Pandas — data analysis, DataFrames",
+          "Matplotlib — data visualization",
+          "Requests — HTTP requests",
+          "Flask / Django — web frameworks",
+          "Scikit-learn — machine learning",
+          "TensorFlow / PyTorch — deep learning",
+          "Pillow — image processing"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Command", "விளக்கம்"],
+        "rows": [
+          ["pip install pkg", "Package install பண்றது"],
+          ["pip uninstall pkg", "Package remove பண்றது"],
+          ["pip list", "Installed packages list"],
+          ["pip show pkg", "Package details காட்டுவது"],
+          ["pip freeze", "requirements.txt-க்கு list"],
+          ["pip install -r req.txt", "File-ல இருந்து install"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Virtual environment use பண்றது best practice: <code class=\"w3-codespan\">python -m venv myenv</code> — project-க்கு isolated environment create ஆகும், packages conflict ஆகாது.</p>" }
+    ]
+  },
+  "try-except": {
+    "title": "Python Try...Except",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python Exception Handling என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல errors/exceptions handle பண்ண <code class=\"w3-codespan\">try...except</code> block use பண்றோம். Error வரும்போது program crash ஆகாம gracefully handle பண்ணலாம்." },
+      { "type": "example", "title": "Example", "code": "try:\n    print(x)  # x is not defined\nexcept NameError:\n    print(\"Variable x is not defined\")\nexcept:\n    print(\"Something else went wrong\")" },
+      { "type": "header", "level": 2, "text": "Else மற்றும் Finally" },
+      { "type": "example", "title": "Example", "code": "try:\n    f = open(\"demofile.txt\")\nexcept FileNotFoundError:\n    print(\"File not found!\")\nelse:\n    print(\"File opened successfully\")\n    print(f.read())\nfinally:\n    print(\"This always runs\")" },
+      { "type": "header", "level": 2, "text": "Custom Exceptions" },
+      { "type": "example", "title": "Example", "code": "# Raise custom exception\nx = -5\nif x < 0:\n    raise ValueError(\"x must be positive!\")\n\n# Custom exception class\nclass MyError(Exception):\n    pass\n\nraise MyError(\"Something went wrong\")" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "try — error வரலாம்னு suspect பண்ற code",
+          "except — error வந்தா handle பண்றது",
+          "else — try-ல error வரலன்னா execute ஆகும்",
+          "finally — எப்பவும் execute ஆகும் (error வந்தாலும் வரலன்னாலும்)",
+          "raise — manually exception raise பண்றது"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Exception", "காரணம்"],
+        "rows": [
+          ["NameError", "Variable define பண்ணல"],
+          ["TypeError", "Wrong data type"],
+          ["ValueError", "Wrong value"],
+          ["FileNotFoundError", "File இல்ல"],
+          ["ZeroDivisionError", "Zero-ஆ divide பண்ண"],
+          ["IndexError", "List index out of range"],
+          ["KeyError", "Dict key இல்ல"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Bare <code class=\"w3-codespan\">except:</code> use பண்றதை avoid பண்ணு — specific exception types catch பண்றது best practice. <code class=\"w3-codespan\">finally</code> block resources cleanup-க்கு (files close, connections close) மிகவும் useful.</p>" }
+    ]
+  },
+  "user-input": {
+    "title": "Python User Input",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python User Input என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல user-கிட்ட input receive பண்ண <code class=\"w3-codespan\">input()</code> function use பண்றோம். User type பண்றது string-ஆ return ஆகும்." },
+      { "type": "example", "title": "Example", "code": "username = input(\"Enter username: \")\nprint(\"Username is: \" + username)" },
+      { "type": "header", "level": 2, "text": "Input Type Conversion" },
+      { "type": "paragraph", "text": "input() always string return பண்றது. Number-ஆ treat பண்ணணும்னா convert பண்ணணும்:" },
+      { "type": "example", "title": "Example", "code": "# String input (default)\nname = input(\"Your name: \")\n\n# Integer input\nage = int(input(\"Your age: \"))\n\n# Float input\nheight = float(input(\"Your height (m): \"))\n\nprint(f\"Name: {name}, Age: {age}, Height: {height}m\")" },
+      { "type": "header", "level": 2, "text": "Input Validation" },
+      { "type": "example", "title": "Example", "code": "while True:\n    try:\n        age = int(input(\"Enter your age: \"))\n        if age < 0:\n            print(\"Age cannot be negative!\")\n        else:\n            break\n    except ValueError:\n        print(\"Please enter a valid number!\")\nprint(f\"Your age is {age}\")" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "input() — user-கிட்ட string input receive பண்றது",
+          "int(input()) — integer input receive பண்றது",
+          "float(input()) — float input receive பண்றது",
+          "Prompt text-ஐ input()-க்கு string-ஆ pass பண்ணலாம்",
+          "Input always string — convert பண்றது important"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Input Type", "Code", "Example Input"],
+        "rows": [
+          ["String", "input(\"Name: \")", "\"Tamil\""],
+          ["Integer", "int(input(\"Age: \"))", "\"25\" → 25"],
+          ["Float", "float(input(\"Price: \"))", "\"9.99\" → 9.99"],
+          ["Boolean", "input() == \"yes\"", "\"yes\" → True"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> User input எப்பவும் validate பண்றது important — users unexpected values enter பண்ணலாம். try-except use பண்ணி robust input handling பண்ணு.</p>" }
+    ]
+  },
+  "string-formatting": {
+    "title": "Python String Formatting",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python String Formatting என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "String formatting என்பது variables-ஐ strings-ல insert பண்றது. Python-ல இதுக்கு பல methods இருக்கு — modern approach f-strings." },
+      { "type": "example", "title": "Example", "code": "name = \"Tamil\"\nage = 25\n\n# f-string (Python 3.6+)\nprint(f\"My name is {name} and I am {age} years old\")\n\n# format() method\nprint(\"My name is {} and I am {} years old\".format(name, age))\n\n# % operator (old style)\nprint(\"My name is %s and I am %d years old\" % (name, age))" },
+      { "type": "header", "level": 2, "text": "F-String Features" },
+      { "type": "example", "title": "Example", "code": "price = 49.99\nquantity = 3\n\n# Expressions in f-strings\nprint(f\"Total: {price * quantity}\")\n\n# Formatting numbers\nprint(f\"Price: {price:.2f}\")    # 49.99\nprint(f\"Price: {price:>10.2f}\") # Right aligned\n\n# Formatting with commas\nbig_num = 1000000\nprint(f\"Value: {big_num:,}\")  # 1,000,000" },
+      { "type": "header", "level": 2, "text": "format() Method" },
+      { "type": "example", "title": "Example", "code": "# Positional\ntxt = \"I am {} years old from {}\"\nprint(txt.format(25, \"Chennai\"))\n\n# Named\ntxt = \"My name is {name}, age {age}\"\nprint(txt.format(name=\"Tamil\", age=25))" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "f-strings — Python 3.6+ recommended way",
+          "format() — flexible, named parameters support",
+          "% operator — old style, avoid in new code",
+          "{:.2f} — float 2 decimal places",
+          "{:,} — thousands separator",
+          "{:>10} — right align, width 10"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "Example", "Result"],
+        "rows": [
+          ["f-string", "f\"{name}\"", "Direct variable insert"],
+          ["format()", "\"{}\".format(val)", "Position-based insert"],
+          ["{:.2f}", "f\"{3.14159:.2f}\"", "3.14"],
+          ["{:,}", "f\"{1000000:,}\"", "1,000,000"],
+          ["{:>10}", "f\"{text:>10}\"", "Right aligned"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Modern Python code-ல f-strings use பண்றது recommended — readable-ஆ இருக்கும், fast-ஆ execute ஆகும். Python 3.6 version-க்கு below-ல <code class=\"w3-codespan\">format()</code> use பண்ணணும்.</p>" }
+    ]
+  },
+  "file-handling": {
+    "title": "Python File Handling",
+    "blocks": [
+      { "type": "header", "level": 2, "text": "Python File Handling என்னன்னு தெரியுமா?" },
+      { "type": "paragraph", "text": "Python-ல files create, read, write, delete பண்ண built-in functions இருக்கு. <code class=\"w3-codespan\">open()</code> function use பண்றோம்." },
+      { "type": "example", "title": "Example", "code": "# Open and read a file\nf = open(\"demofile.txt\", \"r\")\nprint(f.read())\nf.close()\n\n# Better way - with statement (auto close)\nwith open(\"demofile.txt\", \"r\") as f:\n    content = f.read()\n    print(content)" },
+      { "type": "header", "level": 2, "text": "Write மற்றும் Append" },
+      { "type": "example", "title": "Example", "code": "# Write (overwrites existing content)\nwith open(\"newfile.txt\", \"w\") as f:\n    f.write(\"Hello, Tamil!\\n\")\n    f.write(\"Python is awesome!\")\n\n# Append (adds to existing content)\nwith open(\"newfile.txt\", \"a\") as f:\n    f.write(\"\\nNew line added!\")\n\n# Read lines\nwith open(\"newfile.txt\", \"r\") as f:\n    for line in f:\n        print(line, end=\"\")" },
+      { "type": "header", "level": 2, "text": "File Delete மற்றும் os Module" },
+      { "type": "example", "title": "Example", "code": "import os\n\n# Check if file exists\nif os.path.exists(\"newfile.txt\"):\n    os.remove(\"newfile.txt\")\n    print(\"File deleted\")\nelse:\n    print(\"File not found\")\n\n# Create directory\nos.mkdir(\"myfolder\")\n\n# List files\nprint(os.listdir(\".\"))" },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "\"r\" — read mode (default)",
+          "\"w\" — write mode (file இல்லன்னா create ஆகும், இருந்தா overwrite)",
+          "\"a\" — append mode (கடைசில add ஆகும்)",
+          "\"x\" — create mode (file already இருந்தா error)",
+          "\"b\" — binary mode (images, etc.)",
+          "with statement — file automatically close ஆகும்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": ["Mode", "விளக்கம்", "File இல்லன்னா"],
+        "rows": [
+          ["\"r\"", "Read only", "Error"],
+          ["\"w\"", "Write only", "Create"],
+          ["\"a\"", "Append", "Create"],
+          ["\"x\"", "Create only", "Create"],
+          ["\"r+\"", "Read + Write", "Error"],
+          ["\"w+\"", "Write + Read", "Create"]
+        ]
+      },
+      { "type": "note", "text": "<p><strong>குறிப்பு:</strong> Always <code class=\"w3-codespan\">with</code> statement use பண்ணு — file automatically close ஆகும், resource leaks இல்லாம போகும். Large files-க்கு <code class=\"w3-codespan\">readline()</code> அல்லது line-by-line iteration use பண்றது memory-efficient.</p>" }
+    ]
+  }
+}

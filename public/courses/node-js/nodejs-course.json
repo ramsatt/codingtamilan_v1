@@ -1,0 +1,1275 @@
+{
+  "intro": {
+    "title": "Introduction to Node.js",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What is Node.js?"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Node.js</strong> was created by Ryan Dahl in 2009 and is built on <strong>Chrome's V8 JavaScript engine</strong>. It allows developers to use JavaScript to write server-side scripts, enabling the development of fast, scalable network applications."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Node.js is asynchronous and event-driven by nature",
+          "It uses a non-blocking I/O model, making it lightweight and efficient",
+          "It is well-suited for real-time applications like chat apps and APIs",
+          "Node.js uses the CommonJS and ES module systems",
+          "It has a massive ecosystem via the NPM registry",
+          "Node.js runs on Windows, macOS, and Linux"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Your First Node.js Program"
+      },
+      {
+        "type": "example",
+        "title": "Hello World in Node.js",
+        "code": "// hello.js\nconsole.log('Hello, World!');\nconsole.log('Node.js version:', process.version);\nconsole.log('Platform:', process.platform);"
+      },
+      {
+        "type": "paragraph",
+        "text": "Save the file as <code>hello.js</code> and run it from the terminal using <code>node hello.js</code>. You will see the output printed directly in the terminal — no browser needed."
+      },
+      {
+        "type": "note",
+        "text": "Node.js is not a framework or a library — it is a runtime environment. Frameworks like Express.js are built on top of Node.js."
+      }
+    ]
+  },
+  "setup": {
+    "title": "Setup & Installation",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Before you can run Node.js code, you need to install Node.js on your machine. This topic walks you through the installation process and verifying your setup."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Installing Node.js"
+      },
+      {
+        "type": "paragraph",
+        "text": "Visit <strong>https://nodejs.org</strong> and download the <strong>LTS (Long Term Support)</strong> version. The LTS version is recommended for most users as it is stable and production-ready. An installer is available for Windows, macOS, and Linux."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Download the LTS installer from nodejs.org",
+          "Run the installer and follow the on-screen instructions",
+          "The installer also installs <strong>NPM</strong> (Node Package Manager) automatically",
+          "On Linux, you can use a package manager like <code>apt</code> or <code>nvm</code>",
+          "On macOS, you can also use Homebrew: <code>brew install node</code>"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Verifying the Installation"
+      },
+      {
+        "type": "example",
+        "title": "Check Node.js and NPM versions",
+        "code": "// Run these commands in your terminal (not in a .js file)\n// $ node --version\n// v22.0.0  (output will vary)\n\n// $ npm --version\n// 10.5.0  (output will vary)\n\n// Start an interactive REPL session:\n// $ node\n// > 2 + 3\n// 5\n// > .exit"
+      },
+      {
+        "type": "paragraph",
+        "text": "If both commands return version numbers, your installation is successful. The <strong>REPL</strong> (<em>Read-Eval-Print Loop</em>) lets you run JavaScript interactively in the terminal — great for quick experiments."
+      },
+      {
+        "type": "note",
+        "text": "Using <strong>nvm</strong> (Node Version Manager) is highly recommended for managing multiple Node.js versions on the same machine. Install it from https://github.com/nvm-sh/nvm."
+      }
+    ]
+  },
+  "modules": {
+    "title": "Node.js Modules",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js has a built-in module system that lets you split your code into reusable files. Every file in Node.js is treated as a module."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "CommonJS Modules"
+      },
+      {
+        "type": "paragraph",
+        "text": "Node.js traditionally uses the <strong>CommonJS</strong> module system. You export values using <code>module.exports</code> and import them using <code>require()</code>. Since Node.js v12+, <strong>ES Modules</strong> (<code>import</code>/<code>export</code>) are also supported natively."
+      },
+      {
+        "type": "example",
+        "title": "Creating and Using a Module",
+        "code": "// math.js — define a module\nfunction add(a, b) {\n  return a + b;\n}\n\nfunction subtract(a, b) {\n  return a - b;\n}\n\nmodule.exports = { add, subtract };\n\n// app.js — import and use the module\nconst math = require('./math');\n\nconsole.log(math.add(10, 5));      // 15\nconsole.log(math.subtract(10, 5)); // 5"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Built-in Core Modules"
+      },
+      {
+        "type": "paragraph",
+        "text": "Node.js ships with many <strong>built-in core modules</strong> that you can use without installing anything. You require them by name — no file path needed."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>fs</code> — Read and write files",
+          "<code>path</code> — Work with file and directory paths",
+          "<code>http</code> / <code>https</code> — Create HTTP servers and make requests",
+          "<code>events</code> — Work with the EventEmitter class",
+          "<code>os</code> — Access operating system information",
+          "<code>crypto</code> — Cryptographic utilities"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Using a Core Module",
+        "code": "// Using the built-in 'os' core module\nconst os = require('os');\n\nconsole.log('OS Platform:', os.platform());   // e.g. 'linux'\nconsole.log('CPU Architecture:', os.arch());  // e.g. 'x64'\nconsole.log('Free Memory (MB):', Math.round(os.freemem() / 1024 / 1024));\nconsole.log('Total Memory (MB):', Math.round(os.totalmem() / 1024 / 1024));"
+      },
+      {
+        "type": "note",
+        "text": "ES Module syntax (<code>import</code>/<code>export</code>) works in Node.js when the file has a <code>.mjs</code> extension or when <code>\"type\": \"module\"</code> is set in <code>package.json</code>."
+      }
+    ]
+  },
+  "npm": {
+    "title": "NPM & Package Management",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "NPM (Node Package Manager) is the world's largest software registry. It allows you to install, share, and manage third-party packages in your Node.js projects."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Initialising a Project"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every Node.js project starts with a <code>package.json</code> file, which stores metadata about your project and its dependencies. You create it by running <code>npm init</code> or use the <code>-y</code> flag to accept all defaults automatically."
+      },
+      {
+        "type": "example",
+        "title": "Common NPM Commands",
+        "code": "# Initialise a new project\nnpm init -y\n\n# Install a package and save it as a dependency\nnpm install express\n\n# Install a package as a dev dependency\nnpm install --save-dev nodemon\n\n# Install all dependencies listed in package.json\nnpm install\n\n# Uninstall a package\nnpm uninstall express\n\n# List installed packages\nnpm list\n\n# Update all packages to their latest allowed versions\nnpm update"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Understanding package.json"
+      },
+      {
+        "type": "example",
+        "title": "Sample package.json",
+        "code": "{\n  \"name\": \"my-node-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"A sample Node.js application\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"start\": \"node index.js\",\n    \"dev\": \"nodemon index.js\",\n    \"test\": \"jest\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.18.2\"\n  },\n  \"devDependencies\": {\n    \"nodemon\": \"^3.0.1\"\n  }\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>dependencies</strong> — packages required to run the application",
+          "<strong>devDependencies</strong> — packages only needed during development (testing tools, build tools, etc.)",
+          "<strong>scripts</strong> — shortcut commands runnable with <code>npm run &lt;name&gt;</code>",
+          "<strong>node_modules/</strong> — where packages are physically installed (do not commit to git)",
+          "<strong>package-lock.json</strong> — locks exact versions for reproducible installs"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always add <code>node_modules/</code> to your <code>.gitignore</code> file. Anyone cloning your repo can restore all packages by running <code>npm install</code>."
+      }
+    ]
+  },
+  "file-system": {
+    "title": "File System (fs)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "The built-in <code>fs</code> module provides an API for interacting with the file system — reading, writing, updating, and deleting files and directories."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Reading Files"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code>fs</code> module offers both <strong>synchronous</strong> and <strong>asynchronous</strong> methods. Async methods use callbacks or Promises, keeping the event loop free. The <strong>fs/promises</strong> API (Node.js v10+) lets you use <code>async/await</code> for cleaner code."
+      },
+      {
+        "type": "example",
+        "title": "Reading and Writing Files",
+        "code": "const fs = require('fs');\nconst path = require('path');\n\nconst filePath = path.join(__dirname, 'message.txt');\n\n// Write a file asynchronously\nfs.writeFile(filePath, 'Hello from Node.js!', 'utf8', (err) => {\n  if (err) throw err;\n  console.log('File written successfully.');\n\n  // Read the file back\n  fs.readFile(filePath, 'utf8', (err, data) => {\n    if (err) throw err;\n    console.log('File contents:', data);\n  });\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Using fs/promises with async/await"
+      },
+      {
+        "type": "example",
+        "title": "fs/promises (modern approach)",
+        "code": "const { readFile, writeFile, unlink } = require('fs/promises');\nconst path = require('path');\n\nconst filePath = path.join(__dirname, 'temp.txt');\n\nasync function manageFile() {\n  await writeFile(filePath, 'Node.js fs/promises example', 'utf8');\n  console.log('File created.');\n\n  const content = await readFile(filePath, 'utf8');\n  console.log('Content:', content);\n\n  await unlink(filePath);\n  console.log('File deleted.');\n}\n\nmanageFile().catch(console.error);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>fs.readFile()</code> — read file contents asynchronously",
+          "<code>fs.writeFile()</code> — write (or overwrite) a file asynchronously",
+          "<code>fs.appendFile()</code> — append data to an existing file",
+          "<code>fs.unlink()</code> — delete a file",
+          "<code>fs.mkdir()</code> — create a directory",
+          "<code>fs.readdir()</code> — list contents of a directory",
+          "<code>fs.stat()</code> — get file metadata (size, modified date, etc.)"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Prefer asynchronous <code>fs</code> methods or <code>fs/promises</code> in production code. Synchronous methods like <code>fs.readFileSync()</code> block the entire event loop and should be avoided in servers."
+      }
+    ]
+  },
+  "path": {
+    "title": "Path Module",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "The built-in <code>path</code> module provides utilities for working with file and directory paths in a cross-platform way, handling differences between Windows and Unix-style paths automatically."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Why Use the path Module?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Manually concatenating file paths with string operators like <code>+</code> or template literals is error-prone across operating systems. The <code>path</code> module handles <strong>forward slashes</strong> vs <strong>backslashes</strong> and trailing separators automatically, making your code portable."
+      },
+      {
+        "type": "example",
+        "title": "Common path Methods",
+        "code": "const path = require('path');\n\n// Join path segments (handles separators automatically)\nconst fullPath = path.join('/users', 'alice', 'projects', 'app.js');\nconsole.log(fullPath); // /users/alice/projects/app.js\n\n// Get the directory name of a path\nconsole.log(path.dirname(fullPath));   // /users/alice/projects\n\n// Get the base file name\nconsole.log(path.basename(fullPath));  // app.js\n\n// Get the file extension\nconsole.log(path.extname(fullPath));   // .js\n\n// Resolve an absolute path\nconsole.log(path.resolve('src', 'index.js')); // /current/working/dir/src/index.js\n\n// Check if a path is absolute\nconsole.log(path.isAbsolute('/etc/hosts')); // true\nconsole.log(path.isAbsolute('src/app.js')); // false"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "__dirname and __filename"
+      },
+      {
+        "type": "example",
+        "title": "Using __dirname and __filename",
+        "code": "const path = require('path');\n\n// __filename — absolute path to the current file\nconsole.log(__filename);\n// e.g. /Users/alice/project/src/app.js\n\n// __dirname — absolute path to the directory containing the current file\nconsole.log(__dirname);\n// e.g. /Users/alice/project/src\n\n// Build paths relative to the current file safely\nconst configPath = path.join(__dirname, '..', 'config', 'settings.json');\nconsole.log(configPath);\n// /Users/alice/project/config/settings.json"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>path.join()</code> — joins path segments using the platform separator",
+          "<code>path.resolve()</code> — resolves a sequence of paths to an absolute path",
+          "<code>path.basename()</code> — returns the last portion of a path",
+          "<code>path.dirname()</code> — returns the directory of a path",
+          "<code>path.extname()</code> — returns the file extension including the dot",
+          "<code>path.parse()</code> — returns an object with <code>root</code>, <code>dir</code>, <code>base</code>, <code>ext</code>, <code>name</code>"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always use <code>path.join(__dirname, ...)</code> instead of hardcoded relative paths. This ensures your code works regardless of the directory from which the Node.js process is started."
+      }
+    ]
+  },
+  "events": {
+    "title": "EventEmitter",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js is built around an event-driven architecture. The <code>events</code> module provides the <strong>EventEmitter</strong> class, which is the backbone of many core Node.js APIs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The EventEmitter Class"
+      },
+      {
+        "type": "paragraph",
+        "text": "An <strong>EventEmitter</strong> lets you register listener functions for named events and then emit those events when something happens. Core Node.js objects like HTTP servers, streams, and the <code>fs</code> module all inherit from EventEmitter internally."
+      },
+      {
+        "type": "example",
+        "title": "Basic EventEmitter Usage",
+        "code": "const EventEmitter = require('events');\n\n// Create an emitter instance\nconst emitter = new EventEmitter();\n\n// Register a listener for the 'greet' event\nemitter.on('greet', (name) => {\n  console.log(`Hello, ${name}!`);\n});\n\n// Register a one-time listener\nemitter.once('connect', () => {\n  console.log('Connected! (this fires only once)');\n});\n\n// Emit events\nemitter.emit('greet', 'Alice'); // Hello, Alice!\nemitter.emit('greet', 'Bob');   // Hello, Bob!\nemitter.emit('connect');        // Connected! (this fires only once)\nemitter.emit('connect');        // (nothing happens — already fired)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Extending EventEmitter"
+      },
+      {
+        "type": "example",
+        "title": "Custom Class with EventEmitter",
+        "code": "const EventEmitter = require('events');\n\nclass Logger extends EventEmitter {\n  log(message) {\n    console.log(`[LOG] ${message}`);\n    // Emit an event after logging\n    this.emit('logged', { message, timestamp: new Date().toISOString() });\n  }\n}\n\nconst logger = new Logger();\n\n// Listen for the 'logged' event\nlogger.on('logged', (data) => {\n  console.log('Event data:', data);\n});\n\nlogger.log('Server started');\n// [LOG] Server started\n// Event data: { message: 'Server started', timestamp: '2026-03-26T...' }"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>emitter.on(event, listener)</code> — register a persistent listener",
+          "<code>emitter.once(event, listener)</code> — register a listener that fires only once",
+          "<code>emitter.emit(event, ...args)</code> — emit an event, passing optional arguments",
+          "<code>emitter.off(event, listener)</code> — remove a specific listener",
+          "<code>emitter.removeAllListeners(event)</code> — remove all listeners for an event",
+          "<code>emitter.listenerCount(event)</code> — get the number of listeners for an event"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "By default, Node.js prints a warning if more than <strong>10 listeners</strong> are registered for a single event, as this may indicate a memory leak. You can increase the limit with <code>emitter.setMaxListeners(n)</code>."
+      }
+    ]
+  },
+  "streams": {
+    "title": "Streams & Buffers",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Streams and Buffers are fundamental to Node.js performance. Streams let you process data piece-by-piece without loading everything into memory, while Buffers provide a way to work with raw binary data directly in JavaScript."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What is a Buffer?"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <strong>Buffer</strong> is a fixed-size chunk of memory allocated outside the V8 heap. It is represented as a sequence of hexadecimal bytes and is used to hold raw binary data — such as the contents of a file, network packets, or image data — before it is processed or converted to a string."
+      },
+      {
+        "type": "example",
+        "title": "Creating and Reading Buffers",
+        "code": "// Allocate a Buffer of 4 bytes, zero-filled\nconst buf1 = Buffer.alloc(4);\nconsole.log(buf1); // <Buffer 00 00 00 00>\n\n// Create a Buffer from a string\nconst buf2 = Buffer.from('Hello, Node!');\nconsole.log(buf2.toString()); // Hello, Node!\nconsole.log(buf2.length);     // 12\n\n// Create from an array of byte values\nconst buf3 = Buffer.from([72, 101, 108, 108, 111]);\nconsole.log(buf3.toString()); // Hello"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Types of Streams"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Readable</strong> — a source you can read data from (e.g., <code>fs.createReadStream</code>)",
+          "<strong>Writable</strong> — a destination you can write data to (e.g., <code>fs.createWriteStream</code>)",
+          "<strong>Duplex</strong> — both readable and writable (e.g., a TCP socket)",
+          "<strong>Transform</strong> — a duplex stream that can modify data as it passes through (e.g., <code>zlib.createGzip</code>)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Piping a Read Stream to a Write Stream",
+        "code": "const fs = require('fs');\n\n// Read a large file and write it to another location\n// without loading the entire file into memory\nconst readStream  = fs.createReadStream('input.txt',  { encoding: 'utf8' });\nconst writeStream = fs.createWriteStream('output.txt');\n\nreadStream.pipe(writeStream);\n\nwriteStream.on('finish', () => {\n  console.log('File copied successfully using streams!');\n});\n\nreadStream.on('error',  (err) => console.error('Read error:',  err.message));\nwriteStream.on('error', (err) => console.error('Write error:', err.message));"
+      },
+      {
+        "type": "example",
+        "title": "Transform Stream — Uppercase Filter",
+        "code": "const { Transform } = require('stream');\n\nconst uppercaseTransform = new Transform({\n  transform(chunk, encoding, callback) {\n    this.push(chunk.toString().toUpperCase());\n    callback();\n  }\n});\n\nprocess.stdin.pipe(uppercaseTransform).pipe(process.stdout);\n// Type anything; it will be echoed in uppercase."
+      },
+      {
+        "type": "note",
+        "text": "Always attach an <code>'error'</code> event listener to every stream. An unhandled stream error will throw and crash your Node.js process."
+      }
+    ]
+  },
+  "http": {
+    "title": "HTTP Module",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js ships with a built-in <code>http</code> module that lets you create web servers and make HTTP requests — no third-party library required. Understanding it is the foundation for every web framework built on Node.js."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Creating a Basic HTTP Server"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>http.createServer()</code> accepts a <strong>request listener</strong> — a callback that receives an <code>IncomingMessage</code> (req) and a <code>ServerResponse</code> (res) object every time a client connects. You call <code>res.end()</code> to send the response and close the connection."
+      },
+      {
+        "type": "example",
+        "title": "Hello World HTTP Server",
+        "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  // Set response headers\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('Hello, World!\\n');\n});\n\nserver.listen(3000, '127.0.0.1', () => {\n  console.log('Server running at http://127.0.0.1:3000/');\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Routing by URL and Method"
+      },
+      {
+        "type": "example",
+        "title": "Simple Manual Router",
+        "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  const { method, url } = req;\n\n  if (method === 'GET' && url === '/') {\n    res.writeHead(200, { 'Content-Type': 'text/html' });\n    res.end('<h1>Home Page</h1>');\n\n  } else if (method === 'GET' && url === '/about') {\n    res.writeHead(200, { 'Content-Type': 'text/html' });\n    res.end('<h1>About Page</h1>');\n\n  } else {\n    res.writeHead(404, { 'Content-Type': 'text/plain' });\n    res.end('404 Not Found');\n  }\n});\n\nserver.listen(3000, () => console.log('Listening on port 3000'));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Reading a POST Body"
+      },
+      {
+        "type": "example",
+        "title": "Parsing a JSON POST Request",
+        "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  if (req.method === 'POST' && req.url === '/data') {\n    let body = '';\n\n    req.on('data', (chunk) => { body += chunk.toString(); });\n\n    req.on('end', () => {\n      const parsed = JSON.parse(body);\n      console.log('Received:', parsed);\n\n      res.writeHead(200, { 'Content-Type': 'application/json' });\n      res.end(JSON.stringify({ status: 'ok', received: parsed }));\n    });\n  } else {\n    res.writeHead(405);\n    res.end('Method Not Allowed');\n  }\n});\n\nserver.listen(3000);"
+      },
+      {
+        "type": "note",
+        "text": "While the built-in <code>http</code> module is powerful, most production applications use <strong>Express</strong> or another framework to avoid writing repetitive boilerplate routing and parsing code by hand."
+      }
+    ]
+  },
+  "express-intro": {
+    "title": "Introduction to Express",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Express is the most popular Node.js web framework. It provides a thin, unopinionated layer of features on top of Node's built-in HTTP module — routing, middleware support, template engine integration, and more — all while staying out of your way."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Installing Express"
+      },
+      {
+        "type": "example",
+        "title": "Project Setup",
+        "code": "# 1. Create a new project folder and initialise npm\nmkdir my-app && cd my-app\nnpm init -y\n\n# 2. Install Express\nnpm install express\n\n# 3. (Optional) Install nodemon for auto-restart during development\nnpm install --save-dev nodemon"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Your First Express App"
+      },
+      {
+        "type": "example",
+        "title": "Minimal Express Server (app.js)",
+        "code": "const express = require('express');\nconst app = express();\nconst PORT = 3000;\n\n// Built-in middleware to parse JSON request bodies\napp.use(express.json());\n\n// A simple GET route\napp.get('/', (req, res) => {\n  res.send('Hello from Express!');\n});\n\n// Start the server\napp.listen(PORT, () => {\n  console.log(`Server is running on http://localhost:${PORT}`);\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Core Concepts at a Glance"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>app</strong> — the Express application instance, created by calling <code>express()</code>",
+          "<strong>Routes</strong> — map HTTP methods and URL paths to handler functions",
+          "<strong>Middleware</strong> — functions that run between receiving a request and sending a response",
+          "<strong>Request (req)</strong> — enhanced wrapper around Node's <code>IncomingMessage</code>",
+          "<strong>Response (res)</strong> — enhanced wrapper with helpers like <code>res.json()</code>, <code>res.send()</code>, <code>res.status()</code>",
+          "<strong>Router</strong> — a mini Express application for grouping related routes"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Express follows a <strong>middleware pipeline</strong> model. Every incoming request flows through a series of functions in the order they are registered. Each function either responds to the request or calls <code>next()</code> to pass control to the following function."
+      },
+      {
+        "type": "note",
+        "text": "Express 5.x (currently in release candidate) adds native async/await error propagation, so you no longer need <code>try/catch</code> wrappers around async route handlers. Always check the version you are using."
+      }
+    ]
+  },
+  "routing": {
+    "title": "Express Routing",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Routing in Express means deciding how your application responds to a client request at a specific endpoint — a combination of a URL path and an HTTP method. Express provides a clean, expressive API for defining routes at any level of complexity."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Route Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "The basic pattern is <code>app.METHOD(PATH, HANDLER)</code>. <code>METHOD</code> is an HTTP method in lowercase (<code>get</code>, <code>post</code>, <code>put</code>, <code>delete</code>, <code>patch</code>). <code>PATH</code> is a string or regular expression. <code>HANDLER</code> is a callback <code>(req, res) => {}</code>."
+      },
+      {
+        "type": "example",
+        "title": "CRUD-style Route Definitions",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\n// GET  — retrieve all items\napp.get('/items', (req, res) => {\n  res.json([{ id: 1, name: 'Widget' }]);\n});\n\n// GET  — retrieve a single item by ID (route parameter)\napp.get('/items/:id', (req, res) => {\n  const { id } = req.params;\n  res.json({ id, name: 'Widget' });\n});\n\n// POST — create a new item\napp.post('/items', (req, res) => {\n  const item = req.body;\n  res.status(201).json({ message: 'Created', item });\n});\n\n// PUT  — replace an item\napp.put('/items/:id', (req, res) => {\n  res.json({ message: `Item ${req.params.id} updated`, data: req.body });\n});\n\n// DELETE — remove an item\napp.delete('/items/:id', (req, res) => {\n  res.json({ message: `Item ${req.params.id} deleted` });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Express Router — Modular Routes"
+      },
+      {
+        "type": "example",
+        "title": "routes/users.js — Separate Router File",
+        "code": "// routes/users.js\nconst { Router } = require('express');\nconst router = Router();\n\nrouter.get('/', (req, res) => {\n  res.json([{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }]);\n});\n\nrouter.get('/:id', (req, res) => {\n  res.json({ id: req.params.id, name: 'Alice' });\n});\n\nrouter.post('/', (req, res) => {\n  res.status(201).json({ message: 'User created', user: req.body });\n});\n\nmodule.exports = router;\n\n// ---- app.js ----\n// const usersRouter = require('./routes/users');\n// app.use('/users', usersRouter);\n// Now GET /users        => router.get('/')\n//     GET /users/42     => router.get('/:id')"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>req.params</code> — dynamic segments captured from the URL path (e.g., <code>:id</code>)",
+          "<code>req.query</code>  — key-value pairs from the query string (e.g., <code>?page=2&limit=10</code>)",
+          "<code>req.body</code>   — parsed request body (requires <code>express.json()</code> or <code>express.urlencoded()</code>)"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Organise your routes into separate Router files grouped by resource (e.g., <code>routes/users.js</code>, <code>routes/products.js</code>) and mount them in <code>app.js</code>. This keeps your code readable as the project grows."
+      }
+    ]
+  },
+  "middleware": {
+    "title": "Middleware",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Middleware functions are the backbone of any Express application. A middleware is simply a function with the signature <code>(req, res, next)</code> that can read and modify the request and response objects, end the request-response cycle, or hand control to the next middleware in the stack."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Anatomy of a Middleware Function"
+      },
+      {
+        "type": "example",
+        "title": "Writing a Custom Logger Middleware",
+        "code": "const express = require('express');\nconst app = express();\n\n// Custom logger middleware\nfunction requestLogger(req, res, next) {\n  const start = Date.now();\n  console.log(`--> ${req.method} ${req.url}`);\n\n  // Hook into the 'finish' event to log response time\n  res.on('finish', () => {\n    const ms = Date.now() - start;\n    console.log(`<-- ${res.statusCode} ${req.url} (${ms}ms)`);\n  });\n\n  next(); // Pass control to the next middleware / route handler\n}\n\n// Register it application-wide\napp.use(requestLogger);\n\napp.get('/', (req, res) => res.send('Home'));\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Types of Middleware"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Application-level</strong> — registered with <code>app.use()</code> or <code>app.METHOD()</code>; runs for every request (or a path prefix)",
+          "<strong>Router-level</strong> — bound to a specific <code>express.Router()</code> instance",
+          "<strong>Built-in</strong> — shipped with Express: <code>express.json()</code>, <code>express.urlencoded()</code>, <code>express.static()</code>",
+          "<strong>Third-party</strong> — npm packages such as <code>cors</code>, <code>helmet</code>, <code>morgan</code>, <code>compression</code>",
+          "<strong>Error-handling</strong> — four-argument functions <code>(err, req, res, next)</code> registered last in the stack"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Using Built-in and Third-party Middleware",
+        "code": "const express = require('express');\nconst cors    = require('cors');    // npm install cors\nconst helmet  = require('helmet');  // npm install helmet\nconst morgan  = require('morgan');  // npm install morgan\n\nconst app = express();\n\n// Security headers\napp.use(helmet());\n\n// Cross-Origin Resource Sharing\napp.use(cors({ origin: 'https://myapp.com' }));\n\n// HTTP request logger\napp.use(morgan('dev'));\n\n// Parse incoming JSON bodies\napp.use(express.json());\n\n// Parse URL-encoded form data\napp.use(express.urlencoded({ extended: true }));\n\napp.get('/', (req, res) => res.json({ message: 'Middleware stack active!' }));\n\napp.listen(3000);"
+      },
+      {
+        "type": "example",
+        "title": "Route-scoped Authentication Middleware",
+        "code": "function requireAuth(req, res, next) {\n  const token = req.headers.authorization?.split(' ')[1];\n  if (!token) {\n    return res.status(401).json({ error: 'No token provided' });\n  }\n  // In production: verify the token (e.g., jwt.verify)\n  req.user = { id: 1, name: 'Alice' }; // attach user to request\n  next();\n}\n\n// Apply only to /profile and /settings\napp.get('/profile',  requireAuth, (req, res) => res.json(req.user));\napp.get('/settings', requireAuth, (req, res) => res.json({ theme: 'dark' }));"
+      },
+      {
+        "type": "note",
+        "text": "Middleware order matters. Always register <code>express.json()</code> before route handlers that read <code>req.body</code>, and always register error-handling middleware <em>last</em> in the stack."
+      }
+    ]
+  },
+  "rest-api": {
+    "title": "Building REST APIs",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "A REST API (Representational State Transfer) exposes your application's data and functionality over HTTP using a predictable, resource-based URL structure and standard HTTP methods. Node.js with Express is one of the most popular stacks for building REST APIs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "REST Principles"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Stateless</strong> — every request contains all information needed; the server stores no session state",
+          "<strong>Resource-based URLs</strong> — URLs identify nouns (<code>/users</code>, <code>/products/42</code>), not verbs",
+          "<strong>HTTP methods as actions</strong> — GET (read), POST (create), PUT/PATCH (update), DELETE (remove)",
+          "<strong>Consistent status codes</strong> — 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Internal Server Error",
+          "<strong>JSON as the data format</strong> — set <code>Content-Type: application/json</code> on all responses"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Full In-memory REST API for /users",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\nlet users = [\n  { id: 1, name: 'Alice', email: 'alice@example.com' },\n  { id: 2, name: 'Bob',   email: 'bob@example.com'   }\n];\nlet nextId = 3;\n\n// GET /users — list all\napp.get('/users', (req, res) => {\n  res.json(users);\n});\n\n// GET /users/:id — get one\napp.get('/users/:id', (req, res) => {\n  const user = users.find(u => u.id === Number(req.params.id));\n  if (!user) return res.status(404).json({ error: 'User not found' });\n  res.json(user);\n});\n\n// POST /users — create\napp.post('/users', (req, res) => {\n  const { name, email } = req.body;\n  if (!name || !email) {\n    return res.status(400).json({ error: 'name and email are required' });\n  }\n  const user = { id: nextId++, name, email };\n  users.push(user);\n  res.status(201).json(user);\n});\n\n// PATCH /users/:id — partial update\napp.patch('/users/:id', (req, res) => {\n  const user = users.find(u => u.id === Number(req.params.id));\n  if (!user) return res.status(404).json({ error: 'User not found' });\n  Object.assign(user, req.body);\n  res.json(user);\n});\n\n// DELETE /users/:id — remove\napp.delete('/users/:id', (req, res) => {\n  const idx = users.findIndex(u => u.id === Number(req.params.id));\n  if (idx === -1) return res.status(404).json({ error: 'User not found' });\n  users.splice(idx, 1);\n  res.status(204).send(); // 204 No Content\n});\n\napp.listen(3000, () => console.log('REST API on http://localhost:3000'));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "API Versioning"
+      },
+      {
+        "type": "paragraph",
+        "text": "Version your API from the start by prefixing routes with <code>/api/v1</code>. This lets you introduce breaking changes in <code>/api/v2</code> without disrupting existing clients. In Express, mount a versioned router: <code>app.use('/api/v1', v1Router)</code>."
+      },
+      {
+        "type": "note",
+        "text": "For production APIs, add input validation (e.g., <strong>Zod</strong> or <strong>Joi</strong>), pagination on list endpoints, and rate limiting (<code>express-rate-limit</code>) to protect against abuse."
+      }
+    ]
+  },
+  "request-response": {
+    "title": "Request & Response",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Express enhances Node's raw <code>IncomingMessage</code> and <code>ServerResponse</code> objects into powerful <code>req</code> and <code>res</code> objects packed with convenience properties and methods. Knowing them well is essential for building robust APIs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Request Object (req)"
+      },
+      {
+        "type": "example",
+        "title": "Accessing Request Data",
+        "code": "app.get('/search', (req, res) => {\n  // URL: GET /search?q=node&page=2\n  console.log(req.query);          // { q: 'node', page: '2' }\n  console.log(req.method);         // 'GET'\n  console.log(req.url);            // '/search?q=node&page=2'\n  console.log(req.path);           // '/search'\n  console.log(req.hostname);       // 'localhost'\n  console.log(req.ip);             // '::1'\n  console.log(req.headers['user-agent']); // browser / curl string\n  console.log(req.get('Accept'));  // shorthand for req.headers.accept\n\n  res.json({ query: req.query.q, page: Number(req.query.page) || 1 });\n});\n\napp.post('/users/:id/posts', (req, res) => {\n  console.log(req.params.id); // dynamic path segment\n  console.log(req.body);      // parsed JSON body (requires express.json())\n  res.status(201).json({ ok: true });\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Response Object (res)"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>res.send(data)</code> — send a string, Buffer, or object; sets Content-Type automatically",
+          "<code>res.json(obj)</code> — serialize <code>obj</code> as JSON and set <code>Content-Type: application/json</code>",
+          "<code>res.status(code)</code> — set the HTTP status code; chainable: <code>res.status(404).json({...})</code>",
+          "<code>res.sendFile(path)</code> — stream a file from disk to the client",
+          "<code>res.redirect(url)</code> — send a 302 redirect (or pass a status code as first arg)",
+          "<code>res.set(header, value)</code> — set a response header",
+          "<code>res.cookie(name, value, options)</code> — set a cookie",
+          "<code>res.end()</code> — end the response without sending body data"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Practical Response Patterns",
+        "code": "const path = require('path');\n\n// Return structured JSON with metadata\napp.get('/api/v1/products', (req, res) => {\n  const products = [{ id: 1, name: 'Laptop', price: 999 }];\n  res\n    .status(200)\n    .set('X-Total-Count', products.length)\n    .json({ data: products, total: products.length });\n});\n\n// Send a file for download\napp.get('/download/report', (req, res) => {\n  res.set('Content-Disposition', 'attachment; filename=\"report.pdf\"');\n  res.sendFile(path.join(__dirname, 'files', 'report.pdf'));\n});\n\n// Redirect with a permanent 301\napp.get('/old-path', (req, res) => {\n  res.redirect(301, '/new-path');\n});"
+      },
+      {
+        "type": "note",
+        "text": "Call <code>res.json()</code> or <code>res.send()</code> exactly <em>once</em> per request. Calling them more than once will throw a <code>\"Cannot set headers after they are sent\"</code> error."
+      }
+    ]
+  },
+  "error-handling": {
+    "title": "Error Handling",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Robust error handling separates production-ready Node.js applications from fragile prototypes. Express provides a dedicated error-handling pipeline, and Node.js offers process-level hooks to catch anything that slips through."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Synchronous Errors in Routes"
+      },
+      {
+        "type": "paragraph",
+        "text": "If a synchronous error is thrown inside a route handler, Express automatically catches it and forwards it to the nearest <strong>error-handling middleware</strong> — a function with four parameters: <code>(err, req, res, next)</code>. This must be registered <em>after</em> all routes."
+      },
+      {
+        "type": "example",
+        "title": "Custom Error-Handling Middleware",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\n// A helper to create structured errors\nclass AppError extends Error {\n  constructor(message, statusCode) {\n    super(message);\n    this.statusCode = statusCode;\n  }\n}\n\n// Route that throws a custom error\napp.get('/users/:id', (req, res) => {\n  const id = Number(req.params.id);\n  if (id !== 1) throw new AppError('User not found', 404);\n  res.json({ id, name: 'Alice' });\n});\n\n// --- Error-handling middleware (must have 4 params) ---\napp.use((err, req, res, next) => {\n  const status  = err.statusCode || 500;\n  const message = err.message    || 'Internal Server Error';\n  console.error(`[Error] ${status} — ${message}`);\n  res.status(status).json({ error: message });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Async Error Handling"
+      },
+      {
+        "type": "example",
+        "title": "Passing Async Errors to next()",
+        "code": "const fs = require('fs/promises');\n\n// Option 1: try/catch + next(err) — works in Express 4\napp.get('/file', async (req, res, next) => {\n  try {\n    const content = await fs.readFile('./data.json', 'utf8');\n    res.json(JSON.parse(content));\n  } catch (err) {\n    next(err); // Forward to error-handling middleware\n  }\n});\n\n// Option 2: wrapper utility to avoid repeating try/catch\nconst asyncHandler = (fn) => (req, res, next) =>\n  Promise.resolve(fn(req, res, next)).catch(next);\n\napp.get('/file-v2', asyncHandler(async (req, res) => {\n  const content = await fs.readFile('./data.json', 'utf8');\n  res.json(JSON.parse(content));\n}));\n\n// Note: Express 5 handles async errors automatically — no wrapper needed."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Process-level Error Hooks"
+      },
+      {
+        "type": "example",
+        "title": "Handling Uncaught Exceptions and Rejected Promises",
+        "code": "// Catch synchronous errors that were never handled\nprocess.on('uncaughtException', (err) => {\n  console.error('Uncaught Exception:', err.message);\n  // Perform cleanup, then exit gracefully\n  process.exit(1);\n});\n\n// Catch promise rejections with no .catch() handler\nprocess.on('unhandledRejection', (reason, promise) => {\n  console.error('Unhandled Rejection at:', promise, 'reason:', reason);\n  process.exit(1);\n});"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Always define a centralized error-handling middleware as the last <code>app.use()</code> call",
+          "Never expose raw stack traces to API clients in production — log them server-side only",
+          "Use meaningful HTTP status codes: 400 for bad input, 401 for unauthenticated, 403 for forbidden, 404 for not found, 500 for unexpected server errors",
+          "Consider a library like <strong>http-errors</strong> (<code>npm install http-errors</code>) for convenient status-coded error factories"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "In Express 5 (RC), async route handlers that throw or return a rejected promise are automatically forwarded to error-handling middleware — no manual <code>try/catch</code> or <code>asyncHandler</code> wrapper is needed."
+      }
+    ]
+  },
+  "async": {
+    "title": "Async Programming",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Asynchronous programming is at the heart of Node.js. Understanding callbacks, Promises, and async/await lets you write non-blocking code that handles I/O efficiently without freezing your application."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "From Callbacks to Promises"
+      },
+      {
+        "type": "paragraph",
+        "text": "Node.js was originally built around <strong>callbacks</strong> — functions passed as arguments that are invoked when an async operation completes. While callbacks work, deeply nested callbacks create the infamous <em>callback hell</em>. <strong>Promises</strong> flatten this structure into a chainable <code>.then()/.catch()</code> pattern."
+      },
+      {
+        "type": "example",
+        "title": "Callbacks vs Promises vs Async/Await",
+        "code": "const fs = require('fs');\nconst { promisify } = require('util');\nconst readFileAsync = promisify(fs.readFile);\n\n// --- Callback style ---\nfs.readFile('./data.txt', 'utf8', (err, data) => {\n  if (err) return console.error('Error:', err);\n  console.log('Callback result:', data);\n});\n\n// --- Promise style ---\nreadFileAsync('./data.txt', 'utf8')\n  .then(data => console.log('Promise result:', data))\n  .catch(err => console.error('Error:', err));\n\n// --- Async/Await style ---\nasync function readData() {\n  try {\n    const data = await readFileAsync('./data.txt', 'utf8');\n    console.log('Async/Await result:', data);\n  } catch (err) {\n    console.error('Error:', err);\n  }\n}\n\nreadData();"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Running Promises in Parallel"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>Promise.all()</code> runs multiple async operations simultaneously and waits for all to finish. <code>Promise.allSettled()</code> is similar but does not short-circuit on failure — useful when you want all results regardless of individual errors."
+      },
+      {
+        "type": "example",
+        "title": "Promise.all and Promise.allSettled",
+        "code": "const fetch = require('node-fetch');\n\nasync function fetchMultiple() {\n  const urls = [\n    'https://jsonplaceholder.typicode.com/posts/1',\n    'https://jsonplaceholder.typicode.com/posts/2',\n    'https://jsonplaceholder.typicode.com/posts/3'\n  ];\n\n  // Runs all fetches in parallel\n  const responses = await Promise.all(urls.map(url => fetch(url)));\n  const data = await Promise.all(responses.map(r => r.json()));\n  console.log('All posts:', data.map(p => p.title));\n}\n\nfetchMultiple().catch(console.error);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use <code>async/await</code> for readable, linear async code",
+          "Always wrap <code>await</code> calls in <code>try/catch</code> to handle rejections",
+          "Use <code>Promise.all</code> to parallelise independent async tasks",
+          "Use <code>util.promisify</code> to convert Node.js callback-style APIs to Promises",
+          "Avoid mixing callbacks and Promises in the same flow"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Unhandled Promise rejections crash Node.js in versions 15 and above. Always attach a <code>.catch()</code> handler or use a top-level <code>try/catch</code> inside an async function."
+      }
+    ]
+  },
+  "environment": {
+    "title": "Environment Variables",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Environment variables let you configure your Node.js application without hardcoding sensitive values like API keys, database credentials, or port numbers. This is fundamental to building twelve-factor apps that run identically across development, staging, and production."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Accessing Environment Variables"
+      },
+      {
+        "type": "paragraph",
+        "text": "Node.js exposes all environment variables through the <code>process.env</code> object. Variables are always strings, so numeric values must be parsed explicitly with <code>parseInt()</code> or <code>Number()</code>."
+      },
+      {
+        "type": "example",
+        "title": "Reading process.env",
+        "code": "// Access individual variables\nconst port = parseInt(process.env.PORT, 10) || 3000;\nconst nodeEnv = process.env.NODE_ENV || 'development';\nconst dbUrl = process.env.DATABASE_URL;\n\nif (!dbUrl) {\n  console.error('DATABASE_URL is required');\n  process.exit(1);\n}\n\nconsole.log(`Running on port ${port} in ${nodeEnv} mode`);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Using dotenv"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code>dotenv</code> package reads a <code>.env</code> file from the project root and loads its key-value pairs into <code>process.env</code> at startup. It should be loaded as early as possible — typically at the very top of your entry file."
+      },
+      {
+        "type": "example",
+        "title": ".env file and dotenv setup",
+        "code": "// .env file (never commit this to version control)\n// PORT=3000\n// NODE_ENV=development\n// DATABASE_URL=mongodb://localhost:27017/myapp\n// JWT_SECRET=supersecretkey\n\n// app.js\nrequire('dotenv').config();\n\nconst express = require('express');\nconst app = express();\n\nconst PORT = process.env.PORT || 3000;\n\napp.get('/', (req, res) => {\n  res.json({ env: process.env.NODE_ENV });\n});\n\napp.listen(PORT, () => {\n  console.log(`Server started on port ${PORT}`);\n});"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Always add <code>.env</code> to your <code>.gitignore</code> — never commit secrets",
+          "Provide a <code>.env.example</code> file with placeholder values for teammates",
+          "Validate required variables at startup and exit early if any are missing",
+          "Use a separate <code>.env.production</code> on the server, or inject variables via the hosting platform",
+          "Consider using a secrets manager (AWS Secrets Manager, HashiCorp Vault) for production"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "From Node.js 20.6+, you can load a <code>.env</code> file natively with the <code>--env-file</code> flag: <code>node --env-file=.env app.js</code>, without needing the dotenv package."
+      }
+    ]
+  },
+  "mongodb": {
+    "title": "MongoDB & Mongoose",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "MongoDB is a NoSQL document database that pairs naturally with Node.js. Mongoose is the most popular ODM (Object Data Modelling) library for MongoDB in Node.js, providing schemas, validation, middleware, and query helpers on top of the native MongoDB driver."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Connecting to MongoDB"
+      },
+      {
+        "type": "paragraph",
+        "text": "Mongoose exposes a <code>connect()</code> method that accepts a connection string. Always store the connection string in an environment variable. Mongoose automatically buffers queries until the connection is ready, so you can safely define models before the connection is established."
+      },
+      {
+        "type": "example",
+        "title": "Connecting with Mongoose",
+        "code": "require('dotenv').config();\nconst mongoose = require('mongoose');\n\nasync function connectDB() {\n  try {\n    await mongoose.connect(process.env.MONGO_URI, {\n      useNewUrlParser: true,\n      useUnifiedTopology: true\n    });\n    console.log('MongoDB connected successfully');\n  } catch (err) {\n    console.error('MongoDB connection error:', err.message);\n    process.exit(1);\n  }\n}\n\nmodule.exports = connectDB;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Defining Schemas and Models"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <strong>Schema</strong> defines the structure and validation rules for documents. A <strong>Model</strong> is a constructor compiled from a Schema that provides a rich interface for querying and manipulating the collection."
+      },
+      {
+        "type": "example",
+        "title": "Schema, Model, and CRUD",
+        "code": "const mongoose = require('mongoose');\n\n// Define schema\nconst userSchema = new mongoose.Schema({\n  name:  { type: String, required: true, trim: true },\n  email: { type: String, required: true, unique: true, lowercase: true },\n  age:   { type: Number, min: 0 },\n  createdAt: { type: Date, default: Date.now }\n});\n\n// Compile model\nconst User = mongoose.model('User', userSchema);\n\nasync function demo() {\n  // Create\n  const user = await User.create({ name: 'Alice', email: 'alice@example.com', age: 28 });\n  console.log('Created:', user._id);\n\n  // Read\n  const found = await User.findById(user._id);\n  console.log('Found:', found.name);\n\n  // Update\n  await User.findByIdAndUpdate(user._id, { age: 29 }, { new: true });\n\n  // Delete\n  await User.findByIdAndDelete(user._id);\n  console.log('Deleted');\n}\n\nmodule.exports = { User };"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use <code>required</code>, <code>unique</code>, <code>min</code>, <code>max</code>, and custom validators in schemas",
+          "Use <code>.lean()</code> to return plain JS objects instead of Mongoose documents for better performance in read-only queries",
+          "Use Mongoose middleware (<code>pre</code>/<code>post</code> hooks) for logic like hashing passwords before saving",
+          "Index frequently queried fields with <code>index: true</code> in the schema",
+          "Use <code>populate()</code> to join related documents across collections"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always handle the <code>disconnect</code> event gracefully on process exit: <code>mongoose.connection.on('disconnected', () => console.log('MongoDB disconnected'));</code>"
+      }
+    ]
+  },
+  "authentication": {
+    "title": "Authentication & JWT",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Authentication verifies who a user is; authorisation determines what they can do. JSON Web Tokens (JWT) are a compact, self-contained mechanism to securely transmit user identity between a client and server without requiring session storage on the backend."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Password Hashing with bcrypt"
+      },
+      {
+        "type": "paragraph",
+        "text": "Passwords must <strong>never</strong> be stored in plain text. <code>bcrypt</code> applies a computationally expensive hashing algorithm with a configurable <em>salt rounds</em> factor, making brute-force attacks prohibitively slow."
+      },
+      {
+        "type": "example",
+        "title": "Hashing and comparing passwords",
+        "code": "const bcrypt = require('bcrypt');\n\nconst SALT_ROUNDS = 12;\n\n// Hash a password before storing\nasync function hashPassword(plainText) {\n  return bcrypt.hash(plainText, SALT_ROUNDS);\n}\n\n// Compare on login\nasync function verifyPassword(plainText, hash) {\n  return bcrypt.compare(plainText, hash);\n}\n\n(async () => {\n  const hash = await hashPassword('mySecret123');\n  console.log('Hash:', hash);\n\n  const isValid = await verifyPassword('mySecret123', hash);\n  console.log('Password valid:', isValid); // true\n})();"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Issuing and Verifying JWTs"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code>jsonwebtoken</code> library signs a payload with a secret (or private key) to produce a token string. The server verifies incoming tokens by re-checking the signature — no database lookup required."
+      },
+      {
+        "type": "example",
+        "title": "JWT sign, verify, and Express middleware",
+        "code": "require('dotenv').config();\nconst jwt = require('jsonwebtoken');\nconst express = require('express');\nconst app = express();\napp.use(express.json());\n\nconst SECRET = process.env.JWT_SECRET;\n\n// Issue token on login\napp.post('/login', async (req, res) => {\n  const { email, password } = req.body;\n  // ... validate credentials against DB ...\n  const token = jwt.sign({ userId: '123', email }, SECRET, { expiresIn: '1h' });\n  res.json({ token });\n});\n\n// Auth middleware\nfunction authenticate(req, res, next) {\n  const authHeader = req.headers['authorization'];\n  const token = authHeader && authHeader.split(' ')[1]; // Bearer <token>\n  if (!token) return res.status(401).json({ error: 'No token provided' });\n\n  try {\n    req.user = jwt.verify(token, SECRET);\n    next();\n  } catch {\n    res.status(403).json({ error: 'Invalid or expired token' });\n  }\n}\n\n// Protected route\napp.get('/profile', authenticate, (req, res) => {\n  res.json({ user: req.user });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use a long, random <code>JWT_SECRET</code> stored in environment variables — never hardcode it",
+          "Set a short expiry (<code>expiresIn: '1h'</code>) and implement refresh tokens for long-lived sessions",
+          "Transmit tokens in the <code>Authorization: Bearer</code> header, not in query strings",
+          "Store tokens in <code>httpOnly</code> cookies to protect against XSS when building SPAs",
+          "Revoke tokens via a blocklist or by issuing short-lived tokens with frequent rotation"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "JWT payloads are <em>base64-encoded, not encrypted</em>. Do not store sensitive data (passwords, full PII) in a JWT payload — anyone who holds the token can decode and read it."
+      }
+    ]
+  },
+  "file-upload": {
+    "title": "File Uploads",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Handling file uploads is a common requirement in web applications — from profile photos to document uploads. In Node.js, the most widely used middleware for processing multipart/form-data is Multer, which integrates seamlessly with Express."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic File Upload with Multer"
+      },
+      {
+        "type": "paragraph",
+        "text": "Multer intercepts incoming <code>multipart/form-data</code> requests and provides parsed file metadata plus the file buffer (or saved file path) through <code>req.file</code> (single) or <code>req.files</code> (multiple). You configure a storage engine — either disk storage or memory storage."
+      },
+      {
+        "type": "example",
+        "title": "Single and multiple file upload with Multer",
+        "code": "const express = require('express');\nconst multer  = require('multer');\nconst path    = require('path');\nconst app     = express();\n\n// Configure disk storage\nconst storage = multer.diskStorage({\n  destination: (req, file, cb) => cb(null, 'uploads/'),\n  filename:    (req, file, cb) => {\n    const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;\n    cb(null, unique + path.extname(file.originalname));\n  }\n});\n\n// Restrict to image files only\nconst fileFilter = (req, file, cb) => {\n  const allowed = /jpeg|jpg|png|webp/;\n  const ext = allowed.test(path.extname(file.originalname).toLowerCase());\n  const mime = allowed.test(file.mimetype);\n  cb(ext && mime ? null : new Error('Images only!'), ext && mime);\n};\n\nconst upload = multer({ storage, fileFilter, limits: { fileSize: 5 * 1024 * 1024 } }); // 5 MB\n\n// Single upload\napp.post('/upload/avatar', upload.single('avatar'), (req, res) => {\n  res.json({ filename: req.file.filename, size: req.file.size });\n});\n\n// Multiple uploads (up to 5 files)\napp.post('/upload/gallery', upload.array('photos', 5), (req, res) => {\n  res.json({ count: req.files.length, files: req.files.map(f => f.filename) });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Uploading to Cloud Storage"
+      },
+      {
+        "type": "paragraph",
+        "text": "For production applications, store files in cloud object storage (AWS S3, Google Cloud Storage, Cloudinary) rather than on the local filesystem. Use <code>multer-s3</code> or process the memory buffer from Multer and stream it to the cloud SDK."
+      },
+      {
+        "type": "example",
+        "title": "Stream upload to AWS S3",
+        "code": "require('dotenv').config();\nconst { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');\nconst multer  = require('multer');\nconst express = require('express');\nconst path    = require('path');\nconst app     = express();\n\nconst s3 = new S3Client({ region: process.env.AWS_REGION });\nconst upload = multer({ storage: multer.memoryStorage() });\n\napp.post('/upload', upload.single('file'), async (req, res) => {\n  const key = `uploads/${Date.now()}-${req.file.originalname}`;\n  await s3.send(new PutObjectCommand({\n    Bucket: process.env.S3_BUCKET,\n    Key:    key,\n    Body:   req.file.buffer,\n    ContentType: req.file.mimetype\n  }));\n  const url = `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${key}`;\n  res.json({ url });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Always validate file type and size on the server — never trust the client",
+          "Generate unique filenames to avoid overwriting existing files",
+          "Serve uploaded files through a CDN or presigned URLs rather than directly from the app server",
+          "Scan uploaded files for malware in security-sensitive applications",
+          "Clean up temporary files after processing when using memory storage"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The <code>uploads/</code> directory must exist before Multer can write to it. Create it programmatically with <code>fs.mkdirSync('uploads', { recursive: true })</code> at startup if needed."
+      }
+    ]
+  },
+  "websockets": {
+    "title": "WebSockets",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "WebSockets provide a full-duplex, persistent communication channel between a client and server. Unlike HTTP, where the client always initiates requests, WebSockets allow the server to push data to clients at any time — essential for real-time features like chat, live dashboards, and multiplayer games."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Getting Started with Socket.IO"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Socket.IO</strong> is the de-facto library for WebSockets in Node.js. It builds on top of the WebSocket protocol, adding automatic reconnection, room support, namespaces, and a fallback to HTTP long-polling for environments that block WebSockets."
+      },
+      {
+        "type": "example",
+        "title": "Real-time chat server with Socket.IO",
+        "code": "const express   = require('express');\nconst http      = require('http');\nconst { Server } = require('socket.io');\n\nconst app    = express();\nconst server = http.createServer(app);\nconst io     = new Server(server, {\n  cors: { origin: '*' }\n});\n\n// Track connected users\nconst users = {};\n\nio.on('connection', (socket) => {\n  console.log('Client connected:', socket.id);\n\n  // Register username\n  socket.on('join', (username) => {\n    users[socket.id] = username;\n    socket.broadcast.emit('system', `${username} joined the chat`);\n  });\n\n  // Broadcast incoming message to all clients\n  socket.on('message', (text) => {\n    const username = users[socket.id] || 'Anonymous';\n    io.emit('message', { username, text, timestamp: new Date().toISOString() });\n  });\n\n  socket.on('disconnect', () => {\n    const username = users[socket.id];\n    delete users[socket.id];\n    if (username) io.emit('system', `${username} left the chat`);\n  });\n});\n\nserver.listen(3000, () => console.log('Chat server running on :3000'));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Rooms and Namespaces"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Rooms</strong> are logical groupings of sockets — useful for sending messages only to users in a specific channel or game session. <strong>Namespaces</strong> partition a single Socket.IO server into independent communication channels, each with their own events."
+      },
+      {
+        "type": "example",
+        "title": "Joining and broadcasting to rooms",
+        "code": "io.on('connection', (socket) => {\n  // Join a named room\n  socket.on('joinRoom', (room) => {\n    socket.join(room);\n    socket.to(room).emit('system', `A new user joined ${room}`);\n  });\n\n  // Send only to members of a room\n  socket.on('roomMessage', ({ room, text }) => {\n    io.to(room).emit('message', { text, from: socket.id });\n  });\n\n  // Leave a room\n  socket.on('leaveRoom', (room) => {\n    socket.leave(room);\n    socket.to(room).emit('system', 'A user has left');\n  });\n});"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use <code>io.to(room).emit()</code> to broadcast to a room, <code>socket.to(room).emit()</code> to broadcast excluding the sender",
+          "Authenticate sockets using JWT in the Socket.IO middleware before allowing connections",
+          "Persist messages to a database for history — WebSockets only carry live traffic",
+          "Use Redis adapter (<code>@socket.io/redis-adapter</code>) when scaling across multiple server instances",
+          "Implement heartbeats to detect and clean up stale connections"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Socket.IO is not a pure WebSocket implementation. If you need raw WebSocket compatibility, use the <code>ws</code> package, which is lighter but lacks Socket.IO's higher-level features."
+      }
+    ]
+  },
+  "testing": {
+    "title": "Testing with Jest",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Testing gives you confidence that your code works correctly and prevents regressions as your application evolves. Jest is a zero-configuration JavaScript testing framework widely used in the Node.js ecosystem, offering a built-in test runner, assertion library, mocking utilities, and code coverage."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Writing Unit Tests"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <strong>unit test</strong> validates a single function or module in isolation. Jest uses <code>describe()</code> to group related tests and <code>it()</code> (or <code>test()</code>) for individual assertions. <code>expect()</code> chains with matchers like <code>.toBe()</code>, <code>.toEqual()</code>, or <code>.toThrow()</code>."
+      },
+      {
+        "type": "example",
+        "title": "Unit testing a utility function",
+        "code": "// utils/math.js\nfunction add(a, b)      { return a + b; }\nfunction divide(a, b)   {\n  if (b === 0) throw new Error('Cannot divide by zero');\n  return a / b;\n}\nmodule.exports = { add, divide };\n\n// utils/math.test.js\nconst { add, divide } = require('./math');\n\ndescribe('add()', () => {\n  it('returns the sum of two numbers', () => {\n    expect(add(2, 3)).toBe(5);\n  });\n  it('handles negative numbers', () => {\n    expect(add(-1, 1)).toBe(0);\n  });\n});\n\ndescribe('divide()', () => {\n  it('divides correctly', () => {\n    expect(divide(10, 2)).toBe(5);\n  });\n  it('throws on division by zero', () => {\n    expect(() => divide(10, 0)).toThrow('Cannot divide by zero');\n  });\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Testing Express Routes with Supertest"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>supertest</code> lets you make HTTP requests against your Express app without starting a real server. Combined with Jest, it enables <strong>integration tests</strong> that verify your route handlers, middleware, and response shapes end-to-end."
+      },
+      {
+        "type": "example",
+        "title": "Integration testing an Express route",
+        "code": "// app.js\nconst express = require('express');\nconst app = express();\napp.use(express.json());\n\napp.get('/users/:id', (req, res) => {\n  if (req.params.id === '1') {\n    return res.json({ id: 1, name: 'Alice' });\n  }\n  res.status(404).json({ error: 'User not found' });\n});\n\nmodule.exports = app;\n\n// app.test.js\nconst request = require('supertest');\nconst app     = require('./app');\n\ndescribe('GET /users/:id', () => {\n  it('returns a user for a valid id', async () => {\n    const res = await request(app).get('/users/1');\n    expect(res.statusCode).toBe(200);\n    expect(res.body).toEqual({ id: 1, name: 'Alice' });\n  });\n\n  it('returns 404 for an unknown user', async () => {\n    const res = await request(app).get('/users/999');\n    expect(res.statusCode).toBe(404);\n    expect(res.body.error).toBe('User not found');\n  });\n});"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Aim for a testing pyramid: many unit tests, fewer integration tests, minimal end-to-end tests",
+          "Use <code>jest.mock()</code> to mock modules like database clients or external APIs",
+          "Use <code>beforeEach</code>/<code>afterEach</code> to set up and tear down test state",
+          "Run tests with <code>--coverage</code> to identify untested code paths",
+          "Keep tests deterministic — avoid relying on real network calls or system time"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Name test files with a <code>.test.js</code> or <code>.spec.js</code> suffix, or place them in a <code>__tests__</code> folder. Jest automatically discovers and runs all matching files."
+      }
+    ]
+  },
+  "security": {
+    "title": "Security Best Practices",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Security is not an afterthought — it must be built into your Node.js application from day one. Understanding the most common vulnerabilities and applying defence-in-depth practices protects your users and your infrastructure."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Securing Express Applications"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Helmet</strong> sets security-related HTTP response headers in a single line. <strong>Rate limiting</strong> with <code>express-rate-limit</code> prevents brute-force and denial-of-service attacks by capping the number of requests a client can make in a time window."
+      },
+      {
+        "type": "example",
+        "title": "Helmet, rate limiting, and input sanitisation",
+        "code": "require('dotenv').config();\nconst express      = require('express');\nconst helmet       = require('helmet');\nconst rateLimit    = require('express-rate-limit');\nconst mongoSanitize = require('express-mongo-sanitize');\nconst xss          = require('xss-clean');\n\nconst app = express();\n\n// Set security HTTP headers\napp.use(helmet());\n\n// Body parsing (limit payload size)\napp.use(express.json({ limit: '10kb' }));\n\n// Sanitise against NoSQL injection (strips $ operators from req.body)\napp.use(mongoSanitize());\n\n// Sanitise against XSS (strips HTML tags from user input)\napp.use(xss());\n\n// Rate limit: 100 requests per 15 minutes per IP\nconst limiter = rateLimit({\n  windowMs: 15 * 60 * 1000,\n  max: 100,\n  message: 'Too many requests, please try again later.'\n});\napp.use('/api', limiter);\n\napp.get('/', (req, res) => res.send('Secured!'));\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Additional Security Measures"
+      },
+      {
+        "type": "paragraph",
+        "text": "Beyond middleware, proper dependency management is critical. Run <code>npm audit</code> regularly to identify known vulnerabilities in your dependencies. Use <code>npm audit fix</code> or <code>npm audit fix --force</code> with caution to apply patches."
+      },
+      {
+        "type": "example",
+        "title": "CORS configuration and dependency audit",
+        "code": "const cors = require('cors');\n\n// Restrict cross-origin requests to trusted origins only\nconst corsOptions = {\n  origin: (origin, callback) => {\n    const whitelist = ['https://myapp.com', 'https://admin.myapp.com'];\n    if (!origin || whitelist.includes(origin)) {\n      callback(null, true);\n    } else {\n      callback(new Error('Not allowed by CORS'));\n    }\n  },\n  methods: ['GET', 'POST', 'PUT', 'DELETE'],\n  allowedHeaders: ['Content-Type', 'Authorization'],\n  credentials: true\n};\n\napp.use(cors(corsOptions));\n\n// Run in terminal:\n// npm audit                 -- list known vulnerabilities\n// npm audit fix             -- auto-fix compatible patches\n// npx snyk test             -- deeper vulnerability scanning"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Never trust user input — validate and sanitise all incoming data",
+          "Use parameterised queries or an ORM to prevent SQL/NoSQL injection",
+          "Avoid <code>eval()</code>, <code>new Function()</code>, and dynamic <code>require()</code> with user-controlled input",
+          "Run Node.js processes as a non-root user in production",
+          "Keep dependencies up to date and remove unused packages",
+          "Enable HTTPS in production — use a reverse proxy like Nginx with Let's Encrypt"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Review the <a href='https://owasp.org/www-project-top-ten/' target='_blank'>OWASP Top 10</a> periodically. Many of its vulnerabilities (XSS, injection, broken auth) apply directly to Node.js/Express applications."
+      }
+    ]
+  },
+  "deployment": {
+    "title": "Deployment",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Deploying a Node.js application involves more than copying files to a server. You need to manage processes, handle crashes, serve traffic behind a reverse proxy, set up CI/CD pipelines, and choose the right hosting platform for your workload."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Process Management with PM2"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>PM2</strong> is the most popular process manager for Node.js in production. It keeps your application alive after crashes, enables zero-downtime reloads, manages log files, and can start multiple instances to utilise all CPU cores via cluster mode."
+      },
+      {
+        "type": "example",
+        "title": "PM2 ecosystem configuration",
+        "code": "// ecosystem.config.js\nmodule.exports = {\n  apps: [\n    {\n      name:          'my-api',\n      script:        './src/index.js',\n      instances:     'max',          // one instance per CPU core\n      exec_mode:     'cluster',\n      watch:         false,\n      env: {\n        NODE_ENV: 'production',\n        PORT:     3000\n      },\n      error_file:    './logs/err.log',\n      out_file:      './logs/out.log',\n      merge_logs:    true,\n      log_date_format: 'YYYY-MM-DD HH:mm:ss'\n    }\n  ]\n};\n\n// CLI commands:\n// pm2 start ecosystem.config.js   -- start the app\n// pm2 reload my-api               -- zero-downtime reload\n// pm2 logs my-api                 -- tail logs\n// pm2 monit                       -- live dashboard\n// pm2 save && pm2 startup         -- persist across server reboots"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Containerising with Docker"
+      },
+      {
+        "type": "paragraph",
+        "text": "Docker packages your application and all its dependencies into a portable image. This guarantees that the app runs identically on every machine — developer laptops, CI servers, and production hosts. A well-written <code>Dockerfile</code> uses a minimal base image and applies multi-stage builds to keep the final image small."
+      },
+      {
+        "type": "example",
+        "title": "Production-ready Dockerfile for Node.js",
+        "code": "# Stage 1: install dependencies\nFROM node:20-alpine AS deps\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --omit=dev\n\n# Stage 2: final image\nFROM node:20-alpine\nWORKDIR /app\n\n# Run as non-root user\nRUN addgroup -S appgroup && adduser -S appuser -G appgroup\nCOPY --from=deps /app/node_modules ./node_modules\nCOPY . .\n\nUSER appuser\nEXPOSE 3000\nCMD [\"node\", \"src/index.js\"]\n\n# Build & run:\n# docker build -t my-api .\n# docker run -p 3000:3000 --env-file .env.production my-api"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use a <code>.dockerignore</code> file to exclude <code>node_modules</code>, <code>.env</code>, and test files from the image",
+          "Pin the Node.js base image version (e.g. <code>node:20-alpine</code>) for reproducible builds",
+          "Use a reverse proxy (Nginx, Caddy) in front of Node.js to handle TLS, static files, and load balancing",
+          "Set up a CI/CD pipeline (GitHub Actions, GitLab CI) to automate tests and deployments",
+          "Monitor application health with tools like Datadog, New Relic, or the free Prometheus + Grafana stack"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Popular managed deployment platforms include <strong>Railway</strong>, <strong>Render</strong>, <strong>Fly.io</strong>, <strong>Heroku</strong>, and <strong>AWS Elastic Beanstalk</strong>. They handle infrastructure so you can focus on your application code."
+      }
+    ]
+  },
+  "next-steps": {
+    "title": "Next Steps & Ecosystem",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "You have covered the core of Node.js — from the event loop and modules to REST APIs, databases, authentication, real-time communication, testing, security, and deployment. The Node.js ecosystem is vast, and knowing where to go next will accelerate your growth as a backend developer."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Frameworks Beyond Express"
+      },
+      {
+        "type": "paragraph",
+        "text": "While Express is the most widely used Node.js framework, several modern alternatives offer better defaults, built-in TypeScript support, or higher performance. <strong>Fastify</strong> is a high-performance, schema-first framework. <strong>NestJS</strong> brings Angular-like architecture to the backend. <strong>Hono</strong> is an ultra-lightweight framework that runs on Edge runtimes too."
+      },
+      {
+        "type": "example",
+        "title": "Hello World in Fastify",
+        "code": "// npm install fastify\nconst Fastify = require('fastify');\nconst app = Fastify({ logger: true });\n\n// Fastify uses JSON Schema for validation and serialisation\napp.get('/users/:id', {\n  schema: {\n    params: {\n      type: 'object',\n      properties: { id: { type: 'integer' } }\n    },\n    response: {\n      200: {\n        type: 'object',\n        properties: { id: { type: 'integer' }, name: { type: 'string' } }\n      }\n    }\n  }\n}, async (request, reply) => {\n  return { id: request.params.id, name: 'Alice' };\n});\n\napp.listen({ port: 3000 }, (err) => {\n  if (err) { app.log.error(err); process.exit(1); }\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key Libraries to Explore"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Prisma</strong> — next-generation ORM with type-safe queries for SQL databases",
+          "<strong>BullMQ</strong> — robust job queue backed by Redis for background task processing",
+          "<strong>Zod</strong> — TypeScript-first schema validation library for request bodies and config",
+          "<strong>Winston / Pino</strong> — structured, performant logging for production applications",
+          "<strong>Passport.js</strong> — flexible authentication middleware supporting OAuth, SAML, and more",
+          "<strong>GraphQL Yoga / Apollo Server</strong> — build GraphQL APIs on top of Node.js",
+          "<strong>Drizzle ORM</strong> — lightweight, SQL-centric ORM with excellent TypeScript inference"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Where to Go From Here"
+      },
+      {
+        "type": "paragraph",
+        "text": "Real mastery comes from building real projects. Start with a full-stack project that combines everything you have learned: a REST or GraphQL API with authentication, a database, file uploads, background jobs, and a proper test suite. Deploy it to a cloud provider and monitor it in production."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Read the official <strong>Node.js documentation</strong> at nodejs.org — especially the API reference",
+          "Follow the <strong>Node.js Best Practices</strong> repository on GitHub (goldbergyoni/nodebestpractices)",
+          "Learn <strong>TypeScript</strong> to add static typing to your Node.js projects",
+          "Explore <strong>serverless</strong> and edge computing with AWS Lambda, Vercel Functions, or Cloudflare Workers",
+          "Study system design to understand how to architect scalable, resilient distributed systems"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The Node.js ecosystem moves quickly. Follow the <strong>Node.js blog</strong> and the <strong>OpenJS Foundation</strong> announcements to stay up to date with new LTS releases, security patches, and emerging patterns."
+      }
+    ]
+  }
+}

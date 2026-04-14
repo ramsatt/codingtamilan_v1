@@ -1,0 +1,1380 @@
+{
+  "intro": {
+    "title": "Node.js அறிமுகம்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js என்பது JavaScript-ஐ browser-க்கு வெளியே — server-side-ல run பண்ண உதவும் ஒரு powerful runtime environment. இதை கொண்டு web servers, APIs, real-time apps எல்லாம் build பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Node.js என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Node.js என்பது <strong>Chrome V8 JavaScript engine</strong> மேல் கட்டப்பட்ட ஒரு open-source, cross-platform runtime. 2009-ல Ryan Dahl இதை உருவாக்கினாங்க. Browser-ல மட்டுமே இயங்கிய JavaScript, இப்போ server-லயும் இயங்குது!"
+      },
+      {
+        "type": "header",
+        "level": 3,
+        "text": "Node.js எதுக்கெல்லாம் use ஆகுது?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "REST APIs மற்றும் backend services உருவாக்க",
+          "Real-time chat applications (WhatsApp மாதிரி) build பண்ண",
+          "File system operations — files read/write பண்ண",
+          "Streaming data process பண்ண",
+          "Command-line tools உருவாக்க",
+          "Microservices architecture implement பண்ண"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Node.js-ஓட சிறப்பு என்ன?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Non-blocking I/O</strong> — ஒரு operation முடியும் வரை wait பண்ணாம அடுத்த operation-ஐ process பண்ணும்",
+          "<strong>Single-threaded event loop</strong> — ஒரே thread-ல multiple requests handle பண்ணும்",
+          "<strong>Fast execution</strong> — V8 engine மூலம் JavaScript-ஐ machine code-ஆக compile பண்ணும்",
+          "<strong>NPM ecosystem</strong> — லட்சக்கணக்கான packages available",
+          "<strong>Same language</strong> — Frontend-லயும் Backend-லயும் JavaScript use பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "உங்கள் முதல் Node.js Program",
+        "code": "// hello.js\nconsole.log('Hello, Node.js!');\nconsole.log('Node version:', process.version);\nconsole.log('Platform:', process.platform);"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Node.js-ல <code>window</code> object இல்ல, ஆனா <code>process</code>, <code>global</code> மாதிரி special objects இருக்கு. Browser JavaScript-இலிருந்து இது வேற.</p>"
+      }
+    ]
+  },
+  "setup": {
+    "title": "Setup & Installation",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js-ஐ உங்கள் computer-ல install பண்ணி, first program run பண்றது எப்படின்னு பாக்கலாம். இது மிகவும் simple process."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Node.js Install பண்றது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>nodejs.org</strong> website-க்கு போய் <strong>LTS (Long Term Support)</strong> version download பண்ணுங்க. LTS version more stable-ஆ இருக்கும் — production projects-க்கு இதையே use பண்ணுங்க."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "nodejs.org-க்கு போங்க",
+          "LTS version download பண்ணுங்க",
+          "Installer run பண்ணி install பண்ணுங்க",
+          "Terminal திறந்து <code>node --version</code> type பண்ணுங்க",
+          "Version number வந்தா installation successful!"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Installation Verify பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "Terminal Commands",
+        "code": "# Node.js version check\nnode --version\n# v20.11.0 (or similar)\n\n# NPM version check\nnpm --version\n# 10.2.4 (or similar)\n\n# Node.js interactive mode (REPL)\nnode\n> console.log('Hello!')\nHello!\n> 2 + 3\n5\n> .exit"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "First Program எழுதுவோம்"
+      },
+      {
+        "type": "example",
+        "title": "app.js — First Node.js File",
+        "code": "// app.js\nconst message = 'வணக்கம், Node.js!';\nconsole.log(message);\n\n// Process information\nconsole.log('Node Version:', process.version);\nconsole.log('OS Platform:', process.platform);\nconsole.log('Current Directory:', process.cwd());"
+      },
+      {
+        "type": "example",
+        "title": "Terminal-ல Run பண்றது",
+        "code": "# File இருக்கற folder-க்கு navigate பண்ணுங்க\ncd my-project\n\n# Node.js-ல run பண்ணுங்க\nnode app.js\n\n# Output:\n# வணக்கம், Node.js!\n# Node Version: v20.11.0\n# OS Platform: darwin"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>Pro Tip:</strong> VS Code editor-ல Node.js development மிகவும் easy-ஆ இருக்கும். <strong>Integrated Terminal</strong> use பண்ணி directly run பண்ணலாம். <code>nodemon</code> package install பண்ணா file save பண்ணும்போதே auto-restart ஆகும்.</p>"
+      }
+    ]
+  },
+  "modules": {
+    "title": "Node.js Modules",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js-ல code-ஐ சிறு சிறு pieces-ஆக பிரிக்க <strong>modules</strong> use பண்றோம். ஒவ்வொரு file-உம் ஒரு module. இதனால் code reusable-ஆவும் maintainable-ஆவும் இருக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Module Types"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Built-in modules</strong> — Node.js-ஓட கூட வரும் (fs, path, http, os, etc.)",
+          "<strong>Local modules</strong> — நாம் create பண்ற custom files",
+          "<strong>Third-party modules</strong> — NPM மூலம் install பண்றவை (express, mongoose, etc.)"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "CommonJS Modules (require/module.exports)"
+      },
+      {
+        "type": "example",
+        "title": "math.js — Module Create பண்றது",
+        "code": "// math.js\nfunction add(a, b) {\n  return a + b;\n}\n\nfunction multiply(a, b) {\n  return a * b;\n}\n\nconst PI = 3.14159;\n\n// Export பண்றது\nmodule.exports = { add, multiply, PI };"
+      },
+      {
+        "type": "example",
+        "title": "app.js — Module Import பண்றது",
+        "code": "// app.js\nconst math = require('./math');\n\nconsole.log(math.add(5, 3));       // 8\nconsole.log(math.multiply(4, 6));  // 24\nconsole.log(math.PI);              // 3.14159\n\n// Destructuring-ஆலயும் import பண்ணலாம்\nconst { add, PI } = require('./math');\nconsole.log(add(10, 20));  // 30"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ES Modules (import/export)"
+      },
+      {
+        "type": "example",
+        "title": "ES Module Syntax (package.json-ல type: module வேணும்)",
+        "code": "// greet.mjs (or package.json with \"type\": \"module\")\nexport function greet(name) {\n  return `Hello, ${name}!`;\n}\n\nexport const version = '1.0.0';\n\nexport default function farewell(name) {\n  return `Goodbye, ${name}!`;\n}\n\n// main.mjs\nimport farewell, { greet, version } from './greet.mjs';\nconsole.log(greet('Tamil'));     // Hello, Tamil!\nconsole.log(farewell('Tamil'));  // Goodbye, Tamil!\nconsole.log(version);            // 1.0.0"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Built-in Modules Examples"
+      },
+      {
+        "type": "example",
+        "title": "Built-in OS Module",
+        "code": "const os = require('os');\n\nconsole.log('Hostname:', os.hostname());\nconsole.log('Platform:', os.platform());\nconsole.log('CPU Cores:', os.cpus().length);\nconsole.log('Free Memory:', Math.round(os.freemem() / 1024 / 1024), 'MB');\nconsole.log('Total Memory:', Math.round(os.totalmem() / 1024 / 1024), 'MB');"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> CommonJS (<code>require</code>) traditional Node.js way. ES Modules (<code>import</code>) modern JavaScript standard. New projects-ல ES Modules prefer பண்ணுங்க — ஆனா existing codebases CommonJS use பண்ணலாம்.</p>"
+      }
+    ]
+  },
+  "npm": {
+    "title": "NPM & Packages",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>NPM (Node Package Manager)</strong> என்பது world's largest software registry. 1 million-க்கும் மேற்பட்ட packages இதில் இருக்கு. Node.js install ஆகும்போதே NPM automatically வருது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "NPM Basic Commands"
+      },
+      {
+        "type": "example",
+        "title": "Important NPM Commands",
+        "code": "# Project initialize பண்றது\nnpm init\nnpm init -y  # Default values-ஓட\n\n# Package install பண்றது\nnpm install express          # Production dependency\nnpm install nodemon --save-dev  # Development only\nnpm i lodash                 # Shorthand\n\n# Global install\nnpm install -g nodemon\n\n# Package remove பண்றது\nnpm uninstall express\n\n# All dependencies install பண்றது (after clone)\nnpm install\n\n# Installed packages list\nnpm list\nnpm list --depth=0  # Top-level only"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "package.json புரிஞ்சுக்கலாம்"
+      },
+      {
+        "type": "example",
+        "title": "package.json — Project Configuration",
+        "code": "{\n  \"name\": \"my-node-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"My first Node.js application\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"start\": \"node index.js\",\n    \"dev\": \"nodemon index.js\",\n    \"test\": \"jest\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.18.2\",\n    \"mongoose\": \"^8.0.0\"\n  },\n  \"devDependencies\": {\n    \"nodemon\": \"^3.0.0\",\n    \"jest\": \"^29.0.0\"\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Popular Packages"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>express</strong> — Web framework, APIs உருவாக்க",
+          "<strong>mongoose</strong> — MongoDB-ஓட interact பண்ண",
+          "<strong>dotenv</strong> — Environment variables manage பண்ண",
+          "<strong>bcrypt</strong> — Passwords hash பண்ண",
+          "<strong>jsonwebtoken</strong> — JWT tokens create/verify பண்ண",
+          "<strong>axios</strong> — HTTP requests பண்ண",
+          "<strong>lodash</strong> — Utility functions",
+          "<strong>nodemon</strong> — Development-ல auto-restart"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Package Use பண்றது — lodash Example",
+        "code": "// npm install lodash\nconst _ = require('lodash');\n\nconst numbers = [1, 2, 3, 4, 5, 6];\nconsole.log(_.sum(numbers));        // 21\nconsole.log(_.max(numbers));        // 6\nconsole.log(_.chunk(numbers, 2));   // [[1,2],[3,4],[5,6]]\nconsole.log(_.shuffle(numbers));    // Random order\n\nconst users = [\n  { name: 'Priya', age: 25 },\n  { name: 'Kumar', age: 30 },\n  { name: 'Arun', age: 25 }\n];\nconst grouped = _.groupBy(users, 'age');\nconsole.log(grouped);"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> <code>node_modules</code> folder-ஐ <strong>.gitignore</strong>-ல add பண்ணுங்க — இதை git-ல commit பண்ணாதீங்க. <code>package.json</code> இருந்தா <code>npm install</code> பண்ணி எல்லாத்தையும் download பண்ணிக்கலாம்.</p>"
+      }
+    ]
+  },
+  "file-system": {
+    "title": "File System (fs)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js-ல <strong>fs module</strong> மூலம் files read மற்றும் write பண்ணலாம். இது built-in module, install தேவையில்லை. Sync மற்றும் Async — இரண்டு ways-லயும் files handle பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Read பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "fs.readFile — Async way (Recommended)",
+        "code": "const fs = require('fs');\n\n// Asynchronous read (callback)\nfs.readFile('data.txt', 'utf8', (err, data) => {\n  if (err) {\n    console.error('Error reading file:', err.message);\n    return;\n  }\n  console.log('File content:', data);\n});\n\n// Promise-based (fs.promises)\nconst fsPromises = require('fs').promises;\n\nasync function readFileAsync() {\n  try {\n    const data = await fsPromises.readFile('data.txt', 'utf8');\n    console.log(data);\n  } catch (err) {\n    console.error('Error:', err.message);\n  }\n}\n\nreadFileAsync();"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Write பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "fs.writeFile மற்றும் fs.appendFile",
+        "code": "const fs = require('fs');\n\n// New file create பண்றது (existing content overwrite ஆகும்)\nfs.writeFile('output.txt', 'Hello, Node.js!\\n', (err) => {\n  if (err) throw err;\n  console.log('File created successfully!');\n});\n\n// Existing file-ல content add பண்றது\nfs.appendFile('output.txt', 'New line added!\\n', (err) => {\n  if (err) throw err;\n  console.log('Content appended!');\n});\n\n// JSON data write பண்றது\nconst userData = { name: 'Priya', age: 25, city: 'Chennai' };\nfs.writeFile('user.json', JSON.stringify(userData, null, 2), (err) => {\n  if (err) throw err;\n  console.log('JSON file saved!');\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Directory Operations"
+      },
+      {
+        "type": "example",
+        "title": "Folder Create, List, Delete",
+        "code": "const fs = require('fs');\n\n// Folder create பண்றது\nfs.mkdir('myFolder', { recursive: true }, (err) => {\n  if (err) throw err;\n  console.log('Folder created!');\n});\n\n// Folder contents list பண்றது\nfs.readdir('.', (err, files) => {\n  if (err) throw err;\n  console.log('Files in current directory:');\n  files.forEach(file => console.log(' -', file));\n});\n\n// File exists-ஆ check பண்றது\nfs.access('data.txt', fs.constants.F_OK, (err) => {\n  console.log(err ? 'File does not exist' : 'File exists');\n});\n\n// File delete பண்றது\nfs.unlink('temp.txt', (err) => {\n  if (err) throw err;\n  console.log('File deleted!');\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Sync vs Async"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Async (Callback/Promise)</strong> — Non-blocking, server applications-க்கு best",
+          "<strong>Sync (readFileSync)</strong> — Blocking, startup scripts-க்கு மட்டும் use பண்ணுங்க",
+          "Production code-ல எப்பவும் async methods use பண்ணுங்க",
+          "<code>fs/promises</code> module use பண்ணா async/await syntax பயன்படுத்தலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> File paths-ல <code>__dirname</code> use பண்ணுங்க — relative paths சில நேரம் unexpected behavior காட்டும். Example: <code>path.join(__dirname, 'data.txt')</code></p>"
+      }
+    ]
+  },
+  "path": {
+    "title": "Path Module",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js-ல <strong>path module</strong> file மற்றும் directory paths-ஐ handle பண்ண use ஆகுது. Windows-ல backslash (<code>\\</code>), Mac/Linux-ல forward slash (<code>/</code>) — இந்த difference-ஐ path module automatically handle பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Important Path Methods"
+      },
+      {
+        "type": "example",
+        "title": "path module — Core Methods",
+        "code": "const path = require('path');\n\n// Path parts separate பண்றது\nconst filePath = '/users/priya/documents/data.txt';\n\nconsole.log(path.dirname(filePath));   // /users/priya/documents\nconsole.log(path.basename(filePath));  // data.txt\nconsole.log(path.extname(filePath));   // .txt\nconsole.log(path.basename(filePath, '.txt'));  // data\n\n// Path object-ஆக parse பண்றது\nconst parsed = path.parse(filePath);\nconsole.log(parsed);\n// { root: '/', dir: '/users/priya/documents',\n//   base: 'data.txt', ext: '.txt', name: 'data' }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Path Join மற்றும் Resolve"
+      },
+      {
+        "type": "example",
+        "title": "path.join மற்றும் path.resolve",
+        "code": "const path = require('path');\n\n// path.join — paths combine பண்றது\nconst fullPath = path.join('/users', 'priya', 'documents', 'file.txt');\nconsole.log(fullPath);\n// /users/priya/documents/file.txt\n\n// __dirname use பண்றது (current file location)\nconst configPath = path.join(__dirname, 'config', 'db.json');\nconsole.log(configPath);\n// /home/project/config/db.json\n\n// path.resolve — absolute path return பண்றது\nconst absolutePath = path.resolve('src', 'app.js');\nconsole.log(absolutePath);\n// /current/working/directory/src/app.js\n\n// Path normalize பண்றது (extra slashes remove)\nconst messy = '/users//priya/../priya/./docs';\nconsole.log(path.normalize(messy));\n// /users/priya/docs"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real World Usage"
+      },
+      {
+        "type": "example",
+        "title": "File Operations-ல path module use பண்றது",
+        "code": "const path = require('path');\nconst fs = require('fs');\n\n// Safe file path construction\nfunction readConfig(filename) {\n  const configDir = path.join(__dirname, 'config');\n  const filePath = path.join(configDir, filename);\n  \n  // Security: ensure file is within config directory\n  if (!filePath.startsWith(configDir)) {\n    throw new Error('Invalid file path!');\n  }\n  \n  return fs.readFileSync(filePath, 'utf8');\n}\n\n// Static files serve பண்றது\nconst staticDir = path.join(__dirname, 'public');\nconsole.log('Static files from:', staticDir);\n\n// Extension check\nfunction isImageFile(filename) {\n  const ext = path.extname(filename).toLowerCase();\n  return ['.jpg', '.jpeg', '.png', '.gif', '.webp'].includes(ext);\n}\n\nconsole.log(isImageFile('photo.jpg'));   // true\nconsole.log(isImageFile('data.txt'));    // false"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>path.join()</code> — Multiple path segments-ஐ OS-specific separator-ஓட join பண்ணும்",
+          "<code>path.resolve()</code> — Absolute path return பண்ணும்",
+          "<code>path.relative()</code> — ஒரு path-இலிருந்து இன்னொரு path-க்கு relative path return பண்ணும்",
+          "<code>__dirname</code> — Current file-ஓட directory path",
+          "<code>__filename</code> — Current file-ஓட full path"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> File paths hard-code பண்ணாதீங்க. எப்பவும் <code>path.join(__dirname, ...)</code> use பண்ணுங்க — இதனால் Windows, Mac, Linux எல்லாத்திலயும் correctly work ஆகும்.</p>"
+      }
+    ]
+  },
+  "events": {
+    "title": "EventEmitter",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js <strong>event-driven architecture</strong>-ல built ஆனது. <strong>EventEmitter</strong> class மூலம் custom events create பண்ணி, emit பண்ணி, listen பண்ணலாம். இது Node.js-ஓட core pattern."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "EventEmitter Basic Usage"
+      },
+      {
+        "type": "example",
+        "title": "Events Create மற்றும் Listen பண்றது",
+        "code": "const EventEmitter = require('events');\n\n// EventEmitter instance create பண்றது\nconst emitter = new EventEmitter();\n\n// Event listener register பண்றது\nemitter.on('greet', (name) => {\n  console.log(`Hello, ${name}!`);\n});\n\n// Event emit பண்றது\nemitter.emit('greet', 'Priya');  // Hello, Priya!\nemitter.emit('greet', 'Kumar');  // Hello, Kumar!\n\n// Once — ஒரே ஒரு முறை மட்டும் trigger ஆகும்\nemitter.once('welcome', () => {\n  console.log('Welcome! (only once)');\n});\n\nemitter.emit('welcome');  // Welcome! (only once)\nemitter.emit('welcome');  // Nothing happens"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom EventEmitter Class"
+      },
+      {
+        "type": "example",
+        "title": "Class-ஐ EventEmitter-ஆக Extend பண்றது",
+        "code": "const EventEmitter = require('events');\n\nclass OrderSystem extends EventEmitter {\n  constructor() {\n    super();\n    this.orders = [];\n  }\n\n  placeOrder(item, quantity) {\n    const order = { id: Date.now(), item, quantity };\n    this.orders.push(order);\n    this.emit('orderPlaced', order);\n    return order;\n  }\n\n  shipOrder(orderId) {\n    const order = this.orders.find(o => o.id === orderId);\n    if (order) {\n      this.emit('orderShipped', order);\n    }\n  }\n}\n\nconst shop = new OrderSystem();\n\nshop.on('orderPlaced', (order) => {\n  console.log(`Order placed: ${order.item} x${order.quantity}`);\n});\n\nshop.on('orderShipped', (order) => {\n  console.log(`Order ${order.id} has been shipped!`);\n});\n\nconst myOrder = shop.placeOrder('Laptop', 1);\nshop.shipOrder(myOrder.id);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Error Events"
+      },
+      {
+        "type": "example",
+        "title": "Error Event Handling",
+        "code": "const EventEmitter = require('events');\nconst emitter = new EventEmitter();\n\n// Error event handler register பண்றது (important!)\nemitter.on('error', (err) => {\n  console.error('Error occurred:', err.message);\n});\n\n// Error emit பண்றது\nemitter.emit('error', new Error('Something went wrong!'));\n// Error occurred: Something went wrong!\n\n// Listeners list பண்றது\nemitter.on('data', () => {});\nemitter.on('data', () => {});\nconsole.log('Listeners count:', emitter.listenerCount('data'));  // 2\n\n// Listener remove பண்றது\nemitter.removeAllListeners('data');\nconsole.log('After remove:', emitter.listenerCount('data'));  // 0"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>emitter.on(event, listener)</code> — Event listener add பண்ணும்",
+          "<code>emitter.once(event, listener)</code> — ஒரே ஒரு முறை trigger ஆகும் listener",
+          "<code>emitter.emit(event, ...args)</code> — Event trigger பண்ணும்",
+          "<code>emitter.removeListener(event, fn)</code> — Specific listener remove பண்ணும்",
+          "<code>emitter.removeAllListeners(event)</code> — All listeners remove பண்ணும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Error event-க்கு எப்பவும் listener add பண்ணுங்க. இல்லாட்டா unhandled error crash ஆகும். Node.js default-ஆ maximum 10 listeners allow பண்ணும் — <code>setMaxListeners()</code>-ல change பண்ணலாம்.</p>"
+      }
+    ]
+  },
+  "streams": {
+    "title": "Streams & Buffers",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js-ல <strong>Streams</strong> என்பது data-ஐ chunk-by-chunk process பண்ற mechanism. Large files-ஐ memory-ல முழுவதும் load பண்ணாம process பண்ணலாம் — இது memory-efficient மற்றும் fast."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Stream Types"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Readable</strong> — Data read பண்ண (fs.createReadStream, http request)",
+          "<strong>Writable</strong> — Data write பண்ண (fs.createWriteStream, http response)",
+          "<strong>Duplex</strong> — Read மற்றும் Write இரண்டும் (TCP sockets)",
+          "<strong>Transform</strong> — Data transform பண்ண (zlib compression, crypto)"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Streaming"
+      },
+      {
+        "type": "example",
+        "title": "Large File Read — Stream vs Normal",
+        "code": "const fs = require('fs');\n\n// Normal way — முழு file memory-ல load ஆகும் (Bad for large files)\nfs.readFile('large-file.txt', 'utf8', (err, data) => {\n  console.log(data);  // All at once\n});\n\n// Stream way — Chunk-by-chunk process (Memory efficient!)\nconst readStream = fs.createReadStream('large-file.txt', {\n  encoding: 'utf8',\n  highWaterMark: 64 * 1024  // 64KB chunks\n});\n\nreadStream.on('data', (chunk) => {\n  console.log('Received chunk, size:', chunk.length);\n});\n\nreadStream.on('end', () => {\n  console.log('File reading complete!');\n});\n\nreadStream.on('error', (err) => {\n  console.error('Error:', err.message);\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Pipe — Streams Connect பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "pipe() — File Copy பண்றது",
+        "code": "const fs = require('fs');\nconst zlib = require('zlib');\n\n// Simple file copy using pipe\nconst source = fs.createReadStream('input.txt');\nconst destination = fs.createWriteStream('output.txt');\n\nsource.pipe(destination);\n\nconsole.log('File copied!');\n\n// File compress பண்றது (gzip)\nconst readStream = fs.createReadStream('data.txt');\nconst writeStream = fs.createWriteStream('data.txt.gz');\nconst gzip = zlib.createGzip();\n\nreadStream\n  .pipe(gzip)\n  .pipe(writeStream)\n  .on('finish', () => console.log('File compressed!'));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Buffers புரிஞ்சுக்கலாம்"
+      },
+      {
+        "type": "example",
+        "title": "Buffer — Binary Data Handle பண்றது",
+        "code": "// Buffer create பண்றது\nconst buf1 = Buffer.from('Hello, Tamil!');\nconsole.log(buf1);          // <Buffer 48 65 6c 6c 6f 2c ...>\nconsole.log(buf1.toString()); // Hello, Tamil!\nconsole.log(buf1.length);     // 13\n\n// Buffer allocate பண்றது\nconst buf2 = Buffer.alloc(10);  // 10 bytes, zero-filled\nconsole.log(buf2);  // <Buffer 00 00 00 00 00 00 00 00 00 00>\n\n// Buffer encoding\nconst buf3 = Buffer.from('Hello', 'utf8');\nconsole.log(buf3.toString('base64'));  // SGVsbG8=\nconsole.log(buf3.toString('hex'));     // 48656c6c6f\n\n// Buffers combine பண்றது\nconst combined = Buffer.concat([buf1, buf3]);\nconsole.log(combined.toString());"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Video files, images, large CSVs போன்றவற்றை handle பண்ண Streams use பண்ணுங்க. Normal <code>readFile</code> large files-ஐ முழுவதும் memory-ல வைக்கும் — <strong>out of memory</strong> error வரலாம். Streams chunk-by-chunk process பண்ணும்.</p>"
+      }
+    ]
+  },
+  "http": {
+    "title": "HTTP Module",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js-ல built-in <strong>http module</strong> மூலம் web server create பண்ணலாம். Express மாதிரி framework இல்லாம basic HTTP server build பண்றது எப்படின்னு பாக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic HTTP Server"
+      },
+      {
+        "type": "example",
+        "title": "Simple HTTP Server Create பண்றது",
+        "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  // Response headers set பண்றது\n  res.writeHead(200, { 'Content-Type': 'text/html' });\n  \n  // Response send பண்றது\n  res.end('<h1>Hello from Node.js Server!</h1>');\n});\n\n// Port 3000-ல listen பண்றது\nserver.listen(3000, () => {\n  console.log('Server running at http://localhost:3000/');\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Routing Implement பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "URL-based Routing",
+        "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  const { url, method } = req;\n  \n  res.setHeader('Content-Type', 'application/json');\n  \n  if (url === '/' && method === 'GET') {\n    res.writeHead(200);\n    res.end(JSON.stringify({ message: 'Welcome to my API!' }));\n  \n  } else if (url === '/users' && method === 'GET') {\n    const users = [\n      { id: 1, name: 'Priya' },\n      { id: 2, name: 'Kumar' }\n    ];\n    res.writeHead(200);\n    res.end(JSON.stringify(users));\n  \n  } else if (url === '/users' && method === 'POST') {\n    let body = '';\n    req.on('data', chunk => body += chunk);\n    req.on('end', () => {\n      const newUser = JSON.parse(body);\n      res.writeHead(201);\n      res.end(JSON.stringify({ message: 'User created', user: newUser }));\n    });\n  \n  } else {\n    res.writeHead(404);\n    res.end(JSON.stringify({ error: 'Route not found' }));\n  }\n});\n\nserver.listen(3000, () => console.log('Server started on port 3000'));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTTP Client — Requests பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "http.get — External API Call பண்றது",
+        "code": "const https = require('https');\n\n// GET request பண்றது\nhttps.get('https://jsonplaceholder.typicode.com/users/1', (res) => {\n  let data = '';\n  \n  res.on('data', (chunk) => {\n    data += chunk;\n  });\n  \n  res.on('end', () => {\n    const user = JSON.parse(data);\n    console.log('User name:', user.name);\n    console.log('Email:', user.email);\n  });\n\n}).on('error', (err) => {\n  console.error('Request error:', err.message);\n});"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "HTTP module basic server-க்கு fine, ஆனா real projects-ல <strong>Express</strong> use பண்ணுங்க",
+          "<code>req.url</code> — Request URL",
+          "<code>req.method</code> — GET, POST, PUT, DELETE etc.",
+          "<code>res.writeHead(statusCode, headers)</code> — Response headers set",
+          "<code>res.end(data)</code> — Response send பண்ணி connection close"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Production applications-ல raw <code>http</code> module direct-ஆ use பண்றது avoid பண்ணுங்க. <strong>Express.js</strong> மிகவும் better developer experience தருது — routing, middleware, error handling எல்லாம் built-in இருக்கு.</p>"
+      }
+    ]
+  },
+  "express-intro": {
+    "title": "Express அறிமுகம்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>Express.js</strong> Node.js-ஓட most popular web framework. Minimal, flexible, un-opinionated — இதை வைத்து REST APIs, web applications எல்லாம் quickly build பண்ணலாம். Node.js-ல backend develop பண்றதற்கு Express ஒரு industry standard."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Express Setup பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "Express Install மற்றும் Basic Server",
+        "code": "# Express install பண்றது\nnpm init -y\nnpm install express\n\n// app.js\nconst express = require('express');\nconst app = express();\nconst PORT = 3000;\n\n// JSON body parse பண்ண middleware\napp.use(express.json());\napp.use(express.urlencoded({ extended: true }));\n\n// Basic route\napp.get('/', (req, res) => {\n  res.send('<h1>Hello from Express!</h1>');\n});\n\napp.get('/api', (req, res) => {\n  res.json({ message: 'Welcome to my API', version: '1.0' });\n});\n\n// Server start பண்றது\napp.listen(PORT, () => {\n  console.log(`Server running at http://localhost:${PORT}`);\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Response Methods"
+      },
+      {
+        "type": "example",
+        "title": "Different Response Types",
+        "code": "const express = require('express');\nconst app = express();\n\n// JSON response\napp.get('/json', (req, res) => {\n  res.json({ name: 'Priya', age: 25 });\n});\n\n// HTML response\napp.get('/html', (req, res) => {\n  res.send('<h1>Hello World</h1>');\n});\n\n// Status code with response\napp.get('/not-found', (req, res) => {\n  res.status(404).json({ error: 'Not found' });\n});\n\n// Redirect\napp.get('/old-page', (req, res) => {\n  res.redirect('/new-page');\n});\n\n// File send பண்றது\napp.get('/download', (req, res) => {\n  res.sendFile('/path/to/file.pdf');\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Express vs http Module"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Express-ல routing simple-ஆ இருக்கு — <code>app.get()</code>, <code>app.post()</code> etc.",
+          "Built-in middleware support — JSON parsing, static files serve",
+          "Error handling easy-ஆ configure பண்ணலாம்",
+          "Large ecosystem — thousands of compatible middleware packages",
+          "Request/Response objects-ல extra methods available"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Query Parameters மற்றும் URL Params",
+        "code": "const express = require('express');\nconst app = express();\n\n// URL parameters — /users/123\napp.get('/users/:id', (req, res) => {\n  const { id } = req.params;\n  res.json({ userId: id, message: `Getting user ${id}` });\n});\n\n// Query parameters — /search?name=Priya&city=Chennai\napp.get('/search', (req, res) => {\n  const { name, city } = req.query;\n  res.json({ searchFor: name, inCity: city });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Express 4.x-ல <code>express.json()</code> built-in. அதுக்கு முன்னாடி <code>body-parser</code> package தனியா install பண்ணணும். Express 5 (beta) async error handling automatically support பண்றது — future upgrade-க்கு தயாரா இருங்க.</p>"
+      }
+    ]
+  },
+  "routing": {
+    "title": "Express Routing",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Express Routing என்பது different URLs-க்கு different responses அனுப்புவது. Routes-ஐ organize பண்ண <strong>Router</strong> use பண்றோம் — இதனால் code modular-ஆ இருக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Routes"
+      },
+      {
+        "type": "example",
+        "title": "HTTP Methods — GET, POST, PUT, DELETE",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\nlet users = [\n  { id: 1, name: 'Priya', email: 'priya@example.com' },\n  { id: 2, name: 'Kumar', email: 'kumar@example.com' }\n];\n\n// GET — All users fetch பண்றது\napp.get('/users', (req, res) => {\n  res.json(users);\n});\n\n// GET — Single user fetch பண்றது\napp.get('/users/:id', (req, res) => {\n  const user = users.find(u => u.id === parseInt(req.params.id));\n  if (!user) return res.status(404).json({ error: 'User not found' });\n  res.json(user);\n});\n\n// POST — New user create பண்றது\napp.post('/users', (req, res) => {\n  const newUser = { id: users.length + 1, ...req.body };\n  users.push(newUser);\n  res.status(201).json(newUser);\n});\n\n// PUT — User update பண்றது\napp.put('/users/:id', (req, res) => {\n  const index = users.findIndex(u => u.id === parseInt(req.params.id));\n  if (index === -1) return res.status(404).json({ error: 'User not found' });\n  users[index] = { ...users[index], ...req.body };\n  res.json(users[index]);\n});\n\n// DELETE — User delete பண்றது\napp.delete('/users/:id', (req, res) => {\n  users = users.filter(u => u.id !== parseInt(req.params.id));\n  res.json({ message: 'User deleted successfully' });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Express Router — Modular Routing"
+      },
+      {
+        "type": "example",
+        "title": "routes/users.js — Separate Router File",
+        "code": "// routes/users.js\nconst express = require('express');\nconst router = express.Router();\n\nlet users = [{ id: 1, name: 'Priya' }];\n\nrouter.get('/', (req, res) => {\n  res.json(users);\n});\n\nrouter.get('/:id', (req, res) => {\n  const user = users.find(u => u.id === parseInt(req.params.id));\n  if (!user) return res.status(404).json({ error: 'Not found' });\n  res.json(user);\n});\n\nrouter.post('/', (req, res) => {\n  const user = { id: Date.now(), ...req.body };\n  users.push(user);\n  res.status(201).json(user);\n});\n\nmodule.exports = router;\n\n// app.js — Router-ஐ use பண்றது\nconst express = require('express');\nconst app = express();\nconst usersRouter = require('./routes/users');\n\napp.use(express.json());\napp.use('/users', usersRouter);\n// இப்போ /users, /users/:id எல்லாம் work ஆகும்\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Route Chaining மற்றும் Patterns"
+      },
+      {
+        "type": "example",
+        "title": "Route Chaining — app.route()",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\n// Method chaining — same path, different HTTP methods\napp.route('/products/:id')\n  .get((req, res) => {\n    res.json({ id: req.params.id, action: 'GET product' });\n  })\n  .put((req, res) => {\n    res.json({ id: req.params.id, action: 'UPDATE product', data: req.body });\n  })\n  .delete((req, res) => {\n    res.json({ id: req.params.id, action: 'DELETE product' });\n  });\n\n// Wildcard route — catch all\napp.get('*', (req, res) => {\n  res.status(404).json({ error: 'Route not found' });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Routes-ஐ features-ஆக organize பண்ணுங்க — <code>routes/users.js</code>, <code>routes/products.js</code>, <code>routes/auth.js</code> மாதிரி. இதனால் codebase maintainable-ஆ இருக்கும். Wildcard (<code>*</code>) route எப்பவும் last-ல வேணும்.</p>"
+      }
+    ]
+  },
+  "middleware": {
+    "title": "Middleware",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Express-ல <strong>Middleware</strong> என்பது Request மற்றும் Response cycle-ல middle-ல run ஆகும் functions. Authentication check, logging, data validation — இவற்றை middleware-ஆ write பண்றோம். இது Express-ஓட heart."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Middleware எப்படி Work ஆகுது?"
+      },
+      {
+        "type": "example",
+        "title": "Basic Middleware Structure",
+        "code": "const express = require('express');\nconst app = express();\n\n// Middleware signature: (req, res, next)\nconst logger = (req, res, next) => {\n  const time = new Date().toISOString();\n  console.log(`[${time}] ${req.method} ${req.url}`);\n  next();  // அடுத்த middleware அல்லது route-க்கு போகும்\n};\n\nconst requestTimer = (req, res, next) => {\n  req.startTime = Date.now();\n  res.on('finish', () => {\n    const duration = Date.now() - req.startTime;\n    console.log(`Request took ${duration}ms`);\n  });\n  next();\n};\n\n// Global middleware — எல்லா routes-க்கும் apply ஆகும்\napp.use(logger);\napp.use(requestTimer);\napp.use(express.json());\n\napp.get('/', (req, res) => {\n  res.json({ message: 'Hello!' });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Authentication Middleware"
+      },
+      {
+        "type": "example",
+        "title": "Token Validation Middleware",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\n// Authentication middleware\nconst authenticate = (req, res, next) => {\n  const authHeader = req.headers['authorization'];\n  \n  if (!authHeader) {\n    return res.status(401).json({ error: 'No token provided' });\n  }\n  \n  const token = authHeader.split(' ')[1]; // 'Bearer TOKEN'\n  \n  // Token verify பண்றது (simplified)\n  if (token !== 'valid-token-123') {\n    return res.status(403).json({ error: 'Invalid token' });\n  }\n  \n  req.user = { id: 1, name: 'Priya' }; // User info attach பண்றது\n  next();\n};\n\n// Public route — middleware இல்ல\napp.get('/public', (req, res) => {\n  res.json({ message: 'Public data' });\n});\n\n// Protected route — middleware இருக்கு\napp.get('/protected', authenticate, (req, res) => {\n  res.json({ message: 'Protected data', user: req.user });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Built-in மற்றும் Third-party Middleware"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>express.json()</code> — JSON request body parse பண்ணும்",
+          "<code>express.urlencoded()</code> — Form data parse பண்ணும்",
+          "<code>express.static()</code> — Static files (HTML, CSS, images) serve பண்ணும்",
+          "<code>cors</code> — Cross-Origin Resource Sharing handle பண்ணும்",
+          "<code>helmet</code> — Security headers add பண்ணும்",
+          "<code>morgan</code> — HTTP request logging",
+          "<code>compression</code> — Response gzip compression"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Error Handling Middleware",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\napp.get('/error-test', (req, res, next) => {\n  const error = new Error('Something went wrong!');\n  error.status = 500;\n  next(error);  // Error middleware-க்கு pass பண்றது\n});\n\n// Error handling middleware — 4 parameters வேணும்\napp.use((err, req, res, next) => {\n  console.error('Error:', err.message);\n  res.status(err.status || 500).json({\n    error: err.message,\n    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined\n  });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Middleware-ல <code>next()</code> call பண்ணாட்டா request hang ஆகும் — response எப்பவும் வராது. Error-ஐ next middleware-க்கு pass பண்ண <code>next(err)</code> use பண்ணுங்க. Error handling middleware-ல எப்பவும் 4 parameters இருக்கணும்: <code>(err, req, res, next)</code>.</p>"
+      }
+    ]
+  },
+  "rest-api": {
+    "title": "REST API உருவாக்கல்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "REST API என்பது HTTP methods (GET, POST, PUT, DELETE) use பண்ணி data exchange பண்ற standard. Node.js + Express-ஐ use பண்ணி production-ready REST API build பண்றது எப்படின்னு இப்போ பாக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "REST Principles"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Stateless</strong> — ஒவ்வொரு request-உம் independent-ஆ இருக்கும்",
+          "<strong>Resource-based URLs</strong> — /users, /products, /orders",
+          "<strong>HTTP Methods</strong> — GET (read), POST (create), PUT (update), DELETE (remove)",
+          "<strong>JSON format</strong> — Data exchange-க்கு JSON use பண்றது",
+          "<strong>Status codes</strong> — 200 OK, 201 Created, 404 Not Found, 500 Error"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Complete REST API Example"
+      },
+      {
+        "type": "example",
+        "title": "Products REST API — Full CRUD",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\n// In-memory data store\nlet products = [\n  { id: 1, name: 'Laptop', price: 50000, category: 'Electronics' },\n  { id: 2, name: 'Phone', price: 20000, category: 'Electronics' },\n  { id: 3, name: 'Book', price: 500, category: 'Education' }\n];\nlet nextId = 4;\n\n// GET /products — All products\napp.get('/products', (req, res) => {\n  const { category, minPrice, maxPrice } = req.query;\n  let result = [...products];\n  \n  if (category) result = result.filter(p => p.category === category);\n  if (minPrice) result = result.filter(p => p.price >= Number(minPrice));\n  if (maxPrice) result = result.filter(p => p.price <= Number(maxPrice));\n  \n  res.json({ count: result.length, products: result });\n});\n\n// GET /products/:id — Single product\napp.get('/products/:id', (req, res) => {\n  const product = products.find(p => p.id === parseInt(req.params.id));\n  if (!product) return res.status(404).json({ error: 'Product not found' });\n  res.json(product);\n});\n\n// POST /products — Create new product\napp.post('/products', (req, res) => {\n  const { name, price, category } = req.body;\n  if (!name || !price) {\n    return res.status(400).json({ error: 'Name and price are required' });\n  }\n  const product = { id: nextId++, name, price, category };\n  products.push(product);\n  res.status(201).json(product);\n});\n\n// PUT /products/:id — Update product\napp.put('/products/:id', (req, res) => {\n  const index = products.findIndex(p => p.id === parseInt(req.params.id));\n  if (index === -1) return res.status(404).json({ error: 'Product not found' });\n  products[index] = { ...products[index], ...req.body, id: products[index].id };\n  res.json(products[index]);\n});\n\n// DELETE /products/:id — Delete product\napp.delete('/products/:id', (req, res) => {\n  const index = products.findIndex(p => p.id === parseInt(req.params.id));\n  if (index === -1) return res.status(404).json({ error: 'Product not found' });\n  const deleted = products.splice(index, 1)[0];\n  res.json({ message: 'Product deleted', product: deleted });\n});\n\napp.listen(3000, () => console.log('Products API running on port 3000'));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTTP Status Codes"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>200 OK</strong> — Successful GET, PUT requests",
+          "<strong>201 Created</strong> — Successful POST (new resource created)",
+          "<strong>204 No Content</strong> — Successful DELETE (no body to return)",
+          "<strong>400 Bad Request</strong> — Invalid input data",
+          "<strong>401 Unauthorized</strong> — Authentication required",
+          "<strong>403 Forbidden</strong> — Authenticated but no permission",
+          "<strong>404 Not Found</strong> — Resource not found",
+          "<strong>500 Internal Server Error</strong> — Server-side error"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> REST API test பண்ண <strong>Postman</strong> அல்லது <strong>Thunder Client</strong> (VS Code extension) use பண்ணுங்க. API design-ல noun-based URLs use பண்ணுங்க (<code>/users</code>, not <code>/getUsers</code>). Actions-க்கு HTTP methods use பண்ணுங்க.</p>"
+      }
+    ]
+  },
+  "request-response": {
+    "title": "Request & Response",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Express-ல <strong>req (Request)</strong> object client-இடமிருந்து வரும் data-ஐ contain பண்ணும். <strong>res (Response)</strong> object client-க்கு data அனுப்ப use ஆகும். இவற்றை deep-ஆ புரிஞ்சுக்கணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Request Object (req)"
+      },
+      {
+        "type": "example",
+        "title": "req Object — All Important Properties",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\napp.post('/demo', (req, res) => {\n  // URL information\n  console.log('URL:', req.url);           // /demo\n  console.log('Path:', req.path);         // /demo\n  console.log('Method:', req.method);     // POST\n  console.log('Hostname:', req.hostname); // localhost\n  \n  // Parameters\n  console.log('Params:', req.params);  // URL params (:id)\n  console.log('Query:', req.query);    // ?name=Priya\n  console.log('Body:', req.body);      // POST body (JSON)\n  \n  // Headers\n  console.log('Headers:', req.headers);\n  console.log('Content-Type:', req.get('Content-Type'));\n  console.log('Authorization:', req.get('Authorization'));\n  \n  // IP address\n  console.log('IP:', req.ip);\n  console.log('Protocol:', req.protocol); // http or https\n  \n  res.json({ received: true });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Response Object (res)"
+      },
+      {
+        "type": "example",
+        "title": "res Object — Response Methods",
+        "code": "const express = require('express');\nconst app = express();\n\n// res.json() — JSON response\napp.get('/json', (req, res) => {\n  res.status(200).json({\n    success: true,\n    data: { name: 'Priya', city: 'Chennai' }\n  });\n});\n\n// Custom headers set பண்றது\napp.get('/custom-headers', (req, res) => {\n  res.set('X-Custom-Header', 'MyApp');\n  res.set('Cache-Control', 'no-cache');\n  res.json({ message: 'Custom headers set' });\n});\n\n// Cookie set பண்றது\napp.get('/set-cookie', (req, res) => {\n  res.cookie('sessionId', 'abc123', {\n    httpOnly: true,\n    secure: process.env.NODE_ENV === 'production',\n    maxAge: 24 * 60 * 60 * 1000  // 1 day\n  });\n  res.json({ message: 'Cookie set!' });\n});\n\n// Download response\napp.get('/download', (req, res) => {\n  res.download('/path/to/file.pdf', 'report.pdf');\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Request Validation"
+      },
+      {
+        "type": "example",
+        "title": "Input Validation Example",
+        "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\nfunction validateUser(req, res, next) {\n  const { name, email, age } = req.body;\n  const errors = [];\n  \n  if (!name || name.trim().length < 2) {\n    errors.push('Name must be at least 2 characters');\n  }\n  \n  const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n  if (!email || !emailRegex.test(email)) {\n    errors.push('Valid email is required');\n  }\n  \n  if (!age || age < 18 || age > 100) {\n    errors.push('Age must be between 18 and 100');\n  }\n  \n  if (errors.length > 0) {\n    return res.status(400).json({ errors });\n  }\n  \n  next();\n}\n\napp.post('/register', validateUser, (req, res) => {\n  res.status(201).json({\n    message: 'User registered successfully',\n    user: req.body\n  });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>req.params</code> — URL dynamic segments (<code>/users/:id</code>-ல <code>id</code>)",
+          "<code>req.query</code> — Query string parameters (<code>?page=1&limit=10</code>)",
+          "<code>req.body</code> — POST/PUT request body (JSON or form data)",
+          "<code>req.headers</code> — HTTP request headers",
+          "<code>req.cookies</code> — Cookie values (cookie-parser middleware தேவை)"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> User input-ஐ எப்பவும் validate பண்ணுங்க — trust பண்ணாதீங்க. <strong>express-validator</strong> package use பண்ணா validation easy-ஆ handle பண்ணலாம். Production-ல sensitive data response-ல include பண்ணாதீங்க.</p>"
+      }
+    ]
+  },
+  "error-handling": {
+    "title": "Error Handling",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js applications-ல proper error handling மிகவும் important. Unhandled errors server crash ஆக வைக்கும். Sync errors, async errors, operational errors, programmer errors — எல்லாவற்றையும் properly handle பண்றது எப்படின்னு பாக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Try-Catch Error Handling"
+      },
+      {
+        "type": "example",
+        "title": "Sync மற்றும் Async Error Handling",
+        "code": "const express = require('express');\nconst fs = require('fs').promises;\nconst app = express();\napp.use(express.json());\n\n// Sync error handling\napp.get('/sync-error', (req, res) => {\n  try {\n    const data = JSON.parse('invalid json {{{');\n    res.json(data);\n  } catch (err) {\n    res.status(400).json({ error: 'Invalid JSON: ' + err.message });\n  }\n});\n\n// Async error handling\napp.get('/file', async (req, res) => {\n  try {\n    const data = await fs.readFile('data.txt', 'utf8');\n    res.json({ content: data });\n  } catch (err) {\n    if (err.code === 'ENOENT') {\n      res.status(404).json({ error: 'File not found' });\n    } else {\n      res.status(500).json({ error: 'Server error' });\n    }\n  }\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Error Classes"
+      },
+      {
+        "type": "example",
+        "title": "Custom Error Types",
+        "code": "// errors/AppError.js\nclass AppError extends Error {\n  constructor(message, statusCode) {\n    super(message);\n    this.statusCode = statusCode;\n    this.isOperational = true;\n    Error.captureStackTrace(this, this.constructor);\n  }\n}\n\nclass NotFoundError extends AppError {\n  constructor(resource) {\n    super(`${resource} not found`, 404);\n  }\n}\n\nclass ValidationError extends AppError {\n  constructor(message) {\n    super(message, 400);\n  }\n}\n\n// Usage in routes\nconst express = require('express');\nconst app = express();\napp.use(express.json());\n\napp.get('/users/:id', (req, res, next) => {\n  const user = null; // Database-இல் இல்ல\n  if (!user) {\n    return next(new NotFoundError('User'));\n  }\n  res.json(user);\n});\n\n// Global error handler\napp.use((err, req, res, next) => {\n  const statusCode = err.statusCode || 500;\n  res.status(statusCode).json({\n    error: err.message,\n    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })\n  });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Unhandled Rejections மற்றும் Exceptions"
+      },
+      {
+        "type": "example",
+        "title": "Process-level Error Handling",
+        "code": "// Unhandled Promise rejections catch பண்றது\nprocess.on('unhandledRejection', (reason, promise) => {\n  console.error('Unhandled Rejection at:', promise);\n  console.error('Reason:', reason);\n  // Gracefully shutdown\n  process.exit(1);\n});\n\n// Uncaught exceptions catch பண்றது\nprocess.on('uncaughtException', (err) => {\n  console.error('Uncaught Exception:', err.message);\n  console.error(err.stack);\n  process.exit(1);\n});\n\n// Express async wrapper — try-catch எழுதாம\nconst asyncHandler = (fn) => (req, res, next) => {\n  Promise.resolve(fn(req, res, next)).catch(next);\n};\n\nconst express = require('express');\nconst app = express();\n\napp.get('/async-safe', asyncHandler(async (req, res) => {\n  // Error throw ஆனா automatically catch ஆகும்\n  const data = await someAsyncOperation();\n  res.json(data);\n}));\n\napp.listen(3000);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Operational errors (network issues, file not found) — gracefully handle பண்ணுங்க",
+          "Programmer errors (bugs) — fix பண்ணுங்க, hide பண்ணாதீங்க",
+          "Production-ல stack traces client-க்கு send பண்ணாதீங்க",
+          "<code>express-async-errors</code> package use பண்ணா async errors automatically catch ஆகும்",
+          "Error logs-ஐ file அல்லது logging service-ல save பண்ணுங்க"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Express 5-ல async route handlers automatically try-catch wrap ஆகும். அதுவரை <code>asyncHandler</code> wrapper அல்லது <code>express-async-errors</code> package use பண்ணுங்க — manual try-catch எல்லா இடத்திலயும் எழுதுவது tedious.</p>"
+      }
+    ]
+  },
+  "async": {
+    "title": "Async Programming",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js-ஓட superpower அதன் <strong>asynchronous nature</strong>. Callbacks, Promises, Async/Await — மூன்று ways-லயும் async code write பண்ணலாம். Modern code-ல <strong>async/await</strong> most readable மற்றும் recommended."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Callback Hell மற்றும் இதன் Solution"
+      },
+      {
+        "type": "example",
+        "title": "Callback Hell vs Async/Await",
+        "code": "const fs = require('fs');\n\n// Callback Hell — reading files one by one (messy!)\nfs.readFile('file1.txt', 'utf8', (err, data1) => {\n  if (err) throw err;\n  fs.readFile('file2.txt', 'utf8', (err, data2) => {\n    if (err) throw err;\n    fs.readFile('file3.txt', 'utf8', (err, data3) => {\n      if (err) throw err;\n      console.log(data1, data2, data3); // Deep nesting!\n    });\n  });\n});\n\n// Async/Await way — Much cleaner!\nconst fsPromises = require('fs').promises;\n\nasync function readFiles() {\n  try {\n    const data1 = await fsPromises.readFile('file1.txt', 'utf8');\n    const data2 = await fsPromises.readFile('file2.txt', 'utf8');\n    const data3 = await fsPromises.readFile('file3.txt', 'utf8');\n    console.log(data1, data2, data3);\n  } catch (err) {\n    console.error('Error:', err.message);\n  }\n}\n\nreadFiles();"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Promise.all — Parallel Execution"
+      },
+      {
+        "type": "example",
+        "title": "Multiple Operations Parallel-ஆ Run பண்றது",
+        "code": "const fsPromises = require('fs').promises;\n\n// Sequential — ஒவ்வொன்னா (slow)\nasync function sequentialRead() {\n  const start = Date.now();\n  const data1 = await fsPromises.readFile('file1.txt', 'utf8');\n  const data2 = await fsPromises.readFile('file2.txt', 'utf8');\n  console.log(`Sequential: ${Date.now() - start}ms`);\n}\n\n// Parallel — ஒரே நேரத்தில் (fast!)\nasync function parallelRead() {\n  const start = Date.now();\n  const [data1, data2] = await Promise.all([\n    fsPromises.readFile('file1.txt', 'utf8'),\n    fsPromises.readFile('file2.txt', 'utf8')\n  ]);\n  console.log(`Parallel: ${Date.now() - start}ms`);\n}\n\n// Promise.allSettled — ஒரு error-ல எல்லாம் fail ஆகாது\nasync function safeParallel() {\n  const results = await Promise.allSettled([\n    fetch('https://api1.example.com/data'),\n    fetch('https://api2.example.com/data'),\n    fetch('https://api3.example.com/data')\n  ]);\n  \n  results.forEach((result, index) => {\n    if (result.status === 'fulfilled') {\n      console.log(`API ${index + 1} success:`, result.value);\n    } else {\n      console.log(`API ${index + 1} failed:`, result.reason);\n    }\n  });\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Event Loop புரிஞ்சுக்கலாம்"
+      },
+      {
+        "type": "example",
+        "title": "Event Loop — Execution Order",
+        "code": "console.log('1. Start');  // Sync — first\n\nsetTimeout(() => {\n  console.log('4. setTimeout');  // Macro task — last\n}, 0);\n\nPromise.resolve().then(() => {\n  console.log('3. Promise');  // Micro task — before setTimeout\n});\n\nconsole.log('2. End');  // Sync — second\n\n// Output:\n// 1. Start\n// 2. End\n// 3. Promise\n// 4. setTimeout\n\n// Real-world example\nasync function fetchUserData(userId) {\n  console.log(`Fetching user ${userId}...`);\n  \n  // Simulate API call\n  const user = await new Promise((resolve) => {\n    setTimeout(() => resolve({ id: userId, name: 'Priya' }), 100);\n  });\n  \n  console.log('User fetched:', user.name);\n  return user;\n}\n\nfetchUserData(1);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Synchronous code</strong> — Call stack-ல execute ஆகும்",
+          "<strong>Microtasks</strong> (Promises) — Sync code முடிஞ்சதும் execute ஆகும்",
+          "<strong>Macrotasks</strong> (setTimeout, setInterval) — Microtasks முடிஞ்சதும் execute ஆகும்",
+          "<code>async/await</code> — Promise-ஓட syntactic sugar, code readable-ஆ இருக்கும்",
+          "CPU-intensive work-க்கு <strong>Worker Threads</strong> use பண்ணுங்க"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Async/await use பண்ணும்போது <code>await</code>-ஐ <code>async</code> function-க்கு வெளியே use பண்ண முடியாது. Top-level await ES2022 modules-ல available. Independent operations-ஐ <code>Promise.all()</code>-ஓட parallel-ஆ run பண்ணுங்க — performance இரட்டிப்பாகும்.</p>"
+      }
+    ]
+  },
+  "environment": {
+    "title": "Environment Variables",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Environment variables-ல API keys, database URLs, passwords போன்ற sensitive configuration-ஐ store பண்றோம். இவற்றை code-ல hard-code பண்றது dangerous — <strong>.env files</strong> மற்றும் <strong>dotenv</strong> package use பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "dotenv Setup"
+      },
+      {
+        "type": "example",
+        "title": ".env File மற்றும் dotenv Usage",
+        "code": "# .env file (project root-ல)\nPORT=3000\nNODE_ENV=development\nDB_URL=mongodb://localhost:27017/myapp\nJWT_SECRET=my-super-secret-key-123\nAPI_KEY=sk-abcdef123456\nMAIL_FROM=noreply@example.com\n\n# Install dotenv\nnpm install dotenv\n\n// app.js — dotenv load பண்றது (file-ஓட top-ல)\nrequire('dotenv').config();\n\n// Environment variables access பண்றது\nconst PORT = process.env.PORT || 3000;\nconst DB_URL = process.env.DB_URL;\nconst JWT_SECRET = process.env.JWT_SECRET;\n\nconsole.log('Running on port:', PORT);\nconsole.log('Environment:', process.env.NODE_ENV);\n\nconst express = require('express');\nconst app = express();\n\napp.listen(PORT, () => {\n  console.log(`Server started on port ${PORT}`);\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Config Module Pattern"
+      },
+      {
+        "type": "example",
+        "title": "config/config.js — Centralized Configuration",
+        "code": "// config/config.js\nrequire('dotenv').config();\n\nconst config = {\n  app: {\n    port: parseInt(process.env.PORT) || 3000,\n    env: process.env.NODE_ENV || 'development',\n    name: process.env.APP_NAME || 'MyApp'\n  },\n  database: {\n    url: process.env.DB_URL,\n    name: process.env.DB_NAME || 'mydb'\n  },\n  jwt: {\n    secret: process.env.JWT_SECRET,\n    expiresIn: process.env.JWT_EXPIRES || '7d'\n  },\n  mail: {\n    host: process.env.MAIL_HOST,\n    port: parseInt(process.env.MAIL_PORT) || 587,\n    user: process.env.MAIL_USER,\n    pass: process.env.MAIL_PASS\n  }\n};\n\n// Required variables check பண்றது\nconst required = ['DB_URL', 'JWT_SECRET'];\nconst missing = required.filter(key => !process.env[key]);\nif (missing.length > 0) {\n  throw new Error(`Missing env variables: ${missing.join(', ')}`);\n}\n\nmodule.exports = config;\n\n// Usage\nconst config = require('./config/config');\nconsole.log('DB URL:', config.database.url);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Different Environments"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>.env</code> — Local development (never commit to git!)",
+          "<code>.env.example</code> — Template file (commit to git — actual values இல்லாம)",
+          "<code>.env.test</code> — Test environment variables",
+          "Production-ல environment variables server config-ல set பண்ணுங்க (Heroku, Railway, Vercel config)",
+          "<strong>.gitignore</strong>-ல <code>.env</code>-ஐ add பண்றது mandatory!"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>முக்கிய எச்சரிக்கை:</strong> <code>.env</code> file-ஐ <strong>எப்பவும் git commit பண்ணாதீங்க!</strong> API keys, passwords GitHub-ல போனா உடனே invalidate பண்ணுங்க. <code>.gitignore</code>-ல <code>.env</code> add பண்றது மறக்காதீங்க. Teammates-க்கு <code>.env.example</code> share பண்ணுங்க.</p>"
+      }
+    ]
+  },
+  "mongodb": {
+    "title": "MongoDB & Mongoose",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>MongoDB</strong> ஒரு NoSQL database — data-ஐ JSON-like documents-ஆக store பண்ணும். <strong>Mongoose</strong> Node.js-ல MongoDB-ஓட interact பண்ண உதவும் ODM (Object Document Mapper). இவை இரண்டும் modern Node.js apps-ல widely use ஆகுது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Mongoose Setup மற்றும் Connection"
+      },
+      {
+        "type": "example",
+        "title": "MongoDB Connect பண்றது",
+        "code": "// npm install mongoose\nconst mongoose = require('mongoose');\nrequire('dotenv').config();\n\nasync function connectDB() {\n  try {\n    await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/myapp');\n    console.log('MongoDB connected successfully!');\n  } catch (err) {\n    console.error('MongoDB connection error:', err.message);\n    process.exit(1);\n  }\n}\n\nmongoose.connection.on('disconnected', () => {\n  console.log('MongoDB disconnected');\n});\n\nconnectDB();"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Schema மற்றும் Model"
+      },
+      {
+        "type": "example",
+        "title": "User Schema மற்றும் Model Define பண்றது",
+        "code": "const mongoose = require('mongoose');\n\n// Schema define பண்றது\nconst userSchema = new mongoose.Schema({\n  name: {\n    type: String,\n    required: [true, 'Name is required'],\n    trim: true,\n    minlength: 2,\n    maxlength: 50\n  },\n  email: {\n    type: String,\n    required: [true, 'Email is required'],\n    unique: true,\n    lowercase: true,\n    match: [/^\\S+@\\S+\\.\\S+$/, 'Invalid email']\n  },\n  password: {\n    type: String,\n    required: true,\n    minlength: 6,\n    select: false  // Query-ல default-ஆ return ஆகாது\n  },\n  role: {\n    type: String,\n    enum: ['user', 'admin', 'moderator'],\n    default: 'user'\n  },\n  createdAt: {\n    type: Date,\n    default: Date.now\n  }\n}, {\n  timestamps: true  // createdAt, updatedAt auto add ஆகும்\n});\n\n// Model create பண்றது\nconst User = mongoose.model('User', userSchema);\n\nmodule.exports = User;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "CRUD Operations"
+      },
+      {
+        "type": "example",
+        "title": "Mongoose CRUD — Create, Read, Update, Delete",
+        "code": "const User = require('./models/User');\n\nasync function crudExamples() {\n  // CREATE — New user save பண்றது\n  const newUser = new User({\n    name: 'Priya',\n    email: 'priya@example.com',\n    password: 'hashedpassword'\n  });\n  const savedUser = await newUser.save();\n  console.log('Created:', savedUser._id);\n  \n  // READ — Users fetch பண்றது\n  const allUsers = await User.find();\n  const user = await User.findById(savedUser._id);\n  const priya = await User.findOne({ email: 'priya@example.com' });\n  \n  // Filter, Sort, Limit\n  const admins = await User.find({ role: 'admin' })\n    .select('name email')  // Only these fields\n    .sort({ createdAt: -1 })\n    .limit(10)\n    .skip(0);\n  \n  // UPDATE — User update பண்றது\n  const updated = await User.findByIdAndUpdate(\n    savedUser._id,\n    { name: 'Priya Kumar' },\n    { new: true, runValidators: true }  // Updated doc return பண்ணும்\n  );\n  \n  // DELETE — User delete பண்றது\n  await User.findByIdAndDelete(savedUser._id);\n  console.log('User deleted');\n}\n\ncrudExamples();"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>Model.find()</code> — Multiple documents fetch",
+          "<code>Model.findOne()</code> — Single document fetch",
+          "<code>Model.findById(id)</code> — ID-ல document fetch",
+          "<code>Model.findByIdAndUpdate()</code> — ID-ல update",
+          "<code>Model.findByIdAndDelete()</code> — ID-ல delete",
+          "<code>Model.countDocuments()</code> — Count of documents"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> MongoDB Atlas-ல free cloud database பெறலாம் — local MongoDB install தேவையில்லை. Connection string-ஐ <code>.env</code>-ல store பண்ணுங்க. Passwords-ஐ database-ல store பண்றதுக்கு முன்னாடி <strong>bcrypt</strong>-ஓட hash பண்ணுங்க.</p>"
+      }
+    ]
+  },
+  "authentication": {
+    "title": "Authentication & JWT",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Web applications-ல <strong>Authentication</strong> (நீங்க யார்?) மற்றும் <strong>Authorization</strong> (உங்களுக்கு permission இருக்கா?) மிகவும் important. <strong>JWT (JSON Web Token)</strong>-ஐ use பண்ணி stateless authentication implement பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JWT எப்படி Work ஆகுது?"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "User login பண்றார் (email + password)",
+          "Server password verify பண்ணும்",
+          "Server ஒரு JWT token generate பண்ணி client-க்கு அனுப்பும்",
+          "Client அந்த token-ஐ store பண்ணும் (localStorage or cookie)",
+          "அடுத்த requests-ல client token அனுப்பும்",
+          "Server token verify பண்ணி access allow பண்ணும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JWT Authentication Implementation"
+      },
+      {
+        "type": "example",
+        "title": "Login, Token Generation, Protected Routes",
+        "code": "// npm install jsonwebtoken bcrypt\nconst express = require('express');\nconst jwt = require('jsonwebtoken');\nconst bcrypt = require('bcrypt');\nrequire('dotenv').config();\n\nconst app = express();\napp.use(express.json());\n\n// In-memory users (real app-ல database use பண்ணுங்க)\nconst users = [];\n\n// Register route\napp.post('/auth/register', async (req, res) => {\n  try {\n    const { name, email, password } = req.body;\n    \n    // Check if user exists\n    if (users.find(u => u.email === email)) {\n      return res.status(400).json({ error: 'Email already registered' });\n    }\n    \n    // Password hash பண்றது\n    const hashedPassword = await bcrypt.hash(password, 12);\n    \n    const user = { id: Date.now(), name, email, password: hashedPassword };\n    users.push(user);\n    \n    res.status(201).json({ message: 'Registered successfully', userId: user.id });\n  } catch (err) {\n    res.status(500).json({ error: err.message });\n  }\n});\n\n// Login route\napp.post('/auth/login', async (req, res) => {\n  try {\n    const { email, password } = req.body;\n    \n    const user = users.find(u => u.email === email);\n    if (!user) return res.status(401).json({ error: 'Invalid credentials' });\n    \n    // Password verify பண்றது\n    const isMatch = await bcrypt.compare(password, user.password);\n    if (!isMatch) return res.status(401).json({ error: 'Invalid credentials' });\n    \n    // JWT token generate பண்றது\n    const token = jwt.sign(\n      { userId: user.id, email: user.email },\n      process.env.JWT_SECRET,\n      { expiresIn: '7d' }\n    );\n    \n    res.json({ token, user: { id: user.id, name: user.name } });\n  } catch (err) {\n    res.status(500).json({ error: err.message });\n  }\n});\n\n// Auth middleware\nconst protect = (req, res, next) => {\n  const token = req.headers.authorization?.split(' ')[1];\n  if (!token) return res.status(401).json({ error: 'No token' });\n  \n  try {\n    const decoded = jwt.verify(token, process.env.JWT_SECRET);\n    req.user = decoded;\n    next();\n  } catch (err) {\n    res.status(401).json({ error: 'Invalid token' });\n  }\n};\n\n// Protected route\napp.get('/profile', protect, (req, res) => {\n  res.json({ message: 'Profile data', user: req.user });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Passwords எப்பவும் <strong>bcrypt</strong>-ஓட hash பண்ணுங்க — plain text store பண்ணாதீங்க",
+          "JWT secret key strong-ஆ இருக்கணும் — <code>.env</code>-ல store பண்ணுங்க",
+          "Token expiry time set பண்ணுங்க (<code>expiresIn: '7d'</code>)",
+          "Sensitive routes-ல <code>protect</code> middleware add பண்ணுங்க",
+          "HTTPS use பண்ணுங்க — HTTP-ல tokens intercept ஆகலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> JWT-ல refresh tokens implement பண்ணுங்க — short-lived access tokens (15min) + long-lived refresh tokens (7 days). Logout-ல token blacklist implement பண்ணுங்க அல்லது Redis-ல revoked tokens store பண்ணுங்க.</p>"
+      }
+    ]
+  },
+  "file-upload": {
+    "title": "File Upload",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js Express-ல file uploads handle பண்ண <strong>Multer</strong> package மிகவும் popular. Images, documents, videos — எல்லா files-ஐயும் server-ல receive பண்ணி save பண்றது எப்படின்னு பாக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multer Setup"
+      },
+      {
+        "type": "example",
+        "title": "Single File Upload",
+        "code": "// npm install multer\nconst express = require('express');\nconst multer = require('multer');\nconst path = require('path');\nconst app = express();\n\n// Storage configuration\nconst storage = multer.diskStorage({\n  destination: (req, file, cb) => {\n    cb(null, 'uploads/');  // Files save ஆகும் folder\n  },\n  filename: (req, file, cb) => {\n    // Unique filename — timestamp + original name\n    const uniqueName = `${Date.now()}-${file.originalname}`;\n    cb(null, uniqueName);\n  }\n});\n\n// File filter — only images allow\nconst fileFilter = (req, file, cb) => {\n  const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];\n  if (allowedTypes.includes(file.mimetype)) {\n    cb(null, true);   // Accept\n  } else {\n    cb(new Error('Only JPEG, PNG, WEBP allowed'), false);  // Reject\n  }\n};\n\nconst upload = multer({\n  storage,\n  fileFilter,\n  limits: { fileSize: 5 * 1024 * 1024 }  // 5MB max\n});\n\n// Single file upload route\napp.post('/upload', upload.single('photo'), (req, res) => {\n  if (!req.file) {\n    return res.status(400).json({ error: 'No file uploaded' });\n  }\n  res.json({\n    message: 'File uploaded successfully!',\n    filename: req.file.filename,\n    originalName: req.file.originalname,\n    size: req.file.size,\n    path: req.file.path\n  });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multiple Files Upload"
+      },
+      {
+        "type": "example",
+        "title": "Multiple Files மற்றும் Static Files Serve",
+        "code": "const express = require('express');\nconst multer = require('multer');\nconst path = require('path');\nconst fs = require('fs');\nconst app = express();\n\n// uploads folder create பண்றது (இல்லாட்டா)\nif (!fs.existsSync('uploads')) {\n  fs.mkdirSync('uploads');\n}\n\nconst upload = multer({ dest: 'uploads/' });\n\n// Multiple files (max 10)\napp.post('/upload-multiple', upload.array('photos', 10), (req, res) => {\n  const files = req.files.map(file => ({\n    filename: file.filename,\n    originalName: file.originalname,\n    size: file.size\n  }));\n  res.json({ count: files.length, files });\n});\n\n// Mixed fields\napp.post('/upload-mixed', upload.fields([\n  { name: 'avatar', maxCount: 1 },\n  { name: 'documents', maxCount: 5 }\n]), (req, res) => {\n  res.json({\n    avatar: req.files['avatar']?.[0]?.filename,\n    documents: req.files['documents']?.length\n  });\n});\n\n// Uploaded files publicly serve பண்றது\napp.use('/uploads', express.static(path.join(__dirname, 'uploads')));\n// http://localhost:3000/uploads/filename.jpg-ல access பண்ணலாம்\n\n// Error handler for multer\napp.use((err, req, res, next) => {\n  if (err instanceof multer.MulterError) {\n    return res.status(400).json({ error: err.message });\n  }\n  res.status(500).json({ error: err.message });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "File size limits always set பண்ணுங்க — large files server-ஐ slow பண்ணும்",
+          "File type validate பண்ணுங்க — malicious files upload பண்ணாம prevent பண்ணுங்க",
+          "Production-ல <strong>AWS S3</strong>, <strong>Cloudinary</strong>, <strong>Supabase Storage</strong> use பண்ணுங்க",
+          "Uploaded files-க்கு original filename use பண்ணாதீங்க — unique names generate பண்ணுங்க",
+          "<strong>sharp</strong> package-ஐ use பண்ணி images resize/compress பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> <code>multer.memoryStorage()</code> use பண்ணா files disk-ல save ஆகாம memory-ல இருக்கும் — cloud-க்கு upload பண்றதுக்கு useful. <code>multer-s3</code> package-ஓட directly AWS S3-க்கு upload பண்ணலாம்.</p>"
+      }
+    ]
+  },
+  "websockets": {
+    "title": "WebSockets",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>WebSockets</strong> client மற்றும் server-க்கு இடையில் real-time, two-way communication enable பண்ணும். Chat apps, live notifications, real-time dashboards — இவற்றை build பண்ண <strong>Socket.IO</strong> library use பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTTP vs WebSocket"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>HTTP</strong> — Request-response pattern. Client request பண்ணும்போது மட்டும் server respond பண்ணும்",
+          "<strong>WebSocket</strong> — Persistent connection. Server எப்பவும் client-க்கு data push பண்ணலாம்",
+          "Chat, live sports scores, stock prices, notifications — WebSocket use ஆகுது",
+          "WebSocket connection once established-ஆனா low overhead-ல data exchange ஆகும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Socket.IO Setup"
+      },
+      {
+        "type": "example",
+        "title": "Basic Chat Server with Socket.IO",
+        "code": "// npm install socket.io express\nconst express = require('express');\nconst http = require('http');\nconst { Server } = require('socket.io');\n\nconst app = express();\nconst server = http.createServer(app);\nconst io = new Server(server, {\n  cors: {\n    origin: '*',\n    methods: ['GET', 'POST']\n  }\n});\n\n// Connected users track பண்றது\nconst connectedUsers = new Map();\n\nio.on('connection', (socket) => {\n  console.log('User connected:', socket.id);\n  \n  // User join event\n  socket.on('join', (username) => {\n    connectedUsers.set(socket.id, username);\n    socket.broadcast.emit('user-joined', { username, time: new Date() });\n    io.emit('online-count', connectedUsers.size);\n  });\n  \n  // Message receive மற்றும் broadcast\n  socket.on('message', (data) => {\n    const username = connectedUsers.get(socket.id);\n    io.emit('message', {\n      username,\n      text: data.text,\n      time: new Date().toLocaleTimeString()\n    });\n  });\n  \n  // Typing indicator\n  socket.on('typing', () => {\n    const username = connectedUsers.get(socket.id);\n    socket.broadcast.emit('user-typing', username);\n  });\n  \n  // Disconnect\n  socket.on('disconnect', () => {\n    const username = connectedUsers.get(socket.id);\n    connectedUsers.delete(socket.id);\n    io.emit('user-left', { username });\n    io.emit('online-count', connectedUsers.size);\n    console.log('User disconnected:', username);\n  });\n});\n\nserver.listen(3000, () => {\n  console.log('Chat server running on port 3000');\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Rooms மற்றும் Namespaces"
+      },
+      {
+        "type": "example",
+        "title": "Socket.IO Rooms — Private Chat Groups",
+        "code": "io.on('connection', (socket) => {\n  \n  // Room join பண்றது\n  socket.on('join-room', (roomId, username) => {\n    socket.join(roomId);\n    socket.to(roomId).emit('user-joined-room', username);\n    console.log(`${username} joined room ${roomId}`);\n  });\n  \n  // Room-க்கு message அனுப்புவது\n  socket.on('room-message', ({ roomId, text }) => {\n    io.to(roomId).emit('room-message', {\n      text,\n      from: socket.id,\n      time: new Date()\n    });\n  });\n  \n  // Room leave பண்றது\n  socket.on('leave-room', (roomId) => {\n    socket.leave(roomId);\n    socket.to(roomId).emit('user-left-room', socket.id);\n  });\n  \n  // Server-side event emit (notifications)\n  setInterval(() => {\n    socket.emit('server-time', new Date().toLocaleTimeString());\n  }, 1000);\n});"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Multiple servers-ல Socket.IO use பண்றா <strong>socket.io-redis</strong> adapter use பண்ணுங்க — sessions share ஆகும். Long-polling fallback Socket.IO-ல built-in இருக்கு — WebSocket support இல்லா browsers-லயும் work ஆகும்.</p>"
+      }
+    ]
+  },
+  "testing": {
+    "title": "Testing with Jest",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Testing என்பது code-ஓட quality உறுதி பண்றது. <strong>Jest</strong> JavaScript testing-ல most popular framework. Unit tests, integration tests எழுதுவது எப்படின்னு பாக்கலாம். Tests எழுதுவது professional developer-ஓட habit."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Jest Setup"
+      },
+      {
+        "type": "example",
+        "title": "Jest Install மற்றும் Configuration",
+        "code": "# Install\nnpm install jest --save-dev\nnpm install supertest --save-dev  # API testing\n\n// package.json\n{\n  \"scripts\": {\n    \"test\": \"jest\",\n    \"test:watch\": \"jest --watch\",\n    \"test:coverage\": \"jest --coverage\"\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Unit Tests எழுதுவது"
+      },
+      {
+        "type": "example",
+        "title": "Functions-க்கு Unit Tests",
+        "code": "// utils/math.js\nfunction add(a, b) { return a + b; }\nfunction divide(a, b) {\n  if (b === 0) throw new Error('Cannot divide by zero');\n  return a / b;\n}\nfunction isEven(n) { return n % 2 === 0; }\n\nmodule.exports = { add, divide, isEven };\n\n// utils/math.test.js\nconst { add, divide, isEven } = require('./math');\n\ndescribe('Math Utils', () => {\n  \n  describe('add()', () => {\n    test('adds two positive numbers', () => {\n      expect(add(2, 3)).toBe(5);\n    });\n    \n    test('adds negative numbers', () => {\n      expect(add(-1, -2)).toBe(-3);\n    });\n    \n    test('adds zero', () => {\n      expect(add(5, 0)).toBe(5);\n    });\n  });\n  \n  describe('divide()', () => {\n    test('divides two numbers', () => {\n      expect(divide(10, 2)).toBe(5);\n    });\n    \n    test('throws error when dividing by zero', () => {\n      expect(() => divide(10, 0)).toThrow('Cannot divide by zero');\n    });\n  });\n  \n  describe('isEven()', () => {\n    test('returns true for even numbers', () => {\n      expect(isEven(4)).toBe(true);\n    });\n    \n    test('returns false for odd numbers', () => {\n      expect(isEven(7)).toBe(false);\n    });\n  });\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "API Integration Tests"
+      },
+      {
+        "type": "example",
+        "title": "Supertest-ஓட Express API Test",
+        "code": "// app.js\nconst express = require('express');\nconst app = express();\napp.use(express.json());\n\nlet users = [{ id: 1, name: 'Priya' }];\n\napp.get('/users', (req, res) => res.json(users));\napp.post('/users', (req, res) => {\n  if (!req.body.name) return res.status(400).json({ error: 'Name required' });\n  const user = { id: Date.now(), name: req.body.name };\n  users.push(user);\n  res.status(201).json(user);\n});\n\nmodule.exports = app;\n\n// app.test.js\nconst request = require('supertest');\nconst app = require('./app');\n\ndescribe('Users API', () => {\n  \n  test('GET /users returns all users', async () => {\n    const res = await request(app).get('/users');\n    expect(res.statusCode).toBe(200);\n    expect(res.body).toBeInstanceOf(Array);\n    expect(res.body.length).toBeGreaterThan(0);\n  });\n  \n  test('POST /users creates a new user', async () => {\n    const res = await request(app)\n      .post('/users')\n      .send({ name: 'Kumar' });\n    expect(res.statusCode).toBe(201);\n    expect(res.body.name).toBe('Kumar');\n    expect(res.body.id).toBeDefined();\n  });\n  \n  test('POST /users returns 400 without name', async () => {\n    const res = await request(app)\n      .post('/users')\n      .send({});\n    expect(res.statusCode).toBe(400);\n    expect(res.body.error).toBeDefined();\n  });\n});"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code>describe()</code> — Related tests-ஐ group பண்ணும்",
+          "<code>test() / it()</code> — Individual test case",
+          "<code>expect(value).toBe(expected)</code> — Exact match check",
+          "<code>expect(fn).toThrow()</code> — Error throw check",
+          "<code>beforeEach() / afterEach()</code> — Each test-க்கு முன்னாடி/பின்னாடி run ஆகும்",
+          "<code>jest.mock()</code> — External dependencies mock பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Test files-க்கு <code>*.test.js</code> அல்லது <code>*.spec.js</code> naming use பண்ணுங்க. <code>npm test -- --coverage</code> run பண்ணா code coverage report கிடைக்கும். TDD (Test-Driven Development) — tests எழுதி பின்னாடி code எழுதுவது best practice.</p>"
+      }
+    ]
+  },
+  "security": {
+    "title": "Security Best Practices",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js applications-ல security மிகவும் critical. SQL injection, XSS, CSRF, brute force attacks — இவற்றை prevent பண்ண proper security measures implement பண்றது அவசியம். Security is not optional!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Helmet — Security Headers"
+      },
+      {
+        "type": "example",
+        "title": "Helmet மற்றும் CORS Setup",
+        "code": "// npm install helmet cors express-rate-limit\nconst express = require('express');\nconst helmet = require('helmet');\nconst cors = require('cors');\nconst rateLimit = require('express-rate-limit');\n\nconst app = express();\n\n// Security headers add பண்றது\napp.use(helmet());\n\n// CORS configuration\napp.use(cors({\n  origin: ['https://myapp.com', 'https://www.myapp.com'],\n  methods: ['GET', 'POST', 'PUT', 'DELETE'],\n  allowedHeaders: ['Content-Type', 'Authorization'],\n  credentials: true\n}));\n\n// Rate limiting — brute force prevent\nconst apiLimiter = rateLimit({\n  windowMs: 15 * 60 * 1000,  // 15 minutes\n  max: 100,  // 100 requests per window\n  message: { error: 'Too many requests, please try again later' },\n  standardHeaders: true\n});\n\nconst loginLimiter = rateLimit({\n  windowMs: 60 * 60 * 1000,  // 1 hour\n  max: 5,  // Only 5 login attempts\n  message: { error: 'Too many login attempts' }\n});\n\napp.use('/api/', apiLimiter);\napp.use('/auth/login', loginLimiter);\napp.use(express.json({ limit: '10kb' }));  // Body size limit\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Input Sanitization மற்றும் NoSQL Injection"
+      },
+      {
+        "type": "example",
+        "title": "MongoDB Injection Prevent பண்றது",
+        "code": "// npm install express-mongo-sanitize xss-clean\nconst mongoSanitize = require('express-mongo-sanitize');\nconst xss = require('xss-clean');\n\nconst express = require('express');\nconst app = express();\napp.use(express.json());\n\n// NoSQL injection prevent\napp.use(mongoSanitize());  // { \"$gt\": \"\" } மாதிரி inputs remove\n\n// XSS prevent\napp.use(xss());  // HTML tags sanitize\n\n// Parameter pollution prevent\napp.get('/search', (req, res) => {\n  // Whitelist only expected parameters\n  const allowedParams = ['name', 'city', 'page', 'limit'];\n  const query = {};\n  \n  allowedParams.forEach(param => {\n    if (req.query[param]) {\n      // First value மட்டும் use பண்றது (array prevent)\n      query[param] = Array.isArray(req.query[param])\n        ? req.query[param][0]\n        : req.query[param];\n    }\n  });\n  \n  res.json({ query });\n});\n\napp.listen(3000);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Security Checklist"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Helmet</strong> use பண்ணுங்க — security headers automatically set ஆகும்",
+          "<strong>Rate limiting</strong> implement பண்ணுங்க — brute force attacks prevent",
+          "<strong>Input validation</strong> எப்பவும் server-side-ல பண்ணுங்க",
+          "<strong>Passwords</strong> bcrypt-ஓட hash பண்ணுங்க",
+          "<strong>HTTPS</strong> மட்டும் use பண்ணுங்க — HTTP in production avoid",
+          "<strong>Dependencies</strong> regularly update பண்ணுங்க — <code>npm audit</code> run பண்ணுங்க",
+          "<strong>Secrets</strong> code-ல hard-code பண்ணாதீங்க — .env use பண்ணுங்க",
+          "<strong>Error messages</strong>-ல sensitive info leak பண்ணாதீங்க"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> <code>npm audit</code> run பண்ணி existing vulnerabilities check பண்ணுங்க. <code>npm audit fix</code> auto-fix பண்ணும். OWASP Top 10 security risks-ஐ படிங்க — common vulnerabilities-ஐ புரிஞ்சுக்கலாம். Production deploy பண்றதுக்கு முன்னாடி security review mandatory.</p>"
+      }
+    ]
+  },
+  "deployment": {
+    "title": "Deployment",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js application-ஐ internet-ல available-ஆக வைக்க <strong>deployment</strong> பண்றோம். Railway, Render, Heroku, AWS, DigitalOcean — multiple platforms available. Process management-க்கு <strong>PM2</strong> use பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Production Preparation"
+      },
+      {
+        "type": "example",
+        "title": "Production-Ready app.js",
+        "code": "require('dotenv').config();\nconst express = require('express');\nconst helmet = require('helmet');\nconst cors = require('cors');\nconst app = express();\n\n// Security middleware\napp.use(helmet());\napp.use(cors({ origin: process.env.CLIENT_URL }));\napp.use(express.json({ limit: '10kb' }));\n\n// Health check endpoint\napp.get('/health', (req, res) => {\n  res.json({\n    status: 'OK',\n    timestamp: new Date().toISOString(),\n    environment: process.env.NODE_ENV,\n    uptime: process.uptime()\n  });\n});\n\n// Routes\napp.use('/api/users', require('./routes/users'));\napp.use('/api/products', require('./routes/products'));\n\n// 404 handler\napp.use('*', (req, res) => {\n  res.status(404).json({ error: 'Route not found' });\n});\n\n// Error handler\napp.use((err, req, res, next) => {\n  console.error(err.stack);\n  res.status(err.status || 500).json({\n    error: process.env.NODE_ENV === 'production'\n      ? 'Internal server error'\n      : err.message\n  });\n});\n\nconst PORT = process.env.PORT || 3000;\napp.listen(PORT, () => {\n  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);\n});\n\nmodule.exports = app;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "PM2 — Process Manager"
+      },
+      {
+        "type": "example",
+        "title": "PM2 Setup மற்றும் Commands",
+        "code": "# PM2 install\nnpm install -g pm2\n\n# App start பண்றது\npm2 start app.js --name \"my-api\"\n\n# Cluster mode (multiple CPU cores use)\npm2 start app.js -i max --name \"my-api\"\n\n# App list\npm2 list\n\n# Logs பார்க்கறது\npm2 logs my-api\npm2 logs my-api --lines 100\n\n# Restart\npm2 restart my-api\n\n# Stop\npm2 stop my-api\n\n# Server restart-ஆனாலும் auto-start\npm2 startup\npm2 save\n\n# ecosystem.config.js\nmodule.exports = {\n  apps: [{\n    name: 'my-api',\n    script: 'app.js',\n    instances: 'max',\n    exec_mode: 'cluster',\n    env: {\n      NODE_ENV: 'development',\n      PORT: 3000\n    },\n    env_production: {\n      NODE_ENV: 'production',\n      PORT: 8080\n    }\n  }]\n};\n\n# Production-ல start\npm2 start ecosystem.config.js --env production"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Railway Deployment (Easy Platform)"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "railway.app-க்கு போங்க, GitHub account-ஓட sign in பண்ணுங்க",
+          "\"New Project\" → \"Deploy from GitHub repo\" select பண்ணுங்க",
+          "Repository select பண்ணுங்க",
+          "Environment variables add பண்ணுங்க (Settings → Variables)",
+          "Automatic deployment! Push to main = auto-deploy",
+          "Custom domain connect பண்ணலாம் (Settings → Domains)"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Production deployment-க்கு முன்னாடி: <code>NODE_ENV=production</code> set பண்ணுங்க, all environment variables configure பண்ணுங்க, database connection test பண்ணுங்க, <code>/health</code> endpoint add பண்ணுங்க. <strong>Render.com</strong> மற்றும் <strong>Railway</strong> free tier-ல Node.js apps host பண்ணலாம்.</p>"
+      }
+    ]
+  },
+  "next-steps": {
+    "title": "அடுத்த படிகள்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Node.js basics கத்துக்கிட்டீங்க! இனி advanced topics, frameworks, cloud technologies கத்துக்கணும். Node.js developer-ஆ grow ஆக roadmap follow பண்ணுங்க."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "உங்கள் Node.js Journey இங்க முடியல!"
+      },
+      {
+        "type": "paragraph",
+        "text": "இந்த course-ல Node.js fundamentals, Express APIs, MongoDB, Authentication, File uploads, WebSockets, Testing, Security, Deployment எல்லாம் கவர் பண்ணோம். இனி real-world projects build பண்றது மட்டும் தான் — practice makes perfect!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Advanced Topics — அடுத்து என்ன படிக்கணும்?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>TypeScript with Node.js</strong> — Type safety, better IDE support",
+          "<strong>NestJS</strong> — Opinionated, enterprise-grade Node.js framework",
+          "<strong>GraphQL</strong> — REST-க்கு alternative, flexible API queries",
+          "<strong>Microservices</strong> — Architecture pattern, Docker, Kubernetes",
+          "<strong>Redis</strong> — Caching, session storage, pub/sub",
+          "<strong>Message Queues</strong> — RabbitMQ, Bull, Kafka",
+          "<strong>AWS / GCP / Azure</strong> — Cloud services (S3, Lambda, EC2)",
+          "<strong>Docker</strong> — Containerization, consistent environments"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Project Ideas — Practice பண்ண"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Blog API</strong> — Posts, categories, comments, auth",
+          "<strong>E-commerce Backend</strong> — Products, cart, orders, payments",
+          "<strong>Real-time Chat App</strong> — Socket.IO, rooms, private messages",
+          "<strong>URL Shortener</strong> — Short links, analytics, redirects",
+          "<strong>File Storage Service</strong> — Upload, organize, share files",
+          "<strong>Job Board API</strong> — Companies, jobs, applications",
+          "<strong>Social Media API</strong> — Posts, likes, follows, notifications"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Resources & Community"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>nodejs.org/docs</strong> — Official documentation",
+          "<strong>expressjs.com</strong> — Express documentation",
+          "<strong>npmjs.com</strong> — Package registry",
+          "<strong>nodeschool.io</strong> — Free interactive workshops",
+          "<strong>GitHub</strong>-ல open source projects contribute பண்ணுங்க",
+          "<strong>LinkedIn</strong>-ல Node.js developer community join பண்ணுங்க"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "இந்த Course-ல கத்துக்கிட்டது"
+      },
+      {
+        "type": "example",
+        "title": "Complete Node.js Application — Mini Summary",
+        "code": "// You are now able to build something like this!\n\n// server.js — Complete Node.js App Structure\nrequire('dotenv').config();\nconst express = require('express');\nconst mongoose = require('mongoose');\nconst helmet = require('helmet');\nconst cors = require('cors');\n\nconst app = express();\n\n// Middleware\napp.use(helmet());\napp.use(cors());\napp.use(express.json());\n\n// Routes\napp.use('/api/auth', require('./routes/auth'));\napp.use('/api/users', require('./routes/users'));\napp.use('/api/products', require('./routes/products'));\n\n// Database connection\nmongoose.connect(process.env.MONGO_URI)\n  .then(() => console.log('DB connected'))\n  .catch(err => console.error(err));\n\n// Start server\napp.listen(process.env.PORT || 3000, () => {\n  console.log('Server running!');\n});\n\n// ✅ You know ALL of this now! Congrats!"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>நினைவில் வையுங்க:</strong> Node.js-ல expert ஆக தினமும் code பண்ணுங்க. Stack Overflow-ல questions answer பண்ணுங்க — இதனால் உங்களுக்கே concepts clear ஆகும். Real projects build பண்ணி GitHub-ல upload பண்ணுங்க — இது உங்கள் portfolio. <strong>நீங்கள் செய்வீர்கள்! 🚀</strong></p>"
+      }
+    ]
+  }
+}

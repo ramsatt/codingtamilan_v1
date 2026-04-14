@@ -1,0 +1,270 @@
+<div class="bg-slate-50 text-slate-800 font-sans flex flex-col overflow-hidden" style="height: 100dvh">
+
+  <!-- ═══════════════ TOP NAV ═══════════════ -->
+  <nav class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-6 shrink-0 z-20 shadow-sm">
+    <!-- Left: Logo + mobile toggle -->
+    <div class="flex items-center gap-4">
+      <button (click)="toggleSidebar()" class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-brand-500 focus:outline-none transition-colors">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+      <a routerLink="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm shadow-brand-500/30">
+          <i class="fa-solid fa-bolt text-white text-sm"></i>
+        </div>
+        <span class="font-black text-lg text-slate-900 tracking-tight hidden sm:block">Coding <span class="text-brand-500">Tamilan</span></span>
+      </a>
+    </div>
+
+    <!-- Center: Breadcrumbs -->
+    <div class="hidden lg:flex items-center gap-2 text-sm font-medium text-slate-400">
+      <a routerLink="/courses" class="hover:text-slate-700 transition-colors">Courses</a>
+      <i class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i>
+      <a [routerLink]="['/course', courseId]" class="text-brand-500 hover:text-brand-600 transition-colors font-semibold">{{ courseTitle }}</a>
+      <i class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i>
+      <span class="text-slate-700 font-semibold">{{ lesson?.title ?? '...' }}</span>
+    </div>
+
+    <!-- Right: Language + keyboard hint -->
+    <div class="flex items-center gap-3">
+      <div class="hidden md:flex items-center gap-1.5 text-xs text-slate-400 font-medium bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5">
+        <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] font-mono shadow-sm">←</kbd>
+        <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] font-mono shadow-sm">→</kbd>
+        <span>navigate</span>
+      </div>
+      <div class="flex items-center bg-slate-100 border border-slate-200 rounded-full p-0.5">
+        <button (click)="switchLang('en')"
+          class="text-xs font-bold px-3 py-1.5 rounded-full transition-colors"
+          [class.bg-white]="lang === 'en'" [class.shadow-sm]="lang === 'en'"
+          [class.text-slate-900]="lang === 'en'" [class.text-slate-500]="lang !== 'en'">EN</button>
+        <button (click)="switchLang('ta')"
+          class="text-xs font-bold px-3 py-1.5 rounded-full transition-colors"
+          [class.bg-white]="lang === 'ta'" [class.shadow-sm]="lang === 'ta'"
+          [class.text-slate-900]="lang === 'ta'" [class.text-slate-500]="lang !== 'ta'">தமிழ்</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ MAIN BODY ═══════════════ -->
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="absolute md:relative w-72 lg:w-80 h-full bg-white border-r border-slate-200 flex flex-col shrink-0 z-10 transition-transform duration-300 md:translate-x-0 shadow-2xl md:shadow-none"
+      [class.-translate-x-full]="!sidebarOpen">
+
+      <!-- Sidebar Header -->
+      <div class="p-5 border-b border-slate-100 bg-white shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 text-white flex items-center justify-center shadow-lg shadow-slate-900/20 shrink-0">
+            <i class="{{ courseIcon }} text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-sm font-black text-slate-900 leading-tight">{{ courseTitle }}</h2>
+            <p class="text-[10px] font-bold text-brand-500 mt-0.5 uppercase tracking-widest">{{ lessons.length }} Lessons</p>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div>
+          <div class="flex justify-between items-center mb-1.5">
+            <span class="text-xs font-bold text-slate-600">Your Progress</span>
+            <span class="text-xs font-black text-slate-900">{{ completedCount }}/{{ lessons.length }}</span>
+          </div>
+          <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-brand-400 to-brand-500 rounded-full transition-all duration-500" [style.width.%]="progress"></div>
+          </div>
+          <p class="text-[10px] text-slate-400 font-medium mt-1.5">{{ progress }}% complete</p>
+        </div>
+      </div>
+
+      <!-- Lesson List -->
+      <div class="flex-1 overflow-y-auto py-4 px-3">
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest px-2 mb-3">Course Content</p>
+        <ul class="space-y-1">
+          @for (l of lessons; track l.id) {
+            <li>
+              <a [routerLink]="['/learning', courseId, l.id]" (click)="sidebarOpen = false" [attr.aria-current]="isCurrentLesson(l.id) ? 'page' : null"
+                class="w-full text-left flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-150 group relative"
+                [class.bg-orange-50]="isCurrentLesson(l.id)"
+                [class.border]="isCurrentLesson(l.id)"
+                [class.border-brand-100]="isCurrentLesson(l.id)"
+                [class.shadow-sm]="isCurrentLesson(l.id)"
+                [class.hover:bg-slate-50]="!isCurrentLesson(l.id)"
+                [class.hover:text-slate-900]="!isCurrentLesson(l.id)">
+
+                <!-- Active indicator bar -->
+                @if (isCurrentLesson(l.id)) {
+                  <div class="absolute left-0 top-2 bottom-2 w-1 bg-brand-500 rounded-r-full"></div>
+                }
+
+                <!-- Status icon -->
+                @if (isCurrentLesson(l.id)) {
+                  <div class="w-6 h-6 rounded-full bg-brand-500 flex items-center justify-center shrink-0 shadow-sm shadow-brand-500/30">
+                    <i class="fa-solid fa-play text-[9px] text-white ml-0.5"></i>
+                  </div>
+                } @else if (l.completed) {
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-check text-[10px]"></i>
+                  </div>
+                } @else {
+                  <div class="w-6 h-6 rounded-full border-2 border-slate-200 group-hover:border-slate-300 flex items-center justify-center shrink-0 transition-colors">
+                    <span class="text-[9px] font-black text-slate-400 group-hover:text-slate-600">{{ l.number }}</span>
+                  </div>
+                }
+
+                <!-- Title -->
+                <span class="text-[13px] tracking-tight leading-tight flex-1 min-w-0"
+                  [class.font-black]="isCurrentLesson(l.id)"
+                  [class.text-slate-900]="isCurrentLesson(l.id)"
+                  [class.font-medium]="!isCurrentLesson(l.id)"
+                  [class.text-slate-500]="!l.completed && !isCurrentLesson(l.id)"
+                  [class.text-slate-700]="l.completed && !isCurrentLesson(l.id)">{{ l.title }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Mobile overlay -->
+    @if (sidebarOpen) {
+      <div class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-0 md:hidden" (click)="toggleSidebar()"></div>
+    }
+
+    <!-- ═══ PRESENTATION AREA ═══ -->
+    <main id="presentation-area" class="flex-1 min-w-0 flex flex-col p-4 sm:p-5 lg:p-8 h-full overflow-hidden">
+
+      <!-- Presentation Card -->
+      <div class="flex-1 bg-white rounded-2xl border border-slate-200/80 shadow-xl flex flex-col overflow-hidden min-h-0">
+
+        <!-- Card Header -->
+        <div class="h-14 border-b border-slate-100 flex items-center justify-between px-6 shrink-0">
+          <div class="flex items-center gap-3">
+            <div class="w-7 h-7 bg-brand-50 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-person-chalkboard text-brand-500 text-sm"></i>
+            </div>
+            <span class="text-slate-600 text-sm font-semibold">{{ lesson?.title ?? 'Loading...' }}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-400 bg-slate-50 border border-slate-200 rounded-md px-2 py-1">
+              Slide {{ currentSlide + 1 }} of {{ totalSlides }}
+            </span>
+            <button (click)="toggleFullscreen()" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="Fullscreen">
+              <i class="fa-solid fa-expand text-sm"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide progress line -->
+        <div class="h-0.5 w-full bg-slate-100 shrink-0">
+          <div class="h-full bg-gradient-to-r from-brand-400 to-brand-500 transition-all duration-500 ease-out" [style.width.%]="slideProgressPercent"></div>
+        </div>
+
+        <!-- ═══ SLIDE CONTENT ═══ -->
+        <div class="flex-1 relative overflow-hidden">
+
+          @if (loading) {
+            <!-- Loading skeleton -->
+            <div class="absolute inset-0 flex flex-col justify-center items-center gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-slate-100 animate-pulse"></div>
+              <div class="space-y-3 w-full max-w-md px-8">
+                <div class="h-4 bg-slate-100 rounded-full animate-pulse w-3/4 mx-auto"></div>
+                <div class="h-3 bg-slate-100 rounded-full animate-pulse w-full"></div>
+                <div class="h-3 bg-slate-100 rounded-full animate-pulse w-5/6 mx-auto"></div>
+              </div>
+            </div>
+          } @else if (error) {
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-4">
+                <i class="fa-solid fa-triangle-exclamation text-2xl text-red-400"></i>
+              </div>
+              <p class="text-red-600 font-semibold">Lesson not found</p>
+              <a routerLink="/" class="mt-4 text-sm text-brand-500 hover:underline">Go Home</a>
+            </div>
+          } @else {
+            <!-- Slide track -->
+            <div class="flex h-full transition-transform duration-500 ease-in-out"
+              [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+
+              @for (slide of lesson?.slides ?? []; track $index) {
+                <div class="w-full h-full shrink-0 overflow-y-auto">
+                  <div class="min-h-full flex flex-col justify-center px-8 sm:px-12 lg:px-16 py-10">
+                    <div class="max-w-4xl mx-auto w-full space-y-6">
+
+                      @for (block of slide.blocks; track $index) {
+                        <app-block-renderer [block]="block"></app-block-renderer>
+                      }
+
+                      <!-- Last slide completion card -->
+                      @if ($last && $index === (lesson?.slides?.length ?? 0) - 1 && currentSlide === totalSlides - 1) {
+                        <div class="mt-4 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 text-white text-center border border-slate-700">
+                          <div class="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand-500/30">
+                            <i class="fa-solid fa-flag-checkered text-2xl text-white"></i>
+                          </div>
+                          <h3 class="text-2xl font-black mb-2">Lesson Complete! 🎉</h3>
+                          <p class="text-slate-400 text-sm mb-6">Great job! Ready for the next one?</p>
+                          @if (nextLesson) {
+                            <button (click)="navigateToLesson(nextLesson!.id)"
+                              class="px-8 py-3 bg-brand-500 hover:bg-brand-400 text-white font-bold rounded-xl transition-colors shadow-lg shadow-brand-500/20 text-sm">
+                              Next: {{ nextLesson!.title }} <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                          }
+                        </div>
+                      }
+
+                    </div>
+                  </div>
+                </div>
+              }
+
+            </div>
+          }
+        </div>
+
+        <!-- ═══ SLIDE CONTROLS ═══ -->
+        <div class="h-16 border-t border-slate-100 bg-white shrink-0 flex items-center justify-between px-5 z-10">
+
+          <!-- Prev -->
+          <button (click)="prevSlide()" [disabled]="currentSlide === 0"
+            class="flex items-center gap-2 px-4 py-2 rounded-xl text-slate-500 font-semibold text-sm hover:bg-slate-100 hover:text-slate-900 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent">
+            <i class="fa-solid fa-chevron-left text-xs"></i> Prev
+          </button>
+
+          <!-- Dots + counter -->
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-bold text-slate-400 tabular-nums">{{ currentSlide + 1 }}<span class="text-slate-300">/</span>{{ totalSlides }}</span>
+            <div class="flex gap-1.5">
+              @for (dot of slideDots; track $index) {
+                <button (click)="goToSlide($index)" class="rounded-full transition-all duration-300"
+                  [class.w-5]="$index === currentSlide"
+                  [class.w-1.5]="$index !== currentSlide"
+                  [class.h-1.5]="true"
+                  [class.bg-brand-500]="$index === currentSlide"
+                  [class.bg-slate-300]="$index !== currentSlide"
+                  [class.hover:bg-slate-400]="$index !== currentSlide">
+                </button>
+              }
+            </div>
+          </div>
+
+          <!-- Next -->
+          @if (currentSlide < totalSlides - 1) {
+            <button (click)="nextSlide()"
+              class="flex items-center gap-2 px-5 py-2 rounded-xl bg-slate-900 hover:bg-brand-500 text-white font-semibold text-sm transition-all shadow-sm">
+              Next <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+          } @else {
+            @if (nextLesson) {
+              <button (click)="navigateToLesson(nextLesson.id)"
+                class="flex items-center gap-2 px-5 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm transition-all shadow-sm shadow-brand-500/20">
+                Next Lesson <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+            } @else {
+              <div class="w-24"></div>
+            }
+          }
+
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

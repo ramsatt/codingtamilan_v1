@@ -1,0 +1,3743 @@
+{
+  "intro": {
+    "title": "HTML அறிமுகம்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML என்பது Web pages உருவாக்க பயன்படும் standard markup language ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML என்றால் என்ன?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "HTML என்பது Hyper Text Markup Language என்பதன் சுருக்கம்",
+          "Web pages உருவாக்க பயன்படும் standard markup language இதுவே",
+          "HTML ஒரு Web page இன் structure ஐ describe செய்கிறது",
+          "HTML என்பது ஒரு தொடர் elements களால் ஆனது",
+          "HTML elements browser க்கு content எப்படி display செய்வது என்று சொல்கிறது",
+          "HTML elements content பகுதிகளை label செய்கிறது - 'இது heading', 'இது paragraph', 'இது link' என்று"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ஒரு எளிய HTML Document"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html><head><title>Page Title</title>\n </head>\n<body><h1>My First Heading</h1><p>My first paragraph.</p>\n    </body></html>"
+      },
+      {
+        "type": "header",
+        "level": 3,
+        "text": "Example விளக்கம்"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">&lt;!DOCTYPE html&gt;</code> declaration இந்த document HTML5 என்று define செய்கிறது",
+          "<code class=\"w3-codespan\">&lt;html&gt;</code> element ஒரு HTML page இன் root element ஆகும்",
+          "<code class=\"w3-codespan\">&lt;head&gt;</code> element HTML page பற்றிய meta information ஐ கொண்டிருக்கும்",
+          "<code class=\"w3-codespan\">&lt;title&gt;</code> element HTML page க்கு ஒரு title கொடுக்கிறது (browser tab-ல் காட்டும்)",
+          "<code class=\"w3-codespan\">&lt;body&gt;</code> element document இன் body ஐ define செய்கிறது - headings, paragraphs, images, links எல்லாம் இதற்குள் வரும்",
+          "<code class=\"w3-codespan\">&lt;h1&gt;</code> element ஒரு பெரிய heading ஐ define செய்கிறது",
+          "<code class=\"w3-codespan\">&lt;p&gt;</code> element ஒரு paragraph ஐ define செய்கிறது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Element என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு HTML element என்பது start tag, சில content, மற்றும் end tag ஆகியவற்றால் உருவாகிறது:"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML <strong>element</strong> என்பது start tag முதல் end tag வரை உள்ள அனைத்தும்:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Start tag",
+          "Element content",
+          "End tag"
+        ],
+        "rows": [
+          [
+            "&lt;h1&gt;",
+            "My First Heading",
+            "&lt;/h1&gt;"
+          ],
+          [
+            "&lt;p&gt;",
+            "My first paragraph.",
+            "&lt;/p&gt;"
+          ],
+          [
+            "&lt;br&gt;",
+            "<em>none</em>",
+            "<em>none</em>"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> சில HTML elements க்கு content இல்லை (எ.கா. &lt;br&gt; element). இவை empty elements என்று அழைக்கப்படும். Empty elements க்கு end tag தேவையில்லை!</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML வரலாறு"
+      },
+      {
+        "type": "paragraph",
+        "text": "World Wide Web தொடங்கிய நாள் முதல் HTML பல versions வந்துள்ளன:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "ஆண்டு",
+          "Version"
+        ],
+        "rows": [
+          [
+            "1989",
+            "Tim Berners-Lee www கண்டுபிடித்தார்"
+          ],
+          [
+            "1991",
+            "Tim Berners-Lee HTML கண்டுபிடித்தார்"
+          ],
+          [
+            "1993",
+            "Dave Raggett HTML+ draft செய்தார்"
+          ],
+          [
+            "1995",
+            "HTML Working Group HTML 2.0 define செய்தது"
+          ],
+          [
+            "1997",
+            "W3C Recommendation: HTML 3.2"
+          ],
+          [
+            "1999",
+            "W3C Recommendation: HTML 4.01"
+          ],
+          [
+            "2000",
+            "W3C Recommendation: XHTML 1.0"
+          ],
+          [
+            "2008",
+            "WHATWG HTML5 First Public Draft"
+          ],
+          [
+            "2014",
+            "W3C Recommendation: HTML5"
+          ],
+          [
+            "2017",
+            "W3C Recommendation: HTML5.2"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p>இந்த tutorial சமீபத்திய HTML5 standard ஐ பின்பற்றுகிறது.</p>"
+      }
+    ]
+  },
+  "basic": {
+    "title": "HTML அடிப்படை Examples",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "இந்த பகுதியில் சில அடிப்படை HTML examples பார்ப்போம்."
+      },
+      {
+        "type": "intro",
+        "text": "நீங்கள் இன்னும் கற்காத tags பயன்படுத்தினாலும் கவலைப்பட வேண்டாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Documents"
+      },
+      {
+        "type": "paragraph",
+        "text": "எல்லா HTML documents உம் document type declaration உடன் தொடங்க வேண்டும்: <code class=\"w3-codespan\">&lt;!DOCTYPE html&gt;</code>."
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML document <code class=\"w3-codespan\">&lt;html&gt;</code> உடன் தொடங்கி <code class=\"w3-codespan\">&lt;/html&gt;</code> உடன் முடியும்."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<body>\n<h1>My First Heading</h1>\n<p>My first paragraph.</p>\n</body>\n</html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Headings"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML headings <code class=\"w3-codespan\">&lt;h1&gt;</code> முதல் <code class=\"w3-codespan\">&lt;h6&gt;</code> tags மூலம் define செய்யப்படுகின்றன."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h1>This is heading 1</h1>\n<h2>This is heading 2</h2>\n<h3>This is heading 3</h3>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Links"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML links <code class=\"w3-codespan\">&lt;a&gt;</code> tag மூலம் define செய்யப்படுகின்றன."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<a href=\"https://www.codingtamilan.com\">This is a link</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Link இன் destination <code class=\"w3-codespan\">href</code> attribute மூலம் specify செய்யப்படுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Images"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML images <code class=\"w3-codespan\">&lt;img&gt;</code> tag மூலம் define செய்யப்படுகின்றன."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<img src=\"codingtamilan.jpg\" alt=\"Coding Tamilan\" width=\"104\" height=\"142\">"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "src - image file இன் path",
+          "alt - image load ஆகாவிட்டால் காட்டும் text",
+          "width மற்றும் height - image இன் அளவு"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> HTML source code பார்க்க browser-ல் CTRL + U அழுத்துங்கள் அல்லது right-click செய்து 'View Page Source' தேர்ந்தெடுங்கள்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;h1&gt; - &lt;h6&gt;",
+            "Headings define செய்ய"
+          ],
+          [
+            "&lt;p&gt;",
+            "Paragraph define செய்ய"
+          ],
+          [
+            "&lt;a&gt;",
+            "Link உருவாக்க"
+          ],
+          [
+            "&lt;img&gt;",
+            "Image காட்ட"
+          ]
+        ]
+      }
+    ]
+  },
+  "elements": {
+    "title": "HTML Elements",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML element என்பது start tag, சில content, மற்றும் end tag ஆகியவற்றால் உருவாகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Elements என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML <strong>element</strong> என்பது start tag முதல் end tag வரை உள்ள அனைத்தும்."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Start tag",
+          "Element content",
+          "End tag"
+        ],
+        "rows": [
+          [
+            "&lt;h1&gt;",
+            "My First Heading",
+            "&lt;/h1&gt;"
+          ],
+          [
+            "&lt;p&gt;",
+            "My first paragraph.",
+            "&lt;/p&gt;"
+          ],
+          [
+            "&lt;br&gt;",
+            "<em>none</em>",
+            "<em>none</em>"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> சில HTML elements க்கு content இல்லை (எ.கா. &lt;br&gt;). இவை empty elements என்று அழைக்கப்படும். இவற்றுக்கு end tag இல்லை!</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Nested HTML Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML elements nested ஆக இருக்கலாம் - அதாவது ஒரு element க்குள் மற்றொரு element இருக்கலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "எல்லா HTML documents உம் nested HTML elements கொண்டவை."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<body>\n<h1>My First Heading</h1>\n<p>My first paragraph.</p>\n</body>\n</html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML க்கு Case Sensitive இல்லை"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML tags case sensitive இல்லை: <code class=\"w3-codespan\">&lt;P&gt;</code> என்பதும் <code class=\"w3-codespan\">&lt;p&gt;</code> என்பதும் ஒன்றே."
+      },
+      {
+        "type": "paragraph",
+        "text": "ஆனால் W3C HTML4 மற்றும் XHTML-ல் lowercase tags பரிந்துரைக்கிறது. HTML5 இரண்டையும் accept செய்கிறது."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "எல்லா HTML elements உம் start tag உடன் தொடங்கும்",
+          "Element content start மற்றும் end tag க்கு இடையே இருக்கும்",
+          "சில elements empty ஆக இருக்கும் - அவற்றுக்கு end tag தேவையில்லை",
+          "Nested elements ஒழுங்காக close செய்யப்பட வேண்டும்"
+        ]
+      }
+    ]
+  },
+  "attributes": {
+    "title": "HTML Attributes",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML attributes என்பது HTML elements பற்றிய கூடுதல் தகவல்களை வழங்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Attributes என்றால் என்ன?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "எல்லா HTML elements உம் attributes கொண்டிருக்கலாம்",
+          "Attributes element பற்றிய கூடுதல் தகவல் வழங்கும்",
+          "Attributes எப்போதும் start tag-ல் specify செய்யப்படும்",
+          "Attributes பொதுவாக name/value pair ஆக வரும்: name=\"value\""
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "href Attribute"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;a&gt;</code> tag ஒரு hyperlink define செய்கிறது. <code class=\"w3-codespan\">href</code> attribute link இன் URL ஐ specify செய்கிறது:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<a href=\"https://www.codingtamilan.com\">Visit Coding Tamilan</a>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Style Attribute"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">style</code> attribute ஒரு element க்கு color, font, size போன்ற styles add செய்ய பயன்படுகிறது:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p style=\"color:red;\">This is a red paragraph.</p>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Attributes always lowercase-ல் எழுதுவது best practice. W3C HTML4 இல் lowercase பரிந்துரைக்கிறது, XHTML-ல் கட்டாயம்."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Attribute",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "href",
+            "Link இன் URL specify செய்ய"
+          ],
+          [
+            "src",
+            "Image இன் path specify செய்ய"
+          ],
+          [
+            "width, height",
+            "Image அளவு specify செய்ய"
+          ],
+          [
+            "alt",
+            "Image காட்டாவிட்டால் text காட்ட"
+          ],
+          [
+            "style",
+            "Inline CSS styles add செய்ய"
+          ],
+          [
+            "lang",
+            "Document இன் language specify செய்ய"
+          ],
+          [
+            "title",
+            "Element பற்றிய extra information"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Attribute values எப்போதும் quotes-ல் எழுதுவது நல்லது. Double quotes பொதுவாக பயன்படுத்தப்படும், ஆனால் single quotes உம் valid ஆகும்.</p>"
+      }
+    ]
+  },
+  "headings": {
+    "title": "HTML Headings",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML headings என்பது &lt;h1&gt; முதல் &lt;h6&gt; tags மூலம் define செய்யப்படும் titles அல்லது subtitles ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Headings"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;h1&gt;</code> மிக முக்கியமான heading ஐ define செய்கிறது. <code class=\"w3-codespan\">&lt;h6&gt;</code> குறைந்த முக்கியத்துவம் உள்ள heading ஐ define செய்கிறது."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3>\n<h4>Heading 4</h4>\n<h5>Heading 5</h5>\n<h6>Heading 6</h6>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Headings முக்கியம் ஏன்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Search engines உங்கள் web page இன் structure மற்றும் content ஐ index செய்ய headings பயன்படுத்துகின்றன."
+      },
+      {
+        "type": "paragraph",
+        "text": "Users பெரும்பாலும் headings மூலமாக page ஐ quickly scan செய்வார்கள். அதனால் page structure காட்ட headings பயன்படுத்துங்கள்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Headings SEO-க்கு மிகவும் முக்கியம்",
+          "H1 page இல் ஒரே ஒரு முறை பயன்படுத்துவது நல்லது",
+          "Headings hierarchy order-ல் பயன்படுத்துங்கள்",
+          "Bold text உருவாக்க headings பயன்படுத்தாதீர்கள்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "Description"
+        ],
+        "rows": [
+          [
+            "&lt;h1&gt;",
+            "மிக முக்கியமான heading"
+          ],
+          [
+            "&lt;h2&gt;",
+            "இரண்டாம் level heading"
+          ],
+          [
+            "&lt;h3&gt;",
+            "மூன்றாம் level heading"
+          ],
+          [
+            "&lt;h4&gt;",
+            "நான்காம் level heading"
+          ],
+          [
+            "&lt;h5&gt;",
+            "ஐந்தாம் level heading"
+          ],
+          [
+            "&lt;h6&gt;",
+            "குறைந்த முக்கியத்துவம் உள்ள heading"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Heading tags content காட்ட மட்டுமே பயன்படுத்துங்கள். Bold அல்லது big text காட்ட headings பயன்படுத்தாதீர்கள் - அதற்கு CSS பயன்படுத்துங்கள்.</p>"
+      }
+    ]
+  },
+  "paragraphs": {
+    "title": "HTML Paragraphs",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML paragraph எப்போதும் புதிய line-ல் தொடங்கும், browsers அதற்கு முன்பும் பின்பும் சிறிது space (margin) தானாக சேர்க்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Paragraphs"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML paragraph <code class=\"w3-codespan\">&lt;p&gt;</code> tag மூலம் define செய்யப்படுகிறது:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p>This is a paragraph.</p>\n<p>This is another paragraph.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Display"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML display screen size மாறும்போது, browser தானாகவே word wrap செய்யும். Extra spaces மற்றும் new lines add செய்தாலும் browser அதை ignore செய்யும்."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p>\nThis paragraph\ncontains a lot of lines\nin the source code,\nbut the browser\nignores it.\n</p>"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;p&gt; tag paragraph உருவாக்கும்",
+          "&lt;br&gt; tag line break கொடுக்கும் (empty element)",
+          "&lt;hr&gt; tag horizontal line காட்டும்",
+          "&lt;pre&gt; tag preformatted text காட்டும் - spaces மற்றும் line breaks preserve ஆகும்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;p&gt;",
+            "Paragraph define செய்ய"
+          ],
+          [
+            "&lt;br&gt;",
+            "Line break கொடுக்க"
+          ],
+          [
+            "&lt;hr&gt;",
+            "Horizontal rule காட்ட"
+          ],
+          [
+            "&lt;pre&gt;",
+            "Preformatted text காட்ட"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;br&gt; tag ஒரு empty element - இதற்கு end tag கிடையாது. New line தேவைப்படும் இடத்தில் மட்டும் பயன்படுத்துங்கள்.</p>"
+      }
+    ]
+  },
+  "styles": {
+    "title": "HTML Styles",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML <code class=\"w3-codespan\">style</code> attribute ஒரு element க்கு color, font, size போன்ற styling கொடுக்க பயன்படுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Style Attribute"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு HTML element க்கு style set செய்ய <code class=\"w3-codespan\">style</code> attribute பயன்படுகிறது. இதன் syntax:"
+      },
+      {
+        "type": "example",
+        "title": "Syntax",
+        "code": "<tagname style=\"property:value;\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Background Color"
+      },
+      {
+        "type": "paragraph",
+        "text": "CSS <code class=\"w3-codespan\">background-color</code> property ஒரு element க்கு background color define செய்கிறது:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<body style=\"background-color:powderblue;\">\n<h1>This is a heading</h1>\n<p>This is a paragraph.</p>\n</body>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Text Color மற்றும் Font"
+      },
+      {
+        "type": "paragraph",
+        "text": "CSS <code class=\"w3-codespan\">color</code> property text color define செய்கிறது. <code class=\"w3-codespan\">font-family</code> property font define செய்கிறது:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h1 style=\"color:blue;\">This is a heading</h1>\n<p style=\"color:red; font-family:courier;\">This is a paragraph.</p>"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "background-color - background நிறம் மாற்ற",
+          "color - text நிறம் மாற்ற",
+          "font-family - font வகை மாற்ற",
+          "font-size - font அளவு மாற்ற",
+          "text-align - text alignment மாற்ற"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "CSS Property",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "background-color",
+            "Background நிறம் set செய்ய"
+          ],
+          [
+            "color",
+            "Text நிறம் set செய்ய"
+          ],
+          [
+            "font-family",
+            "Font வகை set செய்ய"
+          ],
+          [
+            "font-size",
+            "Font அளவு set செய்ய"
+          ],
+          [
+            "text-align",
+            "Text alignment set செய்ய"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Inline styles HTML மற்றும் CSS ஐ ஒன்றாக வைக்கும். ஆனால் பெரிய projects-ல் external CSS file பயன்படுத்துவது சிறந்தது.</p>"
+      }
+    ]
+  },
+  "formatting": {
+    "title": "HTML Text Formatting",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML text formatting என்பது bold, italic, underline போன்ற special effects text-க்கு கொடுக்க பயன்படும் elements ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Formatting Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "Special meaning கொண்ட text காட்ட HTML-ல் formatting elements உள்ளன:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">&lt;b&gt;</code> - Bold text",
+          "<code class=\"w3-codespan\">&lt;strong&gt;</code> - Important text (bold ஆக காட்டும்)",
+          "<code class=\"w3-codespan\">&lt;i&gt;</code> - Italic text",
+          "<code class=\"w3-codespan\">&lt;em&gt;</code> - Emphasized text (italic ஆக காட்டும்)",
+          "<code class=\"w3-codespan\">&lt;mark&gt;</code> - Marked/highlighted text",
+          "<code class=\"w3-codespan\">&lt;small&gt;</code> - Smaller text",
+          "<code class=\"w3-codespan\">&lt;del&gt;</code> - Deleted text (strikethrough)",
+          "<code class=\"w3-codespan\">&lt;ins&gt;</code> - Inserted text (underline)",
+          "<code class=\"w3-codespan\">&lt;sub&gt;</code> - Subscript text",
+          "<code class=\"w3-codespan\">&lt;sup&gt;</code> - Superscript text"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Bold மற்றும் Italic"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<b>This text is bold</b>\n<strong>This text is important!</strong>\n<i>This text is italic</i>\n<em>This text is emphasized</em>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Mark, Del மற்றும் Ins"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;mark&gt;</code> text-ஐ highlight செய்கிறது. <code class=\"w3-codespan\">&lt;del&gt;</code> deleted text காட்டுகிறது. <code class=\"w3-codespan\">&lt;ins&gt;</code> newly inserted text காட்டுகிறது."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p>Do not forget to buy <mark>milk</mark> today.</p>\n<p>My favorite color is <del>blue</del> red.</p>\n<p>My favorite color is <del>blue</del> <ins>red</ins>.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;b&gt;",
+            "Bold text காட்ட"
+          ],
+          [
+            "&lt;strong&gt;",
+            "முக்கியமான text காட்ட"
+          ],
+          [
+            "&lt;i&gt;",
+            "Italic text காட்ட"
+          ],
+          [
+            "&lt;em&gt;",
+            "Emphasized text காட்ட"
+          ],
+          [
+            "&lt;mark&gt;",
+            "Highlighted text காட்ட"
+          ],
+          [
+            "&lt;sub&gt;",
+            "Subscript text காட்ட"
+          ],
+          [
+            "&lt;sup&gt;",
+            "Superscript text காட்ட"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;b&gt; மற்றும் &lt;strong&gt; இரண்டும் bold காட்டும், ஆனால் &lt;strong&gt; க்கு semantic meaning உண்டு - அது முக்கியமான text என்று indicate செய்கிறது.</p>"
+      }
+    ]
+  },
+  "quotations": {
+    "title": "HTML Quotations",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML-ல் quotations மற்றும் citations காட்ட சிறப்பு elements உள்ளன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Blockquote"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;blockquote&gt;</code> element வேறொரு source இலிருந்து quoted section காட்டுகிறது. Browsers இதை indented ஆக காட்டும்:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<blockquote cite=\"http://www.worldwildlife.org/who/index.html\">\nFor 50 years, WWF has been protecting the future of nature.\n</blockquote>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Abbreviations"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;abbr&gt;</code> tag abbreviation அல்லது acronym define செய்கிறது. Mouse hover செய்தால் full form காட்டும்:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p>The <abbr title=\"World Health Organization\">WHO</abbr> was founded in 1948.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Address மற்றும் Cite"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<address>\nWritten by John Doe.<br>\nVisit us at:<br>\nExample.com<br>\n</address>\n\n<p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;blockquote&gt; - வேறொரு source இலிருந்து நீண்ட quote காட்ட",
+          "&lt;q&gt; - சிறிய inline quote காட்ட",
+          "&lt;abbr&gt; - Abbreviation அல்லது acronym define செய்ய",
+          "&lt;address&gt; - Contact information காட்ட",
+          "&lt;cite&gt; - Creative work இன் title காட்ட",
+          "&lt;bdo&gt; - Text direction மாற்ற"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;blockquote&gt;",
+            "நீண்ட quote காட்ட"
+          ],
+          [
+            "&lt;q&gt;",
+            "சிறிய quote காட்ட"
+          ],
+          [
+            "&lt;abbr&gt;",
+            "Abbreviation define செய்ய"
+          ],
+          [
+            "&lt;address&gt;",
+            "Contact info காட்ட"
+          ],
+          [
+            "&lt;cite&gt;",
+            "Work title காட்ட"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;q&gt; tag browser-ல் quotation marks தானாக சேர்க்கும். அதனால் manually quotes சேர்க்க வேண்டாம்.</p>"
+      }
+    ]
+  },
+  "comments": {
+    "title": "HTML Comments",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML comments browser-ல் display ஆகாது, ஆனால் source code document செய்ய மிகவும் உதவியாக இருக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Comment Tags"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML comment இப்படி எழுதலாம்:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- Write your comments here -->"
+      },
+      {
+        "type": "paragraph",
+        "text": "Comment <code class=\"w3-codespan\">&lt;!--</code> உடன் தொடங்கி <code class=\"w3-codespan\">--&gt;</code> உடன் முடியும். Browser இதை display செய்யாது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Comments ஏன் பயன்படுத்துவோம்?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Code என்ன செய்கிறது என்று explain செய்ய",
+          "Code sections identify செய்ய",
+          "Debugging-ல் code temporarily hide செய்ய",
+          "Team members க்கு notes எழுத"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Comment Examples"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- This is a comment -->\n<p>This is a paragraph.</p>\n<!-- Remember to add more information here -->\n\n<!-- Do not display this at the moment\n<img border=\"0\" src=\"pic_trulli.jpg\" alt=\"Trulli\">\n-->"
+      },
+      {
+        "type": "paragraph",
+        "text": "Multi-line content comment செய்யவும் முடியும் - code temporarily disable செய்ய இது மிகவும் useful."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Syntax",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;!-- comment --&gt;",
+            "Single line comment"
+          ],
+          [
+            "&lt;!-- multi\\nline --&gt;",
+            "Multi line comment"
+          ],
+          [
+            "&lt;!-- &lt;p&gt;hidden&lt;/p&gt; --&gt;",
+            "Content hide செய்ய"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Comments browser-ல் காட்டப்படாவிட்டாலும், HTML source code view செய்தால் யாரும் பார்க்கலாம். அதனால் sensitive information comments-ல் எழுதாதீர்கள்.</p>"
+      }
+    ]
+  },
+  "colors": {
+    "title": "HTML Colors",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML colors predefined color names மூலமாக அல்லது RGB, HEX, HSL values மூலமாக specify செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Color Names"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML-ல் 140+ predefined color names உள்ளன. எ.கா: Tomato, Orange, DodgerBlue, MediumSeaGreen, Gray, SlateBlue, Violet, LightGray."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h1 style=\"background-color:Tomato;\">Tomato</h1>\n<h1 style=\"background-color:Orange;\">Orange</h1>\n<h1 style=\"background-color:DodgerBlue;\">DodgerBlue</h1>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "RGB மற்றும் HEX Colors"
+      },
+      {
+        "type": "paragraph",
+        "text": "RGB color: rgb(red, green, blue) - ஒவ்வொரு value 0 முதல் 255 வரை இருக்கும். HEX color: #rrggbb format-ல் இருக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h1 style=\"background-color:rgb(255, 99, 71);\">RGB Color</h1>\n<h1 style=\"background-color:#ff6347;\">HEX Color</h1>\n<h1 style=\"background-color:hsl(9, 100%, 64%);\">HSL Color</h1>"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Color Names - Tomato, Blue, Green போன்ற predefined names",
+          "RGB - rgb(255, 0, 0) - Red, Green, Blue values",
+          "RGBA - rgba(255, 0, 0, 0.5) - Alpha (transparency) சேர்ந்தது",
+          "HEX - #ff0000 - Hexadecimal format",
+          "HSL - hsl(0, 100%, 50%) - Hue, Saturation, Lightness"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Color Format",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Color Name",
+            "Tomato"
+          ],
+          [
+            "RGB",
+            "rgb(255, 99, 71)"
+          ],
+          [
+            "HEX",
+            "#ff6347"
+          ],
+          [
+            "HSL",
+            "hsl(9, 100%, 64%)"
+          ],
+          [
+            "RGBA",
+            "rgba(255, 99, 71, 0.5)"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> RGB value 0,0,0 என்பது black. 255,255,255 என்பது white. HEX-ல் #000000 black, #ffffff white ஆகும்.</p>"
+      }
+    ]
+  },
+  "css": {
+    "title": "HTML CSS",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "CSS என்பது Cascading Style Sheets. HTML elements எப்படி display ஆக வேண்டும் என்று CSS control செய்கிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "CSS என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "CSS-ஐ HTML-ல் 3 வழிகளில் சேர்க்கலாம்: Inline, Internal, மற்றும் External."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Inline CSS - style attribute மூலம் single element-க்கு",
+          "Internal CSS - &lt;style&gt; tag மூலம் ஒரு HTML page-க்கு",
+          "External CSS - external .css file மூலம் பல pages-க்கு"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inline CSS"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h1 style=\"color:blue;\">A Blue Heading</h1>\n<p style=\"color:red;\">A red paragraph.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Internal CSS"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\nbody {background-color: powderblue;}\nh1   {color: blue;}\np    {color: red;}\n</style>\n</head>\n<body>\n<h1>This is a heading</h1>\n<p>This is a paragraph.</p>\n</body>\n</html>"
+      },
+      {
+        "type": "paragraph",
+        "text": "External CSS: &lt;link&gt; tag மூலம் external stylesheet link செய்யலாம். இது பல pages-க்கு ஒரே style apply செய்ய பயன்படும்."
+      },
+      {
+        "type": "example",
+        "title": "External CSS Example",
+        "code": "<head>\n<link rel=\"stylesheet\" href=\"styles.css\">\n</head>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "CSS Type",
+          "எங்கே எழுதுவது",
+          "எதற்கு பயன்படும்"
+        ],
+        "rows": [
+          [
+            "Inline",
+            "style attribute-ல்",
+            "ஒரு element-க்கு மட்டும்"
+          ],
+          [
+            "Internal",
+            "&lt;style&gt; tag-ல்",
+            "ஒரு page-க்கு"
+          ],
+          [
+            "External",
+            ".css file-ல்",
+            "பல pages-க்கு"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> External CSS பயன்படுத்துவது best practice. ஒரே file-ல் style மாற்றினால் அனைத்து pages-லும் automatically மாறும்.</p>"
+      }
+    ]
+  },
+  "links": {
+    "title": "HTML Links",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML links hyperlinks ஆகும். Link click செய்தால் மற்றொரு document அல்லது page-க்கு navigate செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Links - Hyperlinks"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML links <code class=\"w3-codespan\">&lt;a&gt;</code> tag மூலம் define செய்யப்படுகின்றன. Link text அல்லது image click செய்யக்கூடியதாக இருக்கும்:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<a href=\"https://www.codingtamilan.com\">Visit Coding Tamilan!</a>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Links - target Attribute"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">target</code> attribute link எங்கே open ஆக வேண்டும் என்று specify செய்கிறது:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "_self - same tab-ல் open ஆகும் (default)",
+          "_blank - புதிய tab அல்லது window-ல் open ஆகும்",
+          "_parent - parent frame-ல் open ஆகும்",
+          "_top - full window-ல் open ஆகும்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<a href=\"https://www.codingtamilan.com\" target=\"_blank\">Visit Coding Tamilan!</a>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Link Colors மற்றும் Buttons"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<a href=\"default.asp\" style=\"color:green;\">\nThis is a green link</a>\n\n<a href=\"default.asp\">\n<button>Click me as button!</button>\n</a>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Link State",
+          "Default நிறம்"
+        ],
+        "rows": [
+          [
+            "Visit ஆகாத link",
+            "Blue, underlined"
+          ],
+          [
+            "Visit ஆன link",
+            "Purple, underlined"
+          ],
+          [
+            "Active link",
+            "Red, underlined"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> External sites-க்கு link செய்யும்போது target=\"_blank\" பயன்படுத்துவது user-friendly. User உங்கள் site-ல் இருந்தவாறே மற்றொரு site பார்க்கலாம்.</p>"
+      }
+    ]
+  },
+  "images": {
+    "title": "HTML Images",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Images ஒரு web page-இன் design மற்றும் appearance-ஐ மேம்படுத்தும். HTML-ல் images embed செய்வது மிக எளிது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Images Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML image <code class=\"w3-codespan\">&lt;img&gt;</code> tag மூலம் embed செய்யப்படுகிறது. இது ஒரு empty tag - end tag இல்லை:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<img src=\"pic_trulli.jpg\" alt=\"Italian Trulli\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "src மற்றும் alt Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">src</code> attribute image file இன் path specify செய்கிறது. <code class=\"w3-codespan\">alt</code> attribute image காட்டாவிட்டால் alternate text காட்டும்:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "src - image இன் file path அல்லது URL",
+          "alt - screen readers மற்றும் image load தோல்வியாகும்போது",
+          "width - image இன் அகலம் (pixels-ல்)",
+          "height - image இன் உயரம் (pixels-ல்)",
+          "style - CSS styles add செய்ய"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Image Size மற்றும் Float"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<img src=\"img_girl.jpg\" alt=\"Girl in jacket\" style=\"width:500px;height:600px;\">\n\n<img src=\"img_girl.jpg\" alt=\"Girl\" style=\"float:right;width:42px;height:42px;\">\n<p>The image will float to the right of the text.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Attribute",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "src",
+            "Image path specify செய்ய"
+          ],
+          [
+            "alt",
+            "Alternate text காட்ட"
+          ],
+          [
+            "width",
+            "Image அகலம் set செய்ய"
+          ],
+          [
+            "height",
+            "Image உயரம் set செய்ய"
+          ],
+          [
+            "style",
+            "Inline CSS add செய்ய"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> alt attribute எப்போதும் சேர்க்கவும். Image load ஆகாவிட்டால் user-க்கு என்ன image என்று புரியும். Accessibility-க்கும் SEO-க்கும் மிக முக்கியம்.</p>"
+      }
+    ]
+  },
+  "tables": {
+    "title": "HTML Tables",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML tables data-ஐ rows மற்றும் columns-ல் organize செய்து காட்ட பயன்படுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Table Structure"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML table பல tags சேர்ந்து உருவாகிறது:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;table&gt; - Table define செய்ய",
+          "&lt;tr&gt; - Table row define செய்ய",
+          "&lt;th&gt; - Table header cell define செய்ய",
+          "&lt;td&gt; - Table data cell define செய்ய",
+          "&lt;thead&gt; - Table header group",
+          "&lt;tbody&gt; - Table body group",
+          "&lt;tfoot&gt; - Table footer group",
+          "&lt;caption&gt; - Table caption"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<table border=\"1\">\n  <tr>\n    <th>Company</th>\n    <th>Contact</th>\n    <th>Country</th>\n  </tr>\n  <tr>\n    <td>Alfreds Futterkiste</td>\n    <td>Maria Anders</td>\n    <td>Germany</td>\n  </tr>\n  <tr>\n    <td>Centro comercial</td>\n    <td>Francisco Chang</td>\n    <td>Mexico</td>\n  </tr>\n</table>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Table Borders மற்றும் Styling"
+      },
+      {
+        "type": "paragraph",
+        "text": "CSS மூலம் table-க்கு borders, padding, colors சேர்க்கலாம்:"
+      },
+      {
+        "type": "example",
+        "title": "CSS Table Styling",
+        "code": "table, th, td {\n  border: 1px solid black;\n  border-collapse: collapse;\n}\nth, td {\n  padding: 10px;\n}"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;table&gt;",
+            "Table define செய்ய"
+          ],
+          [
+            "&lt;tr&gt;",
+            "Table row"
+          ],
+          [
+            "&lt;th&gt;",
+            "Header cell (bold, centered)"
+          ],
+          [
+            "&lt;td&gt;",
+            "Data cell"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;th&gt; elements default-ஆக bold மற்றும் center aligned ஆக காட்டும். &lt;td&gt; elements normal மற்றும் left aligned ஆக காட்டும்.</p>"
+      }
+    ]
+  },
+  "lists": {
+    "title": "HTML Lists",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML lists web developers-க்கு related items ஒரு list-ல் group செய்ய அனுமதிக்கிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML List வகைகள்"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Unordered list (&lt;ul&gt;) - bullet points காட்டும்",
+          "Ordered list (&lt;ol&gt;) - numbers அல்லது letters காட்டும்",
+          "Description list (&lt;dl&gt;) - term மற்றும் description காட்டும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Unordered List"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<ul>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Ordered List"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<ol>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>"
+      },
+      {
+        "type": "paragraph",
+        "text": "CSS <code class=\"w3-codespan\">list-style-type</code> property மூலம் list markers மாற்றலாம்: disc, circle, square, none போன்றவை."
+      },
+      {
+        "type": "paragraph",
+        "text": "Nested lists - list-க்குள் list உருவாக்கலாம். இது sub-items காட்ட பயன்படும்."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;ul&gt;",
+            "Unordered list"
+          ],
+          [
+            "&lt;ol&gt;",
+            "Ordered list"
+          ],
+          [
+            "&lt;li&gt;",
+            "List item"
+          ],
+          [
+            "&lt;dl&gt;",
+            "Description list"
+          ],
+          [
+            "&lt;dt&gt;",
+            "Description term"
+          ],
+          [
+            "&lt;dd&gt;",
+            "Description details"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> List items-ஐ CSS-ல் horizontal ஆக காட்டலாம் - navigation menus உருவாக்க இது மிகவும் பயன்படும்.</p>"
+      }
+    ]
+  },
+  "blocks": {
+    "title": "HTML Block மற்றும் Inline Elements",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML elements block-level அல்லது inline என இரண்டு வகைப்படும். இந்த வேறுபாடு layout-க்கு மிக முக்கியம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Block-level Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "Block-level element எப்போதும் புதிய line-ல் தொடங்கும், browser automatically அதற்கு முன்பும் பின்பும் space சேர்க்கும். அது available full width எடுத்துக்கொள்ளும்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;div&gt; - மிக பொதுவான block container",
+          "&lt;p&gt; - Paragraph",
+          "&lt;h1&gt; - &lt;h6&gt; - Headings",
+          "&lt;form&gt; - Form",
+          "&lt;header&gt;, &lt;footer&gt;, &lt;section&gt; - Semantic elements"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inline Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "Inline element புதிய line-ல் தொடங்காது. அது தேவையான அளவு மட்டுமே width எடுக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<div style=\"background-color:black;color:white;padding:20px;\">\n  <h2>London</h2>\n  <p>London is the capital of England.</p>\n</div>\n\n<p>My mother has <span style=\"color:blue;\">blue</span> eyes.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Type",
+          "Examples",
+          "Behavior"
+        ],
+        "rows": [
+          [
+            "Block",
+            "&lt;div&gt;, &lt;p&gt;, &lt;h1&gt;",
+            "புதிய line-ல் தொடங்கும், full width எடுக்கும்"
+          ],
+          [
+            "Inline",
+            "&lt;span&gt;, &lt;a&gt;, &lt;img&gt;",
+            "Same line-ல் இருக்கும், content அளவு மட்டும்"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;div&gt; element block-level container. &lt;span&gt; element inline container. இரண்டும் styling மற்றும் layout-க்கு அதிகமாக பயன்படுத்தப்படும்.</p>"
+      }
+    ]
+  },
+  "classes": {
+    "title": "HTML Classes",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML <code class=\"w3-codespan\">class</code> attribute ஒரு HTML element-க்கு ஒரு அல்லது பல class names assign செய்கிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Class Attribute பயன்பாடு"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class attribute பின்வரும் நோக்கங்களுக்காக பயன்படுத்தப்படுகிறது:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "CSS-ல் specific elements style செய்ய",
+          "JavaScript-ல் specific elements access செய்ய",
+          "Same class-ல் உள்ள பல elements-க்கு same styling கொடுக்க"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "CSS Class Selector"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n<style>\n.city {\n  background-color: tomato;\n  color: white;\n  padding: 10px;\n}\n</style>\n</head>\n<body>\n<h2 class=\"city\">London</h2>\n<p class=\"city\">London is the capital of England.</p>\n</body>\n</html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multiple Classes"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு element-க்கு multiple classes assign செய்யலாம் - class names space-ல் பிரிக்கப்படும்:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h2 class=\"city main\">London</h2>\n<h2 class=\"city\">Paris</h2>\n<h2 class=\"city\">Tokyo</h2>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Usage",
+          "Syntax"
+        ],
+        "rows": [
+          [
+            "CSS-ல் class select செய்ய",
+            ".classname { }"
+          ],
+          [
+            "Multiple classes assign செய்ய",
+            "class=\"class1 class2\""
+          ],
+          [
+            "JavaScript-ல் access செய்ய",
+            "getElementsByClassName()"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Class names case sensitive. 'city' மற்றும் 'City' வேவ்வேறு classes ஆகும். Class names letter அல்லது hyphen-ல் தொடங்க வேண்டும்.</p>"
+      }
+    ]
+  },
+  "id": {
+    "title": "HTML id Attribute",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML <code class=\"w3-codespan\">id</code> attribute ஒரு HTML element-க்கு unique identity கொடுக்க பயன்படுகிறது. ஒரே document-ல் இரண்டு elements-க்கு same id இருக்கக் கூடாது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "id Attribute என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">id</code> attribute HTML document-ல் ஒரு element-ஐ uniquely identify செய்கிறது. CSS-ல் # symbol மூலம் அந்த id-ஐ select செய்யலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-லும் <code class=\"w3-codespan\">getElementById()</code> method மூலம் id கொண்டு element-ஐ access செய்து manipulate செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html><html><head><style>#myHeader {  \n  background-color: lightblue;  color: black;  padding: 40px;  \n  text-align: center;} </style></head><body><h1 id=\"myHeader\">My \n  Header</h1></body></html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Class மற்றும் ID இடையே வேறுபாடு"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class ஒரே நேரத்தில் பல elements-க்கு apply ஆகும். ஆனால் id ஒரு page-ல் ஒரே ஒரு element-க்கு மட்டுமே பயன்படுத்த வேண்டும்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">id</code> attribute ஒரு element-க்கு unique id கொடுக்கிறது",
+          "id value HTML document-ல் unique ஆக இருக்க வேண்டும்",
+          "CSS மற்றும் JavaScript இரண்டிலும் id பயன்படுத்தலாம்",
+          "id value case sensitive - 'myHeader' மற்றும் 'myheader' வேவ்வேறு",
+          "id value எண்ணில் தொடங்கக் கூடாது, spaces இருக்கக் கூடாது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Bookmarks உருவாக்க id பயன்படுத்துவது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Page-ல் specific section-க்கு jump செய்ய id மூலம் bookmark உருவாக்கலாம். நீண்ட pages-க்கு இது மிகவும் useful."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<h2 id=\"C4\">Chapter 4</h2>\n<a href=\"#C4\">Jump to Chapter 4</a>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "பயன்பாடு",
+          "Syntax"
+        ],
+        "rows": [
+          [
+            "CSS-ல் id select செய்ய",
+            "#idname { }"
+          ],
+          [
+            "JavaScript-ல் element பெற",
+            "getElementById('idname')"
+          ],
+          [
+            "Bookmark link உருவாக்க",
+            "<a href=\"#idname\">"
+          ],
+          [
+            "Bookmark target define செய்ய",
+            "<tag id=\"idname\">"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> id name case sensitive ஆகும். id value குறைந்தது ஒரு character கொண்டிருக்க வேண்டும், number-ல் தொடங்கக் கூடாது, spaces இருக்கக் கூடாது.</p>"
+      }
+    ]
+  },
+  "iframe": {
+    "title": "HTML Iframes",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML iframe என்பது ஒரு web page-க்குள் மற்றொரு web page embed செய்ய பயன்படுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Iframe Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;iframe&gt;</code> tag ஒரு inline frame define செய்கிறது. இது current HTML document-க்குள் மற்றொரு document embed செய்ய பயன்படுகிறது."
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">title</code> attribute எப்போதும் iframe-க்கு சேர்ப்பது good practice. Screen readers இதை பயன்படுத்தி iframe-ல் என்ன content உள்ளது என்று சொல்லும்."
+      },
+      {
+        "type": "example",
+        "title": "Syntax",
+        "code": "<iframe src=\"url\" title=\"description\"></iframe>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Iframe - Height மற்றும் Width"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">height</code> மற்றும் <code class=\"w3-codespan\">width</code> attributes மூலம் iframe-இன் size specify செய்யலாம். Default-ஆக pixels-ல் இருக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<iframe src=\"demo_iframe.htm\" height=\"200\" width=\"300\" \n  title=\"Iframe Example\"></iframe>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Iframe - Border Remove செய்வது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Default-ஆக iframe-க்கு border இருக்கும். CSS <code class=\"w3-codespan\">border:none;</code> மூலம் அதை remove செய்யலாம் அல்லது customize செய்யலாம்:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<iframe src=\"demo_iframe.htm\" style=\"border:none;\" title=\"Iframe Example\"></iframe>\n<iframe src=\"demo_iframe.htm\" style=\"border:2px solid red;\" title=\"Iframe Example\"></iframe>"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">&lt;iframe&gt;</code> tag ஒரு inline frame define செய்கிறது",
+          "<code class=\"w3-codespan\">src</code> attribute embed செய்ய வேண்டிய page-இன் URL-ஐ define செய்கிறது",
+          "Screen readers-க்காக எப்போதும் <code class=\"w3-codespan\">title</code> attribute சேர்க்கவும்",
+          "<code class=\"w3-codespan\">height</code> மற்றும் <code class=\"w3-codespan\">width</code> attributes iframe-இன் size specify செய்கின்றன",
+          "<code class=\"w3-codespan\">border:none;</code> மூலம் iframe-இன் border remove செய்யலாம்"
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Attribute",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "src",
+            "Embed செய்யும் page-இன் URL"
+          ],
+          [
+            "title",
+            "Accessibility-க்காக description"
+          ],
+          [
+            "height",
+            "Iframe உயரம் (pixels)"
+          ],
+          [
+            "width",
+            "Iframe அகலம் (pixels)"
+          ],
+          [
+            "style",
+            "CSS மூலம் border மற்றும் size control"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> சில websites security காரணங்களுக்காக iframe-ல் load ஆவதை block செய்யும். X-Frame-Options header மூலம் இதை control செய்யலாம்.</p>"
+      }
+    ]
+  },
+  "scripts": {
+    "title": "HTML JavaScript",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "JavaScript HTML pages-ஐ dynamic மற்றும் interactive ஆக மாற்றுகிறது. User actions-க்கு respond செய்ய JavaScript மிகவும் பயன்படுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML script Tag"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML <code class=\"w3-codespan\">&lt;script&gt;</code> tag client-side script (JavaScript) define செய்ய பயன்படுகிறது."
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;script&gt;</code> element-ல் directly script எழுதலாம் அல்லது <code class=\"w3-codespan\">src</code> attribute மூலம் external script file link செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<script>\n document.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";\n</script>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript என்ன செய்யும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript பொதுவாக image manipulation, form validation, மற்றும் dynamic content changes-க்கு பயன்படுகிறது. <code class=\"w3-codespan\">document.getElementById()</code> method மூலம் HTML elements access செய்யலாம்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "HTML content dynamically மாற்ற: innerHTML property",
+          "CSS styles மாற்ற: element.style.property",
+          "Images மாற்ற: src attribute update செய்ய",
+          "User events handle செய்ய: onclick, onmouseover போன்றவை",
+          "Form data validate செய்ய"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "JavaScript Examples",
+        "code": "// Content மாற்ற\ndocument.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";\n\n// Style மாற்ற\ndocument.getElementById(\"demo\").style.fontSize = \"25px\";\ndocument.getElementById(\"demo\").style.color = \"red\";\n\n// Image மாற்ற\ndocument.getElementById(\"image\").src = \"picture.gif\";"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML noscript Tag"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">&lt;noscript&gt;</code> tag JavaScript disable செய்த browsers-க்கு அல்லது JavaScript support இல்லாத browsers-க்கு alternate content காட்டுகிறது:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<script>\n document.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";\n</script>\n<noscript>Sorry, your browser does not support JavaScript!</noscript>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tag",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;script&gt;",
+            "Client-side script (JavaScript) define செய்ய"
+          ],
+          [
+            "&lt;noscript&gt;",
+            "JavaScript support இல்லாத browsers-க்கு alternate content"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Performance-க்காக &lt;script&gt; tags பொதுவாக &lt;/body&gt; tag-க்கு முன்பு வைப்பது நல்லது. இதனால் page content முதலில் load ஆகும், பிறகு scripts load ஆகும்.</p>"
+      }
+    ]
+  },
+  "filepaths": {
+    "title": "HTML File Paths",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML file paths என்பது ஒரு webpage-ல் இருந்து மற்ற files அல்லது folders ஐ refer செய்ய பயன்படும் address ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Path என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "File path என்பது ஒரு file எங்கே இருக்கிறது என்று browser க்கு சொல்வது. Images, stylesheets, scripts போன்றவற்றை link செய்ய இது தேவைப்படுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Absolute மற்றும் Relative Paths"
+      },
+      {
+        "type": "paragraph",
+        "text": "Absolute path என்பது முழு URL அல்லது full file path. Relative path என்பது current file இருக்கும் இடத்தை reference ஆக வைத்துக்கொண்டு கொடுக்கப்படும் path."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Absolute path: https://www.example.com/images/photo.jpg - முழு web address",
+          "Relative path (same folder): photo.jpg - same folder-ல் உள்ள file",
+          "Relative path (subfolder): images/photo.jpg - subfolder-ல் உள்ள file",
+          "Relative path (parent folder): ../photo.jpg - ஒரு level மேலே உள்ள file",
+          "/ (root) path: /images/photo.jpg - website root இலிருந்து தொடங்கும்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- Absolute path -->\n<img src=\"https://www.example.com/img/photo.jpg\">\n\n<!-- Relative path - same folder -->\n<img src=\"photo.jpg\">\n\n<!-- Relative path - subfolder -->\n<img src=\"images/photo.jpg\">\n\n<!-- Relative path - parent folder -->\n<img src=\"../images/photo.jpg\">"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Relative paths பயன்படுத்துவது best practice. Website-ஐ வேறு server-க்கு move செய்தாலும் relative paths சரியாக வேலை செய்யும், ஆனால் absolute paths update செய்ய வேண்டியிருக்கும்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Path",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "photo.jpg",
+            "Current folder-ல் உள்ள file"
+          ],
+          [
+            "images/photo.jpg",
+            "images subfolder-ல் உள்ள file"
+          ],
+          [
+            "../photo.jpg",
+            "ஒரு level மேலே உள்ள file"
+          ],
+          [
+            "/images/photo.jpg",
+            "Root folder-ல் உள்ள images folder-ல் உள்ள file"
+          ],
+          [
+            "https://example.com/a.jpg",
+            "Absolute path - full URL"
+          ]
+        ]
+      }
+    ]
+  },
+  "head": {
+    "title": "HTML Head Element",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML &lt;head&gt; element என்பது webpage பற்றிய meta information களை கொண்டிருக்கும் ஒரு container. இது browser-ல் directly display ஆகாது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "&lt;head&gt; Element என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;head&gt; element-க்குள் title, styles, scripts, meta tags போன்றவை வைக்கப்படும். இவை page இன் behaviour மற்றும் appearance ஐ control செய்கின்றன, ஆனால் directly screen-ல் தெரியாது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "&lt;head&gt; -ல் வரும் Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;head&gt; section-ல் பல முக்கியமான elements இடம் பெறும். ஒவ்வொன்றும் ஒரு specific purpose ஐ பூர்த்தி செய்கின்றன."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;title&gt; - Browser tab-ல் காட்டும் page title ஐ define செய்கிறது",
+          "&lt;style&gt; - Internal CSS styles எழுதலாம்",
+          "&lt;link&gt; - External stylesheet அல்லது resources link செய்ய",
+          "&lt;meta&gt; - Charset, viewport, description போன்ற metadata கொடுக்க",
+          "&lt;script&gt; - JavaScript code எழுத அல்லது link செய்ய",
+          "&lt;base&gt; - Page-ல் உள்ள எல்லா relative URLs-க்கும் base URL set செய்ய"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>My Page</title>\n  <meta charset=\"UTF-8\">\n  <meta name=\"description\" content=\"Free Web tutorials\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <p>Page content here...</p>\n</body>\n</html>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;title&gt; element required. அது இல்லாமல் HTML valid ஆகாது. Search engines page title ஐ பயன்படுத்தி results காட்டுகின்றன, எனவே meaningful title கொடுப்பது SEO-க்கு முக்கியம்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Element",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;title&gt;",
+            "Browser tab-ல் காட்டும் title"
+          ],
+          [
+            "&lt;meta&gt;",
+            "Page பற்றிய metadata"
+          ],
+          [
+            "&lt;link&gt;",
+            "External resources link செய்ய"
+          ],
+          [
+            "&lt;style&gt;",
+            "Internal CSS"
+          ],
+          [
+            "&lt;script&gt;",
+            "JavaScript code"
+          ],
+          [
+            "&lt;base&gt;",
+            "Base URL set செய்ய"
+          ]
+        ]
+      }
+    ]
+  },
+  "layout": {
+    "title": "HTML Layout",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML layout என்பது webpage-ல் content எப்படி arrange செய்யப்படும் என்பதை define செய்கிறது. Semantic elements பயன்படுத்தி page-ஐ logical sections ஆக பிரிக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Layout Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML5 semantic layout elements பயன்படுத்தி webpage-ஐ clearly structure செய்யலாம். ஒவ்வொரு element-உம் ஒரு specific role அல்லது section ஐ represent செய்கிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Layout உருவாக்கும் முறைகள்"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML layout-ஐ CSS Flexbox, CSS Grid, அல்லது CSS Float மூலம் implement செய்யலாம். Modern web development-ல் Flexbox மற்றும் Grid அதிகமாக பயன்படுத்தப்படுகின்றன."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;header&gt; - Page அல்லது section இன் top part",
+          "&lt;nav&gt; - Navigation links வைக்க",
+          "&lt;main&gt; - Page இன் main content",
+          "&lt;section&gt; - Thematic content ஐ group செய்ய",
+          "&lt;article&gt; - Independent, self-contained content",
+          "&lt;aside&gt; - Sidebar அல்லது supplementary content",
+          "&lt;footer&gt; - Page அல்லது section இன் bottom part"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    body { font-family: Arial; }\n    header { background: #333; color: white; padding: 15px; }\n    nav { background: #f4f4f4; padding: 10px; }\n    main { padding: 20px; }\n    aside { float: right; width: 25%; background: #eee; padding: 10px; }\n    footer { background: #333; color: white; text-align: center; padding: 10px; }\n  </style>\n</head>\n<body>\n  <header><h1>My Website</h1></header>\n  <nav><a href=\"#\">Home</a> | <a href=\"#\">About</a></nav>\n  <main>\n    <aside><p>Sidebar content</p></aside>\n    <section><p>Main content here</p></section>\n  </main>\n  <footer><p>Footer content</p></footer>\n</body>\n</html>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Semantic layout elements பயன்படுத்துவது accessibility மற்றும் SEO-க்கு மிகவும் நல்லது. Screen readers semantic elements பயன்படுத்தி page structure புரிந்துகொள்கின்றன.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Element",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;header&gt;",
+            "Page/section header"
+          ],
+          [
+            "&lt;nav&gt;",
+            "Navigation links"
+          ],
+          [
+            "&lt;main&gt;",
+            "Main content area"
+          ],
+          [
+            "&lt;section&gt;",
+            "Thematic grouping"
+          ],
+          [
+            "&lt;article&gt;",
+            "Independent content"
+          ],
+          [
+            "&lt;aside&gt;",
+            "Sidebar content"
+          ],
+          [
+            "&lt;footer&gt;",
+            "Page/section footer"
+          ]
+        ]
+      }
+    ]
+  },
+  "responsive": {
+    "title": "HTML Responsive Web Design",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Responsive web design என்பது webpage எல்லா devices-லும் (mobile, tablet, desktop) நன்றாக தெரியும்படி design செய்வதாகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Responsive Design என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Responsive design பயன்படுத்தும்போது, page layout screen size-க்கு ஏற்ப automatically adjust ஆகும். Mobile users-க்கும் desktop users-க்கும் ஒரே webpage சரியாக தெரியும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Responsive செய்வது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Viewport meta tag, flexible images, CSS media queries மற்றும் CSS Grid/Flexbox பயன்படுத்தி page-ஐ responsive ஆக்கலாம்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Viewport meta tag set செய்வது முதல் step: &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;",
+          "Images flexible ஆக வைக்க: img { max-width: 100%; height: auto; }",
+          "CSS Media queries பயன்படுத்தி different screen sizes-க்கு different styles கொடுக்கலாம்",
+          "CSS Grid மற்றும் Flexbox automatically responsive ஆக layout arrange செய்யும்",
+          "Bootstrap போன்ற CSS frameworks responsive design எளிதாக்குகின்றன"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    .container { display: flex; flex-wrap: wrap; }\n    .box { flex: 1 1 200px; margin: 10px; padding: 20px; background: #4CAF50; color: white; }\n    @media (max-width: 600px) {\n      .box { flex: 1 1 100%; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"box\">Box 1</div>\n    <div class=\"box\">Box 2</div>\n    <div class=\"box\">Box 3</div>\n  </div>\n</body>\n</html>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> இன்று 60% க்கும் மேற்பட்ட web traffic mobile devices இலிருந்து வருகிறது. எனவே responsive design எந்த website-க்கும் அத்தியாவசியம். Google-உம் mobile-friendly sites-ஐ search results-ல் முன்னிலைப்படுத்துகிறது.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Technique",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "Viewport meta tag",
+            "Browser-ஐ page width control செய்ய சொல்கிறது"
+          ],
+          [
+            "Flexible images",
+            "Images screen-க்கு fit ஆகும்படி செய்கிறது"
+          ],
+          [
+            "Media Queries",
+            "Screen size-க்கு ஏற்ப CSS மாற்றலாம்"
+          ],
+          [
+            "Flexbox",
+            "Flexible row/column layout"
+          ],
+          [
+            "CSS Grid",
+            "2D responsive grid layout"
+          ],
+          [
+            "Bootstrap",
+            "Ready-made responsive framework"
+          ]
+        ]
+      }
+    ]
+  },
+  "computercode": {
+    "title": "HTML Computer Code",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML computer code elements பயன்படுத்தி programming code, keyboard input, sample output போன்றவற்றை webpage-ல் display செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Computer Code Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML code display செய்ய சில special elements உள்ளன. இவை browser-ல் monospace font-ல் காட்டப்படும், அதனால் code clearly படிக்க முடியும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Code Elements பயன்படுத்துவது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;code&gt; element inline code-க்கும், &lt;pre&gt; element multiline pre-formatted code-க்கும் பயன்படுகிறது. &lt;pre&gt; whitespace மற்றும் line breaks ஐ அப்படியே preserve செய்யும்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;code&gt; - Inline computer code display செய்ய",
+          "&lt;pre&gt; - Pre-formatted text, whitespace preserve ஆகும்",
+          "&lt;kbd&gt; - Keyboard input காட்ட",
+          "&lt;samp&gt; - Program output காட்ட",
+          "&lt;var&gt; - Mathematical/programming variable காட்ட"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p>HTML-ல் paragraph எழுத <code>&lt;p&gt;</code> tag பயன்படுத்துங்கள்.</p>\n\n<pre>\nfunction greet(name) {\n  return \"Hello, \" + name;\n}\n</pre>\n\n<p>File save செய்ய <kbd>Ctrl + S</kbd> அழுத்துங்கள்.</p>\n\n<p>Program output: <samp>Hello, World!</samp></p>\n\n<p>Variable: <var>x</var> = <var>y</var> + 2</p>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> HTML code ஐ webpage-ல் display செய்யும்போது &lt; என்பதை &amp;lt; என்றும் &gt; என்பதை &amp;gt; என்றும் escape செய்ய வேண்டும். இல்லையென்றால் browser அதை actual HTML tag ஆக interpret செய்துவிடும்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Element",
+          "பயன்பாடு",
+          "Display"
+        ],
+        "rows": [
+          [
+            "&lt;code&gt;",
+            "Inline code",
+            "monospace font"
+          ],
+          [
+            "&lt;pre&gt;",
+            "Block code",
+            "whitespace preserved"
+          ],
+          [
+            "&lt;kbd&gt;",
+            "Keyboard input",
+            "monospace font"
+          ],
+          [
+            "&lt;samp&gt;",
+            "Program output",
+            "monospace font"
+          ],
+          [
+            "&lt;var&gt;",
+            "Variable name",
+            "italic font"
+          ]
+        ]
+      }
+    ]
+  },
+  "semantic": {
+    "title": "HTML Semantic Elements",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML semantic elements என்பது அவற்றின் பெயரிலேயே அவை என்ன செய்கின்றன என்று தெரியும்படி இருக்கும் elements. Browser-க்கும் developers-க்கும் content இன் meaning தெளிவாக புரியும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Semantic Elements என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Non-semantic elements: &lt;div&gt;, &lt;span&gt; - இவை content பற்றி எந்த information-உம் கொடுக்காது. Semantic elements: &lt;article&gt;, &lt;nav&gt;, &lt;footer&gt; - இவை content இன் purpose ஐ clearly சொல்கின்றன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Semantic Elements ஏன் முக்கியம்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Search engines semantic elements பயன்படுத்தி page content ஐ சரியாக index செய்கின்றன. Screen readers visually impaired users-க்கு page structure புரியவைக்க semantic elements பயன்படுத்துகின்றன."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;article&gt; - Independent, self-contained content (blog post, news article)",
+          "&lt;aside&gt; - Main content-க்கு related side content (sidebar)",
+          "&lt;details&gt; - User expand/collapse செய்யக்கூடிய additional details",
+          "&lt;figcaption&gt; - Figure-க்கான caption",
+          "&lt;figure&gt; - Self-contained content (image, diagram, code)",
+          "&lt;mark&gt; - Highlight செய்யப்பட்ட text",
+          "&lt;summary&gt; - &lt;details&gt; element-க்கான visible heading",
+          "&lt;time&gt; - Date அல்லது time"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<article>\n  <header>\n    <h2>What is HTML?</h2>\n    <time datetime=\"2024-01-15\">January 15, 2024</time>\n  </header>\n  <p>HTML is the standard markup language for web pages.</p>\n  <figure>\n    <img src=\"html-logo.png\" alt=\"HTML Logo\">\n    <figcaption>Fig.1 - HTML5 Logo</figcaption>\n  </figure>\n  <footer>\n    <p>Author: Coding Tamilan</p>\n  </footer>\n</article>\n\n<aside>\n  <h3>Related Topics</h3>\n  <p>Learn CSS and JavaScript next!</p>\n</aside>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> எல்லா browsers-உம் HTML5 semantic elements support செய்கின்றன. Older browsers-ல் (IE8 and earlier) semantic elements-ஐ block elements ஆக display செய்ய JavaScript polyfill தேவைப்படலாம்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Element",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;header&gt;",
+            "Page அல்லது section இன் header"
+          ],
+          [
+            "&lt;nav&gt;",
+            "Navigation links"
+          ],
+          [
+            "&lt;main&gt;",
+            "Page இன் main content"
+          ],
+          [
+            "&lt;article&gt;",
+            "Independent content piece"
+          ],
+          [
+            "&lt;section&gt;",
+            "Thematic content group"
+          ],
+          [
+            "&lt;aside&gt;",
+            "Side content / sidebar"
+          ],
+          [
+            "&lt;footer&gt;",
+            "Page அல்லது section இன் footer"
+          ],
+          [
+            "&lt;figure&gt;",
+            "Self-contained media content"
+          ]
+        ]
+      }
+    ]
+  },
+  "entities": {
+    "title": "HTML Entities",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML entities என்பது special characters ஐ HTML-ல் display செய்ய பயன்படும் codes. இவை &amp; உடன் தொடங்கி ; உடன் முடியும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Entity என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "சில characters HTML-ல் reserved ஆனவை - எடுத்துக்காட்டாக &lt; மற்றும் &gt; HTML tags ஆரம்பிக்க பயன்படுகின்றன. இந்த characters ஐ text ஆக display செய்ய entity names அல்லது entity numbers பயன்படுத்த வேண்டும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Entity பயன்படுத்துவது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Entity name format: &amp;entity_name; (எ.கா. &amp;lt; lt என்பது less than). Entity number format: &amp;#entity_number; (எ.கா. &amp;#60; 60 என்பது &lt; இன் decimal code)."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&amp;lt; அல்லது &amp;#60; → < (less than)",
+          "&amp;gt; அல்லது &amp;#62; → > (greater than)",
+          "&amp;amp; அல்லது &amp;#38; → & (ampersand)",
+          "&amp;quot; அல்லது &amp;#34; → \" (double quote)",
+          "&amp;apos; அல்லது &amp;#39; → ' (apostrophe)",
+          "&amp;nbsp; → non-breaking space (words இடையே break வேண்டாமென்றால்)",
+          "&amp;copy; → © (copyright symbol)",
+          "&amp;reg; → ® (registered trademark)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p>HTML-ல் &lt;p&gt; என்பது paragraph tag.</p>\n<p>Price: 5 &gt; 3, so item costs &amp;5.</p>\n<p>Copyright &copy; 2024 Coding Tamilan</p>\n<p>Trademark: React&reg;</p>\n<p>Non-breaking&nbsp;space example</p>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Entity names case-sensitive. &amp;lt; சரியானது, &amp;LT; வேலை செய்யாது. Entity numbers case-sensitive இல்லை - &amp;#60; மற்றும் &amp;#060; ஒரே மாதிரி வேலை செய்யும்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Character",
+          "Entity Name",
+          "Entity Number",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "<",
+            "&amp;lt;",
+            "&amp;#60;",
+            "Less than"
+          ],
+          [
+            ">",
+            "&amp;gt;",
+            "&amp;#62;",
+            "Greater than"
+          ],
+          [
+            "&",
+            "&amp;amp;",
+            "&amp;#38;",
+            "Ampersand"
+          ],
+          [
+            "\"",
+            "&amp;quot;",
+            "&amp;#34;",
+            "Double quote"
+          ],
+          [
+            "©",
+            "&amp;copy;",
+            "&amp;#169;",
+            "Copyright"
+          ],
+          [
+            "®",
+            "&amp;reg;",
+            "&amp;#174;",
+            "Registered trademark"
+          ],
+          [
+            " ",
+            "&amp;nbsp;",
+            "&amp;#160;",
+            "Non-breaking space"
+          ]
+        ]
+      }
+    ]
+  },
+  "symbols": {
+    "title": "HTML Symbols",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML symbols என்பது keyboard-ல் இல்லாத mathematical symbols, arrows, currency symbols போன்றவற்றை webpage-ல் display செய்ய பயன்படும் entity codes ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Symbols என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML-ல் entity names அல்லது Unicode code points பயன்படுத்தி எந்த symbol-உம் display செய்யலாம். இவை &amp;# உடன் தொடங்கி ; உடன் முடியும். Decimal அல்லது hexadecimal values பயன்படுத்தலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Symbol Categories"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML symbols பல categories-ல் வகைப்படுத்தப்பட்டுள்ளன. Mathematical symbols, Greek letters, currency symbols, arrows போன்றவை அடிக்கடி பயன்படுத்தப்படுகின்றன."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Mathematical: &amp;#8721; (∑ summation), &amp;#8730; (√ square root), &amp;#960; (π pi)",
+          "Greek letters: &amp;#945; (α alpha), &amp;#946; (β beta), &amp;#947; (γ gamma)",
+          "Currency: &amp;#36; ($ dollar), &amp;#8364; (€ euro), &amp;#8377; (₹ rupee)",
+          "Arrows: &amp;#8592; (← left), &amp;#8594; (→ right), &amp;#8593; (↑ up), &amp;#8595; (↓ down)",
+          "Misc: &amp;#9733; (★ star), &amp;#9829; (♥ heart), &amp;#9824; (♠ spade)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<p>Sum: &#8721; (Sigma/Summation)</p>\n<p>Square root: &#8730;16 = 4</p>\n<p>Pi value: &#960; = 3.14159</p>\n<p>Euro price: &#8364;99</p>\n<p>Indian Rupee: &#8377;1000</p>\n<p>Arrow: Click here &#8594;</p>\n<p>Star rating: &#9733;&#9733;&#9733;&#9733;&#9733;</p>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Symbols display ஆக &lt;meta charset=\"UTF-8\"&gt; tag &lt;head&gt;-ல் இருக்க வேண்டும். இல்லையென்றால் symbols சரியாக காட்டாமல் question marks அல்லது boxes காட்டும்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Symbol",
+          "Entity Number",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "∑",
+            "&amp;#8721;",
+            "Summation"
+          ],
+          [
+            "√",
+            "&amp;#8730;",
+            "Square root"
+          ],
+          [
+            "π",
+            "&amp;#960;",
+            "Pi"
+          ],
+          [
+            "€",
+            "&amp;#8364;",
+            "Euro"
+          ],
+          [
+            "₹",
+            "&amp;#8377;",
+            "Indian Rupee"
+          ],
+          [
+            "→",
+            "&amp;#8594;",
+            "Right arrow"
+          ],
+          [
+            "★",
+            "&amp;#9733;",
+            "Star"
+          ],
+          [
+            "♥",
+            "&amp;#9829;",
+            "Heart"
+          ]
+        ]
+      }
+    ]
+  },
+  "emojis": {
+    "title": "HTML Emojis",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Emojis என்பது Unicode characters. HTML-ல் emojis-ஐ entity numbers அல்லது directly type செய்து பயன்படுத்தலாம். இவை modern web design-ல் expressions மற்றும் visual interest-க்கு பயன்படுகின்றன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML-ல் Emojis என்படி வேலை செய்கின்றன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Emojis Unicode standard-ல் part ஆனவை. UTF-8 charset set செய்திருந்தால் emojis எல்லா modern browsers-லும் render ஆகும். HTML entity number format-ல் &amp;#x (hexadecimal) அல்லது &amp;# (decimal) பயன்படுத்தலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Emojis பயன்படுத்துவது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Emoji directly HTML-ல் paste செய்யலாம், அல்லது Unicode code point பயன்படுத்தலாம். எடுத்துக்காட்டாக 😀 emoji-க்கு Unicode code point U+1F600. HTML-ல் இதை &amp;#128512; அல்லது &amp;#x1F600; என்று எழுதலாம்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Direct paste: <p>😀</p> - directly emoji paste செய்யலாம்",
+          "Decimal code: &amp;#128512; → 😀 (Grinning Face)",
+          "Hexadecimal code: &amp;#x1F600; → 😀 (same emoji)",
+          "😂 → &amp;#128514; (Face with Tears of Joy)",
+          "❤️ → &amp;#10084; (Red Heart)",
+          "🎉 → &amp;#127881; (Party Popper)",
+          "👍 → &amp;#128077; (Thumbs Up)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Emoji Example</title>\n</head>\n<body>\n  <h1>Emoji Examples</h1>\n  <p>Smiley: &#128512;</p>\n  <p>Heart: &#10084;</p>\n  <p>Party: &#127881;</p>\n  <p>Thumbs up: &#128077;</p>\n  <p>Direct: 🌟 ⭐ 🔥 💻</p>\n</body>\n</html>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> எல்லா emojis எல்லா operating systems-லும் same ஆக தெரியாது. Windows, macOS, Android, iOS - ஒவ்வொன்றும் emojis-ஐ கொஞ்சம் different ஆக render செய்யும். Critical content-க்கு emojis மட்டும் rely செய்யாதீர்கள்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Emoji",
+          "Decimal Code",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "😀",
+            "&amp;#128512;",
+            "Grinning Face"
+          ],
+          [
+            "😂",
+            "&amp;#128514;",
+            "Face with Tears of Joy"
+          ],
+          [
+            "❤️",
+            "&amp;#10084;",
+            "Red Heart"
+          ],
+          [
+            "🎉",
+            "&amp;#127881;",
+            "Party Popper"
+          ],
+          [
+            "👍",
+            "&amp;#128077;",
+            "Thumbs Up"
+          ],
+          [
+            "🌟",
+            "&amp;#127775;",
+            "Glowing Star"
+          ],
+          [
+            "🔥",
+            "&amp;#128293;",
+            "Fire"
+          ],
+          [
+            "💻",
+            "&amp;#128187;",
+            "Laptop"
+          ]
+        ]
+      }
+    ]
+  },
+  "charset": {
+    "title": "HTML Charset",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML charset என்பது webpage-ல் உள்ள characters எந்த encoding system பயன்படுத்தி represent செய்யப்படுகின்றன என்று browser-க்கு சொல்வதாகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Character Encoding என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Computers numbers மட்டுமே புரிந்துகொள்ளும். Character encoding என்பது letters, numbers, symbols ஐ computer numbers-ஆக convert செய்யும் system. UTF-8 என்பது world-wide standard encoding, எல்லா languages-உம் support செய்யும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "UTF-8 Charset பயன்படுத்துவது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML5-ல் default charset UTF-8. &lt;meta charset=\"UTF-8\"&gt; tag-ஐ &lt;head&gt; section-ல் முதலில் வைக்க வேண்டும். இது Tamil, Arabic, Chinese போன்ற எல்லா Unicode characters-உம் சரியாக display ஆக உதவும்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "ASCII: 128 characters மட்டும் - English letters, numbers, basic symbols",
+          "ISO-8859-1: 256 characters - Western European languages support",
+          "UTF-8: 1,112,064 characters - எல்லா languages, emojis, symbols support",
+          "UTF-16: Unicode characters - all languages, mainly used in Java/Windows",
+          "HTML5 default: UTF-8 - modern websites இதையே பயன்படுத்துகின்றன"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Charset Example</title>\n</head>\n<body>\n  <p>English: Hello World</p>\n  <p>Tamil: வணக்கம் உலகம்</p>\n  <p>Japanese: こんにちは</p>\n  <p>Arabic: مرحبا</p>\n  <p>Emoji: 😀 🎉 ❤️</p>\n</body>\n</html>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;meta charset=\"UTF-8\"&gt; tag &lt;head&gt; section-ல் மிகவும் முதலில் வைக்க வேண்டும். அதற்கு முன் எந்த content-உம் வரக்கூடாது. இல்லையென்றால் special characters மற்றும் non-English text சரியாக display ஆகாமல் போகலாம்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Charset",
+          "Characters",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "ASCII",
+            "128",
+            "Basic English only"
+          ],
+          [
+            "ISO-8859-1",
+            "256",
+            "Western European"
+          ],
+          [
+            "UTF-8",
+            "1,112,064+",
+            "All languages, recommended"
+          ],
+          [
+            "UTF-16",
+            "65,536+",
+            "All Unicode characters"
+          ],
+          [
+            "Windows-1252",
+            "256",
+            "Windows Western European"
+          ]
+        ]
+      }
+    ]
+  },
+  "urlencode": {
+    "title": "HTML URL Encoding",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "URL encoding என்பது URLs-ல் allowed ஆகாத special characters ஐ percent (%) மற்றும் hexadecimal numbers பயன்படுத்தி encode செய்வது. இதை Percent Encoding என்றும் சொல்வார்கள்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "URL Encoding என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "URLs Internet-ல் resources locate செய்ய பயன்படுகின்றன. URLs ASCII character set மட்டுமே contain செய்யலாம். Non-ASCII characters மற்றும் spaces போன்ற special characters ஐ valid ASCII format-க்கு convert செய்ய URL encoding தேவை."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "URL Encoding எப்படி வேலை செய்கிறது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "URL encoding ஒரு character-ஐ % sign மற்றும் அதன் UTF-8 hexadecimal representation ஆக replace செய்கிறது. Space-ஐ %20 அல்லது + என்று encode செய்யலாம். Browser automatically URLs encode செய்யும், ஆனால் developers-க்கு இது புரிந்திருக்க வேண்டும்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Space → %20 அல்லது + (form data-ல் + பயன்படுத்துவது common)",
+          "! → %21",
+          "# → %23 (fragment identifier-க்கு பயன்படுகிறது)",
+          "$ → %24",
+          "& → %26 (query parameters separate செய்ய பயன்படுகிறது)",
+          "? → %3F (query string தொடங்க பயன்படுகிறது)",
+          "= → %3D (key-value pairs-ல் பயன்படுகிறது)",
+          "/ → %2F (path separator)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- Normal URL -->\n<a href=\"https://example.com/search?q=html+tutorial\">Search</a>\n\n<!-- URL with special characters encoded -->\n<a href=\"https://example.com/my%20page.html\">My Page</a>\n\n<!-- Form action with encoded spaces -->\n<form action=\"/search\">\n  <input type=\"text\" name=\"q\" value=\"html tutorial\">\n  <!-- Browser encodes as: /search?q=html+tutorial -->\n</form>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> JavaScript-ல் encodeURIComponent() function பயன்படுத்தி URL encoding செய்யலாம். decodeURIComponent() function encoded URL-ஐ original-க்கு convert செய்யும். Modern browsers automatically most encoding handle செய்கின்றன.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Character",
+          "URL Encoded",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            " ",
+            "%20",
+            "Space"
+          ],
+          [
+            "!",
+            "%21",
+            "Exclamation"
+          ],
+          [
+            "#",
+            "%23",
+            "Hash / Fragment"
+          ],
+          [
+            "&",
+            "%26",
+            "Ampersand"
+          ],
+          [
+            "?",
+            "%3F",
+            "Question mark"
+          ],
+          [
+            "=",
+            "%3D",
+            "Equals sign"
+          ],
+          [
+            "/",
+            "%2F",
+            "Forward slash"
+          ],
+          [
+            "+",
+            "%2B",
+            "Plus sign"
+          ]
+        ]
+      }
+    ]
+  },
+  "xhtml": {
+    "title": "HTML XHTML",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "XHTML என்பது Extensible HyperText Markup Language. HTML-ஐ XML-ஆக rewrite செய்தது. HTML-ஐ விட strict rules கொண்டது, ஆனால் இன்று HTML5 அதிகமாக பயன்படுத்தப்படுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "XHTML என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "XHTML = HTML + XML. XML rules-ஐ HTML-ல் apply செய்தால் XHTML கிடைக்கும். XHTML 1.0 W3C 2000-ல் release செய்தது. XHTML HTML-ஐ விட strict, well-formed documents require செய்கிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "XHTML மற்றும் HTML வேறுபாடுகள்"
+      },
+      {
+        "type": "paragraph",
+        "text": "XHTML-ல் எல்லா elements properly closed ஆக இருக்க வேண்டும், lowercase-ல் இருக்க வேண்டும், மற்றும் properly nested ஆக இருக்க வேண்டும். HTML-ல் சில rules optional ஆனாலும் XHTML-ல் mandatory."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "XHTML-ல் DOCTYPE declaration mandatory",
+          "XHTML elements lowercase-ல் இருக்க வேண்டும் (&lt;P&gt; invalid, &lt;p&gt; valid)",
+          "எல்லா elements properly closed ஆக இருக்க வேண்டும் (&lt;br /&gt; சரி, &lt;br&gt; தவறு)",
+          "Elements properly nested ஆக இருக்க வேண்டும்",
+          "Attribute values quotes-ல் இருக்க வேண்டும்",
+          "Empty elements: &lt;br /&gt;, &lt;img /&gt;, &lt;input /&gt; போல self-closing ஆக இருக்க வேண்டும்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n  \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <title>XHTML Example</title>\n</head>\n<body>\n  <p>This is a paragraph.</p>\n  <br />\n  <img src=\"image.png\" alt=\"Image\" />\n  <input type=\"text\" name=\"name\" />\n</body>\n</html>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Modern web development-ல் HTML5 பயன்படுத்துவதே best practice. XHTML-ஐ existing legacy projects-ல் மட்டுமே encounter ஆவீர்கள். HTML5 XHTML-ஐ விட forgiving மற்றும் developer-friendly ஆனது.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "விஷயம்",
+          "HTML",
+          "XHTML"
+        ],
+        "rows": [
+          [
+            "Case sensitivity",
+            "Case insensitive",
+            "Lowercase mandatory"
+          ],
+          [
+            "Tag closing",
+            "Optional for some",
+            "All tags must be closed"
+          ],
+          [
+            "Attribute quotes",
+            "Optional",
+            "Mandatory"
+          ],
+          [
+            "Empty elements",
+            "&lt;br&gt;",
+            "&lt;br /&gt;"
+          ],
+          [
+            "Document type",
+            "Optional (HTML5)",
+            "Mandatory"
+          ],
+          [
+            "Error handling",
+            "Lenient",
+            "Strict"
+          ]
+        ]
+      }
+    ]
+  },
+  "forms": {
+    "title": "HTML Forms",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML form என்பது user input collect செய்ய பயன்படும் ஒரு section. Login, registration, search box, contact form எல்லாம் HTML forms தான்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Form என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Form-ல் user data enter செய்து submit செய்யும்போது அந்த data server-க்கு அனுப்பப்படும். &lt;form&gt; element-க்குள் text fields, checkboxes, radio buttons, submit buttons போன்ற form elements வைக்கப்படும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Form Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Form element-ல் action மற்றும் method என்ற இரண்டு முக்கியமான attributes உள்ளன. Action-ல் data எங்கே அனுப்ப வேண்டும் என்று சொல்கிறோம். Method-ல் GET அல்லது POST என்று specify செய்கிறோம்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "action - Form data எந்த URL-க்கு அனுப்ப வேண்டும்",
+          "method - GET (URL-ல் data தெரியும்) அல்லது POST (data hidden ஆக அனுப்பப்படும்)",
+          "name - Form-ஐ identify செய்ய",
+          "target - Response எங்கே display ஆகும் (_blank, _self)",
+          "enctype - multipart/form-data (file upload-க்கு), application/x-www-form-urlencoded (default)",
+          "autocomplete - Browser auto-fill on/off செய்ய",
+          "novalidate - HTML5 validation bypass செய்ய"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<form action=\"/submit\" method=\"post\">\n  <label for=\"fname\">First Name:</label>\n  <input type=\"text\" id=\"fname\" name=\"fname\" required>\n  <br><br>\n  <label for=\"email\">Email:</label>\n  <input type=\"email\" id=\"email\" name=\"email\" required>\n  <br><br>\n  <label for=\"gender\">Gender:</label>\n  <input type=\"radio\" name=\"gender\" value=\"male\"> Male\n  <input type=\"radio\" name=\"gender\" value=\"female\"> Female\n  <br><br>\n  <label for=\"msg\">Message:</label>\n  <textarea id=\"msg\" name=\"msg\" rows=\"4\" cols=\"30\"></textarea>\n  <br><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Password, credit card details போன்ற sensitive data-க்கு எப்போதும் POST method பயன்படுத்துங்கள். GET method-ல் data URL-ல் தெரியும், எனவே sensitive information அனுப்பக்கூடாது. Production-ல் HTTPS mandatory.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Attribute",
+          "விளக்கம்",
+          "Example"
+        ],
+        "rows": [
+          [
+            "action",
+            "Data அனுப்பும் URL",
+            "action=\"/login\""
+          ],
+          [
+            "method",
+            "HTTP method",
+            "method=\"post\""
+          ],
+          [
+            "target",
+            "Response display location",
+            "target=\"_blank\""
+          ],
+          [
+            "enctype",
+            "Data encoding type",
+            "enctype=\"multipart/form-data\""
+          ],
+          [
+            "autocomplete",
+            "Auto-fill control",
+            "autocomplete=\"off\""
+          ],
+          [
+            "novalidate",
+            "HTML validation skip",
+            "novalidate"
+          ]
+        ]
+      }
+    ]
+  },
+  "form-elements": {
+    "title": "HTML Form Elements",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML form elements என்பது &lt;form&gt; tag-க்குள் வைக்கப்படும் different input controls. இவை user-ஓட interaction-க்கு பயன்படுகின்றன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "முக்கிய Form Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML5-ல் பல form elements உள்ளன. &lt;input&gt; மிகவும் versatile ஆனது - அதன் type attribute மாற்றுவதன் மூலம் text field, password, checkbox, radio, file upload போன்ற பல controls உருவாக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Label மற்றும் Input இணைப்பு"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;label&gt; element-ஐ input-உடன் for attribute மூலம் இணைக்க வேண்டும். Label-ஐ click செய்தாலே associated input focus ஆகும். இது accessibility-க்கும் usability-க்கும் மிகவும் முக்கியம்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "&lt;input&gt; - Versatile input control, type attribute மூலம் மாறும்",
+          "&lt;label&gt; - Input-க்கு label கொடுக்க",
+          "&lt;select&gt; - Dropdown list உருவாக்க",
+          "&lt;option&gt; - Dropdown-ல் individual options",
+          "&lt;textarea&gt; - Multi-line text input",
+          "&lt;button&gt; - Clickable button",
+          "&lt;fieldset&gt; - Related form elements group செய்ய",
+          "&lt;legend&gt; - Fieldset-க்கு caption கொடுக்க",
+          "&lt;datalist&gt; - Input-க்கு autocomplete suggestions"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<form action=\"/register\" method=\"post\">\n  <fieldset>\n    <legend>Personal Info</legend>\n    <label for=\"name\">Name:</label>\n    <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"Your name\">\n    \n    <label for=\"city\">City:</label>\n    <select id=\"city\" name=\"city\">\n      <option value=\"chennai\">Chennai</option>\n      <option value=\"coimbatore\">Coimbatore</option>\n      <option value=\"madurai\">Madurai</option>\n    </select>\n    \n    <label for=\"bio\">Bio:</label>\n    <textarea id=\"bio\" name=\"bio\" rows=\"3\"></textarea>\n  </fieldset>\n  \n  <button type=\"submit\">Register</button>\n</form>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> &lt;select&gt; element-ல் multiple attribute சேர்த்தால் user multiple options select செய்யலாம். &lt;datalist&gt; element-ல் options கொடுத்து &lt;input&gt;-இன் list attribute-ல் datalist id reference செய்தால் autocomplete feature கிடைக்கும்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Element",
+          "பயன்பாடு"
+        ],
+        "rows": [
+          [
+            "&lt;input&gt;",
+            "Text, password, checkbox, radio, etc."
+          ],
+          [
+            "&lt;textarea&gt;",
+            "Multi-line text input"
+          ],
+          [
+            "&lt;select&gt;",
+            "Dropdown list"
+          ],
+          [
+            "&lt;option&gt;",
+            "Dropdown item"
+          ],
+          [
+            "&lt;button&gt;",
+            "Clickable button"
+          ],
+          [
+            "&lt;label&gt;",
+            "Form control label"
+          ],
+          [
+            "&lt;fieldset&gt;",
+            "Group related controls"
+          ],
+          [
+            "&lt;datalist&gt;",
+            "Autocomplete suggestions"
+          ]
+        ]
+      }
+    ]
+  },
+  "input-types": {
+    "title": "HTML Input Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML &lt;input&gt; element-ல் type attribute மாற்றுவதன் மூலம் பல வகையான input controls உருவாக்கலாம். HTML5 பல புதிய input types introduce செய்தது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Input Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Input types browser-ல் different UI controls காட்டும். Mobile devices-ல் input type-க்கு ஏற்ப different keyboard காட்டும் - email type-க்கு @ keyboard, number type-க்கு numeric keyboard என்று."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML5 New Input Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML5 date, time, color, range, search, tel, url போன்ற new input types சேர்த்தது. இவை built-in validation மற்றும் special UI controls கொண்டுவந்தன."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "text - Single line text input (default)",
+          "password - Characters hide ஆகும் text input",
+          "email - Email format validate செய்யும்",
+          "number - Numeric input, min/max/step set செய்யலாம்",
+          "tel - Telephone number input",
+          "url - URL format validate செய்யும்",
+          "date - Date picker UI காட்டும்",
+          "time - Time picker UI காட்டும்",
+          "color - Color picker UI காட்டும்",
+          "range - Slider control",
+          "checkbox - On/off toggle",
+          "radio - Mutually exclusive selection",
+          "file - File upload",
+          "submit - Form submit button",
+          "reset - Form reset button",
+          "hidden - Invisible data store செய்ய"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<form>\n  <input type=\"text\" placeholder=\"Text input\"><br>\n  <input type=\"password\" placeholder=\"Password\"><br>\n  <input type=\"email\" placeholder=\"Email\"><br>\n  <input type=\"number\" min=\"1\" max=\"100\" placeholder=\"Number\"><br>\n  <input type=\"date\"><br>\n  <input type=\"color\" value=\"#ff0000\"><br>\n  <input type=\"range\" min=\"0\" max=\"100\" value=\"50\"><br>\n  <input type=\"checkbox\"> Remember me<br>\n  <input type=\"radio\" name=\"choice\" value=\"a\"> Option A\n  <input type=\"radio\" name=\"choice\" value=\"b\"> Option B<br>\n  <input type=\"file\"><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Input type=\"email\", type=\"url\", type=\"number\" போன்றவை browser-level validation செய்யும். ஆனால் server-side validation-உம் எப்போதும் செய்ய வேண்டும். Browser validation-மட்டும் rely செய்வது security risk.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Input Type",
+          "விளக்கம்",
+          "Mobile Keyboard"
+        ],
+        "rows": [
+          [
+            "text",
+            "Plain text",
+            "Normal keyboard"
+          ],
+          [
+            "email",
+            "Email address",
+            "@ key prominent"
+          ],
+          [
+            "number",
+            "Numeric value",
+            "Number keyboard"
+          ],
+          [
+            "tel",
+            "Phone number",
+            "Number keyboard"
+          ],
+          [
+            "url",
+            "Web address",
+            "/ and .com keys"
+          ],
+          [
+            "date",
+            "Date selection",
+            "Date picker"
+          ],
+          [
+            "color",
+            "Color picker",
+            "Color picker UI"
+          ],
+          [
+            "range",
+            "Slider",
+            "Slider control"
+          ]
+        ]
+      }
+    ]
+  },
+  "input-attributes": {
+    "title": "HTML Input Attributes",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML input attributes என்பது &lt;input&gt; element-இன் behaviour மற்றும் appearance ஐ control செய்யும் properties. இவை validation, default values, restrictions போன்றவற்றை define செய்கின்றன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "முக்கியமான Input Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Input attributes user experience-ஐ மேம்படுத்துகின்றன மற்றும் form validation-ஐ handle செய்கின்றன. HTML5 பல powerful validation attributes introduce செய்தது, இதனால் JavaScript இல்லாமலும் basic validation செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Validation Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "required, min, max, minlength, maxlength, pattern போன்ற attributes form submission-க்கு முன் data validate செய்கின்றன. Pattern attribute regular expressions accept செய்யும்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "value - Input-இன் default value set செய்ய",
+          "placeholder - Input காலியாக இருக்கும்போது hint text காட்ட",
+          "required - Field mandatory ஆக்க",
+          "disabled - Input disable செய்ய (submit ஆகாது)",
+          "readonly - Read-only ஆக்க (submit ஆகும்)",
+          "maxlength - Maximum characters limit",
+          "minlength - Minimum characters required",
+          "min மற்றும் max - Number/date range set செய்ய",
+          "step - Number increment/decrement step size",
+          "pattern - Regex validation pattern",
+          "autocomplete - Auto-fill on/off",
+          "autofocus - Page load-ல் automatically focus",
+          "multiple - Multiple values allow (email, file-க்கு)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<form>\n  <!-- Required field with placeholder -->\n  <input type=\"text\" name=\"name\" placeholder=\"Enter your name\" required>\n  \n  <!-- Email with autocomplete off -->\n  <input type=\"email\" name=\"email\" autocomplete=\"off\" required>\n  \n  <!-- Password with minlength -->\n  <input type=\"password\" name=\"pwd\" minlength=\"8\" required>\n  \n  <!-- Number with range -->\n  <input type=\"number\" name=\"age\" min=\"18\" max=\"100\" step=\"1\">\n  \n  <!-- Pattern validation (Indian phone number) -->\n  <input type=\"tel\" name=\"phone\" pattern=\"[6-9]{1}[0-9]{9}\" \n         placeholder=\"10-digit mobile number\">\n  \n  <!-- Autofocus -->\n  <input type=\"text\" name=\"search\" autofocus placeholder=\"Search...\">\n  \n  <input type=\"submit\" value=\"Submit\">\n</form>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> disabled மற்றும் readonly இரண்டும் user input prevent செய்யும், ஆனால் வித்தியாசம் உண்டு. disabled fields form submit-ல் include ஆகாது. readonly fields submit-ல் include ஆகும். Styling-உம் வேறாக இருக்கும்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Attribute",
+          "விளக்கம்",
+          "Example"
+        ],
+        "rows": [
+          [
+            "value",
+            "Default value",
+            "value=\"John\""
+          ],
+          [
+            "placeholder",
+            "Hint text",
+            "placeholder=\"Enter name\""
+          ],
+          [
+            "required",
+            "Mandatory field",
+            "required"
+          ],
+          [
+            "disabled",
+            "Disable input",
+            "disabled"
+          ],
+          [
+            "readonly",
+            "Read-only",
+            "readonly"
+          ],
+          [
+            "maxlength",
+            "Max chars",
+            "maxlength=\"50\""
+          ],
+          [
+            "min/max",
+            "Range limits",
+            "min=\"18\" max=\"60\""
+          ],
+          [
+            "pattern",
+            "Regex validation",
+            "pattern=\"[A-Za-z]+\""
+          ]
+        ]
+      }
+    ]
+  },
+  "media": {
+    "title": "HTML Media",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML media என்பது webpage-ல் audio மற்றும் video files embed செய்வதை refer செய்கிறது. HTML5 native audio/video support introduce செய்தது, Flash player போன்ற plugins தேவையில்லாமல் media play செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Media என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Web media என்பது audio, video, மற்றும் images ஆகியவற்றை உள்ளடக்கியது. HTML5-க்கு முன் video/audio play செய்ய Flash, Windows Media Player போன்ற third-party plugins தேவைப்பட்டன. HTML5 built-in &lt;video&gt; மற்றும் &lt;audio&gt; elements கொண்டுவந்தது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Media Formats"
+      },
+      {
+        "type": "paragraph",
+        "text": "Different browsers different media formats support செய்கின்றன. Maximum browser compatibility-க்கு multiple formats provide செய்வது best practice. &lt;source&gt; element பயன்படுத்தி multiple formats specify செய்யலாம்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Video formats: MP4 (H.264) - all browsers support, WebM - Chrome/Firefox, Ogg - Firefox",
+          "Audio formats: MP3 - all browsers, WAV - all browsers, Ogg - Firefox/Chrome",
+          "MP4/MP3 format பயன்படுத்துவது best practice - maximum compatibility",
+          "&lt;source&gt; element multiple formats specify செய்ய பயன்படுகிறது",
+          "Browser first format ஐ try செய்யும், support இல்லையென்றால் next format try செய்யும்",
+          "Fallback text browsers-க்கு media support இல்லையென்றால் காட்டப்படும்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- Video with multiple sources -->\n<video width=\"640\" height=\"360\" controls>\n  <source src=\"movie.mp4\" type=\"video/mp4\">\n  <source src=\"movie.webm\" type=\"video/webm\">\n  உங்கள் browser video support செய்யவில்லை.\n</video>\n\n<!-- Audio with multiple sources -->\n<audio controls>\n  <source src=\"audio.mp3\" type=\"audio/mpeg\">\n  <source src=\"audio.ogg\" type=\"audio/ogg\">\n  உங்கள் browser audio support செய்யவில்லை.\n</audio>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> autoplay attribute பயன்படுத்தும்போது கவனமாக இருக்கவும். Modern browsers autoplay sound-உடன் block செய்யும். muted attribute சேர்த்தால் autoplay allow ஆகும். User experience-ஐ கருத்தில் கொண்டு media autoplay பயன்படுத்துங்கள்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Format",
+          "Type",
+          "Browser Support"
+        ],
+        "rows": [
+          [
+            "MP4",
+            "Video",
+            "All modern browsers"
+          ],
+          [
+            "WebM",
+            "Video",
+            "Chrome, Firefox, Edge"
+          ],
+          [
+            "Ogg",
+            "Video",
+            "Firefox, Chrome"
+          ],
+          [
+            "MP3",
+            "Audio",
+            "All modern browsers"
+          ],
+          [
+            "WAV",
+            "Audio",
+            "All modern browsers"
+          ],
+          [
+            "Ogg Vorbis",
+            "Audio",
+            "Firefox, Chrome, Opera"
+          ]
+        ]
+      }
+    ]
+  },
+  "video": {
+    "title": "HTML Video",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML &lt;video&gt; element webpage-ல் video display செய்ய பயன்படுகிறது. HTML5 இதை introduce செய்தது, Flash இல்லாமல் videos play ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Video Element"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;video&gt; element-ல் src attribute மூலம் video file specify செய்யலாம். அல்லது &lt;source&gt; elements பயன்படுத்தி multiple formats provide செய்யலாம். controls attribute add செய்தால் play, pause, volume controls browser காட்டும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Video Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;video&gt; element-ல் பல useful attributes உள்ளன. இவை video-இன் appearance மற்றும் playback behaviour ஐ control செய்கின்றன."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "src - Video file இன் path",
+          "controls - Play/pause/volume controls காட்ட",
+          "width மற்றும் height - Video player-இன் size",
+          "autoplay - Page load ஆனவுடன் automatically play ஆக (muted-உடன்)",
+          "muted - Sound off ஆக play ஆக",
+          "loop - Video முடிந்தவுடன் மீண்டும் play ஆக",
+          "poster - Video load ஆவதற்கு முன் காட்டும் image",
+          "preload - Video எப்படி preload செய்ய வேண்டும் (none/metadata/auto)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- Basic video -->\n<video width=\"640\" height=\"360\" controls>\n  <source src=\"coding-tutorial.mp4\" type=\"video/mp4\">\n  <source src=\"coding-tutorial.webm\" type=\"video/webm\">\n  உங்கள் browser &lt;video&gt; tag support செய்யவில்லை.\n</video>\n\n<!-- Video with poster and autoplay (muted) -->\n<video width=\"640\" height=\"360\" controls autoplay muted loop\n       poster=\"thumbnail.jpg\">\n  <source src=\"promo.mp4\" type=\"video/mp4\">\n</video>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Video files பெரியதாக இருக்கும், எனவே page loading slow ஆகலாம். preload=\"none\" set செய்தால் user play button click செய்யும் வரை video load ஆகாது. Bandwidth save ஆகும். Large videos-க்கு YouTube அல்லது Vimeo embedding consider செய்யுங்கள்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Attribute",
+          "விளக்கம்",
+          "Values"
+        ],
+        "rows": [
+          [
+            "src",
+            "Video file URL",
+            "URL string"
+          ],
+          [
+            "controls",
+            "Show player controls",
+            "controls (boolean)"
+          ],
+          [
+            "width/height",
+            "Player dimensions",
+            "pixels or %"
+          ],
+          [
+            "autoplay",
+            "Auto play on load",
+            "autoplay (boolean)"
+          ],
+          [
+            "muted",
+            "Start muted",
+            "muted (boolean)"
+          ],
+          [
+            "loop",
+            "Repeat video",
+            "loop (boolean)"
+          ],
+          [
+            "poster",
+            "Thumbnail image",
+            "image URL"
+          ],
+          [
+            "preload",
+            "Loading strategy",
+            "none/metadata/auto"
+          ]
+        ]
+      }
+    ]
+  },
+  "audio": {
+    "title": "HTML Audio",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "HTML &lt;audio&gt; element webpage-ல் sound files play செய்ய பயன்படுகிறது. HTML5 இதை native-ஆக support செய்கிறது - MP3, WAV, Ogg formats support ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HTML Audio Element"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;audio&gt; element பயன்படுத்தி music, podcast, sound effects போன்றவற்றை webpage-ல் embed செய்யலாம். controls attribute add செய்தால் play, pause, volume, seek controls காட்டப்படும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Audio Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "&lt;audio&gt; element-க்கும் &lt;video&gt; element போல் பல attributes உள்ளன. controls, autoplay, muted, loop, preload போன்றவை audio-க்கும் apply ஆகும்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "src - Audio file இன் path",
+          "controls - Play/pause/volume/seek controls காட்ட",
+          "autoplay - Page load ஆனவுடன் automatically play ஆக",
+          "muted - Muted ஆக start ஆக",
+          "loop - Audio முடிந்தவுடன் மீண்டும் play ஆக",
+          "preload - Audio எப்படி preload செய்ய வேண்டும் (none/metadata/auto)",
+          "Multiple &lt;source&gt; elements: browser compatibility-க்கு multiple formats"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- Basic audio with controls -->\n<audio controls>\n  <source src=\"song.mp3\" type=\"audio/mpeg\">\n  <source src=\"song.ogg\" type=\"audio/ogg\">\n  உங்கள் browser &lt;audio&gt; tag support செய்யவில்லை.\n</audio>\n\n<!-- Background music (autoplay, loop, muted) -->\n<audio autoplay muted loop>\n  <source src=\"background-music.mp3\" type=\"audio/mpeg\">\n</audio>\n\n<!-- Audio with preload none -->\n<audio controls preload=\"none\">\n  <source src=\"podcast.mp3\" type=\"audio/mpeg\">\n</audio>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Background music-க்கு autoplay பயன்படுத்துவது user experience-ஐ பாதிக்கலாம். பெரும்பாலான users automatically play ஆகும் audio வேண்டாம் என்று நினைப்பார்கள். Sound-உடன் autoplay செய்ய நினைத்தால் user consent கேட்பது best practice.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Attribute",
+          "விளக்கம்",
+          "Values"
+        ],
+        "rows": [
+          [
+            "src",
+            "Audio file URL",
+            "URL string"
+          ],
+          [
+            "controls",
+            "Show player UI",
+            "controls (boolean)"
+          ],
+          [
+            "autoplay",
+            "Auto play on load",
+            "autoplay (boolean)"
+          ],
+          [
+            "muted",
+            "Start muted",
+            "muted (boolean)"
+          ],
+          [
+            "loop",
+            "Repeat audio",
+            "loop (boolean)"
+          ],
+          [
+            "preload",
+            "Loading strategy",
+            "none/metadata/auto"
+          ]
+        ]
+      }
+    ]
+  },
+  "youtube": {
+    "title": "HTML YouTube Videos",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "YouTube videos ஐ webpage-ல் embed செய்வது மிகவும் எளிது. YouTube இன் embed feature பயன்படுத்தி &lt;iframe&gt; element மூலம் videos embed செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "YouTube Video Embed செய்வது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "YouTube video embed செய்ய, video-இன் YouTube ID தேவை. Video URL-ல் v= என்பதற்கு பிறகு வரும் string தான் video ID. அதை https://www.youtube.com/embed/ என்ற URL-ல் சேர்த்து &lt;iframe&gt; src-ல் வைக்கவும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "YouTube Embed Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "YouTube embed URL-ல் query parameters சேர்த்து video playback behaviour customize செய்யலாம். autoplay, mute, loop, controls போன்றவற்றை parameters மூலம் control செய்யலாம்."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "YouTube video URL format: https://www.youtube.com/watch?v=VIDEO_ID",
+          "Embed URL format: https://www.youtube.com/embed/VIDEO_ID",
+          "autoplay=1 - Automatically play (mute=1 உடன் தான் வேலை செய்யும்)",
+          "mute=1 - Muted ஆக play ஆக",
+          "controls=0 - YouTube player controls hide செய்ய",
+          "loop=1 - Video loop ஆக (playlist=VIDEO_ID-உம் சேர்க்க வேண்டும்)",
+          "start=30 - 30 seconds-ல் இருந்து start ஆக",
+          "end=60 - 60 seconds-ல் stop ஆக"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "<!-- Basic YouTube embed -->\n<iframe width=\"560\" height=\"315\"\n  src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\"\n  title=\"YouTube video player\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen>\n</iframe>\n\n<!-- YouTube embed with parameters -->\n<iframe width=\"560\" height=\"315\"\n  src=\"https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&controls=0&playlist=dQw4w9WgXcQ\"\n  frameborder=\"0\"\n  allowfullscreen>\n</iframe>"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> Responsive YouTube embed-க்கு wrapper div பயன்படுத்துங்கள். CSS-ல் .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; } மற்றும் iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } என்று style செய்தால் 16:9 aspect ratio-ல் responsive ஆக காட்டும்.</p>"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Parameter",
+          "Values",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "autoplay",
+            "0/1",
+            "Automatically play video"
+          ],
+          [
+            "mute",
+            "0/1",
+            "Mute the video"
+          ],
+          [
+            "controls",
+            "0/1",
+            "Show/hide player controls"
+          ],
+          [
+            "loop",
+            "0/1",
+            "Loop the video"
+          ],
+          [
+            "start",
+            "seconds",
+            "Start time in seconds"
+          ],
+          [
+            "end",
+            "seconds",
+            "End time in seconds"
+          ],
+          [
+            "rel",
+            "0/1",
+            "Show related videos at end"
+          ],
+          [
+            "fs",
+            "0/1",
+            "Show fullscreen button"
+          ]
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1303 @@
+{
+  "intro": {
+    "title": "React அறிமுகம்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React என்பது Facebook (Meta) உருவாக்கிய ஒரு popular JavaScript library. இதை use பண்ணி நாம் fast, interactive web applications build பண்ணலாம். React-இன் core idea என்னன்னா — UI-ஐ சின்ன சின்ன <strong>components</strong>-ஆக பிரிச்சு, ஒவ்வொண்ணையும் independently manage பண்றது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "React ஏன் இவ்வளவு Popular?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional JavaScript-ல் DOM-ஐ manually update பண்ண வேண்டும் — இது slow மற்றும் error-prone. React-இல் <strong>Virtual DOM</strong> இருக்கு. இது actual DOM-இன் lightweight copy. State change ஆகும்போது React முதல்ல Virtual DOM-ஐ update பண்ணும், பின்பு actual DOM-இல் என்ன மாத்தணும்னு efficiently calculate பண்ணி minimum changes மட்டும் apply பண்ணும். இதனால் performance மிகவும் fast-ஆ இருக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "React-இன் Core Concepts"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Components</strong> — UI-ஐ reusable pieces-ஆக பிரிக்கும் building blocks",
+          "<strong>JSX</strong> — JavaScript-க்குள் HTML போல் எழுதும் syntax",
+          "<strong>Props</strong> — parent component-லிருந்து child-க்கு data pass பண்றது",
+          "<strong>State</strong> — component-இன் dynamic data, change ஆகும்போது UI re-render ஆகும்",
+          "<strong>Virtual DOM</strong> — efficient UI update-க்கான React-இன் internal mechanism"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Basic React Component — Hello World",
+        "code": "// App.jsx\nfunction App() {\n  return (\n    <div>\n      <h1>வணக்கம்! React-க்கு வரவேற்கிறோம்!</h1>\n      <p>This is my first React component.</p>\n    </div>\n  );\n}\n\nexport default App;"
+      },
+      {
+        "type": "paragraph",
+        "text": "React மூலம் <strong>Single Page Applications (SPA)</strong> build பண்ணலாம். அதாவது page reload இல்லாம், seamlessly content மாறும். Netflix, Instagram, Airbnb போன்ற major platforms React use பண்றாங்க. React Native-ஐ use பண்ணி mobile apps-உம் build பண்ணலாம் — ஒரே codebase-ஐ web மற்றும் mobile-க்கும் use பண்ணலாம்."
+      },
+      {
+        "type": "note",
+        "text": "React ஒரு library — framework இல்ல. அதாவது routing, state management போன்றவற்றுக்கு separate libraries (React Router, Redux, Zustand) use பண்ண வேண்டும். இது flexibility கொடுக்கும், ஆனால் beginners-க்கு initially confusing-ஆ இருக்கும். Step by step கத்துக்கோம்!"
+      }
+    ]
+  },
+  "setup": {
+    "title": "Setup & Installation",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React project start பண்ண முதல்ல <strong>Node.js</strong> install பண்ணியிருக்கணும். அதன் பிறகு <strong>Vite</strong> அல்லது <strong>Create React App</strong> use பண்ணி new project create பண்ணலாம். Modern React development-ல் Vite மிகவும் fast மற்றும் recommended option."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Prerequisites — என்ன தேவை?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Node.js</strong> (version 18 அல்லது அதிகம்) — nodejs.org-ல் இருந்து download பண்ணலாம்",
+          "<strong>npm</strong> அல்லது <strong>yarn</strong> — Node.js-உடன் automatically வரும்",
+          "<strong>VS Code</strong> — best editor for React development",
+          "VS Code Extensions: <strong>ES7+ React snippets</strong>, <strong>Prettier</strong>, <strong>ESLint</strong>"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Vite மூலம் React Project Create பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "Terminal commands — New React Project",
+        "code": "# Node.js version check\nnode --version\nnpm --version\n\n# Vite மூலம் React project create\nnpm create vite@latest my-react-app -- --template react\n\n# Project folder-க்கு போகணும்\ncd my-react-app\n\n# Dependencies install\nnpm install\n\n# Development server start\nnpm run dev\n# Browser-ல் http://localhost:5173 open ஆகும்"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Project Structure புரிஞ்சுக்கோம்"
+      },
+      {
+        "type": "example",
+        "title": "Vite React Project Folder Structure",
+        "code": "my-react-app/\n├── node_modules/      # Installed packages (git-ல் push பண்ணாதீங்க)\n├── public/            # Static files — images, favicon\n│   └── vite.svg\n├── src/               # நம்ம code எல்லாம் இங்க\n│   ├── assets/        # Images, CSS files\n│   ├── App.jsx        # Main component\n│   ├── App.css        # App styles\n│   ├── main.jsx       # Entry point — ReactDOM render\n│   └── index.css      # Global styles\n├── index.html         # Single HTML file\n├── package.json       # Project config & dependencies\n├── vite.config.js     # Vite configuration\n└── .gitignore         # Git ignore rules"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>main.jsx</strong> என்பது application-இன் entry point. இங்க ReactDOM-ஐ use பண்ணி <strong>App</strong> component-ஐ HTML-இன் <code>#root</code> element-ல் render பண்றோம். <strong>App.jsx</strong> என்பது root component — இங்கிருந்து மொத்த application-உம் build ஆகும்."
+      },
+      {
+        "type": "note",
+        "text": "TypeScript use பண்ண விரும்பினால் template-ஐ react-ts என்று மாத்துங்க: `npm create vite@latest my-app -- --template react-ts`. TypeScript beginners-க்கு initially கஷ்டமா இருக்கும், ஆனால் large projects-க்கு மிகவும் helpful."
+      }
+    ]
+  },
+  "jsx": {
+    "title": "JSX Syntax",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>JSX</strong> (JavaScript XML) என்பது React-இல் use பண்ற special syntax. இதில் JavaScript code-க்குள்ளேயே HTML போல் எழுதலாம். Browser directly JSX-ஐ புரிஞ்சுக்காது — Babel போன்ற tools இதை regular JavaScript-ஆக transform பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSX vs Regular HTML — என்ன வித்தியாசம்?"
+      },
+      {
+        "type": "example",
+        "title": "JSX Basic Rules",
+        "code": "// JSX-ல் class இல்ல, className use பண்ணணும்\nfunction Card() {\n  const name = 'Coding Tamilan';\n  const isLoggedIn = true;\n\n  return (\n    // Single root element வேணும் — இல்லன்னா Fragment use பண்ணு\n    <div className=\"card\">\n      {/* JSX-ல் comment இப்படி எழுதுவோம் */}\n      <h2>{name}</h2>\n\n      {/* JavaScript expressions curly braces-ல் எழுதணும் */}\n      <p>2 + 2 = {2 + 2}</p>\n\n      {/* Conditional rendering */}\n      {isLoggedIn ? <span>Welcome!</span> : <span>Please login</span>}\n\n      {/* Self-closing tags mandatory */}\n      <img src=\"logo.png\" alt=\"Logo\" />\n      <input type=\"text\" />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSX-இல் Expressions Use பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "JSX-ல் <strong>curly braces { }</strong> use பண்ணி எந்த JavaScript expression-உம் embed பண்ணலாம். Variables, function calls, calculations, ternary operators எல்லாம் use பண்ணலாம். ஆனால் <code>if</code> statements, <code>for</code> loops directly JSX-க்குள்ள போட முடியாது — அதற்கு ternary operator அல்லது array methods use பண்ணணும்."
+      },
+      {
+        "type": "example",
+        "title": "JSX Expressions மற்றும் List Rendering",
+        "code": "function ProductList() {\n  const products = ['Laptop', 'Phone', 'Tablet'];\n  const discount = 20;\n\n  return (\n    <div>\n      <h2>Products ({products.length} items)</h2>\n\n      {/* Array map பண்ணி list render பண்றது */}\n      <ul>\n        {products.map((product, index) => (\n          // key prop mandatory for list items\n          <li key={index}>{product}</li>\n        ))}\n      </ul>\n\n      <p>Discount: {discount}% off</p>\n      <p>You save: {discount > 10 ? 'Big savings!' : 'Small savings'}</p>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>className</strong> — HTML-இல் class, JSX-ல் className use பண்ணணும்",
+          "<strong>htmlFor</strong> — HTML-இல் for, JSX-ல் htmlFor (label element-க்கு)",
+          "<strong>camelCase</strong> — onclick இல்ல, onClick; onchange இல்ல, onChange",
+          "<strong>Self-closing</strong> — &lt;br /&gt;, &lt;img /&gt;, &lt;input /&gt; — closing slash mandatory",
+          "<strong>Fragment</strong> — &lt;&gt;...&lt;/&gt; use பண்ணி extra div avoid பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Fragment மற்றும் Inline Styles",
+        "code": "import { Fragment } from 'react';\n\nfunction UserInfo() {\n  // Inline styles — object format, camelCase properties\n  const headingStyle = {\n    color: 'blue',\n    fontSize: '24px',\n    fontWeight: 'bold'\n  };\n\n  return (\n    // Short Fragment syntax\n    <>\n      <h1 style={headingStyle}>Hello User</h1>\n      <p style={{ color: 'gray', marginTop: '8px' }}>\n        Welcome to React!\n      </p>\n    </>\n  );\n}"
+      },
+      {
+        "type": "note",
+        "text": "JSX optional — React-ஐ JSX இல்லாமலும் use பண்ணலாம் (React.createElement use பண்ணி). ஆனால் JSX code-ஐ மிகவும் readable-ஆவும் maintainable-ஆவும் வைக்கும். எல்லா React developers-உம் JSX prefer பண்றாங்க."
+      }
+    ]
+  },
+  "components": {
+    "title": "Components",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React-ல் <strong>component</strong> என்பது ஒரு reusable UI piece. இதை function-ஆக எழுதலாம். ஒரு component என்பது props-ஐ input-ஆக எடுத்து JSX-ஐ return பண்ணும் ஒரு JavaScript function. Lego blocks-மாதிரி components-ஐ combine பண்ணி complex UI build பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Functional Components எழுதுவது எப்படி?"
+      },
+      {
+        "type": "example",
+        "title": "Component Creation மற்றும் Usage",
+        "code": "// Button.jsx — Reusable Button Component\nfunction Button() {\n  return (\n    <button className=\"btn\">\n      Click Me\n    </button>\n  );\n}\n\nexport default Button;\n\n// App.jsx — Component-ஐ import பண்ணி use பண்றோம்\nimport Button from './Button';\n\nfunction App() {\n  return (\n    <div>\n      <h1>My App</h1>\n      {/* Component-ஐ HTML tag மாதிரி use பண்ணலாம் */}\n      <Button />\n      <Button />\n      <Button />\n    </div>\n  );\n}\n\nexport default App;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Component Composition — Components-ஐ Combine பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "React-இல் <strong>composition</strong> என்பது smaller components-ஐ combine பண்ணி larger components build பண்றது. ஒரு <code>Card</code> component-க்குள் <code>Avatar</code>, <code>Title</code>, <code>Button</code> போன்ற components use பண்ணலாம். இப்படி செய்வதால் code reusable-ஆகவும், maintainable-ஆகவும் இருக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Component Composition Example",
+        "code": "// Avatar.jsx\nfunction Avatar({ src, alt }) {\n  return <img src={src} alt={alt} className=\"avatar\" />;\n}\n\n// UserCard.jsx\nimport Avatar from './Avatar';\n\nfunction UserCard({ name, role, avatarUrl }) {\n  return (\n    <div className=\"user-card\">\n      <Avatar src={avatarUrl} alt={name} />\n      <div className=\"user-info\">\n        <h3>{name}</h3>\n        <span>{role}</span>\n      </div>\n    </div>\n  );\n}\n\n// App.jsx\nimport UserCard from './UserCard';\n\nfunction App() {\n  return (\n    <div className=\"team\">\n      <UserCard name=\"Ravi\" role=\"Developer\" avatarUrl=\"/ravi.jpg\" />\n      <UserCard name=\"Priya\" role=\"Designer\" avatarUrl=\"/priya.jpg\" />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Component name <strong>uppercase-ல்</strong> start ஆகணும் — Button, Header, UserCard etc.",
+          "ஒவ்வொரு component-உம் <strong>single responsibility</strong> principle follow பண்ணணும்",
+          "<strong>export default</strong> பண்ணா, import பண்ணும்போது எந்த name-உம் use பண்ணலாம்",
+          "<strong>Named export</strong> use பண்ணா, exact name-ல்தான் import பண்ணணும்",
+          "Components-ஐ separate files-ல் வையுங்க — maintainability improve ஆகும்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Children Prop — Wrapper Components",
+        "code": "// Card.jsx — children prop use பண்றது\nfunction Card({ title, children }) {\n  return (\n    <div className=\"card\">\n      <div className=\"card-header\">\n        <h2>{title}</h2>\n      </div>\n      <div className=\"card-body\">\n        {/* children — component-க்குள்ள pass பண்றதை render பண்ணும் */}\n        {children}\n      </div>\n    </div>\n  );\n}\n\n// App.jsx\nfunction App() {\n  return (\n    <Card title=\"Welcome\">\n      <p>This content is passed as children.</p>\n      <button>Learn More</button>\n    </Card>\n  );\n}"
+      },
+      {
+        "type": "note",
+        "text": "React-ல் class components-உம் இருக்கு (class MyComp extends React.Component). ஆனால் modern React development-ல் <strong>functional components + hooks</strong> use பண்றது best practice. New projects-ல் functional components மட்டும் use பண்ணுங்க."
+      }
+    ]
+  },
+  "props": {
+    "title": "Props",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>Props</strong> (Properties) என்பது parent component-லிருந்து child component-க்கு data pass பண்ற mechanism. Props read-only — child component props-ஐ modify பண்ண முடியாது. இது one-way data flow-ஐ ensure பண்ணும், application-ஐ predictable-ஆ வைக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Props Pass பண்றது மற்றும் Receive பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "Basic Props Usage",
+        "code": "// Greeting.jsx — props receive பண்றது\nfunction Greeting(props) {\n  return (\n    <div>\n      <h2>Hello, {props.name}!</h2>\n      <p>You are {props.age} years old.</p>\n      <p>From: {props.city}</p>\n    </div>\n  );\n}\n\n// App.jsx — props pass பண்றது\nfunction App() {\n  return (\n    <div>\n      <Greeting name=\"Karthik\" age={25} city=\"Chennai\" />\n      <Greeting name=\"Meena\" age={22} city=\"Coimbatore\" />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Destructuring Props — Clean Code எழுதுவது"
+      },
+      {
+        "type": "example",
+        "title": "Props Destructuring மற்றும் Default Values",
+        "code": "// Destructuring மூலம் clean-ஆ எழுதலாம்\nfunction ProductCard({ name, price, category = 'General', inStock = true }) {\n  return (\n    <div className=\"product-card\">\n      <h3>{name}</h3>\n      <p>Category: {category}</p>\n      <p>Price: ₹{price}</p>\n      {/* Conditional rendering with props */}\n      <span className={inStock ? 'in-stock' : 'out-of-stock'}>\n        {inStock ? 'Available' : 'Out of Stock'}\n      </span>\n    </div>\n  );\n}\n\n// Usage\nfunction App() {\n  return (\n    <div>\n      <ProductCard name=\"Laptop\" price={45000} category=\"Electronics\" />\n      {/* category default value 'General' use ஆகும் */}\n      <ProductCard name=\"Notebook\" price={50} inStock={false} />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "paragraph",
+        "text": "Props-ல் <strong>functions-உம்</strong> pass பண்ணலாம். இதை <strong>callback props</strong> என்று சொல்வோம். Child component-ல் ஒரு event நடக்கும்போது parent-க்கு notify பண்ண இந்த pattern use பண்றோம். இது child-to-parent communication-க்கான main way."
+      },
+      {
+        "type": "example",
+        "title": "Function Props — Child to Parent Communication",
+        "code": "// ConfirmButton.jsx\nfunction ConfirmButton({ label, onConfirm }) {\n  return (\n    <button onClick={onConfirm} className=\"confirm-btn\">\n      {label}\n    </button>\n  );\n}\n\n// App.jsx\nfunction App() {\n  const handleDelete = () => {\n    console.log('Item deleted!');\n    // delete logic here\n  };\n\n  const handleSave = () => {\n    console.log('Item saved!');\n    // save logic here\n  };\n\n  return (\n    <div>\n      <ConfirmButton label=\"Delete\" onConfirm={handleDelete} />\n      <ConfirmButton label=\"Save\" onConfirm={handleSave} />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Props <strong>read-only</strong> — never modify props directly, always use state for changes",
+          "String props — <code>name=\"Ravi\"</code> (quotes), other types — <code>age={25}</code> (curly braces)",
+          "<strong>Spread operator</strong> — <code>&lt;Component {...userData} /&gt;</code> மூலம் object-ஐ props-ஆ spread பண்ணலாம்",
+          "<strong>Default props</strong> — function parameter default values use பண்ணி set பண்ணலாம்",
+          "Boolean props — <code>disabled</code> மட்டும் எழுதினாலே <code>disabled={true}</code> ஆகும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Props drilling problem — deeply nested components-க்கு props pass பண்றது tedious ஆகும். இந்த situation-ல் <strong>Context API</strong> அல்லது state management libraries use பண்றது better. ஆனால் 2–3 levels மட்டும் இருந்தா props fine-தான்."
+      }
+    ]
+  },
+  "state": {
+    "title": "State & useState",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>State</strong> என்பது ஒரு component-இன் internal dynamic data. State change ஆகும்போது React automatically component-ஐ re-render பண்ணும். <strong>useState</strong> என்பது React-இன் most basic hook — functional components-ல் state manage பண்ண use பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useState Hook — Basic Usage"
+      },
+      {
+        "type": "example",
+        "title": "Counter App with useState",
+        "code": "import { useState } from 'react';\n\nfunction Counter() {\n  // useState(initialValue) — [currentValue, setterFunction]\n  const [count, setCount] = useState(0);\n\n  const increment = () => setCount(count + 1);\n  const decrement = () => setCount(count - 1);\n  const reset = () => setCount(0);\n\n  return (\n    <div className=\"counter\">\n      <h2>Count: {count}</h2>\n      <button onClick={decrement}>-</button>\n      <button onClick={reset}>Reset</button>\n      <button onClick={increment}>+</button>\n    </div>\n  );\n}\n\nexport default Counter;"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>useState</strong>-ஐ call பண்ணும்போது ஒரு array return ஆகும் — முதல் element current state value, இரண்டாவது element state-ஐ update பண்ற setter function. Setter function-ஐ call பண்ணும்போது React component-ஐ re-render பண்ணும், updated state-உடன் UI refresh ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Object மற்றும் Array State"
+      },
+      {
+        "type": "example",
+        "title": "Object State — Form Data Management",
+        "code": "import { useState } from 'react';\n\nfunction RegistrationForm() {\n  const [formData, setFormData] = useState({\n    name: '',\n    email: '',\n    city: ''\n  });\n\n  const handleChange = (e) => {\n    // Spread operator மூலம் existing values preserve பண்றோம்\n    setFormData({\n      ...formData,\n      [e.target.name]: e.target.value\n    });\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    console.log('Form Data:', formData);\n  };\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <input name=\"name\" value={formData.name}\n        onChange={handleChange} placeholder=\"Name\" />\n      <input name=\"email\" value={formData.email}\n        onChange={handleChange} placeholder=\"Email\" />\n      <input name=\"city\" value={formData.city}\n        onChange={handleChange} placeholder=\"City\" />\n      <button type=\"submit\">Register</button>\n    </form>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Array State — Todo List",
+        "code": "import { useState } from 'react';\n\nfunction TodoApp() {\n  const [todos, setTodos] = useState(['Learn React', 'Build a project']);\n  const [newTodo, setNewTodo] = useState('');\n\n  const addTodo = () => {\n    if (!newTodo.trim()) return;\n    // Spread mூலம் new item add பண்றோம் — direct mutation வேண்டாம்\n    setTodos([...todos, newTodo]);\n    setNewTodo('');\n  };\n\n  const removeTodo = (index) => {\n    setTodos(todos.filter((_, i) => i !== index));\n  };\n\n  return (\n    <div>\n      <input value={newTodo} onChange={(e) => setNewTodo(e.target.value)}\n        placeholder=\"Add a todo\" />\n      <button onClick={addTodo}>Add</button>\n      <ul>\n        {todos.map((todo, index) => (\n          <li key={index}>\n            {todo}\n            <button onClick={() => removeTodo(index)}>Remove</button>\n          </li>\n        ))}\n      </ul>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "State <strong>directly mutate</strong> பண்ணாதீங்க — setter function மட்டும் use பண்ணுங்க",
+          "Object/Array state update-க்கு <strong>spread operator</strong> use பண்ணி new copy create பண்ணுங்க",
+          "<strong>Previous state</strong> based update-க்கு functional form use பண்ணுங்க: <code>setCount(prev =&gt; prev + 1)</code>",
+          "State update <strong>asynchronous</strong> — update ஆனவுடனே value மாறாது, next render-ல் மாறும்",
+          "Multiple states வேண்டும்னா multiple <code>useState</code> calls use பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "State-ஐ possible-ஆன அளவு component hierarchy-ல் <strong>low-ஆக</strong> வையுங்க (lift state up only when needed). அதாவது ஒரு state only one component-க்கு தேவைப்பட்டா, அந்த component-லயே வையுங்க. Multiple components share பண்ணணும்னா மட்டும் parent-க்கு lift up பண்ணுங்க."
+      }
+    ]
+  },
+  "events": {
+    "title": "Events Handle பண்றது",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React-ல் <strong>event handling</strong> என்பது user interactions-க்கு respond பண்றது — button click, input change, form submit, mouse hover போன்றவை. React synthetic events use பண்றது, இது browser differences-ஐ normalize பண்ணும். Event handlers JSX-ல் camelCase-ல் எழுதணும்: <strong>onClick</strong>, <strong>onChange</strong>, <strong>onSubmit</strong>."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Events மற்றும் Event Handlers"
+      },
+      {
+        "type": "example",
+        "title": "Click, Change, Submit Events",
+        "code": "import { useState } from 'react';\n\nfunction EventDemo() {\n  const [message, setMessage] = useState('');\n  const [inputValue, setInputValue] = useState('');\n\n  // Click event handler\n  const handleClick = () => {\n    setMessage('Button clicked!');\n  };\n\n  // Change event handler — input-இன் value track பண்றது\n  const handleChange = (event) => {\n    setInputValue(event.target.value);\n  };\n\n  // Submit event handler\n  const handleSubmit = (event) => {\n    event.preventDefault(); // Page reload தடுக்கணும்\n    setMessage(`Submitted: ${inputValue}`);\n    setInputValue('');\n  };\n\n  return (\n    <div>\n      <button onClick={handleClick}>Click Me</button>\n      <form onSubmit={handleSubmit}>\n        <input value={inputValue} onChange={handleChange}\n          placeholder=\"Type something...\" />\n        <button type=\"submit\">Submit</button>\n      </form>\n      {message && <p>{message}</p>}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Event Object மற்றும் Parameters Pass பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Event handler function-க்கு automatically <strong>event object</strong> (e அல்லது event) pass ஆகும். இதில் <code>e.target.value</code> (input value), <code>e.target.name</code> (input name), <code>e.preventDefault()</code> (default behavior prevent), <code>e.stopPropagation()</code> (event bubbling stop) போன்ற useful properties இருக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Event Object மற்றும் Arrow Functions",
+        "code": "import { useState } from 'react';\n\nfunction ItemList() {\n  const [selectedItem, setSelectedItem] = useState(null);\n  const items = ['Apple', 'Banana', 'Cherry', 'Mango'];\n\n  // Arrow function மூலம் extra arguments pass பண்றது\n  const handleItemClick = (item, event) => {\n    // event.target — click பண்ண element\n    console.log('Clicked element:', event.target);\n    setSelectedItem(item);\n  };\n\n  const handleKeyPress = (event) => {\n    // Enter key press detect பண்றது\n    if (event.key === 'Enter') {\n      console.log('Enter pressed!');\n    }\n  };\n\n  return (\n    <div>\n      <input onKeyDown={handleKeyPress} placeholder=\"Press Enter\" />\n      <ul>\n        {items.map((item) => (\n          <li\n            key={item}\n            onClick={(e) => handleItemClick(item, e)}\n            style={{ cursor: 'pointer',\n              fontWeight: selectedItem === item ? 'bold' : 'normal' }}\n          >\n            {item}\n          </li>\n        ))}\n      </ul>\n      {selectedItem && <p>Selected: {selectedItem}</p>}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Mouse Events மற்றும் Hover Effects",
+        "code": "import { useState } from 'react';\n\nfunction HoverCard() {\n  const [isHovered, setIsHovered] = useState(false);\n  const [clickCount, setClickCount] = useState(0);\n\n  return (\n    <div\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      onDoubleClick={() => setClickCount(c => c + 1)}\n      style={{\n        padding: '20px',\n        background: isHovered ? '#e3f2fd' : '#f5f5f5',\n        border: `2px solid ${isHovered ? '#1976d2' : '#ccc'}`,\n        borderRadius: '8px',\n        cursor: 'pointer',\n        transition: 'all 0.2s'\n      }}\n    >\n      <p>{isHovered ? 'Mouse is here!' : 'Hover over me'}</p>\n      <p>Double-click count: {clickCount}</p>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>onClick</strong> — button, div, span எல்லாவற்றிலும் use பண்ணலாம்",
+          "<strong>onChange</strong> — input, textarea, select-ல் value change detect பண்ணும்",
+          "<strong>onSubmit</strong> — form element-ல் use பண்ணணும், e.preventDefault() முக்கியம்",
+          "<strong>onKeyDown / onKeyUp</strong> — keyboard events handle பண்ண",
+          "<strong>onMouseEnter / onMouseLeave</strong> — hover effects create பண்ண"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "JSX-ல் event handler-ஐ <code>onClick={handleClick}</code> என்று எழுதுங்க — <code>onClick={handleClick()}</code> என்று எழுதாதீங்க. Parentheses இருந்தா, render time-லயே function execute ஆகும், click பண்ணும்போது இல்ல. Arrow functions use பண்ணும்போது: <code>onClick={() =&gt; handleClick(param)}</code> — இப்படி எழுதுங்க."
+      }
+    ]
+  },
+  "conditional-rendering": {
+    "title": "Conditional Rendering",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Conditional rendering என்பது ஒரு component-இல் certain conditions-க்கு ஏற்ப different UI show பண்றது. JavaScript-இல் <strong>if/else</strong>, <strong>ternary operator</strong>, மற்றும் <strong>&amp;&amp; operator</strong> மூலம் இதை React-இல் easily implement பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "if/else மூலம் Conditional Rendering"
+      },
+      {
+        "type": "paragraph",
+        "text": "React-இல் JSX return பண்றதற்கு முன்னாடி regular JavaScript <strong>if/else</strong> use பண்ணலாம். இது complex conditions-க்கு மிகவும் readable-ஆ இருக்கும். ஒரு user logged in-ஆ இல்லையா என்பதை check பண்ணி வேற வேற UI காட்டலாம்."
+      },
+      {
+        "type": "example",
+        "title": "if/else — Login/Logout UI",
+        "code": "function Greeting({ isLoggedIn }) {\n  if (isLoggedIn) {\n    return <h1>Welcome back, User!</h1>;\n  } else {\n    return <h1>Please sign in.</h1>;\n  }\n}\n\nfunction App() {\n  const [loggedIn, setLoggedIn] = React.useState(false);\n\n  return (\n    <div>\n      <Greeting isLoggedIn={loggedIn} />\n      <button onClick={() => setLoggedIn(!loggedIn)}>\n        {loggedIn ? 'Logout' : 'Login'}\n      </button>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Ternary Operator மற்றும் && Operator"
+      },
+      {
+        "type": "example",
+        "title": "Ternary மற்றும் && shorthand patterns",
+        "code": "function UserCard({ user, hasNotifications }) {\n  return (\n    <div className=\"card\">\n      {/* Ternary — two outcomes */}\n      <h2>{user ? user.name : 'Guest'}</h2>\n\n      {/* && — render only when true */}\n      {hasNotifications && (\n        <span className=\"badge\">New notifications!</span>\n      )}\n\n      {/* Nested ternary — avoid when possible */}\n      <p>\n        Status:{' '}\n        {user\n          ? user.isAdmin\n            ? 'Administrator'\n            : 'Member'\n          : 'Not logged in'}\n      </p>\n    </div>\n  );\n}\n\nfunction App() {\n  const user = { name: 'Karthik', isAdmin: false };\n  return <UserCard user={user} hasNotifications={true} />;\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "if/else — complex conditions-க்கு மற்றும் early return patterns-க்கு best",
+          "Ternary (condition ? a : b) — inline JSX-ல் இரண்டு outcomes show பண்ண use பண்ணு",
+          "&& operator — condition true-ஆ இருந்தால் மட்டும் element render ஆகும்",
+          "0 && ... — 0-ஐ render பண்ணும், false-ஐ இல்ல; Boolean(count) && ... safer",
+          "null அல்லது false return — component nothing render பண்ணாம hide ஆகும்"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Loading, Error, Data — three states handle பண்றது",
+        "code": "function DataView({ loading, error, data }) {\n  if (loading) {\n    return <div className=\"spinner\">Loading...</div>;\n  }\n\n  if (error) {\n    return <div className=\"error\">Error: {error.message}</div>;\n  }\n\n  if (!data || data.length === 0) {\n    return <p>No data found.</p>;\n  }\n\n  return (\n    <ul>\n      {data.map(item => (\n        <li key={item.id}>{item.title}</li>\n      ))}\n    </ul>\n  );\n}"
+      },
+      {
+        "type": "note",
+        "text": "Deeply nested ternary operators code-ஐ readable-ஆ வைக்காது. அப்படிப்பட்ட situations-ல் if/else அல்லது separate helper components use பண்றது best practice. && operator-ல் 0 render ஆகும் bug பத்தி careful-ஆ இரு — count > 0 && ... என்று write பண்ணு."
+      }
+    ]
+  },
+  "lists-keys": {
+    "title": "Lists & Keys",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React-இல் array of data-ஐ UI-ஆ render பண்ண <strong>Array.map()</strong> use பண்றோம். ஒவ்வொரு rendered item-க்கும் unique <strong>key</strong> prop கொடுக்கணும் — இது React-ஐ efficiently DOM update பண்ண help பண்ணும். Key இல்லாம போனா performance issues மற்றும் bugs வரலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "map() மூலம் List Render பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-இன் <strong>map()</strong> function ஒரு array-ஐ take பண்ணி, ஒவ்வொரு item-க்கும் JSX element return பண்ணும். இந்த JSX elements-ஐ React automatically render பண்ணும். map() pure-ஆ இருக்கணும் — side effects வேண்டாம்."
+      },
+      {
+        "type": "example",
+        "title": "Basic List Rendering with key",
+        "code": "const fruits = [\n  { id: 1, name: 'Mango', emoji: '🥭' },\n  { id: 2, name: 'Banana', emoji: '🍌' },\n  { id: 3, name: 'Apple', emoji: '🍎' },\n];\n\nfunction FruitList() {\n  return (\n    <ul>\n      {fruits.map(fruit => (\n        <li key={fruit.id}>\n          {fruit.emoji} {fruit.name}\n        </li>\n      ))}\n    </ul>\n  );\n}\n\nexport default FruitList;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key என்றால் என்ன? ஏன் Important?"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>key</strong> prop React-க்கு list items-ஐ identify பண்ண help பண்ணும். List reorder ஆனா, items add/remove ஆனா React key-ஐ பார்த்து minimum DOM changes மட்டும் பண்ணும் — இது performance-ஐ improve பண்ணும். Key sibling elements-ல் unique-ஆ இருக்கணும், globally unique-ஆ இருக்க வேண்டாம்."
+      },
+      {
+        "type": "example",
+        "title": "Keys — சரியான vs தவறான usage",
+        "code": "const users = [\n  { id: 'u1', name: 'Anbu', role: 'Admin' },\n  { id: 'u2', name: 'Priya', role: 'Editor' },\n  { id: 'u3', name: 'Rajan', role: 'Viewer' },\n];\n\n// WRONG — index as key (avoid when list can reorder/filter)\nfunction BadList() {\n  return (\n    <ul>\n      {users.map((user, index) => (\n        <li key={index}>{user.name}</li> // index as key is fragile\n      ))}\n    </ul>\n  );\n}\n\n// CORRECT — stable unique id as key\nfunction GoodList() {\n  return (\n    <ul>\n      {users.map(user => (\n        <li key={user.id}>\n          <strong>{user.name}</strong> — {user.role}\n        </li>\n      ))}\n    </ul>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Nested Lists — Categories with items",
+        "code": "const categories = [\n  {\n    id: 'cat1',\n    name: 'Frontend',\n    topics: [\n      { id: 't1', label: 'React' },\n      { id: 't2', label: 'Vue' },\n    ],\n  },\n  {\n    id: 'cat2',\n    name: 'Backend',\n    topics: [\n      { id: 't3', label: 'Node.js' },\n      { id: 't4', label: 'Django' },\n    ],\n  },\n];\n\nfunction CourseList() {\n  return (\n    <div>\n      {categories.map(cat => (\n        <div key={cat.id}>\n          <h3>{cat.name}</h3>\n          <ul>\n            {cat.topics.map(topic => (\n              <li key={topic.id}>{topic.label}</li>\n            ))}\n          </ul>\n        </div>\n      ))}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "key prop list item-ஐ uniquely identify பண்ணும் — React reconciliation-க்கு essential",
+          "Database id இருந்தா அதை key-ஆ use பண்ணு — most stable option",
+          "Index as key — static, never-reordered lists-க்கு மட்டும் acceptable",
+          "key prop component-க்கு pass ஆகாது — props.key read பண்ண முடியாது",
+          "Fragment-க்கும் key கொடுக்கலாம்: <React.Fragment key={id}>"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Key-ஐ globally unique-ஆ வைக்க வேண்டாம் — sibling elements-ல் மட்டும் unique-ஆ இருந்தா போதும். Array index-ஐ key-ஆ use பண்றது sorted அல்லது filtered lists-ல் subtle bugs create பண்ணும் — item state (like checkbox checked) wrong item-க்கு போகும். Always prefer stable IDs."
+      }
+    ]
+  },
+  "forms": {
+    "title": "Forms & Inputs",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React-இல் forms handle பண்ண <strong>controlled components</strong> pattern use பண்றோம். Input value-ஐ React state-ல் store பண்ணி, <strong>onChange</strong> event மூலம் update பண்றோம். இப்படி பண்றதால் form data எப்பவும் React-இன் control-ல் இருக்கும் — validation, submission எல்லாமே easy-ஆ handle பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Controlled Input — Basic Pattern"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Controlled component</strong> என்பது input-இன் value React state-ல் இருக்கும், onChange event state-ஐ update பண்ணும். DOM-இல் directly value change ஆகாது — React render பண்றதுதான் UI-ஐ update பண்ணும். இது single source of truth principle."
+      },
+      {
+        "type": "example",
+        "title": "Controlled Input — Text, Email, Password",
+        "code": "import { useState } from 'react';\n\nfunction LoginForm() {\n  const [formData, setFormData] = useState({\n    email: '',\n    password: '',\n  });\n\n  const handleChange = (e) => {\n    const { name, value } = e.target;\n    setFormData(prev => ({ ...prev, [name]: value }));\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault(); // page reload தடுக்கும்\n    console.log('Form submitted:', formData);\n  };\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <div>\n        <label>Email:</label>\n        <input\n          type=\"email\"\n          name=\"email\"\n          value={formData.email}\n          onChange={handleChange}\n          placeholder=\"Enter your email\"\n        />\n      </div>\n      <div>\n        <label>Password:</label>\n        <input\n          type=\"password\"\n          name=\"password\"\n          value={formData.password}\n          onChange={handleChange}\n          placeholder=\"Enter password\"\n        />\n      </div>\n      <button type=\"submit\">Login</button>\n    </form>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Select, Checkbox, Radio — Different Input Types"
+      },
+      {
+        "type": "example",
+        "title": "Select dropdown, Checkbox, Radio button handling",
+        "code": "import { useState } from 'react';\n\nfunction PreferencesForm() {\n  const [prefs, setPrefs] = useState({\n    language: 'tamil',\n    subscribe: false,\n    level: 'beginner',\n  });\n\n  const handleChange = (e) => {\n    const { name, value, type, checked } = e.target;\n    setPrefs(prev => ({\n      ...prev,\n      [name]: type === 'checkbox' ? checked : value,\n    }));\n  };\n\n  return (\n    <form>\n      {/* Select dropdown */}\n      <select name=\"language\" value={prefs.language} onChange={handleChange}>\n        <option value=\"tamil\">Tamil</option>\n        <option value=\"english\">English</option>\n        <option value=\"hindi\">Hindi</option>\n      </select>\n\n      {/* Checkbox */}\n      <label>\n        <input\n          type=\"checkbox\"\n          name=\"subscribe\"\n          checked={prefs.subscribe}\n          onChange={handleChange}\n        />\n        Subscribe to newsletter\n      </label>\n\n      {/* Radio buttons */}\n      {['beginner', 'intermediate', 'advanced'].map(level => (\n        <label key={level}>\n          <input\n            type=\"radio\"\n            name=\"level\"\n            value={level}\n            checked={prefs.level === level}\n            onChange={handleChange}\n          />\n          {level}\n        </label>\n      ))}\n\n      <p>Selected: {JSON.stringify(prefs)}</p>\n    </form>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Form Validation — Simple inline validation",
+        "code": "import { useState } from 'react';\n\nfunction RegisterForm() {\n  const [data, setData] = useState({ username: '', email: '' });\n  const [errors, setErrors] = useState({});\n\n  const validate = () => {\n    const newErrors = {};\n    if (!data.username || data.username.length < 3) {\n      newErrors.username = 'Username must be at least 3 characters';\n    }\n    if (!data.email.includes('@')) {\n      newErrors.email = 'Enter a valid email address';\n    }\n    return newErrors;\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    const validationErrors = validate();\n    if (Object.keys(validationErrors).length > 0) {\n      setErrors(validationErrors);\n    } else {\n      setErrors({});\n      console.log('Valid form data:', data);\n    }\n  };\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <input\n        name=\"username\"\n        value={data.username}\n        onChange={e => setData(prev => ({ ...prev, username: e.target.value }))}\n        placeholder=\"Username\"\n      />\n      {errors.username && <span style={{ color: 'red' }}>{errors.username}</span>}\n\n      <input\n        name=\"email\"\n        value={data.email}\n        onChange={e => setData(prev => ({ ...prev, email: e.target.value }))}\n        placeholder=\"Email\"\n      />\n      {errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}\n\n      <button type=\"submit\">Register</button>\n    </form>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Controlled component — value prop + onChange handler, React state-ல் always in sync",
+          "e.preventDefault() — form submit-ல் page reload தடுக்க must-have",
+          "Checkbox-க்கு checked prop use பண்ணு, value இல்ல",
+          "Radio buttons — same name, different values; checked={state === value} pattern",
+          "Dynamic form fields — [e.target.name]: e.target.value pattern ஒரே handler-ல் எல்லா inputs handle பண்ணும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Uncontrolled components (useRef மூலம் DOM directly read பண்றது) simple cases-க்கு work ஆகும், ஆனால் React-இன் controlled pattern follow பண்றதே best practice. Complex forms-க்கு React Hook Form அல்லது Formik library use பண்றது maintenance easy-ஆ வைக்கும்."
+      }
+    ]
+  },
+  "useEffect": {
+    "title": "useEffect Hook",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>useEffect</strong> hook-ஐ use பண்ணா side effects handle பண்ணலாம். Component render ஆன பிறகு இது run ஆகும். Data fetching, subscriptions, DOM manipulation, timers — இந்த மாதிரி side effects-ஐ useEffect-ல் வைக்கணும். Dependency array மூலம் எப்போது run ஆகணும்னு control பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useEffect Syntax மற்றும் Dependency Array"
+      },
+      {
+        "type": "paragraph",
+        "text": "useEffect இரண்டு arguments எடுக்கும் — ஒரு <strong>callback function</strong> (effect) மற்றும் ஒரு optional <strong>dependency array</strong>. Dependency array-இல் என்ன இருக்குன்னு பொறுத்து effect எப்போது run ஆகும்னு decide ஆகும். Empty array-ஆ இருந்தா only once — component mount ஆனப்போ. Array இல்லாம போனா every render-லயும் run ஆகும்."
+      },
+      {
+        "type": "example",
+        "title": "useEffect — Three variations of dependency array",
+        "code": "import { useState, useEffect } from 'react';\n\nfunction EffectDemo() {\n  const [count, setCount] = useState(0);\n  const [name, setName] = useState('Tamil');\n\n  // 1. No dependency array — every render-லயும் run ஆகும்\n  useEffect(() => {\n    console.log('Runs after every render');\n  });\n\n  // 2. Empty array — only on mount (componentDidMount equivalent)\n  useEffect(() => {\n    console.log('Runs only once — on mount');\n    document.title = 'React App Loaded';\n  }, []);\n\n  // 3. With dependencies — count or name change ஆனப்போ run ஆகும்\n  useEffect(() => {\n    console.log(`count changed to: ${count}`);\n    document.title = `Count: ${count}`;\n  }, [count]);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(c => c + 1)}>Increment</button>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Data Fetching with useEffect"
+      },
+      {
+        "type": "example",
+        "title": "API call — fetch data on component mount",
+        "code": "import { useState, useEffect } from 'react';\n\nfunction UserList() {\n  const [users, setUsers] = useState([]);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    // Cleanup race condition-ஐ தடுக்க\n    let isMounted = true;\n\n    async function fetchUsers() {\n      try {\n        const response = await fetch('https://jsonplaceholder.typicode.com/users');\n        if (!response.ok) throw new Error('Network response was not ok');\n        const data = await response.json();\n        if (isMounted) {\n          setUsers(data);\n          setLoading(false);\n        }\n      } catch (err) {\n        if (isMounted) {\n          setError(err.message);\n          setLoading(false);\n        }\n      }\n    }\n\n    fetchUsers();\n\n    // Cleanup function — component unmount ஆனப்போ run ஆகும்\n    return () => {\n      isMounted = false;\n    };\n  }, []); // empty array — once on mount\n\n  if (loading) return <p>Loading users...</p>;\n  if (error) return <p>Error: {error}</p>;\n\n  return (\n    <ul>\n      {users.map(user => (\n        <li key={user.id}>{user.name} — {user.email}</li>\n      ))}\n    </ul>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Cleanup — Timer மற்றும் Event Listener",
+        "code": "import { useState, useEffect } from 'react';\n\nfunction Timer() {\n  const [seconds, setSeconds] = useState(0);\n\n  useEffect(() => {\n    // Timer start\n    const intervalId = setInterval(() => {\n      setSeconds(prev => prev + 1);\n    }, 1000);\n\n    // Cleanup — component unmount ஆனா timer clear ஆகும்\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return <h2>Timer: {seconds}s</h2>;\n}\n\nfunction WindowSize() {\n  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });\n\n  useEffect(() => {\n    const handleResize = () => {\n      setSize({ width: window.innerWidth, height: window.innerHeight });\n    };\n\n    window.addEventListener('resize', handleResize);\n\n    // Cleanup — event listener remove பண்றோம்\n    return () => window.removeEventListener('resize', handleResize);\n  }, []);\n\n  return <p>Window: {size.width} x {size.height}</p>;\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "useEffect(() => {}, []) — mount-ல் ஒரே ஒரு தடவை run ஆகும், componentDidMount போல",
+          "useEffect(() => {}, [dep]) — dep change ஆனப்போ எல்லாம் run ஆகும்",
+          "Cleanup function return பண்றது important — memory leaks தவிர்க்கலாம்",
+          "async function directly useEffect-ல் வைக்க முடியாது — inside-ல் define பண்ணி call பண்ணு",
+          "useEffect-ல் state set பண்றா re-render trigger ஆகும் — infinite loop-ஐ avoid பண்ணு"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "useEffect-ல் use பண்ற variables எல்லாமே dependency array-ல் இருக்கணும் — ESLint exhaustive-deps rule இதை enforce பண்ணும். Cleanup function return பண்றது subscriptions, timers, event listeners-க்கு mandatory. React 18-ல் Strict Mode-ல் development-ல் useEffect twice run ஆகும் — cleanup properly எழுதினா problem இல்ல."
+      }
+    ]
+  },
+  "useRef": {
+    "title": "useRef Hook",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>useRef</strong> hook இரண்டு main use cases-க்கு use ஆகும்: DOM elements-ஐ directly access பண்றதற்கு மற்றும் renders-க்கு நடுவே persist ஆகணும், ஆனால் re-render trigger பண்ணக்கூடாத values store பண்றதற்கு. Ref-இன் value change ஆனா component re-render ஆகாது — இதுதான் useState-ஓட வித்தியாசம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "DOM Access — useRef இல் Input Focus"
+      },
+      {
+        "type": "paragraph",
+        "text": "HTML elements-ஐ directly control பண்ண வேண்டும்னா — focus, scroll, play/pause — <strong>ref prop</strong> use பண்றோம். useRef() ஒரு mutable object return பண்ணும், அதன் <strong>.current</strong> property DOM node-ஐ point பண்ணும். Component mount ஆன பிறகுதான் .current populated ஆகும்."
+      },
+      {
+        "type": "example",
+        "title": "useRef — Input focus மற்றும் form control",
+        "code": "import { useRef, useEffect } from 'react';\n\nfunction SearchBar() {\n  const inputRef = useRef(null);\n  const countRef = useRef(0); // re-render இல்லாம count track\n\n  // Component mount ஆனதும் auto focus\n  useEffect(() => {\n    inputRef.current.focus();\n  }, []);\n\n  const handleSearch = () => {\n    countRef.current += 1; // state இல்ல, re-render இல்ல\n    console.log(`Search triggered ${countRef.current} times`);\n    const value = inputRef.current.value;\n    console.log('Searching for:', value);\n  };\n\n  const handleClear = () => {\n    inputRef.current.value = '';\n    inputRef.current.focus();\n  };\n\n  return (\n    <div>\n      <input ref={inputRef} type=\"text\" placeholder=\"Search...\" />\n      <button onClick={handleSearch}>Search</button>\n      <button onClick={handleClear}>Clear</button>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useRef — Previous Value Track பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "Previous state value useRef மூலம் store பண்றது",
+        "code": "import { useState, useRef, useEffect } from 'react';\n\nfunction usePrevious(value) {\n  const prevRef = useRef(undefined);\n\n  useEffect(() => {\n    prevRef.current = value;\n  }); // no dependency — every render-ல் update ஆகும்\n\n  return prevRef.current;\n}\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n  const prevCount = usePrevious(count);\n\n  return (\n    <div>\n      <p>Current: {count}</p>\n      <p>Previous: {prevCount ?? 'None'}</p>\n      <button onClick={() => setCount(c => c + 1)}>Increment</button>\n      <button onClick={() => setCount(c => c - 1)}>Decrement</button>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "useRef — Video player DOM control",
+        "code": "import { useRef, useState } from 'react';\n\nfunction VideoPlayer({ src }) {\n  const videoRef = useRef(null);\n  const [isPlaying, setIsPlaying] = useState(false);\n\n  const togglePlay = () => {\n    if (isPlaying) {\n      videoRef.current.pause();\n    } else {\n      videoRef.current.play();\n    }\n    setIsPlaying(!isPlaying);\n  };\n\n  const handleSeek = (seconds) => {\n    videoRef.current.currentTime += seconds;\n  };\n\n  return (\n    <div>\n      <video\n        ref={videoRef}\n        src={src}\n        onEnded={() => setIsPlaying(false)}\n        style={{ width: '100%' }}\n      />\n      <div>\n        <button onClick={() => handleSeek(-10)}>-10s</button>\n        <button onClick={togglePlay}>{isPlaying ? 'Pause' : 'Play'}</button>\n        <button onClick={() => handleSeek(10)}>+10s</button>\n      </div>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "useRef(initialValue) — .current property-ல் value store ஆகும்",
+          "Ref change ஆனா re-render trigger ஆகாது — state-ஓட main difference",
+          "DOM ref-க்கு JSX-ல் ref={myRef} கொடு — mount பிறகு .current DOM node ஆகும்",
+          "Interval ID, timeout ID store பண்ண useRef perfect — cleanup-ல் use பண்ணலாம்",
+          "forwardRef — parent component-ல் இருந்து child DOM element-ஐ ref மூலம் access பண்ண"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "useRef-ஐ state-க்கு substitute-ஆ use பண்ணாதே — ref change ஆனா UI update ஆகாது, user-க்கு புரியாத bugs create ஆகும். DOM manipulation absolutely necessary-ஆ இருக்கும்போது மட்டும் useRef use பண்ணு — React-இன் declarative pattern-ஐ possible-ஆ ஆன இடத்துல prefer பண்ணு."
+      }
+    ]
+  },
+  "custom-hooks": {
+    "title": "Custom Hooks",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>Custom Hooks</strong> என்பது reusable stateful logic-ஐ extract பண்ண ஒரு React pattern. ஒரு function-இன் name <strong>use</strong>-ல் start ஆனா, அது ஒரு custom hook. இதுல மற்ற hooks (useState, useEffect, useRef, etc.) use பண்ணலாம். Code duplication தவிர்க்கவும், logic-ஐ components-லிருந்து separate பண்ணவும் custom hooks மிகவும் useful."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Hook — Basic Pattern"
+      },
+      {
+        "type": "paragraph",
+        "text": "Custom hook ஒரு regular JavaScript function — ஆனால் React hooks-ஐ use பண்ணும். இதை multiple components share பண்ணலாம். Each component-க்கும் hook call பண்ணும்போது independent state create ஆகும் — shared state இல்ல. <strong>use</strong> prefix important — React rules of hooks enforce ஆகும்."
+      },
+      {
+        "type": "example",
+        "title": "useLocalStorage — Custom Hook",
+        "code": "import { useState, useEffect } from 'react';\n\n// Custom hook — localStorage-ல் state persist பண்றது\nfunction useLocalStorage(key, initialValue) {\n  const [storedValue, setStoredValue] = useState(() => {\n    try {\n      const item = window.localStorage.getItem(key);\n      return item ? JSON.parse(item) : initialValue;\n    } catch (error) {\n      console.error('Error reading localStorage:', error);\n      return initialValue;\n    }\n  });\n\n  const setValue = (value) => {\n    try {\n      const valueToStore = value instanceof Function ? value(storedValue) : value;\n      setStoredValue(valueToStore);\n      window.localStorage.setItem(key, JSON.stringify(valueToStore));\n    } catch (error) {\n      console.error('Error setting localStorage:', error);\n    }\n  };\n\n  return [storedValue, setValue];\n}\n\n// Usage — useState போலவே use பண்ணலாம்\nfunction ThemeToggle() {\n  const [theme, setTheme] = useLocalStorage('theme', 'light');\n\n  return (\n    <div className={theme}>\n      <p>Current theme: {theme}</p>\n      <button onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}>\n        Toggle Theme\n      </button>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useFetch — Data Fetching Custom Hook"
+      },
+      {
+        "type": "example",
+        "title": "useFetch hook — reusable API fetching",
+        "code": "import { useState, useEffect } from 'react';\n\nfunction useFetch(url) {\n  const [data, setData] = useState(null);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    if (!url) return;\n\n    let isMounted = true;\n    setLoading(true);\n    setError(null);\n\n    fetch(url)\n      .then(res => {\n        if (!res.ok) throw new Error(`HTTP error: ${res.status}`);\n        return res.json();\n      })\n      .then(json => {\n        if (isMounted) {\n          setData(json);\n          setLoading(false);\n        }\n      })\n      .catch(err => {\n        if (isMounted) {\n          setError(err.message);\n          setLoading(false);\n        }\n      });\n\n    return () => { isMounted = false; };\n  }, [url]);\n\n  return { data, loading, error };\n}\n\n// Multiple components-ல் reuse பண்றோம்\nfunction PostList() {\n  const { data: posts, loading, error } = useFetch(\n    'https://jsonplaceholder.typicode.com/posts?_limit=5'\n  );\n\n  if (loading) return <p>Loading...</p>;\n  if (error) return <p>Error: {error}</p>;\n\n  return (\n    <ul>\n      {posts?.map(post => (\n        <li key={post.id}>{post.title}</li>\n      ))}\n    </ul>\n  );\n}\n\nfunction UserProfile({ userId }) {\n  const { data: user, loading } = useFetch(\n    `https://jsonplaceholder.typicode.com/users/${userId}`\n  );\n\n  if (loading) return <p>Loading user...</p>;\n  return <h2>{user?.name}</h2>;\n}"
+      },
+      {
+        "type": "example",
+        "title": "useDebounce — Input delay custom hook",
+        "code": "import { useState, useEffect } from 'react';\n\nfunction useDebounce(value, delay = 500) {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n\n  useEffect(() => {\n    const timer = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    // Cleanup — value change ஆனா previous timer cancel ஆகும்\n    return () => clearTimeout(timer);\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n\n// Usage — search input-ல் API call throttle பண்றது\nfunction SearchComponent() {\n  const [query, setQuery] = useState('');\n  const debouncedQuery = useDebounce(query, 400);\n\n  const { data: results, loading } = useFetch(\n    debouncedQuery\n      ? `https://jsonplaceholder.typicode.com/posts?q=${debouncedQuery}`\n      : null\n  );\n\n  return (\n    <div>\n      <input\n        value={query}\n        onChange={e => setQuery(e.target.value)}\n        placeholder=\"Search posts...\"\n      />\n      {loading && <p>Searching...</p>}\n      {results?.map(r => <p key={r.id}>{r.title}</p>)}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Custom hook name-ஐ use-ல் start பண்ணு — React hooks rules apply ஆகும்",
+          "ஒவ்வொரு component call-லயும் independent state — shared state இல்ல",
+          "Return value flexible — array, object, single value எதுவும் return பண்ணலாம்",
+          "useFetch, useLocalStorage, useDebounce, useWindowSize — commonly used patterns",
+          "Testing easy — hook logic component-லிருந்து separate, renderHook மூலம் test பண்ணலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Custom hooks extract பண்றதால் component code clean-ஆ இருக்கும் — UI logic மட்டும் component-ல் இருக்கும், side effects மற்றும் state logic hook-ல் இருக்கும். useHookName convention-ஐ கண்டிப்பா follow பண்ணு — இல்லாம போனா React hooks rules of hooks violations detect பண்ண முடியாது."
+      }
+    ]
+  },
+  "context-api": {
+    "title": "Context API",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Context API என்பது React-இன் built-in state management solution. இதை use பண்ணா prop drilling தவிர்க்கலாம் — data-ஐ component tree-இல் எந்த level-லயும் directly pass பண்ணலாம். <strong>createContext</strong>, <strong>Provider</strong>, மற்றும் <strong>useContext</strong> hook மூலம் இதை implement செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Prop Drilling பிரச்சனை என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு data-ஐ parent component-லிருந்து deeply nested child component-க்கு pass பண்ண வேண்டும்னா, middle-ல் உள்ள ஒவ்வொரு component-லயும் props-ஆ pass பண்ணணும் — இதை <strong>prop drilling</strong> என்று சொல்வோம். இது code-ஐ messy-ஆகவும், maintain பண்றது கஷ்டமாகவும் ஆகும். Context API இந்த problem-ஐ elegant-ஆ solve பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Context Create பண்றது எப்படி?"
+      },
+      {
+        "type": "example",
+        "title": "createContext மற்றும் Provider setup",
+        "code": "// ThemeContext.js\nimport { createContext, useState, useContext } from 'react';\n\n// 1. Context create பண்றோம்\nexport const ThemeContext = createContext(null);\n\n// 2. Provider component\nexport function ThemeProvider({ children }) {\n  const [theme, setTheme] = useState('light');\n\n  const toggleTheme = () => {\n    setTheme(prev => prev === 'light' ? 'dark' : 'light');\n  };\n\n  return (\n    <ThemeContext.Provider value={{ theme, toggleTheme }}>\n      {children}\n    </ThemeContext.Provider>\n  );\n}\n\n// 3. Custom hook — easier to use\nexport function useTheme() {\n  const context = useContext(ThemeContext);\n  if (!context) {\n    throw new Error('useTheme must be used within ThemeProvider');\n  }\n  return context;\n}"
+      },
+      {
+        "type": "example",
+        "title": "useContext hook மூலம் data consume பண்றது",
+        "code": "// App.js — Provider wrap பண்றோம்\nimport { ThemeProvider } from './ThemeContext';\nimport Dashboard from './Dashboard';\n\nfunction App() {\n  return (\n    <ThemeProvider>\n      <Dashboard />\n    </ThemeProvider>\n  );\n}\n\n// Dashboard.js — deeply nested component\nimport { useTheme } from './ThemeContext';\n\nfunction Dashboard() {\n  const { theme, toggleTheme } = useTheme();\n\n  return (\n    <div className={`app ${theme}`}>\n      <h1>Current Theme: {theme}</h1>\n      <button onClick={toggleTheme}>\n        Switch to {theme === 'light' ? 'dark' : 'light'} mode\n      </button>\n    </div>\n  );\n}\n\nexport default Dashboard;"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "createContext() — context object உருவாக்கும், default value கொடுக்கலாம்",
+          "Provider — value prop மூலம் data share பண்ணும், children-ஐ wrap பண்ணும்",
+          "useContext() — எந்த functional component-லயும் context data எடுக்கலாம்",
+          "Multiple contexts — ஒரு app-ல் பல contexts use பண்ணலாம்",
+          "Custom hook — useContext-ஐ wrap பண்ணி reusable-ஆ மாற்றலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Context API simple-to-medium complexity state management-க்கு best. ஆனால் frequently update ஆகும் data-க்கு (like every keystroke) performance issue வரலாம் — அதற்கு Redux அல்லது Zustand போன்றவை better. Context re-render optimization-க்கு useMemo use பண்ணலாம்."
+      }
+    ]
+  },
+  "useReducer": {
+    "title": "useReducer Hook",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>useReducer</strong> hook என்பது complex state logic manage பண்ண use பண்றோம். இது Redux-இன் concept-ஐ React-இல் directly implement பண்ணும். State transitions-ஐ predictable-ஆக, testable-ஆக வைக்க useReducer மிகவும் useful."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useReducer vs useState"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>useState</strong> simple values-க்கு perfect — number, string, boolean. ஆனால் state-ல் multiple sub-values இருந்தா, அல்லது next state previous state-ஐ depend பண்ணினா, useReducer better choice. Reducer function ஒரு pure function — current state மற்றும் action receive பண்ணி new state return பண்ணும்."
+      },
+      {
+        "type": "example",
+        "title": "Basic useReducer — Counter example",
+        "code": "import { useReducer } from 'react';\n\n// Reducer function — pure function\nfunction counterReducer(state, action) {\n  switch (action.type) {\n    case 'INCREMENT':\n      return { count: state.count + 1 };\n    case 'DECREMENT':\n      return { count: state.count - 1 };\n    case 'RESET':\n      return { count: 0 };\n    case 'SET':\n      return { count: action.payload };\n    default:\n      throw new Error(`Unknown action: ${action.type}`);\n  }\n}\n\nfunction Counter() {\n  const [state, dispatch] = useReducer(counterReducer, { count: 0 });\n\n  return (\n    <div>\n      <h2>Count: {state.count}</h2>\n      <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>\n      <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>\n      <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>\n      <button onClick={() => dispatch({ type: 'SET', payload: 10 })}>Set 10</button>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Complex State — Todo App"
+      },
+      {
+        "type": "example",
+        "title": "useReducer கொண்டு Todo List manage பண்றது",
+        "code": "import { useReducer, useState } from 'react';\n\nconst initialState = { todos: [], filter: 'all' };\n\nfunction todoReducer(state, action) {\n  switch (action.type) {\n    case 'ADD_TODO':\n      return {\n        ...state,\n        todos: [\n          ...state.todos,\n          { id: Date.now(), text: action.payload, completed: false }\n        ]\n      };\n    case 'TOGGLE_TODO':\n      return {\n        ...state,\n        todos: state.todos.map(todo =>\n          todo.id === action.payload\n            ? { ...todo, completed: !todo.completed }\n            : todo\n        )\n      };\n    case 'DELETE_TODO':\n      return {\n        ...state,\n        todos: state.todos.filter(todo => todo.id !== action.payload)\n      };\n    case 'SET_FILTER':\n      return { ...state, filter: action.payload };\n    default:\n      return state;\n  }\n}\n\nfunction TodoApp() {\n  const [state, dispatch] = useReducer(todoReducer, initialState);\n  const [input, setInput] = useState('');\n\n  const handleAdd = () => {\n    if (input.trim()) {\n      dispatch({ type: 'ADD_TODO', payload: input.trim() });\n      setInput('');\n    }\n  };\n\n  const filteredTodos = state.todos.filter(todo => {\n    if (state.filter === 'active') return !todo.completed;\n    if (state.filter === 'completed') return todo.completed;\n    return true;\n  });\n\n  return (\n    <div>\n      <input value={input} onChange={e => setInput(e.target.value)} />\n      <button onClick={handleAdd}>Add</button>\n      {filteredTodos.map(todo => (\n        <div key={todo.id}>\n          <span\n            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}\n            onClick={() => dispatch({ type: 'TOGGLE_TODO', payload: todo.id })}\n          >\n            {todo.text}\n          </span>\n          <button onClick={() => dispatch({ type: 'DELETE_TODO', payload: todo.id })}>X</button>\n        </div>\n      ))}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "useReducer(reducer, initialState) — state மற்றும் dispatch function return பண்ணும்",
+          "Reducer — pure function, side effects இருக்கக்கூடாது",
+          "Action — { type, payload } format follow பண்றது convention",
+          "dispatch() — action send பண்ணும், state update trigger பண்ணும்",
+          "Complex forms, shopping cart, multi-step wizards-க்கு ideal"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "useReducer-ஐ Context API-உடன் combine பண்ணினா lightweight global state management achieve பண்ணலாம். Redux-இன் basic version-ஆ இதை consider பண்ணலாம். Reducer function separate file-ல் வைத்தால் testing மிகவும் easy ஆகும்."
+      }
+    ]
+  },
+  "useMemo-useCallback": {
+    "title": "useMemo & useCallback",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "<strong>useMemo</strong> மற்றும் <strong>useCallback</strong> React performance optimization hooks. useMemo expensive calculations-ஐ memoize பண்ணும், useCallback function references-ஐ memoize பண்ணும். Unnecessary re-renders தவிர்க்க இவை மிகவும் useful."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useMemo — Expensive Calculations Cache பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Component re-render ஆகும்போது, அதில் உள்ள எல்லா calculations-உம் again run ஆகும். ஒரு calculation மிகவும் expensive-ஆ இருந்தா (like sorting a large list), அது performance-ஐ hit பண்ணும். <strong>useMemo</strong> ஒரு memoized value return பண்ணும் — dependencies change ஆகும்போது மட்டும் recalculate பண்ணும்."
+      },
+      {
+        "type": "example",
+        "title": "useMemo கொண்டு expensive calculation optimize பண்றது",
+        "code": "import { useState, useMemo } from 'react';\n\nfunction ExpensiveList({ items, filter }) {\n  // filter அல்லது items மாறும்போது மட்டும் recalculate பண்ணும்\n  const filteredItems = useMemo(() => {\n    console.log('Filtering items...'); // dependency change ஆகும்போது மட்டும் run ஆகும்\n    return items\n      .filter(item => item.name.toLowerCase().includes(filter.toLowerCase()))\n      .sort((a, b) => a.name.localeCompare(b.name));\n  }, [items, filter]); // dependencies array\n\n  return (\n    <ul>\n      {filteredItems.map(item => (\n        <li key={item.id}>{item.name}</li>\n      ))}\n    </ul>\n  );\n}\n\n// useMemo இல்லாமல் — every render-ல் filter + sort run ஆகும்\n// useMemo-உடன் — items அல்லது filter மாறும்போது மட்டும் run ஆகும்"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useCallback — Function Reference Stable வைக்கிறது"
+      },
+      {
+        "type": "paragraph",
+        "text": "React-ல் ஒவ்வொரு render-லயும் functions புதிதாக create ஆகும். ஒரு function-ஐ child component-க்கு prop-ஆ pass பண்றோம்னா, ஒவ்வொரு render-லயும் new reference create ஆவதால் child re-render ஆகும். <strong>useCallback</strong> function-ஐ memoize பண்ணும் — dependencies change ஆகும்போது மட்டும் new function create ஆகும்."
+      },
+      {
+        "type": "example",
+        "title": "useCallback கொண்டு child re-renders தவிர்க்கிறது",
+        "code": "import { useState, useCallback, memo } from 'react';\n\n// memo — props change ஆகும்போது மட்டும் re-render ஆகும்\nconst Button = memo(({ onClick, label }) => {\n  console.log(`Button rendered: ${label}`);\n  return <button onClick={onClick}>{label}</button>;\n});\n\nfunction Parent() {\n  const [count, setCount] = useState(0);\n  const [text, setText] = useState('');\n\n  // useCallback இல்லாமல் — every render-ல் new function create ஆகும்\n  // Button re-render ஆகிவிடும்\n\n  // useCallback-உடன் — count மாறும்போது மட்டும் new function\n  const handleIncrement = useCallback(() => {\n    setCount(prev => prev + 1);\n  }, []); // No dependencies — function never changes\n\n  const handleReset = useCallback(() => {\n    setCount(0);\n  }, []);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <input value={text} onChange={e => setText(e.target.value)} />\n      <Button onClick={handleIncrement} label=\"Increment\" />\n      <Button onClick={handleReset} label=\"Reset\" />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "useMemo vs useCallback — Difference",
+        "code": "import { useMemo, useCallback } from 'react';\n\nfunction Example({ a, b }) {\n  // useMemo — value-ஐ memoize பண்றது (result cache)\n  const sum = useMemo(() => {\n    return a + b; // computed value return ஆகும்\n  }, [a, b]);\n\n  // useCallback — function-ஐ memoize பண்றது (function cache)\n  const calculate = useCallback(() => {\n    return a + b; // function return ஆகும் (not the result)\n  }, [a, b]);\n\n  // useCallback இது useMemo-க்கு equivalent:\n  // const calculate = useMemo(() => () => a + b, [a, b]);\n\n  return (\n    <div>\n      <p>Sum (useMemo): {sum}</p>\n      <button onClick={() => console.log(calculate())}>\n        Calculate (useCallback)\n      </button>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "useMemo — computed value memoize பண்ணும், heavy calculations-க்கு use பண்ணலாம்",
+          "useCallback — function reference stable வைக்கும், child components-க்கு pass பண்ண useful",
+          "React.memo — component-ஐ memoize பண்ணும், props change ஆகும்போது மட்டும் render",
+          "Dependencies array — எந்த values change ஆனா recalculate/recreate என்று specify பண்ணும்",
+          "Premature optimization avoid பண்ணவும் — profile பண்ணிய பிறகு optimize பண்ணவும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "useMemo மற்றும் useCallback-ஐ எல்லா இடத்திலும் use பண்ணாதீர்கள் — இவையும் memory-ஐ consume பண்ணும். React DevTools Profiler மூலம் actual performance bottlenecks identify பண்ணி, அங்கு மட்டும் optimize பண்ணவும். Simple components-க்கு இவை தேவையில்லை."
+      }
+    ]
+  },
+  "react-router": {
+    "title": "React Router",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React Router என்பது React applications-க்கான standard routing library. இதை use பண்ணி single-page application (SPA)-ல் multiple pages போல் navigate பண்ணலாம். URL change ஆகும்போது different components render ஆகும் — ஆனால் page reload ஆகாது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "React Router Install & Setup"
+      },
+      {
+        "type": "example",
+        "title": "Installation மற்றும் basic setup",
+        "code": "# Install பண்றது\nnpm install react-router-dom\n\n// main.jsx — BrowserRouter wrap பண்றோம்\nimport { BrowserRouter } from 'react-router-dom';\nimport { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\nimport App from './App';\n\ncreateRoot(document.getElementById('root')).render(\n  <StrictMode>\n    <BrowserRouter>\n      <App />\n    </BrowserRouter>\n  </StrictMode>\n);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Routes மற்றும் Navigation Setup"
+      },
+      {
+        "type": "example",
+        "title": "Routes, Route மற்றும் Link components",
+        "code": "// App.jsx — Routes define பண்றோம்\nimport { Routes, Route, Link, NavLink } from 'react-router-dom';\nimport Home from './pages/Home';\nimport About from './pages/About';\nimport Products from './pages/Products';\nimport ProductDetail from './pages/ProductDetail';\nimport NotFound from './pages/NotFound';\n\nfunction App() {\n  return (\n    <div>\n      {/* Navigation */}\n      <nav>\n        <NavLink to=\"/\" end className={({ isActive }) => isActive ? 'active' : ''}>\n          Home\n        </NavLink>\n        <NavLink to=\"/about\" className={({ isActive }) => isActive ? 'active' : ''}>\n          About\n        </NavLink>\n        <NavLink to=\"/products\" className={({ isActive }) => isActive ? 'active' : ''}>\n          Products\n        </NavLink>\n      </nav>\n\n      {/* Routes */}\n      <Routes>\n        <Route path=\"/\" element={<Home />} />\n        <Route path=\"/about\" element={<About />} />\n        <Route path=\"/products\" element={<Products />} />\n        <Route path=\"/products/:id\" element={<ProductDetail />} />\n        <Route path=\"*\" element={<NotFound />} />\n      </Routes>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "useParams, useNavigate மற்றும் useLocation hooks",
+        "code": "import { useParams, useNavigate, useLocation } from 'react-router-dom';\n\n// useParams — URL parameters எடுக்கிறோம்\nfunction ProductDetail() {\n  const { id } = useParams(); // /products/:id-ல் id எடுக்கிறோம்\n\n  return <h1>Product ID: {id}</h1>;\n}\n\n// useNavigate — programmatically navigate பண்றோம்\nfunction LoginForm() {\n  const navigate = useNavigate();\n\n  const handleLogin = async () => {\n    // Login logic...\n    navigate('/dashboard'); // Redirect பண்றோம்\n    // navigate(-1); // Back பண்றோம்\n    // navigate('/home', { replace: true }); // History replace பண்றோம்\n  };\n\n  return <button onClick={handleLogin}>Login</button>;\n}\n\n// useLocation — current URL info எடுக்கிறோம்\nfunction Breadcrumb() {\n  const location = useLocation();\n  // location.pathname, location.search, location.state\n  return <p>Current path: {location.pathname}</p>;\n}"
+      },
+      {
+        "type": "example",
+        "title": "Nested Routes மற்றும் Outlet",
+        "code": "// Nested routes — parent route-ல் child routes\nimport { Outlet } from 'react-router-dom';\n\nfunction DashboardLayout() {\n  return (\n    <div className=\"dashboard\">\n      <aside>\n        <NavLink to=\"/dashboard/profile\">Profile</NavLink>\n        <NavLink to=\"/dashboard/settings\">Settings</NavLink>\n      </aside>\n      <main>\n        <Outlet /> {/* Child route இங்கே render ஆகும் */}\n      </main>\n    </div>\n  );\n}\n\n// App.jsx — nested routes define பண்றோம்\n<Routes>\n  <Route path=\"/dashboard\" element={<DashboardLayout />}>\n    <Route index element={<DashboardHome />} />\n    <Route path=\"profile\" element={<Profile />} />\n    <Route path=\"settings\" element={<Settings />} />\n  </Route>\n</Routes>"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "BrowserRouter — HTML5 history API use பண்றது, production-க்கு recommended",
+          "Routes & Route — URL pattern-ஐ component-உடன் match பண்ணும்",
+          "Link / NavLink — anchor tag போல் navigate பண்ணும், page reload இல்லாமல்",
+          "useParams — dynamic URL segments (:id) எடுக்கலாம்",
+          "useNavigate — button click, form submit போன்ற events-ல் navigate பண்ணலாம்",
+          "Outlet — nested routes-ல் child component render ஆகும் இடம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "React Router v6-ல் Switch component போய் Routes வந்தது. exact prop தேவையில்லை — v6 automatically exact matching பண்ணும். Private routes implement பண்ண, route-ஐ render பண்ணுவதற்கு முன்பு auth check பண்ணி navigate() அல்லது <Navigate> component use பண்ணலாம்."
+      }
+    ]
+  },
+  "fetch-api": {
+    "title": "Data Fetch பண்றது",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React-ல் external API-லிருந்து data fetch பண்றது மிகவும் common task. <strong>fetch API</strong>, <strong>axios</strong>, மற்றும் <strong>TanStack Query</strong> போன்ற tools use பண்ணி data load பண்ணலாம். Loading states, error handling, மற்றும் data caching எல்லாம் properly handle பண்றது important."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "useEffect கொண்டு Data Fetch பண்றது"
+      },
+      {
+        "type": "example",
+        "title": "Basic fetch with loading and error states",
+        "code": "import { useState, useEffect } from 'react';\n\nfunction UserList() {\n  const [users, setUsers] = useState([]);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    const fetchUsers = async () => {\n      try {\n        setLoading(true);\n        const response = await fetch('https://jsonplaceholder.typicode.com/users');\n\n        if (!response.ok) {\n          throw new Error(`HTTP Error: ${response.status}`);\n        }\n\n        const data = await response.json();\n        setUsers(data);\n      } catch (err) {\n        setError(err.message);\n      } finally {\n        setLoading(false);\n      }\n    };\n\n    fetchUsers();\n  }, []); // Empty array — component mount ஆகும்போது ஒரே ஒரு முறை run ஆகும்\n\n  if (loading) return <div>Loading...</div>;\n  if (error) return <div>Error: {error}</div>;\n\n  return (\n    <ul>\n      {users.map(user => (\n        <li key={user.id}>{user.name} — {user.email}</li>\n      ))}\n    </ul>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Hook — Reusable Data Fetching"
+      },
+      {
+        "type": "example",
+        "title": "useFetch custom hook உருவாக்குவது",
+        "code": "import { useState, useEffect } from 'react';\n\n// Reusable custom hook\nfunction useFetch(url) {\n  const [data, setData] = useState(null);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    // Cleanup — component unmount ஆனா abort பண்றோம்\n    const controller = new AbortController();\n\n    const fetchData = async () => {\n      try {\n        setLoading(true);\n        setError(null);\n        const response = await fetch(url, { signal: controller.signal });\n        if (!response.ok) throw new Error(`Error: ${response.status}`);\n        const result = await response.json();\n        setData(result);\n      } catch (err) {\n        if (err.name !== 'AbortError') {\n          setError(err.message);\n        }\n      } finally {\n        setLoading(false);\n      }\n    };\n\n    fetchData();\n\n    return () => controller.abort(); // Cleanup function\n  }, [url]);\n\n  return { data, loading, error };\n}\n\n// Usage — எந்த component-லயும் use பண்ணலாம்\nfunction Posts() {\n  const { data: posts, loading, error } = useFetch(\n    'https://jsonplaceholder.typicode.com/posts'\n  );\n\n  if (loading) return <p>பதிவுகள் load ஆகின்றன...</p>;\n  if (error) return <p>Error: {error}</p>;\n\n  return (\n    <ul>\n      {posts?.map(post => (\n        <li key={post.id}>{post.title}</li>\n      ))}\n    </ul>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "POST request — form data submit பண்றது",
+        "code": "import { useState } from 'react';\n\nfunction CreatePost() {\n  const [title, setTitle] = useState('');\n  const [submitting, setSubmitting] = useState(false);\n  const [result, setResult] = useState(null);\n\n  const handleSubmit = async (e) => {\n    e.preventDefault();\n    setSubmitting(true);\n\n    try {\n      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify({ title, userId: 1 }),\n      });\n\n      if (!response.ok) throw new Error('Failed to create post');\n\n      const newPost = await response.json();\n      setResult(newPost);\n      setTitle('');\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setSubmitting(false);\n    }\n  };\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <input\n        value={title}\n        onChange={e => setTitle(e.target.value)}\n        placeholder=\"Post title\"\n      />\n      <button type=\"submit\" disabled={submitting}>\n        {submitting ? 'Creating...' : 'Create Post'}\n      </button>\n      {result && <p>Created post with ID: {result.id}</p>}\n    </form>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "fetch API — built-in browser API, Promise-based, modern apps-க்கு suitable",
+          "axios — third-party library, automatic JSON parsing, request interceptors support",
+          "Loading state — data load ஆகும்போது spinner அல்லது skeleton show பண்ணவும்",
+          "Error handling — try/catch மூலம் errors gracefully handle பண்ணவும்",
+          "AbortController — component unmount ஆனா pending requests cancel பண்ணவும்",
+          "TanStack Query (React Query) — caching, refetching, pagination எல்லாம் built-in"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Production apps-க்கு TanStack Query அல்லது SWR போன்ற data fetching libraries strongly recommend பண்றோம். இவை caching, background refetching, optimistic updates, pagination எல்லாம் out-of-the-box கொடுக்கும். Manual fetch code-ஐ விட மிகவும் robust ஆகும்."
+      }
+    ]
+  },
+  "error-boundaries": {
+    "title": "Error Boundaries",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Error Boundaries என்பது React-இல் JavaScript errors-ஐ catch பண்ணி, entire application crash ஆகாமல் fallback UI show பண்ணும் mechanism. ஒரு component-ல் error வந்தா, அந்த component-இன் Error Boundary fallback render ஆகும் — மற்ற parts of the app normal-ஆ work பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Error Boundary ஏன் தேவை?"
+      },
+      {
+        "type": "paragraph",
+        "text": "React 16-க்கு முன்பு, ஒரு component-ல் error வந்தா entire application crash ஆகி blank screen காட்டும். Error Boundaries இதை fix பண்ணும் — error-ஐ gracefully handle பண்ணி user-friendly message காட்டும். இது currently class component மூலம் மட்டுமே implement செய்ய முடியும் — ஆனால் custom hook மூலம் functional components-லயும் use பண்ணலாம்."
+      },
+      {
+        "type": "example",
+        "title": "Error Boundary Class Component",
+        "code": "import { Component } from 'react';\n\nclass ErrorBoundary extends Component {\n  constructor(props) {\n    super(props);\n    this.state = { hasError: false, error: null, errorInfo: null };\n  }\n\n  // Error catch பண்ணும்போது state update பண்றோம்\n  static getDerivedStateFromError(error) {\n    return { hasError: true, error };\n  }\n\n  // Error log பண்றோம் (analytics, Sentry போன்றவற்றுக்கு)\n  componentDidCatch(error, errorInfo) {\n    console.error('Error caught:', error, errorInfo);\n    this.setState({ errorInfo });\n    // logErrorToService(error, errorInfo);\n  }\n\n  handleReset = () => {\n    this.setState({ hasError: false, error: null, errorInfo: null });\n  };\n\n  render() {\n    if (this.state.hasError) {\n      return (\n        <div style={{ padding: '20px', background: '#fee', border: '1px solid red' }}>\n          <h2>ஏதோ தவறு நடந்தது!</h2>\n          <p>{this.state.error?.message}</p>\n          <button onClick={this.handleReset}>மீண்டும் முயற்சி பண்ணவும்</button>\n        </div>\n      );\n    }\n\n    return this.props.children;\n  }\n}\n\nexport default ErrorBoundary;"
+      },
+      {
+        "type": "example",
+        "title": "Error Boundary use பண்றது",
+        "code": "import ErrorBoundary from './ErrorBoundary';\nimport UserProfile from './UserProfile';\nimport ProductList from './ProductList';\n\n// Different parts-க்கு different error boundaries\nfunction App() {\n  return (\n    <div>\n      <ErrorBoundary>\n        <UserProfile userId={123} />\n      </ErrorBoundary>\n\n      <ErrorBoundary\n        fallback={<p>Products load ஆகவில்லை. Refresh பண்ணவும்.</p>}\n      >\n        <ProductList />\n      </ErrorBoundary>\n    </div>\n  );\n}\n\n// Error trigger பண்ண (testing-க்கு)\nfunction BuggyComponent() {\n  throw new Error('Intentional error for testing!');\n  return <div>This never renders</div>;\n}"
+      },
+      {
+        "type": "example",
+        "title": "react-error-boundary library — Modern Approach",
+        "code": "// npm install react-error-boundary\nimport { ErrorBoundary } from 'react-error-boundary';\n\nfunction ErrorFallback({ error, resetErrorBoundary }) {\n  return (\n    <div role=\"alert\">\n      <h2>Something went wrong:</h2>\n      <pre style={{ color: 'red' }}>{error.message}</pre>\n      <button onClick={resetErrorBoundary}>Try again</button>\n    </div>\n  );\n}\n\nfunction App() {\n  return (\n    <ErrorBoundary\n      FallbackComponent={ErrorFallback}\n      onReset={() => {\n        // Reset app state\n      }}\n      onError={(error, info) => {\n        // Log to error reporting service\n        console.error(error, info);\n      }}\n    >\n      <MyApp />\n    </ErrorBoundary>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "getDerivedStateFromError — error catch பண்ணி fallback UI render trigger பண்ணும்",
+          "componentDidCatch — error details log பண்ண use ஆகும்",
+          "Error Boundaries event handlers-ல் errors catch பண்ணாது — try/catch use பண்ணவும்",
+          "Async errors catch பண்ணாது — async/await-ல் manual error handling வேண்டும்",
+          "react-error-boundary library — functional approach, useErrorBoundary hook"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Error Boundaries production apps-க்கு essential. Sentry, LogRocket போன்ற error tracking services-உடன் integrate பண்ணி componentDidCatch-ல் errors log பண்ணவும். Development mode-ல் error overlay காண்பிக்கும் — production-ல் fallback UI காண்பிக்கும்."
+      }
+    ]
+  },
+  "portals": {
+    "title": "Portals",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React Portals என்பது ஒரு component-ஐ அதன் parent DOM hierarchy-க்கு வெளியே render பண்ண allow பண்றது. Modals, tooltips, dropdowns, toast notifications போன்றவற்றை body tag-ல் directly render பண்ண Portals மிகவும் useful."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Portals ஏன் தேவை?"
+      },
+      {
+        "type": "paragraph",
+        "text": "CSS overflow: hidden அல்லது z-index issues-ஐ avoid பண்ண Portals use பண்றோம். உதாரணமாக, ஒரு deeply nested component-ல் modal show பண்ண வேண்டும்னா, அந்த modal parent-இன் overflow அல்லது z-index-ஆல் clip ஆகிவிடும். Portal மூலம் modal-ஐ document.body-ல் render பண்ணினா இந்த problem இல்லை."
+      },
+      {
+        "type": "example",
+        "title": "createPortal basic usage",
+        "code": "// index.html-ல் portal container add பண்றோம்\n// <div id=\"modal-root\"></div>\n\nimport { createPortal } from 'react-dom';\n\n// Modal component — portal மூலம் render பண்றோம்\nfunction Modal({ isOpen, onClose, children }) {\n  if (!isOpen) return null;\n\n  return createPortal(\n    <div\n      style={{\n        position: 'fixed',\n        top: 0,\n        left: 0,\n        right: 0,\n        bottom: 0,\n        backgroundColor: 'rgba(0, 0, 0, 0.5)',\n        display: 'flex',\n        alignItems: 'center',\n        justifyContent: 'center',\n        zIndex: 1000,\n      }}\n      onClick={onClose}\n    >\n      <div\n        style={{\n          background: 'white',\n          padding: '24px',\n          borderRadius: '8px',\n          maxWidth: '500px',\n          width: '90%',\n        }}\n        onClick={e => e.stopPropagation()}\n      >\n        {children}\n        <button onClick={onClose}>Close</button>\n      </div>\n    </div>,\n    document.getElementById('modal-root') // Target DOM node\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Portal Modal usage — App-ல் integrate பண்றது",
+        "code": "import { useState } from 'react';\nimport Modal from './Modal';\n\nfunction App() {\n  const [isModalOpen, setIsModalOpen] = useState(false);\n\n  return (\n    <div style={{ overflow: 'hidden' }}> {/* overflow: hidden இருந்தாலும் modal full screen காட்டும் */}\n      <h1>Coding Tamilan</h1>\n      <button onClick={() => setIsModalOpen(true)}>\n        Modal திறக்கவும்\n      </button>\n\n      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>\n        <h2>Portal Modal!</h2>\n        <p>இந்த modal document.body-ல் render ஆகிறது.</p>\n        <p>Parent-இன் overflow, z-index எதுவும் affect பண்ணாது.</p>\n      </Modal>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Toast Notification — Portal மூலம்",
+        "code": "import { createPortal } from 'react-dom';\nimport { useState, useEffect } from 'react';\n\nfunction Toast({ message, type = 'info', duration = 3000, onClose }) {\n  useEffect(() => {\n    const timer = setTimeout(onClose, duration);\n    return () => clearTimeout(timer);\n  }, [duration, onClose]);\n\n  const colors = {\n    info: '#3b82f6',\n    success: '#22c55e',\n    error: '#ef4444',\n  };\n\n  return createPortal(\n    <div\n      style={{\n        position: 'fixed',\n        bottom: '20px',\n        right: '20px',\n        background: colors[type],\n        color: 'white',\n        padding: '12px 20px',\n        borderRadius: '8px',\n        zIndex: 9999,\n        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',\n      }}\n    >\n      {message}\n    </div>,\n    document.body\n  );\n}\n\n// Usage\nfunction App() {\n  const [toast, setToast] = useState(null);\n\n  return (\n    <div>\n      <button onClick={() => setToast({ message: 'வெற்றிகரமாக save ஆனது!', type: 'success' })}>\n        Save\n      </button>\n      {toast && (\n        <Toast\n          message={toast.message}\n          type={toast.type}\n          onClose={() => setToast(null)}\n        />\n      )}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "createPortal(children, container) — children-ஐ container DOM node-ல் render பண்ணும்",
+          "Event bubbling — portal-ல் events React tree-ஐ follow பண்ணும், DOM tree-ஐ அல்ல",
+          "Modals, tooltips, dropdowns, toasts — portal-க்கு best use cases",
+          "index.html-ல் portal container div add பண்ணவும் (#modal-root)",
+          "Accessibility — portal modals-ல் focus management, aria attributes add பண்ணவும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Portal-ல் render ஆகும் components React tree-ல் அந்த component-இன் child-ஆகவே இருக்கும் — DOM tree-ல் மட்டும் வேறு இடத்தில் இருக்கும். எனவே Context, state எல்லாம் normal-ஆ work பண்ணும். Keyboard navigation மற்றும் screen readers-க்காக focus trap implement பண்றது modal accessibility-க்கு important."
+      }
+    ]
+  },
+  "performance": {
+    "title": "Performance Optimization",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React application-இன் performance optimize பண்றது user experience-ஐ பெரிய அளவு improve பண்ணும். Unnecessary re-renders தவிர்க்கிறது, code splitting, lazy loading, virtual lists போன்ற techniques மூலம் fast, smooth applications build பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "React.memo — Component Memoization"
+      },
+      {
+        "type": "example",
+        "title": "React.memo கொண்டு unnecessary re-renders தவிர்க்கிறது",
+        "code": "import { memo, useState } from 'react';\n\n// memo wrap பண்ணாமல் — parent re-render ஆகும்போது always re-render ஆகும்\nfunction ExpensiveChild({ name, onGreet }) {\n  console.log('ExpensiveChild rendered');\n  return (\n    <div>\n      <p>Hello, {name}!</p>\n      <button onClick={onGreet}>Greet</button>\n    </div>\n  );\n}\n\n// memo wrap பண்ணினா — props change ஆகும்போது மட்டும் re-render\nconst MemoizedChild = memo(ExpensiveChild);\n\n// Custom comparison function\nconst SmartChild = memo(ExpensiveChild, (prevProps, nextProps) => {\n  // true return பண்ணினா re-render skip பண்ணும்\n  // false return பண்ணினா re-render பண்ணும்\n  return prevProps.name === nextProps.name;\n});\n\nfunction Parent() {\n  const [count, setCount] = useState(0);\n  const [name] = useState('Tamilan');\n\n  return (\n    <div>\n      <button onClick={() => setCount(c => c + 1)}>Count: {count}</button>\n      {/* count மாறினாலும் MemoizedChild re-render ஆகாது */}\n      <MemoizedChild name={name} onGreet={() => alert('Hello!')} />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Code Splitting மற்றும் Lazy Loading"
+      },
+      {
+        "type": "example",
+        "title": "React.lazy மற்றும் Suspense கொண்டு lazy loading",
+        "code": "import { lazy, Suspense } from 'react';\nimport { Routes, Route } from 'react-router-dom';\n\n// Lazy load — இந்த component-ஐ navigate பண்ணும்போது மட்டும் download ஆகும்\nconst Dashboard = lazy(() => import('./pages/Dashboard'));\nconst Profile = lazy(() => import('./pages/Profile'));\nconst Settings = lazy(() => import('./pages/Settings'));\n\nfunction App() {\n  return (\n    <Suspense fallback={<div>Loading...</div>}>\n      <Routes>\n        <Route path=\"/dashboard\" element={<Dashboard />} />\n        <Route path=\"/profile\" element={<Profile />} />\n        <Route path=\"/settings\" element={<Settings />} />\n      </Routes>\n    </Suspense>\n  );\n}\n\n// Loading spinner component\nfunction LoadingSpinner() {\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center', padding: '40px' }}>\n      <div className=\"spinner\">Loading...</div>\n    </div>\n  );\n}\n\n// Better — custom loading UI\n<Suspense fallback={<LoadingSpinner />}>\n  <Dashboard />\n</Suspense>"
+      },
+      {
+        "type": "example",
+        "title": "Virtual List — Large Lists Optimize பண்றது",
+        "code": "// npm install react-window\nimport { FixedSizeList } from 'react-window';\n\n// 10,000 items render பண்றோம் — only visible items DOM-ல் இருக்கும்\nconst ITEMS = Array.from({ length: 10000 }, (_, i) => `Item ${i + 1}`);\n\nfunction Row({ index, style }) {\n  return (\n    <div style={style} className=\"list-item\">\n      {ITEMS[index]}\n    </div>\n  );\n}\n\nfunction VirtualizedList() {\n  return (\n    <FixedSizeList\n      height={400}        // Container height\n      width=\"100%\"        // Container width\n      itemCount={ITEMS.length}  // Total items count\n      itemSize={50}       // Each row height in px\n    >\n      {Row}\n    </FixedSizeList>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "React DevTools Profiler — actual bottlenecks identify பண்ண use பண்ணவும்",
+          "React.memo — props change ஆகும்போது மட்டும் re-render, functional components-க்கு",
+          "useMemo + useCallback — expensive calculations மற்றும் function references memoize பண்ணவும்",
+          "Code splitting — React.lazy + Suspense மூலம் initial bundle size குறைக்கலாம்",
+          "Virtual lists — react-window அல்லது react-virtual மூலம் large lists handle பண்ணலாம்",
+          "Image optimization — lazy loading, WebP format, responsive images use பண்ணவும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Premature optimization avoid பண்ணவும். முதலில் React DevTools Profiler மூலம் actual performance issues identify பண்ணவும். நீங்கள் optimize பண்றது real problem-ஐ fix பண்றதா என்று measure பண்ணவும். Over-optimization code complexity-ஐ அதிகமாக்கும்."
+      }
+    ]
+  },
+  "typescript-react": {
+    "title": "React + TypeScript",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React-ஐ TypeScript-உடன் use பண்றது type safety கொடுக்கும், bugs early-ஆ catch பண்ணலாம், IDE autocomplete மிகவும் better ஆகும். Props, state, events எல்லாவற்றுக்கும் types define பண்றது large applications maintain பண்ற மிகவும் easy ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript React Project Setup"
+      },
+      {
+        "type": "example",
+        "title": "New TypeScript React project create பண்றது",
+        "code": "# Vite மூலம் TypeScript React project\nnpm create vite@latest my-app -- --template react-ts\ncd my-app\nnpm install\nnpm run dev\n\n# Existing project-க்கு TypeScript add பண்றது\nnpm install --save-dev typescript @types/react @types/react-dom\n\n# Files: .tsx (React components), .ts (regular TypeScript)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Props Typing — Interface மற்றும் Type"
+      },
+      {
+        "type": "example",
+        "title": "Component props-க்கு TypeScript types",
+        "code": "import { ReactNode } from 'react';\n\n// Interface மூலம் props type define பண்றோம்\ninterface ButtonProps {\n  label: string;\n  onClick: () => void;\n  variant?: 'primary' | 'secondary' | 'danger'; // Optional, union type\n  disabled?: boolean;\n  children?: ReactNode; // Any valid JSX\n  className?: string;\n}\n\nfunction Button({ label, onClick, variant = 'primary', disabled = false, children }: ButtonProps) {\n  return (\n    <button\n      onClick={onClick}\n      disabled={disabled}\n      className={`btn btn-${variant}`}\n    >\n      {children || label}\n    </button>\n  );\n}\n\n// Usage — TypeScript wrong props-ஐ compile time-ல் catch பண்ணும்\n<Button label=\"Submit\" onClick={() => console.log('clicked')} />\n<Button label=\"Delete\" onClick={handleDelete} variant=\"danger\" />\n// <Button /> // Error: label மற்றும் onClick required!"
+      },
+      {
+        "type": "example",
+        "title": "useState, useRef, useEffect TypeScript-உடன்",
+        "code": "import { useState, useRef, useEffect } from 'react';\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n  role: 'admin' | 'user' | 'moderator';\n}\n\nfunction UserManager() {\n  // Generic type explicitly பண்றோம்\n  const [users, setUsers] = useState<User[]>([]);\n  const [selectedUser, setSelectedUser] = useState<User | null>(null);\n  const [loading, setLoading] = useState<boolean>(false);\n\n  // useRef — HTML element type\n  const inputRef = useRef<HTMLInputElement>(null);\n  const timerRef = useRef<ReturnType<typeof setTimeout>>(null);\n\n  useEffect(() => {\n    // TypeScript: cleanup function properly typed\n    const fetchUsers = async (): Promise<void> => {\n      setLoading(true);\n      const response = await fetch('/api/users');\n      const data: User[] = await response.json();\n      setUsers(data);\n      setLoading(false);\n    };\n\n    fetchUsers();\n  }, []);\n\n  const handleSelect = (user: User): void => {\n    setSelectedUser(user);\n    inputRef.current?.focus();\n  };\n\n  return <div>{/* JSX here */}</div>;\n}"
+      },
+      {
+        "type": "example",
+        "title": "Event Handlers TypeScript-உடன்",
+        "code": "import { ChangeEvent, FormEvent, MouseEvent } from 'react';\n\nfunction TypedForm() {\n  // Event types properly type பண்றோம்\n  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {\n    console.log(e.target.value);\n  };\n\n  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>): void => {\n    console.log(e.target.value);\n  };\n\n  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {\n    e.preventDefault();\n    // form handling logic\n  };\n\n  const handleClick = (e: MouseEvent<HTMLButtonElement>): void => {\n    console.log('Button clicked', e.currentTarget);\n  };\n\n  return (\n    <form onSubmit={handleSubmit}>\n      <input onChange={handleInputChange} />\n      <select onChange={handleSelectChange}>\n        <option value=\"a\">Option A</option>\n      </select>\n      <button type=\"button\" onClick={handleClick}>Click</button>\n      <button type=\"submit\">Submit</button>\n    </form>\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          ".tsx extension — React components-க்கு, .ts — regular TypeScript files-க்கு",
+          "interface vs type — props-க்கு interface preferred, complex types-க்கு type alias",
+          "ReactNode — any valid JSX accept பண்ணும் type (children prop-க்கு use பண்ணவும்)",
+          "Generic types — useState<User[]>() போல் explicitly type annotate பண்ணலாம்",
+          "Event types — ChangeEvent, FormEvent, MouseEvent போன்றவை react package-ல் available"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "TypeScript-ஐ React-உடன் use பண்றது initially time consume பண்ணும் — ஆனால் long term-ல் maintenance cost பெரிய அளவு குறையும். @types/react package எல்லா React types-ஐயும் கொண்டிருக்கும். any type avoid பண்றது strict type safety-க்கு important."
+      }
+    ]
+  },
+  "testing": {
+    "title": "Testing",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React applications-ஐ test பண்றது quality, reliability உறுதி செய்யும். <strong>Vitest</strong> அல்லது <strong>Jest</strong> unit testing-க்கும், <strong>React Testing Library</strong> component testing-க்கும் use பண்றோம். Tests எழுதும்போது user behavior-ஐ simulate பண்றது best practice."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Testing Setup மற்றும் Basic Concepts"
+      },
+      {
+        "type": "example",
+        "title": "Vitest + React Testing Library setup",
+        "code": "# Install dependencies\nnpm install --save-dev vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom\n\n// vite.config.ts — test configuration\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\n\nexport default defineConfig({\n  plugins: [react()],\n  test: {\n    environment: 'jsdom',\n    globals: true,\n    setupFiles: './src/test/setup.ts',\n  },\n});\n\n// src/test/setup.ts\nimport '@testing-library/jest-dom';"
+      },
+      {
+        "type": "example",
+        "title": "Component Unit Test — Button",
+        "code": "// Button.test.tsx\nimport { render, screen } from '@testing-library/react';\nimport userEvent from '@testing-library/user-event';\nimport { describe, it, expect, vi } from 'vitest';\nimport Button from './Button';\n\ndescribe('Button component', () => {\n  it('renders correctly with label', () => {\n    render(<Button label=\"Click Me\" onClick={() => {}} />);\n\n    // Text screen-ல் இருக்கிறதா என்று check பண்றோம்\n    expect(screen.getByText('Click Me')).toBeInTheDocument();\n  });\n\n  it('calls onClick when clicked', async () => {\n    const user = userEvent.setup();\n    const handleClick = vi.fn(); // Mock function\n\n    render(<Button label=\"Submit\" onClick={handleClick} />);\n\n    await user.click(screen.getByRole('button'));\n\n    expect(handleClick).toHaveBeenCalledTimes(1);\n  });\n\n  it('is disabled when disabled prop is true', () => {\n    render(<Button label=\"Disabled\" onClick={() => {}} disabled />);\n\n    expect(screen.getByRole('button')).toBeDisabled();\n  });\n});"
+      },
+      {
+        "type": "example",
+        "title": "Async Component Testing — Data Fetch",
+        "code": "// UserList.test.tsx\nimport { render, screen, waitFor } from '@testing-library/react';\nimport { describe, it, expect, vi, beforeEach } from 'vitest';\nimport UserList from './UserList';\n\n// fetch mock\nglobal.fetch = vi.fn();\n\ndescribe('UserList', () => {\n  beforeEach(() => {\n    vi.clearAllMocks();\n  });\n\n  it('shows loading state initially', () => {\n    (fetch as vi.Mock).mockResolvedValueOnce({\n      ok: true,\n      json: async () => [],\n    });\n\n    render(<UserList />);\n    expect(screen.getByText(/loading/i)).toBeInTheDocument();\n  });\n\n  it('renders users after fetch', async () => {\n    const mockUsers = [\n      { id: 1, name: 'Tamilan', email: 'tamilan@example.com' },\n      { id: 2, name: 'Rajan', email: 'rajan@example.com' },\n    ];\n\n    (fetch as vi.Mock).mockResolvedValueOnce({\n      ok: true,\n      json: async () => mockUsers,\n    });\n\n    render(<UserList />);\n\n    // Data load ஆகும்வரை wait பண்றோம்\n    await waitFor(() => {\n      expect(screen.getByText('Tamilan')).toBeInTheDocument();\n      expect(screen.getByText('Rajan')).toBeInTheDocument();\n    });\n  });\n\n  it('shows error message on fetch failure', async () => {\n    (fetch as vi.Mock).mockRejectedValueOnce(new Error('Network Error'));\n\n    render(<UserList />);\n\n    await waitFor(() => {\n      expect(screen.getByText(/error/i)).toBeInTheDocument();\n    });\n  });\n});"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "React Testing Library — user-centric testing, implementation details-ஐ avoid பண்றது",
+          "getByRole, getByText, getByLabelText — accessible queries preferred",
+          "userEvent — real user interactions simulate பண்றது (click, type, keyboard)",
+          "vi.fn() / jest.fn() — mock functions create பண்றது, calls track பண்றது",
+          "waitFor — async operations complete ஆகும்வரை wait பண்றது",
+          "describe + it — tests organize பண்றது, readable test structure"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Testing pyramid follow பண்ணவும்: Unit tests (most) > Integration tests > E2E tests (least). Implementation details test பண்ணாமல், user-visible behavior test பண்ணவும். Playwright அல்லது Cypress மூலம் end-to-end testing பண்ணலாம். Test coverage 70-80% aim பண்ணவும்."
+      }
+    ]
+  },
+  "patterns": {
+    "title": "Design Patterns",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React Design Patterns என்பது commonly occurring problems-க்கு proven solutions. Compound Components, Render Props, Custom Hooks, Provider Pattern போன்ற patterns use பண்ணி reusable, maintainable, scalable components build பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Hooks Pattern"
+      },
+      {
+        "type": "example",
+        "title": "Business logic-ஐ custom hook-ல் extract பண்றது",
+        "code": "import { useState, useEffect, useCallback } from 'react';\n\n// useLocalStorage — localStorage sync பண்ணும் state\nfunction useLocalStorage<T>(key: string, initialValue: T) {\n  const [storedValue, setStoredValue] = useState<T>(() => {\n    try {\n      const item = localStorage.getItem(key);\n      return item ? JSON.parse(item) : initialValue;\n    } catch {\n      return initialValue;\n    }\n  });\n\n  const setValue = useCallback((value: T | ((prev: T) => T)) => {\n    try {\n      const valueToStore = value instanceof Function ? value(storedValue) : value;\n      setStoredValue(valueToStore);\n      localStorage.setItem(key, JSON.stringify(valueToStore));\n    } catch (error) {\n      console.error(error);\n    }\n  }, [key, storedValue]);\n\n  return [storedValue, setValue] as const;\n}\n\n// useDebounce — input change delay பண்றது\nfunction useDebounce<T>(value: T, delay: number): T {\n  const [debouncedValue, setDebouncedValue] = useState<T>(value);\n\n  useEffect(() => {\n    const timer = setTimeout(() => setDebouncedValue(value), delay);\n    return () => clearTimeout(timer);\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n\n// Usage\nfunction SearchComponent() {\n  const [query, setQuery] = useLocalStorage('search', '');\n  const debouncedQuery = useDebounce(query, 300);\n\n  useEffect(() => {\n    if (debouncedQuery) {\n      // API call — 300ms delay-க்கு பிறகு மட்டும்\n      console.log('Searching:', debouncedQuery);\n    }\n  }, [debouncedQuery]);\n\n  return <input value={query} onChange={e => setQuery(e.target.value)} />;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Compound Components Pattern"
+      },
+      {
+        "type": "example",
+        "title": "Compound Components — flexible, composable API",
+        "code": "import { createContext, useContext, useState } from 'react';\n\n// Compound Components — Tabs example\nconst TabsContext = createContext(null);\n\nfunction Tabs({ children, defaultTab }) {\n  const [activeTab, setActiveTab] = useState(defaultTab);\n\n  return (\n    <TabsContext.Provider value={{ activeTab, setActiveTab }}>\n      <div className=\"tabs\">{children}</div>\n    </TabsContext.Provider>\n  );\n}\n\nfunction TabList({ children }) {\n  return <div className=\"tab-list\" role=\"tablist\">{children}</div>;\n}\n\nfunction Tab({ id, children }) {\n  const { activeTab, setActiveTab } = useContext(TabsContext);\n  return (\n    <button\n      role=\"tab\"\n      aria-selected={activeTab === id}\n      onClick={() => setActiveTab(id)}\n      className={activeTab === id ? 'active' : ''}\n    >\n      {children}\n    </button>\n  );\n}\n\nfunction TabPanels({ children }) {\n  return <div className=\"tab-panels\">{children}</div>;\n}\n\nfunction TabPanel({ id, children }) {\n  const { activeTab } = useContext(TabsContext);\n  if (activeTab !== id) return null;\n  return <div role=\"tabpanel\">{children}</div>;\n}\n\n// Attach sub-components\nTabs.TabList = TabList;\nTabs.Tab = Tab;\nTabs.TabPanels = TabPanels;\nTabs.TabPanel = TabPanel;\n\n// Usage — flexible API\nfunction App() {\n  return (\n    <Tabs defaultTab=\"tab1\">\n      <Tabs.TabList>\n        <Tabs.Tab id=\"tab1\">Profile</Tabs.Tab>\n        <Tabs.Tab id=\"tab2\">Settings</Tabs.Tab>\n      </Tabs.TabList>\n      <Tabs.TabPanels>\n        <Tabs.TabPanel id=\"tab1\"><ProfileContent /></Tabs.TabPanel>\n        <Tabs.TabPanel id=\"tab2\"><SettingsContent /></Tabs.TabPanel>\n      </Tabs.TabPanels>\n    </Tabs>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Render Props Pattern",
+        "code": "// Render Props — logic share பண்றது, render control child-க்கு\ninterface MousePosition {\n  x: number;\n  y: number;\n}\n\ninterface MouseTrackerProps {\n  render: (position: MousePosition) => React.ReactNode;\n}\n\nfunction MouseTracker({ render }: MouseTrackerProps) {\n  const [position, setPosition] = useState<MousePosition>({ x: 0, y: 0 });\n\n  const handleMouseMove = (e: React.MouseEvent) => {\n    setPosition({ x: e.clientX, y: e.clientY });\n  };\n\n  return (\n    <div style={{ height: '200px' }} onMouseMove={handleMouseMove}>\n      {render(position)} {/* Caller decide பண்ணும் என்ன render பண்றது */}\n    </div>\n  );\n}\n\n// Usage\nfunction App() {\n  return (\n    <MouseTracker\n      render={({ x, y }) => (\n        <p>Mouse position: {x}, {y}</p>\n      )}\n    />\n  );\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Custom Hooks — logic reuse பண்றதற்கு best pattern, testable மற்றும் composable",
+          "Compound Components — flexible component API, tight coupling avoid பண்றது",
+          "Render Props — logic share பண்ணி render control child-க்கு கொடுக்கும்",
+          "Provider Pattern — Context API மூலம் global state share பண்றது",
+          "HOC (Higher-Order Components) — component wrap பண்ணி behavior add பண்றது (legacy)"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern React-ல் Render Props மற்றும் HOC patterns பெரும்பாலும் Custom Hooks-ஆல் replace பண்ணலாம். Hooks logic reuse-க்கு simpler மற்றும் more readable. Pattern choose பண்ணும்போது simplicity-ஐ priority பண்ணவும் — over-engineering avoid பண்ணவும்."
+      }
+    ]
+  },
+  "next-steps": {
+    "title": "அடுத்த படிகள்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "React-இன் core concepts கற்றுக்கொண்டாயிற்று — இப்போது real-world projects build பண்ண ஆரம்பிக்கலாம். Next.js, state management libraries, testing, deployment போன்ற advanced topics explore பண்றது உங்கள் React journey-ஐ next level-க்கு எடுத்துச் செல்லும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Next.js — Production-Ready React Framework"
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Next.js</strong> என்பது React-ஐ base-ஆக வைத்து build பண்ணப்பட்ட full-stack framework. Server-Side Rendering (SSR), Static Site Generation (SSG), API Routes, file-based routing, image optimization எல்லாம் built-in கொண்டிருக்கும். Production React applications-க்கு Next.js strongly recommended."
+      },
+      {
+        "type": "example",
+        "title": "Next.js project ஆரம்பிப்பது",
+        "code": "# New Next.js project create பண்றது\nnpx create-next-app@latest my-nextjs-app\ncd my-nextjs-app\nnpm run dev\n\n# Project structure (App Router)\n# app/\n#   layout.tsx    — Root layout\n#   page.tsx      — Home page (/)\n#   about/\n#     page.tsx    — About page (/about)\n#   api/\n#     users/\n#       route.ts  — API endpoint (/api/users)\n# public/         — Static files\n# components/     — Reusable components\n\n// app/page.tsx — Server Component by default\nexport default async function HomePage() {\n  // Server-side data fetch — no useEffect needed!\n  const response = await fetch('https://api.example.com/posts');\n  const posts = await response.json();\n\n  return (\n    <main>\n      <h1>Latest Posts</h1>\n      {posts.map(post => (\n        <article key={post.id}>\n          <h2>{post.title}</h2>\n        </article>\n      ))}\n    </main>\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "State Management — Zustand மற்றும் Redux Toolkit"
+      },
+      {
+        "type": "example",
+        "title": "Zustand — Lightweight State Management",
+        "code": "// npm install zustand\nimport { create } from 'zustand';\n\ninterface CartStore {\n  items: CartItem[];\n  total: number;\n  addItem: (item: CartItem) => void;\n  removeItem: (id: number) => void;\n  clearCart: () => void;\n}\n\n// Store create பண்றோம் — Context இல்லாமல் global state\nconst useCartStore = create<CartStore>((set, get) => ({\n  items: [],\n  total: 0,\n\n  addItem: (item) => {\n    set(state => ({\n      items: [...state.items, item],\n      total: state.total + item.price,\n    }));\n  },\n\n  removeItem: (id) => {\n    const item = get().items.find(i => i.id === id);\n    set(state => ({\n      items: state.items.filter(i => i.id !== id),\n      total: state.total - (item?.price || 0),\n    }));\n  },\n\n  clearCart: () => set({ items: [], total: 0 }),\n}));\n\n// Any component-ல் use பண்ணலாம் — no Provider needed!\nfunction CartIcon() {\n  const { items } = useCartStore();\n  return <span>Cart ({items.length})</span>;\n}\n\nfunction AddToCartButton({ product }) {\n  const { addItem } = useCartStore();\n  return <button onClick={() => addItem(product)}>Add to Cart</button>;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Explore செய்ய வேண்டிய Topics"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Next.js — App Router, Server Components, API Routes, Middleware",
+          "TanStack Query (React Query) — server state management, caching, mutations",
+          "Zustand / Redux Toolkit — complex client state management",
+          "Tailwind CSS — utility-first CSS framework, rapid UI development",
+          "Framer Motion — React animations library, smooth UI transitions",
+          "Storybook — component documentation மற்றும் isolated development",
+          "Playwright / Cypress — end-to-end testing",
+          "React Native — mobile apps build பண்றது, React knowledge reuse பண்ணலாம்",
+          "GraphQL + Apollo Client — flexible API queries",
+          "Deployment — Vercel (Next.js-க்கு best), Netlify, AWS Amplify"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Project Ideas — React Skills Practice பண்றது",
+        "code": "// Beginner Projects:\n// 1. Todo App — CRUD operations, local storage\n// 2. Weather App — API fetch, conditional rendering\n// 3. Calculator — useState, event handling\n// 4. Quiz App — multiple components, state management\n\n// Intermediate Projects:\n// 5. E-commerce Cart — Context API, complex state\n// 6. Blog Platform — React Router, API integration\n// 7. Dashboard — Charts, real-time data, responsive design\n// 8. Chat Application — WebSockets, real-time updates\n\n// Advanced Projects:\n// 9. Full-stack App with Next.js — SSR, database, auth\n// 10. Real-time Collaboration Tool — WebSockets, conflict resolution\n// 11. Code Editor — Monaco Editor, syntax highlighting\n// 12. Video Streaming Platform — HLS, media queries\n\nconsole.log('Happy Coding! — Coding Tamilan');"
+      },
+      {
+        "type": "note",
+        "text": "React கற்றுக்கொண்டது மட்டும் போதாது — projects build பண்றதுதான் real learning. GitHub-ல் உங்கள் projects upload பண்ணவும், open source contributions பண்ணவும், React community-ல் active-ஆ இருங்கள். React Official Documentation (react.dev) எப்பவும் best reference. தொடர்ந்து practice பண்ணுங்கள் — நீங்கள் React expert ஆவீர்கள்!"
+      }
+    ]
+  }
+}

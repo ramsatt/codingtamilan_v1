@@ -1,0 +1,4 @@
+/* Ensure the host element itself doesn't impose extra margin/padding */
+:host {
+  display: block;
+}

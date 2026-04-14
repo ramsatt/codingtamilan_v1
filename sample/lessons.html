@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Java Introduction - Coding Tamilan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        mono: ['Consolas', 'Monaco', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                        surface: '#ffffff',
+                        background: '#f8fafc',
+                    },
+                    boxShadow: {
+                        'material': '0 2px 10px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.02)',
+                        'slide': '0 10px 40px -10px rgba(0,0,0,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hide scrollbar for presentation track but allow scrolling if needed on mobile */
+        .slide-content-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide-content-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans h-screen flex flex-col overflow-hidden">
+
+    <!-- Top Navigation Bar -->
+    <nav
+        class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-6 shrink-0 z-20 relative shadow-sm">
+
+        <!-- Left: Logo & Mobile Toggle -->
+        <div class="flex items-center gap-4">
+            <button id="sidebarToggle" class="md:hidden text-slate-500 hover:text-brand-500 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+            <div class="flex items-center gap-2 cursor-pointer group">
+                <div class="text-brand-500 font-bold text-xl group-hover:scale-110 transition-transform"><i
+                        class="fa-solid fa-bolt"></i></div>
+                <span class="font-bold text-lg text-slate-900 tracking-tight hidden sm:block">Coding <span
+                        class="text-brand-500">Tamilan</span></span>
+            </div>
+        </div>
+
+        <!-- Center: Breadcrumbs (Hidden on small screens) -->
+        <div class="hidden lg:flex items-center text-sm font-medium text-slate-500 space-x-2">
+            <a href="#" class="hover:text-slate-900 transition-colors">Courses</a>
+            <span class="text-slate-300">/</span>
+            <a href="#" class="text-brand-600 hover:text-brand-700 transition-colors">Java Masterclass</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-slate-900">1. Java Intro</span>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="flex items-center gap-4 sm:gap-6">
+            <!-- Language Toggle -->
+            <div class="flex items-center bg-slate-100 border border-slate-200 rounded-full p-0.5">
+                <button class="bg-white text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">EN</button>
+                <button
+                    class="text-slate-500 hover:text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full transition-colors">தமிழ்</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout: Sidebar + Content -->
+    <div class="flex flex-1 overflow-hidden relative">
+
+        <!-- Sidebar -->
+        <aside id="sidebar"
+            class="absolute md:relative w-72 lg:w-80 h-full bg-white border-r border-slate-200 flex flex-col shrink-0 z-10 transition-transform duration-300 -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none">
+
+            <!-- Sidebar Header -->
+            <div class="p-6 border-b border-slate-200 bg-white">
+                <div class="flex items-center gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 text-white flex items-center justify-center shadow-lg shadow-slate-900/20 shrink-0">
+                        <i class="fa-brands fa-java text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base font-black text-slate-900 leading-tight">Java Masterclass</h2>
+                        <p class="text-[11px] font-bold text-brand-500 mt-1 uppercase tracking-widest">Beginner Path</p>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div>
+                    <div class="flex justify-between text-sm font-bold mb-2">
+                        <span class="text-slate-700">Course Progress</span>
+                        <span class="text-slate-900">4%</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                        <div class="h-full bg-gradient-to-r from-brand-400 to-brand-500 rounded-full w-[4%] relative">
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 font-medium mt-2">2 of 50 lessons completed</p>
+                </div>
+            </div>
+
+            <!-- Lessons List -->
+            <div class="flex-1 overflow-y-auto py-6 px-4">
+                <!-- Module 1 -->
+                <div class="mb-8">
+                    <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-widest px-3 mb-3">Module 1:
+                        Fundamentals</h3>
+                    <ul class="text-[14px] space-y-1.5">
+                        <!-- Active Item -->
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-between px-4 py-3.5 rounded-xl bg-orange-50 border border-brand-100/60 text-slate-900 font-bold shadow-[0_4px_12px_-4px_rgba(249,115,22,0.15)] relative overflow-hidden transition-all">
+                                <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-brand-500"></div>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-brand-100 text-brand-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-play text-[10px] ml-0.5"></i>
+                                    </div>
+                                    <span class="tracking-tight">1. Java Intro</span>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-brand-500 bg-white px-2 py-1 rounded-md shadow-sm">3
+                                    min</span>
+                            </a>
+                        </li>
+
+                        <!-- Completed Item -->
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-between px-4 py-3 rounded-xl text-slate-600 font-medium hover:bg-slate-50 hover:text-slate-900 transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-check text-[12px]"></i>
+                                    </div>
+                                    <span class="tracking-tight group-hover:text-slate-900 transition-colors">2. Get
+                                        Started</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Standard Items -->
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-between px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-slate-50 hover:text-slate-900 transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full border-2 border-slate-200 group-hover:border-slate-300 flex items-center justify-center shrink-0 transition-colors">
+                                        <span
+                                            class="text-[10px] font-bold text-slate-400 group-hover:text-slate-600">3</span>
+                                    </div>
+                                    <span class="tracking-tight group-hover:text-slate-900 transition-colors">3.
+                                        Syntax</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-between px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-slate-50 hover:text-slate-900 transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-6 h-6 rounded-full border-2 border-slate-200 group-hover:border-slate-300 flex items-center justify-center shrink-0 transition-colors">
+                                        <span
+                                            class="text-[10px] font-bold text-slate-400 group-hover:text-slate-600">4</span>
+                                    </div>
+                                    <span class="tracking-tight group-hover:text-slate-900 transition-colors">4.
+                                        Output</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-slate-900/50 z-0 hidden md:hidden"></div>
+
+        <!-- Main Content Area (Interactive Presentation) -->
+        <main class="flex-1 min-w-0 flex items-center justify-center p-4 sm:p-6 lg:p-8 relative h-full">
+
+            <!-- Presentation Container -->
+            <div id="presentationContainer"
+                class="w-full h-full bg-white rounded-2xl shadow-slide border border-slate-200 flex flex-col overflow-hidden relative">
+
+                <!-- Presentation Header -->
+                <div
+                    class="h-14 border-b border-slate-100 flex items-center justify-between px-6 shrink-0 bg-white z-10">
+                    <div class="flex items-center gap-3 text-slate-500 text-sm font-medium">
+                        <i class="fa-solid fa-person-chalkboard text-brand-500"></i>
+                        <span>Lesson Interactive View</span>
+                    </div>
+                    <button onclick="toggleFullscreen()"
+                        class="text-slate-400 hover:text-slate-700 transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100"
+                        title="Toggle Fullscreen">
+                        <i class="fa-solid fa-expand"></i>
+                    </button>
+                </div>
+
+                <!-- Progress Bar (Top of slides) -->
+                <div class="h-1 w-full bg-slate-100 shrink-0 z-10">
+                    <div id="slideProgress" class="h-full bg-brand-500 transition-all duration-300 w-1/5"></div>
+                </div>
+
+                <!-- Slides Wrapper (Track) -->
+                <div class="flex-1 relative overflow-hidden bg-slate-50/30">
+                    <div id="slideTrack" class="flex h-full w-full transition-transform duration-500 ease-in-out"
+                        style="transform: translateX(0%);">
+
+                        <!-- SLIDE 1: Intro -->
+                        <div
+                            class="w-full h-full shrink-0 flex flex-col justify-center px-8 sm:px-16 slide-content-scroll overflow-y-auto">
+                            <div class="max-w-4xl mx-auto w-full py-8">
+                                <div
+                                    class="flex flex-wrap items-center gap-3 mb-8 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease_forwards_0.1s]">
+                                    <span
+                                        class="px-3 py-1.5 bg-orange-100 text-brand-600 text-xs font-bold rounded-full border border-orange-200 flex items-center gap-1.5">
+                                        <i class="fa-brands fa-java text-sm"></i> Java
+                                    </span>
+                                    <span
+                                        class="px-3 py-1.5 bg-slate-100 text-slate-600 text-xs font-bold rounded-full border border-slate-200">Foundations</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-green-100 text-green-700 text-xs font-bold rounded-full border border-green-200">Beginner</span>
+                                </div>
+
+                                <div
+                                    class="flex items-center gap-4 mb-10 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease_forwards_0.2s]">
+                                    <div class="w-1.5 h-10 bg-brand-500 rounded-sm"></div>
+                                    <h1
+                                        class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">
+                                        1. Java Introduction</h1>
+                                </div>
+
+                                <p
+                                    class="text-slate-600 text-xl lg:text-2xl leading-relaxed mb-8 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease_forwards_0.3s]">
+                                    Java is a popular and powerful programming language, created in 1995. It is owned by
+                                    Oracle, and more than <strong class="text-brand-600 font-bold">3 billion</strong>
+                                    devices run Java.
+                                </p>
+
+                                <div
+                                    class="bg-white border border-slate-200 rounded-2xl p-6 lg:p-8 shadow-sm border-l-4 border-l-yellow-400 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease_forwards_0.4s]">
+                                    <div class="flex gap-4 items-start">
+                                        <i class="fa-solid fa-lightbulb text-2xl lg:text-3xl text-yellow-500 mt-1"></i>
+                                        <div>
+                                            <h3
+                                                class="text-lg lg:text-xl font-black text-slate-900 mb-2 tracking-tight">
+                                                Key Concept</h3>
+                                            <p class="text-slate-600 text-lg leading-relaxed">
+                                                Its defining feature is <strong class="text-slate-800">"Write Once, Run
+                                                    Anywhere" (WORA)</strong>. Compiled Java code can run on all
+                                                platforms that support Java without the need for recompilation.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 2: Code Example -->
+                        <div
+                            class="w-full h-full shrink-0 flex flex-col justify-center px-8 sm:px-16 slide-content-scroll overflow-y-auto">
+                            <div class="max-w-5xl mx-auto w-full py-8">
+                                <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-8 tracking-tight">Your
+                                    First Java Program</h2>
+
+                                <div
+                                    class="rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200/50 mb-6 lg:mb-8">
+                                    <!-- Code Header -->
+                                    <div
+                                        class="bg-slate-800 px-4 py-3.5 flex items-center justify-between border-b border-slate-700/50">
+                                        <div class="flex items-center gap-3">
+                                            <div class="flex gap-1.5">
+                                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                            </div>
+                                            <div
+                                                class="flex items-center gap-2 text-slate-400 bg-slate-900/50 px-3 py-1 rounded-md">
+                                                <i class="fa-brands fa-java text-brand-400 text-sm"></i>
+                                                <span class="text-xs font-mono tracking-wide">HelloWorld.java</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Code Body -->
+                                    <div
+                                        class="bg-slate-900 p-8 lg:p-10 overflow-x-auto text-base lg:text-lg font-mono leading-loose text-slate-300">
+                                        <div><span class="text-pink-400 font-bold">public</span> <span
+                                                class="text-pink-400 font-bold">class</span> <span
+                                                class="text-yellow-300">HelloWorld</span> {</div>
+                                        <div class="pl-8"><span class="text-pink-400 font-bold">public</span> <span
+                                                class="text-pink-400 font-bold">static</span> <span
+                                                class="text-pink-400 font-bold">void</span> <span
+                                                class="text-blue-400">main</span>(<span
+                                                class="text-yellow-300">String</span>[] args) {</div>
+                                        <div class="pl-16"><span class="text-slate-500 italic">// Prints "Hello, World"
+                                                to the terminal window.</span></div>
+                                        <div class="pl-16"><span class="text-blue-300">System</span>.<span
+                                                class="text-blue-300">out</span>.<span
+                                                class="text-blue-400">println</span>(<span
+                                                class="text-green-400">"Hello, World!"</span>);</div>
+                                        <div class="pl-8">}</div>
+                                        <div>}</div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="flex items-start gap-3 p-5 bg-blue-50 border border-blue-100 rounded-xl text-blue-800 text-base">
+                                    <i class="fa-solid fa-circle-info mt-0.5 text-blue-500 text-xl"></i>
+                                    <p class="font-medium leading-relaxed">Don't worry if this code looks complex right
+                                        now, we will break it down line-by-line in the next lesson! The key takeaway is
+                                        the structure of a class and the main method.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 3: Use Cases Part 1 -->
+                        <div
+                            class="w-full h-full shrink-0 flex flex-col justify-center px-8 sm:px-16 slide-content-scroll overflow-y-auto">
+                            <div class="max-w-5xl mx-auto w-full py-8">
+                                <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-2 tracking-tight">What is
+                                    Java used for?</h2>
+                                <p class="text-slate-500 mb-10 text-lg lg:text-xl">Part 1: End-User Applications</p>
+
+                                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl hover:border-blue-300 hover:shadow-lg transition-all group">
+                                        <div
+                                            class="w-16 h-16 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-mobile-screen text-3xl text-blue-500"></i>
+                                        </div>
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                            Mobile Apps</h4>
+                                        <p class="text-base text-slate-500 leading-relaxed">Especially Android apps.
+                                            Java is the historical foundation of Android development.</p>
+                                    </div>
+
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl hover:border-purple-300 hover:shadow-lg transition-all group">
+                                        <div
+                                            class="w-16 h-16 bg-purple-50 border border-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-desktop text-3xl text-purple-500"></i>
+                                        </div>
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
+                                            Desktop Apps</h4>
+                                        <p class="text-base text-slate-500 leading-relaxed">Cross-platform desktop
+                                            graphical user interfaces via JavaFX and Swing.</p>
+                                    </div>
+
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl hover:border-brand-300 hover:shadow-lg transition-all group">
+                                        <div
+                                            class="w-16 h-16 bg-orange-50 border border-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-globe text-3xl text-brand-500"></i>
+                                        </div>
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
+                                            Web Apps</h4>
+                                        <p class="text-base text-slate-500 leading-relaxed">Powering the backends of
+                                            large-scale, secure web platforms worldwide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 4: Use Cases Part 2 -->
+                        <div
+                            class="w-full h-full shrink-0 flex flex-col justify-center px-8 sm:px-16 slide-content-scroll overflow-y-auto">
+                            <div class="max-w-5xl mx-auto w-full py-8">
+                                <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-2 tracking-tight">What is
+                                    Java used for?</h2>
+                                <p class="text-slate-500 mb-10 text-lg lg:text-xl">Part 2: Infrastructure &
+                                    Entertainment</p>
+
+                                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl hover:border-emerald-300 hover:shadow-lg transition-all group">
+                                        <div
+                                            class="w-16 h-16 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-server text-3xl text-emerald-500"></i>
+                                        </div>
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                                            Web Servers</h4>
+                                        <p class="text-base text-slate-500 leading-relaxed">Enterprise-grade application
+                                            servers used by companies like Netflix and Amazon.</p>
+                                    </div>
+
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl hover:border-pink-300 hover:shadow-lg transition-all group">
+                                        <div
+                                            class="w-16 h-16 bg-pink-50 border border-pink-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-gamepad text-3xl text-pink-500"></i>
+                                        </div>
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors">
+                                            Gaming</h4>
+                                        <p class="text-base text-slate-500 leading-relaxed">From the original Minecraft
+                                            to classic mobile games, Java powers intense logic.</p>
+                                    </div>
+
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl hover:border-cyan-300 hover:shadow-lg transition-all group">
+                                        <div
+                                            class="w-16 h-16 bg-cyan-50 border border-cyan-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                            <i class="fa-solid fa-database text-3xl text-cyan-500"></i>
+                                        </div>
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
+                                            Databases</h4>
+                                        <p class="text-base text-slate-500 leading-relaxed">JDBC makes connecting
+                                            applications to any SQL database straightforward.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 5: Stats & Completion -->
+                        <div
+                            class="w-full h-full shrink-0 flex flex-col justify-center px-8 sm:px-16 slide-content-scroll overflow-y-auto">
+                            <div class="max-w-5xl mx-auto w-full py-8 text-center">
+                                <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-12 tracking-tight">Java by
+                                    the Numbers</h2>
+
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-16">
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl shadow-sm hover:-translate-y-1 transition-transform">
+                                        <h4 class="text-4xl lg:text-5xl font-black text-brand-500 mb-3">3B+</h4>
+                                        <p class="text-sm lg:text-base font-medium text-slate-600">Devices Running Java
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl shadow-sm hover:-translate-y-1 transition-transform">
+                                        <h4 class="text-4xl lg:text-5xl font-black text-brand-500 mb-3">#1</h4>
+                                        <p class="text-sm lg:text-base font-medium text-slate-600">Enterprise Language
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl shadow-sm hover:-translate-y-1 transition-transform">
+                                        <h4 class="text-4xl lg:text-5xl font-black text-brand-500 mb-3">35M+</h4>
+                                        <p class="text-sm lg:text-base font-medium text-slate-600">Java Developers</p>
+                                    </div>
+                                    <div
+                                        class="p-8 border border-slate-200 bg-white rounded-2xl shadow-sm hover:-translate-y-1 transition-transform">
+                                        <h4 class="text-4xl lg:text-5xl font-black text-brand-500 mb-3">1995</h4>
+                                        <p class="text-sm lg:text-base font-medium text-slate-600">Year Created</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="inline-block bg-slate-900 text-white rounded-3xl p-10 border border-slate-800 shadow-xl max-w-lg mx-auto">
+                                    <div
+                                        class="w-20 h-20 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <i class="fa-solid fa-flag-checkered text-3xl text-white"></i>
+                                    </div>
+                                    <h3 class="text-3xl font-bold mb-3">Lesson Complete!</h3>
+                                    <p class="text-slate-400 text-base mb-8">You've successfully completed the
+                                        introduction. Ready to set up your environment?</p>
+                                    <button
+                                        class="w-full py-4 text-lg bg-white text-slate-900 hover:bg-brand-50 hover:text-brand-600 font-bold rounded-xl transition-colors shadow-sm">
+                                        Continue to Lesson 2 <i class="fa-solid fa-arrow-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Presentation Controls Footer -->
+                <div
+                    class="h-16 border-t border-slate-200 bg-white shrink-0 flex items-center justify-between px-6 z-10">
+                    <button id="prevBtn"
+                        class="px-4 py-2 rounded-lg text-slate-500 font-bold hover:bg-slate-100 hover:text-slate-900 transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:cursor-not-allowed flex items-center gap-2">
+                        <i class="fa-solid fa-chevron-left text-sm"></i> Prev
+                    </button>
+
+                    <div class="flex items-center gap-4">
+                        <span id="slideCounter" class="text-sm font-bold text-slate-400 w-12 text-center">1 / 5</span>
+                        <div id="dotIndicators" class="flex gap-2">
+                            <!-- Dots generated by JS -->
+                        </div>
+                    </div>
+
+                    <button id="nextBtn"
+                        class="px-5 py-2 rounded-lg bg-slate-900 hover:bg-brand-500 text-white font-bold transition-colors flex items-center gap-2 shadow-md disabled:opacity-30">
+                        Next <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Presentation & Sidebar Logic -->
+    <script>
+        // Sidebar Toggle Logic
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            const isClosed = sidebar.classList.contains('-translate-x-full');
+            if (isClosed) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
+        // Presentation Logic
+        const track = document.getElementById('slideTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slideCounter');
+        const slideProgress = document.getElementById('slideProgress');
+        const dotContainer = document.getElementById('dotIndicators');
+
+        const totalSlides = 5;
+        let currentSlide = 0;
+
+        // Initialize dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-brand-500 w-4' : 'bg-slate-300 hover:bg-slate-400'}`;
+            dot.addEventListener('click', () => goToSlide(i));
+            dotContainer.appendChild(dot);
+        }
+        const dots = dotContainer.children;
+
+        function updateUI() {
+            // Translate track
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update counter & progress
+            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            slideProgress.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+
+            // Update Buttons
+            prevBtn.disabled = currentSlide === 0;
+            if (currentSlide === totalSlides - 1) {
+                nextBtn.style.display = 'none'; // Hide next button on last slide since there's a big continue button
+            } else {
+                nextBtn.style.display = 'flex';
+            }
+
+            // Update Dots
+            Array.from(dots).forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.className = 'w-4 h-2 rounded-full transition-all duration-300 bg-brand-500';
+                } else {
+                    dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-slate-300 hover:bg-slate-400 cursor-pointer';
+                }
+            });
+
+            // Retrigger animations (Optional, gives a fresh feel per slide)
+            const activeSlideElements = track.children[currentSlide].querySelectorAll('.opacity-0');
+            activeSlideElements.forEach(el => {
+                el.classList.remove('animate-[slideUp_0.5s_ease_forwards_0.1s]', 'animate-[slideUp_0.5s_ease_forwards_0.2s]', 'animate-[slideUp_0.5s_ease_forwards_0.3s]', 'animate-[slideUp_0.5s_ease_forwards_0.4s]');
+                void el.offsetWidth; // trigger reflow
+                // Re-add animation classes if needed, or rely on CSS transitions.
+                // For simplicity here, relying on the initial CSS animations defined in HTML.
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateUI();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) goToSlide(currentSlide - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+        });
+
+        // Optional Fullscreen Toggle
+        function toggleFullscreen() {
+            const container = document.getElementById('presentationContainer');
+            if (!document.fullscreenElement) {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) { /* Safari */
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) { /* IE11 */
+                    container.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Add tailwind keyframes configuration dynamically for slide-in animation
+        tailwind.config.theme.extend.keyframes = {
+            slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+        }
+    </script>
+</body>
+
+</html>

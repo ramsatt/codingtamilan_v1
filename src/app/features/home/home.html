@@ -1,0 +1,249 @@
+<!-- Hero Section -->
+<section class="relative pt-20 pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+
+            <!-- Hero Content -->
+            <div class="text-center lg:text-left z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-brand-600 font-medium text-sm mb-6 border border-orange-200">
+                    <i class="fa-solid fa-star text-brand-500"></i>
+                    Over 25k+ Students | 250+ Courses
+                </div>
+                <h1 class="text-5xl md:text-6xl font-black text-slate-900 leading-tight mb-6">
+                    Learn to Code, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-orange-400">Build the Future.</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Master the languages that power the web. Join our platform to learn code, build real-world
+                    projects, secure certifications, and launch your dream career.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a routerLink="/courses"
+                        class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white px-8 py-3.5 rounded-full font-medium text-lg shadow-material hover:shadow-material-hover transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                        Explore Courses <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    <div class="flex items-center gap-4 text-sm text-slate-500 font-medium px-4">
+                        <div class="flex -space-x-2">
+                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=1" alt="Student">
+                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=2" alt="Student">
+                            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=3" alt="Student">
+                        </div>
+                        <span>Join 25k+ students today</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Visual: Code Editor Mockup -->
+            <div class="relative mx-auto w-full max-w-lg lg:max-w-none mt-10 lg:mt-0 z-10">
+                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-orange-300 rounded-2xl blur opacity-30 animate-pulse"></div>
+                <div class="relative bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border border-slate-700 transform lg:-rotate-2 transition-transform hover:rotate-0 duration-500">
+                    <!-- Mac Window Header -->
+                    <div class="bg-slate-800 px-4 py-3 flex items-center gap-2 border-b border-slate-700">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div class="mx-auto text-xs text-slate-400 font-mono">script.js</div>
+                    </div>
+                    <!-- Code Area -->
+                    <div class="p-6 text-sm md:text-base font-mono leading-relaxed overflow-x-auto">
+                        <div class="text-blue-400"><span class="text-purple-400">const</span> <span class="text-yellow-300">developer</span> = &#123;</div>
+                        <div class="pl-6 text-slate-300">name: <span class="text-green-300">'You'</span>,</div>
+                        <div class="pl-6 text-slate-300">skills: [<span class="text-green-300">'HTML'</span>, <span class="text-green-300">'CSS'</span>, <span class="text-green-300">'JS'</span>],</div>
+                        <div class="pl-6 text-slate-300">isAwesome: <span class="text-orange-400">true</span></div>
+                        <div class="text-blue-400">&#125;;</div>
+                        <br>
+                        <div class="text-slate-300"><span class="text-purple-400">function</span> <span class="text-blue-300">buildFuture</span>() &#123;</div>
+                        <div class="pl-6 text-slate-300"><span class="text-purple-400">return</span> <span class="text-green-300">'Success!'</span>;</div>
+                        <div class="text-slate-300">&#125;</div>
+                        <br>
+                        <div class="text-slate-400 italic">// Start your journey today</div>
+                        <div class="text-slate-300 typing-cursor"><span class="text-blue-300">buildFuture</span>();</div>
+                    </div>
+                </div>
+                <!-- Floating Badge -->
+                <div class="absolute -right-6 bottom-12 bg-white p-4 rounded-xl shadow-material-hover flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xl">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">New Course</div>
+                        <div class="text-slate-900 font-bold">Python Mastery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-12 bg-white border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:shadow-material transition-all hover:-translate-y-1">
+                <div class="w-12 h-12 mx-auto bg-orange-100 text-brand-500 rounded-xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-users"></i></div>
+                <h3 class="text-3xl font-bold text-slate-900">25k+</h3>
+                <p class="text-slate-500 text-sm mt-1 font-medium">Active Students</p>
+            </div>
+            <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:shadow-material transition-all hover:-translate-y-1">
+                <div class="w-12 h-12 mx-auto bg-blue-100 text-blue-500 rounded-xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-book-open"></i></div>
+                <h3 class="text-3xl font-bold text-slate-900">250+</h3>
+                <p class="text-slate-500 text-sm mt-1 font-medium">Total Courses</p>
+            </div>
+            <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:shadow-material transition-all hover:-translate-y-1">
+                <div class="w-12 h-12 mx-auto bg-green-100 text-green-500 rounded-xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-gem"></i></div>
+                <h3 class="text-3xl font-bold text-slate-900">Free</h3>
+                <p class="text-slate-500 text-sm mt-1 font-medium">Access to Materials</p>
+            </div>
+            <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 hover:shadow-material transition-all hover:-translate-y-1">
+                <div class="w-12 h-12 mx-auto bg-yellow-100 text-yellow-500 rounded-xl flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-star"></i></div>
+                <h3 class="text-3xl font-bold text-slate-900">4.9/5</h3>
+                <p class="text-slate-500 text-sm mt-1 font-medium">Average Rating</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-20 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How It Works</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">Your journey to becoming a developer in three simple steps.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 relative">
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -z-10 transform -translate-y-1/2"></div>
+            <div class="relative bg-white p-8 rounded-2xl shadow-material border border-slate-100 overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div class="absolute -right-4 -top-8 text-9xl font-black text-slate-50 group-hover:text-brand-50 transition-colors duration-300 select-none z-0">01</div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-brand-50 text-brand-500 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Pick a Course</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm">Browse our extensive catalog and pick the one that fits your goals.</p>
+                </div>
+            </div>
+            <div class="relative bg-white p-8 rounded-2xl shadow-material border border-slate-100 overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div class="absolute -right-4 -top-8 text-9xl font-black text-slate-50 group-hover:text-blue-50 transition-colors duration-300 select-none z-0">02</div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="fa-solid fa-photo-film"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Learn Interactively</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm">Watch video tutorials, read notes, and practice with coding exercises.</p>
+                </div>
+            </div>
+            <div class="relative bg-white p-8 rounded-2xl shadow-material border border-slate-100 overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div class="absolute -right-4 -top-8 text-9xl font-black text-slate-50 group-hover:text-green-50 transition-colors duration-300 select-none z-0">03</div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-green-50 text-green-500 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Build Real Projects</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm">Apply what you've learned by building real-world projects for your portfolio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Section -->
+<section class="py-20 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Pick Your Path</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto mb-8">Choose from our most popular learning paths and start your journey today.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="px-6 py-2 rounded-full bg-slate-900 text-white font-medium text-sm shadow-md transition-all">All</button>
+                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">Frontend</button>
+                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">Backend</button>
+                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">AI &amp; ML</button>
+                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">Database</button>
+            </div>
+        </div>
+
+        <!-- Course Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @for (course of courses; track course.id) {
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-material hover:shadow-material-hover transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                <div class="p-6 flex-grow">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" [ngClass]="course.iconBg">
+                            <i [class]="course.icon" [ngClass]="course.iconColor"></i>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1 rounded-full" [ngClass]="course.badgeClass">{{ course.level }}</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">{{ course.title }}</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">{{ course.description }}</p>
+                </div>
+                <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-brand-100 text-brand-500 flex items-center justify-center text-xs"><i class="fa-solid fa-code"></i></div>
+                        <span class="text-xs font-medium text-slate-700">Coding Tamilan</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-green-600 font-bold text-sm">Free</span>
+                        <a [routerLink]="course.link ?? ['/course', course.id]" class="text-brand-500 hover:text-brand-600 font-medium text-sm flex items-center gap-1 group">
+                            View <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="mt-12 text-center">
+            <a routerLink="/courses" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-slate-200 text-slate-700 font-medium hover:border-brand-500 hover:text-brand-500 transition-colors bg-white">
+                Explore All Courses <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Browse by Topic Section -->
+<section class="py-16 bg-background">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl font-bold text-slate-900 mb-8">Browse by Topic</h2>
+        <div class="flex flex-wrap justify-center gap-3">
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-php text-indigo-500"></i> PHP</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-react text-blue-400"></i> React</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-aws text-orange-500"></i> AWS Cloud</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-node-js text-green-500"></i> Node.js</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-git-alt text-orange-600"></i> Git &amp; Github</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-shield-halved text-red-500"></i> Cybersecurity</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-server text-slate-500"></i> REST APIs</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-docker text-blue-500"></i> Docker</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-slate-600"></i> Mobile Dev</a>
+            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-figma text-purple-500"></i> UI/UX Design</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What Our Students Say</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">Join 25,000+ developers who built their careers with Coding Tamilan</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-background p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-material transition-shadow">
+                <div class="flex text-yellow-400 mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 italic mb-6 leading-relaxed">"The Java course was a game-changer for me! Concepts are explained clearly from basics to advanced. I landed my first developer job right after finishing."</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Arun Kumar" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
+                    <div><h4 class="font-bold text-slate-900">Arun Kumar</h4><p class="text-xs text-slate-500">Software Engineer</p></div>
+                </div>
+            </div>
+            <div class="bg-background p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-material transition-shadow">
+                <div class="flex text-yellow-400 mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 italic mb-6 leading-relaxed">"I have tried many platforms, but Coding Tamilan's practical approach is unique. Building real projects helped me build my confidence significantly."</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="Priya Dharshini" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
+                    <div><h4 class="font-bold text-slate-900">Priya Dharshini</h4><p class="text-xs text-slate-500">Frontend Developer</p></div>
+                </div>
+            </div>
+            <div class="bg-background p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-material transition-shadow">
+                <div class="flex text-yellow-400 mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="text-slate-600 italic mb-6 leading-relaxed">"Great platform! The community support is fantastic, and the mentors are always ready to help. Highly recommended for beginners."</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="Suresh M." class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
+                    <div><h4 class="font-bold text-slate-900">Suresh M.</h4><p class="text-xs text-slate-500">Student</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

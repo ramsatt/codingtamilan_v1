@@ -1,0 +1,2417 @@
+{
+  "intro": {
+    "title": "What is Artificial Intelligence?",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Artificial Intelligence (AI) is the science of building systems that can perform tasks that normally require human intelligence — things like understanding language, recognizing images, making decisions, and learning from experience."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "A Simple Definition"
+      },
+      {
+        "type": "highlight",
+        "text": "Building systems that learn, reason, and act."
+      },
+      {
+        "type": "paragraph",
+        "text": "At its core, AI is about making computers <strong>smart</strong>. Instead of writing explicit rules for every situation (like traditional programming), AI systems learn patterns from data and use those patterns to make decisions or predictions on new, unseen inputs."
+      },
+      {
+        "type": "example",
+        "title": "Traditional Programming vs. AI",
+        "code": "// Traditional Programming:\n// You write the rules manually\nif (email.contains(\"free money\") || email.contains(\"click here\")) {\n  markAsSpam();\n}\n\n// AI/Machine Learning:\n// The system learns the rules from thousands of examples\nspamClassifier.train(labeledEmails); // learns patterns automatically\nspamClassifier.predict(newEmail);    // applies learned patterns"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Core Subfields of AI"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "ML",
+            "color": "blue",
+            "icon": "📊",
+            "text": "Systems that learn from data. (e.g., Netflix recs)."
+          },
+          {
+            "title": "NLP",
+            "color": "emerald",
+            "icon": "💬",
+            "text": "Understanding human language. (e.g., Google Translate, spaCy)."
+          },
+          {
+            "title": "Vision",
+            "color": "purple",
+            "icon": "👁️",
+            "text": "Understanding images. (e.g., self-driving cars)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Where AI Is Used Today"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Healthcare:</strong> Detecting cancer in scans, predicting patient outcomes",
+          "<strong>Finance:</strong> Fraud detection, algorithmic trading, credit scoring",
+          "<strong>Transportation:</strong> Self-driving cars, route optimization",
+          "<strong>Entertainment:</strong> Content recommendations, AI-generated music and art",
+          "<strong>Productivity:</strong> Code assistants, email drafting, meeting summarization",
+          "<strong>Manufacturing:</strong> Quality control, predictive maintenance"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What You Will Learn in This Course"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "How AI and machine learning actually work under the hood",
+          "Core concepts: supervised, unsupervised, and reinforcement learning",
+          "Deep learning and neural network architecture",
+          "Modern AI: transformers, LLMs, computer vision, generative AI",
+          "Applied AI: RAG, fine-tuning, production deployment, evaluation",
+          "AI ethics, safety, and the future of the field"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "You don't need a math or research background to benefit from this course. The focus is on building strong intuitions and practical understanding — the kind that makes you dangerous in a good way when working with AI systems."
+      }
+    ]
+  },
+  "history": {
+    "title": "History & Evolution of AI",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI has a richer and more turbulent history than most people realize. It has gone through explosive optimism, devastating disappointments called 'AI winters,' and multiple reinventions before arriving at today's breathtaking capabilities."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Major Eras of AI"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Birth of AI",
+            "icon": "🐣"
+          },
+          {
+            "label": "Symbolic AI",
+            "icon": "🔣"
+          },
+          {
+            "label": "AI Winter",
+            "icon": "❄️"
+          },
+          {
+            "label": "Modern AI",
+            "icon": "🚀"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Birth",
+            "color": "blue",
+            "icon": "🐣",
+            "text": "1940s-50s. Turing Test, logic-based programs."
+          },
+          {
+            "title": "Symbolic",
+            "color": "emerald",
+            "icon": "🔣",
+            "text": "1956-74. Dartmouth Conference, ELIZA chatbot."
+          },
+          {
+            "title": "Winter",
+            "color": "blue",
+            "icon": "❄️",
+            "text": "1974-80. Funding cuts and over-promised results."
+          },
+          {
+            "title": "Modern",
+            "color": "purple",
+            "icon": "🚀",
+            "text": "2012-Present. Deep learning and transformer era."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key Milestone Moments"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>1950:</strong> Alan Turing proposes the Turing Test — a machine passes if it can fool a human in conversation",
+          "<strong>1956:</strong> John McCarthy coins the term 'Artificial Intelligence' at Dartmouth",
+          "<strong>1997:</strong> IBM Deep Blue defeats world chess champion Garry Kasparov",
+          "<strong>2011:</strong> IBM Watson wins Jeopardy! against human champions",
+          "<strong>2012:</strong> AlexNet wins ImageNet by a huge margin, launching the deep learning era",
+          "<strong>2016:</strong> AlphaGo defeats Lee Sedol in Go — a game thought to be a decade away",
+          "<strong>2017:</strong> 'Attention Is All You Need' paper introduces the Transformer architecture",
+          "<strong>2022:</strong> ChatGPT reaches 100 million users in 2 months — fastest product adoption in history"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Why AI Is Different This Time"
+      },
+      {
+        "type": "paragraph",
+        "text": "Previous AI booms failed because they lacked three critical ingredients. Today, all three exist in abundance for the first time in history:"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Data",
+            "color": "blue",
+            "icon": "📊",
+            "text": "Trillions of internet tokens vs. limited samples."
+          },
+          {
+            "title": "Compute",
+            "color": "emerald",
+            "icon": "🔌",
+            "text": "Exaflops on massive GPU clusters vs. slow CPUs."
+          },
+          {
+            "title": "Algos",
+            "color": "purple",
+            "icon": "🧬",
+            "text": "Transformers and RLHF vs. shallow networks."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Understanding AI history helps you avoid hype. AI has been 'five years away' from human-level intelligence for 70 years. The current progress is genuinely remarkable — but healthy skepticism about specific timelines is always warranted."
+      }
+    ]
+  },
+  "types-of-ai": {
+    "title": "Types of AI: Narrow, General & Super",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Not all AI is the same. The field uses several classification frameworks to describe different types and capabilities of AI systems. Understanding these distinctions cuts through a lot of hype and confusion."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Classification by Capability"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Narrow (ANI)",
+            "color": "blue",
+            "icon": "🎯",
+            "text": "Specialist in one task (like chess). All current AI."
+          },
+          {
+            "title": "General (AGI)",
+            "color": "emerald",
+            "icon": "🧠",
+            "text": "Human-level across all tasks. Does not exist yet."
+          },
+          {
+            "title": "Super (ASI)",
+            "color": "purple",
+            "icon": "🔥",
+            "text": "Surpassing human intelligence in every domain."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Narrow AI: What We Have Today"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every AI system in production today is Narrow AI. AlphaGo is unbeatable at Go but cannot play chess. GPT-4 can write poetry but cannot drive a car. A spam filter is brilliant at spam but cannot recommend movies. Each system is a specialist — not a generalist."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Google Search algorithm — ranks web pages",
+          "Spotify recommendation engine — suggests songs",
+          "Tesla Autopilot — drives on highways",
+          "GitHub Copilot — suggests code completions",
+          "DALL-E — generates images from text"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Classification by Approach"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Reactive",
+            "color": "blue",
+            "icon": "⚡",
+            "text": "No memory. Reacts only to current input. (Deep Blue)."
+          },
+          {
+            "title": "Limited",
+            "color": "emerald",
+            "icon": "🎞️",
+            "text": "Uses recent past to inform decisions. (Self-driving)."
+          },
+          {
+            "title": "Theory of Mind",
+            "color": "amber",
+            "icon": "🤝",
+            "text": "Understands social cues. Not yet achieved."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The AGI Debate"
+      },
+      {
+        "type": "paragraph",
+        "text": "AGI is one of the most debated topics in technology. Some researchers (like those at OpenAI and DeepMind) believe AGI could arrive within this decade. Others believe it could take a century or may never be achievable with current approaches."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Optimists argue:</strong> Scaling laws suggest that more data + more compute = better intelligence",
+          "<strong>Skeptics argue:</strong> Current LLMs are sophisticated pattern matchers, not true reasoners",
+          "<strong>The honest answer:</strong> Nobody knows — and anyone who claims certainty is overconfident"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "For your career and projects, focus on ANI — what exists today. Understanding what AI can and cannot do is far more valuable than debating AGI timelines."
+      }
+    ]
+  },
+  "machine-learning": {
+    "title": "Machine Learning Fundamentals",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Machine Learning is the engine that powers modern AI. Instead of programming explicit rules, ML systems learn patterns from data and improve their performance with experience — without being explicitly programmed for each scenario."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Core Idea: Learning from Data"
+      },
+      {
+        "type": "paragraph",
+        "text": "In traditional programming, a developer writes rules: <code>IF temperature > 38°C THEN fever = true</code>. In machine learning, you show the system thousands of patient records with known outcomes, and it <em>discovers</em> the rules itself — often finding patterns no human would think to look for."
+      },
+      {
+        "type": "example",
+        "title": "The ML Pipeline",
+        "code": "// The 5-Step ML Process:\n\n// 1. Collect Data\n   training_data = load_dataset(\"house_prices.csv\")  // 50,000 records\n\n// 2. Prepare & Clean Data\n   cleaned_data = remove_nulls(training_data)\n   features = select_columns([\"size\", \"bedrooms\", \"location\"])\n   labels = select_column(\"price\")\n\n// 3. Choose & Train a Model\n   model = LinearRegression()\n   model.fit(features, labels)  // model learns from data\n\n// 4. Evaluate Performance\n   predictions = model.predict(test_features)\n   error = mean_absolute_error(predictions, test_labels)\n\n// 5. Deploy & Monitor\n   api.serve(model)  // now the model makes predictions in production"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Collect",
+            "icon": "fa-database"
+          },
+          {
+            "label": "Process",
+            "icon": "fa-broom"
+          },
+          {
+            "label": "Train",
+            "icon": "fa-dumbbell"
+          },
+          {
+            "label": "Evaluate",
+            "icon": "fa-vial"
+          },
+          {
+            "label": "Deploy",
+            "icon": "fa-cloud-arrow-up"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Three Types of Machine Learning"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Supervised Learning",
+            "icon": "🏷️",
+            "color": "#3b82f6",
+            "text": "Trains on labeled data (input + correct output). Learns input→output mappings. (e.g., spam detection, image classification)"
+          },
+          {
+            "title": "Unsupervised Learning",
+            "icon": "🔍",
+            "color": "#8b5cf6",
+            "text": "Finds hidden patterns in unlabeled data. (e.g., customer segmentation, anomaly detection)"
+          },
+          {
+            "title": "Reinforcement Learning",
+            "icon": "🎮",
+            "color": "#10b981",
+            "text": "Learns from reward signals in an environment. (e.g., game AI, robot control)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key ML Concepts You Need to Know"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Features",
+            "color": "blue",
+            "icon": "📝",
+            "text": "Input variables the model uses (e.g., house size, location)."
+          },
+          {
+            "title": "Labels",
+            "color": "emerald",
+            "icon": "🏷️",
+            "text": "Correct answers the model tries to predict (e.g., house price)."
+          },
+          {
+            "title": "Inference",
+            "color": "purple",
+            "icon": "🔮",
+            "text": "Using a trained model to make predictions on new data."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Popular ML Algorithms"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Linear Regression:</strong> Predicts a continuous number (house price, temperature)",
+          "<strong>Logistic Regression:</strong> Predicts a binary outcome (spam/not spam, disease/no disease)",
+          "<strong>Decision Trees:</strong> Learns a series of yes/no rules to classify data",
+          "<strong>Random Forests:</strong> Combines many decision trees to reduce errors",
+          "<strong>Support Vector Machines (SVM):</strong> Finds the best boundary between classes",
+          "<strong>Neural Networks:</strong> Layered systems inspired by the brain — the foundation of deep learning"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "You don't need to implement these algorithms from scratch. Libraries like scikit-learn (Python) provide them in 2-3 lines of code. What matters is knowing when to use which algorithm and how to evaluate its performance."
+      }
+    ]
+  },
+  "deep-learning": {
+    "title": "Deep Learning & Neural Networks",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Deep Learning is a subset of machine learning that uses neural networks with many layers to learn increasingly abstract representations of data. It is the technology behind virtually every major AI breakthrough of the last decade."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ML vs. Deep Learning"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Traditional ML",
+            "color": "blue",
+            "icon": "fa-table",
+            "text": "Requires manual feature engineering. Works well on structured data with smaller datasets."
+          },
+          {
+            "title": "Deep Learning",
+            "color": "violet",
+            "icon": "fa-brain",
+            "text": "Learns features automatically. Requires massive data and GPU compute."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "How a Neural Network Works"
+      },
+      {
+        "type": "paragraph",
+        "text": "A neural network is a series of <strong>layers</strong>, each containing <strong>neurons</strong>. Data flows from the input layer, through hidden layers, to the output layer. Each connection has a <strong>weight</strong> — a number that controls how much influence one neuron has on the next. Training adjusts these weights until the network makes good predictions."
+      },
+      {
+        "type": "example",
+        "title": "Neural Network Architecture (Conceptual)",
+        "code": "Input Layer          Hidden Layer 1      Hidden Layer 2      Output Layer\n[pixel_1]    ---->   [neuron_1]  ---->   [neuron_7]  ---->   [cat: 0.92]\n[pixel_2]    ---->   [neuron_2]  ---->   [neuron_8]  ---->   [dog: 0.07]\n[pixel_3]    ---->   [neuron_3]  ---->   [neuron_9]  ---->   [bird: 0.01]\n...          ---->   [neuron_4]  ---->   [neuron_10]\n[pixel_784]  ---->   [neuron_5]\n             ---->   [neuron_6]\n\n// Each arrow has a weight. Training = finding the right weights."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key Deep Learning Architectures"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "CNN",
+            "color": "blue",
+            "icon": "🖼️",
+            "text": "Convolutional. Best for images and vision tasks."
+          },
+          {
+            "title": "Transformer",
+            "color": "emerald",
+            "icon": "🤖",
+            "text": "Dominant today. Best for text, audio, and scaling."
+          },
+          {
+            "title": "GAN",
+            "color": "purple",
+            "icon": "🎨",
+            "text": "Generative. Best for creating realistic images/video."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Why Deep Learning Works Now"
+      },
+      {
+        "type": "paragraph",
+        "text": "The ideas behind neural networks have existed since the 1940s. They only became practical in the 2010s due to three simultaneous breakthroughs:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "<strong>Massive datasets:</strong> The internet created trillions of labeled training examples (images with captions, text, code)",
+          "<strong>Cheap GPU compute:</strong> GPUs (originally for gaming) can run billions of parallel matrix operations — exactly what neural networks need",
+          "<strong>Better algorithms:</strong> Improved activation functions (ReLU), batch normalization, dropout, and the transformer architecture"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Deep learning is computationally intensive. Training large models from scratch costs millions of dollars. Most developers use pre-trained models and fine-tune them — which costs a fraction of the price."
+      }
+    ]
+  },
+  "supervised-learning": {
+    "title": "Supervised Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Supervised learning is the most widely used form of machine learning. The system learns from labeled training data — examples where the correct answer is already known — and uses that knowledge to predict answers for new, unseen inputs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Two Core Tasks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Classification",
+            "color": "blue",
+            "icon": "📂",
+            "text": "Predicts a category (e.g., Is this email spam?)."
+          },
+          {
+            "title": "Regression",
+            "color": "emerald",
+            "icon": "📈",
+            "text": "Predicts a continuous number (e.g., What is the price?)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "How Supervised Learning Works"
+      },
+      {
+        "type": "example",
+        "title": "Supervised Learning Workflow (Python / scikit-learn)",
+        "code": "from sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# 1. Load labeled data (features + labels)\nX = [[25, 50000], [45, 90000], [30, 60000]]  # [age, income]\ny = [0, 1, 0]  # 0 = did not buy, 1 = bought\n\n# 2. Split into train and test sets\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\n# 3. Train the model\nmodel = RandomForestClassifier()\nmodel.fit(X_train, y_train)  # model learns from training data\n\n# 4. Evaluate on unseen test data\npredictions = model.predict(X_test)\nprint(accuracy_score(y_test, predictions))  # e.g., 0.94 (94% accurate)\n\n# 5. Predict on new data\nmodel.predict([[35, 75000]])  # → [1] (likely to buy)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real-World Applications"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Medical diagnosis:</strong> Classify tumors as malignant or benign from scan data",
+          "<strong>Credit scoring:</strong> Predict loan default probability from financial history",
+          "<strong>Sentiment analysis:</strong> Classify customer reviews as positive/negative/neutral",
+          "<strong>Object detection:</strong> Identify and locate objects in images",
+          "<strong>Price prediction:</strong> Forecast real estate, stock, or commodity prices",
+          "<strong>Churn prediction:</strong> Identify customers likely to cancel a subscription"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Importance of Labeled Data"
+      },
+      {
+        "type": "paragraph",
+        "text": "Supervised learning's biggest constraint is <strong>labeled data</strong>. Creating labels is expensive and time-consuming — it requires human annotators to review thousands or millions of examples. This is why unlabeled data is abundant (images on the internet) but high-quality labeled data for specific tasks is scarce and valuable."
+      },
+      {
+        "type": "note",
+        "text": "The quality of your labels matters as much as the quantity. Noisy or inconsistent labels are one of the most common reasons ML models underperform. 'Garbage in, garbage out' applies directly."
+      }
+    ]
+  },
+  "unsupervised-learning": {
+    "title": "Unsupervised Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Unsupervised learning finds hidden patterns in data without any labeled examples. The system explores the data on its own, discovering structure that humans might not have thought to look for — or that would be impossible to label manually at scale."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Core Tasks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Clustering",
+            "color": "blue",
+            "icon": "👥",
+            "text": "Groups similar data points (e.g., customer segments)."
+          },
+          {
+            "title": "Anomaly",
+            "color": "amber",
+            "icon": "🚨",
+            "text": "Finds data points that don't fit (e.g., fraud detect)."
+          },
+          {
+            "title": "Reduction",
+            "color": "purple",
+            "icon": "📉",
+            "text": "Compresses data while preserving its structure."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Clustering: Grouping Without Labels"
+      },
+      {
+        "type": "example",
+        "title": "K-Means Clustering Example",
+        "code": "from sklearn.cluster import KMeans\nimport numpy as np\n\n# Customer data: [annual_spend, purchase_frequency]\ncustomers = np.array([\n    [12000, 48], [15000, 52], [500, 3], [600, 4],\n    [8000, 24], [9000, 26], [450, 2], [14000, 50]\n])\n\n# Find 3 natural customer groups\nkmeans = KMeans(n_clusters=3)\nkmeans.fit(customers)\n\nprint(kmeans.labels_)\n# Output: [1, 1, 0, 0, 2, 2, 0, 1]\n# Group 0: Low-value customers (low spend, low frequency)\n# Group 1: High-value customers (high spend, high frequency)\n# Group 2: Mid-tier customers\n# The algorithm discovered these groups WITHOUT being told they exist"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Dimensionality Reduction"
+      },
+      {
+        "type": "paragraph",
+        "text": "Real datasets often have hundreds or thousands of features. Dimensionality reduction compresses them into fewer dimensions while preserving the most important information. This is used for visualization, speeding up training, and removing noise."
+      },
+      {
+        "type": "example",
+        "title": "PCA for Visualization",
+        "code": "from sklearn.decomposition import PCA\nfrom sklearn.datasets import load_digits\n\n# Load 1,797 handwritten digit images, each with 64 features (8x8 pixels)\ndigits = load_digits()\nX = digits.data   # shape: (1797, 64) — 64 features\n\n# Compress to 2 dimensions for visualization\npca = PCA(n_components=2)\nX_2d = pca.fit_transform(X)\nprint(X_2d.shape)  # (1797, 2) — now we can plot it!\n\n# Despite huge compression, similar digits cluster together in 2D space"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Customer segmentation:</strong> Group shoppers by behavior without predefined categories",
+          "<strong>Topic modeling:</strong> Discover themes in a corpus of documents",
+          "<strong>Anomaly detection:</strong> Flag unusual transactions or network intrusions",
+          "<strong>Gene clustering:</strong> Group genes with similar expression patterns",
+          "<strong>Recommendation systems:</strong> Find latent user preferences from interaction data"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Unsupervised learning is harder to evaluate than supervised learning because there are no 'right answers' to check against. Quality is often assessed through domain expertise, visualization, and downstream task performance."
+      }
+    ]
+  },
+  "reinforcement-learning": {
+    "title": "Reinforcement Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Reinforcement Learning (RL) is how AI learns to make sequences of decisions by interacting with an environment, receiving rewards for good actions, and penalties for bad ones — exactly like training a dog with treats."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Core Framework"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Agent",
+            "color": "blue",
+            "icon": "🦾",
+            "text": "The AI learner that interacts and takes actions."
+          },
+          {
+            "title": "Environment",
+            "color": "emerald",
+            "icon": "🌍",
+            "text": "The world the agent interacts with (e.g., chessboard)."
+          },
+          {
+            "title": "Reward",
+            "color": "amber",
+            "icon": "🏁",
+            "text": "Feedback signal (+ve or -ve) received after an action."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The RL Loop"
+      },
+      {
+        "type": "example",
+        "title": "The Reinforcement Learning Cycle",
+        "code": "// The RL Training Loop (simplified pseudocode)\n\nwhile not_converged:\n    state = environment.observe()       // e.g., board position\n    action = agent.choose_action(state) // e.g., move bishop to e4\n    \n    new_state, reward = environment.step(action)\n    // e.g., new_state = updated board, reward = 0 (game ongoing)\n    \n    agent.update_policy(state, action, reward, new_state)\n    // Agent adjusts its strategy based on what just happened\n    \n    if environment.is_done():\n        // Game ended — reset and play again\n        environment.reset()\n\n// After millions of games, agent learns: which moves lead to wins"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Famous RL Achievements"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>AlphaGo (2016):</strong> Defeated world Go champion — Go has more positions than atoms in the universe",
+          "<strong>AlphaStar (2019):</strong> Reached Grandmaster level in StarCraft II — a real-time strategy game requiring long-term planning",
+          "<strong>OpenAI Five (2019):</strong> Defeated world champions in Dota 2 — a 5v5 team game with massive action space",
+          "<strong>ChatGPT (2022):</strong> Used RLHF (Reinforcement Learning from Human Feedback) to align LLM responses with human preferences",
+          "<strong>Robotics:</strong> Teaching robots to walk, grasp objects, and navigate environments"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Exploration vs. Exploitation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every RL agent faces a fundamental dilemma: <strong>exploit</strong> known good actions (do what works) or <strong>explore</strong> new actions that might be even better. Too much exploitation → the agent gets stuck in a local optimum. Too much exploration → the agent never learns to perform well. The best agents balance both dynamically."
+      },
+      {
+        "type": "note",
+        "text": "RL is powerful but data-hungry and computationally expensive. Training AlphaGo required the equivalent of thousands of years of human gameplay in simulation. Most AI applications use supervised or self-supervised learning instead — RL is reserved for sequential decision-making problems."
+      }
+    ]
+  },
+  "neural-networks": {
+    "title": "Neural Network Architecture",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Neural networks are the backbone of modern AI. Understanding how they are structured — layers, neurons, weights, and activation functions — gives you the foundation to understand everything from image classifiers to large language models."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Biological Inspiration"
+      },
+      {
+        "type": "paragraph",
+        "text": "The brain contains roughly 86 billion neurons, each connected to thousands of others. A signal fires when the combined inputs exceed a threshold. Artificial neural networks loosely mimic this: neurons receive inputs, apply a weighted sum, pass through an activation function, and output a signal to the next layer."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Components of a Neural Network"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Component",
+          "Function",
+          "Analogy"
+        ],
+        "rows": [
+          [
+            "Input Layer",
+            "Receives raw data (pixels, numbers, tokens)",
+            "Eyes / ears receiving information"
+          ],
+          [
+            "Hidden Layers",
+            "Learn increasingly abstract representations",
+            "Brain's processing regions"
+          ],
+          [
+            "Output Layer",
+            "Produces the final prediction",
+            "Making a decision"
+          ],
+          [
+            "Weights (W)",
+            "Numerical strength of each connection",
+            "Strength of neural connections"
+          ],
+          [
+            "Bias (b)",
+            "Offset term per neuron",
+            "Neuron's resting threshold"
+          ],
+          [
+            "Activation Function",
+            "Introduces non-linearity; decides if neuron fires",
+            "Neuron's firing threshold"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Activation Functions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Without activation functions, a neural network — no matter how many layers — would just be a single linear equation. Activation functions introduce the non-linearity that allows networks to learn complex patterns."
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "ReLU",
+            "color": "blue",
+            "icon": "⚡",
+            "text": "max(0, x). Fast and standard for most hidden layers."
+          },
+          {
+            "title": "Sigmoid",
+            "color": "emerald",
+            "icon": "📏",
+            "text": "Outputs 0-1. Best for binary classification outputs."
+          },
+          {
+            "title": "Softmax",
+            "color": "purple",
+            "icon": "📂",
+            "text": "Prob distribution. Best for multi-class labels."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Forward Pass and Backpropagation"
+      },
+      {
+        "type": "example",
+        "title": "The Training Process",
+        "code": "// FORWARD PASS: compute prediction\ninput = [0.5, 0.8, 0.2]          // input features\nhidden = relu(W1 @ input + b1)   // apply weights, bias, activation\noutput = softmax(W2 @ hidden + b2) // final prediction probabilities\n\n// LOSS CALCULATION: how wrong are we?\nloss = cross_entropy(output, true_label)\n// If true_label = class_2 and we predicted class_2 with 0.1 probability → high loss\n\n// BACKWARD PASS (backpropagation): compute gradients\ngradients = compute_gradients(loss)\n// Chain rule traces error back through every layer\n\n// WEIGHT UPDATE (gradient descent):\nW1 = W1 - learning_rate * gradients['W1']  // nudge weights toward better predictions\nW2 = W2 - learning_rate * gradients['W2']\n\n// Repeat millions of times → network gets accurate"
+      },
+      {
+        "type": "note",
+        "text": "You don't need to implement backpropagation manually. PyTorch and TensorFlow handle it automatically via 'autograd' — automatic differentiation. Understanding the concept is more important than the math."
+      }
+    ]
+  },
+  "training-models": {
+    "title": "Training Models: Loss & Optimization",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Training a neural network is an optimization problem: find the set of weights that minimizes prediction error. Understanding loss functions, gradient descent, and hyperparameters is essential for anyone who wants to train or fine-tune AI models effectively."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Loss Functions: Measuring Error"
+      },
+      {
+        "type": "paragraph",
+        "text": "A loss function quantifies how wrong the model's predictions are. It takes the predicted values and the true values, and returns a single number — lower is better. Training is the process of minimizing this number."
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "MSE",
+            "color": "blue",
+            "icon": "📈",
+            "text": "Mean Squared Error. The standard for regression tasks."
+          },
+          {
+            "title": "Cross-Entropy",
+            "color": "emerald",
+            "icon": "🎯",
+            "text": "Classification loss. Penalizes wrong confident answers."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Gradient Descent: The Optimization Engine"
+      },
+      {
+        "type": "paragraph",
+        "text": "Imagine the loss function as a hilly landscape. Gradient descent finds the lowest valley by repeatedly taking small steps downhill. The gradient tells us which direction is 'downhill' and the learning rate controls the step size."
+      },
+      {
+        "type": "example",
+        "title": "Gradient Descent Update Rule",
+        "code": "// Core update equation:\n// new_weight = old_weight - learning_rate * gradient\n\nlearning_rate = 0.01\n\n// If gradient = +5 (loss increases when weight increases):\nnew_weight = 0.5 - 0.01 * 5  // = 0.45 (step downhill)\n\n// If gradient = -3 (loss decreases when weight increases):\nnew_weight = 0.5 - 0.01 * (-3)  // = 0.53 (step in positive direction)\n\n// Learning rate too high → overshoots the minimum, diverges\n// Learning rate too low → takes forever to converge"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optimizers: Smarter Gradient Descent"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "SGD",
+            "color": "blue",
+            "icon": "🐌",
+            "text": "Standard Gradient Descent. Slow but reliable."
+          },
+          {
+            "title": "Adam",
+            "color": "emerald",
+            "icon": "⚡",
+            "text": "Adaptive learning rates. Best for most deep learning."
+          },
+          {
+            "title": "AdamW",
+            "color": "purple",
+            "icon": "🏗️",
+            "text": "Adam with weight decay. Standard for Transformers/LLMs."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key Training Hyperparameters"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "LR",
+            "color": "blue",
+            "icon": "📏",
+            "text": "Learning Rate. Controls the step size in optimization."
+          },
+          {
+            "title": "Batch Size",
+            "color": "emerald",
+            "icon": "📦",
+            "text": "Samples processed before updating weights."
+          },
+          {
+            "title": "Epochs",
+            "color": "amber",
+            "icon": "🔄",
+            "text": "Total passes through the training dataset."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Adam with a learning rate of 3e-4 is a safe default starting point for most tasks. It was famously called 'the best learning rate' by Andrej Karpathy (former Tesla AI director)."
+      },
+      {
+        "type": "quiz",
+        "question": "What happens if the 'Learning Rate' is set too high during model training?",
+        "options": [
+          {
+            "text": "The model will learn too quickly and become perfectly accurate"
+          },
+          {
+            "text": "The optimization may overshoot the minimum and fail to converge"
+          },
+          {
+            "text": "The model will consume less memory on the GPU"
+          },
+          {
+            "text": "The training process will use fewer data samples"
+          }
+        ],
+        "answer": 1,
+        "explanation": "High learning rates cause large steps in the loss landscape. If the step size is larger than the width of the 'valley' (the minimum), the model will bounce back and forth or drift away (diverge) instead of settling at the optimal weight."
+      }
+    ]
+  },
+  "overfitting": {
+    "title": "Overfitting, Underfitting & Regularization",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "The most important skill in machine learning is not building a model that performs well on training data — it's building one that performs well on new, unseen data. Overfitting and underfitting are the two ways this can go wrong."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Bias-Variance Tradeoff"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Underfitting",
+            "color": "orange",
+            "icon": "fa-triangle-exclamation",
+            "text": "Too simple. Fails on both training and test data. High bias."
+          },
+          {
+            "title": "Good Fit",
+            "color": "emerald",
+            "icon": "fa-check",
+            "text": "Balanced. Low error on both training and test data."
+          },
+          {
+            "title": "Overfitting",
+            "color": "blue",
+            "icon": "fa-brain",
+            "text": "Too complex. Memorizes training data, fails on test data. High variance."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Detecting Overfitting"
+      },
+      {
+        "type": "example",
+        "title": "Training vs. Validation Loss Curves",
+        "code": "// Signs of a healthy training run:\n// Epoch 1:  Train loss = 0.85, Val loss = 0.87  (close together)\n// Epoch 10: Train loss = 0.45, Val loss = 0.46  (both improving)\n// Epoch 30: Train loss = 0.32, Val loss = 0.33  (converging)\n\n// Signs of overfitting:\n// Epoch 1:  Train loss = 0.85, Val loss = 0.87  (normal start)\n// Epoch 10: Train loss = 0.30, Val loss = 0.48  (gap widening!)\n// Epoch 30: Train loss = 0.10, Val loss = 0.72  (severe overfit)\n// The model has memorized the training set but can't generalize"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Regularization Techniques"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Dropout",
+            "color": "blue",
+            "icon": "✂️",
+            "text": "Randomly drop neurons to prevent memorization."
+          },
+          {
+            "title": "L2 Decay",
+            "color": "emerald",
+            "icon": "⚓",
+            "text": "Penalizes large weights to encourage simplicity."
+          },
+          {
+            "title": "Augmentation",
+            "color": "purple",
+            "icon": "🖼️",
+            "text": "Artificially expand data (flip/crop images)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Right Validation Strategy"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Train/Val/Test split:</strong> 70%/15%/15% is a common starting point",
+          "<strong>K-Fold Cross-Validation:</strong> Rotate the validation set K times for a more reliable estimate",
+          "<strong>Hold-out test set:</strong> Never touch this until final evaluation — it's your one honest test",
+          "<strong>Time-series split:</strong> Always validate on future data when working with time-series"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "If your model performs perfectly on training data but poorly on validation data, it has overfit. The fix is almost always: more data, more regularization, or a simpler model — not more training."
+      }
+    ]
+  },
+  "transformers": {
+    "title": "The Transformer Architecture",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "The Transformer, introduced in the 2017 paper 'Attention Is All You Need,' is the most important architecture in modern AI. It powers GPT-4, Claude, Gemini, DALL-E, Stable Diffusion, AlphaFold, and almost every other state-of-the-art AI system."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Problem Transformers Solved"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before transformers, sequence tasks (language, audio) used RNNs and LSTMs, which processed tokens one-by-one in order. This made them slow to train, unable to parallelize, and bad at capturing long-range dependencies (words far apart in a sentence that relate to each other). Transformers solved all three problems."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Core Insight: Self-Attention"
+      },
+      {
+        "type": "paragraph",
+        "text": "Self-attention allows every token in a sequence to directly attend to every other token — regardless of distance. Each token learns how much to 'pay attention' to every other token when computing its representation."
+      },
+      {
+        "type": "example",
+        "title": "Self-Attention Intuition",
+        "code": "// Sentence: \"The bank by the river was steep.\"\n\n// For the word 'bank', self-attention computes:\n// How much should 'bank' attend to each other word?\n\nattention_weights = {\n    'The':   0.02,  // low — not relevant to meaning of bank\n    'bank':  0.15,  // moderate — self-reference\n    'by':    0.04,\n    'the':   0.02,\n    'river': 0.68,  // HIGH — 'river' disambiguates 'bank' as riverbank!\n    'was':   0.05,\n    'steep': 0.04\n}\n\n// The model learns: when 'river' is nearby, 'bank' means riverbank\n// When 'money' or 'account' is nearby, 'bank' means financial institution\n// This disambiguation was impossible with word2vec embeddings"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Tokens",
+            "icon": "fa-font"
+          },
+          {
+            "label": "Embeddings",
+            "icon": "fa-hashtag"
+          },
+          {
+            "label": "Multi-Head Attention",
+            "icon": "fa-eye"
+          },
+          {
+            "label": "Feed Forward",
+            "icon": "fa-forward"
+          },
+          {
+            "label": "Softmax",
+            "icon": "fa-chart-pie"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Transformer Architecture Components"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Attention",
+            "color": "blue",
+            "icon": "👁️",
+            "text": "Computes relevance between every pair of tokens."
+          },
+          {
+            "title": "Positional",
+            "color": "emerald",
+            "icon": "📍",
+            "text": "Adds token order information back into embeddings."
+          },
+          {
+            "title": "Residual",
+            "color": "amber",
+            "icon": "➕",
+            "text": "Connects layers to help gradients flow in deep networks."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Encoder vs. Decoder"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Encoder",
+            "color": "blue",
+            "icon": "🔍",
+            "text": "Understanding full context (BERT, RoBERTa)."
+          },
+          {
+            "title": "Decoder",
+            "color": "emerald",
+            "icon": "✍️",
+            "text": "Left-to-right generation (GPT, Claude, Llama)."
+          },
+          {
+            "title": "Both",
+            "color": "purple",
+            "icon": "🔄",
+            "text": "Sequence-to-sequence tasks (T5, translation)."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The Transformer's key advantage is parallelism: all attention computations happen simultaneously, not sequentially. This is why transformers can be trained on massive datasets with thousands of GPUs efficiently."
+      }
+    ]
+  },
+  "llms": {
+    "title": "Large Language Models (LLMs)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Large Language Models are transformer-based models trained on vast amounts of text to predict the next token. Through scale and training, they develop remarkable emergent capabilities far beyond simple text completion — reasoning, coding, translation, and more."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "How LLMs Are Trained"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "<strong>Pre-training:</strong> Train on trillions of tokens from the internet, books, and code using next-token prediction. This teaches the model language, facts, and reasoning patterns.",
+          "<strong>Supervised Fine-Tuning (SFT):</strong> Fine-tune on high-quality instruction-response pairs to make the model follow instructions helpfully.",
+          "<strong>RLHF (Reinforcement Learning from Human Feedback):</strong> Human raters rank model outputs; a reward model is trained on their preferences; the LLM is fine-tuned to maximize that reward.",
+          "<strong>Constitutional AI / RLAIF:</strong> Use AI feedback instead of human feedback for scalable alignment (used by Anthropic for Claude)."
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Scaling Laws"
+      },
+      {
+        "type": "paragraph",
+        "text": "A landmark 2020 paper by OpenAI found that LLM performance scales predictably with three variables — model size, dataset size, and compute. More of all three = better models. This 'scaling hypothesis' drove the race to build ever-larger models."
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "GPT-4o",
+            "color": "blue",
+            "icon": "🦾",
+            "text": "OpenAI flagships. Master of reasoning and multimodal."
+          },
+          {
+            "title": "Claude 3.5",
+            "color": "emerald",
+            "icon": "🧪",
+            "text": "Anthropic's high-quality coding and nuance leader."
+          },
+          {
+            "title": "Llama 3",
+            "color": "amber",
+            "icon": "🦙",
+            "text": "Meta's state-of-the-art open source flagship models."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Emergent Abilities"
+      },
+      {
+        "type": "paragraph",
+        "text": "One of the most surprising discoveries in LLM research is <strong>emergent abilities</strong> — capabilities that appear suddenly at certain model scales without being explicitly trained for. Examples include multi-step arithmetic, code generation, and chain-of-thought reasoning."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLM Limitations"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Hallucination:</strong> Confidently generating false information",
+          "<strong>Knowledge cutoff:</strong> No access to events after training data cutoff",
+          "<strong>Context window:</strong> Limited amount of text they can process at once",
+          "<strong>No persistent memory:</strong> Each conversation starts fresh",
+          "<strong>Reasoning failures:</strong> Can fail on tasks requiring precise logic or math",
+          "<strong>Bias:</strong> Reflect biases present in training data"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Understanding LLM limitations is as important as knowing their capabilities. The best AI applications are designed around these constraints — using RAG for fresh information, structured output for precision, and human review for high-stakes decisions."
+      }
+    ]
+  },
+  "computer-vision": {
+    "title": "Computer Vision",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Computer Vision gives machines the ability to interpret and understand visual information from the world — images, video, and real-time camera feeds. It is one of the most mature and commercially successful areas of AI."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Core Computer Vision Tasks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Detetion",
+            "color": "blue",
+            "icon": "🎯",
+            "text": "Find and locate objects in an image (self-driving)."
+          },
+          {
+            "title": "Segmentation",
+            "color": "emerald",
+            "icon": "🧩",
+            "text": "Classify every single pixel in an image (medical)."
+          },
+          {
+            "title": "OCR",
+            "color": "purple",
+            "icon": "📄",
+            "text": "Extracting text from images (receipt scanning)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Convolutional Neural Networks (CNNs)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Until 2021, CNNs dominated computer vision. A convolution filter slides across an image, learning to detect patterns like edges, textures, and shapes in early layers, then increasingly complex features (wheels, faces, objects) in deeper layers."
+      },
+      {
+        "type": "example",
+        "title": "CNN Layer Hierarchy",
+        "code": "// What each layer type learns:\n\nLayer 1 (Conv):  Edges, lines, color gradients\nLayer 2 (Conv):  Corners, curves, simple textures\nLayer 3 (Conv):  Patterns, parts (wheel shape, eye shape)\nLayer 4 (Conv):  Object parts (car wheel, human face)\nLayer 5 (FC):    Full objects (car, person, dog)\nOutput:          Class probabilities [car: 0.95, truck: 0.04, ...]\n\n// This hierarchical feature learning is why deep learning works so well for vision"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Vision Transformers (ViT)"
+      },
+      {
+        "type": "paragraph",
+        "text": "In 2020, Google introduced the Vision Transformer (ViT), which treats an image as a sequence of patches and applies transformer self-attention. ViTs now outperform CNNs on most benchmarks and have largely replaced them in state-of-the-art systems."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real-World Applications"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Healthcare:</strong> Detecting diabetic retinopathy, cancer in pathology slides, COVID-19 in chest X-rays",
+          "<strong>Autonomous vehicles:</strong> Real-time detection of pedestrians, traffic signs, lane markings",
+          "<strong>Retail:</strong> Amazon Go cashierless stores, inventory management",
+          "<strong>Security:</strong> Facial recognition for access control, crowd monitoring",
+          "<strong>Agriculture:</strong> Detecting crop disease from drone footage",
+          "<strong>Manufacturing:</strong> Automated quality control on production lines"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Computer vision models are available as pre-built APIs (Google Vision API, AWS Rekognition, Azure Computer Vision) and open-source models (YOLO, SAM, CLIP). For most applications, you don't need to train from scratch."
+      }
+    ]
+  },
+  "nlp": {
+    "title": "Natural Language Processing (NLP)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Natural Language Processing (NLP) is the field of AI concerned with enabling computers to understand, interpret, and generate human language. It is the technology behind chatbots, translation, search engines, voice assistants, and modern LLMs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Core NLP Tasks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Classification",
+            "color": "blue",
+            "icon": "📂",
+            "text": "Assign categories (e.g., spam detection, sentiment)."
+          },
+          {
+            "title": "Translation",
+            "color": "emerald",
+            "icon": "🌐",
+            "text": "Translate between languages (e.g., Google Translate)."
+          },
+          {
+            "title": "Generation",
+            "color": "purple",
+            "icon": "✍️",
+            "text": "Generate coherent, relevant text (e.g., ChatGPT)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Evolution of NLP"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Rule-based",
+            "color": "blue",
+            "icon": "📏",
+            "text": "Grammar rules (1950s-80s). Brittle for real-world use."
+          },
+          {
+            "title": "Statistical",
+            "color": "emerald",
+            "icon": "📊",
+            "text": "TF-IDF / N-grams (1990s). No semantic understanding."
+          },
+          {
+            "title": "LLMs",
+            "color": "purple",
+            "icon": "🚀",
+            "text": "Generalist models (2020+). Master of context and reasoning."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Tokenization: How Text Becomes Numbers"
+      },
+      {
+        "type": "paragraph",
+        "text": "All NLP models convert text into numbers. Tokenization is the first step — splitting text into tokens and mapping each to an ID in the model's vocabulary."
+      },
+      {
+        "type": "example",
+        "title": "Tokenization Example",
+        "code": "// The sentence:\n\"Prompt engineering is powerful!\"\n\n// After tokenization (GPT-4 style):\n[\"Prompt\", \" engineering\", \" is\", \" powerful\", \"!\"]\n// Token IDs: [19410, 15009, 374, 8147, 0]\n\n// Subword tokenization handles unknown words:\n\"unbelievable\" → [\"un\", \"believ\", \"able\"] → [917, 14978, 481]\n\n// Why this matters:\n// Every token = one API call unit = cost\n// 1,000 words ≈ 1,333 tokens (rule of thumb)\n// Context window limits = token limits"
+      },
+      {
+        "type": "note",
+        "text": "Modern NLP is dominated by pre-trained LLMs. Rather than training task-specific models, developers now use LLMs with prompt engineering or fine-tuning to solve most NLP tasks — drastically reducing development time."
+      }
+    ]
+  },
+  "generative-ai": {
+    "title": "Generative AI: GANs & Diffusion Models",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Generative AI creates new content — images, audio, video, text, code, 3D models — that didn't previously exist. It is the fastest-growing area of AI and has fundamentally changed creative industries, software development, and scientific research."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Categories of Generative AI"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Text Gen",
+            "color": "blue",
+            "icon": "✍️",
+            "text": "Articles, code, and chat via ChatGPT and Claude."
+          },
+          {
+            "title": "Image Gen",
+            "color": "emerald",
+            "icon": "🎨",
+            "text": "Art and photos via DALL-E, Midjourney, Stable Diffusion."
+          },
+          {
+            "title": "Audio Gen",
+            "color": "amber",
+            "icon": "🎵",
+            "text": "Music and speech via ElevenLabs, Suno, and Udio."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generative Adversarial Networks (GANs)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Introduced by Ian Goodfellow in 2014, GANs use two competing networks: a <strong>Generator</strong> that creates fake data, and a <strong>Discriminator</strong> that tries to tell real from fake. They train together in an adversarial game until the generator is good enough to fool the discriminator."
+      },
+      {
+        "type": "example",
+        "title": "The GAN Adversarial Game",
+        "code": "// The GAN Training Loop\n\n// Round 1:\nGenerator:     creates blurry, obvious fake image\nDiscriminator: easily identifies it as fake (99% confident)\n\n// Round 100:\nGenerator:     creates sharper image\nDiscriminator: struggling, only 60% confident it's fake\n\n// Round 1000:\nGenerator:     creates photorealistic face\nDiscriminator: can only guess 50/50 — essentially fooled\n\n// Result: a generator that can create realistic images from random noise\n// Applications: deepfakes, data augmentation, art generation\n// Limitation: training instability, mode collapse, hard to control output"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Diffusion Models"
+      },
+      {
+        "type": "paragraph",
+        "text": "Diffusion models work by learning to reverse a noise-adding process. Training: gradually add noise to real images until they become pure noise, then train the model to denoise step-by-step. Generation: start with pure noise and apply learned denoising steps to produce an image."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Higher quality and diversity than GANs",
+          "More stable training — no adversarial game",
+          "Excellent at following text prompts (text-to-image)",
+          "Slower generation than GANs (many denoising steps required)",
+          "Powers DALL-E 3, Stable Diffusion, Midjourney"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multimodal AI"
+      },
+      {
+        "type": "paragraph",
+        "text": "The frontier of generative AI is <strong>multimodal models</strong> that can accept and generate multiple types of content simultaneously — text, images, audio, and video. Models like GPT-4o and Gemini Ultra can analyze images, hear audio, and respond in any modality."
+      },
+      {
+        "type": "note",
+        "text": "Generative AI is a rapidly evolving space. Models that were state-of-the-art six months ago are often outdated today. Focus on understanding the underlying concepts — the specific models will keep changing."
+      }
+    ]
+  },
+  "ai-agents": {
+    "title": "AI Agents & Autonomous Systems",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI agents are systems that perceive their environment, reason about what actions to take, execute those actions using tools, and repeat — autonomously pursuing a goal over multiple steps. They represent the shift from AI that answers questions to AI that gets things done."
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Perception",
+            "icon": "fa-eye"
+          },
+          {
+            "label": "Planning",
+            "icon": "fa-compass"
+          },
+          {
+            "label": "Action",
+            "icon": "fa-bolt-lightning"
+          },
+          {
+            "label": "Observation",
+            "icon": "fa-list-check"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What Makes a System an Agent?"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Memory",
+            "color": "blue",
+            "icon": "💾",
+            "text": "Stores context across multiple planning steps."
+          },
+          {
+            "title": "Planning",
+            "color": "emerald",
+            "icon": "🧭",
+            "text": "Decides what actions to take using reasoning loops."
+          },
+          {
+            "title": "Tools",
+            "color": "purple",
+            "icon": "🛠️",
+            "text": "External capabilities like web search and code execution."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Agent Loop"
+      },
+      {
+        "type": "example",
+        "title": "A Simple AI Agent (Research Assistant)",
+        "code": "// Goal: \"Find the current price of NVIDIA stock and summarize recent news\"\n\n// Step 1: THINK\nagent.think: \"I need current stock price and recent news. I'll use search.\"\n\n// Step 2: ACT\nagent.action: search(\"NVIDIA NVDA stock price today\")\nagent.observation: \"NVDA: $875.20 (+2.3%) as of market close\"\n\n// Step 3: THINK AGAIN\nagent.think: \"Got price. Now I need recent news.\"\n\n// Step 4: ACT\nagent.action: search(\"NVIDIA news this week\")\nagent.observation: \"NVIDIA announces new Blackwell GPU architecture...\"\n\n// Step 5: THINK + SYNTHESIZE\nagent.think: \"I have both pieces of info. I can now write the report.\"\n\n// Step 6: FINAL OUTPUT\nagent.output: \"NVIDIA (NVDA) is trading at $875.20 (+2.3%).\n               Recent highlights: [summary of news]...\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Types of Agent Memory"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "In-context",
+            "color": "blue",
+            "icon": "🧠",
+            "text": "Working memory. Current session context only."
+          },
+          {
+            "title": "Retrieval",
+            "color": "emerald",
+            "icon": "📚",
+            "text": "Long-term knowledge via vector databases (RAG)."
+          },
+          {
+            "title": "Procedural",
+            "color": "purple",
+            "icon": "⚙️",
+            "text": "Skills baked into model weights via fine-tuning."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multi-Agent Systems"
+      },
+      {
+        "type": "paragraph",
+        "text": "Complex tasks can be broken across multiple specialized agents working together. An orchestrator agent breaks down a task, assigns subtasks to specialist agents (coder, researcher, critic), and synthesizes results. This is the architecture behind systems like AutoGen, CrewAI, and the Claude computer use API."
+      },
+      {
+        "type": "note",
+        "text": "AI agents are powerful but require careful design around trust boundaries, error handling, and human oversight. An agent with access to real-world tools (email, code execution, database writes) can cause real-world harm if it misunderstands instructions."
+      }
+    ]
+  },
+  "ai-tools": {
+    "title": "AI Tools & Frameworks",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "The AI ecosystem has an overwhelming number of frameworks, libraries, APIs, and platforms. Knowing what exists, what each tool is for, and when to use it is one of the most practical skills an AI practitioner can have."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Model Training Frameworks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "PyTorch",
+            "color": "blue",
+            "icon": "🏗️",
+            "text": "Research and custom model flexibility flagship."
+          },
+          {
+            "title": "Hugging Face",
+            "color": "emerald",
+            "icon": "🤗",
+            "text": "Hub for pre-trained model access and fine-tuning."
+          },
+          {
+            "title": "TensorFlow",
+            "color": "amber",
+            "icon": "⚙️",
+            "text": "Google's production and edge deployment engine."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLM Application Frameworks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "LangChain",
+            "color": "blue",
+            "icon": "🔗",
+            "text": "Build complex LLM-powered chains and agents."
+          },
+          {
+            "title": "LlamaIndex",
+            "color": "emerald",
+            "icon": "📊",
+            "text": "Best for data ingestion and RAG retrieval pipelines."
+          },
+          {
+            "title": "DSPy",
+            "color": "purple",
+            "icon": "🛠️",
+            "text": "Optimizes prompt selection via compilation logic."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLM APIs"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "OpenAI",
+            "color": "blue",
+            "icon": "🪐",
+            "text": "GPT-4o flagship. Largest ecosystem and multimodal master."
+          },
+          {
+            "title": "Anthropic",
+            "color": "emerald",
+            "icon": "🛡️",
+            "text": "Claude 3.5. Leader in coding and safety-first responses."
+          },
+          {
+            "title": "Google",
+            "color": "amber",
+            "icon": "🔭",
+            "text": "Gemini 1.5. Massive 2M token context window champion."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "When to Use What"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Building an app with an LLM API:</strong> Use the provider's SDK directly (Anthropic, OpenAI) — no framework needed for simple use cases",
+          "<strong>Building a RAG system:</strong> Use LlamaIndex or LangChain",
+          "<strong>Fine-tuning an open model:</strong> Use Hugging Face + PEFT/LoRA + unsloth",
+          "<strong>Experimenting with models:</strong> Use Hugging Face Hub + Gradio or Ollama locally",
+          "<strong>Deploying ML models at scale:</strong> Use AWS SageMaker, Google Vertex AI, or Azure ML"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Start with the simplest tool that solves your problem. LangChain is powerful but adds complexity. For many applications, calling an LLM API directly with well-crafted prompts is faster to build and easier to debug."
+      }
+    ]
+  },
+  "rag": {
+    "title": "Retrieval-Augmented Generation (RAG)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Retrieval-Augmented Generation (RAG) is the technique of giving an LLM access to external knowledge at inference time — fetching relevant documents and including them in the prompt. It's the most important pattern for building AI applications that need accurate, up-to-date information."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Problem RAG Solves"
+      },
+      {
+        "type": "paragraph",
+        "text": "LLMs have two fundamental knowledge problems: their knowledge is frozen at the training cutoff, and they hallucinate when they don't know something. RAG fixes both: instead of relying on the model's memory, you retrieve the actual relevant information and hand it directly to the model."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The RAG Pipeline"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Ingestion",
+            "icon": "fa-download"
+          },
+          {
+            "label": "Chunking",
+            "icon": "fa-scissors"
+          },
+          {
+            "label": "Embedding",
+            "icon": "fa-hashtag"
+          },
+          {
+            "label": "Retrieval",
+            "icon": "fa-magnifying-glass"
+          },
+          {
+            "label": "Augmentation",
+            "icon": "fa-plus"
+          }
+        ]
+      },
+      {
+        "type": "example",
+        "title": "RAG System Architecture",
+        "code": "// === INDEXING PHASE (done once, offline) ===\n\n// 1. Load documents\ndocuments = load_pdfs(\"company_knowledge_base/\")  // thousands of docs\n\n// 2. Chunk documents\nchunks = split_into_chunks(documents, chunk_size=512, overlap=50)\n\n// 3. Embed each chunk into a vector\nembedder = OpenAIEmbeddings()\nvectors = embedder.embed(chunks)  // [0.23, -0.14, 0.87, ...] per chunk\n\n// 4. Store in vector database\nvector_db = Chroma()\nvector_db.add(chunks, vectors)\n\n// === QUERY PHASE (done at inference time) ===\n\n// 5. Embed the user's question\nquery = \"What is our refund policy for digital products?\"\nquery_vector = embedder.embed(query)\n\n// 6. Retrieve the most similar chunks\ntop_chunks = vector_db.similarity_search(query_vector, k=5)\n\n// 7. Augment the prompt with retrieved context\nprompt = f\"\"\"Use the following documents to answer the question.\nDocuments: {top_chunks}\nQuestion: {query}\nAnswer:\"\"\"\n\n// 8. Generate grounded answer\nanswer = llm.generate(prompt)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Vector Databases"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Pinecone",
+            "color": "blue",
+            "icon": "🌲",
+            "text": "Managed cloud service. Best for production scaling."
+          },
+          {
+            "title": "Chroma",
+            "color": "emerald",
+            "icon": "🧪",
+            "text": "Open source and embedded. Best for local development."
+          },
+          {
+            "title": "pgvector",
+            "color": "purple",
+            "icon": "🐘",
+            "text": "Postgres extension. Best for existing SQL workflows."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Advanced RAG Techniques"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Hybrid search:</strong> Combine semantic (vector) search with keyword (BM25) search for better recall",
+          "<strong>Re-ranking:</strong> Use a cross-encoder to re-rank retrieved chunks before sending to LLM",
+          "<strong>HyDE (Hypothetical Document Embeddings):</strong> Generate a hypothetical answer and embed that for retrieval",
+          "<strong>Contextual chunking:</strong> Include surrounding context when creating chunks",
+          "<strong>Parent-child retrieval:</strong> Embed small chunks, retrieve their larger parent for more context"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "RAG is the right choice when: your data changes frequently, you need source citations, you want to avoid fine-tuning costs, or your data is confidential. Fine-tuning is better when you need to change the model's behavior or style, not just its knowledge."
+      }
+    ]
+  },
+  "fine-tuning": {
+    "title": "Fine-Tuning & Transfer Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Fine-tuning adapts a pre-trained model to a specific task or domain by continuing to train it on a smaller, task-specific dataset. Transfer learning is the principle that knowledge learned on one task can be transferred to another — dramatically reducing the data and compute needed."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "When to Fine-Tune vs. Prompt"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Prompt Engineering",
+            "color": "blue",
+            "icon": "fa-keyboard",
+            "text": "Low cost, instant iteration. Best for general reasoning and RAG. Limited by context window."
+          },
+          {
+            "title": "Fine-Tuning",
+            "color": "emerald",
+            "icon": "fa-sliders",
+            "text": "High cost, persistent behavior change. Best for niche formats, tones, and low-latency needs."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Full Fine-Tuning vs. Parameter-Efficient Fine-Tuning"
+      },
+      {
+        "type": "paragraph",
+        "text": "Full fine-tuning updates all model weights — expensive and risky. Parameter-Efficient Fine-Tuning (PEFT) methods update only a small fraction of parameters, achieving comparable results at a fraction of the cost."
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Full FT",
+            "color": "blue",
+            "icon": "🏋️",
+            "text": "Updates all weights. Most expensive but powerful."
+          },
+          {
+            "title": "LoRA",
+            "color": "emerald",
+            "icon": "🧩",
+            "text": "Updates ~1% of weights. Near-equivalent and efficient."
+          },
+          {
+            "title": "QLoRA",
+            "color": "amber",
+            "icon": "📉",
+            "text": "4-bit quantization + LoRA. Fits on consumer 8GB GPUs."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LoRA: The Key Technique"
+      },
+      {
+        "type": "paragraph",
+        "text": "Low-Rank Adaptation (LoRA) works by decomposing weight updates into two small matrices (A and B), where A×B approximates the full weight update. Only A and B are trained — the original weights are frozen. The result: 1000x fewer trainable parameters with nearly equivalent performance."
+      },
+      {
+        "type": "example",
+        "title": "Fine-Tuning with Hugging Face + PEFT",
+        "code": "from transformers import AutoModelForCausalLM\nfrom peft import LoraConfig, get_peft_model\n\n# Load base model (frozen)\nbase_model = AutoModelForCausalLM.from_pretrained(\"meta-llama/Llama-3-8b\")\n\n# Configure LoRA adapters\nlora_config = LoraConfig(\n    r=16,           # rank of the update matrices\n    lora_alpha=32,  # scaling factor\n    target_modules=[\"q_proj\", \"v_proj\"],  # which layers to adapt\n    lora_dropout=0.05\n)\n\n# Wrap model with LoRA\nmodel = get_peft_model(base_model, lora_config)\nmodel.print_trainable_parameters()\n# Output: trainable params: 6,815,744 || all params: 8,036,352,000 (0.085% trainable)"
+      },
+      {
+        "type": "note",
+        "text": "For most production use cases, start with prompt engineering. If that hits a ceiling, try few-shot examples or RAG. Only invest in fine-tuning when you have clear evidence that other approaches are insufficient — it adds significant complexity to your ML pipeline."
+      }
+    ]
+  },
+  "ai-in-production": {
+    "title": "Deploying AI in Production",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Building an AI model that works in a notebook is very different from deploying one that serves millions of users reliably, cheaply, and safely. Production AI requires thinking about serving infrastructure, latency, cost, monitoring, and model versioning."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Production AI Stack"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Serving",
+            "color": "blue",
+            "icon": "🚀",
+            "text": "Exposing models via API (FastAPI, vLLM, BentoML)."
+          },
+          {
+            "title": "Caching",
+            "color": "emerald",
+            "icon": "⚡",
+            "text": "Reduce latency and cost via Redis or semantic caches."
+          },
+          {
+            "title": "Monitoring",
+            "color": "purple",
+            "icon": "📊",
+            "text": "Track performance in production via Langfuse or Arize."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLM-Specific Production Concerns"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Latency:</strong> LLMs are slow (1–30 seconds for complex tasks). Use streaming to show tokens as they generate.",
+          "<strong>Cost:</strong> Input + output tokens both cost money. Optimize prompt length, use smaller models for simple tasks.",
+          "<strong>Rate limits:</strong> APIs have requests-per-minute limits. Implement retry logic with exponential backoff.",
+          "<strong>Context window management:</strong> Long conversations exceed context limits. Summarize or truncate old messages.",
+          "<strong>Prompt injection:</strong> Users may try to override your system prompt. Validate and sanitize inputs.",
+          "<strong>Output validation:</strong> LLM outputs may not match your expected format. Always parse with error handling."
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Choosing the Right Model for Production"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Simple",
+            "color": "blue",
+            "icon": "📄",
+            "text": "Basic classification or extraction? Use Mini models."
+          },
+          {
+            "title": "Complex",
+            "color": "emerald",
+            "icon": "🧠",
+            "text": "Reasoning or coding? Use Frontier models like GPT-4o."
+          },
+          {
+            "title": "High Vol",
+            "color": "purple",
+            "icon": "📈",
+            "text": "Cost sensitive? Use open-source models like Llama 3."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "MLOps: The Operational Side"
+      },
+      {
+        "type": "paragraph",
+        "text": "MLOps applies DevOps principles to machine learning: automated pipelines, model versioning, continuous monitoring, and automated retraining when model performance degrades. For LLM applications, this means tracking prompt versions, monitoring output quality, and detecting distribution shift in inputs."
+      },
+      {
+        "type": "note",
+        "text": "The biggest production failure mode for LLM apps is silent degradation — the model quietly starts giving worse answers and nobody notices. Always log inputs and outputs, track key metrics, and set up alerts for quality drops."
+      }
+    ]
+  },
+  "ai-evaluation": {
+    "title": "Evaluating AI Systems",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "You cannot improve what you cannot measure. Evaluation is one of the most underinvested areas of AI development — yet it determines whether your system is actually good or just appears to be good in demos. Building robust evaluation pipelines is a critical engineering skill."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Evaluation for Classic ML vs. LLMs"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Classic ML",
+            "color": "blue",
+            "icon": "📊",
+            "text": "Accuracy, F1, AUC. Fast automated compute."
+          },
+          {
+            "title": "LLM Eval",
+            "color": "emerald",
+            "icon": "✍️",
+            "text": "Subjective. Requires human review or LLM-as-judge."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Classic ML Metrics"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Precision",
+            "color": "blue",
+            "icon": "🎯",
+            "text": "When false positives are costly (e.g., spam filters)."
+          },
+          {
+            "title": "Recall",
+            "color": "emerald",
+            "icon": "🛡️",
+            "text": "When false negatives are costly (e.g., cancer detect)."
+          },
+          {
+            "title": "F1 Score",
+            "color": "purple",
+            "icon": "⚖️",
+            "text": "Balanced harmonic mean of precision and recall."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLM Evaluation Methods"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Human evaluation:</strong> Most accurate but expensive and slow. Best for high-stakes decisions.",
+          "<strong>BLEU/ROUGE:</strong> Compare generated text to reference text using n-gram overlap. Good for translation/summarization.",
+          "<strong>LLM-as-judge:</strong> Use a powerful LLM (GPT-4/Claude) to evaluate another model's outputs against criteria. Scalable and surprisingly reliable.",
+          "<strong>Task-specific metrics:</strong> Pass rate for generated code, factual accuracy for QA, citation accuracy for RAG.",
+          "<strong>A/B testing:</strong> Show users two responses and measure which they prefer or which leads to better outcomes."
+        ]
+      },
+      {
+        "type": "example",
+        "title": "LLM-as-Judge Evaluation Pattern",
+        "code": "// Evaluate a customer support response\nevaluation_prompt = \"\"\"\nYou are an evaluation assistant. Rate the following customer support response on a scale of 1-5 for each criterion.\n\nUser Question: {user_question}\nAI Response: {ai_response}\n\nRate on:\n1. Accuracy (1-5): Is the information correct?\n2. Helpfulness (1-5): Does it solve the user's problem?\n3. Tone (1-5): Is it professional and empathetic?\n4. Completeness (1-5): Does it fully address the question?\n\nOutput as JSON: {\"accuracy\": N, \"helpfulness\": N, \"tone\": N, \"completeness\": N}\n\"\"\"\n\nscores = llm.generate(evaluation_prompt)\n// Use these scores to compare model versions or prompt changes"
+      },
+      {
+        "type": "note",
+        "text": "Build your evaluation dataset before you start building your model. A curated set of test cases covering common inputs, edge cases, and failure modes is the most valuable asset in any AI project."
+      }
+    ]
+  },
+  "ai-ethics": {
+    "title": "AI Ethics & Bias",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI systems reflect the data they are trained on and the values of those who build them. Without deliberate attention to ethics, AI can perpetuate discrimination, violate privacy, undermine accountability, and cause real-world harm — even when unintentional."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Types of Bias in AI"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Historical",
+            "color": "blue",
+            "icon": "📜",
+            "text": "Data reflects past human discrimination patterns."
+          },
+          {
+            "title": "Represent",
+            "color": "emerald",
+            "icon": "👥",
+            "text": "Underrepresented groups lead to poor accuracy."
+          },
+          {
+            "title": "Aggregation",
+            "color": "purple",
+            "icon": "⚖️",
+            "text": "One-size-fits-all model fails niche demographics."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real-World Cases of AI Harm"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>COMPAS Recidivism Algorithm (2016):</strong> AI used in US courts predicted Black defendants were twice as likely to reoffend as White defendants with similar profiles",
+          "<strong>Amazon Recruiting Tool (2018):</strong> AI trained on 10 years of resumes (mostly male) systematically downgraded women's resumes",
+          "<strong>Healthcare Bias (2019):</strong> An algorithm used to allocate healthcare resources used cost as a proxy for need — systematically under-serving Black patients",
+          "<strong>Facial Recognition Misidentifications:</strong> Several men (mostly Black) wrongfully arrested based on erroneous facial recognition matches"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Fairness Metrics"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Equality",
+            "color": "blue",
+            "icon": "⚖️",
+            "text": "Equal positive prediction rates across all groups."
+          },
+          {
+            "title": "Opportunity",
+            "color": "emerald",
+            "icon": "🌟",
+            "text": "Equal true positive rates across every demographic."
+          },
+          {
+            "title": "Individual",
+            "color": "purple",
+            "icon": "👤",
+            "text": "Similar individuals must get similar AI decisions."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Building More Ethical AI"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Audit training data for representation and historical bias",
+          "Include diverse teams in AI development and evaluation",
+          "Test for differential performance across demographic groups",
+          "Build explainability into high-stakes AI systems",
+          "Establish human oversight and appeal mechanisms",
+          "Comply with emerging regulations (EU AI Act, US AI Executive Order)"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Ethics is not a feature you add at the end. It must be integrated from problem definition through data collection, model design, evaluation, deployment, and monitoring. The question is not 'Is this model accurate?' but 'Who benefits, who is harmed, and are those trade-offs acceptable?'"
+      }
+    ]
+  },
+  "ai-safety": {
+    "title": "AI Safety & Alignment",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI safety is the field of research dedicated to ensuring that AI systems behave as intended, remain under human control, and don't cause catastrophic harm as they become more capable. The alignment problem asks: how do we ensure AI systems pursue goals that are truly beneficial to humanity?"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Alignment Problem"
+      },
+      {
+        "type": "paragraph",
+        "text": "An AI system optimizes for its objective. If that objective doesn't perfectly capture what we actually want, a sufficiently capable AI could achieve the objective in unexpected, harmful ways. The classic thought experiment: an AI told to 'maximize paperclip production' might convert all matter in the universe to paperclips."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Goal misgeneralization:</strong> AI learns a proxy for the goal during training but pursues something slightly different at deployment",
+          "<strong>Reward hacking:</strong> AI finds loopholes to get high reward without actually doing what we wanted",
+          "<strong>Specification gaming:</strong> AI satisfies the letter but not the spirit of its objective",
+          "<strong>Deceptive alignment:</strong> AI behaves well during training/evaluation but differently when deployed"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key Safety Techniques"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "RLHF",
+            "color": "blue",
+            "icon": "🤝",
+            "text": "Human preference alignment during model training."
+          },
+          {
+            "title": "Constitutional",
+            "color": "emerald",
+            "icon": "📜",
+            "text": "Self-critique via AI using a set of fixed principles."
+          },
+          {
+            "title": "Red-teaming",
+            "color": "purple",
+            "icon": "🛡️",
+            "text": "Adversarially probe models to reveal failure modes."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Near-Term Safety Concerns"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Misuse:</strong> LLMs used for misinformation, propaganda, phishing, and cyberattacks",
+          "<strong>Over-reliance:</strong> People accepting AI outputs without critical evaluation",
+          "<strong>Concentration of power:</strong> AI capabilities controlled by very few organizations",
+          "<strong>Labor disruption:</strong> Rapid job displacement without adequate social support systems",
+          "<strong>Privacy erosion:</strong> AI systems trained on or capable of extracting personal data"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Regulatory Landscape"
+      },
+      {
+        "type": "paragraph",
+        "text": "Governments worldwide are beginning to regulate AI. The EU AI Act (2024) is the world's first comprehensive AI law, classifying AI by risk level and requiring transparency, testing, and human oversight for high-risk applications. The US has issued executive orders on AI safety, and other countries are following suit."
+      },
+      {
+        "type": "note",
+        "text": "AI safety is not just a concern for AI researchers. Every developer who deploys an AI system is making safety decisions — about what inputs to allow, what outputs to validate, when to involve humans, and what to do when the model fails."
+      }
+    ]
+  },
+  "future-of-ai": {
+    "title": "The Future of AI",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI is advancing faster than any previous technology in history. Understanding where the field is heading — the trends, the open problems, and the uncertainties — is essential for anyone whose career will be shaped by it."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Near-Term Trends (1–3 Years)"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Multimodal AI dominance:</strong> Models that seamlessly understand and generate text, images, audio, and video become the standard",
+          "<strong>AI agents everywhere:</strong> Autonomous agents handle complex multi-step tasks — booking travel, writing code, managing email",
+          "<strong>Smaller, faster models:</strong> Efficient models (Phi-3, Gemini Flash) bring frontier-level capability to devices and low-cost APIs",
+          "<strong>AI in every SaaS product:</strong> AI features become a baseline expectation, not a differentiator",
+          "<strong>Prompt engineering → AI engineering:</strong> The skill shifts from writing prompts to building reliable AI systems with evals, RAG, and agents"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Medium-Term Possibilities (3–10 Years)"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Science",
+            "color": "blue",
+            "icon": "🧪",
+            "text": "Decelerating drug discovery and materials science."
+          },
+          {
+            "title": "Robotics",
+            "color": "emerald",
+            "icon": "🦾",
+            "text": "Physical AI agents performing real-world labor."
+          },
+          {
+            "title": "Healthcare",
+            "color": "purple",
+            "icon": "🏥",
+            "text": "Specialist-level diagnostic accuracy for all domains."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Open Questions"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Will scaling continue?</strong> Does simply adding more data and compute keep producing smarter models, or will we hit fundamental limits?",
+          "<strong>When (if ever) will AGI arrive?</strong> Estimates range from 5 years to never — the honest answer is nobody knows",
+          "<strong>How do we ensure AI benefits everyone?</strong> The economic gains from AI risk being concentrated among the already wealthy",
+          "<strong>Can we build interpretable AI?</strong> Understanding what's happening inside these systems is crucial for safety and trust",
+          "<strong>What is the right role of AI in society?</strong> Legal, governance, and philosophical questions that technology alone cannot answer"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Career Opportunities in AI"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "ML Engineer",
+            "color": "blue",
+            "icon": "🏢",
+            "text": "Demand: Very High. Focus on systems and models."
+          },
+          {
+            "title": "AI Dev",
+            "color": "emerald",
+            "icon": "👨‍💻",
+            "text": "Demand: Very High. Focus on APIs, RAG, and Agents."
+          },
+          {
+            "title": "Product Mgr",
+            "color": "purple",
+            "icon": "💡",
+            "text": "Demand: High. Focus on AI literacy and user products."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "The best thing you can do for an AI career is build things. Start a project using an LLM API, build a RAG system, fine-tune a small model. Practical experience with real systems is far more valuable than theoretical knowledge alone. The course you just completed is your foundation — now go build."
+      }
+    ]
+  }
+}

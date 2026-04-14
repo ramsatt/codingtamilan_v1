@@ -1,0 +1,2698 @@
+{
+  "intro": {
+    "title": "Introduction to TypeScript",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript is a strongly typed superset of JavaScript that compiles to plain JavaScript, giving you the power of static type checking while keeping full compatibility with every JavaScript runtime."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What is TypeScript?"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript was created by Microsoft in 2012 and has grown into one of the most popular programming languages in the world. It adds optional static typing, interfaces, generics, and modern language features on top of JavaScript, enabling developers to catch bugs at compile time rather than at runtime."
+      },
+      {
+        "type": "paragraph",
+        "text": "Every valid JavaScript file is also a valid TypeScript file. You can adopt TypeScript gradually — start with <code class=\"w3-codespan\">.ts</code> extensions and add types incrementally without rewriting existing code."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Why Use TypeScript?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Catch type errors at compile time, before the code runs",
+          "Improved IDE support with autocompletion, refactoring, and inline documentation",
+          "Easier to maintain large codebases with explicit contracts between modules",
+          "Supports modern ECMAScript features and compiles down to older JavaScript versions",
+          "First-class support in Angular, React, Vue, Node.js, and most major frameworks",
+          "Rich ecosystem with type definitions available for thousands of libraries via DefinitelyTyped"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript vs JavaScript"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "JavaScript",
+          "TypeScript"
+        ],
+        "rows": [
+          [
+            "Typing",
+            "Dynamic (runtime)",
+            "Static (compile time)"
+          ],
+          [
+            "Error detection",
+            "Runtime",
+            "Compile time"
+          ],
+          [
+            "Interfaces",
+            "No",
+            "Yes"
+          ],
+          [
+            "Generics",
+            "No",
+            "Yes"
+          ],
+          [
+            "Enums",
+            "No",
+            "Yes (native)"
+          ],
+          [
+            "File extension",
+            ".js",
+            ".ts / .tsx"
+          ],
+          [
+            "Browser support",
+            "Direct",
+            "Compiled to JS"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Your First TypeScript Program"
+      },
+      {
+        "type": "example",
+        "title": "Hello TypeScript",
+        "code": "// hello.ts\nfunction greet(name: string): string {\n  return `Hello, ${name}!`;\n}\n\nconst message: string = greet('TypeScript');\nconsole.log(message); // Hello, TypeScript!"
+      },
+      {
+        "type": "note",
+        "text": "The <code class=\"w3-codespan\">: string</code> annotations after the parameter and return type tell the TypeScript compiler what types are expected. If you pass a number instead of a string, TypeScript will show a compile-time error before the code ever runs."
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript code is never executed directly. The TypeScript compiler (<code class=\"w3-codespan\">tsc</code>) transforms <code class=\"w3-codespan\">.ts</code> files into plain <code class=\"w3-codespan\">.js</code> files, stripping all type annotations in the process. The output JavaScript runs in any browser or Node.js environment."
+      }
+    ]
+  },
+  "setup": {
+    "title": "Setup & tsconfig",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Setting up TypeScript takes only a few minutes — install the compiler via npm, create a <code class=\"w3-codespan\">tsconfig.json</code> to configure the project, and start writing typed code immediately."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Installing TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript is distributed as an npm package. You can install it globally to use the <code class=\"w3-codespan\">tsc</code> command anywhere, or locally as a development dependency in a project."
+      },
+      {
+        "type": "example",
+        "title": "Install TypeScript globally",
+        "code": "# Install globally\nnpm install -g typescript\n\n# Verify installation\ntsc --version\n# Output: Version 5.x.x\n\n# Install locally in a project\nnpm install --save-dev typescript"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Compiling TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Use the <code class=\"w3-codespan\">tsc</code> command to compile a TypeScript file. Running <code class=\"w3-codespan\">tsc hello.ts</code> produces a <code class=\"w3-codespan\">hello.js</code> file in the same directory. You can also use <code class=\"w3-codespan\">tsc --watch</code> to recompile automatically whenever a file changes."
+      },
+      {
+        "type": "example",
+        "title": "Compile a single file",
+        "code": "# Compile once\ntsc hello.ts\n\n# Compile and watch for changes\ntsc hello.ts --watch\n\n# Compile entire project (reads tsconfig.json)\ntsc"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The tsconfig.json File"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code class=\"w3-codespan\">tsconfig.json</code> file is the central configuration for a TypeScript project. It specifies the compiler options, the root files to include, and which files to exclude. Generate a default config with <code class=\"w3-codespan\">tsc --init</code>."
+      },
+      {
+        "type": "example",
+        "title": "Typical tsconfig.json",
+        "code": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",\n    \"module\": \"commonjs\",\n    \"strict\": true,\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\",\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true,\n    \"forceConsistentCasingInFileNames\": true\n  },\n  \"include\": [\"src/**/*\"],\n  \"exclude\": [\"node_modules\", \"dist\"]\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key Compiler Options"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Option",
+          "Default",
+          "Description"
+        ],
+        "rows": [
+          [
+            "target",
+            "ES3",
+            "ECMAScript version for the output JS"
+          ],
+          [
+            "strict",
+            "false",
+            "Enables all strict type-checking options"
+          ],
+          [
+            "outDir",
+            "(same dir)",
+            "Output directory for compiled JS files"
+          ],
+          [
+            "rootDir",
+            "(inferred)",
+            "Root directory of source TypeScript files"
+          ],
+          [
+            "noImplicitAny",
+            "false",
+            "Error when a type is inferred as `any`"
+          ],
+          [
+            "strictNullChecks",
+            "false",
+            "Prevents null/undefined from being assigned to other types"
+          ],
+          [
+            "esModuleInterop",
+            "false",
+            "Allows default imports from CommonJS modules"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always enable <code class=\"w3-codespan\">\"strict\": true</code> in new projects. It activates <code class=\"w3-codespan\">noImplicitAny</code>, <code class=\"w3-codespan\">strictNullChecks</code>, <code class=\"w3-codespan\">strictFunctionTypes</code>, and several other checks that catch the most common bugs."
+      },
+      {
+        "type": "paragraph",
+        "text": "For a Node.js project you also need the type definitions for Node built-ins: run <code class=\"w3-codespan\">npm install --save-dev @types/node</code>. For a browser-only project these are not needed."
+      }
+    ]
+  },
+  "basic-types": {
+    "title": "Basic Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript provides a rich set of primitive and structural types that let you describe exactly what kind of data a variable, parameter, or return value should hold."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Primitive Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "The three most common primitive types in TypeScript mirror JavaScript primitives: <code class=\"w3-codespan\">string</code>, <code class=\"w3-codespan\">number</code>, and <code class=\"w3-codespan\">boolean</code>. TypeScript also adds <code class=\"w3-codespan\">bigint</code> and <code class=\"w3-codespan\">symbol</code> for specialised use cases."
+      },
+      {
+        "type": "example",
+        "title": "Declaring primitives",
+        "code": "let username: string = 'Alice';\nlet age: number = 30;\nlet isActive: boolean = true;\nlet largeNumber: bigint = 9007199254740993n;\nlet uniqueKey: symbol = Symbol('id');\n\n// Error: Type 'number' is not assignable to type 'string'\n// username = 42;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arrays and Tuples"
+      },
+      {
+        "type": "paragraph",
+        "text": "Arrays are typed using either <code class=\"w3-codespan\">Type[]</code> syntax or the generic form <code class=\"w3-codespan\">Array&lt;Type&gt;</code>. Both forms are equivalent. Tuples are fixed-length arrays where each position has a specific type."
+      },
+      {
+        "type": "example",
+        "title": "Arrays",
+        "code": "const scores: number[] = [95, 87, 72];\nconst names: Array<string> = ['Alice', 'Bob'];\n\n// Mixed-type tuple\nconst entry: [string, number] = ['Alice', 30];\nconst name: string = entry[0];\nconst userAge: number = entry[1];"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Special Types: any, unknown, never, void"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Type",
+          "Use Case",
+          "Safe to call methods?"
+        ],
+        "rows": [
+          [
+            "any",
+            "Opt out of type checking (avoid if possible)",
+            "Yes (no checking at all)"
+          ],
+          [
+            "unknown",
+            "Value of unknown type — must narrow before use",
+            "No — must type-guard first"
+          ],
+          [
+            "never",
+            "Functions that never return (throw or infinite loop)",
+            "N/A"
+          ],
+          [
+            "void",
+            "Functions that return no meaningful value",
+            "N/A"
+          ]
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Special types in practice",
+        "code": "// void — function returns nothing\nfunction logMessage(msg: string): void {\n  console.log(msg);\n}\n\n// never — function always throws\nfunction fail(message: string): never {\n  throw new Error(message);\n}\n\n// unknown — must narrow the type before use\nfunction processInput(value: unknown): string {\n  if (typeof value === 'string') {\n    return value.toUpperCase(); // safe after narrowing\n  }\n  return String(value);\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "null and undefined"
+      },
+      {
+        "type": "paragraph",
+        "text": "With <code class=\"w3-codespan\">strictNullChecks</code> enabled, <code class=\"w3-codespan\">null</code> and <code class=\"w3-codespan\">undefined</code> are their own types and cannot be assigned to other types without an explicit union. This eliminates the most common source of runtime errors in JavaScript."
+      },
+      {
+        "type": "example",
+        "title": "null and undefined",
+        "code": "let maybeNull: string | null = null;\nmaybeNull = 'hello'; // OK\n\nlet maybeUndefined: number | undefined;\nconsole.log(maybeUndefined); // undefined\n\n// Optional chaining handles nullable safely\nconst length = maybeNull?.length; // number | undefined"
+      },
+      {
+        "type": "note",
+        "text": "Avoid using <code class=\"w3-codespan\">any</code> in production code. If you receive data from an external API, prefer <code class=\"w3-codespan\">unknown</code> and validate/narrow the type before use. This preserves type safety while still handling truly dynamic data."
+      }
+    ]
+  },
+  "type-inference": {
+    "title": "Type Inference",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript can automatically infer the type of a variable from its initial value, meaning you do not always need to write explicit type annotations — the compiler figures it out for you."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "How Inference Works"
+      },
+      {
+        "type": "paragraph",
+        "text": "When you declare a variable and assign a value in the same statement, TypeScript infers the type from that value. The variable is then treated exactly as if you had written the annotation explicitly — assigning a different type later will produce an error."
+      },
+      {
+        "type": "example",
+        "title": "Basic inference",
+        "code": "let count = 10;       // inferred as number\nlet greeting = 'Hi'; // inferred as string\nlet done = false;    // inferred as boolean\n\n// Error: Type 'string' is not assignable to type 'number'\n// count = 'ten';"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Return Type Inference"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript infers function return types from the <code class=\"w3-codespan\">return</code> statement. If a function always returns a <code class=\"w3-codespan\">number</code>, TypeScript records the return type as <code class=\"w3-codespan\">number</code> without any annotation."
+      },
+      {
+        "type": "example",
+        "title": "Return type inference",
+        "code": "// TypeScript infers return type as number\nfunction add(a: number, b: number) {\n  return a + b;\n}\n\n// TypeScript infers return type as string\nfunction buildLabel(prefix: string, id: number) {\n  return `${prefix}-${id}`;\n}\n\nconst result = add(3, 4);   // result: number\nconst label = buildLabel('user', 1); // label: string"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Contextual Typing"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript uses <strong>contextual typing</strong> when the type of an expression is determined by its position in the code. For example, event handler callbacks automatically receive the correct event type based on the listener method they are passed to."
+      },
+      {
+        "type": "example",
+        "title": "Contextual typing with event listeners",
+        "code": "const button = document.querySelector('button');\n\n// TypeScript infers `event` as MouseEvent\nbutton?.addEventListener('click', (event) => {\n  console.log(event.clientX); // OK — clientX exists on MouseEvent\n});\n\n// Array method contextual typing\nconst numbers = [1, 2, 3, 4];\nconst doubled = numbers.map(n => n * 2); // n inferred as number"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Best Common Type"
+      },
+      {
+        "type": "paragraph",
+        "text": "When TypeScript infers the type of an array literal with mixed values, it computes the <strong>best common type</strong> — a union of all the value types present."
+      },
+      {
+        "type": "example",
+        "title": "Best common type inference",
+        "code": "// Inferred as (number | string)[]\nconst mixed = [1, 'two', 3, 'four'];\n\n// Inferred as number[]\nconst nums = [1, 2, 3];\n\n// Inferred as (Dog | Cat)[]\nclass Dog { bark() {} }\nclass Cat { meow() {} }\nconst pets = [new Dog(), new Cat()];"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "When to Write Explicit Annotations"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "When declaring a variable without an initial value: let name: string;",
+          "When a function's parameter types cannot be inferred from context",
+          "When you want to widen or narrow the inferred type deliberately",
+          "When the inferred type is too broad (e.g., inferred as any from JSON.parse)",
+          "When documenting public API function return types for readability"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Relying on inference for local variables and explicit annotations for function signatures is the most common TypeScript style. It reduces noise while keeping public APIs clearly documented."
+      }
+    ]
+  },
+  "interfaces": {
+    "title": "Interfaces",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Interfaces define the shape of an object — the names and types of its properties and methods — acting as a contract that any conforming object must satisfy."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Defining an Interface"
+      },
+      {
+        "type": "paragraph",
+        "text": "Use the <code class=\"w3-codespan\">interface</code> keyword to declare an interface. Any object assigned to a variable of that interface type must provide all required properties with the correct types."
+      },
+      {
+        "type": "example",
+        "title": "Basic interface",
+        "code": "interface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\nconst alice: User = {\n  id: 1,\n  name: 'Alice',\n  email: 'alice@example.com'\n};\n\n// Error: Property 'email' is missing\n// const bob: User = { id: 2, name: 'Bob' };"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional and Readonly Properties"
+      },
+      {
+        "type": "paragraph",
+        "text": "Mark a property as optional with <code class=\"w3-codespan\">?</code> and as read-only with <code class=\"w3-codespan\">readonly</code>. Optional properties may be absent; readonly properties cannot be reassigned after initialisation."
+      },
+      {
+        "type": "example",
+        "title": "Optional and readonly",
+        "code": "interface Config {\n  readonly host: string;\n  port: number;\n  timeout?: number; // optional\n}\n\nconst cfg: Config = { host: 'localhost', port: 3000 };\n// cfg.host = 'other'; // Error: Cannot assign to 'host' — it is read-only\nconsole.log(cfg.timeout); // undefined — no error"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Method Signatures"
+      },
+      {
+        "type": "paragraph",
+        "text": "Interfaces can describe methods as well as properties. You can write method signatures using either shorthand syntax or as properties with function types."
+      },
+      {
+        "type": "example",
+        "title": "Interface with methods",
+        "code": "interface Shape {\n  color: string;\n  area(): number;             // method shorthand\n  describe(label: string): string; // method with parameter\n}\n\nconst circle: Shape = {\n  color: 'red',\n  area() { return Math.PI * 5 * 5; },\n  describe(label) { return `${label}: ${this.color} circle`; }\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interface Extension"
+      },
+      {
+        "type": "paragraph",
+        "text": "Interfaces can extend one or more other interfaces using the <code class=\"w3-codespan\">extends</code> keyword, combining their properties into a single type."
+      },
+      {
+        "type": "example",
+        "title": "Extending interfaces",
+        "code": "interface Animal {\n  name: string;\n  age: number;\n}\n\ninterface Pet extends Animal {\n  owner: string;\n}\n\ninterface ServicePet extends Pet {\n  trained: boolean;\n}\n\nconst guide: ServicePet = {\n  name: 'Rex',\n  age: 4,\n  owner: 'Alice',\n  trained: true\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Declaration Merging"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript supports <strong>declaration merging</strong> for interfaces: if you declare two interfaces with the same name, TypeScript merges them into a single interface containing all the members. This is especially useful when augmenting third-party library types."
+      },
+      {
+        "type": "example",
+        "title": "Declaration merging",
+        "code": "interface Window {\n  myCustomProp: string;\n}\n\n// Now window.myCustomProp is recognized by TypeScript\nwindow.myCustomProp = 'hello';"
+      },
+      {
+        "type": "note",
+        "text": "Prefer interfaces over type aliases for object shapes when working in teams or publishing libraries. Declaration merging makes interfaces more extensible, and they produce clearer error messages in most editors."
+      }
+    ]
+  },
+  "type-aliases": {
+    "title": "Type Aliases",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Type aliases let you assign a name to any type — from a simple primitive union to a complex object shape — making code more readable and reducing repetition."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Creating a Type Alias"
+      },
+      {
+        "type": "paragraph",
+        "text": "Use the <code class=\"w3-codespan\">type</code> keyword to create an alias. Unlike interfaces, type aliases can describe not just objects but also primitives, unions, tuples, and function signatures."
+      },
+      {
+        "type": "example",
+        "title": "Basic type aliases",
+        "code": "type UserID = number;\ntype Status = 'active' | 'inactive' | 'pending';\ntype Point = { x: number; y: number };\n\nconst id: UserID = 42;\nconst status: Status = 'active';\nconst origin: Point = { x: 0, y: 0 };\n\n// Error: Type '\"banned\"' is not assignable to type 'Status'\n// const s: Status = 'banned';"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Type Aliases"
+      },
+      {
+        "type": "paragraph",
+        "text": "A type alias can describe a function signature, making it easy to pass callbacks with consistent types throughout a codebase."
+      },
+      {
+        "type": "example",
+        "title": "Function type alias",
+        "code": "type Formatter = (value: number, decimals: number) => string;\n\nconst formatCurrency: Formatter = (value, decimals) => {\n  return value.toFixed(decimals);\n};\n\nfunction applyFormat(values: number[], fmt: Formatter): string[] {\n  return values.map(v => fmt(v, 2));\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Aliases vs Interfaces"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "type alias",
+          "interface"
+        ],
+        "rows": [
+          [
+            "Object shapes",
+            "Yes",
+            "Yes"
+          ],
+          [
+            "Primitive / union / tuple types",
+            "Yes",
+            "No"
+          ],
+          [
+            "Function signatures",
+            "Yes",
+            "Yes"
+          ],
+          [
+            "Declaration merging",
+            "No",
+            "Yes"
+          ],
+          [
+            "Extends/implements",
+            "Via intersection (&)",
+            "Via extends keyword"
+          ],
+          [
+            "Recursive types",
+            "Yes (with care)",
+            "Yes"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Recursive Type Aliases"
+      },
+      {
+        "type": "paragraph",
+        "text": "Type aliases can reference themselves to model recursive data structures such as trees or nested JSON."
+      },
+      {
+        "type": "example",
+        "title": "Recursive type alias",
+        "code": "type TreeNode = {\n  value: number;\n  left?: TreeNode;\n  right?: TreeNode;\n};\n\nconst tree: TreeNode = {\n  value: 10,\n  left: { value: 5 },\n  right: { value: 15, left: { value: 12 } }\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Mapped and Utility Types with Aliases"
+      },
+      {
+        "type": "paragraph",
+        "text": "Type aliases work seamlessly with TypeScript's built-in utility types like <code class=\"w3-codespan\">Partial</code>, <code class=\"w3-codespan\">Required</code>, <code class=\"w3-codespan\">Readonly</code>, and <code class=\"w3-codespan\">Pick</code> to create derived types without repetition."
+      },
+      {
+        "type": "example",
+        "title": "Utility types with aliases",
+        "code": "type User = {\n  id: number;\n  name: string;\n  email: string;\n};\n\ntype PartialUser = Partial<User>;       // all fields optional\ntype ReadonlyUser = Readonly<User>;     // all fields readonly\ntype UserPreview = Pick<User, 'id' | 'name'>; // subset of fields\n\nconst preview: UserPreview = { id: 1, name: 'Alice' };"
+      },
+      {
+        "type": "note",
+        "text": "Use <code class=\"w3-codespan\">type</code> for unions, tuples, and derived/utility types. Use <code class=\"w3-codespan\">interface</code> for object shapes that may need to be extended or merged. Both are equally valid for plain object descriptions."
+      }
+    ]
+  },
+  "union-intersection": {
+    "title": "Union & Intersection Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Union types allow a value to be one of several types, while intersection types combine multiple types into one — together they form the foundation of TypeScript's composable type system."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Union Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "A union type is written with the pipe operator <code class=\"w3-codespan\">|</code> between two or more types. A value of a union type may be any one of the listed types at a given time."
+      },
+      {
+        "type": "example",
+        "title": "Union type basics",
+        "code": "type StringOrNumber = string | number;\n\nfunction formatValue(value: StringOrNumber): string {\n  if (typeof value === 'string') {\n    return value.trim();\n  }\n  return value.toFixed(2);\n}\n\nconsole.log(formatValue('  hello  ')); // 'hello'\nconsole.log(formatValue(3.14159));     // '3.14'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Discriminated Unions"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <strong>discriminated union</strong> is a union of object types that each have a common literal property (the discriminant). TypeScript uses that property to narrow the type in switch statements and if-blocks."
+      },
+      {
+        "type": "example",
+        "title": "Discriminated union pattern",
+        "code": "type Circle = { kind: 'circle'; radius: number };\ntype Rectangle = { kind: 'rectangle'; width: number; height: number };\ntype Shape = Circle | Rectangle;\n\nfunction area(shape: Shape): number {\n  switch (shape.kind) {\n    case 'circle':\n      return Math.PI * shape.radius ** 2; // shape is Circle here\n    case 'rectangle':\n      return shape.width * shape.height;   // shape is Rectangle here\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Intersection Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "An intersection type is written with the <code class=\"w3-codespan\">&</code> operator and creates a type that has <strong>all</strong> the properties of the combined types. It is often used to merge interfaces or add extra properties to an existing type."
+      },
+      {
+        "type": "example",
+        "title": "Intersection type",
+        "code": "type Named = { name: string };\ntype Aged  = { age: number };\ntype Person = Named & Aged;\n\nconst person: Person = { name: 'Alice', age: 30 };\n\n// Merging with a new property\ntype AdminUser = Person & { role: 'admin' };\nconst admin: AdminUser = { name: 'Bob', age: 25, role: 'admin' };"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Narrowing with Union Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript uses several forms of <strong>type narrowing</strong> to determine which member of a union is active at a given point. The most common narrowing techniques are <code class=\"w3-codespan\">typeof</code>, <code class=\"w3-codespan\">instanceof</code>, <code class=\"w3-codespan\">in</code> checks, and discriminant property checks."
+      },
+      {
+        "type": "example",
+        "title": "Type narrowing techniques",
+        "code": "type Input = string | number | boolean;\n\nfunction describe(val: Input): string {\n  if (typeof val === 'string') return `String: ${val}`;\n  if (typeof val === 'number') return `Number: ${val}`;\n  return `Boolean: ${val}`;\n}\n\n// instanceof narrowing\nfunction formatDate(value: Date | string): string {\n  if (value instanceof Date) {\n    return value.toISOString();\n  }\n  return value;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Union vs Intersection — Summary"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Aspect",
+          "Union (A | B)",
+          "Intersection (A & B)"
+        ],
+        "rows": [
+          [
+            "Meaning",
+            "Value is either A or B",
+            "Value is both A and B"
+          ],
+          [
+            "Required properties",
+            "Only those in both A and B",
+            "All properties from A and B"
+          ],
+          [
+            "Use case",
+            "Flexible input types",
+            "Combining/extending types"
+          ],
+          [
+            "Narrowing needed?",
+            "Yes, to access type-specific members",
+            "No — all members always present"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "When intersecting two types that have a property with the same name but incompatible types (e.g., <code class=\"w3-codespan\">{ id: string } & { id: number }</code>), the resulting type for that property becomes <code class=\"w3-codespan\">never</code>, making it impossible to satisfy."
+      }
+    ]
+  },
+  "functions": {
+    "title": "Functions in TypeScript",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript enhances JavaScript functions with explicit parameter types, return type annotations, optional and default parameters, rest parameters, and function overloads."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Parameter and Return Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every function parameter should have a type annotation. The return type is written after the parameter list, preceded by <code class=\"w3-codespan\">:</code>. If you don't annotate the return type, TypeScript infers it."
+      },
+      {
+        "type": "example",
+        "title": "Basic function annotations",
+        "code": "function multiply(a: number, b: number): number {\n  return a * b;\n}\n\n// Arrow function\nconst divide = (a: number, b: number): number => a / b;\n\n// Inferred return type (string)\nconst greet = (name: string) => `Hello, ${name}!`;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional and Default Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Mark a parameter optional with <code class=\"w3-codespan\">?</code>. Its type becomes <code class=\"w3-codespan\">T | undefined</code> inside the function. Default parameters provide a fallback value and are implicitly optional."
+      },
+      {
+        "type": "example",
+        "title": "Optional and default parameters",
+        "code": "function buildUrl(base: string, path: string, port?: number): string {\n  const portStr = port !== undefined ? `:${port}` : '';\n  return `${base}${portStr}/${path}`;\n}\n\nfunction createUser(name: string, role: string = 'viewer'): string {\n  return `${name} (${role})`;\n}\n\nconst url = buildUrl('https://api.example.com', 'users'); // no port\nconst user = createUser('Alice'); // role defaults to 'viewer'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Rest Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "A rest parameter collects all remaining arguments into a typed array. It must be the last parameter and is annotated as <code class=\"w3-codespan\">...paramName: Type[]</code>."
+      },
+      {
+        "type": "example",
+        "title": "Rest parameters",
+        "code": "function sum(...values: number[]): number {\n  return values.reduce((acc, v) => acc + v, 0);\n}\n\nconsole.log(sum(1, 2, 3, 4, 5)); // 15\n\nfunction joinStrings(separator: string, ...parts: string[]): string {\n  return parts.join(separator);\n}\n\nconsole.log(joinStrings('-', 'a', 'b', 'c')); // 'a-b-c'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Overloads"
+      },
+      {
+        "type": "paragraph",
+        "text": "Function overloads allow a single function to have multiple call signatures for different combinations of argument types. You declare the overload signatures first, then provide a single implementation signature compatible with all of them."
+      },
+      {
+        "type": "example",
+        "title": "Function overloads",
+        "code": "// Overload signatures\nfunction parse(input: string): number;\nfunction parse(input: number): string;\n// Implementation signature (not directly callable)\nfunction parse(input: string | number): number | string {\n  if (typeof input === 'string') return parseInt(input, 10);\n  return input.toString();\n}\n\nconst n: number = parse('42');  // first overload\nconst s: string = parse(42);   // second overload"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The this Parameter"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript allows you to declare the type of <code class=\"w3-codespan\">this</code> as a fake first parameter. This helps when methods are detached from their object and called in a different context."
+      },
+      {
+        "type": "example",
+        "title": "Typing this in a function",
+        "code": "interface Counter {\n  count: number;\n  increment(this: Counter): void;\n}\n\nconst counter: Counter = {\n  count: 0,\n  increment() {\n    this.count++; // TypeScript knows 'this' is Counter\n  }\n};\n\ncounter.increment();\nconsole.log(counter.count); // 1"
+      },
+      {
+        "type": "note",
+        "text": "Prefer arrow functions for callbacks inside class methods. Arrow functions capture the outer <code class=\"w3-codespan\">this</code> lexically, avoiding the common bug where <code class=\"w3-codespan\">this</code> is <code class=\"w3-codespan\">undefined</code> in an event handler."
+      }
+    ]
+  },
+  "classes": {
+    "title": "Classes & Access Modifiers",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript classes build on JavaScript ES6 classes by adding access modifiers, parameter properties, abstract classes, and structural compatibility — enabling full object-oriented design patterns."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Defining a Class"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript requires that class properties be declared with their types. Fields can be initialized in the declaration or in the constructor."
+      },
+      {
+        "type": "example",
+        "title": "Basic class",
+        "code": "class Animal {\n  name: string;\n  age: number;\n\n  constructor(name: string, age: number) {\n    this.name = name;\n    this.age = age;\n  }\n\n  describe(): string {\n    return `${this.name} is ${this.age} year(s) old.`;\n  }\n}\n\nconst dog = new Animal('Rex', 3);\nconsole.log(dog.describe());"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Access Modifiers"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript provides three access modifiers: <code class=\"w3-codespan\">public</code> (default, accessible everywhere), <code class=\"w3-codespan\">private</code> (accessible only within the class), and <code class=\"w3-codespan\">protected</code> (accessible within the class and its subclasses)."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Modifier",
+          "Same Class",
+          "Subclass",
+          "Outside Class"
+        ],
+        "rows": [
+          [
+            "public",
+            "Yes",
+            "Yes",
+            "Yes"
+          ],
+          [
+            "protected",
+            "Yes",
+            "Yes",
+            "No"
+          ],
+          [
+            "private",
+            "Yes",
+            "No",
+            "No"
+          ]
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Access modifiers",
+        "code": "class BankAccount {\n  public owner: string;\n  private balance: number;\n  protected accountNumber: string;\n\n  constructor(owner: string, initialBalance: number) {\n    this.owner = owner;\n    this.balance = initialBalance;\n    this.accountNumber = Math.random().toString(36).slice(2);\n  }\n\n  deposit(amount: number): void {\n    this.balance += amount;\n  }\n\n  getBalance(): number {\n    return this.balance;\n  }\n}\n\nconst acc = new BankAccount('Alice', 1000);\nacc.deposit(500);\nconsole.log(acc.getBalance()); // 1500\n// acc.balance; // Error: 'balance' is private"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Parameter Properties"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript shorthand: adding a modifier to a constructor parameter automatically declares a class property and assigns the argument to it — eliminating the need to write <code class=\"w3-codespan\">this.prop = prop</code> manually."
+      },
+      {
+        "type": "example",
+        "title": "Parameter properties shorthand",
+        "code": "class Point {\n  constructor(\n    public x: number,\n    public y: number,\n    private label: string = 'point'\n  ) {}\n\n  toString(): string {\n    return `${this.label}(${this.x}, ${this.y})`;\n  }\n}\n\nconst p = new Point(3, 4);\nconsole.log(p.toString()); // point(3, 4)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inheritance and Abstract Classes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Classes can extend one another with <code class=\"w3-codespan\">extends</code>. Abstract classes cannot be instantiated directly; they define a contract that subclasses must implement using the <code class=\"w3-codespan\">abstract</code> keyword."
+      },
+      {
+        "type": "example",
+        "title": "Abstract class and inheritance",
+        "code": "abstract class Vehicle {\n  constructor(public make: string, public model: string) {}\n\n  abstract fuelType(): string; // subclasses must implement\n\n  describe(): string {\n    return `${this.make} ${this.model} — ${this.fuelType()}`;\n  }\n}\n\nclass ElectricCar extends Vehicle {\n  fuelType(): string { return 'Electric'; }\n}\n\nclass PetrolCar extends Vehicle {\n  fuelType(): string { return 'Petrol'; }\n}\n\nconst tesla = new ElectricCar('Tesla', 'Model 3');\nconsole.log(tesla.describe()); // Tesla Model 3 — Electric"
+      },
+      {
+        "type": "note",
+        "text": "TypeScript's <code class=\"w3-codespan\">private</code> is a compile-time check only. At runtime the property is still accessible. For true runtime privacy, use the ECMAScript private field syntax: <code class=\"w3-codespan\">#balance</code>."
+      }
+    ]
+  },
+  "generics": {
+    "title": "Generics",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Generics allow you to write reusable functions, classes, and interfaces that work with any type while still enforcing type safety — you get flexibility without sacrificing correctness."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Why Generics?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Without generics you either use <code class=\"w3-codespan\">any</code> (losing type safety) or write duplicate code for every type. Generics let you write a single definition that adapts to whatever type is provided at the call site."
+      },
+      {
+        "type": "example",
+        "title": "Generic function",
+        "code": "// Without generics: loses type information\nfunction identityAny(value: any): any {\n  return value;\n}\n\n// With generics: type is preserved\nfunction identity<T>(value: T): T {\n  return value;\n}\n\nconst str = identity<string>('hello'); // type: string\nconst num = identity(42);             // type inferred as number"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Interfaces and Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Generics work with interfaces and type aliases. The type parameter is declared in angle brackets after the name: <code class=\"w3-codespan\">interface Box&lt;T&gt;</code>."
+      },
+      {
+        "type": "example",
+        "title": "Generic interface",
+        "code": "interface ApiResponse<T> {\n  data: T;\n  status: number;\n  message: string;\n}\n\ninterface User {\n  id: number;\n  name: string;\n}\n\nconst response: ApiResponse<User> = {\n  data: { id: 1, name: 'Alice' },\n  status: 200,\n  message: 'OK'\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Constraints"
+      },
+      {
+        "type": "paragraph",
+        "text": "Use <code class=\"w3-codespan\">extends</code> to constrain a type parameter to types that have at least certain properties. This lets you access properties on the generic type safely."
+      },
+      {
+        "type": "example",
+        "title": "Generic constraints",
+        "code": "function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}\n\nconst user = { id: 1, name: 'Alice', active: true };\nconst name = getProperty(user, 'name'); // type: string\nconst id   = getProperty(user, 'id');   // type: number\n// getProperty(user, 'missing'); // Error: not a key of user"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Classes"
+      },
+      {
+        "type": "paragraph",
+        "text": "A generic class maintains type safety across all its methods. The type parameter is declared on the class and can be used in properties, method parameters, and return types."
+      },
+      {
+        "type": "example",
+        "title": "Generic stack class",
+        "code": "class Stack<T> {\n  private items: T[] = [];\n\n  push(item: T): void {\n    this.items.push(item);\n  }\n\n  pop(): T | undefined {\n    return this.items.pop();\n  }\n\n  peek(): T | undefined {\n    return this.items[this.items.length - 1];\n  }\n\n  get size(): number {\n    return this.items.length;\n  }\n}\n\nconst numStack = new Stack<number>();\nnumStack.push(1);\nnumStack.push(2);\nconsole.log(numStack.pop()); // 2"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multiple Type Parameters"
+      },
+      {
+        "type": "example",
+        "title": "Multiple type parameters",
+        "code": "function zip<A, B>(a: A[], b: B[]): [A, B][] {\n  const length = Math.min(a.length, b.length);\n  const result: [A, B][] = [];\n  for (let i = 0; i < length; i++) {\n    result.push([a[i], b[i]]);\n  }\n  return result;\n}\n\nconst pairs = zip([1, 2, 3], ['a', 'b', 'c']);\n// pairs: [number, string][] => [[1,'a'],[2,'b'],[3,'c']]"
+      },
+      {
+        "type": "note",
+        "text": "By convention, single-letter names like <code class=\"w3-codespan\">T</code>, <code class=\"w3-codespan\">K</code>, <code class=\"w3-codespan\">V</code>, and <code class=\"w3-codespan\">E</code> are used for type parameters, but you can use any descriptive name such as <code class=\"w3-codespan\">TItem</code> or <code class=\"w3-codespan\">TResponse</code> for clarity in complex generics."
+      }
+    ]
+  },
+  "enums": {
+    "title": "Enums",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Enums define a set of named constants, making code more readable and less error-prone than raw strings or magic numbers — TypeScript supports both numeric and string enums."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Numeric Enums"
+      },
+      {
+        "type": "paragraph",
+        "text": "By default, enum members are assigned incrementing numeric values starting at <code class=\"w3-codespan\">0</code>. You can override the starting value or assign values to individual members."
+      },
+      {
+        "type": "example",
+        "title": "Numeric enum",
+        "code": "enum Direction {\n  Up,    // 0\n  Down,  // 1\n  Left,  // 2\n  Right  // 3\n}\n\nconst move: Direction = Direction.Up;\nconsole.log(move);          // 0\nconsole.log(Direction[0]);  // 'Up' — reverse mapping\n\nenum HttpStatus {\n  OK = 200,\n  NotFound = 404,\n  InternalError = 500\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "String Enums"
+      },
+      {
+        "type": "paragraph",
+        "text": "String enums provide more readable values in debugging and serialisation. Each member must be explicitly initialised with a string literal. String enums do not have a reverse mapping."
+      },
+      {
+        "type": "example",
+        "title": "String enum",
+        "code": "enum Color {\n  Red = 'RED',\n  Green = 'GREEN',\n  Blue = 'BLUE'\n}\n\nconst bg: Color = Color.Blue;\nconsole.log(bg); // 'BLUE'\n\nfunction paintWall(color: Color): void {\n  console.log(`Painting wall ${color}`);\n}\n\npaintWall(Color.Red); // Painting wall RED"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Const Enums"
+      },
+      {
+        "type": "paragraph",
+        "text": "Prefix an enum with <code class=\"w3-codespan\">const</code> to tell the compiler to inline the enum values at every usage site. This produces smaller and faster JavaScript output because no enum object is emitted."
+      },
+      {
+        "type": "example",
+        "title": "Const enum",
+        "code": "const enum Weekday {\n  Monday = 1,\n  Tuesday,\n  Wednesday,\n  Thursday,\n  Friday\n}\n\nconst today: Weekday = Weekday.Wednesday;\n// Compiles to: const today = 3;\n// No Weekday object exists at runtime"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Enums vs Union Types"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "Enum",
+          "Union of Literals"
+        ],
+        "rows": [
+          [
+            "Runtime object",
+            "Yes (numeric/string)",
+            "No"
+          ],
+          [
+            "Reverse mapping",
+            "Yes (numeric only)",
+            "No"
+          ],
+          [
+            "Tree-shakeable",
+            "No (const enum: yes)",
+            "Yes"
+          ],
+          [
+            "Autocomplete",
+            "Yes",
+            "Yes"
+          ],
+          [
+            "JSON serialisation",
+            "Uses value",
+            "Direct string/number"
+          ],
+          [
+            "Use case",
+            "Stable set of named constants",
+            "Flexible, simple string sets"
+          ]
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Enum in a switch statement",
+        "code": "enum TrafficLight {\n  Red = 'RED',\n  Yellow = 'YELLOW',\n  Green = 'GREEN'\n}\n\nfunction getInstruction(light: TrafficLight): string {\n  switch (light) {\n    case TrafficLight.Red:    return 'Stop';\n    case TrafficLight.Yellow: return 'Caution';\n    case TrafficLight.Green:  return 'Go';\n  }\n}"
+      },
+      {
+        "type": "note",
+        "text": "For most use cases in modern TypeScript, a union of string literals (e.g., <code class=\"w3-codespan\">type Direction = 'up' | 'down' | 'left' | 'right'</code>) is simpler and produces leaner JavaScript than a full enum. Use enums when you need the runtime object or reverse mapping."
+      }
+    ]
+  },
+  "tuples": {
+    "title": "Tuples & Arrays",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Arrays hold a variable number of elements of the same (or union) type, while tuples represent fixed-length arrays where each position has a distinct, known type."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Typed Arrays"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript array types are written as <code class=\"w3-codespan\">Type[]</code> or <code class=\"w3-codespan\">Array&lt;Type&gt;</code>. You can also use readonly arrays to prevent mutation."
+      },
+      {
+        "type": "example",
+        "title": "Array declarations",
+        "code": "const primes: number[] = [2, 3, 5, 7, 11];\nconst names: string[] = ['Alice', 'Bob', 'Carol'];\n\n// Generic form\nconst flags: Array<boolean> = [true, false, true];\n\n// Readonly array — no push/pop/splice\nconst constants: readonly number[] = [1, 2, 3];\n// constants.push(4); // Error: Property 'push' does not exist on readonly"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Defining Tuples"
+      },
+      {
+        "type": "paragraph",
+        "text": "A tuple type is an array type with a fixed number of elements where the type of each position is specified. Accessing an index outside the defined range produces a compile-time error."
+      },
+      {
+        "type": "example",
+        "title": "Tuple basics",
+        "code": "type Coordinate = [number, number];\ntype Entry = [string, number, boolean];\n\nconst point: Coordinate = [10, 20];\nconst record: Entry = ['Alice', 30, true];\n\n// Destructuring\nconst [x, y] = point;\nconst [username, age, active] = record;\n\n// Error: index 2 out of bounds\n// point[2];"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Named Tuple Elements"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript 4.0+ supports named tuple elements for better documentation. The names are purely for readability — they do not affect the runtime structure."
+      },
+      {
+        "type": "example",
+        "title": "Named tuple elements",
+        "code": "type Range = [start: number, end: number];\ntype RGB = [red: number, green: number, blue: number];\n\nconst highlight: Range = [5, 15];\nconst orange: RGB = [255, 165, 0];\n\nfunction createRange(start: number, end: number): Range {\n  return [start, end];\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional and Rest Elements in Tuples"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tuple elements can be marked optional with <code class=\"w3-codespan\">?</code>, and a rest element can capture a variable-length tail of the tuple."
+      },
+      {
+        "type": "example",
+        "title": "Optional and rest in tuples",
+        "code": "type Config = [host: string, port: number, secure?: boolean];\n\nconst c1: Config = ['localhost', 3000];\nconst c2: Config = ['api.example.com', 443, true];\n\n// Rest element tuple\ntype StringsWithNumber = [first: string, ...rest: string[], id: number];\nconst row: StringsWithNumber = ['Alice', 'Engineer', 'London', 42];"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Array Methods with Types"
+      },
+      {
+        "type": "example",
+        "title": "Typed array operations",
+        "code": "const numbers: number[] = [3, 1, 4, 1, 5, 9, 2];\n\nconst sorted: number[] = [...numbers].sort((a, b) => a - b);\nconst evens: number[] = numbers.filter(n => n % 2 === 0);\nconst doubled: number[] = numbers.map(n => n * 2);\nconst total: number = numbers.reduce((sum, n) => sum + n, 0);\n\n// find returns number | undefined\nconst first: number | undefined = numbers.find(n => n > 4);"
+      },
+      {
+        "type": "note",
+        "text": "Use tuples when a function needs to return multiple values of different types — it is a cleaner alternative to an object in simple cases. For example, React's <code class=\"w3-codespan\">useState</code> hook returns a <code class=\"w3-codespan\">[state, setter]</code> tuple."
+      }
+    ]
+  },
+  "type-assertions": {
+    "title": "Type Assertions & Casting",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Type assertions let you tell the TypeScript compiler to treat a value as a specific type when you have information that the compiler does not — use them carefully, as they bypass type checking."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The as Keyword"
+      },
+      {
+        "type": "paragraph",
+        "text": "The most common way to assert a type is with the <code class=\"w3-codespan\">as</code> keyword. You write the expression first, then <code class=\"w3-codespan\">as TypeName</code>. TypeScript will treat the value as that type from that point on."
+      },
+      {
+        "type": "example",
+        "title": "Type assertion with as",
+        "code": "const rawInput = document.getElementById('username');\n\n// rawInput is HTMLElement | null — we assert it is HTMLInputElement\nconst input = rawInput as HTMLInputElement;\nconsole.log(input.value); // OK — value exists on HTMLInputElement\n\n// JSON.parse returns any — assert the shape\nconst data = JSON.parse('{\"id\": 1}') as { id: number };\nconsole.log(data.id); // 1"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Angle-Bracket Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript also supports the older angle-bracket syntax: <code class=\"w3-codespan\">&lt;TypeName&gt;expression</code>. It is equivalent to <code class=\"w3-codespan\">as</code>, but cannot be used in <code class=\"w3-codespan\">.tsx</code> files (JSX) because it conflicts with JSX tags."
+      },
+      {
+        "type": "example",
+        "title": "Angle-bracket assertion",
+        "code": "const canvas = <HTMLCanvasElement>document.getElementById('myCanvas');\nconst ctx = canvas.getContext('2d')!;\n\n// Prefer 'as' in .tsx files:\nconst canvas2 = document.getElementById('myCanvas') as HTMLCanvasElement;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Non-Null Assertion Operator"
+      },
+      {
+        "type": "paragraph",
+        "text": "The postfix <code class=\"w3-codespan\">!</code> operator is a non-null assertion. It tells TypeScript that the value is neither <code class=\"w3-codespan\">null</code> nor <code class=\"w3-codespan\">undefined</code>, suppressing the corresponding error."
+      },
+      {
+        "type": "example",
+        "title": "Non-null assertion",
+        "code": "function getUser(id: number): string | null {\n  return id > 0 ? 'Alice' : null;\n}\n\n// Without assertion: string | null — must check before calling .toUpperCase()\nconst user = getUser(1);\n\n// With non-null assertion: string\nconst upperUser = getUser(1)!.toUpperCase();\nconsole.log(upperUser); // 'ALICE'\n\n// DOM example\nconst btn = document.querySelector('button')!;\nbtn.addEventListener('click', () => {});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Double Assertions"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript only allows assertions between compatible types. If you need to convert a type to a completely unrelated type (which is usually a sign of a design problem), you can use a double assertion via <code class=\"w3-codespan\">unknown</code> as an intermediate step."
+      },
+      {
+        "type": "example",
+        "title": "Double assertion through unknown",
+        "code": "// Dangerous — avoid unless absolutely necessary\nconst x = 'hello' as unknown as number;\n\n// TypeScript normally prevents incompatible assertions:\n// const y = 'hello' as number; // Error: Conversion may be a mistake"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Guards vs Type Assertions"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "Type Guard",
+          "Type Assertion"
+        ],
+        "rows": [
+          [
+            "Runtime check?",
+            "Yes",
+            "No"
+          ],
+          [
+            "Compiler error on wrong type?",
+            "Yes — narrows based on runtime logic",
+            "No — you override the compiler"
+          ],
+          [
+            "Safe?",
+            "Yes",
+            "Only if you are certain of the type"
+          ],
+          [
+            "Syntax",
+            "typeof, instanceof, in, custom guard",
+            "as Type or <Type>"
+          ],
+          [
+            "Preferred for?",
+            "Most narrowing scenarios",
+            "DOM APIs, JSON.parse, migration code"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always prefer type guards over type assertions. An assertion is a promise to the compiler — if you are wrong, you will get a runtime error that TypeScript cannot help you catch. The non-null assertion (<code class=\"w3-codespan\">!</code>) is especially dangerous; use optional chaining (<code class=\"w3-codespan\">?.</code>) as a safer alternative where possible."
+      }
+    ]
+  },
+  "type-guards": {
+    "title": "Type Guards & Narrowing",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Type guards allow TypeScript to narrow a broad type to a more specific one inside a conditional block, eliminating runtime errors and enabling full autocomplete on the narrowed type."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The typeof Type Guard"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code class=\"w3-codespan\">typeof</code> operator checks primitive types at runtime. TypeScript recognises these checks and narrows the type inside the branch automatically."
+      },
+      {
+        "type": "example",
+        "title": "typeof narrowing",
+        "code": "function formatValue(value: string | number): string {\n  if (typeof value === 'string') {\n    // TypeScript knows value is string here\n    return value.toUpperCase();\n  }\n  // TypeScript knows value is number here\n  return value.toFixed(2);\n}\n\nconsole.log(formatValue('hello')); // 'HELLO'\nconsole.log(formatValue(3.14159)); // '3.14'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The instanceof Type Guard"
+      },
+      {
+        "type": "paragraph",
+        "text": "Use <code class=\"w3-codespan\">instanceof</code> to narrow a union of class types. TypeScript will recognise the guard and give you access to members of the specific class inside that branch."
+      },
+      {
+        "type": "example",
+        "title": "instanceof narrowing",
+        "code": "class Cat {\n  meow() { return 'Meow!'; }\n}\nclass Dog {\n  bark() { return 'Woof!'; }\n}\n\nfunction makeSound(animal: Cat | Dog): string {\n  if (animal instanceof Cat) {\n    return animal.meow(); // safe\n  }\n  return animal.bark();  // safe\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Type Guard Functions"
+      },
+      {
+        "type": "paragraph",
+        "text": "When built-in operators are insufficient, you can write a <strong>user-defined type guard</strong>. The return type uses the <code class=\"w3-codespan\">parameterName is Type</code> predicate syntax to tell TypeScript which type was confirmed."
+      },
+      {
+        "type": "example",
+        "title": "Custom type predicate",
+        "code": "interface Fish { swim(): void; }\ninterface Bird { fly(): void; }\n\nfunction isFish(pet: Fish | Bird): pet is Fish {\n  return (pet as Fish).swim !== undefined;\n}\n\nfunction move(pet: Fish | Bird): void {\n  if (isFish(pet)) {\n    pet.swim(); // narrowed to Fish\n  } else {\n    pet.fly();  // narrowed to Bird\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Discriminated Unions & the in Operator"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <strong>discriminated union</strong> uses a shared literal property (often called a <em>tag</em> or <em>kind</em>) to distinguish union members. The <code class=\"w3-codespan\">in</code> operator checks whether a property exists on an object and is also recognised as a type guard."
+      },
+      {
+        "type": "example",
+        "title": "Discriminated union",
+        "code": "type Circle = { kind: 'circle'; radius: number };\ntype Square = { kind: 'square'; side: number };\ntype Shape = Circle | Square;\n\nfunction area(shape: Shape): number {\n  switch (shape.kind) {\n    case 'circle': return Math.PI * shape.radius ** 2;\n    case 'square': return shape.side ** 2;\n  }\n}"
+      },
+      {
+        "type": "note",
+        "text": "Add an <code class=\"w3-codespan\">never</code> exhaustiveness check in the default branch of a switch to get a compile-time error whenever a new union member is added but not handled."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Guard Technique",
+          "Syntax",
+          "Works With"
+        ],
+        "rows": [
+          [
+            "typeof",
+            "typeof x === 'string'",
+            "Primitives: string, number, boolean, symbol, bigint"
+          ],
+          [
+            "instanceof",
+            "x instanceof ClassName",
+            "Class instances"
+          ],
+          [
+            "in",
+            "'prop' in obj",
+            "Objects with optional or unique properties"
+          ],
+          [
+            "Custom predicate",
+            "fn(x): x is T",
+            "Any complex runtime check"
+          ],
+          [
+            "Discriminated union",
+            "switch(shape.kind)",
+            "Tagged union members"
+          ]
+        ]
+      }
+    ]
+  },
+  "utility-types": {
+    "title": "Utility Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript ships with a set of built-in generic utility types that transform existing types, removing the need to write repetitive mapped-type boilerplate by hand."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Partial, Required, and Readonly"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">Partial&lt;T&gt;</code> makes every property of <code class=\"w3-codespan\">T</code> optional. <code class=\"w3-codespan\">Required&lt;T&gt;</code> does the opposite, removing all optional modifiers. <code class=\"w3-codespan\">Readonly&lt;T&gt;</code> prevents any property from being reassigned after construction."
+      },
+      {
+        "type": "example",
+        "title": "Partial, Required, Readonly",
+        "code": "interface User {\n  id: number;\n  name: string;\n  email?: string;\n}\n\ntype PartialUser  = Partial<User>;   // all props optional\ntype RequiredUser = Required<User>;  // email no longer optional\ntype FrozenUser   = Readonly<User>;  // no reassignment allowed\n\nconst update: PartialUser = { name: 'Alice' }; // valid\nconst frozen: FrozenUser = { id: 1, name: 'Bob' };\n// frozen.name = 'Carol'; // Error: cannot assign to 'name'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Pick, Omit, and Record"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">Pick&lt;T, K&gt;</code> constructs a type by selecting a subset of properties <code class=\"w3-codespan\">K</code> from <code class=\"w3-codespan\">T</code>. <code class=\"w3-codespan\">Omit&lt;T, K&gt;</code> excludes those properties instead. <code class=\"w3-codespan\">Record&lt;K, V&gt;</code> builds an object type mapping keys <code class=\"w3-codespan\">K</code> to values of type <code class=\"w3-codespan\">V</code>."
+      },
+      {
+        "type": "example",
+        "title": "Pick, Omit, Record",
+        "code": "interface Product {\n  id: number;\n  name: string;\n  price: number;\n  category: string;\n}\n\ntype ProductPreview = Pick<Product, 'id' | 'name'>;\ntype ProductWithoutId = Omit<Product, 'id'>;\n\ntype CategoryMap = Record<string, Product[]>;\nconst catalog: CategoryMap = {\n  electronics: [],\n  clothing: [],\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Extract, Exclude, and NonNullable"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">Extract&lt;T, U&gt;</code> keeps only the members of union <code class=\"w3-codespan\">T</code> that are assignable to <code class=\"w3-codespan\">U</code>. <code class=\"w3-codespan\">Exclude&lt;T, U&gt;</code> removes them. <code class=\"w3-codespan\">NonNullable&lt;T&gt;</code> strips <code class=\"w3-codespan\">null</code> and <code class=\"w3-codespan\">undefined</code> from a type."
+      },
+      {
+        "type": "example",
+        "title": "Extract, Exclude, NonNullable",
+        "code": "type Status = 'active' | 'inactive' | 'pending' | 'deleted';\n\ntype ActiveStates  = Extract<Status, 'active' | 'pending'>; // 'active' | 'pending'\ntype SafeStates    = Exclude<Status, 'deleted'>;            // 'active' | 'inactive' | 'pending'\n\ntype MaybeString   = string | null | undefined;\ntype DefiniteString = NonNullable<MaybeString>; // string"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ReturnType, Parameters, and InstanceType"
+      },
+      {
+        "type": "paragraph",
+        "text": "Function-focused utility types let you derive types from existing functions. <code class=\"w3-codespan\">ReturnType&lt;T&gt;</code> extracts the return type, <code class=\"w3-codespan\">Parameters&lt;T&gt;</code> gives a tuple of the parameter types, and <code class=\"w3-codespan\">InstanceType&lt;T&gt;</code> gets the instance type of a constructor."
+      },
+      {
+        "type": "example",
+        "title": "ReturnType and Parameters",
+        "code": "function fetchUser(id: number, token: string) {\n  return { id, name: 'Alice', token };\n}\n\ntype FetchReturn = ReturnType<typeof fetchUser>;\n// { id: number; name: string; token: string }\n\ntype FetchParams = Parameters<typeof fetchUser>;\n// [id: number, token: string]\n\nclass ApiClient {\n  constructor(public baseUrl: string) {}\n}\ntype ClientInstance = InstanceType<typeof ApiClient>; // ApiClient"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Utility types are just aliases — they do not affect runtime behaviour.",
+          "Combine multiple utility types for precise shapes: Readonly<Partial<User>>.",
+          "ReturnType is useful when a function's return type isn't explicitly declared.",
+          "Record is ideal for dictionary/lookup map patterns.",
+          "All utility types are generic and can be composed freely."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Utility types operate at the <em>type level</em> only. They disappear during compilation and produce no JavaScript output."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Utility Type",
+          "Description",
+          "Example Result"
+        ],
+        "rows": [
+          [
+            "Partial<T>",
+            "All properties optional",
+            "{ id?: number; name?: string }"
+          ],
+          [
+            "Required<T>",
+            "All properties required",
+            "{ id: number; name: string }"
+          ],
+          [
+            "Readonly<T>",
+            "All properties read-only",
+            "{ readonly id: number }"
+          ],
+          [
+            "Pick<T, K>",
+            "Keep only listed keys",
+            "{ id: number }"
+          ],
+          [
+            "Omit<T, K>",
+            "Remove listed keys",
+            "{ name: string; email: string }"
+          ],
+          [
+            "Record<K, V>",
+            "Map keys to value type",
+            "{ [key: string]: number }"
+          ],
+          [
+            "Exclude<T, U>",
+            "Remove union members",
+            "'a' | 'b' | 'c' → 'a' | 'b'"
+          ],
+          [
+            "NonNullable<T>",
+            "Remove null/undefined",
+            "string | null → string"
+          ],
+          [
+            "ReturnType<F>",
+            "Return type of function",
+            "number"
+          ],
+          [
+            "Parameters<F>",
+            "Tuple of param types",
+            "[string, number]"
+          ]
+        ]
+      }
+    ]
+  },
+  "mapped-types": {
+    "title": "Mapped Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Mapped types let you create new types by iterating over the keys of an existing type and transforming each property — they are the engine behind most of TypeScript's built-in utility types."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Mapped Type Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "The syntax <code class=\"w3-codespan\">[K in keyof T]: SomeType</code> iterates every key <code class=\"w3-codespan\">K</code> of type <code class=\"w3-codespan\">T</code>. You can use <code class=\"w3-codespan\">T[K]</code> inside the body to preserve the original value type, or replace it with something new."
+      },
+      {
+        "type": "example",
+        "title": "Custom Readonly mapped type",
+        "code": "type MyReadonly<T> = {\n  readonly [K in keyof T]: T[K];\n};\n\ninterface Config {\n  host: string;\n  port: number;\n}\n\nconst cfg: MyReadonly<Config> = { host: 'localhost', port: 3000 };\n// cfg.port = 8080; // Error: cannot assign to 'port' because it is a read-only property"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modifier Tokens: + and -"
+      },
+      {
+        "type": "paragraph",
+        "text": "Prefix a modifier with <code class=\"w3-codespan\">-</code> to remove it, or <code class=\"w3-codespan\">+</code> to add it (the default). For example, <code class=\"w3-codespan\">-readonly</code> removes the readonly flag, and <code class=\"w3-codespan\">-?</code> removes the optional modifier — which is exactly how <code class=\"w3-codespan\">Required&lt;T&gt;</code> is implemented."
+      },
+      {
+        "type": "example",
+        "title": "Removing optional with -?",
+        "code": "type MyRequired<T> = {\n  [K in keyof T]-?: T[K];\n};\n\ninterface Draft {\n  title?: string;\n  body?: string;\n  published?: boolean;\n}\n\ntype PublishedPost = MyRequired<Draft>;\n// { title: string; body: string; published: boolean }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Remapping Keys with as"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript 4.1 introduced key remapping via the <code class=\"w3-codespan\">as</code> clause inside a mapped type. Combined with template literal types you can transform property names at the type level — for example generating getter method names automatically."
+      },
+      {
+        "type": "example",
+        "title": "Key remapping with template literals",
+        "code": "type Getters<T> = {\n  [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K];\n};\n\ninterface Person {\n  name: string;\n  age: number;\n}\n\ntype PersonGetters = Getters<Person>;\n// { getName: () => string; getAge: () => number }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Filtering Keys with never"
+      },
+      {
+        "type": "paragraph",
+        "text": "Returning <code class=\"w3-codespan\">never</code> from the <code class=\"w3-codespan\">as</code> clause removes that key entirely from the resulting type, acting as a compile-time filter on properties."
+      },
+      {
+        "type": "example",
+        "title": "Filtering out non-string values",
+        "code": "type StringOnly<T> = {\n  [K in keyof T as T[K] extends string ? K : never]: T[K];\n};\n\ninterface Mixed {\n  id: number;\n  name: string;\n  active: boolean;\n  label: string;\n}\n\ntype StringFields = StringOnly<Mixed>;\n// { name: string; label: string }"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use [K in keyof T] to iterate over all keys of T.",
+          "T[K] preserves the original value type for each key.",
+          "The as clause (TypeScript 4.1+) allows key renaming and filtering.",
+          "Return never from as to exclude a property from the result.",
+          "Mapped types can be combined with conditional types for powerful transformations.",
+          "All built-in utility types like Partial, Readonly, and Required are implemented as mapped types."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Mapped types only work on object types. Applying them to primitives like <code class=\"w3-codespan\">string</code> or <code class=\"w3-codespan\">number</code> directly produces an empty object type <code class=\"w3-codespan\">{}</code>."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Pattern",
+          "What It Does",
+          "Built-in Equivalent"
+        ],
+        "rows": [
+          [
+            "[K in keyof T]: T[K]",
+            "Identity — copies the type as-is",
+            "—"
+          ],
+          [
+            "[K in keyof T]?: T[K]",
+            "Makes all properties optional",
+            "Partial<T>"
+          ],
+          [
+            "[K in keyof T]-?: T[K]",
+            "Makes all properties required",
+            "Required<T>"
+          ],
+          [
+            "readonly [K in keyof T]: T[K]",
+            "Makes all properties readonly",
+            "Readonly<T>"
+          ],
+          [
+            "[K in keyof T as NewKey]: T[K]",
+            "Renames keys",
+            "—"
+          ],
+          [
+            "[K in keyof T as T[K] extends X ? K : never]: T[K]",
+            "Filters keys by value type",
+            "—"
+          ]
+        ]
+      }
+    ]
+  },
+  "conditional-types": {
+    "title": "Conditional Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Conditional types add if-else logic at the type level, enabling type relationships that depend on other types — unlocking patterns that would otherwise require many manual overloads."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Conditional Type Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "The syntax is <code class=\"w3-codespan\">T extends U ? X : Y</code>. If the type <code class=\"w3-codespan\">T</code> is assignable to <code class=\"w3-codespan\">U</code> the result is <code class=\"w3-codespan\">X</code>, otherwise it is <code class=\"w3-codespan\">Y</code>. This mirrors a JavaScript ternary but operates entirely at the type level."
+      },
+      {
+        "type": "example",
+        "title": "Simple conditional type",
+        "code": "type IsString<T> = T extends string ? true : false;\n\ntype A = IsString<string>;  // true\ntype B = IsString<number>;  // false\ntype C = IsString<'hello'>; // true (string literal extends string)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Distributive Conditional Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "When a conditional type is applied to a <strong>naked type parameter</strong> (one that is not wrapped), TypeScript distributes the condition over each member of a union automatically. This is how <code class=\"w3-codespan\">Exclude</code> and <code class=\"w3-codespan\">Extract</code> work internally."
+      },
+      {
+        "type": "example",
+        "title": "Distribution over unions",
+        "code": "type Flatten<T> = T extends Array<infer Item> ? Item : T;\n\ntype A = Flatten<string[]>;          // string\ntype B = Flatten<number[]>;          // number\ntype C = Flatten<string | number[]>; // string | number (distributed)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The infer Keyword"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code class=\"w3-codespan\">infer</code> keyword is used inside the <code class=\"w3-codespan\">extends</code> clause to declare a new type variable that TypeScript infers at the call site. It allows you to extract parts of a type structure — such as the element type of an array, or the return type of a function."
+      },
+      {
+        "type": "example",
+        "title": "infer to extract types",
+        "code": "// Extract the return type of a function\ntype MyReturnType<T> = T extends (...args: any[]) => infer R ? R : never;\n\nfunction greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\ntype GreetReturn = MyReturnType<typeof greet>; // string\n\n// Extract the first element of a tuple\ntype Head<T extends any[]> = T extends [infer H, ...any[]] ? H : never;\ntype First = Head<[string, number, boolean]>; // string"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Practical Conditional Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Conditional types are especially powerful when building library-level APIs where the return type depends on the input type. The example below shows a type-safe unwrapper that peels one layer of <code class=\"w3-codespan\">Promise</code> wrapping."
+      },
+      {
+        "type": "example",
+        "title": "Awaited type (manual implementation)",
+        "code": "type Awaited<T> = T extends Promise<infer U> ? Awaited<U> : T;\n\ntype A = Awaited<Promise<string>>;           // string\ntype B = Awaited<Promise<Promise<number>>>;  // number\ntype C = Awaited<boolean>;                  // boolean\n\n// TypeScript 4.5+ ships Awaited<T> as a built-in utility type"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "T extends U ? X : Y is the fundamental conditional type syntax.",
+          "Conditional types distribute over union types when applied to a naked type parameter.",
+          "Use infer to capture and name a type that TypeScript deduces from a pattern.",
+          "Wrap T in a tuple [T] extends [U] to prevent distribution when you need non-distributive behaviour.",
+          "Recursive conditional types (TypeScript 4.1+) can model deeply nested structures.",
+          "The built-in Awaited<T>, ReturnType<T>, and Parameters<T> are all implemented with conditional types and infer."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "To disable distribution, wrap the type parameter: <code class=\"w3-codespan\">[T] extends [U] ? X : Y</code>. This treats the entire type as a single unit rather than distributing over union members."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Pattern",
+          "Purpose",
+          "Example"
+        ],
+        "rows": [
+          [
+            "T extends U ? X : Y",
+            "Basic conditional",
+            "IsString<T>"
+          ],
+          [
+            "T extends infer U ? U : never",
+            "Capture inferred type",
+            "Flatten<T[]>"
+          ],
+          [
+            "T extends (...args: any[]) => infer R ? R : never",
+            "Extract return type",
+            "ReturnType<T>"
+          ],
+          [
+            "T extends [infer H, ...infer T] ? H : never",
+            "Destructure tuple",
+            "Head<T>"
+          ],
+          [
+            "[T] extends [U] ? X : Y",
+            "Non-distributive check",
+            "IsExactly<T, U>"
+          ]
+        ]
+      }
+    ]
+  },
+  "modules": {
+    "title": "Modules & Namespaces",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript supports both ES module syntax and its own namespace system, giving you fine-grained control over code organisation and encapsulation across files."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ES Modules in TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript uses the standard ES module syntax: <code class=\"w3-codespan\">export</code> to expose declarations and <code class=\"w3-codespan\">import</code> to consume them. Types and interfaces are erased at compile time and never appear in the emitted JavaScript."
+      },
+      {
+        "type": "example",
+        "title": "Named exports and imports",
+        "code": "// math.ts\nexport function add(a: number, b: number): number {\n  return a + b;\n}\nexport const PI = 3.14159;\nexport type MathOp = (a: number, b: number) => number;\n\n// main.ts\nimport { add, PI, type MathOp } from './math';\n\nconst multiply: MathOp = (a, b) => a * b;\nconsole.log(add(2, 3));   // 5\nconsole.log(PI);          // 3.14159"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Default Exports"
+      },
+      {
+        "type": "paragraph",
+        "text": "A module may have one <code class=\"w3-codespan\">export default</code> declaration, which can be imported under any name. Default exports are common in frameworks like React and Angular. Prefer named exports for libraries to make tree-shaking easier."
+      },
+      {
+        "type": "example",
+        "title": "Default export",
+        "code": "// logger.ts\nexport default class Logger {\n  log(message: string): void {\n    console.log(`[LOG] ${message}`);\n  }\n}\n\n// app.ts\nimport Logger from './logger'; // name is arbitrary\nconst logger = new Logger();\nlogger.log('App started');"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Re-exporting and Barrel Files"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <strong>barrel file</strong> (conventionally named <code class=\"w3-codespan\">index.ts</code>) re-exports from multiple modules to create a clean public API for a directory. Use <code class=\"w3-codespan\">export { ... } from</code> to re-export named exports or <code class=\"w3-codespan\">export * from</code> for everything."
+      },
+      {
+        "type": "example",
+        "title": "Barrel re-export (index.ts)",
+        "code": "// components/index.ts\nexport { Button }   from './Button';\nexport { Input }    from './Input';\nexport { type ButtonProps } from './Button';\nexport * from './icons';\n\n// consumer\nimport { Button, Input } from './components';"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Namespaces"
+      },
+      {
+        "type": "paragraph",
+        "text": "Namespaces (previously called <em>internal modules</em>) group related declarations under a single name. They are useful for organising global scripts that are not bundled as modules. The <code class=\"w3-codespan\">namespace</code> keyword compiles to a self-executing function that attaches properties to an object."
+      },
+      {
+        "type": "example",
+        "title": "Namespace declaration",
+        "code": "namespace Validation {\n  export interface StringValidator {\n    isAcceptable(s: string): boolean;\n  }\n\n  export class LettersOnlyValidator implements StringValidator {\n    isAcceptable(s: string): boolean {\n      return /^[A-Za-z]+$/.test(s);\n    }\n  }\n}\n\nconst validator = new Validation.LettersOnlyValidator();\nconsole.log(validator.isAcceptable('Hello')); // true\nconsole.log(validator.isAcceptable('123'));   // false"
+      },
+      {
+        "type": "note",
+        "text": "Prefer ES modules over namespaces for new projects. Namespaces are most useful when writing ambient declaration files or targeting environments without a module bundler."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use import type or export type to import/export types only — they are erased at compile time and help bundlers with tree-shaking.",
+          "Dynamic imports import('./module') return a Promise and enable code splitting.",
+          "Set moduleResolution: 'bundler' or 'node16' in tsconfig.json to match your bundler's resolution strategy.",
+          "Namespaces can span multiple files using reference directives: /// <reference path=\"...\" />",
+          "Avoid mixing namespace imports and ES module imports in the same project."
+        ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Concept",
+          "Syntax",
+          "Use Case"
+        ],
+        "rows": [
+          [
+            "Named export",
+            "export const x = 1",
+            "Most declarations"
+          ],
+          [
+            "Default export",
+            "export default class Foo",
+            "Single main export per file"
+          ],
+          [
+            "Re-export",
+            "export { x } from './y'",
+            "Barrel/index files"
+          ],
+          [
+            "Type-only import",
+            "import type { T } from './t'",
+            "Type imports (erased at runtime)"
+          ],
+          [
+            "Dynamic import",
+            "await import('./module')",
+            "Lazy loading, code splitting"
+          ],
+          [
+            "Namespace",
+            "namespace Foo { ... }",
+            "Grouping globals or ambient types"
+          ]
+        ]
+      }
+    ]
+  },
+  "decorators": {
+    "title": "Decorators",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Decorators are a stage-3 JavaScript proposal that TypeScript supports today, providing a declarative way to attach metadata or modify the behaviour of classes, methods, properties, and parameters."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Enabling Decorators"
+      },
+      {
+        "type": "paragraph",
+        "text": "To use decorators, set <code class=\"w3-codespan\">experimentalDecorators: true</code> in your <code class=\"w3-codespan\">tsconfig.json</code>. For metadata reflection (used by frameworks like NestJS and Angular), also enable <code class=\"w3-codespan\">emitDecoratorMetadata: true</code> and install the <code class=\"w3-codespan\">reflect-metadata</code> package."
+      },
+      {
+        "type": "example",
+        "title": "tsconfig.json decorator settings",
+        "code": "// tsconfig.json (excerpt)\n{\n  \"compilerOptions\": {\n    \"target\": \"ES2021\",\n    \"experimentalDecorators\": true,\n    \"emitDecoratorMetadata\": true\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Class Decorators"
+      },
+      {
+        "type": "paragraph",
+        "text": "A class decorator is a function that receives the constructor of the decorated class. It can observe the class, modify it, or return a replacement constructor. The decorator is applied with the <code class=\"w3-codespan\">@</code> symbol immediately before the class declaration."
+      },
+      {
+        "type": "example",
+        "title": "Class decorator",
+        "code": "function Sealed(constructor: Function) {\n  Object.seal(constructor);\n  Object.seal(constructor.prototype);\n}\n\n@Sealed\nclass BankAccount {\n  constructor(public owner: string, public balance: number) {}\n}\n\n// BankAccount.prototype cannot be extended at runtime"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Method Decorators"
+      },
+      {
+        "type": "paragraph",
+        "text": "A method decorator receives the target prototype, the method name, and the property descriptor. It is commonly used to add cross-cutting concerns like logging, timing, or access control without modifying the method body."
+      },
+      {
+        "type": "example",
+        "title": "Method decorator for logging",
+        "code": "function Log(target: any, key: string, descriptor: PropertyDescriptor) {\n  const original = descriptor.value;\n  descriptor.value = function (...args: any[]) {\n    console.log(`Calling ${key} with`, args);\n    const result = original.apply(this, args);\n    console.log(`${key} returned`, result);\n    return result;\n  };\n  return descriptor;\n}\n\nclass Calculator {\n  @Log\n  add(a: number, b: number): number {\n    return a + b;\n  }\n}\n\nnew Calculator().add(2, 3);\n// Calling add with [2, 3]\n// add returned 5"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Property and Parameter Decorators"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <strong>property decorator</strong> receives the target and property name. It is most useful for recording metadata. A <strong>parameter decorator</strong> receives the target, method name, and the parameter index, and is frequently used by dependency injection frameworks to register injectable tokens."
+      },
+      {
+        "type": "example",
+        "title": "Property decorator",
+        "code": "function MinLength(min: number) {\n  return function (target: any, propertyKey: string) {\n    let value: string;\n    Object.defineProperty(target, propertyKey, {\n      get: () => value,\n      set: (newVal: string) => {\n        if (newVal.length < min) {\n          throw new Error(`${propertyKey} must be at least ${min} characters`);\n        }\n        value = newVal;\n      },\n    });\n  };\n}\n\nclass User {\n  @MinLength(3)\n  username!: string;\n}\n\nconst u = new User();\nu.username = 'Al'; // throws Error"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Decorators run at class definition time, not at instantiation time.",
+          "Multiple decorators on one target are applied bottom-up (closest to the target first).",
+          "Class decorators run after all member decorators have been applied.",
+          "Decorator factories (functions that return decorators) accept configuration arguments.",
+          "NestJS uses decorators heavily: @Controller, @Injectable, @Get, @Body, etc.",
+          "Angular uses @Component, @NgModule, @Input, @Output, and @Inject."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "TypeScript 5.0 introduced support for the TC39 Stage 3 decorator proposal with different semantics. Check your framework's compatibility before switching from <code class=\"w3-codespan\">experimentalDecorators</code> to the new standard."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Decorator Type",
+          "Arguments",
+          "Common Use"
+        ],
+        "rows": [
+          [
+            "Class",
+            "constructor: Function",
+            "Sealing, metadata, mixins"
+          ],
+          [
+            "Method",
+            "target, key, descriptor",
+            "Logging, caching, access control"
+          ],
+          [
+            "Accessor",
+            "target, key, descriptor",
+            "Getters/setters interception"
+          ],
+          [
+            "Property",
+            "target, key",
+            "Validation, metadata registration"
+          ],
+          [
+            "Parameter",
+            "target, key, paramIndex",
+            "Dependency injection tokens"
+          ]
+        ]
+      }
+    ]
+  },
+  "strict-mode": {
+    "title": "Strict Mode & Config",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript's compiler options give you precise control over strictness, output targets, and module resolution — understanding them is essential for maintaining a healthy, scalable codebase."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The tsconfig.json File"
+      },
+      {
+        "type": "paragraph",
+        "text": "All TypeScript compiler settings live in <code class=\"w3-codespan\">tsconfig.json</code> at the root of your project. The <code class=\"w3-codespan\">compilerOptions</code> object controls the TypeScript compiler, while <code class=\"w3-codespan\">include</code>, <code class=\"w3-codespan\">exclude</code>, and <code class=\"w3-codespan\">files</code> control which source files are part of the compilation."
+      },
+      {
+        "type": "example",
+        "title": "Typical tsconfig.json",
+        "code": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"bundler\",\n    \"lib\": [\"ES2022\", \"DOM\"],\n    \"strict\": true,\n    \"noUncheckedIndexedAccess\": true,\n    \"exactOptionalPropertyTypes\": true,\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\",\n    \"declaration\": true,\n    \"sourceMap\": true,\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true\n  },\n  \"include\": [\"src\"],\n  \"exclude\": [\"node_modules\", \"dist\"]\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The strict Flag"
+      },
+      {
+        "type": "paragraph",
+        "text": "Enabling <code class=\"w3-codespan\">\"strict\": true</code> is a single flag that activates a family of individual strict checks. This is the recommended setting for all new projects. You can also enable each sub-flag individually if you need to migrate an existing codebase incrementally."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "strictNullChecks — null and undefined are not assignable to other types.",
+          "strictFunctionTypes — function parameter types are checked contravariantly.",
+          "strictBindCallApply — bind, call, and apply are type-checked.",
+          "strictPropertyInitialization — class properties must be initialised in the constructor.",
+          "noImplicitAny — expressions cannot silently get an implicit any type.",
+          "noImplicitThis — this in functions must have an explicit type annotation.",
+          "alwaysStrict — emits 'use strict' in every output file."
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Additional Strictness Flags"
+      },
+      {
+        "type": "paragraph",
+        "text": "Beyond <code class=\"w3-codespan\">strict</code>, several additional flags catch more subtle bugs. <code class=\"w3-codespan\">noUncheckedIndexedAccess</code> adds <code class=\"w3-codespan\">undefined</code> to the return type of array and index signature accesses. <code class=\"w3-codespan\">exactOptionalPropertyTypes</code> distinguishes between a missing property and one explicitly set to <code class=\"w3-codespan\">undefined</code>."
+      },
+      {
+        "type": "example",
+        "title": "Effect of noUncheckedIndexedAccess",
+        "code": "// With noUncheckedIndexedAccess: true\nconst items = ['a', 'b', 'c'];\nconst first = items[0]; // type: string | undefined\n\n// You must narrow before using:\nif (first !== undefined) {\n  console.log(first.toUpperCase()); // safe\n}\n\n// Without the flag: first would be string (potentially wrong)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Project References"
+      },
+      {
+        "type": "paragraph",
+        "text": "For large monorepos, TypeScript <strong>project references</strong> (<code class=\"w3-codespan\">\"references\"</code> in tsconfig.json) allow the compiler to build sub-projects independently and cache their outputs. Use <code class=\"w3-codespan\">tsc --build</code> (or <code class=\"w3-codespan\">tsc -b</code>) to compile with project references."
+      },
+      {
+        "type": "example",
+        "title": "Project references setup",
+        "code": "// tsconfig.json (root)\n{\n  \"files\": [],\n  \"references\": [\n    { \"path\": \"./packages/core\" },\n    { \"path\": \"./packages/ui\" },\n    { \"path\": \"./apps/web\" }\n  ]\n}\n\n// packages/core/tsconfig.json\n{\n  \"compilerOptions\": {\n    \"composite\": true,  // required for project references\n    \"declaration\": true\n  }\n}"
+      },
+      {
+        "type": "note",
+        "text": "Run <code class=\"w3-codespan\">tsc --noEmit</code> for type-checking without producing output files — ideal for CI pipelines where a bundler (Vite, webpack) handles the actual build."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Compiler Option",
+          "Default",
+          "Effect"
+        ],
+        "rows": [
+          [
+            "strict",
+            "false",
+            "Enables all strict sub-flags"
+          ],
+          [
+            "noImplicitAny",
+            "false (true with strict)",
+            "Error on implicit any"
+          ],
+          [
+            "strictNullChecks",
+            "false (true with strict)",
+            "null/undefined require explicit handling"
+          ],
+          [
+            "noUncheckedIndexedAccess",
+            "false",
+            "Adds undefined to index access results"
+          ],
+          [
+            "exactOptionalPropertyTypes",
+            "false",
+            "Distinguishes missing vs undefined properties"
+          ],
+          [
+            "noUnusedLocals",
+            "false",
+            "Error on unused local variables"
+          ],
+          [
+            "noUnusedParameters",
+            "false",
+            "Error on unused function parameters"
+          ],
+          [
+            "noImplicitReturns",
+            "false",
+            "Error if not all code paths return a value"
+          ]
+        ]
+      }
+    ]
+  },
+  "dom-types": {
+    "title": "TypeScript with DOM",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript ships a comprehensive set of DOM type definitions, letting you write type-safe browser code with full autocomplete for every Web API — from DOM manipulation to Fetch and Web Workers."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Enabling DOM Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Add <code class=\"w3-codespan\">\"DOM\"</code> and <code class=\"w3-codespan\">\"DOM.Iterable\"</code> to the <code class=\"w3-codespan\">lib</code> array in your <code class=\"w3-codespan\">tsconfig.json</code>. Without this, browser globals like <code class=\"w3-codespan\">document</code>, <code class=\"w3-codespan\">window</code>, and <code class=\"w3-codespan\">HTMLElement</code> will be unknown to the compiler."
+      },
+      {
+        "type": "example",
+        "title": "tsconfig.json lib setting",
+        "code": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"lib\": [\"ES2022\", \"DOM\", \"DOM.Iterable\"]\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Querying the DOM Safely"
+      },
+      {
+        "type": "paragraph",
+        "text": "Methods like <code class=\"w3-codespan\">document.getElementById</code> return <code class=\"w3-codespan\">HTMLElement | null</code>. You must check for <code class=\"w3-codespan\">null</code> before accessing properties. To get a more specific element type, use a generic overload such as <code class=\"w3-codespan\">document.querySelector&lt;HTMLInputElement&gt;</code>."
+      },
+      {
+        "type": "example",
+        "title": "Type-safe DOM querying",
+        "code": "// Non-null assertion when you know the element exists:\nconst title = document.getElementById('title')!;\ntitle.textContent = 'Hello, TypeScript';\n\n// Generic querySelector for specific element types:\nconst input = document.querySelector<HTMLInputElement>('#email');\nif (input) {\n  input.value = 'user@example.com'; // safe: HTMLInputElement\n  console.log(input.type);          // 'text', 'email', etc.\n}\n\n// querySelectorAll returns NodeListOf<T>:\nconst buttons = document.querySelectorAll<HTMLButtonElement>('.btn');\nbuttons.forEach(btn => btn.addEventListener('click', handleClick));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Typing Event Handlers"
+      },
+      {
+        "type": "paragraph",
+        "text": "Event handlers receive typed event objects. Use <code class=\"w3-codespan\">MouseEvent</code>, <code class=\"w3-codespan\">KeyboardEvent</code>, <code class=\"w3-codespan\">InputEvent</code>, and others to get accurate types for <code class=\"w3-codespan\">event.target</code>, <code class=\"w3-codespan\">event.key</code>, and related properties."
+      },
+      {
+        "type": "example",
+        "title": "Typed event handlers",
+        "code": "function handleClick(event: MouseEvent): void {\n  const target = event.target as HTMLButtonElement;\n  console.log('Clicked:', target.textContent);\n}\n\nfunction handleInput(event: Event): void {\n  const input = event.target as HTMLInputElement;\n  console.log('Value:', input.value);\n}\n\nconst form = document.querySelector<HTMLFormElement>('#myForm')!;\nform.addEventListener('submit', (event: SubmitEvent) => {\n  event.preventDefault();\n  const data = new FormData(form);\n  console.log(data.get('username'));\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Fetch API and Typing Responses"
+      },
+      {
+        "type": "paragraph",
+        "text": "The Fetch API is fully typed in TypeScript. The <code class=\"w3-codespan\">Response.json()</code> method returns <code class=\"w3-codespan\">Promise&lt;any&gt;</code>, so it is best practice to cast the result to your own interface for type safety."
+      },
+      {
+        "type": "example",
+        "title": "Type-safe fetch",
+        "code": "interface Post {\n  id: number;\n  title: string;\n  body: string;\n  userId: number;\n}\n\nasync function fetchPost(id: number): Promise<Post> {\n  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);\n  if (!response.ok) {\n    throw new Error(`HTTP error: ${response.status}`);\n  }\n  return response.json() as Promise<Post>;\n}\n\nconst post = await fetchPost(1);\nconsole.log(post.title); // TypeScript knows this is string"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use non-null assertion (!) only when you are certain an element exists; prefer explicit null checks otherwise.",
+          "The as keyword is a type assertion, not a cast — it does not convert values at runtime.",
+          "EventTarget and Element are broad base types; use specific subtypes like HTMLInputElement for element-specific properties.",
+          "Web Worker global scope uses a different lib: 'WebWorker' instead of 'DOM'.",
+          "TypeScript's lib.dom.d.ts is automatically updated with browser APIs as the spec evolves."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Avoid overusing type assertions (<code class=\"w3-codespan\">as Type</code>). Each assertion is a promise to the compiler that you know better — a wrong assertion will cause a runtime error with no compile-time warning."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "API",
+          "Return Type",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "document.getElementById",
+            "HTMLElement | null",
+            "Null-check required"
+          ],
+          [
+            "document.querySelector<T>",
+            "T | null",
+            "Generic for specific types"
+          ],
+          [
+            "document.querySelectorAll<T>",
+            "NodeListOf<T>",
+            "Iterable with forEach"
+          ],
+          [
+            "addEventListener",
+            "void",
+            "Event type from callback param"
+          ],
+          [
+            "fetch",
+            "Promise<Response>",
+            "Cast .json() to your interface"
+          ],
+          [
+            "new FormData(form)",
+            "FormData",
+            "Use .get() / .getAll()"
+          ]
+        ]
+      }
+    ]
+  },
+  "generics-advanced": {
+    "title": "Advanced Generics",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Advanced generics unlock reusable abstractions that remain fully type-safe — from constraining type parameters to building higher-order functions that preserve the types of their inputs automatically."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Constraints with extends"
+      },
+      {
+        "type": "paragraph",
+        "text": "Use <code class=\"w3-codespan\">T extends SomeType</code> in a generic definition to constrain the set of types that can be passed as <code class=\"w3-codespan\">T</code>. This lets you call properties or methods that are guaranteed to exist on the constrained type."
+      },
+      {
+        "type": "example",
+        "title": "Generic constraints",
+        "code": "function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}\n\nconst user = { id: 1, name: 'Alice', active: true };\nconst name   = getProperty(user, 'name');   // type: string\nconst active = getProperty(user, 'active'); // type: boolean\n// getProperty(user, 'missing'); // Error: 'missing' not in keyof user"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multiple Type Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Generic functions and classes can have multiple type parameters. They can be independent or can reference each other via constraints, enabling precise modelling of relationships between types."
+      },
+      {
+        "type": "example",
+        "title": "Multiple type parameters",
+        "code": "function merge<T extends object, U extends object>(obj1: T, obj2: U): T & U {\n  return { ...obj1, ...obj2 };\n}\n\nconst merged = merge({ name: 'Alice' }, { age: 30 });\n// type: { name: string } & { age: number }\nconsole.log(merged.name); // 'Alice'\nconsole.log(merged.age);  // 30"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Classes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Classes can be parameterised with type variables, enabling type-safe data structures. The type parameter applies to all methods and properties within the class, ensuring consistent typing throughout its API."
+      },
+      {
+        "type": "example",
+        "title": "Generic Stack class",
+        "code": "class Stack<T> {\n  private items: T[] = [];\n\n  push(item: T): void {\n    this.items.push(item);\n  }\n\n  pop(): T | undefined {\n    return this.items.pop();\n  }\n\n  peek(): T | undefined {\n    return this.items[this.items.length - 1];\n  }\n\n  get size(): number {\n    return this.items.length;\n  }\n}\n\nconst numStack = new Stack<number>();\nnumStack.push(1);\nnumStack.push(2);\nconsole.log(numStack.pop()); // 2"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Default Type Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Like default function arguments, generic type parameters can have defaults with <code class=\"w3-codespan\">T = DefaultType</code>. This is useful in component libraries where a type parameter is usually <code class=\"w3-codespan\">string</code> but can be overridden."
+      },
+      {
+        "type": "example",
+        "title": "Default type parameters",
+        "code": "interface ApiResponse<T = unknown> {\n  data: T;\n  status: number;\n  message: string;\n}\n\n// Without specifying T, defaults to unknown:\nconst raw: ApiResponse = { data: null, status: 200, message: 'ok' };\n\n// With a specific type:\ninterface User { id: number; name: string; }\nconst typed: ApiResponse<User> = {\n  data: { id: 1, name: 'Alice' },\n  status: 200,\n  message: 'ok',\n};\nconsole.log(typed.data.name); // 'Alice'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Variadic Tuple Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript 4.0 introduced variadic tuple types, allowing generic rest elements in tuples. Combined with <code class=\"w3-codespan\">infer</code>, they enable type-safe composition of function argument lists and tuple transformations."
+      },
+      {
+        "type": "example",
+        "title": "Variadic tuple type",
+        "code": "type Concat<T extends unknown[], U extends unknown[]> = [...T, ...U];\n\ntype AB = Concat<[string, number], [boolean, Date]>;\n// [string, number, boolean, Date]\n\nfunction concat<T extends unknown[], U extends unknown[]>(\n  a: T,\n  b: U\n): Concat<T, U> {\n  return [...a, ...b] as Concat<T, U>;\n}\n\nconst result = concat([1, 'a'], [true, new Date()]);\n// type: [number, string, boolean, Date]"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Use extends to constrain type parameters and access their members safely.",
+          "keyof T produces a union of the string literal key names of T.",
+          "T[K] is an indexed access type — it looks up the type of property K on T.",
+          "Default type parameters reduce boilerplate for common cases.",
+          "Variadic tuple types (TypeScript 4.0+) allow spreading generics into tuples.",
+          "Generic interfaces and classes can implement other generic interfaces."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "When TypeScript cannot infer a type parameter, it falls back to the constraint (<code class=\"w3-codespan\">unknown</code> if none is specified). Always provide explicit type arguments when inference would be ambiguous."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Pattern",
+          "Syntax",
+          "Purpose"
+        ],
+        "rows": [
+          [
+            "Constrained parameter",
+            "T extends U",
+            "Restrict what T can be"
+          ],
+          [
+            "Key constraint",
+            "K extends keyof T",
+            "K must be a key of T"
+          ],
+          [
+            "Indexed access",
+            "T[K]",
+            "Type of property K on T"
+          ],
+          [
+            "Default parameter",
+            "T = string",
+            "Fallback when T is omitted"
+          ],
+          [
+            "Multiple params",
+            "<T, U extends T>",
+            "Relate multiple params"
+          ],
+          [
+            "Variadic tuple",
+            "[...T, ...U]",
+            "Spread generics into tuples"
+          ]
+        ]
+      }
+    ]
+  },
+  "declaration-files": {
+    "title": "Declaration Files (.d.ts)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Declaration files describe the types of existing JavaScript code to TypeScript — they are the bridge that gives third-party libraries and plain JS modules full type safety without requiring a rewrite."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What Is a .d.ts File?"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <code class=\"w3-codespan\">.d.ts</code> file contains only type information and no executable code. TypeScript uses these files for type checking but does not emit them as JavaScript. When you compile TypeScript with <code class=\"w3-codespan\">\"declaration\": true</code>, the compiler automatically generates a <code class=\"w3-codespan\">.d.ts</code> alongside every <code class=\"w3-codespan\">.js</code> output file."
+      },
+      {
+        "type": "example",
+        "title": "Generated .d.ts for a module",
+        "code": "// src/math.ts (source)\nexport function add(a: number, b: number): number {\n  return a + b;\n}\nexport const VERSION = '1.0.0';\n\n// dist/math.d.ts (auto-generated)\nexport declare function add(a: number, b: number): number;\nexport declare const VERSION: string;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Ambient Declarations"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code class=\"w3-codespan\">declare</code> keyword marks a declaration as <em>ambient</em> — it tells TypeScript \"this thing exists at runtime\" without providing an implementation. Ambient declarations are the building blocks of hand-written <code class=\"w3-codespan\">.d.ts</code> files for pure JavaScript libraries."
+      },
+      {
+        "type": "example",
+        "title": "Ambient declarations",
+        "code": "// types/legacy-lib.d.ts\ndeclare const __VERSION__: string;\n\ndeclare function initLibrary(config: {\n  apiKey: string;\n  debug?: boolean;\n}): void;\n\ndeclare class EventEmitter {\n  on(event: string, listener: (...args: any[]) => void): this;\n  off(event: string, listener: (...args: any[]) => void): this;\n  emit(event: string, ...args: any[]): boolean;\n}\n\ndeclare module 'legacy-analytics' {\n  export function track(event: string, data?: object): void;\n  export function identify(userId: string): void;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "DefinitelyTyped and @types"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <strong>DefinitelyTyped</strong> repository hosts community-maintained declaration files for thousands of popular JavaScript packages. Install them via npm under the <code class=\"w3-codespan\">@types</code> scope. TypeScript automatically picks them up from <code class=\"w3-codespan\">node_modules/@types</code>."
+      },
+      {
+        "type": "example",
+        "title": "Installing @types packages",
+        "code": "# Install type definitions for popular libraries\nnpm install --save-dev @types/node\nnpm install --save-dev @types/lodash\nnpm install --save-dev @types/jest\n\n# Then import and use with full type safety:\nimport _ from 'lodash';\nconst result = _.chunk([1, 2, 3, 4], 2);\n// result: number[][]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Module Augmentation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Module augmentation lets you add new type information to an existing module's declarations — for example, extending <code class=\"w3-codespan\">Express.Request</code> to include a custom <code class=\"w3-codespan\">user</code> property added by authentication middleware."
+      },
+      {
+        "type": "example",
+        "title": "Augmenting Express Request",
+        "code": "// src/types/express.d.ts\nimport 'express';\n\ndeclare module 'express' {\n  interface Request {\n    user?: {\n      id: string;\n      email: string;\n      role: 'admin' | 'user';\n    };\n  }\n}\n\n// Now in your middleware:\nimport { Request, Response, NextFunction } from 'express';\n\nfunction authMiddleware(req: Request, res: Response, next: NextFunction) {\n  req.user = { id: '1', email: 'a@b.com', role: 'admin' }; // typed!\n  next();\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Global Augmentation"
+      },
+      {
+        "type": "paragraph",
+        "text": "To add properties to the global scope (e.g., extending <code class=\"w3-codespan\">Window</code> or <code class=\"w3-codespan\">globalThis</code>), use <code class=\"w3-codespan\">declare global</code> inside a module file."
+      },
+      {
+        "type": "example",
+        "title": "Extending the Window interface",
+        "code": "// src/types/global.d.ts\nexport {}; // ensures this is treated as a module\n\ndeclare global {\n  interface Window {\n    analytics: {\n      track(event: string, properties?: object): void;\n    };\n    __APP_CONFIG__: {\n      apiUrl: string;\n      featureFlags: Record<string, boolean>;\n    };\n  }\n}\n\n// In any .ts file:\nwindow.analytics.track('page_view'); // fully typed"
+      },
+      {
+        "type": "note",
+        "text": "A <code class=\"w3-codespan\">.d.ts</code> file that contains no <code class=\"w3-codespan\">import</code> or <code class=\"w3-codespan\">export</code> statements is treated as a <em>script</em> (global scope). Add <code class=\"w3-codespan\">export {}</code> to make it a module and enable <code class=\"w3-codespan\">declare global</code>."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Set declaration: true in tsconfig.json to auto-generate .d.ts files.",
+          "Use skipLibCheck: true to skip type-checking of .d.ts files in node_modules.",
+          "The types and typeRoots compiler options control which @types packages are included.",
+          "Module augmentation must import the original module to stay in module scope.",
+          "Hand-write .d.ts files only for libraries that have no @types package available.",
+          "Always ship .d.ts files alongside your npm package if it is written in TypeScript."
+        ]
+      }
+    ]
+  },
+  "ts-frameworks": {
+    "title": "TypeScript with Frameworks",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript is the default language in both Angular and is strongly encouraged in React, Vue, and NestJS — each framework provides first-class type definitions that make component development safer and more productive."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript with React"
+      },
+      {
+        "type": "paragraph",
+        "text": "In React, type your component props with an interface or type alias and pass it as a generic to <code class=\"w3-codespan\">React.FC</code> or annotate the function directly. Use <code class=\"w3-codespan\">useState&lt;T&gt;</code>, <code class=\"w3-codespan\">useRef&lt;T&gt;</code>, and typed event handlers for fully type-safe components."
+      },
+      {
+        "type": "example",
+        "title": "React functional component with TypeScript",
+        "code": "import React, { useState, useRef } from 'react';\n\ninterface ButtonProps {\n  label: string;\n  onClick: (count: number) => void;\n  disabled?: boolean;\n}\n\nconst Counter: React.FC<ButtonProps> = ({ label, onClick, disabled = false }) => {\n  const [count, setCount] = useState<number>(0);\n\n  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {\n    const next = count + 1;\n    setCount(next);\n    onClick(next);\n  };\n\n  return (\n    <button onClick={handleClick} disabled={disabled}>\n      {label}: {count}\n    </button>\n  );\n};\n\nexport default Counter;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "React Hooks with TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Custom hooks follow the same generic patterns. <code class=\"w3-codespan\">useReducer</code> benefits greatly from TypeScript — use a discriminated union for actions to get exhaustive checking in the reducer."
+      },
+      {
+        "type": "example",
+        "title": "useReducer with discriminated union",
+        "code": "type Action =\n  | { type: 'increment' }\n  | { type: 'decrement' }\n  | { type: 'reset'; payload: number };\n\ninterface State { count: number; }\n\nfunction reducer(state: State, action: Action): State {\n  switch (action.type) {\n    case 'increment': return { count: state.count + 1 };\n    case 'decrement': return { count: state.count - 1 };\n    case 'reset':     return { count: action.payload };\n  }\n}\n\n// In a component:\nconst [state, dispatch] = React.useReducer(reducer, { count: 0 });\ndispatch({ type: 'reset', payload: 10 });"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript with Angular"
+      },
+      {
+        "type": "paragraph",
+        "text": "Angular is built with TypeScript and uses decorators extensively. Use <code class=\"w3-codespan\">@Component</code>, <code class=\"w3-codespan\">@Input()</code>, and <code class=\"w3-codespan\">@Output()</code> with explicit types. Angular's <code class=\"w3-codespan\">signal()</code> API (v17+) is fully generic."
+      },
+      {
+        "type": "example",
+        "title": "Angular standalone component",
+        "code": "import { Component, Input, Output, EventEmitter, signal } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\ninterface Task {\n  id: number;\n  title: string;\n  completed: boolean;\n}\n\n@Component({\n  selector: 'app-task-item',\n  standalone: true,\n  imports: [CommonModule],\n  template: `\n    <li [class.done]=\"task.completed\">\n      {{ task.title }}\n      <button (click)=\"toggle.emit(task.id)\">Toggle</button>\n    </li>\n  `\n})\nexport class TaskItemComponent {\n  @Input({ required: true }) task!: Task;\n  @Output() toggle = new EventEmitter<number>();\n\n  // Angular signals (v17+)\n  readonly count = signal<number>(0);\n  increment() { this.count.update(v => v + 1); }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript with NestJS"
+      },
+      {
+        "type": "paragraph",
+        "text": "NestJS is an opinionated Node.js framework that leans heavily on TypeScript decorators and dependency injection. DTOs (Data Transfer Objects) are plain classes decorated with validation rules, and the framework infers types from them automatically."
+      },
+      {
+        "type": "example",
+        "title": "NestJS controller and DTO",
+        "code": "import { Controller, Get, Post, Body, Param, ParseIntPipe } from '@nestjs/common';\n\nexport class CreateUserDto {\n  readonly name!: string;\n  readonly email!: string;\n  readonly age!: number;\n}\n\ninterface User extends CreateUserDto {\n  id: number;\n}\n\n@Controller('users')\nexport class UsersController {\n  private users: User[] = [];\n\n  @Post()\n  create(@Body() dto: CreateUserDto): User {\n    const user: User = { id: Date.now(), ...dto };\n    this.users.push(user);\n    return user;\n  }\n\n  @Get(':id')\n  findOne(@Param('id', ParseIntPipe) id: number): User | undefined {\n    return this.users.find(u => u.id === id);\n  }\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "React: install @types/react and @types/react-dom for type definitions.",
+          "Use React.FC<Props> or explicitly type function parameters — both are valid.",
+          "Angular projects are TypeScript by default; no additional @types package is needed.",
+          "Angular's strictTemplates option in tsconfig catches template type errors at build time.",
+          "NestJS uses reflect-metadata and experimentalDecorators; both are pre-configured.",
+          "Vue 3 supports TypeScript with defineComponent and the Composition API's <script setup lang='ts'>."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "In React, prefer explicit prop interfaces over <code class=\"w3-codespan\">React.FC</code> for components that accept <code class=\"w3-codespan\">children</code> — the <code class=\"w3-codespan\">children</code> prop is no longer implicitly included in <code class=\"w3-codespan\">React.FC</code> since React 18 types."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Framework",
+          "Language",
+          "Key TypeScript Features Used"
+        ],
+        "rows": [
+          [
+            "React",
+            "TypeScript (optional, recommended)",
+            "Generic hooks, event types, prop interfaces"
+          ],
+          [
+            "Angular",
+            "TypeScript (required)",
+            "Decorators, signals, strict templates"
+          ],
+          [
+            "NestJS",
+            "TypeScript (required)",
+            "Decorators, DI, DTO classes, reflect-metadata"
+          ],
+          [
+            "Vue 3",
+            "TypeScript (optional)",
+            "defineComponent, <script setup lang='ts'>"
+          ],
+          [
+            "Next.js",
+            "TypeScript (optional, first-class)",
+            "Page/component props, API route types"
+          ]
+        ]
+      }
+    ]
+  },
+  "migration": {
+    "title": "Migrating JS to TypeScript",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Migrating a JavaScript codebase to TypeScript does not have to be a big-bang rewrite — TypeScript is designed for incremental adoption, letting you add types file by file while keeping the project functional throughout."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Step 1: Install TypeScript and Initialise tsconfig"
+      },
+      {
+        "type": "paragraph",
+        "text": "Start by installing TypeScript and generating a <code class=\"w3-codespan\">tsconfig.json</code>. Configure it to allow JavaScript files alongside TypeScript using <code class=\"w3-codespan\">allowJs: true</code>. This means the compiler processes both <code class=\"w3-codespan\">.js</code> and <code class=\"w3-codespan\">.ts</code> files from day one."
+      },
+      {
+        "type": "example",
+        "title": "Initial tsconfig for migration",
+        "code": "// 1. Install TypeScript\n// npm install --save-dev typescript\n\n// 2. Generate tsconfig\n// npx tsc --init\n\n// tsconfig.json (migration-friendly settings)\n{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ESNext\",\n    \"allowJs\": true,         // process .js files\n    \"checkJs\": false,        // don't type-check .js files yet\n    \"strict\": false,         // relax strict mode initially\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\",\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true\n  },\n  \"include\": [\"src\"]\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Step 2: Rename Files Incrementally"
+      },
+      {
+        "type": "paragraph",
+        "text": "Rename JavaScript files from <code class=\"w3-codespan\">.js</code> to <code class=\"w3-codespan\">.ts</code> one at a time, starting with utility files that have no side effects and are imported by many others. Fix type errors file by file. Prioritise files with the most downstream dependents first."
+      },
+      {
+        "type": "example",
+        "title": "Before and after renaming a utility file",
+        "code": "// BEFORE: utils.js\nexport function formatCurrency(amount, currency) {\n  return new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: currency,\n  }).format(amount);\n}\n\n// AFTER: utils.ts\nexport function formatCurrency(\n  amount: number,\n  currency: string = 'USD'\n): string {\n  return new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency,\n  }).format(amount);\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Step 3: Add Types to Function Signatures"
+      },
+      {
+        "type": "paragraph",
+        "text": "Add return types and parameter types to functions first. Use <code class=\"w3-codespan\">unknown</code> instead of <code class=\"w3-codespan\">any</code> where the type is genuinely unknown — it forces you to narrow before use. Replace loose <code class=\"w3-codespan\">Object</code> and <code class=\"w3-codespan\">{}</code> types with proper interfaces."
+      },
+      {
+        "type": "example",
+        "title": "Typing an API response handler",
+        "code": "// BEFORE (JS-style)\nfunction handleResponse(data) {\n  if (data.error) {\n    console.error(data.error.message);\n    return null;\n  }\n  return data.user;\n}\n\n// AFTER (typed)\ninterface ApiError { message: string; code: number; }\ninterface User    { id: number; name: string; email: string; }\ninterface ApiResponse {\n  user?: User;\n  error?: ApiError;\n}\n\nfunction handleResponse(data: ApiResponse): User | null {\n  if (data.error) {\n    console.error(data.error.message);\n    return null;\n  }\n  return data.user ?? null;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Step 4: Enable checkJs and Tighten strictness"
+      },
+      {
+        "type": "paragraph",
+        "text": "Once the majority of files are <code class=\"w3-codespan\">.ts</code>, enable <code class=\"w3-codespan\">checkJs: true</code> to type-check any remaining JavaScript files. Then progressively enable individual strict flags — start with <code class=\"w3-codespan\">strictNullChecks</code>, then <code class=\"w3-codespan\">noImplicitAny</code>, before finally setting <code class=\"w3-codespan\">strict: true</code>."
+      },
+      {
+        "type": "example",
+        "title": "Handling strictNullChecks errors",
+        "code": "// Error after enabling strictNullChecks:\n// Object is possibly 'null'\nconst el = document.getElementById('app');\nel.innerHTML = 'Hello'; // Error!\n\n// Fix 1: non-null assertion (when you're certain)\nconst el1 = document.getElementById('app')!;\nel1.innerHTML = 'Hello';\n\n// Fix 2: conditional check (preferred)\nconst el2 = document.getElementById('app');\nif (el2) {\n  el2.innerHTML = 'Hello';\n}\n\n// Fix 3: optional chaining\ndocument.getElementById('app')?.setAttribute('data-ready', 'true');"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Using any as a Temporary Escape Hatch"
+      },
+      {
+        "type": "paragraph",
+        "text": "During migration it is acceptable to use <code class=\"w3-codespan\">any</code> as a temporary measure to unblock compilation. Mark these with a <code class=\"w3-codespan\">// TODO: fix types</code> comment and track them. Tools like <code class=\"w3-codespan\">ts-migrate</code> and ESLint's <code class=\"w3-codespan\">@typescript-eslint/no-explicit-any</code> rule help you find and eliminate them systematically."
+      },
+      {
+        "type": "example",
+        "title": "Temporary any with ESLint suppression",
+        "code": "// Temporary escape hatch — mark for follow-up\n// eslint-disable-next-line @typescript-eslint/no-explicit-any\nfunction legacyTransform(data: any): any {\n  // TODO: fix types — data comes from old API with no schema\n  return data.map((item: any) => item.value);\n}\n\n// Use unknown instead where possible — forces you to narrow:\nfunction safeTransform(data: unknown): number[] {\n  if (!Array.isArray(data)) throw new Error('Expected array');\n  return data.map((item) => {\n    if (typeof item !== 'object' || item === null) throw new Error();\n    return (item as { value: number }).value;\n  });\n}"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Start with allowJs: true so JS and TS files coexist during migration.",
+          "Rename files incrementally — leaf modules (no dependencies) first.",
+          "Use @ts-check at the top of JS files to get lightweight type checking without renaming.",
+          "The ts-migrate CLI tool can auto-annotate files with any to unblock compilation quickly.",
+          "Enable strict flags one at a time to manage the volume of errors.",
+          "Prioritise typing public APIs (exported functions) over internal implementation details.",
+          "Use JSDoc type annotations in remaining .js files as an intermediate step."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Add <code class=\"w3-codespan\">// @ts-nocheck</code> at the top of a file to silence all TypeScript errors temporarily during migration. Use sparingly and remove it as each file is properly typed."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Migration Phase",
+          "tsconfig Setting",
+          "Goal"
+        ],
+        "rows": [
+          [
+            "Phase 1: Bootstrap",
+            "allowJs: true, strict: false",
+            "Compile without errors"
+          ],
+          [
+            "Phase 2: Rename",
+            "allowJs: true, checkJs: false",
+            "Convert files to .ts one by one"
+          ],
+          [
+            "Phase 3: Null safety",
+            "strictNullChecks: true",
+            "Eliminate null/undefined bugs"
+          ],
+          [
+            "Phase 4: No implicit any",
+            "noImplicitAny: true",
+            "Remove all untyped parameters"
+          ],
+          [
+            "Phase 5: Full strict",
+            "strict: true",
+            "Production-grade type safety"
+          ],
+          [
+            "Phase 6: Extra checks",
+            "noUncheckedIndexedAccess: true",
+            "Catch array/index bugs"
+          ]
+        ]
+      }
+    ]
+  }
+}

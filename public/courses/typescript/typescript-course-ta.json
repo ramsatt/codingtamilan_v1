@@ -1,0 +1,2110 @@
+{
+  "intro": {
+    "title": "TypeScript அறிமுகம்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript என்பது Microsoft உருவாக்கிய ஒரு strongly-typed programming language. இது JavaScript-இன் superset — அதாவது எந்த valid JavaScript code-உம் valid TypeScript code ஆகும். TypeScript static typing, interfaces, generics போன்ற powerful features கொடுக்கிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript ஏன் பயன்படுத்துகிறோம்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ல் variables-க்கு type இல்லாததால், runtime-ல் bugs வரும். TypeScript static typing கொடுக்கிறது — compile time-லேயே errors பிடிக்கும். இது large-scale applications develop செய்ய மிகவும் useful. Angular, React, Vue போன்ற major frameworks TypeScript-ஐ first-class support-ஆக கொண்டுள்ளன."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Static Typing — compile-time type checking, runtime bugs குறையும்",
+          "Better IDE support — autocomplete, intellisense, refactoring tools",
+          "Object-Oriented features — classes, interfaces, generics, decorators",
+          "JavaScript-ஆக compile ஆகும் (transpilation) — எந்த browser-லும் run ஆகும்",
+          "Modern JavaScript features support — ES2020+ syntax",
+          "Team collaboration-க்கு best — code contracts clear-ஆக தெரியும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript vs JavaScript"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "JavaScript",
+          "TypeScript"
+        ],
+        "rows": [
+          [
+            "Typing",
+            "Dynamic (runtime)",
+            "Static (compile time)"
+          ],
+          [
+            "Error Detection",
+            "Runtime-ல் மட்டும்",
+            "Compile-time-லேயே"
+          ],
+          [
+            "OOP Support",
+            "Partial",
+            "Full — interfaces, generics"
+          ],
+          [
+            "Interfaces",
+            "இல்லை",
+            "உண்டு"
+          ],
+          [
+            "Enums",
+            "இல்லை",
+            "Native support"
+          ],
+          [
+            "File Extension",
+            ".js",
+            ".ts / .tsx"
+          ],
+          [
+            "Browser Support",
+            "Direct run",
+            "Compile செய்யவேண்டும்"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript Code எப்படி இருக்கும்?"
+      },
+      {
+        "type": "example",
+        "code": "// JavaScript — type இல்லாமல்\nlet message = \"Hello\";\nmessage = 42; // No error — runtime-ல் problem வரும்!\n\n// TypeScript — static typing\nlet greeting: string = \"Hello, Tamilan!\";\n// greeting = 42; // Error: Type 'number' is not assignable to type 'string'\n\n// Function with type annotations\nfunction greet(name: string): string {\n  return `வணக்கம், ${name}!`;\n}\n\nconsole.log(greet(\"TypeScript\")); // வணக்கம், TypeScript!\n// greet(42); // Compile-time error!"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript files .ts extension-ல் save செய்யப்படும். Browser இதை நேரடியாக read செய்யாது — முதலில் JavaScript-ஆக compile செய்யவேண்டும். இந்த process-ஐ 'transpilation' என்று சொல்வோம். tsc (TypeScript Compiler) இந்த வேலை செய்யும்."
+      },
+      {
+        "type": "note",
+        "text": "TypeScript-ஐ learn செய்ய JavaScript basic knowledge போதும். TypeScript-ல் எழுதும் code-ஐ compiler JavaScript-ஆக மாற்றும். Type annotations run time-ல் exist ஆகாது — அவை compile time safety மட்டும் கொடுக்கும்."
+      }
+    ]
+  },
+  "setup": {
+    "title": "Setup & tsconfig அமைப்பு",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ஐ பயன்படுத்த Node.js மற்றும் npm install செய்திருக்கவேண்டும். பின்பு TypeScript compiler-ஐ globally அல்லது project-ல் locally install செய்யலாம். tsconfig.json file project-இன் TypeScript settings-ஐ control செய்யும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "TypeScript Install செய்வது எப்படி?"
+      },
+      {
+        "type": "example",
+        "code": "# TypeScript globally install செய்வது\nnpm install -g typescript\n\n# Version confirm செய்வது\ntsc --version\n# Output: Version 5.x.x\n\n# Project-ல் locally install செய்வது (recommended)\nnpm install --save-dev typescript\n\n# ts-node — compile இல்லாமல் directly run செய்வது\nnpm install -g ts-node"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "முதல் TypeScript File எழுதுவது"
+      },
+      {
+        "type": "example",
+        "code": "// hello.ts — இந்த file-ஐ create செய்யவும்\nfunction greet(name: string): string {\n  return `வணக்கம், ${name}!`;\n}\n\nconst message: string = greet(\"Coding Tamilan\");\nconsole.log(message);\n\n// Terminal-ல் compile செய்வது:\n// tsc hello.ts\n// node hello.js\n\n// அல்லது ts-node-ஐ பயன்படுத்தி directly run:\n// ts-node hello.ts"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "tsconfig.json என்றால் என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "tsconfig.json என்பது TypeScript project-இன் central configuration file. இதில் compiler options, source files location, output directory போன்றவற்றை specify செய்யலாம். `tsc --init` command மூலம் default tsconfig.json generate செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "code": "// tsconfig.json generate செய்வது:\ntsc --init\n\n// Generated tsconfig.json (important options):\n{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",       // Output JS version\n    \"module\": \"commonjs\",     // Module system\n    \"strict\": true,           // Strict type checking — always enable!\n    \"outDir\": \"./dist\",       // Compiled JS files எங்கே போகும்\n    \"rootDir\": \"./src\",       // TypeScript files எங்கே உள்ளன\n    \"esModuleInterop\": true,  // ES module compatibility\n    \"skipLibCheck\": true,     // .d.ts files skip\n    \"forceConsistentCasingInFileNames\": true\n  },\n  \"include\": [\"src/**/*\"],\n  \"exclude\": [\"node_modules\", \"dist\"]\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "முக்கியமான Compiler Options"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Option",
+          "Default",
+          "என்ன செய்யும்?"
+        ],
+        "rows": [
+          [
+            "target",
+            "ES3",
+            "Output JavaScript version (ES5, ES2020 etc.)"
+          ],
+          [
+            "strict",
+            "false",
+            "All strict checks enable ஆகும் — always true வைக்கவும்"
+          ],
+          [
+            "outDir",
+            "(same dir)",
+            "Compiled JS files save ஆகும் folder"
+          ],
+          [
+            "rootDir",
+            "(inferred)",
+            "TypeScript source files-இன் root folder"
+          ],
+          [
+            "noImplicitAny",
+            "false",
+            "Implicit any type-ஐ error-ஆக காட்டும்"
+          ],
+          [
+            "strictNullChecks",
+            "false",
+            "null/undefined-ஐ strict-ஆக check செய்யும்"
+          ],
+          [
+            "declaration",
+            "false",
+            ".d.ts type definition files generate செய்யும்"
+          ]
+        ]
+      },
+      {
+        "type": "example",
+        "code": "// Watch mode — file save ஆகும்போது auto compile\ntsc --watch\n\n// ஒரு file மட்டும் compile\ntsc hello.ts\n\n// Entire project compile (tsconfig.json படி)\ntsc\n\n// ts-node watch mode\nts-node --watch hello.ts"
+      },
+      {
+        "type": "note",
+        "text": "Real projects-ல் `\"strict\": true` always enable செய்யவும். இது noImplicitAny, strictNullChecks, strictFunctionTypes போன்ற எல்லா strict checks-ஐயும் ஒரே option-ல் enable செய்யும். Angular projects-ல் TypeScript automatically configured-ஆக இருக்கும் — separate setup தேவையில்லை."
+      }
+    ]
+  },
+  "basic-types": {
+    "title": "அடிப்படை வகைகள் (Basic Types)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் பல built-in types உள்ளன. இந்த types-ஐ variables, function parameters மற்றும் return values-க்கு annotate செய்யலாம். இது code-இன் readability மற்றும் safety-ஐ அதிகரிக்கும். : (colon) symbol-ஐ பயன்படுத்தி type annotation கொடுப்போம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Primitive Types — string, number, boolean"
+      },
+      {
+        "type": "example",
+        "code": "// string — text data\nlet name: string = \"Coding Tamilan\";\nlet greeting: string = `Hello, ${name}`; // template literal\n\n// number — integer மற்றும் float இரண்டும்\nlet age: number = 25;\nlet price: number = 99.99;\nlet hex: number = 0xff;   // hexadecimal\nlet binary: number = 0b1010; // binary\n\n// boolean\nlet isActive: boolean = true;\nlet isLoggedIn: boolean = false;\n\n// bigint — very large numbers\nlet bigNumber: bigint = 9007199254740993n;\n\n// symbol — unique identifier\nlet uniqueId: symbol = Symbol(\"id\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "null மற்றும் undefined"
+      },
+      {
+        "type": "paragraph",
+        "text": "strictNullChecks enable-ஆக இருக்கும்போது, null மற்றும் undefined-ஐ other types-க்கு assign செய்ய முடியாது. இவை தனி types-ஆக treat ஆகும். இது runtime null errors-ஐ compile time-லேயே prevent செய்யும்."
+      },
+      {
+        "type": "example",
+        "code": "// null — intentionally empty\nlet nothing: null = null;\n\n// undefined — initialized ஆகவில்லை\nlet notDefined: undefined = undefined;\n\n// Union type மூலம் nullable variable\nlet maybeNull: string | null = null;\nmaybeNull = \"hello\"; // OK\n\nlet maybeUndefined: number | undefined;\nconsole.log(maybeUndefined); // undefined\n\n// Optional chaining — null-safe access\nconst length = maybeNull?.length; // number | undefined"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Array Types"
+      },
+      {
+        "type": "example",
+        "code": "// Two ways to declare arrays — இரண்டும் equivalent\nlet numbers: number[] = [1, 2, 3, 4, 5];\nlet fruits: Array<string> = [\"apple\", \"mango\", \"banana\"];\n\n// Mixed types (union array)\nlet mixed: (number | string)[] = [1, \"hello\", 2, \"world\"];\n\n// Readonly array — mutation செய்ய முடியாது\nconst readonlyNums: readonly number[] = [1, 2, 3];\n// readonlyNums.push(4); // Error!\n\n// Multidimensional array\nlet matrix: number[][] = [[1, 2], [3, 4], [5, 6]];"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Special Types: any, unknown, never, void"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Type",
+          "Use Case",
+          "Type Safe?"
+        ],
+        "rows": [
+          [
+            "any",
+            "TypeScript checking bypass (avoid!)",
+            "இல்லை — dangerous"
+          ],
+          [
+            "unknown",
+            "External data-க்கு — use செய்ய முன் check வேண்டும்",
+            "ஆம் — narrow செய்ய வேண்டும்"
+          ],
+          [
+            "never",
+            "Function never return ஆகாது (throw/infinite loop)",
+            "N/A"
+          ],
+          [
+            "void",
+            "Function return value இல்லாதபோது",
+            "N/A"
+          ]
+        ]
+      },
+      {
+        "type": "example",
+        "code": "// any — TypeScript checking bypass (avoid if possible!)\nlet data: any = 42;\ndata = \"now a string\"; // No error — but unsafe!\n\n// unknown — any-ஐ விட safe version\nlet userInput: unknown = \"hello\";\nif (typeof userInput === \"string\") {\n  console.log(userInput.toUpperCase()); // OK after type check\n}\n\n// void — function return value இல்லாதபோது\nfunction logMessage(msg: string): void {\n  console.log(msg);\n}\n\n// never — function never returns\nfunction throwError(message: string): never {\n  throw new Error(message);\n}\n\nfunction infiniteLoop(): never {\n  while (true) {}\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Object Type"
+      },
+      {
+        "type": "example",
+        "code": "// Inline object type annotation\nlet person: { name: string; age: number; isStudent: boolean } = {\n  name: \"Tamilan\",\n  age: 20,\n  isStudent: true\n};\n\n// Optional property — ? operator\nlet user: { name: string; email?: string } = {\n  name: \"Ravi\"\n  // email is optional — OK without it\n};\n\n// Nested object\nlet address: {\n  street: string;\n  city: string;\n  pincode: number;\n} = {\n  street: \"Anna Salai\",\n  city: \"Chennai\",\n  pincode: 600001\n};"
+      },
+      {
+        "type": "note",
+        "text": "any type-ஐ possible-ஆன வரை avoid செய்யவும். இது TypeScript-இன் safety-ஐ முழுவதும் bypass செய்துவிடும். External APIs-இல் இருந்து வரும் data-க்கு unknown type பயன்படுத்தவும் — பின்பு type check செய்து use செய்யவும்."
+      }
+    ]
+  },
+  "type-inference": {
+    "title": "Type Inference புரிஞ்சுக்கணும்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் manually type annotation கொடுக்காவிட்டாலும், compiler automatically variable-இன் value-ஐ பார்த்து type-ஐ infer (கண்டுபிடிக்கும்) செய்யும். இதை Type Inference என்று சொல்வோம். இது code-ஐ less verbose-ஆக வைக்க உதவுகிறது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Type Inference — எப்படி வேலை செய்கிறது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Variable declare செய்யும்போது value assign செய்தால், TypeScript அந்த value-ஐ பார்த்து automatically type determine செய்யும். அதன்பிறகு வேறு type assign செய்தால் error வரும் — exactly explicit annotation போலவே பயன்படும்."
+      },
+      {
+        "type": "example",
+        "code": "// TypeScript automatically type infer செய்கிறது\nlet message = \"Hello TypeScript\"; // type: string\nlet count = 42;                   // type: number\nlet isValid = true;               // type: boolean\nlet score = 98.5;                 // type: number\n\n// தவறான assignment — compile-time error வரும்\n// message = 100;   // Error: Type 'number' is not assignable to type 'string'\n// count = \"fifty\"; // Error!\n\n// Array inference\nlet numbers = [1, 2, 3];          // type: number[]\nlet names = [\"Alice\", \"Bob\"];     // type: string[]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Return Type Inference"
+      },
+      {
+        "type": "example",
+        "code": "// Return type automatically inferred from return statement\nfunction add(a: number, b: number) {\n  return a + b; // TypeScript infers return type as 'number'\n}\n\nfunction greet(name: string) {\n  return `வணக்கம், ${name}`; // return type: string\n}\n\nfunction divide(a: number, b: number) {\n  if (b === 0) return null;    // null\n  return a / b;               // number\n  // inferred return type: number | null\n}\n\nconst result = add(5, 3);     // result type: number\nconst msg = greet(\"Tamilan\"); // msg type: string"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Object மற்றும் Array Inference"
+      },
+      {
+        "type": "example",
+        "code": "// Object-இன் properties-ஐ பார்த்து type infer செய்யும்\nlet person = {\n  name: \"Ravi\",   // string\n  age: 25,        // number\n  isActive: true  // boolean\n};\n\nperson.name = \"Kumar\"; // OK\n// person.age = \"thirty\"; // Error: Type 'string' is not assignable to type 'number'\n// person.salary = 50000; // Error: property 'salary' does not exist!\n\n// Mixed array — best common type (union)\nlet mixed = [1, \"hello\", true]; // type: (number | string | boolean)[]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Contextual Typing"
+      },
+      {
+        "type": "paragraph",
+        "text": "Contextual typing என்பது context-ஐ பார்த்து TypeScript type infer செய்வது. Event handlers, array callbacks போன்ற இடங்களில் இது automatic-ஆக நடக்கும் — நாம் type கொடுக்க வேண்டாம்."
+      },
+      {
+        "type": "example",
+        "code": "// Event listener-ல் contextual typing\nwindow.addEventListener(\"click\", (event) => {\n  // TypeScript automatically event type-ஐ MouseEvent என்று infer செய்யும்\n  console.log(event.clientX); // OK — MouseEvent property\n  console.log(event.clientY); // OK\n});\n\n// Array method-ல் contextual typing\nconst fruits = [\"apple\", \"mango\", \"banana\"];\nfruits.forEach((fruit) => {\n  // fruit automatically string என்று infer ஆகும்\n  console.log(fruit.toUpperCase()); // OK\n});\n\nconst doubled = fruits.map(f => f.length); // number[]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Explicit Annotations எப்போது கொடுக்கவேண்டும்?"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Variable declare செய்யும்போது value இல்லாமல்: let name: string;",
+          "Function parameters — always explicit types கொடுக்கவும்",
+          "Inferred type too broad ஆகும்போது (e.g., JSON.parse returns any)",
+          "Public API function return types — documentation-க்காக",
+          "Type-ஐ deliberately widen/narrow செய்யும்போது"
+        ]
+      },
+      {
+        "type": "example",
+        "code": "// Uninitialized variable — any type ஆகும் (dangerous!)\nlet data;        // type: any — avoid!\ndata = 42;\ndata = \"string\"; // No error — dangerous!\n\n// Explicit type annotation கொடுப்பது better\nlet score: number; // type: number\nscore = 100;\n// score = \"high\"; // Error caught — safe!\n\n// Public function-க்கு explicit return type\nfunction fetchUser(id: number): Promise<User> {\n  return fetch(`/api/users/${id}`).then(r => r.json());\n}"
+      },
+      {
+        "type": "note",
+        "text": "Local variables-க்கு inference-ஐ நம்பலாம். Function parameters-க்கும் public APIs-க்கும் explicit types கொடுப்பது best practice. இது code readability-ஐ அதிகரிக்கும் மற்றும் team members-க்கு code-ஐ புரிந்துகொள்ள உதவும்."
+      }
+    ]
+  },
+  "interfaces": {
+    "title": "Interfaces",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் interface என்பது object-இன் shape (structure) define செய்ய பயன்படும். இது ஒரு contract போல — யாரும் இந்த interface-ஐ use செய்தால், அதில் specify செய்த எல்லா properties மற்றும் methods-உம் இருக்கவேண்டும். Classes-க்கும் objects-க்கும் type safety கொடுக்க இது மிகவும் useful."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interface Declare செய்வது எப்படி?"
+      },
+      {
+        "type": "example",
+        "code": "// Basic interface declaration\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\n// Interface-ஐ type-ஆக பயன்படுத்துவது\nconst user: User = {\n  id: 1,\n  name: \"Tamilan\",\n  email: \"tamilan@example.com\"\n};\n\n// Missing property — compile-time error!\n// const user2: User = { id: 2, name: \"Ravi\" };\n// Error: Property 'email' is missing in type"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional மற்றும் Readonly Properties"
+      },
+      {
+        "type": "paragraph",
+        "text": "? operator மூலம் optional properties declare செய்யலாம் — அவை இல்லாவிட்டாலும் error வராது. readonly keyword மூலம் property-ஐ immutable-ஆக declare செய்யலாம் — assign செய்த பிறகு change செய்ய முடியாது."
+      },
+      {
+        "type": "example",
+        "code": "interface Product {\n  id: number;\n  name: string;\n  price: number;\n  description?: string;      // Optional property\n  readonly createdAt: Date;  // Readonly — change செய்ய முடியாது\n}\n\nconst laptop: Product = {\n  id: 1,\n  name: \"MacBook Pro\",\n  price: 150000,\n  createdAt: new Date()\n  // description optional — OK without it\n};\n\n// laptop.createdAt = new Date(); // Error: readonly!\nconsole.log(laptop.description); // undefined — no error"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Methods in Interface"
+      },
+      {
+        "type": "example",
+        "code": "interface Animal {\n  name: string;\n  age: number;\n  sound(): string;              // Method signature\n  move(distance: number): void; // Method with parameter\n  eat?(food: string): boolean;  // Optional method\n}\n\nconst dog: Animal = {\n  name: \"Tommy\",\n  age: 3,\n  sound() {\n    return \"Woof!\";\n  },\n  move(distance: number) {\n    console.log(`${this.name} moved ${distance} meters`);\n  }\n};\n\nconsole.log(dog.sound()); // \"Woof!\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interface Extending — விரிவாக்குவது"
+      },
+      {
+        "type": "example",
+        "code": "interface Person {\n  name: string;\n  age: number;\n}\n\n// Interface extend — Person-இன் properties copy ஆகும்\ninterface Employee extends Person {\n  employeeId: string;\n  department: string;\n}\n\nconst emp: Employee = {\n  name: \"Kumar\",\n  age: 30,\n  employeeId: \"EMP001\",\n  department: \"Engineering\"\n};\n\n// Multiple interfaces extend செய்வது\ninterface Manager extends Employee {\n  teamSize: number;\n  reportTo?: string;\n}\n\n// Multiple interfaces-ஐ ஒரே நேரத்தில் extend\ninterface ServicePet extends Animal, Person {\n  trained: boolean;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Type Interface மற்றும் Index Signatures"
+      },
+      {
+        "type": "example",
+        "code": "// Function signature interface\ninterface MathOperation {\n  (a: number, b: number): number;\n}\n\nconst add: MathOperation = (a, b) => a + b;\nconst multiply: MathOperation = (a, b) => a * b;\n\nconsole.log(add(5, 3));      // 8\nconsole.log(multiply(4, 6)); // 24\n\n// Index signature — dynamic keys-க்கு\ninterface StringMap {\n  [key: string]: string;\n}\n\nconst translations: StringMap = {\n  hello: \"வணக்கம்\",\n  goodbye: \"போய்வருகிறேன்\",\n  thanks: \"நன்றி\"\n};\n\ntranslations[\"morning\"] = \"காலை வணக்கம்\"; // OK"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interface vs Type Alias"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "Interface",
+          "Type Alias"
+        ],
+        "rows": [
+          [
+            "Declaration",
+            "interface Foo {}",
+            "type Foo = {}"
+          ],
+          [
+            "Object shapes",
+            "Yes",
+            "Yes"
+          ],
+          [
+            "Union/Primitive types",
+            "No",
+            "Yes"
+          ],
+          [
+            "Extending",
+            "extends keyword",
+            "& (intersection)"
+          ],
+          [
+            "Declaration Merging",
+            "Yes — reopen செய்யலாம்",
+            "No"
+          ],
+          [
+            "Classes implement",
+            "Yes",
+            "Limited"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Objects மற்றும் classes-க்கு shape define செய்ய interface best choice. Complex type combinations, unions, primitives-க்கு type alias பயன்படுத்தவும். Library publish செய்யும்போது interface prefer செய்யவும் — declaration merging மூலம் users extend செய்யலாம்."
+      }
+    ]
+  },
+  "type-aliases": {
+    "title": "Type Aliases",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Type alias என்பது ஒரு type-க்கு custom name கொடுப்பது. `type` keyword பயன்படுத்தி primitive types, objects, unions, tuples மற்றும் complex types-க்கு alias create செய்யலாம். இது code-ஐ readable-ஆகவும் reusable-ஆகவும் வைக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Type Alias"
+      },
+      {
+        "type": "example",
+        "code": "// Primitive type alias — meaningful names கொடுப்பது\ntype UserID = string;\ntype Age = number;\ntype IsActive = boolean;\n\nconst userId: UserID = \"USR-001\";\nconst userAge: Age = 25;\nconst active: IsActive = true;\n\n// Object type alias\ntype Point = {\n  x: number;\n  y: number;\n};\n\nconst origin: Point = { x: 0, y: 0 };\nconst center: Point = { x: 10, y: 20 };\n\n// Reuse-ஆகும் — multiple variables same type\nfunction calculateDistance(p1: Point, p2: Point): number {\n  return Math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2);\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Union Type Alias"
+      },
+      {
+        "type": "paragraph",
+        "text": "Union type alias என்பது ஒரு variable multiple types-ல் ஒன்றாக இருக்கலாம் என்று define செய்வது. இது string literal unions-க்கு மிகவும் powerful."
+      },
+      {
+        "type": "example",
+        "code": "// Union type alias\ntype Status = \"active\" | \"inactive\" | \"pending\" | \"banned\";\ntype ID = string | number;\ntype StringOrNull = string | null;\n\nlet userStatus: Status = \"active\";\nuserStatus = \"pending\"; // OK\n// userStatus = \"deleted\"; // Error: not in union!\n\nlet userId: ID = \"USR-001\";\nuserId = 42; // OK — number-உம் valid\n\n// HttpMethod type\ntype HttpMethod = \"GET\" | \"POST\" | \"PUT\" | \"DELETE\" | \"PATCH\";\n\nfunction request(url: string, method: HttpMethod): void {\n  console.log(`${method} ${url}`);\n}\n\nrequest(\"/api/users\", \"GET\");\n// request(\"/api/users\", \"CONNECT\"); // Error!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Type Alias"
+      },
+      {
+        "type": "example",
+        "code": "// Function signature alias\ntype Callback = (error: Error | null, data?: string) => void;\ntype Predicate<T> = (value: T) => boolean;\ntype Transform<T, U> = (input: T) => U;\n\nconst handleResponse: Callback = (err, data) => {\n  if (err) console.error(err.message);\n  else console.log(data);\n};\n\nconst isEven: Predicate<number> = (n) => n % 2 === 0;\nconst toString: Transform<number, string> = (n) => String(n);\n\n// Reusable formatter\ntype Formatter = (value: number, decimals: number) => string;\n\nconst formatCurrency: Formatter = (value, decimals) => {\n  return `₹${value.toFixed(decimals)}`;\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Recursive Type Alias"
+      },
+      {
+        "type": "example",
+        "code": "// Tree structure போன்ற recursive types\ntype TreeNode = {\n  value: number;\n  left?: TreeNode;\n  right?: TreeNode;\n};\n\nconst tree: TreeNode = {\n  value: 10,\n  left: {\n    value: 5,\n    left: { value: 3 },\n    right: { value: 7 }\n  },\n  right: {\n    value: 15\n  }\n};\n\n// JSON-compatible type\ntype JSONValue =\n  | string\n  | number\n  | boolean\n  | null\n  | JSONValue[]\n  | { [key: string]: JSONValue };"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Utility Type Aliases — Built-in Helpers"
+      },
+      {
+        "type": "example",
+        "code": "type User = {\n  id: number;\n  name: string;\n  email: string;\n  age: number;\n};\n\n// Partial<T> — all properties optional\ntype PartialUser = Partial<User>;\n\n// Required<T> — all properties required\ntype RequiredUser = Required<User>;\n\n// Readonly<T> — all properties readonly\ntype ReadonlyUser = Readonly<User>;\n\n// Pick<T, K> — specific properties மட்டும்\ntype UserPreview = Pick<User, \"id\" | \"name\">;\n\n// Omit<T, K> — specific properties தவிர\ntype UserWithoutEmail = Omit<User, \"email\">;\n\n// Record<K, V> — key-value mapping\ntype UserByRole = Record<\"admin\" | \"user\" | \"viewer\", User[]>;\n\nconst preview: UserPreview = { id: 1, name: \"Tamilan\" };"
+      },
+      {
+        "type": "note",
+        "text": "Type alias-ஐ unions, tuples, function types, complex combinations-க்கு பயன்படுத்தவும். Object shapes-க்கு interface prefer செய்யவும் — declaration merging support செய்யும். Both are equally valid for plain object descriptions — team convention follow செய்யவும்."
+      }
+    ]
+  },
+  "union-intersection": {
+    "title": "Union & Intersection Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் Union types மற்றும் Intersection types என்பவை multiple types-ஐ combine செய்ய பயன்படும் powerful features. Union (|) என்பது 'OR' போல — இதிலோ அதிலோ. Intersection (&) என்பது 'AND' போல — இரண்டும் சேர்ந்து. இவை real-world complex scenarios-ஐ type-safe-ஆக handle செய்ய உதவுகின்றன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Union Types — | (Pipe Operator)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Union type என்பது ஒரு variable பல types-ல் ஒன்றாக இருக்கலாம் என்று சொல்வது. | (pipe) operator பயன்படுத்தி declare செய்வோம். Union type variable-ஐ use செய்யும்போது, common properties மட்டும் directly access செய்யலாம் — specific type properties-க்கு narrowing வேண்டும்."
+      },
+      {
+        "type": "example",
+        "code": "// Basic union type\nlet id: string | number;\nid = \"USR-001\"; // OK\nid = 42;        // OK\n// id = true;   // Error!\n\n// Function parameter union type\nfunction printId(id: string | number): void {\n  if (typeof id === \"string\") {\n    console.log(id.toUpperCase()); // string methods OK\n  } else {\n    console.log(id.toFixed(2));    // number methods OK\n  }\n}\n\n// Literal union types — specific values மட்டும்\ntype Direction = \"north\" | \"south\" | \"east\" | \"west\";\ntype DiceRoll = 1 | 2 | 3 | 4 | 5 | 6;\n\nfunction move(direction: Direction): void {\n  console.log(`Moving ${direction}`);\n}\nmove(\"north\"); // OK\n// move(\"up\"); // Error!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Intersection Types — & (Ampersand Operator)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Intersection type என்பது பல types-இன் properties எல்லாவற்றையும் ஒன்றாக combine செய்வது. & operator பயன்படுத்தி declare செய்வோம். Intersection type object-க்கு எல்லா properties-உம் mandatory."
+      },
+      {
+        "type": "example",
+        "code": "type HasName = { name: string; };\ntype HasAge  = { age: number; };\ntype HasEmail = { email: string; };\n\n// Intersection — மூன்று types-இன் properties எல்லாம் வேண்டும்\ntype Person = HasName & HasAge & HasEmail;\n\nconst person: Person = {\n  name: \"Tamilan\",\n  age: 25,\n  email: \"tamilan@example.com\"\n  // Missing any property — Error!\n};\n\n// Extending with intersection\ntype AdminUser = Person & { role: \"admin\"; permissions: string[] };\n\nconst admin: AdminUser = {\n  name: \"Kumar\",\n  age: 30,\n  email: \"admin@example.com\",\n  role: \"admin\",\n  permissions: [\"read\", \"write\", \"delete\"]\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Discriminated Unions — Pattern"
+      },
+      {
+        "type": "paragraph",
+        "text": "Discriminated union என்பது ஒரு common property (discriminant) வைத்து வெவ்வேறு shapes-ஐ distinguish செய்வது. இது TypeScript-ல் மிகவும் popular pattern — switch statement-உடன் நன்றாக work ஆகும்."
+      },
+      {
+        "type": "example",
+        "code": "type Circle = {\n  kind: \"circle\"; // discriminant\n  radius: number;\n};\n\ntype Rectangle = {\n  kind: \"rectangle\"; // discriminant\n  width: number;\n  height: number;\n};\n\ntype Triangle = {\n  kind: \"triangle\"; // discriminant\n  base: number;\n  height: number;\n};\n\ntype Shape = Circle | Rectangle | Triangle;\n\nfunction getArea(shape: Shape): number {\n  switch (shape.kind) {\n    case \"circle\":\n      return Math.PI * shape.radius ** 2; // shape is Circle here\n    case \"rectangle\":\n      return shape.width * shape.height;  // shape is Rectangle here\n    case \"triangle\":\n      return 0.5 * shape.base * shape.height;\n  }\n}\n\nconsole.log(getArea({ kind: \"circle\", radius: 5 })); // ~78.54"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Narrowing Techniques"
+      },
+      {
+        "type": "example",
+        "code": "// typeof narrowing\nfunction process(value: string | number | boolean) {\n  if (typeof value === \"string\") {\n    return value.trim();   // string methods OK\n  } else if (typeof value === \"number\") {\n    return value * 2;      // number operations OK\n  } else {\n    return !value;         // boolean operations OK\n  }\n}\n\n// instanceof narrowing\nclass Dog { bark() { return \"Woof!\"; } }\nclass Cat { meow() { return \"Meow!\"; } }\n\nfunction makeSound(animal: Dog | Cat): string {\n  if (animal instanceof Dog) {\n    return animal.bark();\n  } else {\n    return animal.meow();\n  }\n}\n\n// in operator narrowing\ntype Fish = { swim: () => void };\ntype Bird = { fly: () => void };\n\nfunction move(animal: Fish | Bird) {\n  if (\"swim\" in animal) {\n    animal.swim();\n  } else {\n    animal.fly();\n  }\n}"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Aspect",
+          "Union (A | B)",
+          "Intersection (A & B)"
+        ],
+        "rows": [
+          [
+            "Meaning",
+            "Value is either A or B",
+            "Value is both A and B"
+          ],
+          [
+            "Properties needed",
+            "Only common properties",
+            "All properties from A and B"
+          ],
+          [
+            "Use case",
+            "Flexible input types, options",
+            "Combining/extending types"
+          ],
+          [
+            "Narrowing needed?",
+            "Yes — type-specific members access-க்கு",
+            "No — எல்லா members always present"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Union types real-world APIs-ல் மிகவும் useful — response data சில நேரம் string, சில நேரம் number ஆக இருக்கலாம். Discriminated unions error handling patterns-க்கு excellent choice. Intersection types mixins மற்றும் type composition-க்கு பயன்படுத்தவும்."
+      }
+    ]
+  },
+  "functions": {
+    "title": "TypeScript-ல் Functions",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் functions-க்கு parameter types மற்றும் return types specify செய்யலாம். இது function-ஐ எப்படி பயன்படுத்தவேண்டும் என்று clearly define செய்யும் மற்றும் wrong usage-ஐ compile-time-லேயே catch செய்யும். Optional parameters, default values, rest parameters, overloads — எல்லாவற்றையும் type-safe-ஆக handle செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Parameter மற்றும் Return Type Annotations"
+      },
+      {
+        "type": "example",
+        "code": "// Parameter types மற்றும் return type\nfunction add(a: number, b: number): number {\n  return a + b;\n}\n\n// Arrow function\nconst multiply = (a: number, b: number): number => a * b;\n\n// void return type — return value இல்லை\nfunction greet(name: string): void {\n  console.log(`வணக்கம், ${name}`);\n}\n\n// Union return type\nfunction parseInput(input: string): string | number {\n  const parsed = Number(input);\n  return isNaN(parsed) ? input : parsed;\n}\n\n// Inferred return type (TypeScript figure out செய்யும்)\nconst divide = (a: number, b: number) => a / b; // return: number"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional மற்றும் Default Parameters"
+      },
+      {
+        "type": "example",
+        "code": "// Optional parameter — ? operator\nfunction greetUser(name: string, greeting?: string): string {\n  return `${greeting ?? \"வணக்கம்\"}, ${name}!`;\n}\n\ngreetUser(\"Tamilan\");            // \"வணக்கம், Tamilan!\"\ngreetUser(\"Tamilan\", \"Hello\");  // \"Hello, Tamilan!\"\n\n// Default parameter\nfunction createUser(name: string, role: string = \"user\"): object {\n  return { name, role, createdAt: new Date() };\n}\n\ncreateUser(\"Ravi\");            // role: \"user\"\ncreateUser(\"Kumar\", \"admin\"); // role: \"admin\"\n\n// Default-ஐ override செய்ய undefined pass செய்யலாம்\ncreateUser(\"Ram\", undefined); // role: \"user\" (default)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Rest Parameters"
+      },
+      {
+        "type": "example",
+        "code": "// Rest parameters — variable number of arguments\nfunction sum(...numbers: number[]): number {\n  return numbers.reduce((total, n) => total + n, 0);\n}\n\nconsole.log(sum(1, 2, 3));          // 6\nconsole.log(sum(10, 20, 30, 40));   // 100\n\n// Mixed — regular + rest\nfunction logMessages(level: string, ...messages: string[]): void {\n  messages.forEach(msg => console.log(`[${level}] ${msg}`));\n}\n\nlogMessages(\"INFO\", \"Server started\", \"Port 3000\");\n\n// Spread operator with typed arrays\nconst nums: number[] = [1, 2, 3];\nconsole.log(sum(...nums)); // 6"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Overloading"
+      },
+      {
+        "type": "example",
+        "code": "// Overload signatures — call patterns define செய்வது\nfunction format(value: string): string;\nfunction format(value: number, decimals: number): string;\nfunction format(value: Date): string;\n\n// Implementation signature (overloads-ஐ handle செய்யும்)\nfunction format(value: string | number | Date, decimals?: number): string {\n  if (typeof value === \"string\") {\n    return value.trim();\n  } else if (typeof value === \"number\") {\n    return value.toFixed(decimals ?? 2);\n  } else {\n    return value.toLocaleDateString(\"ta-IN\");\n  }\n}\n\nconsole.log(format(\"  hello  \"));  // \"hello\"\nconsole.log(format(3.14159, 2));   // \"3.14\"\nconsole.log(format(new Date()));   // \"23/03/2026\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Higher-Order Functions"
+      },
+      {
+        "type": "example",
+        "code": "// Function-ஐ parameter-ஆக pass செய்வது\nfunction applyOperation(\n  numbers: number[],\n  operation: (n: number) => number\n): number[] {\n  return numbers.map(operation);\n}\n\nconst doubled = applyOperation([1, 2, 3], (n) => n * 2); // [2, 4, 6]\nconst squared = applyOperation([1, 2, 3], (n) => n ** 2); // [1, 4, 9]\n\n// Function return செய்வது — closure\nfunction createMultiplier(factor: number): (n: number) => number {\n  return (n) => n * factor;\n}\n\nconst triple = createMultiplier(3);\nconst quadruple = createMultiplier(4);\nconsole.log(triple(5));    // 15\nconsole.log(quadruple(5)); // 20"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "this Parameter Type"
+      },
+      {
+        "type": "example",
+        "code": "// this-இன் type-ஐ explicit-ஆக specify செய்வது\ninterface Counter {\n  count: number;\n  increment(this: Counter): void;\n  reset(this: Counter): void;\n}\n\nconst counter: Counter = {\n  count: 0,\n  increment() {\n    this.count++;\n  },\n  reset() {\n    this.count = 0;\n  }\n};\n\ncounter.increment();\ncounter.increment();\nconsole.log(counter.count); // 2\ncounter.reset();\nconsole.log(counter.count); // 0"
+      },
+      {
+        "type": "note",
+        "text": "Functions-க்கு always explicit parameter types கொடுக்கவும். Return type TypeScript infer செய்யும் — ஆனால் public APIs-க்கு explicit return type கொடுப்பது documentation-ஆக உதவும். Arrow functions callbacks-க்கு prefer செய்யவும் — இவை lexically this-ஐ capture செய்யும்."
+      }
+    ]
+  },
+  "classes": {
+    "title": "Classes & Access Modifiers",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் classes, Object-Oriented Programming-இன் core concept. இவை properties மற்றும் methods-ஐ ஒரே இடத்தில் encapsulate செய்யும். JavaScript classes-ஐ விட TypeScript classes access modifiers (public, private, protected), abstract classes, readonly properties போன்ற extra features கொண்டுள்ளன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Class Declaration"
+      },
+      {
+        "type": "example",
+        "code": "class Person {\n  // Properties with types\n  name: string;\n  age: number;\n\n  // Constructor\n  constructor(name: string, age: number) {\n    this.name = name;\n    this.age = age;\n  }\n\n  // Method\n  greet(): string {\n    return `வணக்கம்! என் பெயர் ${this.name}, வயது ${this.age}.`;\n  }\n\n  // Getter\n  get info(): string {\n    return `${this.name} (${this.age})`;\n  }\n}\n\nconst person = new Person(\"Tamilan\", 25);\nconsole.log(person.greet());\nconsole.log(person.info); // getter"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Access Modifiers — public, private, protected"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript மூன்று access modifiers support செய்கிறது: public (default — எங்கும் access), private (class-க்கு உள்ளே மட்டும்), protected (class மற்றும் subclasses). இவை code-இன் encapsulation-ஐ enforce செய்கின்றன."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Modifier",
+          "Same Class",
+          "Subclass",
+          "Outside Class"
+        ],
+        "rows": [
+          [
+            "public",
+            "Yes",
+            "Yes",
+            "Yes"
+          ],
+          [
+            "protected",
+            "Yes",
+            "Yes",
+            "No"
+          ],
+          [
+            "private",
+            "Yes",
+            "No",
+            "No"
+          ]
+        ]
+      },
+      {
+        "type": "example",
+        "code": "class BankAccount {\n  public accountNumber: string;    // எங்கும் access\n  private balance: number;         // class-க்கு உள்ளே மட்டும்\n  protected owner: string;         // class மற்றும் subclass\n\n  constructor(accountNumber: string, owner: string, balance: number) {\n    this.accountNumber = accountNumber;\n    this.owner = owner;\n    this.balance = balance;\n  }\n\n  public deposit(amount: number): void {\n    if (this.validateAmount(amount)) {\n      this.balance += amount;\n      console.log(`Deposited ₹${amount}. Balance: ₹${this.balance}`);\n    }\n  }\n\n  public getBalance(): number {\n    return this.balance; // private-ஐ public method வழி access\n  }\n\n  private validateAmount(amount: number): boolean {\n    return amount > 0; // private helper\n  }\n}\n\nconst account = new BankAccount(\"ACC001\", \"Tamilan\", 10000);\naccount.deposit(5000);              // OK\nconsole.log(account.getBalance()); // 15000\n// account.balance;                // Error: private!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Shorthand Constructor Parameters"
+      },
+      {
+        "type": "example",
+        "code": "// Constructor-ல் directly properties declare செய்யும் shorthand\nclass User {\n  constructor(\n    public name: string,       // public property\n    private email: string,     // private property\n    protected age: number,     // protected property\n    readonly id: string        // readonly — change செய்ய முடியாது\n  ) {}\n  // this.name = name; போன்றவை தேவையில்லை — automatic!\n\n  getEmail(): string {\n    return this.email;\n  }\n}\n\nconst user = new User(\"Tamilan\", \"t@example.com\", 25, \"USR-001\");\nconsole.log(user.name);       // OK — public\nconsole.log(user.getEmail()); // OK — via method\n// console.log(user.email);  // Error: private\n// user.id = \"NEW\";          // Error: readonly"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inheritance மற்றும் Method Overriding"
+      },
+      {
+        "type": "example",
+        "code": "class Animal {\n  constructor(public name: string) {}\n\n  move(distance: number = 0): void {\n    console.log(`${this.name} moved ${distance}m`);\n  }\n\n  toString(): string {\n    return `Animal: ${this.name}`;\n  }\n}\n\nclass Dog extends Animal {\n  constructor(name: string, public breed: string) {\n    super(name); // Parent constructor call — mandatory!\n  }\n\n  bark(): string {\n    return \"Woof!\";\n  }\n\n  // Method override\n  override toString(): string {\n    return `Dog: ${this.name} (${this.breed})`;\n  }\n}\n\nconst dog = new Dog(\"Tommy\", \"Labrador\");\ndog.move(10);             // inherited from Animal\nconsole.log(dog.bark());  // own method\nconsole.log(dog.toString()); // overridden"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Abstract Classes"
+      },
+      {
+        "type": "example",
+        "code": "// Abstract class — directly instantiate செய்ய முடியாது\nabstract class Shape {\n  abstract getArea(): number;      // subclass implement வேண்டும்\n  abstract getPerimeter(): number; // subclass implement வேண்டும்\n\n  describe(): string {\n    return `Area: ${this.getArea().toFixed(2)}, Perimeter: ${this.getPerimeter().toFixed(2)}`;\n  }\n}\n\nclass Circle extends Shape {\n  constructor(private radius: number) { super(); }\n\n  getArea(): number {\n    return Math.PI * this.radius ** 2;\n  }\n\n  getPerimeter(): number {\n    return 2 * Math.PI * this.radius;\n  }\n}\n\nclass Rectangle extends Shape {\n  constructor(private width: number, private height: number) { super(); }\n\n  getArea(): number { return this.width * this.height; }\n  getPerimeter(): number { return 2 * (this.width + this.height); }\n}\n\n// const shape = new Shape(); // Error: abstract class!\nconst circle = new Circle(5);\nconsole.log(circle.describe()); // Area: 78.54, Perimeter: 31.42"
+      },
+      {
+        "type": "note",
+        "text": "Access modifiers compile-time check மட்டும் — runtime JavaScript-ல் private என்று enforce ஆகாது. True runtime privacy-க்கு ECMAScript private fields (#balance) பயன்படுத்தவும். TypeScript 4.3+ override keyword கொடுத்துள்ளது — parent class method-ஐ override செய்யும்போது use செய்யவும்."
+      }
+    ]
+  },
+  "generics": {
+    "title": "Generics",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Generics என்பது TypeScript-இன் மிகவும் powerful feature. இது reusable, type-safe code எழுத உதவுகிறது. Generic functions மற்றும் classes ஒரே code மூலம் பல types-ஐ handle செய்யும் — type safety-ஐ sacrifice செய்யாமல். <T> என்ற angle brackets மூலம் type parameter declare செய்வோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generics ஏன் வேண்டும்?"
+      },
+      {
+        "type": "example",
+        "code": "// Without generics — any use செய்யவேண்டும் (unsafe!)\nfunction identityUnsafe(arg: any): any {\n  return arg; // return type தெரியாது\n}\n\n// With generics — type-safe!\nfunction identity<T>(arg: T): T {\n  return arg; // T என்ன type-ஆக வந்தாலும் same type return\n}\n\n// TypeScript automatically T-ஐ infer செய்யும்\nconst num = identity(42);        // T = number, return: number\nconst str = identity(\"hello\");   // T = string, return: string\nconst arr = identity([1, 2, 3]); // T = number[], return: number[]\n\n// Explicitly specify செய்வது\nconst explicit = identity<string>(\"TypeScript\"); // T = string"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Functions — Array Operations"
+      },
+      {
+        "type": "example",
+        "code": "// Generic array functions\nfunction getFirst<T>(arr: T[]): T | undefined {\n  return arr[0];\n}\n\nfunction getLast<T>(arr: T[]): T | undefined {\n  return arr[arr.length - 1];\n}\n\nfunction merge<T>(arr1: T[], arr2: T[]): T[] {\n  return [...arr1, ...arr2];\n}\n\nfunction filter<T>(arr: T[], predicate: (item: T) => boolean): T[] {\n  return arr.filter(predicate);\n}\n\nconsole.log(getFirst([1, 2, 3]));         // 1\nconsole.log(getLast([\"a\", \"b\", \"c\"]));   // \"c\"\nconsole.log(merge([1, 2], [3, 4]));       // [1, 2, 3, 4]\nconsole.log(filter([1, 2, 3, 4, 5], n => n % 2 === 0)); // [2, 4]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Interfaces"
+      },
+      {
+        "type": "example",
+        "code": "// Generic interface — API response pattern\ninterface ApiResponse<T> {\n  data: T;\n  status: number;\n  message: string;\n  timestamp: Date;\n}\n\ninterface User {\n  id: number;\n  name: string;\n}\n\ninterface Product {\n  id: number;\n  title: string;\n  price: number;\n}\n\n// Type-safe API responses\nconst userResponse: ApiResponse<User> = {\n  data: { id: 1, name: \"Tamilan\" },\n  status: 200,\n  message: \"Success\",\n  timestamp: new Date()\n};\n\nconst productsResponse: ApiResponse<Product[]> = {\n  data: [{ id: 1, title: \"Laptop\", price: 50000 }],\n  status: 200,\n  message: \"Found\",\n  timestamp: new Date()\n};\n\nconsole.log(userResponse.data.name); // \"Tamilan\" — type-safe!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Classes"
+      },
+      {
+        "type": "example",
+        "code": "class Stack<T> {\n  private items: T[] = [];\n\n  push(item: T): void {\n    this.items.push(item);\n  }\n\n  pop(): T | undefined {\n    return this.items.pop();\n  }\n\n  peek(): T | undefined {\n    return this.items[this.items.length - 1];\n  }\n\n  isEmpty(): boolean {\n    return this.items.length === 0;\n  }\n\n  get size(): number {\n    return this.items.length;\n  }\n}\n\nconst numberStack = new Stack<number>();\nnumberStack.push(1);\nnumberStack.push(2);\nnumberStack.push(3);\nconsole.log(numberStack.pop());  // 3\nconsole.log(numberStack.peek()); // 2\n\nconst stringStack = new Stack<string>();\nstringStack.push(\"TypeScript\");\nstringStack.push(\"Rocks!\");\n// numberStack.push(\"text\"); // Error: string is not number"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Constraints — extends Keyword"
+      },
+      {
+        "type": "example",
+        "code": "// keyof constraint — object property-ஐ safe-ஆக access\nfunction getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}\n\nconst person = { name: \"Tamilan\", age: 25, city: \"Chennai\" };\nconsole.log(getProperty(person, \"name\"));  // \"Tamilan\"\nconsole.log(getProperty(person, \"age\"));   // 25\n// getProperty(person, \"salary\"); // Error: not a key!\n\n// Interface constraint\ninterface HasLength {\n  length: number;\n}\n\nfunction logLength<T extends HasLength>(item: T): void {\n  console.log(`Length: ${item.length}`);\n}\n\nlogLength(\"hello\");    // string has length — OK\nlogLength([1, 2, 3]); // array has length — OK\n// logLength(42);      // Error: number has no length"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multiple Type Parameters"
+      },
+      {
+        "type": "example",
+        "code": "// Multiple generics — T, U, V\nfunction pair<T, U>(first: T, second: U): [T, U] {\n  return [first, second];\n}\n\nconst p1 = pair(\"hello\", 42);       // [string, number]\nconst p2 = pair(true, [1, 2, 3]);   // [boolean, number[]]\n\n// zip function\nfunction zip<A, B>(a: A[], b: B[]): [A, B][] {\n  return a.map((item, i) => [item, b[i]]);\n}\n\nconst pairs = zip([1, 2, 3], [\"one\", \"two\", \"three\"]);\n// [[1, \"one\"], [2, \"two\"], [3, \"three\"]]"
+      },
+      {
+        "type": "note",
+        "text": "Generic type parameter-க்கு convention-ஆக T (Type), K (Key), V (Value), E (Element) போன்ற single letters பயன்படுத்துவோம். Complex generics-க்கு descriptive names (TItem, TResponse) use செய்யலாம். Generics-ஐ over-use செய்யாதீர்கள் — simple cases-ல் concrete types better."
+      }
+    ]
+  },
+  "enums": {
+    "title": "Enums",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் enum என்பது related constants-இன் collection-ஐ ஒரே இடத்தில் define செய்ய பயன்படும். Magic numbers மற்றும் magic strings-ஐ avoid செய்ய இது உதவுகிறது. Code-ஐ readable-ஆகவும் maintainable-ஆகவும் வைக்க enums மிகவும் useful."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Numeric Enum"
+      },
+      {
+        "type": "paragraph",
+        "text": "Default-ஆக enum members 0-லிருந்து auto-increment ஆகும். Custom starting value அல்லது specific values கொடுக்கலாம். Numeric enums reverse mapping support செய்யும் — value-லிருந்து name கண்டுபிடிக்கலாம்."
+      },
+      {
+        "type": "example",
+        "code": "// Default numeric enum — 0 முதல் auto-increment\nenum Direction {\n  North, // 0\n  South, // 1\n  East,  // 2\n  West   // 3\n}\n\nconsole.log(Direction.North); // 0\nconsole.log(Direction[0]);    // \"North\" — reverse mapping!\n\n// Custom values\nenum HttpStatus {\n  OK = 200,\n  Created = 201,\n  BadRequest = 400,\n  Unauthorized = 401,\n  NotFound = 404,\n  InternalError = 500\n}\n\nconsole.log(HttpStatus.OK);       // 200\nconsole.log(HttpStatus.NotFound); // 404\nconsole.log(HttpStatus[200]);     // \"OK\" — reverse mapping"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "String Enum"
+      },
+      {
+        "type": "example",
+        "code": "// String enum — readable values, debugging-ல் useful\nenum Color {\n  Red = \"RED\",\n  Green = \"GREEN\",\n  Blue = \"BLUE\",\n  Yellow = \"YELLOW\"\n}\n\nenum UserRole {\n  Admin = \"ADMIN\",\n  Editor = \"EDITOR\",\n  Viewer = \"VIEWER\"\n}\n\nfunction checkAccess(role: UserRole): boolean {\n  return role === UserRole.Admin || role === UserRole.Editor;\n}\n\nconsole.log(checkAccess(UserRole.Admin));  // true\nconsole.log(checkAccess(UserRole.Viewer)); // false\n\nconst bg: Color = Color.Blue;\nconsole.log(bg); // \"BLUE\" — readable!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Enum in Switch Statement"
+      },
+      {
+        "type": "example",
+        "code": "enum Season {\n  Spring = \"SPRING\",\n  Summer = \"SUMMER\",\n  Autumn = \"AUTUMN\",\n  Winter = \"WINTER\"\n}\n\nfunction getActivity(season: Season): string {\n  switch (season) {\n    case Season.Spring:\n      return \"Gardening மற்றும் hiking\";\n    case Season.Summer:\n      return \"Swimming மற்றும் beach trips\";\n    case Season.Autumn:\n      return \"Trekking மற்றும் leaf watching\";\n    case Season.Winter:\n      return \"Indoor activities மற்றும் reading\";\n    default:\n      const _exhaustive: never = season;\n      return _exhaustive; // exhaustiveness check\n  }\n}\n\nconsole.log(getActivity(Season.Summer)); // \"Swimming மற்றும் beach trips\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Const Enum — Performance Optimization"
+      },
+      {
+        "type": "example",
+        "code": "// const enum — compile-time inlining, zero runtime overhead\nconst enum Weekday {\n  Monday = 1,\n  Tuesday,\n  Wednesday,\n  Thursday,\n  Friday,\n  Saturday,\n  Sunday\n}\n\nconst today = Weekday.Wednesday;\n// Compiled to: const today = 3;\n// Runtime-ல் Weekday object இல்லை — bundle size குறையும்!\n\n// Reverse mapping const enum-ல் இல்லை\n// Weekday[3] — runtime error!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Enum vs Union Types"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Aspect",
+          "Enum",
+          "Union Type"
+        ],
+        "rows": [
+          [
+            "Syntax",
+            "enum Color { Red, Blue }",
+            "type Color = 'red' | 'blue'"
+          ],
+          [
+            "Runtime",
+            "Object exists at runtime",
+            "Compile-time only — zero cost"
+          ],
+          [
+            "Iteration",
+            "Object.values() possible",
+            "Not directly iterable"
+          ],
+          [
+            "Reverse lookup",
+            "Numeric enums only",
+            "Not applicable"
+          ],
+          [
+            "Bundle size",
+            "Adds JS code",
+            "Zero runtime cost"
+          ],
+          [
+            "Use case",
+            "Named constants, DB values",
+            "Simple string sets, options"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Modern TypeScript-ல் string union types (type Status = 'active' | 'inactive') enums-ஐ விட simpler மற்றும் zero-runtime-cost என்பதால் prefer செய்யப்படுகின்றன. ஆனால் runtime iteration தேவைப்பட்டால் அல்லது reverse mapping வேண்டுமென்றால் enums use செய்யவும். const enum bundle size-ஐ குறைக்கும்."
+      }
+    ]
+  },
+  "tuples": {
+    "title": "Tuples & Arrays",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் arrays மற்றும் tuples இரண்டும் collection data store செய்யும். Arrays same type (அல்லது union type) elements store செய்யும் — variable length. Tuples fixed-length arrays — ஒவ்வொரு position-ல் specific type இருக்கும். இது Python-இல் உள்ள tuple-போல வேலை செய்யும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Array Types — Declarations"
+      },
+      {
+        "type": "example",
+        "code": "// Single type arrays — இரண்டு syntax equivalent\nconst numbers: number[] = [1, 2, 3, 4, 5];\nconst names: string[] = [\"Alice\", \"Bob\", \"Charlie\"];\nconst flags: Array<boolean> = [true, false, true];\n\n// Mixed types — union array\nconst mixed: (number | string)[] = [1, \"hello\", 2, \"world\"];\n\n// Readonly array — mutation prevent\nconst readonlyNums: readonly number[] = [1, 2, 3];\nconst readonlyArr: ReadonlyArray<string> = [\"a\", \"b\"];\n// readonlyNums.push(4); // Error: Property 'push' does not exist!\n\n// Multidimensional\nconst matrix: number[][] = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Array Methods — Type Safety"
+      },
+      {
+        "type": "example",
+        "code": "const fruits: string[] = [\"apple\", \"mango\", \"banana\", \"orange\"];\n\n// map — return type automatically infer ஆகும்\nconst lengths: number[] = fruits.map(f => f.length);\n\n// filter — same type return\nconst longFruits: string[] = fruits.filter(f => f.length > 5);\n\n// find — T | undefined return\nconst found: string | undefined = fruits.find(f => f.startsWith(\"m\"));\n\n// reduce — explicit type needed\nconst totalLength: number = fruits.reduce((sum, f) => sum + f.length, 0);\n\n// sort — in-place, same type\nconst sorted: string[] = [...fruits].sort();\n\n// Type-safe push\nfruits.push(\"grape\");  // OK\n// fruits.push(42);     // Error: number is not string"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Tuples — Basic Concept"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tuple என்பது fixed number of elements-ஐ கொண்ட array, ஒவ்வொரு position-க்கும் specific type. இது database rows, coordinates, key-value pairs, React useState போன்றவற்றை represent செய்ய use ஆகும்."
+      },
+      {
+        "type": "example",
+        "code": "// Basic tuple\nlet point: [number, number] = [10, 20];\nlet person: [string, number, boolean] = [\"Tamilan\", 25, true];\n\n// Destructuring — clean code!\nconst [x, y] = point;\nconst [name, age, isActive] = person;\nconsole.log(x, y);           // 10 20\nconsole.log(name, age);      // \"Tamilan\" 25\n\n// Named tuple elements — TypeScript 4.0+\ntype RGB = [red: number, green: number, blue: number];\ntype Range = [start: number, end: number];\n\nconst orange: RGB = [255, 165, 0];\nconst range: Range = [1, 100];\n\n// Out of bounds access — compile-time error\n// point[2]; // Error: Tuple type '[number, number]' of length '2'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional மற்றும் Rest Elements in Tuples"
+      },
+      {
+        "type": "example",
+        "code": "// Optional element — ? operator\ntype Coordinate = [x: number, y: number, z?: number];\n\nconst point2D: Coordinate = [10, 20];       // OK — z optional\nconst point3D: Coordinate = [10, 20, 30];   // OK\n\n// Rest element in tuple\ntype StringsThenNumber = [string, ...number[]];\nconst row: StringsThenNumber = [\"label\", 1, 2, 3, 4]; // OK\n\n// Labeled rest elements\ntype Config = [host: string, port: number, ...flags: boolean[]];\nconst cfg: Config = [\"localhost\", 3000, true, false];"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Tuple Return Types — React Hooks Pattern"
+      },
+      {
+        "type": "example",
+        "code": "// React useState போன்ற tuple return\nfunction useState<T>(initial: T): [T, (value: T) => void] {\n  let state = initial;\n  const setState = (value: T) => { state = value; };\n  return [state, setState];\n}\n\nconst [count, setCount] = useState(0);      // [number, setter]\nconst [name, setName] = useState(\"Tamil\"); // [string, setter]\n\n// Error handling tuple pattern — Go-style\nfunction safeDivide(a: number, b: number): [number, null] | [null, string] {\n  if (b === 0) return [null, \"Division by zero!\"];\n  return [a / b, null];\n}\n\nconst [result, error] = safeDivide(10, 2);\nif (error) {\n  console.error(error);\n} else {\n  console.log(result); // 5\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Readonly Tuples மற்றும் as const"
+      },
+      {
+        "type": "example",
+        "code": "// Readonly tuple — immutable\nconst point: readonly [number, number] = [5, 10];\n// point[0] = 20; // Error: Cannot assign to '0' — read-only\n\n// as const — literal type narrow செய்யும்\nconst config = [\"localhost\", 8080] as const;\n// config type: readonly [\"localhost\", 8080]\n// config[1] = 3000; // Error!\n\nconsole.log(config[0]); // \"localhost\"\nconsole.log(config[1]); // 8080"
+      },
+      {
+        "type": "note",
+        "text": "Tuples multiple return values-க்கு neat solution. React useState, error handling patterns (Go-style), coordinate systems போன்றவற்றிற்கு tuples மிகவும் useful. Destructuring-உடன் use செய்தால் code clean-ஆக இருக்கும். Named tuple elements (TypeScript 4.0+) code readability-ஐ improve செய்யும்."
+      }
+    ]
+  },
+  "type-assertions": {
+    "title": "Type Assertions & Casting",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல் சில நேரம் நாம் compiler-ஐ விட ஒரு value-இன் type பற்றி அதிகமாக தெரியும். Type assertions மூலம் TypeScript-ஐ 'இந்த value இந்த type' என்று சொல்லலாம். இது actual runtime conversion இல்லை — compile-time hint மட்டும். as keyword அல்லது angle bracket syntax பயன்படுத்துவோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Assertion Syntax — as Keyword"
+      },
+      {
+        "type": "paragraph",
+        "text": "as keyword-ஐ பயன்படுத்தி type assert செய்வது modern TypeScript-இல் preferred way. இது .tsx files-ல் (JSX/React) use செய்யலாம். Angle bracket syntax JSX-ல் conflict வருவதால் as keyword prefer செய்யவும்."
+      },
+      {
+        "type": "example",
+        "code": "// as keyword — preferred syntax\n// DOM element type assertion\nconst input = document.getElementById(\"myInput\") as HTMLInputElement;\nconsole.log(input.value); // HTMLInputElement-இன் property access\n\n// JSON.parse returns any — assert the shape\nconst userData: unknown = JSON.parse('{\"name\": \"Tamilan\", \"age\": 25}');\nconst user = userData as { name: string; age: number };\nconsole.log(user.name); // \"Tamilan\"\n\n// Angle bracket syntax (avoid in .tsx files)\nconst input2 = <HTMLInputElement>document.getElementById(\"myInput\");\n// JSX-ல் ambiguous ஆகும் — avoid!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Use Cases"
+      },
+      {
+        "type": "example",
+        "code": "// DOM elements — most common use case\nconst canvas = document.getElementById(\"myCanvas\") as HTMLCanvasElement;\nconst ctx = canvas.getContext(\"2d\")!; // non-null assertion\n\nconst button = document.querySelector(\".submit-btn\") as HTMLButtonElement;\nbutton.disabled = true;\n\n// API response handling\nasync function fetchUser(id: number): Promise<void> {\n  const response = await fetch(`/api/users/${id}`);\n  const data = await response.json(); // data: any\n  const user = data as { id: number; name: string; email: string };\n  console.log(user.name);\n}\n\n// Event handling\ndocument.addEventListener(\"click\", (event) => {\n  const target = event.target as HTMLButtonElement;\n  console.log(target.textContent);\n  console.log(target.dataset.id); // data-id attribute\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Non-null Assertion Operator (!)"
+      },
+      {
+        "type": "example",
+        "code": "// ! operator — value null/undefined இல்லை என்று assert\nconst element = document.getElementById(\"header\");\n// element type: HTMLElement | null\n\n// Safe way — null check\nif (element) {\n  element.style.color = \"red\"; // safe\n}\n\n// Non-null assertion — careful!\nelement!.style.color = \"blue\"; // null-ஆக இருந்தால் runtime error!\n\n// Optional chaining — safer alternative\nelement?.classList.add(\"active\"); // null-ஐ gracefully handle செய்யும்\n\n// Chaining with non-null\nconst value = document.querySelector(\"input\")!.value;\nconsole.log(value.toUpperCase());"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Double Assertion — when necessary"
+      },
+      {
+        "type": "example",
+        "code": "// சில நேரம் directly assert முடியாது\n// const wrong = \"hello\" as number; // Error: incompatible types!\n\n// Double assertion — unknown வழி force செய்வது\nconst value = \"hello\" as unknown as number;\n// Very dangerous — use only when truly necessary!\n\n// Better approach — type guard\nfunction isNumber(value: unknown): value is number {\n  return typeof value === \"number\";\n}\n\nconst data: unknown = 42;\nif (isNumber(data)) {\n  console.log(data.toFixed(2)); // safe — narrowed to number\n}\n\n// satisfies operator (TypeScript 4.9+)\ntype Colors = \"red\" | \"green\" | \"blue\";\ntype ColorMap = Record<Colors, string>;\n\nconst palette = {\n  red: \"#ff0000\",\n  green: \"#00ff00\",\n  blue: \"#0000ff\"\n} satisfies ColorMap;\n// satisfies — type check செய்யும், ஆனால் inferred type keep செய்யும்"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Type Guards"
+      },
+      {
+        "type": "example",
+        "code": "// Type guard function — 'is' keyword\ninterface Cat {\n  meow(): string;\n  purr(): void;\n}\n\ninterface Dog {\n  bark(): string;\n  fetch(): void;\n}\n\n// Custom type guard — runtime check + type narrowing\nfunction isCat(animal: Cat | Dog): animal is Cat {\n  return (animal as Cat).meow !== undefined;\n}\n\nfunction makeSound(animal: Cat | Dog): string {\n  if (isCat(animal)) {\n    return animal.meow(); // TypeScript knows Cat here\n  } else {\n    return animal.bark(); // TypeScript knows Dog here\n  }\n}\n\n// instanceof type guard\nfunction processError(error: unknown): string {\n  if (error instanceof Error) {\n    return error.message; // Error properties available\n  }\n  return String(error);\n}"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "Type Guard",
+          "Type Assertion"
+        ],
+        "rows": [
+          [
+            "Runtime check?",
+            "Yes — actual check",
+            "No — compiler-ஐ நம்புகிறோம்"
+          ],
+          [
+            "Safety",
+            "Safe — runtime validate",
+            "Risky — wrong-ஆக இருந்தால் runtime error"
+          ],
+          [
+            "Syntax",
+            "typeof, instanceof, custom 'is'",
+            "as Type அல்லது <Type>"
+          ],
+          [
+            "Prefer when?",
+            "Most narrowing scenarios",
+            "DOM APIs, JSON.parse, migration"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Type assertions TypeScript-இன் safety-ஐ override செய்கின்றன — தவறாக use செய்தால் runtime errors வரும். Possible-ஆன வரை type guards பயன்படுத்தவும். Non-null assertion (!) மிகவும் careful-ஆக பயன்படுத்தவும் — optional chaining (?.) safer alternative. DOM access-க்கு மட்டும் as assertion அவசியம்."
+      }
+    ]
+  },
+  "type-guards": {
+    "title": "Type Guards & Narrowing",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Type guard என்பது runtime-ல ஒரு value-இன் type-ஐ சரிபார்த்து, அந்த block-க்குள் TypeScript-க்கு சரியான type-ஐ தெரியப்படுத்தும் ஒரு technique. இதை 'narrowing' என்று சொல்வோம் — அதாவது broad ஆன type-ஐ குறுக்கி specific type-ஆக மாற்றுவது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "typeof Type Guard"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-இல் உள்ள typeof operator-ஐ TypeScript type guard ஆக பயன்படுத்தலாம். இது primitive types — string, number, boolean, symbol — கண்டுபிடிக்க உதவும்."
+      },
+      {
+        "type": "example",
+        "code": "function printValue(val: string | number) {\n  if (typeof val === 'string') {\n    console.log(val.toUpperCase()); // string methods available\n  } else {\n    console.log(val.toFixed(2)); // number methods available\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "instanceof Type Guard"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class instances-ஐ சரிபார்க்க instanceof operator பயன்படுத்தலாம். ஒரு object எந்த class-இல் இருந்து உருவானது என்று தெரிந்துகொள்ள இது உதவும்."
+      },
+      {
+        "type": "example",
+        "code": "class Dog {\n  bark() { console.log('Woof!'); }\n}\nclass Cat {\n  meow() { console.log('Meow!'); }\n}\n\nfunction makeSound(animal: Dog | Cat) {\n  if (animal instanceof Dog) {\n    animal.bark();\n  } else {\n    animal.meow();\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Type Guard (is keyword)"
+      },
+      {
+        "type": "paragraph",
+        "text": "நம்முடைய custom type guard function எழுதும்போது, return type-ஆக 'paramName is Type' என்று குறிப்பிடவேண்டும். இதை user-defined type guard என்று சொல்வோம்."
+      },
+      {
+        "type": "example",
+        "code": "interface Fish {\n  swim: () => void;\n}\ninterface Bird {\n  fly: () => void;\n}\n\nfunction isFish(pet: Fish | Bird): pet is Fish {\n  return (pet as Fish).swim !== undefined;\n}\n\nfunction move(pet: Fish | Bird) {\n  if (isFish(pet)) {\n    pet.swim(); // TypeScript knows it's Fish here\n  } else {\n    pet.fly();\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "in Operator Guard"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு property ஒரு object-ல இருக்கிறதா என்று check செய்ய in operator-ஐ type guard ஆக பயன்படுத்தலாம்."
+      },
+      {
+        "type": "example",
+        "code": "interface Admin {\n  role: string;\n  permissions: string[];\n}\ninterface User {\n  name: string;\n}\n\nfunction getAccess(person: Admin | User) {\n  if ('permissions' in person) {\n    console.log('Admin permissions:', person.permissions);\n  } else {\n    console.log('Regular user:', person.name);\n  }\n}"
+      },
+      {
+        "type": "note",
+        "text": "Narrowing மூலம் TypeScript-க்கு unnecessary type assertions (as keyword) தவிர்க்கலாம். இது code-ஐ safer-ஆகவும் readable-ஆகவும் வைக்கும். Discriminated unions-உடன் சேர்ந்து type guards மிகவும் powerful-ஆக செயல்படும்."
+      }
+    ]
+  },
+  "utility-types": {
+    "title": "Utility Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-இல் built-in utility types மூலம் existing types-ஐ transform பண்ணி புதிய types உருவாக்கலாம். இவை generic types ஆக இருக்கும், மற்றும் common type transformations-ஐ எளிதாக செய்யும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Partial மற்றும் Required"
+      },
+      {
+        "type": "paragraph",
+        "text": "Partial<T> என்பது ஒரு type-இன் அனைத்து properties-ஐயும் optional-ஆக மாற்றும். Required<T> என்பது எல்லா properties-ஐயும் mandatory-ஆக மாற்றும். Update operations-ல Partial மிகவும் useful."
+      },
+      {
+        "type": "example",
+        "code": "interface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\n// All fields optional\ntype PartialUser = Partial<User>;\n// { id?: number; name?: string; email?: string; }\n\n// All fields required\ntype RequiredUser = Required<PartialUser>;\n// Same as original User\n\nfunction updateUser(id: number, updates: Partial<User>) {\n  console.log('Updating user', id, updates);\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Pick மற்றும் Omit"
+      },
+      {
+        "type": "paragraph",
+        "text": "Pick<T, K> மூலம் ஒரு type-இல் இருந்து specific properties மட்டும் எடுக்கலாம். Omit<T, K> மூலம் specific properties-ஐ நீக்கி மீதமுள்ளவற்றை எடுக்கலாம்."
+      },
+      {
+        "type": "example",
+        "code": "interface Product {\n  id: number;\n  name: string;\n  price: number;\n  category: string;\n  description: string;\n}\n\ntype ProductSummary = Pick<Product, 'id' | 'name' | 'price'>;\n// { id: number; name: string; price: number; }\n\ntype ProductWithoutId = Omit<Product, 'id'>;\n// { name: string; price: number; category: string; description: string; }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Readonly மற்றும் Record"
+      },
+      {
+        "type": "paragraph",
+        "text": "Readonly<T> மூலம் எல்லா properties-ஐயும் read-only-ஆக மாற்றலாம். Record<K, V> மூலம் key-value pair type உருவாக்கலாம். இது map-like structures-க்கு மிகவும் useful."
+      },
+      {
+        "type": "example",
+        "code": "// Readonly - immutable object\ntype ReadonlyUser = Readonly<User>;\n// Cannot reassign any property\n\n// Record - key-value mapping\ntype RoleMap = Record<string, string[]>;\nconst roles: RoleMap = {\n  admin: ['read', 'write', 'delete'],\n  user: ['read'],\n  guest: []\n};\n\ntype StatusCodes = Record<number, string>;\nconst codes: StatusCodes = {\n  200: 'OK',\n  404: 'Not Found',\n  500: 'Internal Server Error'\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Exclude, Extract, மற்றும் NonNullable"
+      },
+      {
+        "type": "paragraph",
+        "text": "இந்த utility types union types-உடன் சேர்ந்து வேலை செய்யும். Exclude<T, U> மூலம் union-இல் இருந்து specific types நீக்கலாம். Extract<T, U> மூலம் common types மட்டும் எடுக்கலாம். NonNullable<T> மூலம் null மற்றும் undefined நீக்கலாம்."
+      },
+      {
+        "type": "example",
+        "code": "type AllTypes = string | number | boolean | null | undefined;\n\ntype NoNulls = NonNullable<AllTypes>;\n// string | number | boolean\n\ntype OnlyStrNum = Extract<AllTypes, string | number>;\n// string | number\n\ntype NoStrings = Exclude<AllTypes, string>;\n// number | boolean | null | undefined"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ReturnType மற்றும் Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Function types-ஐ analyze செய்ய ReturnType<T> மற்றும் Parameters<T> பயன்படுத்தலாம். ஒரு function-இன் return type அல்லது parameter types-ஐ தனியே extract செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "code": "function fetchUser(id: number, token: string): Promise<User> {\n  return fetch(`/api/users/${id}`).then(r => r.json());\n}\n\ntype FetchReturn = ReturnType<typeof fetchUser>;\n// Promise<User>\n\ntype FetchParams = Parameters<typeof fetchUser>;\n// [id: number, token: string]\n\n// Useful for wrapping functions\nfunction withLogging<T extends (...args: any[]) => any>(\n  fn: T\n): (...args: Parameters<T>) => ReturnType<T> {\n  return (...args) => {\n    console.log('Calling with:', args);\n    return fn(...args);\n  };\n}"
+      },
+      {
+        "type": "note",
+        "text": "Utility types TypeScript-இன் standard library-ல built-in ஆக இருக்கும் — import செய்ய வேண்டியதில்லை. இவற்றை combine செய்தும் பயன்படுத்தலாம், உதாரணமாக Readonly<Partial<User>> என்று nested-ஆக பயன்படுத்தலாம்."
+      }
+    ]
+  },
+  "mapped-types": {
+    "title": "Mapped Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Mapped types மூலம் ஒரு existing type-இன் properties-ஐ iterate செய்து, ஒவ்வொரு property-ஐயும் transform செய்து புதிய type உருவாக்கலாம். இது TypeScript-இன் மிகவும் powerful features-ல ஒன்று."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Mapped Type Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "Mapped type என்பது { [K in KeyType]: ValueType } என்ற syntax-ல எழுதப்படும். இது ஒரு object type-இன் எல்லா keys-ஐயும் loop பண்ணி, ஒவ்வொன்றுக்கும் புதிய type assign செய்யும்."
+      },
+      {
+        "type": "example",
+        "code": "// Basic mapped type\ntype Flags<T> = {\n  [K in keyof T]: boolean;\n};\n\ninterface Features {\n  darkMode: string;\n  notifications: string;\n  autoSave: string;\n}\n\ntype FeatureFlags = Flags<Features>;\n// { darkMode: boolean; notifications: boolean; autoSave: boolean; }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modifiers in Mapped Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Mapped types-ல +/- prefix பயன்படுத்தி properties-ஐ optional அல்லது readonly-ஆக மாற்றலாம். - prefix கொண்டு existing modifiers-ஐ நீக்கலாம். இதுதான் Partial மற்றும் Required utility types internally செய்வது."
+      },
+      {
+        "type": "example",
+        "code": "// Make all properties optional (like Partial)\ntype MyPartial<T> = {\n  [K in keyof T]?: T[K];\n};\n\n// Make all properties readonly (like Readonly)\ntype MyReadonly<T> = {\n  readonly [K in keyof T]: T[K];\n};\n\n// Remove optional modifier\ntype MyRequired<T> = {\n  [K in keyof T]-?: T[K];\n};\n\n// Remove readonly\ntype Mutable<T> = {\n  -readonly [K in keyof T]: T[K];\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Key Remapping with as"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript 4.1+ முதல் mapped type-ல as keyword பயன்படுத்தி keys-ஐ rename செய்யலாம். Template literal types-உடன் சேர்ந்து இது மிகவும் useful."
+      },
+      {
+        "type": "example",
+        "code": "// Rename keys using template literals\ntype Getters<T> = {\n  [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K];\n};\n\ninterface Person {\n  name: string;\n  age: number;\n}\n\ntype PersonGetters = Getters<Person>;\n// { getName: () => string; getAge: () => number; }\n\n// Filter keys using never\ntype NonNullableProps<T> = {\n  [K in keyof T as T[K] extends null | undefined ? never : K]: T[K];\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Practical Example: API Response Wrapper"
+      },
+      {
+        "type": "paragraph",
+        "text": "Real-world scenario-ல mapped types எப்படி பயன்படுத்தலாம் என்று பார்ப்போம். API response-ஐ wrap செய்ய mapped types மிகவும் elegant solution தரும்."
+      },
+      {
+        "type": "example",
+        "code": "type ApiResponse<T> = {\n  [K in keyof T]: {\n    data: T[K];\n    loading: boolean;\n    error: string | null;\n  };\n};\n\ninterface UserState {\n  profile: User;\n  posts: Post[];\n  settings: Settings;\n}\n\ntype UserApiState = ApiResponse<UserState>;\n// {\n//   profile: { data: User; loading: boolean; error: string | null; };\n//   posts: { data: Post[]; loading: boolean; error: string | null; };\n//   settings: { data: Settings; loading: boolean; error: string | null; };\n// }"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Mapped Type Pattern",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "[K in keyof T]?: T[K]",
+            "எல்லா properties-ஐ optional செய்யும்"
+          ],
+          [
+            "readonly [K in keyof T]: T[K]",
+            "எல்லா properties-ஐ readonly செய்யும்"
+          ],
+          [
+            "[K in keyof T]-?: T[K]",
+            "optional modifier நீக்கும்"
+          ],
+          [
+            "-readonly [K in keyof T]: T[K]",
+            "readonly modifier நீக்கும்"
+          ],
+          [
+            "[K in keyof T as NewKey]: T[K]",
+            "key-ஐ rename செய்யும்"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Mapped types மற்றும் conditional types சேர்ந்து பயன்படுத்தும்போது மிகவும் complex type transformations எழுதலாம். TypeScript-இன் utility types அனைத்தும் internally mapped types பயன்படுத்தி implement செய்யப்பட்டிருக்கும்."
+      }
+    ]
+  },
+  "conditional-types": {
+    "title": "Conditional Types",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Conditional types TypeScript-ல type-level-ல if-else logic எழுத அனுமதிக்கும். T extends U ? X : Y என்ற syntax பயன்படுத்தி, ஒரு type-இன் condition-ஐ பொறுத்து வேறு type return செய்யலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Basic Conditional Type Syntax"
+      },
+      {
+        "type": "paragraph",
+        "text": "Conditional type-இன் basic syntax: T extends U ? TrueType : FalseType. T என்பது U-ஐ extend செய்கிறதா என்று check செய்யும். அதன் result-ஐ பொறுத்து TrueType அல்லது FalseType return ஆகும்."
+      },
+      {
+        "type": "example",
+        "code": "type IsString<T> = T extends string ? true : false;\n\ntype A = IsString<string>;  // true\ntype B = IsString<number>;  // false\ntype C = IsString<'hello'>; // true\n\n// More practical example\ntype Flatten<T> = T extends Array<infer U> ? U : T;\n\ntype Str = Flatten<string[]>;   // string\ntype Num = Flatten<number>;     // number (not an array, returns as-is)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "infer Keyword"
+      },
+      {
+        "type": "paragraph",
+        "text": "infer keyword conditional types-ல மட்டுமே பயன்படுத்தலாம். இது pattern matching-ல type-ஐ extract செய்து ஒரு variable-ல store செய்யும். Function return types, promise types போன்றவற்றை extract செய்ய இது மிகவும் useful."
+      },
+      {
+        "type": "example",
+        "code": "// Extract return type of a function\ntype ReturnType<T> = T extends (...args: any[]) => infer R ? R : never;\n\n// Extract element type from array\ntype ElementType<T> = T extends (infer U)[] ? U : never;\n\n// Unwrap Promise\ntype Awaited<T> = T extends Promise<infer U> ? U : T;\n\ntype Str = ElementType<string[]>;         // string\ntype Num = Awaited<Promise<number>>;       // number\ntype Fn = ReturnType<() => boolean>;       // boolean"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Distributive Conditional Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Union type-ஐ conditional type-ல pass செய்யும்போது, TypeScript automatically அந்த union-இன் ஒவ்வொரு member-க்கும் தனியாக conditional type apply செய்யும். இதை distributive behavior என்று சொல்வோம்."
+      },
+      {
+        "type": "example",
+        "code": "type IsArray<T> = T extends any[] ? 'array' : 'not array';\n\n// With union type - distributes over each member\ntype Result = IsArray<string | number[] | boolean>;\n// 'not array' | 'array' | 'not array'\n// Simplified: 'array' | 'not array'\n\n// To prevent distribution, wrap in tuple\ntype IsArrayStrict<T> = [T] extends [any[]] ? 'array' : 'not array';\ntype Result2 = IsArrayStrict<string | number[]>; // 'not array'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Practical Use Cases"
+      },
+      {
+        "type": "paragraph",
+        "text": "Conditional types real-world code-ல எப்படி பயன்படுத்தலாம் என்று சில useful patterns பார்ப்போம். இவை API design மற்றும் type-safe code எழுதுவதற்கு மிகவும் உதவும்."
+      },
+      {
+        "type": "example",
+        "code": "// Deep readonly\ntype DeepReadonly<T> = {\n  readonly [K in keyof T]: T[K] extends object\n    ? DeepReadonly<T[K]>\n    : T[K];\n};\n\n// Nullable check\ntype NonNullable<T> = T extends null | undefined ? never : T;\n\n// Function overload type selection\ntype Callback<T> = T extends void\n  ? () => void\n  : (result: T) => void;\n\nfunction request<T>(url: string, callback: Callback<T>): void {\n  // implementation\n}"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Conditional types type-level programming-ஐ possible ஆக்கும்",
+          "infer keyword pattern matching மூலம் types extract செய்யும்",
+          "Union types-உடன் automatically distribute ஆகும்",
+          "Mapped types + conditional types = மிகவும் powerful combinations",
+          "never type-ஐ filter pattern-ஆக பயன்படுத்தலாம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Conditional types மிகவும் advanced feature. Simple cases-ல utility types (Partial, Pick, etc.) போதும். Complex type transformations மட்டுமே conditional types-ஐ நோக்கி செல்லவும். Overuse செய்தால் code readability குறையும்."
+      }
+    ]
+  },
+  "modules": {
+    "title": "Modules & Namespaces",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-ல code-ஐ organize செய்ய modules மற்றும் namespaces பயன்படுத்தலாம். Modern TypeScript ES modules (import/export) பயன்படுத்துவதை recommend செய்யும். Namespaces legacy code-ல அதிகமாக காணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ES Modules - Export"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript-ல ஒரு file-ல இருந்து types, interfaces, functions, classes export செய்யலாம். Named export மற்றும் default export என்று இரண்டு வகை இருக்கும். Types-ஐ export செய்யும்போது export type பயன்படுத்துவது best practice."
+      },
+      {
+        "type": "example",
+        "code": "// types.ts\nexport interface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\nexport type UserRole = 'admin' | 'user' | 'guest';\n\nexport function createUser(name: string, email: string): User {\n  return { id: Date.now(), name, email };\n}\n\n// Default export\nexport default class UserService {\n  private users: User[] = [];\n\n  addUser(user: User): void {\n    this.users.push(user);\n  }\n\n  getUsers(): User[] {\n    return this.users;\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ES Modules - Import"
+      },
+      {
+        "type": "paragraph",
+        "text": "Export செய்யப்பட்ட items-ஐ import செய்யும்போது, type-only imports-க்கு import type பயன்படுத்தலாம். இது bundle size optimize செய்யும், ஏனென்றால் type information runtime-ல தேவையில்லை."
+      },
+      {
+        "type": "example",
+        "code": "// app.ts\nimport UserService from './types'; // default import\nimport { createUser } from './types'; // named import\nimport type { User, UserRole } from './types'; // type-only import\n\n// Rename on import\nimport { createUser as makeUser } from './types';\n\n// Namespace import\nimport * as UserModule from './types';\n\nconst service = new UserService();\nconst user: User = createUser('Sathish', 'sathish@example.com');\nconst role: UserRole = 'admin';\n\nservice.addUser(user);\nconsole.log(service.getUsers());"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Re-exports"
+      },
+      {
+        "type": "paragraph",
+        "text": "Index files மூலம் multiple modules-ஐ ஒரே இடத்தில் re-export செய்யலாம். இது barrel exports pattern என்று அழைக்கப்படும். இப்படி செய்வதால் consumers-க்கு import paths simple-ஆக இருக்கும்."
+      },
+      {
+        "type": "example",
+        "code": "// features/user/index.ts\nexport { UserService } from './user.service';\nexport type { User, UserRole } from './user.types';\nexport { createUser, deleteUser } from './user.utils';\n\n// Now consumers can import from one place\nimport { UserService, createUser } from './features/user';\nimport type { User } from './features/user';"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Namespaces"
+      },
+      {
+        "type": "paragraph",
+        "text": "Namespace என்பது TypeScript-இன் பழைய code organization method. அதே பெயரில் உள்ள code-ஐ ஒரு namespace-க்குள் group செய்யலாம். Modern code-ல ES modules prefer செய்யப்படும், ஆனால் ambient declarations-ல namespaces இன்னும் பயன்படுகின்றன."
+      },
+      {
+        "type": "example",
+        "code": "namespace Validation {\n  export interface StringValidator {\n    isAcceptable(s: string): boolean;\n  }\n\n  export class EmailValidator implements StringValidator {\n    isAcceptable(s: string) {\n      return s.includes('@') && s.includes('.');\n    }\n  }\n\n  export class ZipCodeValidator implements StringValidator {\n    isAcceptable(s: string) {\n      return s.length === 6 && /^\\d+$/.test(s);\n    }\n  }\n}\n\nconst emailValidator = new Validation.EmailValidator();\nconsole.log(emailValidator.isAcceptable('test@example.com')); // true"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Module Resolution"
+      },
+      {
+        "type": "paragraph",
+        "text": "tsconfig.json-ல moduleResolution option மூலம் TypeScript modules-ஐ எப்படி தேடுவது என்று configure செய்யலாம். Modern projects-ல 'bundler' அல்லது 'node16' use செய்வது recommended."
+      },
+      {
+        "type": "example",
+        "code": "// tsconfig.json\n{\n  \"compilerOptions\": {\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"bundler\",\n    \"baseUrl\": \"./src\",\n    \"paths\": {\n      \"@components/*\": [\"app/components/*\"],\n      \"@services/*\": [\"app/services/*\"],\n      \"@models/*\": [\"app/models/*\"]\n    }\n  }\n}"
+      },
+      {
+        "type": "note",
+        "text": "New projects-ல எப்போதும் ES modules (import/export) பயன்படுத்தவும். Namespaces-ஐ புதிய code-ல avoid செய்யவும். Path aliases பயன்படுத்தி long relative paths-ஐ தவிர்க்கலாம்."
+      }
+    ]
+  },
+  "decorators": {
+    "title": "Decorators",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Decorators என்பது classes, methods, properties, parameters-க்கு metadata அல்லது behavior add செய்யும் special syntax. @ symbol பயன்படுத்தி decorators apply செய்யலாம். Angular, NestJS போன்ற frameworks-ல decorators மிகவும் commonly பயன்படுத்தப்படுகின்றன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Decorators Enable செய்வது"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript-ல decorators use செய்ய tsconfig.json-ல experimentalDecorators option enable செய்யவேண்டும். TypeScript 5.0+ முதல் Stage 3 decorators built-in support கிடைக்கும், ஆனால் பழைய experimental decorators இன்னும் widely used."
+      },
+      {
+        "type": "example",
+        "code": "// tsconfig.json\n{\n  \"compilerOptions\": {\n    \"experimentalDecorators\": true,\n    \"emitDecoratorMetadata\": true\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Class Decorator"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class decorator ஒரு class-ஐ argument-ஆக receive செய்து, அதை modify செய்யலாம் அல்லது replace செய்யலாம். இது class-ஐ define செய்யும்போது evaluate ஆகும்."
+      },
+      {
+        "type": "example",
+        "code": "// Class decorator factory\nfunction Component(options: { selector: string; template: string }) {\n  return function <T extends { new (...args: any[]): {} }>(constructor: T) {\n    return class extends constructor {\n      selector = options.selector;\n      template = options.template;\n    };\n  };\n}\n\n@Component({\n  selector: 'app-greeting',\n  template: '<h1>Hello World</h1>'\n})\nclass GreetingComponent {\n  greet() {\n    return 'Hello!';\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Method Decorator"
+      },
+      {
+        "type": "paragraph",
+        "text": "Method decorator ஒரு class-இன் method-ஐ intercept செய்து additional behavior add செய்யலாம். Logging, caching, validation போன்ற cross-cutting concerns implement செய்ய method decorators மிகவும் useful."
+      },
+      {
+        "type": "example",
+        "code": "function Log(target: any, key: string, descriptor: PropertyDescriptor) {\n  const originalMethod = descriptor.value;\n\n  descriptor.value = function (...args: any[]) {\n    console.log(`Calling ${key} with args:`, args);\n    const result = originalMethod.apply(this, args);\n    console.log(`${key} returned:`, result);\n    return result;\n  };\n\n  return descriptor;\n}\n\nclass Calculator {\n  @Log\n  add(a: number, b: number): number {\n    return a + b;\n  }\n}\n\nconst calc = new Calculator();\ncalc.add(5, 3); // Logs input and output"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Property Decorator"
+      },
+      {
+        "type": "paragraph",
+        "text": "Property decorator class-இன் property-ஐ transform செய்யும். Validation, transformation போன்றவற்றுக்கு இதை பயன்படுத்தலாம்."
+      },
+      {
+        "type": "example",
+        "code": "function ReadOnly(target: any, key: string) {\n  Object.defineProperty(target, key, {\n    writable: false,\n    enumerable: true,\n    configurable: false\n  });\n}\n\nfunction MaxLength(max: number) {\n  return function(target: any, key: string) {\n    let value: string;\n    Object.defineProperty(target, key, {\n      get: () => value,\n      set: (newVal: string) => {\n        if (newVal.length > max) {\n          throw new Error(`${key} cannot exceed ${max} characters`);\n        }\n        value = newVal;\n      }\n    });\n  };\n}\n\nclass UserProfile {\n  @ReadOnly\n  id: number = Date.now();\n\n  @MaxLength(50)\n  name: string = '';\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Parameter Decorator"
+      },
+      {
+        "type": "paragraph",
+        "text": "Parameter decorator ஒரு method-இன் specific parameter-க்கு metadata add செய்யும். Dependency injection systems இதை widely பயன்படுத்தும்."
+      },
+      {
+        "type": "example",
+        "code": "import 'reflect-metadata';\n\nfunction Validate(target: any, key: string, paramIndex: number) {\n  const existingParams = Reflect.getOwnMetadata('validate', target, key) || [];\n  existingParams.push(paramIndex);\n  Reflect.defineMetadata('validate', existingParams, target, key);\n}\n\nclass UserService {\n  createUser(@Validate name: string, @Validate email: string) {\n    // parameter indices are stored in metadata\n    console.log('Creating user:', name, email);\n  }\n}"
+      },
+      {
+        "type": "note",
+        "text": "Decorators Angular-ல @Component, @Injectable, @Input, @Output போன்ற forms-ல நம்மை familiar-ஆக இருக்கும். NestJS-ல @Controller, @Get, @Post போன்று பயன்படுத்தப்படும். TypeScript 5.0+ Stage 3 decorators slightly different syntax பயன்படுத்தும் — new projects-ல latest spec follow செய்யவும்."
+      }
+    ]
+  },
+  "strict-mode": {
+    "title": "Strict Mode & Config",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript-இன் tsconfig.json file project-இன் compilation settings-ஐ control செய்யும். strict mode enable செய்வதால் TypeScript-இன் full type safety benefits கிடைக்கும். இதை properly configure செய்வது high-quality code எழுதுவதற்கு அவசியம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "tsconfig.json அடிப்படை"
+      },
+      {
+        "type": "paragraph",
+        "text": "tsconfig.json project root-ல இருக்கும். compilerOptions-ல TypeScript compiler எப்படி behave பண்ணவேண்டும் என்று specify செய்யலாம். include மற்றும் exclude arrays மூலம் compile செய்ய வேண்டிய files-ஐ specify செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "code": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"bundler\",\n    \"lib\": [\"ES2022\", \"DOM\", \"DOM.Iterable\"],\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\",\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true,\n    \"forceConsistentCasingInFileNames\": true\n  },\n  \"include\": [\"src/**/*\"],\n  \"exclude\": [\"node_modules\", \"dist\"]\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "strict Flag என்ன செய்யும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "strict: true enable செய்வதால் ஒரே நேரத்தில் பல strict options enable ஆகும். இவை ஒவ்வொன்றும் specific type safety issues-ஐ catch செய்யும்."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Option",
+          "என்ன செய்யும்"
+        ],
+        "rows": [
+          [
+            "strictNullChecks",
+            "null/undefined type-safe ஆக handle செய்யும்"
+          ],
+          [
+            "strictFunctionTypes",
+            "Function parameter types contravariant check"
+          ],
+          [
+            "strictBindCallApply",
+            "bind/call/apply type-safe ஆகும்"
+          ],
+          [
+            "strictPropertyInitialization",
+            "Class properties constructor-ல initialize ஆகவேண்டும்"
+          ],
+          [
+            "noImplicitAny",
+            "any type implicit ஆக assign ஆவதை தடுக்கும்"
+          ],
+          [
+            "noImplicitThis",
+            "this-ஐ implicit any-ஆக use தடுக்கும்"
+          ],
+          [
+            "alwaysStrict",
+            "'use strict' JavaScript output-ல emit செய்யும்"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "strictNullChecks இன் முக்கியத்துவம்"
+      },
+      {
+        "type": "paragraph",
+        "text": "strictNullChecks enable செய்யாமல் இருந்தால் null மற்றும் undefined எந்த type-லயும் assign ஆகும். Enable செய்தால் null/undefined-ஐ explicitly handle செய்யவேண்டும், இதனால் runtime errors குறையும்."
+      },
+      {
+        "type": "example",
+        "code": "// Without strictNullChecks (dangerous)\nfunction getLength(s: string) {\n  return s.length; // s could be null at runtime!\n}\n\n// With strictNullChecks (safe)\nfunction getLength(s: string | null): number {\n  if (s === null) return 0;\n  return s.length; // TypeScript ensures s is string here\n}\n\n// Optional chaining with nullish coalescing\nfunction getUserName(user: User | null): string {\n  return user?.name ?? 'Anonymous';\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Additional Useful Options"
+      },
+      {
+        "type": "paragraph",
+        "text": "strict mode-க்கு அப்பால் இன்னும் சில useful compiler options இருக்கின்றன. இவை code quality மேலும் improve செய்யும்."
+      },
+      {
+        "type": "example",
+        "code": "{\n  \"compilerOptions\": {\n    \"strict\": true,\n    // Additional safety checks\n    \"noUnusedLocals\": true,          // unused variables error\n    \"noUnusedParameters\": true,      // unused parameters error\n    \"noImplicitReturns\": true,       // all code paths must return\n    \"noFallthroughCasesInSwitch\": true, // switch fallthrough check\n    \"exactOptionalPropertyTypes\": true, // strict optional properties\n    // Module interop\n    \"esModuleInterop\": true,\n    \"allowSyntheticDefaultImports\": true,\n    // Type checking\n    \"useUnknownInCatchVariables\": true, // catch clause is unknown type\n    \"noUncheckedIndexedAccess\": true    // array access returns T | undefined\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Project References"
+      },
+      {
+        "type": "paragraph",
+        "text": "Large monorepos-ல project references பயன்படுத்தி multiple TypeScript projects-ஐ link செய்யலாம். இது incremental builds-ஐ enable செய்யும், build time குறையும்."
+      },
+      {
+        "type": "example",
+        "code": "// Root tsconfig.json\n{\n  \"references\": [\n    { \"path\": \"./packages/core\" },\n    { \"path\": \"./packages/ui\" },\n    { \"path\": \"./apps/web\" }\n  ]\n}\n\n// packages/core/tsconfig.json\n{\n  \"compilerOptions\": {\n    \"composite\": true,\n    \"declarationDir\": \"dist/types\"\n  }\n}"
+      },
+      {
+        "type": "note",
+        "text": "New project start செய்யும்போது எப்போதும் strict: true enable செய்யவும். Existing project-ல migrate செய்யும்போது options-ஐ ஒன்றொன்றாக enable செய்து errors fix செய்யலாம். noUncheckedIndexedAccess மிகவும் strict ஆனாலும் production apps-ல highly recommended."
+      }
+    ]
+  },
+  "dom-types": {
+    "title": "TypeScript DOM-உடன்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript browser DOM APIs-ஐ type-safe ஆக பயன்படுத்த அனுமதிக்கும். DOM elements, events, fetch API போன்றவற்றுக்கு built-in type definitions இருக்கும். tsconfig-ல 'DOM' lib include செய்வதால் இந்த types available ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "DOM Element Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "DOM elements-ஐ access செய்யும்போது TypeScript correct element type-ஐ infer செய்யும். querySelector-ல generic type specify செய்வதால் proper typing கிடைக்கும். getElementById return type HTMLElement | null ஆக இருக்கும், அதை handle செய்யவேண்டும்."
+      },
+      {
+        "type": "example",
+        "code": "// Type-safe DOM queries\nconst button = document.querySelector<HTMLButtonElement>('#submit-btn');\nconst input = document.querySelector<HTMLInputElement>('input[type=\"email\"]');\nconst form = document.getElementById('login-form') as HTMLFormElement;\n\n// Null check before use\nif (button) {\n  button.addEventListener('click', () => {\n    button.disabled = true; // TypeScript knows it's HTMLButtonElement\n    button.textContent = 'Loading...';\n  });\n}\n\n// Optional chaining with DOM\nconst value = input?.value ?? '';\nconsole.log('Input value:', value);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Event Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Event handlers-ல correct event type specify செய்வது மிக முக்கியம். MouseEvent, KeyboardEvent, InputEvent போன்ற specific event types TypeScript-ல available. இதன் மூலம் event.target, event.key போன்றவற்றை type-safe ஆக access செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "code": "// Mouse event\ndocument.addEventListener('click', (event: MouseEvent) => {\n  console.log('Clicked at:', event.clientX, event.clientY);\n  const target = event.target as HTMLElement;\n  console.log('Target element:', target.tagName);\n});\n\n// Keyboard event\ndocument.addEventListener('keydown', (event: KeyboardEvent) => {\n  if (event.key === 'Enter' && event.ctrlKey) {\n    console.log('Ctrl+Enter pressed');\n  }\n});\n\n// Input event\nconst searchInput = document.querySelector<HTMLInputElement>('#search');\nsearchInput?.addEventListener('input', (event: Event) => {\n  const target = event.target as HTMLInputElement;\n  console.log('Search query:', target.value);\n});"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Fetch API Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Fetch API TypeScript-ல generic types-உடன் பயன்படுத்தலாம். Response.json() return type-ஐ explicitly specify செய்து type-safe data handling செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "code": "interface ApiUser {\n  id: number;\n  name: string;\n  email: string;\n}\n\nasync function fetchUser(id: number): Promise<ApiUser> {\n  const response = await fetch(`https://api.example.com/users/${id}`);\n\n  if (!response.ok) {\n    throw new Error(`HTTP error! status: ${response.status}`);\n  }\n\n  const user: ApiUser = await response.json();\n  return user;\n}\n\nasync function fetchUsers(): Promise<ApiUser[]> {\n  const response = await fetch('/api/users');\n  return response.json() as Promise<ApiUser[]>;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Storage API Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "localStorage மற்றும் sessionStorage-ஐ type-safe ஆக use செய்ய helper functions எழுதலாம். இவை JSON serialize/deserialize செய்யும்போது type safety உறுதி செய்யும்."
+      },
+      {
+        "type": "example",
+        "code": "function setItem<T>(key: string, value: T): void {\n  localStorage.setItem(key, JSON.stringify(value));\n}\n\nfunction getItem<T>(key: string): T | null {\n  const item = localStorage.getItem(key);\n  if (item === null) return null;\n  return JSON.parse(item) as T;\n}\n\n// Usage\ninterface UserPreferences {\n  theme: 'light' | 'dark';\n  language: string;\n  fontSize: number;\n}\n\nsetItem<UserPreferences>('prefs', {\n  theme: 'dark',\n  language: 'ta',\n  fontSize: 16\n});\n\nconst prefs = getItem<UserPreferences>('prefs');\nconsole.log(prefs?.theme); // 'dark'"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Event Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Custom events-ஐ type-safe ஆக emit செய்யவும் listen செய்யவும் CustomEvent generic type பயன்படுத்தலாம்."
+      },
+      {
+        "type": "example",
+        "code": "interface UserLoginEvent {\n  userId: number;\n  timestamp: Date;\n}\n\n// Dispatch custom event\nfunction dispatchLogin(userId: number): void {\n  const event = new CustomEvent<UserLoginEvent>('user-login', {\n    detail: {\n      userId,\n      timestamp: new Date()\n    }\n  });\n  document.dispatchEvent(event);\n}\n\n// Listen to custom event\ndocument.addEventListener('user-login', (event: Event) => {\n  const customEvent = event as CustomEvent<UserLoginEvent>;\n  console.log('User logged in:', customEvent.detail.userId);\n});"
+      },
+      {
+        "type": "note",
+        "text": "DOM types-ஐ use செய்ய tsconfig.json-ல lib array-ல 'DOM' மற்றும் 'DOM.Iterable' include செய்யவேண்டும். Node.js environments-ல DOM types available இருக்காது, அங்கு @types/node install செய்யவேண்டும். Type assertions (as) அதிகமாக use செய்வதை avoid செய்யவும் — instead proper typing பயன்படுத்தவும்."
+      }
+    ]
+  },
+  "generics-advanced": {
+    "title": "Advanced Generics",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Advanced generics மூலம் TypeScript-ல மிகவும் flexible மற்றும் reusable code எழுதலாம். Generic constraints, default types, conditional types-உடன் generics combine செய்வது expert-level TypeScript programming-இன் core."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Constraints"
+      },
+      {
+        "type": "paragraph",
+        "text": "extends keyword பயன்படுத்தி generic type-க்கு constraints add செய்யலாம். இதனால் generic function-ல specific properties அல்லது methods available என்று TypeScript-க்கு தெரியும். அதாவது type-safe-ஆக specific features use செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "code": "// Constraint: must have length property\nfunction logLength<T extends { length: number }>(arg: T): T {\n  console.log('Length:', arg.length);\n  return arg;\n}\n\nlogLength('hello');        // string has length\nlogLength([1, 2, 3]);      // array has length\nlogLength({ length: 10 }); // object with length\n// logLength(42);          // Error! number has no length\n\n// Multiple constraints\nfunction merge<T extends object, U extends object>(obj1: T, obj2: U): T & U {\n  return { ...obj1, ...obj2 };\n}\n\nconst merged = merge({ name: 'Sathish' }, { age: 30 });\nconsole.log(merged.name, merged.age);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "keyof Constraint"
+      },
+      {
+        "type": "paragraph",
+        "text": "keyof operator-ஐ generic constraint-உடன் சேர்த்து பயன்படுத்துவது மிகவும் common pattern. ஒரு object-இன் valid keys மட்டுமே accept செய்யும் type-safe property accessor எழுதலாம்."
+      },
+      {
+        "type": "example",
+        "code": "function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {\n  return obj[key];\n}\n\nconst user = { name: 'Sathish', age: 30, email: 'sathish@example.com' };\n\nconst name = getProperty(user, 'name');   // type: string\nconst age = getProperty(user, 'age');     // type: number\n// getProperty(user, 'phone');             // Error! 'phone' not in User\n\n// Set property type-safely\nfunction setProperty<T, K extends keyof T>(obj: T, key: K, value: T[K]): void {\n  obj[key] = value;\n}\n\nsetProperty(user, 'name', 'Kumar'); // OK\n// setProperty(user, 'name', 42);   // Error! must be string"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Default Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Generic parameters-க்கு default types assign செய்யலாம். Generic specify செய்யாமல் use செய்தால் default type பயன்படுத்தப்படும். இது API design-ல flexibility தரும்."
+      },
+      {
+        "type": "example",
+        "code": "interface ApiConfig<T = Record<string, unknown>> {\n  url: string;\n  method: 'GET' | 'POST' | 'PUT' | 'DELETE';\n  data?: T;\n  headers?: Record<string, string>;\n}\n\n// Without specifying generic - uses default\nconst getConfig: ApiConfig = {\n  url: '/api/users',\n  method: 'GET'\n};\n\n// With specific type\ninterface LoginData {\n  username: string;\n  password: string;\n}\n\nconst loginConfig: ApiConfig<LoginData> = {\n  url: '/api/login',\n  method: 'POST',\n  data: { username: 'sathish', password: 'secret' }\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generic Classes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class-லயும் generics பயன்படுத்தலாம். Type-safe data structures உருவாக்க இது மிகவும் useful. Stack, Queue, Repository pattern போன்றவற்றை generic-ஆக implement செய்யலாம்."
+      },
+      {
+        "type": "example",
+        "code": "class Repository<T extends { id: number }> {\n  private items: T[] = [];\n\n  add(item: T): void {\n    this.items.push(item);\n  }\n\n  findById(id: number): T | undefined {\n    return this.items.find(item => item.id === id);\n  }\n\n  update(id: number, updates: Partial<T>): boolean {\n    const index = this.items.findIndex(item => item.id === id);\n    if (index === -1) return false;\n    this.items[index] = { ...this.items[index], ...updates };\n    return true;\n  }\n\n  getAll(): T[] {\n    return [...this.items];\n  }\n}\n\ninterface Product {\n  id: number;\n  name: string;\n  price: number;\n}\n\nconst productRepo = new Repository<Product>();\nproductRepo.add({ id: 1, name: 'Laptop', price: 50000 });\nconst laptop = productRepo.findById(1);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Variadic Tuple Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript 4.0+ முதல் variadic tuple types available. Spread operator-ஐ generic tuple types-ல பயன்படுத்தலாம். Function parameter types-ஐ compose செய்ய இது useful."
+      },
+      {
+        "type": "example",
+        "code": "// Variadic tuple type\ntype Concat<T extends unknown[], U extends unknown[]> = [...T, ...U];\n\ntype Result = Concat<[string, number], [boolean, Date]>;\n// [string, number, boolean, Date]\n\n// Prepend to tuple\ntype Prepend<T, Tuple extends unknown[]> = [T, ...Tuple];\ntype WithId<T extends unknown[]> = Prepend<number, T>;\n\ntype UserArgs = WithId<[string, string]>;\n// [number, string, string]\n\nfunction createWithId<T extends unknown[]>(\n  ...args: WithId<T>\n): { id: number; args: T } {\n  const [id, ...rest] = args;\n  return { id: id as number, args: rest as unknown as T };\n}"
+      },
+      {
+        "type": "note",
+        "text": "Advanced generics code reusability-ஐ மிகவும் increase செய்யும், ஆனால் over-engineering avoid செய்யவும். Simple functions-ல simple types போதும். Generic complexity அதிகமாகும்போது intermediate type aliases உருவாக்கி readability improve செய்யலாம்."
+      }
+    ]
+  },
+  "declaration-files": {
+    "title": "Declaration Files (.d.ts)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Declaration files (.d.ts) என்பது TypeScript type information மட்டுமே contain செய்யும் files. JavaScript libraries-க்கு type definitions provide செய்ய இவை பயன்படுகின்றன. DefinitelyTyped (@types/*) packages இதே mechanism பயன்படுத்துகின்றன."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Declaration Files என்னும்போது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "TypeScript compile ஆகும்போது, declaration என்ற option enable செய்தால் automatically .d.ts files generate ஆகும். Library publish செய்யும்போது இந்த files-ஐ சேர்ப்பதால் consumers-க்கு type safety கிடைக்கும்."
+      },
+      {
+        "type": "example",
+        "code": "// tsconfig.json - generate declarations\n{\n  \"compilerOptions\": {\n    \"declaration\": true,\n    \"declarationDir\": \"./dist/types\",\n    \"declarationMap\": true  // source maps for declarations\n  }\n}\n\n// src/math.ts\nexport function add(a: number, b: number): number {\n  return a + b;\n}\n\nexport interface MathConfig {\n  precision: number;\n  rounding: 'up' | 'down' | 'nearest';\n}\n\n// Generated: dist/types/math.d.ts\n// export declare function add(a: number, b: number): number;\n// export interface MathConfig { ... }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Manual Declaration File எழுதுவது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Pure JavaScript library-க்கு manually .d.ts file எழுதவேண்டியிருக்கும். declare keyword பயன்படுத்தி types declare செய்யலாம். Implementation code இல்லாமல் type information மட்டுமே இருக்கும்."
+      },
+      {
+        "type": "example",
+        "code": "// legacy-lib.d.ts\ndeclare module 'legacy-lib' {\n  export interface Config {\n    apiKey: string;\n    timeout?: number;\n    retries?: number;\n  }\n\n  export interface Response<T> {\n    data: T;\n    status: number;\n    message: string;\n  }\n\n  export function initialize(config: Config): void;\n  export function request<T>(endpoint: string): Promise<Response<T>>;\n\n  export class Client {\n    constructor(config: Config);\n    get<T>(path: string): Promise<T>;\n    post<T>(path: string, body: unknown): Promise<T>;\n  }\n\n  export default Client;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Ambient Declarations"
+      },
+      {
+        "type": "paragraph",
+        "text": "Global variables அல்லது modules-ஐ declare செய்ய ambient declarations பயன்படுத்தலாம். Browser environments-ல window object-ல custom properties add செய்யும்போது, அவற்றை TypeScript-க்கு தெரியப்படுத்த ambient declarations தேவை."
+      },
+      {
+        "type": "example",
+        "code": "// global.d.ts\ndeclare global {\n  interface Window {\n    analytics: {\n      track: (event: string, properties?: Record<string, unknown>) => void;\n      identify: (userId: string) => void;\n    };\n    __APP_CONFIG__: {\n      apiUrl: string;\n      version: string;\n      environment: 'development' | 'staging' | 'production';\n    };\n  }\n}\n\n// Now TypeScript knows about these globals\nwindow.analytics.track('page_view', { page: '/home' });\nconsole.log(window.__APP_CONFIG__.environment);\n\nexport {}; // Make this a module"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "@types Packages"
+      },
+      {
+        "type": "paragraph",
+        "text": "DefinitelyTyped community-ல popular JavaScript libraries-க்கு ready-made type declarations available. @types/ prefix-உடன் npm install செய்வதால் type support கிடைக்கும். TypeScript automatically node_modules/@types folder-ல இருந்து types load செய்யும்."
+      },
+      {
+        "type": "example",
+        "code": "// Install type definitions\n// npm install --save-dev @types/node @types/lodash @types/express\n\n// tsconfig.json - control which @types to include\n{\n  \"compilerOptions\": {\n    \"types\": [\"node\", \"jest\"],  // only include these @types\n    \"typeRoots\": [\n      \"./node_modules/@types\",\n      \"./src/types\"  // custom type root\n    ]\n  }\n}\n\n// After installing @types/lodash\nimport _ from 'lodash';\n\nconst users = [{ name: 'Sathish', age: 30 }, { name: 'Kumar', age: 25 }];\nconst sorted = _.sortBy(users, 'age'); // Type-safe!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Module Augmentation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Existing module-இன் types-ஐ extend செய்ய module augmentation பயன்படுத்தலாம். Express.js-ல request object-ல custom properties add செய்வது இதற்கு common example."
+      },
+      {
+        "type": "example",
+        "code": "// express-augmentation.d.ts\nimport { User } from './user.types';\n\ndeclare module 'express' {\n  interface Request {\n    user?: User;\n    requestId: string;\n    startTime: number;\n  }\n}\n\n// Now in Express middleware\napp.use((req, res, next) => {\n  req.requestId = generateId();\n  req.startTime = Date.now();\n  next();\n});\n\n// In route handlers - TypeScript knows about user\napp.get('/profile', authenticate, (req, res) => {\n  const userId = req.user?.id; // Type-safe!\n  res.json({ userId });\n});"
+      },
+      {
+        "type": "note",
+        "text": "Library publish செய்யும்போது package.json-ல 'types' அல்லது 'typings' field-ல declaration file path specify செய்யவும். npm install செய்யும்போது TypeScript automatically types-ஐ கண்டுபிடிக்கும். skipLibCheck: true option third-party declaration errors ignore செய்யும் — ஆனால் இது type errors hide செய்யும் என்று கவனமாக இருக்கவும்."
+      }
+    ]
+  },
+  "ts-frameworks": {
+    "title": "TypeScript Frameworks-உடன்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "TypeScript இன்று major web frameworks-ல first-class support பெற்றுள்ளது. Angular default-ஆக TypeScript பயன்படுத்தும். React, Vue, Node.js (NestJS) எல்லாமே TypeScript-உடன் seamlessly வேலை செய்யும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Angular-உடன் TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Angular TypeScript-இல் எழுதப்பட்டது, மற்றும் TypeScript-ஐ primary language-ஆக பயன்படுத்தும். Decorators, dependency injection, strict typing — எல்லாம் TypeScript features-ஐ heavily பயன்படுத்தும்."
+      },
+      {
+        "type": "example",
+        "code": "import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { Observable } from 'rxjs';\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\n@Component({\n  selector: 'app-user-card',\n  standalone: true,\n  template: `\n    <div *ngIf=\"user\">\n      <h2>{{ user.name }}</h2>\n      <p>{{ user.email }}</p>\n      <button (click)=\"onSelect()\">Select</button>\n    </div>\n  `\n})\nexport class UserCardComponent implements OnInit {\n  @Input({ required: true }) userId!: number;\n  @Output() userSelected = new EventEmitter<User>();\n\n  user: User | null = null;\n\n  constructor(private http: HttpClient) {}\n\n  ngOnInit(): void {\n    this.http.get<User>(`/api/users/${this.userId}`)\n      .subscribe(user => this.user = user);\n  }\n\n  onSelect(): void {\n    if (this.user) {\n      this.userSelected.emit(this.user);\n    }\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "React-உடன் TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "React-ல TypeScript பயன்படுத்தும்போது props types, state types, event handlers எல்லாவற்றையும் properly type செய்யலாம். @types/react package install செய்வால் React specific types கிடைக்கும்."
+      },
+      {
+        "type": "example",
+        "code": "import React, { useState, useEffect, FC } from 'react';\n\ninterface Product {\n  id: number;\n  name: string;\n  price: number;\n  inStock: boolean;\n}\n\ninterface ProductCardProps {\n  product: Product;\n  onAddToCart: (product: Product) => void;\n  isLoading?: boolean;\n}\n\nconst ProductCard: FC<ProductCardProps> = ({ product, onAddToCart, isLoading = false }) => {\n  const [quantity, setQuantity] = useState<number>(1);\n\n  const handleAddToCart = (): void => {\n    onAddToCart({ ...product });\n  };\n\n  return (\n    <div className=\"product-card\">\n      <h3>{product.name}</h3>\n      <p>₹{product.price}</p>\n      <input\n        type=\"number\"\n        value={quantity}\n        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>\n          setQuantity(parseInt(e.target.value, 10))\n        }\n      />\n      <button\n        onClick={handleAddToCart}\n        disabled={!product.inStock || isLoading}\n      >\n        {isLoading ? 'Adding...' : 'Add to Cart'}\n      </button>\n    </div>\n  );\n};\n\nexport default ProductCard;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "NestJS-உடன் TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "NestJS Angular-ஐ inspiration-ஆக எடுத்து Node.js-க்கு build செய்யப்பட்ட framework. Decorators, dependency injection, modules — Angular pattern-ஐ server-side-ல follow செய்யும். TypeScript-உடன் mightly combination."
+      },
+      {
+        "type": "example",
+        "code": "import { Controller, Get, Post, Body, Param, HttpCode, HttpStatus } from '@nestjs/common';\nimport { IsEmail, IsString, MinLength } from 'class-validator';\n\nexport class CreateUserDto {\n  @IsString()\n  @MinLength(2)\n  name: string;\n\n  @IsEmail()\n  email: string;\n\n  @IsString()\n  @MinLength(8)\n  password: string;\n}\n\ninterface UserResponse {\n  id: number;\n  name: string;\n  email: string;\n  createdAt: Date;\n}\n\n@Controller('users')\nexport class UserController {\n  constructor(private readonly userService: UserService) {}\n\n  @Get()\n  async findAll(): Promise<UserResponse[]> {\n    return this.userService.findAll();\n  }\n\n  @Get(':id')\n  async findOne(@Param('id') id: string): Promise<UserResponse> {\n    return this.userService.findOne(parseInt(id, 10));\n  }\n\n  @Post()\n  @HttpCode(HttpStatus.CREATED)\n  async create(@Body() createUserDto: CreateUserDto): Promise<UserResponse> {\n    return this.userService.create(createUserDto);\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Vue 3-உடன் TypeScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Vue 3 Composition API TypeScript-உடன் மிகவும் சேர்ந்து வேலை செய்யும். defineProps, defineEmits, ref, computed எல்லாவற்றையும் type-safe ஆக பயன்படுத்தலாம்."
+      },
+      {
+        "type": "example",
+        "code": "<script setup lang=\"ts\">\nimport { ref, computed } from 'vue';\n\ninterface TodoItem {\n  id: number;\n  text: string;\n  completed: boolean;\n}\n\nconst props = defineProps<{\n  initialTodos?: TodoItem[];\n  title: string;\n}>();\n\nconst emit = defineEmits<{\n  todoAdded: [todo: TodoItem];\n  todoCompleted: [id: number];\n}>();\n\nconst todos = ref<TodoItem[]>(props.initialTodos ?? []);\nconst newTodoText = ref<string>('');\n\nconst completedCount = computed<number>(() =>\n  todos.value.filter(t => t.completed).length\n);\n\nfunction addTodo(): void {\n  if (!newTodoText.value.trim()) return;\n  const todo: TodoItem = {\n    id: Date.now(),\n    text: newTodoText.value,\n    completed: false\n  };\n  todos.value.push(todo);\n  emit('todoAdded', todo);\n  newTodoText.value = '';\n}\n</script>"
+      },
+      {
+        "type": "note",
+        "text": "Framework தேர்வு project requirements-ஐ பொறுத்தது. Angular — enterprise apps, full TypeScript, opinionated structure. React — flexible, large ecosystem, JSX. NestJS — Node.js backend, Angular-like patterns. Vue 3 — progressive, learner-friendly, excellent TypeScript support. எல்லாவற்றிலும் TypeScript first-class citizen ஆகிவிட்டது."
+      }
+    ]
+  },
+  "migration": {
+    "title": "JS-ஐ TypeScript-க்கு Migrate செய்வது",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Existing JavaScript project-ஐ TypeScript-க்கு migrate செய்வது gradual process. ஒரே நேரத்தில் எல்லாவற்றையும் convert செய்ய வேண்டியதில்லை — TypeScript JavaScript-உடன் coexist செய்யலாம். Systematic approach பின்பற்றுவதால் migration smooth-ஆக நடைபெறும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Migration Strategy"
+      },
+      {
+        "type": "paragraph",
+        "text": "Big bang migration (ஒரே நேரத்தில் எல்லாம் convert) avoid செய்யவும். Incremental approach — file by file அல்லது feature by feature — மிகவும் practical. allowJs option மூலம் .js மற்றும் .ts files ஒரே project-ல இருக்க முடியும்."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Step 1: tsconfig.json add செய்யவும், allowJs: true set செய்யவும்",
+          "Step 2: .js files-ஐ .ts-ஆக rename செய்யவும் — ஒன்றொன்றாக",
+          "Step 3: any type-ஐ கொஞ்சம் கொஞ்சமாக proper types-ஆக மாற்றவும்",
+          "Step 4: strict mode options ஒன்றொன்றாக enable செய்யவும்",
+          "Step 5: External library types (@types/*) install செய்யவும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Initial tsconfig Setup"
+      },
+      {
+        "type": "paragraph",
+        "text": "Migration தொடங்கும்போது lenient tsconfig-உடன் start செய்யவும். Gradually strict-ஆக்கலாம். checkJs option .js files-லயும் type checking enable செய்யும்."
+      },
+      {
+        "type": "example",
+        "code": "// tsconfig.json - Migration starting point\n{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",\n    \"module\": \"CommonJS\",\n    \"allowJs\": true,          // Allow .js files\n    \"checkJs\": false,         // Start without JS checking\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\",\n    \"strict\": false,          // Start lenient\n    \"noImplicitAny\": false,   // Add later\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true\n  },\n  \"include\": [\"src/**/*\"],\n  \"exclude\": [\"node_modules\"]\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSDoc Annotations மூலம் Migration"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript files-ஐ rename செய்யாமல் JSDoc annotations மூலம் TypeScript type checking பெறலாம். இது slowest but safest approach. checkJs: true enable செய்தால் JSDoc-based type checking கிடைக்கும்."
+      },
+      {
+        "type": "example",
+        "code": "// utils.js - with JSDoc annotations\n\n/**\n * @typedef {Object} User\n * @property {number} id\n * @property {string} name\n * @property {string} email\n */\n\n/**\n * @param {number} id\n * @returns {Promise<User>}\n */\nasync function fetchUser(id) {\n  const response = await fetch(`/api/users/${id}`);\n  return response.json();\n}\n\n/**\n * @param {User[]} users\n * @param {string} query\n * @returns {User[]}\n */\nfunction searchUsers(users, query) {\n  return users.filter(u =>\n    u.name.toLowerCase().includes(query.toLowerCase())\n  );\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Migration Challenges"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ஐ TypeScript-க்கு migrate செய்யும்போது சில common challenges வரும். இவற்றை எப்படி handle செய்வது என்று பார்ப்போம்."
+      },
+      {
+        "type": "example",
+        "code": "// Challenge 1: Dynamic object shapes\n// JavaScript (no types)\nconst config = {};\nconfig.apiUrl = 'https://api.example.com';\nconfig.timeout = 5000;\n\n// TypeScript solution\ninterface Config {\n  apiUrl: string;\n  timeout: number;\n}\nconst config: Config = {\n  apiUrl: 'https://api.example.com',\n  timeout: 5000\n};\n\n// Challenge 2: Third-party library without types\n// Temporary workaround - declare module\ndeclare module 'untyped-lib' {\n  export function doSomething(val: string): void;\n}\n\n// Challenge 3: this keyword in callbacks\nclass Timer {\n  count = 0;\n\n  // JavaScript problem - 'this' is undefined\n  // start() { setInterval(function() { this.count++; }, 1000); }\n\n  // TypeScript solution - arrow function\n  start() {\n    setInterval(() => { this.count++; }, 1000);\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Gradual Strictness"
+      },
+      {
+        "type": "paragraph",
+        "text": "Migration complete ஆகும்போது strict options ஒன்றொன்றாக enable செய்யலாம். ஒவ்வொரு option enable செய்த பிறகு errors fix செய்யவும். இந்த process type safety அதிகரிக்கும்."
+      },
+      {
+        "type": "example",
+        "code": "// Phase 1 tsconfig - Basic TypeScript\n{\n  \"compilerOptions\": {\n    \"noImplicitAny\": true  // First: no implicit any\n  }\n}\n\n// Phase 2 tsconfig - Add null checks\n{\n  \"compilerOptions\": {\n    \"noImplicitAny\": true,\n    \"strictNullChecks\": true\n  }\n}\n\n// Phase 3 tsconfig - Full strict mode\n{\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"noUnusedLocals\": true,\n    \"noUnusedParameters\": true,\n    \"noImplicitReturns\": true\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Migration Tools"
+      },
+      {
+        "type": "paragraph",
+        "text": "Manual migration-ல உதவ பல tools available. இவை JavaScript code-ஐ analyze செய்து TypeScript types automatically infer செய்யும். Perfect-ஆக இருக்காது, ஆனால் starting point-ஆக useful."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tool",
+          "என்ன செய்யும்"
+        ],
+        "rows": [
+          [
+            "ts-migrate",
+            "JavaScript files-ஐ TypeScript-ஆக codemod செய்யும்"
+          ],
+          [
+            "dts-gen",
+            "npm packages-க்கு .d.ts files generate செய்யும்"
+          ],
+          [
+            "TypeStat",
+            "any types-ஐ proper types-ஆக மாற்றும்"
+          ],
+          [
+            "JSDoc to TypeScript",
+            "JSDoc annotations-ஐ TypeScript types-ஆக convert செய்யும்"
+          ],
+          [
+            "tsc --allowJs",
+            "Incremental migration-க்கு built-in option"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Migration ஒரு investment — short term effort, long term benefits. Type safety மூலம் bugs reduce ஆகும், refactoring எளிதாகும், team productivity அதிகரிக்கும். Codebase size-ஐ பொறுத்து migration சில weeks முதல் சில months வரை எடுக்கலாம். Team-ஐ properly onboard செய்வதும் மிக முக்கியம்."
+      }
+    ]
+  }
+}

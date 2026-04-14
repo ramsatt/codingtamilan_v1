@@ -1,0 +1,2027 @@
+{
+  "intro": {
+    "title": "Artificial Intelligence என்ன?",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Artificial Intelligence (AI) என்பது normally human intelligence தேவைப்படுற tasks-ஐ — language புரிஞ்சுக்குறது, images recognize பண்றது, decisions எடுக்குறது, experience-ல இருந்து learn பண்றது — machines-கிட்ட செய்ய வைக்கிற science."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ஒரு எளிய Definition"
+      },
+      {
+        "type": "highlight",
+        "text": "தன்னால் கற்கவும், யோசிக்கவும் மற்றும் செயல்படவும் கூடிய அமைப்புகளை உருவாக்குதல்."
+      },
+      {
+        "type": "paragraph",
+        "text": "AI என்பது computers-ஐ <strong>smart</strong> ஆக்குவது. Traditional programming மாதிரி ஒவ்வொரு situation-க்கும் explicit rules எழுதாம, AI systems data-ல இருந்து patterns learn பண்ணி, new inputs-க்கு decisions மற்றும் predictions குடுக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Traditional Programming vs. AI — வித்தியாசம் என்ன?",
+        "code": "// Traditional Programming:\n// Rules-ஐ manually எழுதுவோம்\nif (email.contains(\"free money\") || email.contains(\"click here\")) {\n  markAsSpam();\n}\n\n// AI / Machine Learning:\n// System thousands of examples-இல் இருந்து rules தானா கத்துக்கும்\nspamClassifier.train(labeledEmails); // patterns automatically learn பண்ணும்\nspamClassifier.predict(newEmail);    // learned patterns apply பண்ணும்"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "AI-ஓட Core Subfields"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "ML",
+            "color": "blue",
+            "icon": "📊",
+            "text": "தகவல்களில் இருந்து கற்கும் அமைப்புகள் (எ.கா: Netflix பரிந்துரைகள்)."
+          },
+          {
+            "title": "NLP",
+            "color": "emerald",
+            "icon": "💬",
+            "text": "மனித மொழிகளைப் புரிந்துகொள்ளுதல் (எ.கா: Google Translate)."
+          },
+          {
+            "title": "Vision",
+            "color": "purple",
+            "icon": "👁️",
+            "text": "படங்களைப் புரிந்துகொள்ளுதல் (எ.கா: சுயமாக இயங்கும் கார்கள்)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "இன்னைக்கு AI எங்கெல்லாம் உபயோகமாகுது?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Healthcare:</strong> Scans-ல cancer detect பண்றது, patient outcomes predict பண்றது",
+          "<strong>Finance:</strong> Fraud detection, algorithmic trading, credit scoring",
+          "<strong>Transportation:</strong> Self-driving cars, route optimization",
+          "<strong>Entertainment:</strong> Content recommendations, AI-generated music மற்றும் art",
+          "<strong>Productivity:</strong> Code assistants, email drafting, meeting summarization",
+          "<strong>Manufacturing:</strong> Quality control, predictive maintenance"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "இந்த Course-ல என்ன கத்துக்குவோம்"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "AI மற்றும் machine learning உள்ளுக்குள்ள எப்படி வேலை செய்யுதுன்னு",
+          "Core concepts: supervised, unsupervised, மற்றும் reinforcement learning",
+          "Deep learning மற்றும் neural network architecture",
+          "Modern AI: transformers, LLMs, computer vision, generative AI",
+          "Applied AI: RAG, fine-tuning, production deployment, evaluation",
+          "AI ethics, safety, மற்றும் field-ஓட future"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Math அல்லது research background தேவையில்ல. Focus என்னன்னா strong intuitions மற்றும் practical understanding build பண்றது — AI systems-கிட்ட வேலை செய்யும்போது இதுவே உங்களுக்கு மிகவும் useful ஆகும்."
+      }
+    ]
+  },
+  "history": {
+    "title": "AI-ஓட வரலாறு",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI-க்கு பெரும்பாலோர் நினைக்கிறதை விட மிகவும் rich மற்றும் turbulent history இருக்கு. 'AI winters' என்று சொல்லப்படுற கடுமையான setbacks வந்தும், multiple reinventions-க்கு பிறகுதான் இன்னைய capabilities கிடைச்சது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "AI-ஓட முக்கியமான Eras"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Birth of AI",
+            "icon": "🐣"
+          },
+          {
+            "label": "Symbolic AI",
+            "icon": "🔣"
+          },
+          {
+            "label": "AI Winter",
+            "icon": "❄️"
+          },
+          {
+            "label": "Modern AI",
+            "icon": "🚀"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Birth",
+            "color": "blue",
+            "icon": "🐣",
+            "text": "1940s-50s. Turing Test, logic-based programs."
+          },
+          {
+            "title": "Symbolic",
+            "color": "emerald",
+            "icon": "🔣",
+            "text": "1956-74. Dartmouth Conference, ELIZA chatbot."
+          },
+          {
+            "title": "Winter",
+            "color": "blue",
+            "icon": "❄️",
+            "text": "1974-80. Funding cuts and over-promised results."
+          },
+          {
+            "title": "Modern",
+            "color": "purple",
+            "icon": "🚀",
+            "text": "2012-Present. Deep learning and transformer era."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "முக்கியமான Milestone Moments"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>1950:</strong> Alan Turing, Turing Test propose பண்ணினார் — ஒரு machine human conversation-ல fool பண்ண முடிஞ்சா pass",
+          "<strong>1956:</strong> John McCarthy 'Artificial Intelligence' என்ற term Dartmouth-ல coin பண்ணினார்",
+          "<strong>1997:</strong> IBM Deep Blue world chess champion Garry Kasparov-ஐ தோற்கடிச்சது",
+          "<strong>2011:</strong> IBM Watson Jeopardy!-ல human champions-ஐ தோற்கடிச்சது",
+          "<strong>2012:</strong> AlexNet ImageNet-ல huge margin-ல வென்று deep learning era-ஐ launch பண்ணுச்சு",
+          "<strong>2016:</strong> AlphaGo Go game-ல Lee Sedol-ஐ தோற்கடிச்சது",
+          "<strong>2017:</strong> 'Attention Is All You Need' paper Transformer architecture introduce பண்ணுச்சு",
+          "<strong>2022:</strong> ChatGPT 2 months-ல 100 million users — history-ல fastest product adoption"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "இந்த தடவை AI ஏன் வித்தியாசமானது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "முன்பு AI booms fail ஆனது ஏன்னா மூன்று critical ingredients இல்லாம போச்சு. இன்னைக்கு மூன்றும் abundance-ல கிடைக்குது:"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Data",
+            "color": "blue",
+            "icon": "📊",
+            "text": "Trillions of internet tokens vs. limited samples."
+          },
+          {
+            "title": "Compute",
+            "color": "emerald",
+            "icon": "🔌",
+            "text": "Exaflops on massive GPU clusters vs. slow CPUs."
+          },
+          {
+            "title": "Algos",
+            "color": "purple",
+            "icon": "🧬",
+            "text": "Transformers and RLHF vs. shallow networks."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "text": "AI history புரிஞ்சுகிட்டா hype-ஐ avoid பண்ண முடியும். AI 70 வருஷமா 'five years away' ஆகவே இருக்கு. இப்போதைய progress genuine-ஆ remarkable — ஆனா specific timelines-பத்தி healthy skepticism எப்பவும் வேணும்."
+      }
+    ]
+  },
+  "types-of-ai": {
+    "title": "AI-ஓட வகைகள்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "எல்லா AI-யும் ஒண்ணில்ல. Different types மற்றும் capabilities describe பண்ண field பல classification frameworks உபயோகிக்கும். இந்த distinctions புரிஞ்சுகிட்டா நிறைய hype மற்றும் confusion clear ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Capability-ஆல் Classification"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Narrow (ANI)",
+            "color": "blue",
+            "icon": "🎯",
+            "text": "ஒரு specific task-ல மட்டும் excel பண்ணும் (எ.கா: chess). எல்லா current AI-யும்."
+          },
+          {
+            "title": "General (AGI)",
+            "color": "emerald",
+            "icon": "🧠",
+            "text": "எல்லா cognitive tasks-லயும் human-level intelligence. இன்னும் வரல."
+          },
+          {
+            "title": "Super (ASI)",
+            "color": "purple",
+            "icon": "🔥",
+            "text": "எல்லா domain-லயும் human intelligence-ஐ தாண்டும். Theoretical மட்டுமே."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Narrow AI: இன்னைக்கு நம்மகிட்ட இருக்கது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Production-ல இருக்கிற எல்லா AI system-உம் Narrow AI தான். AlphaGo, Go-ல unbeatable — ஆனா chess விளையாட முடியாது. GPT-4 poetry எழுதும் — ஆனா car ஓட்ட முடியாது. Spam filter spam-ல brilliant — ஆனா movies recommend பண்ண முடியாது. ஒவ்வொரு system-உம் specialist, not generalist."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Google Search algorithm — web pages rank பண்ணும்",
+          "Spotify recommendation engine — songs suggest பண்ணும்",
+          "Tesla Autopilot — highways-ல drive பண்ணும்",
+          "GitHub Copilot — code completions suggest பண்ணும்",
+          "DALL-E — text-இல் இருந்து images generate பண்ணும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Approach-ஆல் Classification"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Reactive",
+            "color": "blue",
+            "icon": "⚡",
+            "text": "Memory இல்ல; current input-க்கு மட்டும் react பண்ணும். (IBM Deep Blue)."
+          },
+          {
+            "title": "Limited",
+            "color": "emerald",
+            "icon": "🎞️",
+            "text": "சமீபத்திய கடந்த கால தரவு (sensor history) பயன்படுத்தி முடிவெடுக்கும். (Self-driving)."
+          },
+          {
+            "title": "Theory of Mind",
+            "color": "amber",
+            "icon": "🤝",
+            "text": "சமூக குறிப்புகளைப் (Social cues) புரிந்துகொள்ளும். இன்னும் சாத்தியமாகவில்லை."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "AGI Debate என்ன சொல்குது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "AGI technology-ல மிகவும் debated topic. சில researchers (OpenAI, DeepMind போன்றவை) AGI இந்த decade-லயே வரும்னு நம்புறாங்க. மத்தவங்க ஒரு century ஆகும் அல்லது current approach-ல possible-ஆ இல்லன்னு சொல்றாங்க."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Optimists சொல்றது:</strong> Scaling laws — more data + more compute = better intelligence",
+          "<strong>Skeptics சொல்றது:</strong> Current LLMs sophisticated pattern matchers, true reasoners இல்ல",
+          "<strong>Honest answer:</strong> யாருக்கும் தெரியாது — certainty claim பண்றவங்க overconfident"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "உங்க career மற்றும் projects-க்கு ANI-ல focus பண்ணுங்க — இன்னைக்கு இருக்கது. AI என்ன செய்ய முடியும், என்ன முடியாதுன்னு புரிஞ்சுக்குறது AGI timelines பத்தி debate பண்றதை விட மிகவும் valuable."
+      }
+    ]
+  },
+  "machine-learning": {
+    "title": "Machine Learning அடிப்படைகள்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Machine Learning என்பது modern AI-ஐ power பண்ற engine. Explicit rules program பண்றதுக்கு பதிலா, ML systems data-ல இருந்து patterns learn பண்ணி, ஒவ்வொரு scenario-க்கும் explicitly program பண்ணாம experience-ல இருந்து improve ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Core Idea: Data-ல இருந்து Learning"
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional programming-ல developer rules எழுதுவார்: <code>IF temperature > 38°C THEN fever = true</code>. Machine learning-ல thousands of patient records with known outcomes காட்டுவோம், system தானா rules <em>discover</em> பண்ணும் — human நினைக்காத patterns கூட கண்டுபிடிக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "ML Pipeline — 5 Steps",
+        "code": "// ML Process-ஓட 5 Steps:\n\n// 1. Data Collect பண்ணு\n   training_data = load_dataset(\"house_prices.csv\")  // 50,000 records\n\n// 2. Data Prepare & Clean பண்ணு\n   cleaned_data = remove_nulls(training_data)\n   features = select_columns([\"size\", \"bedrooms\", \"location\"])\n   labels = select_column(\"price\")\n\n// 3. Model Choose பண்ணி Train பண்ணு\n   model = LinearRegression()\n   model.fit(features, labels)  // model data-ல இருந்து learn பண்ணும்\n\n// 4. Performance Evaluate பண்ணு\n   predictions = model.predict(test_features)\n   error = mean_absolute_error(predictions, test_labels)\n\n// 5. Deploy & Monitor பண்ணு\n   api.serve(model)  // இப்போ model production-ல predictions குடுக்கும்"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Collect",
+            "icon": "fa-database"
+          },
+          {
+            "label": "Process",
+            "icon": "fa-broom"
+          },
+          {
+            "label": "Train",
+            "icon": "fa-dumbbell"
+          },
+          {
+            "label": "Evaluate",
+            "icon": "fa-vial"
+          },
+          {
+            "label": "Deploy",
+            "icon": "fa-cloud-arrow-up"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Machine Learning-ஓட மூன்று வகைகள்"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Supervised Learning",
+            "icon": "🏷️",
+            "color": "#3b82f6",
+            "text": "Labeled data மூலம் train ஆகும். Input→Output mapping கத்துக்கும். (எ.கா: Email spam detection, image classification)"
+          },
+          {
+            "title": "Unsupervised Learning",
+            "icon": "🔍",
+            "color": "#8b5cf6",
+            "text": "Unlabeled data-ல hidden patterns தேடும். (எ.கா: Customer segmentation, anomaly detection)"
+          },
+          {
+            "title": "Reinforcement Learning",
+            "icon": "🎮",
+            "color": "#10b981",
+            "text": "Environment-ல இருந்து reward signals மூலம் learn ஆகும். (எ.கா: Game AI, robot control)"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "தெரிஞ்சுக்கணும்ங்கற Key ML Concepts"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Features",
+            "color": "blue",
+            "icon": "📝",
+            "text": "Model predictions பண்ண உபயோகிக்கிற input variables (eg: house size, location)."
+          },
+          {
+            "title": "Labels",
+            "color": "emerald",
+            "icon": "🏷️",
+            "text": "Model predict பண்ண try பண்ற correct answers (eg: house price)."
+          },
+          {
+            "title": "Inference",
+            "color": "purple",
+            "icon": "🔮",
+            "text": "Trained model-ஐ new data-க்கு predictions பண்ண உபயோகிக்குறது."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Linear Regression:</strong> Continuous number predict பண்ணும் (house price, temperature)",
+          "<strong>Logistic Regression:</strong> Binary outcome predict பண்ணும் (spam/not spam)",
+          "<strong>Decision Trees:</strong> Yes/no rules series-ஆ learn பண்ணி data classify பண்ணும்",
+          "<strong>Random Forests:</strong> பல decision trees combine பண்ணி errors குறைக்கும்",
+          "<strong>Support Vector Machines (SVM):</strong> Classes-க்கு இடையே best boundary கண்டுபிடிக்கும்",
+          "<strong>Neural Networks:</strong> Brain-ஐ loosely inspire பண்ணி complex patterns learn பண்ணும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "ML ஒரு tool — magic இல்ல. Good data இல்லாம good model வராது. 'Garbage in, garbage out' என்ற principle ML-ல மிகவும் important."
+      }
+    ]
+  },
+  "deep-learning": {
+    "title": "Deep Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Deep Learning என்பது Machine Learning-ஓட ஒரு subset — human brain-ஐ inspire பண்ணின neural networks உபயோகிக்கும். Images, speech, text மாதிரி complex data-ல இது மிகவும் powerful-ஆ work பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ML vs. Deep Learning"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Traditional ML",
+            "color": "blue",
+            "icon": "fa-table",
+            "text": "மனுவலாக Features engineer பண்ணனும். Structured data-ல சிறப்பா வேலை செய்யும்."
+          },
+          {
+            "title": "Deep Learning",
+            "color": "purple",
+            "icon": "fa-brain",
+            "text": "தரவுகளில் இருந்து Features-ஐ தானாக கற்கும். Massive data மற்றும் GPU compute தேவைப்படும்."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Neural Network எப்படி வேலை செய்யும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு neural network என்பது ஒரு series of <strong>layers</strong>, ஒவ்வொன்றும் <strong>neurons</strong> contain பண்றது. Data input layer-ல இருந்து hidden layers வழியாக output layer-க்கு flow ஆகும். ஒவ்வொரு connection-க்கும் ஒரு <strong>weight</strong> இருக்கும் — ஒரு neuron அடுத்ததை எவ்வளவு influence பண்றது என்று control பண்றது. Training இந்த weights-ஐ adjust பண்றது, network நல்ல predictions பண்ணும் வரை."
+      },
+      {
+        "type": "example",
+        "title": "Neural Network Architecture (Conceptual)",
+        "code": "Input Layer          Hidden Layer 1      Hidden Layer 2      Output Layer\n[pixel_1]    ---->   [neuron_1]  ---->   [neuron_7]  ---->   [cat: 0.92]\n[pixel_2]    ---->   [neuron_2]  ---->   [neuron_8]  ---->   [dog: 0.07]\n[pixel_3]    ---->   [neuron_3]  ---->   [neuron_9]  ---->   [bird: 0.01]\n...          ---->   [neuron_4]  ---->   [neuron_10]\n[pixel_784]  ---->   [neuron_5]\n             ---->   [neuron_6]\n\n// ஒவ்வொரு arrow-க்கும் ஒரு weight இருக்கும். Training = சரியான weights கண்டுபிடிப்பது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Deep Learning Architecture வகைகள்"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "CNN",
+            "color": "blue",
+            "icon": "🖼️",
+            "text": "Convolutional. படங்கள் (Images) மற்றும் பார்வை சார்ந்த பணிகளுக்கு சிறந்தது."
+          },
+          {
+            "title": "Transformer",
+            "color": "emerald",
+            "icon": "🤖",
+            "text": "இன்றைய உலகில் முதன்மையானது. உரை (Text) மற்றும் ஆடியோவுக்கு சிறந்தது."
+          },
+          {
+            "title": "GAN",
+            "color": "purple",
+            "icon": "🎨",
+            "text": "Generative. தத்ரூபமான படங்கள்/வீடியோக்களை உருவாக்க சிறந்தது."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Deep Learning-க்கு என்ன தேவை?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Neural networks-ஓட ideas 1940s-ல இருந்தே இருக்கும். அவை 2010s-ல மட்டுமே practical ஆனது — மூன்று simultaneous breakthroughs காரணமாக:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Data:</strong> மிகவும் large labeled datasets — thousands to millions of examples",
+          "<strong>Compute:</strong> GPUs அல்லது TPUs — CPU-ல training மிகவும் slow ஆகும்",
+          "<strong>Time:</strong> Complex models train ஆக hours முதல் weeks வரை ஆகும்",
+          "<strong>Frameworks:</strong> PyTorch, TensorFlow, JAX — popular deep learning libraries",
+          "<strong>Expertise:</strong> Architecture design, hyperparameter tuning, debugging"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Deep learning எல்லாத்துக்கும் answer இல்ல. Small datasets-க்கு traditional ML better-ஆ perform பண்ணும். Data size மற்றும் problem type-ஐ பாத்துதான் approach choose பண்ணணும்."
+      }
+    ]
+  },
+  "supervised-learning": {
+    "title": "Supervised Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Supervised Learning என்பது ML-ல மிகவும் common type. Labeled examples — input மற்றும் correct output — கொடுத்து model-ஐ train பண்றோம். Model அந்த examples-ல இருந்து learn பண்ணி, new unseen inputs-க்கு predictions குடுக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Supervised Learning எப்படி வேலை செய்யும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு teacher student-க்கு correct answers சொல்லி கத்துக்குடுக்குற மாதிரி, supervised learning-ல model-க்கு labeled data கொடுக்கிறோம். Model input features மற்றும் output labels-க்கு இடையே relationship learn பண்ணும். Training-க்கு பிறகு, new data-ல prediction பண்ண முடியும்."
+      },
+      {
+        "type": "example",
+        "title": "Classification Example — Spam Detection",
+        "description": "Email spam detection-க்கு supervised learning எப்படி உபயோகிக்கலாம்.",
+        "code": "from sklearn.naive_bayes import MultinomialNB\nfrom sklearn.feature_extraction.text import CountVectorizer\n\n# Training data — labeled emails\nemails = [\n    \"Win free money now!\",    # spam\n    \"Meeting at 3pm tomorrow\", # not spam\n    \"Claim your prize today\",  # spam\n    \"Project report attached\", # not spam\n]\nlabels = [1, 0, 1, 0]  # 1=spam, 0=not spam\n\n# Text-ஐ numbers-ஆ convert பண்றோம்\nvectorizer = CountVectorizer()\nX = vectorizer.fit_transform(emails)\n\n# Model train பண்றோம்\nmodel = MultinomialNB()\nmodel.fit(X, labels)\n\n# New email predict பண்றோம்\nnew_email = vectorizer.transform([\"Get rich quick scheme\"])\nprint(model.predict(new_email))  # [1] — spam!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Supervised Learning-ஓட இரண்டு Main Tasks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Classification",
+            "color": "blue",
+            "icon": "📁",
+            "text": "வகைப்படுத்துதல் (Categories). (எ.கா: Spam vs Not Spam, நாய் vs பூனை)."
+          },
+          {
+            "title": "Regression",
+            "color": "emerald",
+            "icon": "📈",
+            "text": "எண்களைக் கணித்தல் (Numbers). (எ.கா: வீட்டின் விலை, வெப்பநிலை)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Model Evaluate பண்றது எப்படி?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Accuracy:</strong> Correct predictions-ஓட percentage — classification-க்கு",
+          "<strong>Precision & Recall:</strong> False positives மற்றும் false negatives balance",
+          "<strong>F1 Score:</strong> Precision மற்றும் Recall-ஓட harmonic mean",
+          "<strong>MAE / RMSE:</strong> Regression-க்கு — actual vs predicted values-ஓட difference",
+          "<strong>Cross-validation:</strong> Different data splits-ல test பண்ணி reliable estimate பெறுவது"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Supervised learning-க்கு labeled data மிகவும் important. High-quality labels இல்லாம model well learn பண்ணாது. Data labeling often expensive மற்றும் time-consuming — ஆனா அது worth it."
+      }
+    ]
+  },
+  "unsupervised-learning": {
+    "title": "Unsupervised Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Unsupervised Learning-ல model-க்கு labels இல்லாத data குடுக்கிறோம். Model தானா data-ல hidden patterns, structures, மற்றும் groupings கண்டுபிடிக்கும். யாரும் 'இது correct answer' சொல்லல — model தானா explore பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Unsupervised Learning ஏன் useful?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Real world-ல labeled data மிகவும் rare மற்றும் expensive. Unlabeled data மிகவும் abundant. Unsupervised learning இந்த unlabeled data-ல இருந்து meaningful insights extract பண்ண help பண்ணும் — customers-ஐ group பண்றது, anomalies detect பண்றது, data compress பண்றது."
+      },
+      {
+        "type": "example",
+        "title": "K-Means Clustering — Customer Segmentation",
+        "description": "Customers-ஐ behavior-ஆல் group பண்ண clustering எப்படி உபயோகிக்கலாம்.",
+        "code": "from sklearn.cluster import KMeans\nimport numpy as np\n\n# Customer data — purchase frequency & average spend\ncustomers = np.array([\n    [2, 50],   # low frequency, low spend\n    [8, 200],  # high frequency, high spend\n    [1, 30],   # low frequency, low spend\n    [9, 250],  # high frequency, high spend\n    [5, 120],  # medium frequency, medium spend\n])\n\n# 3 segments-ஆ cluster பண்றோம்\nkmeans = KMeans(n_clusters=3, random_state=42)\nkmeans.fit(customers)\n\nprint(\"Cluster assignments:\", kmeans.labels_)\n# [0, 2, 0, 2, 1] — similar customers ஒரே group-ல"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Unsupervised Learning-ஓட முக்கிய Techniques"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Clustering",
+            "color": "blue",
+            "icon": "🤝",
+            "text": "ஒரே மாதிரியான தகவல்களை குழுவாக்குவது (Groups). எ.கா: வாடிக்கையாளர் பிரிப்பு."
+          },
+          {
+            "title": "Anomaly",
+            "color": "red",
+            "icon": "🚨",
+            "text": "வித்தியாசமான தரவுகளைக் கண்டறிதல் (Outliers). எ.கா: மோசடி கண்டறிதல் (Fraud)."
+          },
+          {
+            "title": "Reduction",
+            "color": "emerald",
+            "icon": "📉",
+            "text": "தரவுகளைச் சுருக்குதல் (Compression) மற்றும் முக்கியமான தகவல்களை மட்டும் எடுத்தல்."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Customer segmentation — marketing campaigns target பண்ண",
+          "Anomaly detection — fraud, network intrusion detect பண்ண",
+          "Document clustering — similar articles group பண்ண",
+          "Recommendation systems-க்கான base",
+          "Feature learning — downstream supervised tasks improve பண்ண",
+          "Data compression மற்றும் visualization"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Unsupervised learning-ல 'correct' answer இல்ல — அதனால evaluate பண்றது கஷ்டம். Cluster quality metrics மாதிரி silhouette score உபயோகிக்கலாம், ஆனா domain knowledge-உம் முக்கியம்."
+      }
+    ]
+  },
+  "reinforcement-learning": {
+    "title": "Reinforcement Learning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Reinforcement Learning (RL) என்பது ஒரு agent, environment-கிட்ட interact பண்ணி, trial and error-ல இருந்து learn பண்ணும். Good actions-க்கு rewards கிடைக்கும், bad actions-க்கு penalties. Agent goal என்னன்னா long-term reward maximize பண்றது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "RL எப்படி வேலை செய்யும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு குழந்தை cycling கத்துக்குற மாதிரி நினைங்க — fall ஆனா pain (negative reward), balance பண்ணி முன்னால போனா happiness (positive reward). RL agent exactly இப்படிதான் learn பண்ணும். State observe பண்ணி, action எடுத்து, reward பாத்து, policy update பண்ணும்."
+      },
+      {
+        "type": "example",
+        "title": "Simple RL Loop — Pseudocode",
+        "description": "Reinforcement learning-ஓட basic structure.",
+        "code": "# RL Training Loop\nenv = GameEnvironment()  # environment initialize\nagent = RLAgent()\n\nfor episode in range(10000):\n    state = env.reset()          # ஒவ்வொரு episode-ம் fresh start\n    total_reward = 0\n\n    while not done:\n        action = agent.choose_action(state)   # policy-ல இருந்து action\n        next_state, reward, done = env.step(action)  # environment-ல execute\n        agent.learn(state, action, reward, next_state)  # experience-ல இருந்து learn\n        state = next_state\n        total_reward += reward\n\n    print(f\"Episode {episode}: Total Reward = {total_reward}\")\n# நாளடைவா total_reward improve ஆகும்"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "RL-ஓட முக்கிய கூறுகள் (Components)"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Agent",
+            "color": "blue",
+            "icon": "🤖",
+            "text": "முடிவெடுக்கும் அமைப்பு (Player, Robot)."
+          },
+          {
+            "title": "Env",
+            "color": "emerald",
+            "icon": "🌍",
+            "text": "ஏஜென்ட் செயல்படும் உலகம் (Game world, Market)."
+          },
+          {
+            "title": "State",
+            "color": "purple",
+            "icon": "📍",
+            "text": "தற்போதைய சூழ்நிலை (Position, Score)."
+          },
+          {
+            "title": "Reward",
+            "color": "amber",
+            "icon": "🏆",
+            "text": "செயலுக்கான பரிசு/தண்டனை (Points, Win/Loss)."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Games:</strong> AlphaGo, OpenAI Five (Dota 2), Atari games",
+          "<strong>Robotics:</strong> Walking, grasping objects, warehouse automation",
+          "<strong>Finance:</strong> Algorithmic trading, portfolio optimization",
+          "<strong>Recommendation:</strong> Content feeds, ad targeting",
+          "<strong>LLM Training:</strong> RLHF — humans feedback-ல இருந்து models improve ஆகும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "RL supervised learning-ஐ விட train பண்ண கஷ்டம் — unstable, slow, மற்றும் reward function design பண்றது tricky. ஆனா games மற்றும் robotics மாதிரி areas-ல இது மட்டுமே possible approach."
+      }
+    ]
+  },
+  "neural-networks": {
+    "title": "Neural Networks",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Neural Networks என்பது human brain-ஐ loosely inspire பண்ணின computational models. Interconnected nodes (neurons) layers-ஆ organize பண்ணப்பட்டு, data-ல இருந்து complex patterns learn பண்ணும். Modern AI-ஓட foundation இதுதான்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ஒரு Neuron எப்படி வேலை செய்யும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒவ்வொரு artificial neuron-உம் multiple inputs எடுக்கும், ஒவ்வொன்னையும் weight-ஆல் multiply பண்ணும், எல்லாத்தையும் sum பண்ணும், பிறகு activation function apply பண்ணி output குடுக்கும். Training-ல இந்த weights adjust ஆகும் — correct output குடுக்க errors minimize பண்ண."
+      },
+      {
+        "type": "example",
+        "title": "Neural Network — Forward Pass",
+        "description": "ஒரு simple neural network-ல data எப்படி flow பண்ணுதுன்னு பாக்கலாம்.",
+        "code": "import numpy as np\n\n# Single neuron calculation\ndef neuron(inputs, weights, bias):\n    weighted_sum = np.dot(inputs, weights) + bias\n    output = relu(weighted_sum)  # activation function\n    return output\n\ndef relu(x):\n    return max(0, x)  # negative values-ஐ 0 ஆக்கும்\n\n# Example: image pixel values as inputs\ninputs  = [0.5, 0.8, 0.2]   # 3 pixel values\nweights = [0.4, 0.7, -0.3]  # learned weights\nbias    = 0.1\n\nresult = neuron(inputs, weights, bias)\nprint(f\"Neuron output: {result:.3f}\")"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Neural Network-ஓட அடுக்குகள் (Layers)"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Component",
+          "Function",
+          "Analogy"
+        ],
+        "rows": [
+          [
+            "Input Layer",
+            "Raw data receive பண்றது (pixels, numbers, tokens)",
+            "தகவல் receive பண்ணும் கண்கள் / காதுகள்"
+          ],
+          [
+            "Hidden Layers",
+            "Increasingly abstract representations கற்கும்",
+            "Brain-ஓட processing regions"
+          ],
+          [
+            "Output Layer",
+            "Final prediction produce பண்றது",
+            "ஒரு decision எடுப்பது"
+          ],
+          [
+            "Weights (W)",
+            "ஒவ்வொரு connection-ஓடும் numerical strength",
+            "Neural connections-ஓட strength"
+          ],
+          [
+            "Bias (b)",
+            "Neuron-க்கு ஒரு offset term",
+            "Neuron-ஓட resting threshold"
+          ],
+          [
+            "Activation Function",
+            "Non-linearity introduce பண்றது; neuron fire ஆகுமா என்று decide பண்றது",
+            "Neuron-ஓட firing threshold"
+          ]
+        ]
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Input",
+            "color": "blue",
+            "icon": "📥",
+            "text": "தரவைப் பெறும் முதல் அடுக்கு. (எ.கா: பிக்சல்கள், வார்த்தைகள்)."
+          },
+          {
+            "title": "Hidden",
+            "color": "purple",
+            "icon": "⚙️",
+            "text": "தகவலின் உள் கட்டமைப்பைக் கற்கும் அடுக்குகள்."
+          },
+          {
+            "title": "Output",
+            "color": "emerald",
+            "icon": "📤",
+            "text": "இறுதி முடிவைத் தரும் அடுக்கு (எ.கா: பூனை/நாய்)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Backpropagation — Learning எப்படி நடக்கும்?"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Forward pass: Input data network-ல pass பண்ணி prediction பெறுவோம்",
+          "Loss calculation: Prediction மற்றும் actual answer-ஓட difference (error) கணக்கிடுவோம்",
+          "Backward pass: Error-ஐ back through network propagate பண்ணுவோம்",
+          "Weight update: Gradient descent உபயோகிச்சு weights adjust பண்ணுவோம்",
+          "Repeat: Millions of examples-ல இந்த process repeat பண்ணுவோம்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Neural network-ஓட 'depth' (layer count) மிகவும் important. More layers = more complex patterns learn பண்ண முடியும். ஆனா deeper networks-க்கு more data மற்றும் compute தேவை, training-உம் கஷ்டமாகும்."
+      }
+    ]
+  },
+  "training-models": {
+    "title": "Models Train பண்றது எப்படி?",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Model training என்பது data-ல இருந்து patterns learn பண்ண model-ஓட internal parameters (weights) iteratively adjust பண்ற process. இது computationally intensive — ஆனா modern AI-ஓட heart இதுதான்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Training Process-ஓட Key Steps"
+      },
+      {
+        "type": "paragraph",
+        "text": "Training என்பது basically optimization problem. Goal என்னன்னா loss function minimize பண்றது — model-ஓட predictions எவ்வளவு wrong-ஆ இருக்குன்னு measure பண்றது. Gradient descent algorithm இந்த loss குறைக்க weights update பண்ணும்."
+      },
+      {
+        "type": "example",
+        "title": "Training Loop — PyTorch",
+        "description": "ஒரு basic training loop எப்படி இருக்குன்னு பாக்கலாம்.",
+        "code": "import torch\nimport torch.nn as nn\nimport torch.optim as optim\n\nmodel = SimpleNet()\ncriterion = nn.CrossEntropyLoss()  # loss function\noptimizer = optim.Adam(model.parameters(), lr=0.001)  # optimizer\n\n# Training loop\nfor epoch in range(100):\n    for batch_inputs, batch_labels in dataloader:\n        # Forward pass\n        predictions = model(batch_inputs)\n        loss = criterion(predictions, batch_labels)\n\n        # Backward pass\n        optimizer.zero_grad()  # gradients reset பண்றோம்\n        loss.backward()        # gradients calculate பண்றோம்\n        optimizer.step()       # weights update பண்றோம்\n\n    print(f\"Epoch {epoch}: Loss = {loss.item():.4f}\")"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "முக்கியமான Hyperparameters"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Learning Rate",
+            "color": "blue",
+            "icon": "⚡",
+            "text": "வேகம். எடையை (Weights) எவ்வளவு மாற்ற வேண்டும் என்பதைத் தீர்மானிக்கும்."
+          },
+          {
+            "title": "Batch Size",
+            "color": "emerald",
+            "icon": "📦",
+            "text": "ஒரே நேரத்தில் பயிற்சியளிக்கப்படும் தரவுகளின் எண்ணிக்கை."
+          },
+          {
+            "title": "Epochs",
+            "color": "purple",
+            "icon": "🔄",
+            "text": "முழுத் தரவையும் எத்தனை முறை பயன்படுத்த வேண்டும் என்பது."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Learning rate too high:</strong> Training unstable ஆகும், loss oscillate பண்ணும்",
+          "<strong>Learning rate too low:</strong> Training மிகவும் slow ஆகும், local minimum-ல stuck ஆகலாம்",
+          "<strong>Batch size large:</strong> Faster training, more memory, sometimes worse generalization",
+          "<strong>Too few epochs:</strong> Underfitting — model enough learn பண்ணல",
+          "<strong>Too many epochs:</strong> Overfitting — training data memorize பண்ணிடும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Model training மிகவும் iterative process. First attempt-லயே perfect results வராது. Hyperparameters experiment பண்ணி, training curves analyze பண்ணி, progressively improve பண்ணணும்."
+      },
+      {
+        "type": "quiz",
+        "question": "Model training-ல 'Learning Rate' மிக அதிகமாக set பண்ணினால் என்ன நடக்கும்?",
+        "options": [
+          {
+            "text": "Model மிகவும் வேகமாக கற்று perfectly accurate ஆகும்"
+          },
+          {
+            "text": "Optimization minimum-ஐ தாண்டி (overshoot) converge ஆகாமல் போகும்"
+          },
+          {
+            "text": "Model GPU-ல குறைவான memory உபயோகிக்கும்"
+          },
+          {
+            "text": "Training குறைவான data samples use பண்ணும்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "High learning rates loss landscape-ல பெரிய steps எடுக்கும். Step size 'valley' (minimum)-ஓட width-ஐ விட அதிகமாக இருந்தால், model optimal weight-ல settle ஆகாமல் bounce ஆகும் அல்லது drift ஆகும் (diverge)."
+      }
+    ]
+  },
+  "overfitting": {
+    "title": "Overfitting & Regularization",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Overfitting என்பது model training data-ஐ நல்லா learn பண்ணி, new unseen data-ல poor performance குடுக்குற problem. ML-ல மிகவும் common challenge. Regularization techniques இதை prevent பண்ண help பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Overfitting vs. Underfitting"
+      },
+      {
+        "type": "paragraph",
+        "text": "Model performance-ஐ evaluate பண்ணும்போது training set மற்றும் test set accuracy-ஐ compare பண்றோம். Training accuracy high, test accuracy low — இது overfitting. Both low — இது underfitting. இடையே sweet spot கண்டுபிடிக்கணும் — இதை good generalization என்று சொல்வோம்."
+      },
+      {
+        "type": "example",
+        "title": "Overfitting Detect பண்றது — Python",
+        "description": "Training vs validation loss compare பண்ணி overfitting identify பண்லலாம்.",
+        "code": "# Training மற்றும் Validation loss track பண்றோம்\ntrain_losses = []\nval_losses = []\n\nfor epoch in range(100):\n    train_loss = train_one_epoch(model, train_loader)\n    val_loss = evaluate(model, val_loader)\n\n    train_losses.append(train_loss)\n    val_losses.append(val_loss)\n\n    # Overfitting signal: val_loss training-ஐ விட significantly அதிகம்\n    if val_loss > train_loss * 1.5:\n        print(f\"Epoch {epoch}: WARNING — possible overfitting!\")\n        print(f\"  Train loss: {train_loss:.4f}\")\n        print(f\"  Val   loss: {val_loss:.4f}\")"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Regularization Techniques"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Dropout",
+            "color": "amber",
+            "icon": "✂️",
+            "text": "சில நியூரான்களைத் தற்காலிகமாக நீக்கி மற்றவை கற்க வைப்பது."
+          },
+          {
+            "title": "L1/L2",
+            "color": "blue",
+            "icon": "⚖️",
+            "text": "பெரிய எடைகளை (Weights) அபராதம் (Penalize) விதித்துக் குறைப்பது."
+          },
+          {
+            "title": "Early Stop",
+            "color": "red",
+            "icon": "🛑",
+            "text": "பிழை குறையாத போது பயிற்சியை முன்கூட்டியே நிறுத்துவது."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "More training data collect பண்றது — best solution பெரும்பாலும்",
+          "Simpler model choose பண்றது — fewer parameters",
+          "Dropout layers add பண்றது — neural networks-க்கு",
+          "Early stopping implement பண்றது",
+          "Regularization (L1/L2) add பண்றது",
+          "Data augmentation use பண்றது"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Overfitting-ஐ completely eliminate பண்ண முடியாது — ஆனா control பண்ணலாம். Bias-variance tradeoff என்பது ML-ஓட fundamental challenge. More complex model = lower bias, higher variance."
+      }
+    ]
+  },
+  "transformers": {
+    "title": "Transformer Architecture",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "2017-ல 'Attention Is All You Need' paper-ல introduce பண்ணப்பட்ட Transformer architecture modern AI-ஐ revolutionize பண்ணுச்சு. GPT, BERT, Claude, Gemini — எல்லாமே Transformer-ல build ஆனவை. இது NLP, vision, மற்றும் multimodal AI-ஓட backbone."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Attention Mechanism — Core Idea"
+      },
+      {
+        "type": "paragraph",
+        "text": "Transformer-ஓட key innovation என்னன்னா <strong>self-attention</strong>. ஒரு sentence process பண்ணும்போது, ஒவ்வொரு word-உம் மத்த எல்லா words-உடனும் relationship கண்டுபிடிக்கும். 'The animal didn't cross the street because it was tired' — 'it' யாரை refer பண்றதுன்னு attention mechanism புரிஞ்சுகிட்டு 'animal'-க்கு high attention குடுக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Scaled Dot-Product Attention — Concept",
+        "description": "Attention mechanism-ஓட mathematical core.",
+        "code": "import torch\nimport torch.nn.functional as F\nimport math\n\ndef scaled_dot_product_attention(Q, K, V):\n    \"\"\"\n    Q = Query  (நான் என்ன தேடுறேன்?)\n    K = Key    (என்கிட்ட என்ன information இருக்கு?)\n    V = Value  (actual information)\n    \"\"\"\n    d_k = Q.size(-1)  # key dimension\n\n    # Q மற்றும் K-ஓட similarity calculate பண்றோம்\n    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(d_k)\n\n    # Softmax — attention weights (all sum to 1)\n    attention_weights = F.softmax(scores, dim=-1)\n\n    # Weighted sum of values\n    output = torch.matmul(attention_weights, V)\n    return output, attention_weights"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Transformer Architecture Components"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Tokens",
+            "icon": "fa-font"
+          },
+          {
+            "label": "Embeddings",
+            "icon": "fa-hashtag"
+          },
+          {
+            "label": "Multi-Head Attention",
+            "icon": "fa-eye"
+          },
+          {
+            "label": "Feed Forward",
+            "icon": "fa-forward"
+          },
+          {
+            "label": "Softmax",
+            "icon": "fa-chart-pie"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Embedding",
+            "color": "blue",
+            "icon": "🔢",
+            "text": "வார்த்தைகளை எண்களாக (Vectors) மாற்றுவது."
+          },
+          {
+            "title": "Attention",
+            "color": "emerald",
+            "icon": "👀",
+            "text": "முக்கியமான வார்த்தைகளை மட்டும் கவனிப்பது (Context)."
+          },
+          {
+            "title": "Positional",
+            "color": "purple",
+            "icon": "📍",
+            "text": "வார்த்தைகளின் வரிசையைக் (Order) கூறுவது."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Encoder-only (BERT):</strong> Text understanding, classification, NER",
+          "<strong>Decoder-only (GPT):</strong> Text generation, completion",
+          "<strong>Encoder-Decoder (T5, BART):</strong> Translation, summarization",
+          "<strong>Vision Transformer (ViT):</strong> Image classification, vision tasks",
+          "<strong>Multimodal Transformers:</strong> Images மற்றும் text together process பண்ணும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Transformer-க்கு முன்னாடி RNNs மற்றும் LSTMs sequential-ஆ process பண்ணும். Transformer parallel-ஆ process பண்ணும் — இதனால் GPU-ல massive speedup கிடைக்கும். இதுவே scale பண்ண allow பண்ணுச்சு."
+      }
+    ]
+  },
+  "llms": {
+    "title": "Large Language Models (LLMs)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Large Language Models (LLMs) என்பது internet-scale text data-ல train பண்ணப்பட்ட massive neural networks. GPT-4, Claude, Gemini, LLaMA — இவை எல்லாம் LLMs. Trillions of parameters-கிட்ட இவை human-like text generate பண்றது மட்டுமில்லாம, reasoning, coding, analysis-உம் செய்யும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLMs எப்படி Train ஆகுது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "LLM training மூன்று phases-ல நடக்கும். முதல்ல <strong>Pre-training</strong> — internet text-ல next token predict பண்ண train ஆகும். பிறகு <strong>Supervised Fine-Tuning (SFT)</strong> — human-written conversations-ல train ஆகும். கடைசியில <strong>RLHF</strong> — human feedback-ல இருந்து helpful, harmless, honest ஆக optimize ஆகும்."
+      },
+      {
+        "type": "example",
+        "title": "LLM API Call — OpenAI",
+        "description": "Python-ல LLM API உபயோகிக்கிற basic example.",
+        "code": "from openai import OpenAI\n\nclient = OpenAI(api_key=\"your-api-key\")\n\n# Simple completion\nresponse = client.chat.completions.create(\n    model=\"gpt-4o\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"Explain neural networks in simple terms\"}\n    ],\n    temperature=0.7,    # creativity level (0=deterministic, 1=creative)\n    max_tokens=500      # maximum response length\n)\n\nprint(response.choices[0].message.content)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "முக்கியமான LLMs — ஒப்பீடு (Comparison)"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "GPT-4o",
+            "color": "blue",
+            "icon": "fa-openai",
+            "text": "ஆழமான சிந்தனை (Reasoning), மல்டிமாடல் மற்றும் சிறந்த வேகம்."
+          },
+          {
+            "title": "Claude 3.5",
+            "color": "amber",
+            "icon": "fa-brain",
+            "text": "சிறந்த பகுப்பாய்வு (Analysis) மற்றும் பாதுகாப்பு (Safety)."
+          },
+          {
+            "title": "Gemini 1.5",
+            "color": "blue",
+            "icon": "fa-google",
+            "text": "மிக நீண்ட Context Window (1M+ tokens) மற்றும் Google ecosystem."
+          },
+          {
+            "title": "LLaMA 3",
+            "color": "emerald",
+            "icon": "fa-meta",
+            "text": "சிறந்த Open Source மாடல். Local deployment-க்கு உகந்தது."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Emergent Abilities:</strong> Training-ல explicitly teach பண்ணாத capabilities suddenly appear பண்ணும்",
+          "<strong>In-Context Learning:</strong> Examples கொடுத்தா few-shot learning பண்ணும்",
+          "<strong>Hallucinations:</strong> Confident-ஆ wrong information குடுக்கும் — major challenge",
+          "<strong>Scaling Laws:</strong> More parameters + more data = predictably better performance",
+          "<strong>Context Window:</strong> ஒரே நேரத்துல process பண்ண முடிகிற maximum tokens"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "LLMs marvels of engineering — ஆனா limitations புரிஞ்சுக்கணும். Real-time information இல்ல (knowledge cutoff), hallucinate பண்ணும், complex multi-step reasoning-ல struggle பண்ணலாம். Right tool for right job."
+      }
+    ]
+  },
+  "computer-vision": {
+    "title": "Computer Vision",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Computer Vision என்பது machines-க்கு visual world-ஐ — images மற்றும் videos — புரிஞ்சுக்க கத்துக்குடுக்கிற AI field. Human eyes மற்றும் brain-ஐ emulate பண்ண try பண்றது. Medical imaging முதல் self-driving cars வரை இது everywhere இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Computer Vision-ஓட முக்கிய பணிகள் (Tasks)"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Classify",
+            "color": "blue",
+            "icon": "📁",
+            "text": "நிழற்படம் எதைப் பற்றியது என்று கூறுவது (Cat, Dog recognition)."
+          },
+          {
+            "title": "Detect",
+            "color": "purple",
+            "icon": "🎯",
+            "text": "பொருட்களைப் படத்தினுள் கண்டறிந்து பிரேம் செய்வது (YOLO)."
+          },
+          {
+            "title": "Segment",
+            "color": "emerald",
+            "icon": "🧩",
+            "text": "ஒவ்வொரு பிக்சலையும் வகைப்படுத்துதல் (Medical Scan analysis)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "CNNs — Computer Vision-ஓட Backbone"
+      },
+      {
+        "type": "paragraph",
+        "text": "Convolutional Neural Networks (CNNs) computer vision-க்கு designed-ஆ இருக்கும். Convolutional layers sliding filters உபயோகிக்கும் — edges, textures, shapes மாதிரி hierarchical features detect பண்ண. Deep networks அதை combine பண்ணி 'cat' அல்லது 'car' recognize பண்ணும்."
+      },
+      {
+        "type": "example",
+        "title": "Image Classification — PyTorch",
+        "description": "Pre-trained ResNet model உபயோகிச்சு image classify பண்றது.",
+        "code": "import torch\nimport torchvision.transforms as transforms\nfrom torchvision.models import resnet50, ResNet50_Weights\nfrom PIL import Image\n\n# Pre-trained model load பண்றோம்\nmodel = resnet50(weights=ResNet50_Weights.IMAGENET1K_V2)\nmodel.eval()\n\n# Image pre-process பண்றோம்\ntransform = transforms.Compose([\n    transforms.Resize(256),\n    transforms.CenterCrop(224),\n    transforms.ToTensor(),\n    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])\n])\n\n# Prediction பண்றோம்\nimg = Image.open(\"cat.jpg\")\nimg_tensor = transform(img).unsqueeze(0)\n\nwith torch.no_grad():\n    outputs = model(img_tensor)\n    predicted_class = outputs.argmax()\nprint(f\"Predicted class index: {predicted_class.item()}\")"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Healthcare:</strong> Cancer detection, X-ray analysis, pathology slides",
+          "<strong>Automotive:</strong> Lane detection, pedestrian recognition, parking assistance",
+          "<strong>Retail:</strong> Checkout-free stores, inventory management",
+          "<strong>Agriculture:</strong> Crop disease detection, yield estimation",
+          "<strong>Security:</strong> Surveillance, intrusion detection",
+          "<strong>Manufacturing:</strong> Quality control, defect detection"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Vision Transformers (ViTs) 2020-க்கு பிறகு CNNs-ஐ many tasks-ல outperform பண்றாங்க. Modern systems பெரும்பாலும் CNN மற்றும் Transformer components combine பண்ணும்."
+      }
+    ]
+  },
+  "nlp": {
+    "title": "Natural Language Processing (NLP)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Natural Language Processing (NLP) என்பது computers-க்கு human language — text மற்றும் speech — புரிஞ்சுக்க மற்றும் generate பண்ண கத்துக்குடுக்கிற AI field. Search engines முதல் chatbots வரை, translation முதல் sentiment analysis வரை — NLP everywhere இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "NLP-ஓட முக்கிய பணிகள் (Tasks)"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Translate",
+            "color": "blue",
+            "icon": "🌐",
+            "text": "ஒரு மொழியில் இருந்து மற்றொன்றுக்கு மாற்றுதல் (எ.கா: Google Translate)."
+          },
+          {
+            "title": "Analyze",
+            "color": "purple",
+            "icon": "🎭",
+            "text": "உணர்வுக் கணிப்பு (Sentiment Analysis) - நன்று/தீது எனப் பிரித்தல்."
+          },
+          {
+            "title": "Summarize",
+            "color": "emerald",
+            "icon": "📝",
+            "text": "நீண்ட உரையைச் சுருக்கி முக்கியமானவற்றை மட்டும் தருதல்."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "NLP Pipeline"
+      },
+      {
+        "type": "paragraph",
+        "text": "Raw text directly model-க்கு feed பண்ண முடியாது. முதல்ல preprocessing தேவை. Tokenization (words/subwords-ஆ split பண்றது), normalization (lowercase, punctuation handle பண்றது), stopword removal, stemming/lemmatization — இவை classic NLP steps. Modern LLMs-ல subword tokenization உபயோகிக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "NLP Pipeline — Hugging Face Transformers",
+        "description": "Modern NLP-க்கு Hugging Face library எப்படி உபயோகிக்கலாம்.",
+        "code": "from transformers import pipeline\n\n# Sentiment Analysis\nsentiment = pipeline(\"sentiment-analysis\")\nresult = sentiment(\"This product is absolutely amazing!\")\nprint(result)  # [{'label': 'POSITIVE', 'score': 0.9998}]\n\n# Named Entity Recognition\nner = pipeline(\"ner\", grouped_entities=True)\nentities = ner(\"Apple was founded by Steve Jobs in Cupertino.\")\nfor entity in entities:\n    print(f\"{entity['word']}: {entity['entity_group']}\")\n# Apple: ORG, Steve Jobs: PER, Cupertino: LOC\n\n# Text Summarization\nsummarizer = pipeline(\"summarization\", model=\"facebook/bart-large-cnn\")\nsummary = summarizer(long_article, max_length=130)\nprint(summary[0]['summary_text'])"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Word Embeddings:</strong> Words-ஐ semantic meaning capture பண்ற dense vectors-ஆ represent பண்ணும்",
+          "<strong>BERT:</strong> Bidirectional context — sentence-ல both directions-ல understand பண்ணும்",
+          "<strong>GPT:</strong> Autoregressive — left to right generate பண்ணும்",
+          "<strong>T5:</strong> Text-to-Text — எல்லா NLP tasks-ஐயும் text generation-ஆ frame பண்ணும்",
+          "<strong>Sentence Transformers:</strong> Semantic similarity பண்ண sentence embeddings"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Pre-LLM era-ல NLP மிகவும் fragmented — ஒவ்வொரு task-க்கும் separate models. LLMs ஒரே model-ல எல்லாத்தையும் handle பண்றது possible ஆக்குச்சு. இது NLP-ஐ completely transform பண்ணுச்சு."
+      }
+    ]
+  },
+  "generative-ai": {
+    "title": "Generative AI",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Generative AI என்பது new content create பண்ற AI systems — text, images, audio, video, code. Just analyzing existing data மட்டுமில்லாம, new மற்றும் original content produce பண்ணும். ChatGPT, DALL-E, Midjourney, Sora — இவை எல்லாம் generative AI examples."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Generative AI மாடல்களின் வகைகள்"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Text",
+            "color": "blue",
+            "icon": "✍️",
+            "text": "கட்டுரைகள், குறியீடுகள் (Codes) உருவாக்குதல். (GPT, Claude)."
+          },
+          {
+            "title": "Image",
+            "color": "purple",
+            "icon": "🖼️",
+            "text": "வசனங்கள் மூலம் புதிய படங்களை உருவாக்குதல். (DALL-E, Midjourney)."
+          },
+          {
+            "title": "Video",
+            "color": "emerald",
+            "icon": "🎥",
+            "text": "ஆடியோ அல்லது டெக்ஸ்ட் மூலம் வீடியோக்களை உருவாக்குதல் (Sora)."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Diffusion Models எப்படி வேலை செய்யும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Diffusion models training-ல images-ல noise gradually add பண்ணி, பிறகு அந்த noise-ஐ reverse பண்ண learn பண்ணும். Generation time-ல pure noise-ல இருந்து start பண்ணி, step by step noise remove பண்ணி, target image create பண்ணும். Text prompt condition-ஆ கொடுத்தா specific images generate பண்ணலாம்."
+      },
+      {
+        "type": "example",
+        "title": "Image Generation — Stable Diffusion API",
+        "description": "Python-ல image generation API call.",
+        "code": "import requests\nimport base64\nfrom PIL import Image\nfrom io import BytesIO\n\n# Stability AI API\nresponse = requests.post(\n    \"https://api.stability.ai/v1/generation/stable-diffusion-xl/text-to-image\",\n    headers={\n        \"Authorization\": f\"Bearer {API_KEY}\",\n        \"Content-Type\": \"application/json\"\n    },\n    json={\n        \"text_prompts\": [\n            {\"text\": \"A beautiful sunset over Tamil Nadu rice fields, golden hour\", \"weight\": 1}\n        ],\n        \"cfg_scale\": 7,    # prompt adherence (1-35)\n        \"height\": 1024,\n        \"width\": 1024,\n        \"steps\": 30,       # denoising steps\n        \"samples\": 1\n    }\n)\n\n# Image decode பண்ணி save பண்றோம்\nimage_data = response.json()[\"artifacts\"][0][\"base64\"]\nimage = Image.open(BytesIO(base64.b64decode(image_data)))\nimage.save(\"generated_image.png\")"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Content Creation:</strong> Marketing materials, blog posts, social media",
+          "<strong>Code Generation:</strong> Boilerplate code, tests, documentation",
+          "<strong>Design:</strong> Logos, illustrations, UI mockups",
+          "<strong>Entertainment:</strong> Game assets, movie effects, music",
+          "<strong>Education:</strong> Personalized learning content, explanations",
+          "<strong>Research:</strong> Data augmentation, hypothesis generation"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Generative AI powerful-ஆ இருக்கும்போதே risks-உம் இருக்கு — deepfakes, misinformation, copyright issues, bias. Responsible use மற்றும் content provenance (watermarking) இன்னைக்கு active research areas."
+      }
+    ]
+  },
+  "ai-agents": {
+    "title": "AI Agents",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI Agents என்பது tools உபயோகிச்சு, multi-step plans execute பண்ணி, environment-கிட்ட interact பண்ணி, long-horizon goals achieve பண்ற autonomous AI systems. Single question-answer-ஐ தாண்டி, real-world tasks independently handle பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Agent என்னால் என்ன பண்ண முடியும்?"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Perception",
+            "icon": "fa-eye"
+          },
+          {
+            "label": "Planning",
+            "icon": "fa-compass"
+          },
+          {
+            "label": "Action",
+            "icon": "fa-bolt-lightning"
+          },
+          {
+            "label": "Observation",
+            "icon": "fa-list-check"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional LLM chat-ல ஒரு question கேட்டா ஒரு answer கிடைக்கும். Agent-ல goal கொடுத்தா அது plan பண்ணும், tools call பண்ணும் (web search, code execution, APIs), results analyze பண்ணும், next steps decide பண்ணும், goal achieve ஆகும் வரை loop பண்ணும்."
+      },
+      {
+        "type": "example",
+        "title": "Simple AI Agent — Tool Use",
+        "description": "LLM-ஐ tools-கிட்ட connect பண்ணி agent create பண்றது.",
+        "code": "from anthropic import Anthropic\n\nclient = Anthropic()\n\n# Tools define பண்றோம்\ntools = [\n    {\n        \"name\": \"web_search\",\n        \"description\": \"Search the web for current information\",\n        \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"query\": {\"type\": \"string\", \"description\": \"Search query\"}\n            },\n            \"required\": [\"query\"]\n        }\n    }\n]\n\n# Agent loop\nmessages = [{\"role\": \"user\", \"content\": \"What is the latest news about AI?\"}]\n\nwhile True:\n    response = client.messages.create(\n        model=\"claude-opus-4-5\",\n        max_tokens=1024,\n        tools=tools,\n        messages=messages\n    )\n\n    if response.stop_reason == \"end_turn\":\n        print(response.content[0].text)  # Final answer\n        break\n    elif response.stop_reason == \"tool_use\":\n        tool_result = execute_tool(response)  # Tool execute பண்றோம்\n        messages.append({\"role\": \"assistant\", \"content\": response.content})\n        messages.append({\"role\": \"user\", \"content\": tool_result})"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Agent Frameworks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "LangChain",
+            "color": "blue",
+            "icon": "🔗",
+            "text": "ஏஜெண்டுகள் மற்றும் மெமரியை இணைக்க மிகவும் பிரபலமான கட்டமைப்பு."
+          },
+          {
+            "title": "CrewAI",
+            "color": "purple",
+            "icon": "👥",
+            "text": "பல ஏஜெண்டுகளை ஒரு அணியாகச் (Team) செயல்பட வைப்பதற்குச் சிறந்தது."
+          },
+          {
+            "title": "AutoGen",
+            "color": "emerald",
+            "icon": "🤖",
+            "text": "மைக்ரோசாப்ட் வழங்கிய ஏஜெண்டுகளுக்கு இடையேயான உரையாடல் முறை."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Research Agents:</strong> Multiple sources search பண்ணி comprehensive reports write பண்ணும்",
+          "<strong>Coding Agents:</strong> Code write, test, debug, deploy பண்ணும்",
+          "<strong>Data Analysis Agents:</strong> Data fetch, analyze, visualize, insights share பண்ணும்",
+          "<strong>Customer Service Agents:</strong> Questions answer, tickets create, escalate பண்ணும்",
+          "<strong>Computer Use Agents:</strong> Browser, desktop applications autonomously operate பண்ணும்"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Agents powerful-ஆ இருக்கும் — ஆனா reliability challenge. Real-world-ல errors compound ஆகும், agents unexpected things பண்ணலாம். Human-in-the-loop, sandboxing, மற்றும் careful tool permissions மிகவும் important."
+      }
+    ]
+  },
+  "ai-tools": {
+    "title": "AI Tools & Frameworks",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI ecosystem-ல powerful tools மற்றும் frameworks நிறைய இருக்கு. Data preparation முதல் model training, deployment வரை — right tools choose பண்றது productivity-ஐ மிகவும் improve பண்ணும். இந்த topic-ல landscape-ஐ navigate பண்ண help பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Core AI/ML Frameworks"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "PyTorch",
+            "color": "red",
+            "icon": "🔥",
+            "text": "ஆராய்ச்சி (Research) மற்றும் புத்தாக்கத்திற்குச் சிறந்தது. மிகவும் வளைந்து கொடுக்கும்."
+          },
+          {
+            "title": "Scikit-learn",
+            "color": "blue",
+            "icon": "📊",
+            "text": "பாரம்பரிய (Classical) மெஷின் லேர்னிங் அல்காரிதம்களுக்குச் சிறந்தது."
+          },
+          {
+            "title": "HF Transformers",
+            "color": "amber",
+            "icon": "🤗",
+            "text": "முன்-பயிற்சி (Pre-trained) பெற்ற மாடல்களை எளிதாகப் பயன்படுத்தலாம்."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLM Application Frameworks"
+      },
+      {
+        "type": "paragraph",
+        "text": "LLMs-கிட்ட applications build பண்ண specialized frameworks வந்திருக்கு. LangChain மிகவும் popular — chains, agents, memory, tool use எல்லாத்தையும் support பண்ணும். LlamaIndex data-intensive applications-க்கு excellent. Anthropic, OpenAI-ஓட native SDKs simple use cases-க்கு best."
+      },
+      {
+        "type": "example",
+        "title": "Hugging Face — Model Load & Inference",
+        "description": "Pre-trained model download பண்ணி inference run பண்றது.",
+        "code": "from transformers import AutoTokenizer, AutoModelForSequenceClassification\nimport torch\n\n# Pre-trained model load பண்றோம்\nmodel_name = \"distilbert-base-uncased-finetuned-sst-2-english\"\ntokenizer = AutoTokenizer.from_pretrained(model_name)\nmodel = AutoModelForSequenceClassification.from_pretrained(model_name)\n\n# Inference பண்றோம்\ntext = \"This course is incredibly helpful and well-structured!\"\ninputs = tokenizer(text, return_tensors=\"pt\", truncation=True)\n\nwith torch.no_grad():\n    outputs = model(**inputs)\n    predictions = torch.softmax(outputs.logits, dim=-1)\n\nlabels = [\"NEGATIVE\", \"POSITIVE\"]\npred_label = labels[predictions.argmax()]\nconfidence = predictions.max().item()\nprint(f\"Sentiment: {pred_label} ({confidence:.1%} confidence)\")"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Data Tools:</strong> Pandas, NumPy, Polars — data manipulation",
+          "<strong>Visualization:</strong> Matplotlib, Seaborn, Plotly — charts & graphs",
+          "<strong>Experiment Tracking:</strong> Weights & Biases, MLflow — training runs track பண்ண",
+          "<strong>Vector Databases:</strong> Pinecone, Weaviate, Chroma — embeddings store பண்ண",
+          "<strong>Model Serving:</strong> FastAPI, TorchServe, BentoML — models deploy பண்ண",
+          "<strong>Notebooks:</strong> Jupyter, Google Colab — interactive experimentation"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Tool landscape மிகவும் fast-evolving. Every few months new frameworks வருகின்றன. Core concepts-ஐ strong-ஆ வச்சுக்கோ — specific tools learn பண்றது easy ஆகும். Documentation மற்றும் examples-ஐ read பண்ண பழகிக்கோ."
+      }
+    ]
+  },
+  "rag": {
+    "title": "RAG (Retrieval-Augmented Generation)",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "RAG என்பது LLMs-ஓட knowledge limitations solve பண்ற powerful technique. LLM-ஓட training data-ல இல்லாத information-ஐ external knowledge base-ல இருந்து retrieve பண்ணி, அதை context-ஆ கொடுத்து better answers generate பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "RAG எப்படி வேலை செய்யும்?"
+      },
+      {
+        "type": "flow",
+        "steps": [
+          {
+            "label": "Ingestion",
+            "icon": "fa-download"
+          },
+          {
+            "label": "Chunking",
+            "icon": "fa-scissors"
+          },
+          {
+            "label": "Embedding",
+            "icon": "fa-hashtag"
+          },
+          {
+            "label": "Retrieval",
+            "icon": "fa-magnifying-glass"
+          },
+          {
+            "label": "Augmentation",
+            "icon": "fa-plus"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "RAG pipeline இரண்டு phases-ல வேலை செய்யும். <strong>Indexing:</strong> Documents-ஐ chunks-ஆ split பண்ணி, embeddings generate பண்ணி, vector database-ல store பண்ணும். <strong>Retrieval & Generation:</strong> User query-க்கு similar chunks retrieve பண்ணி, LLM-க்கு context-ஆ கொடுத்து answer generate பண்ணும்."
+      },
+      {
+        "type": "example",
+        "title": "Simple RAG Pipeline",
+        "description": "Documents index பண்ணி, query-க்கு relevant information retrieve பண்ணி, answer generate பண்றது.",
+        "code": "from langchain.document_loaders import TextLoader\nfrom langchain.text_splitter import RecursiveCharacterTextSplitter\nfrom langchain.embeddings import OpenAIEmbeddings\nfrom langchain.vectorstores import Chroma\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.chains import RetrievalQA\n\n# Step 1: Documents load மற்றும் split பண்றோம்\nloader = TextLoader(\"company_docs.txt\")\ndocuments = loader.load()\nsplitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)\nchunks = splitter.split_documents(documents)\n\n# Step 2: Embeddings create பண்ணி vector store-ல save பண்றோம்\nembeddings = OpenAIEmbeddings()\nvectorstore = Chroma.from_documents(chunks, embeddings)\n\n# Step 3: RAG chain create பண்றோம்\nllm = ChatOpenAI(model=\"gpt-4o\", temperature=0)\nqa_chain = RetrievalQA.from_chain_type(\n    llm=llm,\n    retriever=vectorstore.as_retriever(search_kwargs={\"k\": 3})\n)\n\n# Step 4: Query பண்றோம்\nresult = qa_chain.run(\"What is our refund policy?\")\nprint(result)  # Documents-ல இருந்து grounded answer"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "RAG vs. Fine-Tuning — எப்போ எது?"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "RAG",
+            "color": "blue",
+            "icon": "📚",
+            "text": "நிகழ்நேரத் தகவல்கள் (Real-time). செலவு குறைவு. ஆதாரங்களைக் குறிப்பிடும் (Citations)."
+          },
+          {
+            "title": "Fine-Tuning",
+            "color": "purple",
+            "icon": "🎯",
+            "text": "குறிப்பிட்ட வடிவம் (Style). பயிற்சி தேவை. ஆழ்ந்த அறிவை உள்ளடக்கியது."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Chunking Strategy:</strong> Documents-ஐ எப்படி split பண்றதுன்னு critical",
+          "<strong>Embedding Quality:</strong> Better embeddings = better retrieval",
+          "<strong>Retrieval Method:</strong> Dense (semantic) vs sparse (keyword) vs hybrid",
+          "<strong>Context Window:</strong> Retrieved chunks LLM context-ல fit ஆகணும்",
+          "<strong>Re-ranking:</strong> Retrieved results-ஐ relevance-ஆல் re-order பண்றது",
+          "<strong>Evaluation:</strong> Faithfulness, relevance, answer quality measure பண்றது"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "RAG இன்னைக்கு enterprise AI applications-ல most popular pattern. Company documents, knowledge bases, product manuals-ஐ LLM-கிட்ட connect பண்ண இது best approach. Start simple-ஆ — basic RAG நல்லா வேலை செய்யும்."
+      }
+    ]
+  },
+  "fine-tuning": {
+    "title": "Fine-Tuning",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "Fine-tuning என்பது already pre-trained large model-ஐ specific task அல்லது domain-க்கு adapt பண்ற process. Scratch-ல train பண்றதை விட மிகவும் cheaper மற்றும் faster. Base model-ஓட general knowledge-ஐ keep பண்ணி, specific use case-க்கு customize பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Fine-Tuning Types"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Full Fine-Tune",
+            "color": "blue",
+            "icon": "⚙️",
+            "text": "அனைத்து அளவுகோல்களையும் (Parameters) மாற்றுதல். அதிக நேரம் எடுக்கும்."
+          },
+          {
+            "title": "LoRA",
+            "color": "emerald",
+            "icon": "🧩",
+            "text": "குறைந்த அளவுகோல்களை மட்டும் மாற்றுதல். வேகமானது, சிக்கனமானது."
+          },
+          {
+            "title": "RLHF",
+            "color": "purple",
+            "icon": "🤝",
+            "text": "மனிதர்களின் அறிவுரையின்படி மாடலைச் செம்மைப்படுத்துதல்."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Fine-Tuning எப்போ தேவை?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Fine-tuning எல்லாத்துக்கும் necessary இல்ல. Prompt engineering மற்றும் RAG பல cases-ல போதுமானது. Fine-tuning consider பண்றது: specific output format/style consistently produce பண்ணணும், domain-specific terminology மிகவும் specialized-ஆ இருக்கும், latency மிகவும் critical-ஆ இருக்கும், or privacy reasons-க்கு local deployment தேவை."
+      },
+      {
+        "type": "example",
+        "title": "LoRA Fine-Tuning — Hugging Face PEFT",
+        "description": "LoRA-ஐ உபயோகிச்சு LLM fine-tune பண்றது.",
+        "code": "from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments\nfrom peft import LoraConfig, get_peft_model, TaskType\nfrom trl import SFTTrainer\n\n# Base model load பண்றோம்\nmodel_name = \"meta-llama/Llama-3.2-3B\"\ntokenizer = AutoTokenizer.from_pretrained(model_name)\nmodel = AutoModelForCausalLM.from_pretrained(model_name)\n\n# LoRA config — small adapters only train ஆகும்\nlora_config = LoraConfig(\n    task_type=TaskType.CAUSAL_LM,\n    r=16,              # rank — adapter size\n    lora_alpha=32,     # scaling factor\n    target_modules=[\"q_proj\", \"v_proj\"],  # which layers adapt\n    lora_dropout=0.05\n)\n\npeft_model = get_peft_model(model, lora_config)\nprint(f\"Trainable params: {peft_model.print_trainable_parameters()}\")\n# Only ~0.1% of parameters train ஆகும்!\n\n# Training\ntrainer = SFTTrainer(\n    model=peft_model,\n    train_dataset=dataset,\n    args=TrainingArguments(output_dir=\"./fine-tuned\", num_train_epochs=3)\n)\ntrainer.train()"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Medical AI:</strong> Clinical notes, diagnosis support — medical terminology learn பண்ண",
+          "<strong>Legal AI:</strong> Contract analysis — legal style மற்றும் precision",
+          "<strong>Customer Support:</strong> Company-specific products, policies, tone",
+          "<strong>Code Generation:</strong> Specific languages, frameworks, coding standards",
+          "<strong>Creative Writing:</strong> Specific author style, genre conventions"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Fine-tuning expensive-ஆ feel ஆனாலும், LoRA/QLoRA-ஓட cost மிகவும் reduce ஆகுச்சு. Consumer GPU-லயே (16GB VRAM) small models fine-tune பண்ண முடியும். Always RAG மற்றும் prompting try பண்ணிட்டு, அது போதாத cases-ல மட்டுமே fine-tune பண்ணு."
+      }
+    ]
+  },
+  "ai-in-production": {
+    "title": "AI-ஐ Production-ல Deploy பண்றது",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI model train பண்றது ஒரு part மட்டுமே. Real users-க்கு deploy பண்றது — production-ல — completely different challenges கொண்டுவரும். Reliability, scalability, latency, monitoring, cost — இவை எல்லாம் production AI-ஓட realities."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "MLOps — Production AI-ஓட Foundation"
+      },
+      {
+        "type": "paragraph",
+        "text": "MLOps (Machine Learning Operations) என்பது ML models-ஐ reliably மற்றும் efficiently production-ல deploy மற்றும் maintain பண்ற set of practices. DevOps principles-ஐ ML lifecycle-க்கு apply பண்றது. Model versioning, automated retraining, monitoring, A/B testing — எல்லாம் MLOps-ல உள்ளடக்கப்பட்டது."
+      },
+      {
+        "type": "example",
+        "title": "FastAPI-ல ML Model Serve பண்றது",
+        "description": "Trained model-ஐ REST API-ஆ expose பண்றது.",
+        "code": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport joblib\nimport numpy as np\n\napp = FastAPI(title=\"Spam Classifier API\")\n\n# Model startup-ல load பண்றோம்\nmodel = joblib.load(\"spam_classifier.pkl\")\nvectorizer = joblib.load(\"vectorizer.pkl\")\n\nclass PredictionRequest(BaseModel):\n    email_text: str\n\nclass PredictionResponse(BaseModel):\n    is_spam: bool\n    confidence: float\n\n@app.post(\"/predict\", response_model=PredictionResponse)\nasync def predict(request: PredictionRequest):\n    try:\n        features = vectorizer.transform([request.email_text])\n        prob = model.predict_proba(features)[0]\n        return PredictionResponse(\n            is_spam=bool(prob[1] > 0.5),\n            confidence=float(max(prob))\n        )\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))\n\n# uvicorn main:app --reload"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Production AI Challenges"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Drift",
+            "color": "amber",
+            "icon": "📉",
+            "text": "காலப்போக்கில் தரவு மாறுவதால் மாடலின் துல்லியம் குறைதல்."
+          },
+          {
+            "title": "Latency",
+            "color": "blue",
+            "icon": "⚡",
+            "text": "பயனர்களுக்குப் பதில் அளிக்க எடுக்கும் நேரம். இது குறைவாக இருக்க வேண்டும்."
+          },
+          {
+            "title": "Cost",
+            "color": "red",
+            "icon": "💰",
+            "text": "ஏபிஐ (API) அழைப்புகள் மற்றும் சர்வர் செலவுகள்."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Docker & Kubernetes:</strong> Models containerize பண்ணி scale பண்றது",
+          "<strong>Model Registries:</strong> MLflow, W&B — model versions track பண்றது",
+          "<strong>Feature Stores:</strong> Feast, Tecton — features consistent-ஆ store பண்றது",
+          "<strong>Monitoring:</strong> Prometheus, Grafana — metrics track பண்றது",
+          "<strong>A/B Testing:</strong> Multiple model versions-ஐ compare பண்றது",
+          "<strong>Shadow Deployment:</strong> New model-ஐ traffic affect பண்ணாம test பண்றது"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Production-ல 80% time data messes, infrastructure issues, monitoring-க்கு போகும். Actual model work 20% மட்டுமே. Software engineering best practices — testing, version control, documentation — AI projects-க்கும் மிகவும் important."
+      }
+    ]
+  },
+  "ai-evaluation": {
+    "title": "AI Systems-ஐ Evaluate பண்றது",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI system-ஓட quality measure பண்றது — evaluation — மிகவும் critical. 'Feels good' போதாது. Systematic evaluation இல்லாம, model deploy பண்ணலாமா வேண்டாமான்னு தெரியாது, improvements measure பண்ண முடியாது, failures catch பண்ண முடியாது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Evaluation Metrics — Task-ஆல் மாறும்"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Accuracy",
+            "color": "blue",
+            "icon": "✅",
+            "text": "வகைப்படுத்துதலில் (Classification) சரியான கணிப்புகளின் சதவீதம்."
+          },
+          {
+            "title": "RMSE",
+            "color": "purple",
+            "icon": "📊",
+            "text": "தொடர் எண்களைக் கணிப்பதில் (Regression) உள்ள பிழையின் அளவு."
+          },
+          {
+            "title": "Human Judge",
+            "color": "emerald",
+            "icon": "🤝",
+            "text": "மனிதர்கள் அல்லது சிறந்த மாடல்கள் மூலம் பதில்களைத் தரம் பிரித்தல்."
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "LLM Evaluation — Modern Approaches"
+      },
+      {
+        "type": "paragraph",
+        "text": "Traditional metrics LLMs-க்கு போதாது — BLEU score high-quality responses-ஐ miss பண்ணும். Modern approaches: <strong>Human evaluation</strong> (gold standard, expensive), <strong>LLM-as-judge</strong> (GPT-4 அல்லது Claude evaluate பண்ணும்), <strong>Reference-based metrics</strong> (expected answers-கிட்ட compare), <strong>Benchmarks</strong> (MMLU, HumanEval, HellaSwag)."
+      },
+      {
+        "type": "example",
+        "title": "LLM-as-Judge Evaluation",
+        "description": "Another LLM-ஐ உபயோகிச்சு responses evaluate பண்றது.",
+        "code": "from anthropic import Anthropic\n\nclient = Anthropic()\n\ndef evaluate_response(question, response, criteria):\n    eval_prompt = f\"\"\"\n    Evaluate this AI response on a scale of 1-5 for each criterion.\n    \n    Question: {question}\n    Response: {response}\n    \n    Rate on:\n    1. Accuracy (factually correct?)\n    2. Completeness (all aspects covered?)\n    3. Clarity (easy to understand?)\n    4. Conciseness (no unnecessary content?)\n    \n    Return JSON: {{\"accuracy\": N, \"completeness\": N, \"clarity\": N, \"conciseness\": N, \"reasoning\": \"...\"}}  \n    \"\"\"\n\n    result = client.messages.create(\n        model=\"claude-opus-4-5\",\n        max_tokens=500,\n        messages=[{\"role\": \"user\", \"content\": eval_prompt}]\n    )\n    return result.content[0].text\n\nscores = evaluate_response(\n    question=\"What is backpropagation?\",\n    response=model_response,\n    criteria=[\"accuracy\", \"clarity\"]\n)\nprint(scores)"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Evals மேல் invest பண்ணு:</strong> Good evaluation framework = faster iteration",
+          "<strong>Multiple metrics:</strong> Single metric game பண்ணலாம் — diverse metrics use பண்ணு",
+          "<strong>Human baseline:</strong> Human performance-கிட்ட compare பண்றது important",
+          "<strong>Regression testing:</strong> New changes old capabilities break பண்ணலன்னு check பண்ணு",
+          "<strong>Edge cases:</strong> Average performance நல்லா இருந்தாலும் edge cases test பண்ணு"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Anthropic, OpenAI மாதிரி labs ஆயிரக்கணக்கான eval benchmarks maintain பண்றாங்க. Open source evals — MMLU, TruthfulQA, HumanEval — model progress track பண்ண standard ways. உங்க specific use case-க்கு custom evals எழுதுவது மிகவும் valuable."
+      }
+    ]
+  },
+  "ai-ethics": {
+    "title": "AI Ethics & Bias",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI systems powerful — அதனால responsibility-உம் அதிகம். Training data-ல இருக்கிற biases models-ல reflect ஆகும், real-world harm cause பண்ணலாம். AI ethics என்பது systems fair, transparent, accountable-ஆ build பண்றதுக்கான framework."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "AI Bias எங்கிருந்து வருது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bias பல sources-ல இருந்து வரலாம். <strong>Data bias:</strong> Training data-ல underrepresented groups. <strong>Label bias:</strong> Human annotators-ஓட prejudices labels-ல reflect ஆகும். <strong>Feedback loops:</strong> Biased predictions → biased future data. <strong>Proxy discrimination:</strong> Zip code மாதிரி variables indirectly race-ஐ proxy பண்ணலாம்."
+      },
+      {
+        "type": "example",
+        "title": "Bias Detection — Fairness Metrics",
+        "description": "Different demographic groups-க்கு model performance compare பண்றது.",
+        "code": "from sklearn.metrics import confusion_matrix\nimport pandas as pd\n\ndef check_fairness(model, X_test, y_test, sensitive_attr):\n    predictions = model.predict(X_test)\n    results = []\n\n    for group in X_test[sensitive_attr].unique():\n        mask = X_test[sensitive_attr] == group\n        group_pred = predictions[mask]\n        group_true = y_test[mask]\n\n        tp = ((group_pred == 1) & (group_true == 1)).sum()\n        fp = ((group_pred == 1) & (group_true == 0)).sum()\n        fn = ((group_pred == 0) & (group_true == 1)).sum()\n        tn = ((group_pred == 0) & (group_true == 0)).sum()\n\n        results.append({\n            \"group\": group,\n            \"true_positive_rate\": tp / (tp + fn) if (tp + fn) > 0 else 0,\n            \"false_positive_rate\": fp / (fp + tn) if (fp + tn) > 0 else 0,\n            \"precision\": tp / (tp + fp) if (tp + fp) > 0 else 0\n        })\n\n    return pd.DataFrame(results)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "AI Ethics Principles"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Fairness",
+            "color": "blue",
+            "icon": "⚖️",
+            "text": "அனைத்துத் தரப்பினருக்கும் சமமான முடிவுகளை வழங்குதல்."
+          },
+          {
+            "title": "Privacy",
+            "color": "emerald",
+            "icon": "🔒",
+            "text": "பயனர்களின் தனிப்பட்ட தரவுகளைப் பாதுகாத்தல்."
+          },
+          {
+            "title": "Explainable",
+            "color": "purple",
+            "icon": "💡",
+            "text": "முடிவுகள் எடுக்கப்பட்டதற்கான காரணத்தை விளக்குதல் (Transparency)."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>COMPAS:</strong> Criminal recidivism prediction-ல racial bias கண்டுபிடிக்கப்பட்டது",
+          "<strong>Amazon Hiring:</strong> Resume screening model women-ஐ discriminate பண்ணுச்சு",
+          "<strong>Facial Recognition:</strong> Darker-skinned women-ல error rates 10x அதிகம் இருந்தது",
+          "<strong>Healthcare:</strong> Black patients-க்கு less care predict பண்ணுற algorithm கண்டுபிடிக்கப்பட்டது",
+          "<strong>Mortgage Lending:</strong> Biased algorithms historically Black neighborhoods-ஐ disadvantage பண்ணுச்சு"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "AI ethics technical solution மட்டுமில்ல — organizational, policy மற்றும் social questions-உம் உள்ளடக்கும். Diverse teams build பண்றது, communities-கிட்ட consult பண்றது, ongoing monitoring — இவை எல்லாம் ethical AI-ஓட part."
+      }
+    ]
+  },
+  "ai-safety": {
+    "title": "AI Safety & Alignment",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI Safety என்பது AI systems humans-க்கு beneficial-ஆ behave பண்றதை ensure பண்ற research field. Alignment problem என்பது — AI systems-ஐ human values மற்றும் intentions-கிட்ட align பண்றது. Capabilities increase ஆகும்போது இது more critical ஆகுது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Alignment Problem என்ன?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Goal specification problem என்று கூட சொல்வாங்க. 'Maximize user engagement' goal-கிட்ட social media algorithm outrage-provoking content prefer பண்ணும் — technically goal achieve ஆகும், ஆனா harmful. AI system-க்கு wrong objective குடுத்தா, அது objective achieve பண்ண unexpected மற்றும் harmful ways கண்டுபிடிக்கும்."
+      },
+      {
+        "type": "example",
+        "title": "Constitutional AI — Anthropic-ஓட Approach",
+        "description": "Anthropic, Claude-ஐ safe-ஆ train பண்ண use பண்ற approach.",
+        "code": "# Constitutional AI (CAI) — Anthropic-ஓட Method\n\n# Step 1: Constitution define பண்றோம் — values list\nconstitution = [\n    \"Be helpful, harmless, and honest\",\n    \"Don't help create weapons of mass destruction\",\n    \"Respect user privacy and autonomy\",\n    \"Be transparent about being an AI\",\n    \"Support human oversight and control\"\n]\n\n# Step 2: Model harmful responses generate பண்ணி, critique பண்ணும்\n# (Red-teaming prompts use பண்றது)\nharmful_response = model.generate(harmful_prompt)\ncritique = model.critique(harmful_response, constitution)\n\n# Step 3: Model revised, safer response generate பண்ணும்\nsafer_response = model.revise(harmful_response, critique)\n\n# Step 4: RLHF — safer responses prefer பண்ண train ஆகும்\n# Human raters இல்லாம model-ஆலயே evaluate பண்ண முடியும்\nreward = evaluate_against_constitution(safer_response, constitution)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "AI Safety Research Areas"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Alignment",
+            "color": "blue",
+            "icon": "🤝",
+            "text": "மனித மதிப்புகளுடன் மாடலை ஒத்துப்போகச் செய்தல்."
+          },
+          {
+            "title": "Robustness",
+            "color": "red",
+            "icon": "🛡️",
+            "text": "தவறான அல்லது ஆபத்தான உள்ளீடுகளைச் சமாளித்தல்."
+          },
+          {
+            "title": "Interpret",
+            "color": "purple",
+            "icon": "🧠",
+            "text": "மாடலின் உள்ளே என்ன நடக்கிறது என்பதைப் புரிந்துகொள்ளுதல்."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>RLHF (Reinforcement Learning from Human Feedback):</strong> ChatGPT, Claude இதனால align ஆனது",
+          "<strong>Constitutional AI:</strong> Anthropic-ஓட approach — principles-ல இருந்து self-critique",
+          "<strong>Red Teaming:</strong> Systematically models-ல failures கண்டுபிடிக்கிற adversarial testing",
+          "<strong>Interpretability:</strong> Model-ஓட internal representations understand பண்றது",
+          "<strong>Watermarking:</strong> AI-generated content identify பண்ண cryptographic signatures"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "AI safety மிகவும் important field — ஆனா doom-and-gloom-ஐ தாண்டி practical safety work இப்போவே நடக்குது. Red teaming, model cards, usage policies, evaluation frameworks — இவை எல்லாம் real-world safety improve பண்றாங்க."
+      }
+    ]
+  },
+  "future-of-ai": {
+    "title": "AI-ஓட எதிர்காலம்",
+    "blocks": [
+      {
+        "type": "intro",
+        "text": "AI field மிகவும் fast-evolving — 6 months முன்னாடி state-of-the-art இன்னைக்கு outdated. ஆனா சில trends clear-ஆ தெரியுது. இந்த topic-ல emerging directions, open challenges, மற்றும் AI உங்க career-ஐ எப்படி affect பண்ணும்னு பாக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Near-Term Trends (2025–2027)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Agents மிகவும் capable ஆகும் — multi-step tasks independently complete பண்ணும். Multimodal models standard ஆகும் — text, image, audio, video seamlessly handle பண்ணும். Models cheaper மற்றும் faster ஆகும் — efficiency research scaling-ஐ தாண்டி முக்கியமா வரும். Personalization அதிகமாகும் — models specific users/companies-க்கு adapt ஆகும்."
+      },
+      {
+        "type": "example",
+        "title": "Agentic AI — Future Workflow",
+        "description": "Near-future AI workflow எப்படி இருக்குமுன்னு ஒரு concept.",
+        "code": "# Future Agentic AI Workflow (Concept)\n\nasync def research_and_report(topic: str):\n    \"\"\"\n    Fully autonomous research agent\n    Human oversight points மட்டும் இருக்கும்\n    \"\"\"\n    # Step 1: Research plan create பண்ணும்\n    plan = await agent.plan(f\"Research {topic} comprehensively\")\n\n    # Step 2: Parallel web search, paper retrieval\n    sources = await asyncio.gather(\n        agent.web_search(plan.queries),\n        agent.search_arxiv(plan.academic_queries),\n        agent.search_databases(plan.data_queries)\n    )\n\n    # Step 3: Information synthesize பண்ணும்\n    synthesis = await agent.synthesize(sources)\n\n    # Step 4: Report draft பண்ணும்\n    draft = await agent.write_report(synthesis)\n\n    # Step 5: Human review point\n    approved = await human_review(draft)  # Human-in-the-loop\n\n    if approved:\n        await agent.publish(draft)\n    else:\n        await agent.revise(draft, human_feedback)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Open Challenges"
+      },
+      {
+        "type": "comparison",
+        "items": [
+          {
+            "title": "Reasoning",
+            "color": "blue",
+            "icon": "🧩",
+            "text": "சிக்கலான பலகட்ட லாஜிக்கல் சிந்தனைகள் (Deep reasoning)."
+          },
+          {
+            "title": "Efficiency",
+            "color": "emerald",
+            "icon": "⚡",
+            "text": "செலவு மற்றும் மின்சார பயன்பாட்டைக் குறைத்தல்."
+          },
+          {
+            "title": "Safety",
+            "color": "red",
+            "icon": "🛡️",
+            "text": "பெரிய அளவிலான மாடல்களைப் பாதுகாப்பாகப் பயன்படுத்துதல்."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>AI Engineer:</strong> LLM-based applications build பண்ற role fast-growing",
+          "<strong>ML Engineer:</strong> Models train, deploy, maintain பண்றது — always in demand",
+          "<strong>AI Product Manager:</strong> AI products design மற்றும் strategy",
+          "<strong>AI Safety Researcher:</strong> Alignment, interpretability, robustness",
+          "<strong>Domain AI Specialist:</strong> Healthcare, legal, finance-ல AI apply பண்றது",
+          "<strong>Prompt Engineer:</strong> LLM systems design மற்றும் optimize பண்றது"
+        ]
+      },
+      {
+        "type": "note",
+        "text": "AI உங்களை replace பண்றதில்லை — AI உபயோகிக்கிறவங்க உபயோகிக்காதவங்களை replace பண்ணுவாங்க. இப்போவே learn பண்ணுங்க, experiment பண்ணுங்க, build பண்ணுங்க. இந்த field-ல curiosity மற்றும் willingness to adapt-தான் most valuable skill."
+      }
+    ]
+  }
+}

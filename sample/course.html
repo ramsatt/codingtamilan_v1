@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Mastery - Coding Tamilan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        mono: ['Consolas', 'Monaco', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        },
+                        surface: '#ffffff',
+                        background: '#f8fafc',
+                    },
+                    boxShadow: {
+                        'material': '0 2px 10px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.02)',
+                        'material-hover': '0 10px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom styling for summary/details accordion */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-slate-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Left Side: Logo + Menu -->
+                <div class="flex items-center gap-8 lg:gap-12">
+                    <div class="flex items-center gap-2 cursor-pointer group">
+                        <div class="text-brand-500 font-bold text-2xl group-hover:scale-110 transition-transform"><i
+                                class="fa-solid fa-code"></i></div>
+                        <span class="font-bold text-xl text-slate-900 tracking-tight">Coding <span
+                                class="text-brand-500">Tamilan</span></span>
+                    </div>
+
+                    <div class="hidden md:flex items-center space-x-6 lg:space-x-8 pt-1">
+                        <a href="#" class="text-slate-500 hover:text-slate-900 font-medium transition-colors">Home</a>
+                        <a href="#" class="text-slate-900 font-semibold border-b-2 border-brand-500 pb-1.5">Courses</a>
+                        <a href="#" class="text-slate-500 hover:text-slate-900 font-medium transition-colors">Notes</a>
+                        <a href="#"
+                            class="text-slate-500 hover:text-slate-900 font-medium transition-colors">Community</a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Search & Actions -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <div class="relative group">
+                        <i
+                            class="fa-solid fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-brand-500 transition-colors"></i>
+                        <input type="text" placeholder="Search courses..."
+                            class="pl-11 pr-4 py-2.5 bg-slate-100 hover:bg-slate-200/70 border border-transparent rounded-full text-sm text-slate-700 focus:bg-white focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 outline-none transition-all w-64 lg:w-72 placeholder-slate-400">
+                    </div>
+                    <a href="#"
+                        class="text-slate-600 font-semibold hover:text-slate-900 transition-colors whitespace-nowrap">Login</a>
+                    <a href="#"
+                        class="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2.5 rounded-full font-medium shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 hover:-translate-y-0.5 transition-all whitespace-nowrap">Sign
+                        Up Free</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-500 hover:text-slate-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Header Hero -->
+    <header class="bg-slate-900 text-white pt-12 pb-24 border-b-4 border-brand-500 relative overflow-hidden">
+        <!-- Subtle background pattern/gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-brand-500/10 z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Left: Course Title & Meta -->
+                <div class="lg:col-span-2">
+                    <!-- Breadcrumbs -->
+                    <nav class="flex text-sm text-slate-400 mb-6 font-medium">
+                        <ol class="flex items-center space-x-2">
+                            <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                            <li><i class="fa-solid fa-chevron-right text-xs mx-1"></i></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Backend</a></li>
+                            <li><i class="fa-solid fa-chevron-right text-xs mx-1"></i></li>
+                            <li class="text-slate-300">Python Mastery</li>
+                        </ol>
+                    </nav>
+
+                    <h1 class="text-4xl md:text-5xl font-black mb-4 leading-tight">100 Days of Code: The Complete Python
+                        Pro Bootcamp</h1>
+                    <p class="text-lg text-slate-300 mb-6 max-w-2xl leading-relaxed">Master Python by building 100
+                        projects in 100 days. Learn data science, automation, build websites, games and apps!</p>
+
+                    <!-- Ratings & Stats -->
+                    <div class="flex flex-wrap items-center gap-4 text-sm font-medium mb-6">
+                        <span
+                            class="bg-brand-500 text-white px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Best
+                            Seller</span>
+                        <div class="flex items-center text-yellow-400">
+                            <span class="text-white font-bold mr-1 text-base">4.9</span>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star-half-stroke"></i>
+                            <a href="#reviews"
+                                class="text-blue-300 hover:text-blue-200 ml-2 underline underline-offset-2 font-normal">(12,450
+                                ratings)</a>
+                        </div>
+                        <span class="text-slate-300"><i class="fa-solid fa-users mr-1"></i> 85,000+ students</span>
+                    </div>
+
+                    <!-- Author & Updates -->
+                    <div class="flex flex-wrap items-center gap-6 text-sm text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <img src="https://i.pravatar.cc/100?img=11" alt="Instructor"
+                                class="w-8 h-8 rounded-full border border-slate-600">
+                            <span>Created by <a href="#"
+                                    class="text-blue-300 hover:text-blue-200 underline underline-offset-2">Coding
+                                    Tamilan</a></span>
+                        </div>
+                        <span class="flex items-center gap-1"><i
+                                class="fa-solid fa-circle-exclamation text-slate-400"></i> Last updated 10/2024</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-globe text-slate-400"></i> English &
+                            Tamil</span>
+                        <span class="flex items-center gap-1"><i
+                                class="fa-solid fa-closed-captioning text-slate-400"></i> Auto-generated captions</span>
+                    </div>
+                </div>
+
+                <!-- Right: Empty space on desktop for floating card to overlap -->
+                <div class="hidden lg:block lg:col-span-1"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="grid lg:grid-cols-3 gap-8 lg:gap-12 relative">
+
+            <!-- Left Column: Detailed Content (Takes up 2/3) -->
+            <div class="lg:col-span-2 -mt-6 lg:-mt-0 pt-8 lg:pt-12">
+
+                <!-- What you'll learn card -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 mb-10">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6">What you'll learn</h2>
+                    <ul class="grid md:grid-cols-2 gap-4 text-slate-600 text-sm leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check mt-1 text-green-500"></i>
+                            <span>You will master the Python programming language by building 100 unique projects over
+                                100 days.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check mt-1 text-green-500"></i>
+                            <span>Learn Selenium, Beautiful Soup, Request, Flask, Pandas, NumPy, Scikit Learn, Plotly,
+                                and Matplotlib.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check mt-1 text-green-500"></i>
+                            <span>Create a portfolio of 100 Python projects to apply for developer jobs.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check mt-1 text-green-500"></i>
+                            <span>Build professional web applications using standard web technologies.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check mt-1 text-green-500"></i>
+                            <span>Be able to use Python for data science and machine learning.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check mt-1 text-green-500"></i>
+                            <span>Build GUIs and Desktop applications with Python projects.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Course Content / Syllabus -->
+                <div class="mb-10">
+                    <div class="flex justify-between items-end mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900">Course content</h2>
+                        <div class="text-sm text-slate-500 font-medium">100 sections • 600 lectures • 60h 30m total
+                            length</div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                        <!-- Accordion Item 1 -->
+                        <details class="group" open>
+                            <summary
+                                class="flex justify-between items-center font-medium cursor-pointer list-none p-5 bg-slate-50 hover:bg-slate-100 transition-colors border-b border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <i
+                                        class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                    <span class="text-slate-900 font-bold">Section 1: Day 1 - Beginner - Working with
+                                        Variables in Python</span>
+                                </div>
+                                <div class="text-sm text-slate-500">8 lectures • 45 min</div>
+                            </summary>
+                            <div class="text-slate-600 p-5 bg-white border-b border-slate-200 text-sm">
+                                <ul class="space-y-4">
+                                    <li
+                                        class="flex justify-between items-center hover:bg-slate-50 p-2 -mx-2 rounded transition-colors cursor-pointer">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fa-solid fa-circle-play text-brand-500"></i>
+                                            <a href="#"
+                                                class="hover:text-brand-600 underline underline-offset-2">Printing to
+                                                the Console in Python</a>
+                                        </div>
+                                        <div class="text-slate-400">05:20</div>
+                                    </li>
+                                    <li
+                                        class="flex justify-between items-center hover:bg-slate-50 p-2 -mx-2 rounded transition-colors cursor-pointer">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fa-solid fa-file-lines text-blue-500"></i>
+                                            <span class="hover:text-slate-900">String Manipulation and Code
+                                                Intelligence</span>
+                                        </div>
+                                        <div class="text-slate-400">07:15</div>
+                                    </li>
+                                    <li
+                                        class="flex justify-between items-center hover:bg-slate-50 p-2 -mx-2 rounded transition-colors cursor-pointer">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fa-solid fa-code text-slate-500"></i>
+                                            <span class="hover:text-slate-900">Interactive Coding Exercise:
+                                                Debugging</span>
+                                        </div>
+                                        <div class="text-slate-400">10:00</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- Accordion Item 2 -->
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-medium cursor-pointer list-none p-5 bg-slate-50 hover:bg-slate-100 transition-colors border-b border-slate-200">
+                                <div class="flex items-center gap-3">
+                                    <i
+                                        class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                    <span class="text-slate-900 font-bold">Section 2: Day 2 - Beginner - Understanding
+                                        Data Types</span>
+                                </div>
+                                <div class="text-sm text-slate-500">7 lectures • 50 min</div>
+                            </summary>
+                            <div class="text-slate-600 p-5 bg-white border-b border-slate-200 text-sm">
+                                <ul class="space-y-4">
+                                    <li
+                                        class="flex justify-between items-center hover:bg-slate-50 p-2 -mx-2 rounded transition-colors cursor-pointer">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fa-solid fa-circle-play text-brand-500"></i>
+                                            <a href="#" class="hover:text-brand-600 underline underline-offset-2">Python
+                                                Primitive Data Types</a>
+                                        </div>
+                                        <div class="text-slate-400">08:10</div>
+                                    </li>
+                                    <li
+                                        class="flex justify-between items-center hover:bg-slate-50 p-2 -mx-2 rounded transition-colors cursor-pointer">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fa-solid fa-circle-play text-brand-500"></i>
+                                            <a href="#" class="hover:text-brand-600 underline underline-offset-2">Type
+                                                Error, Type Checking and Type Conversion</a>
+                                        </div>
+                                        <div class="text-slate-400">09:45</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- Accordion Item 3 -->
+                        <details class="group">
+                            <summary
+                                class="flex justify-between items-center font-medium cursor-pointer list-none p-5 bg-slate-50 hover:bg-slate-100 transition-colors border-b border-transparent">
+                                <div class="flex items-center gap-3">
+                                    <i
+                                        class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                    <span class="text-slate-900 font-bold">Section 3: Day 3 - Beginner - Control Flow
+                                        and Logical Operators</span>
+                                </div>
+                                <div class="text-sm text-slate-500">10 lectures • 1h 5m</div>
+                            </summary>
+                            <div class="text-slate-600 p-5 bg-white border-t border-slate-200 text-sm">
+                                <p class="italic text-slate-400">Content collapsed for preview...</p>
+                            </div>
+                        </details>
+                    </div>
+                    <button
+                        class="mt-4 w-full py-3 bg-white border border-slate-300 rounded-xl font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm">
+                        97 more sections
+                    </button>
+                </div>
+
+                <!-- Requirements -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Requirements</h2>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2 text-sm md:text-base ml-2">
+                        <li>No programming experience needed - I'll teach you everything you need to know.</li>
+                        <li>A Mac or PC computer with access to the internet.</li>
+                        <li>No paid software required - I'll teach you how to use free text editors.</li>
+                        <li>I'll walk you through, step-by-step how to get all the software installed and set up.</li>
+                    </ul>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-10 text-slate-600 text-sm md:text-base leading-relaxed space-y-4">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Description</h2>
+                    <p>Welcome to the 100 Days of Code - The Complete Python Pro Bootcamp, the only course you need to
+                        learn to code with Python. With over 500,000 reviews and a 4.8 average, my Python course is one
+                        of the HIGHEST RATED courses on the internet!</p>
+                    <p>At 60+ hours, this Python course is without a doubt the most comprehensive Python course
+                        available anywhere online. Even if you have zero programming experience, this course will take
+                        you from beginner to professional. Here's why:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-2 font-medium text-slate-700">
+                        <li>The course is taught by the lead instructor at the App Brewery, London's best in-person
+                            programming bootcamp.</li>
+                        <li>We've taught over a million students how to code and many have gone on to change their lives
+                            by becoming professional developers.</li>
+                        <li>The curriculum was developed over a period of 2 years, with comprehensive student testing
+                            and feedback.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Floating Sidebar -->
+            <div class="lg:col-span-1">
+                <!-- Sticky Container -->
+                <div class="sticky top-28 w-full z-20">
+
+                    <!-- Enrollment Card -->
+                    <div
+                        class="bg-white rounded-2xl border border-slate-200 shadow-material hover:shadow-material-hover transition-shadow duration-300 overflow-hidden transform lg:-translate-y-48">
+
+                        <!-- Video Thumbnail Mockup -->
+                        <div class="relative w-full h-52 bg-slate-800 cursor-pointer group">
+                            <!-- Overlay image/pattern -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-tr from-brand-600/40 to-blue-600/40 opacity-80 mix-blend-overlay">
+                            </div>
+                            <!-- Fake code background -->
+                            <div
+                                class="absolute inset-0 p-4 font-mono text-xs text-brand-300 opacity-30 overflow-hidden leading-relaxed">
+                                def learn_python():<br>
+                                &nbsp;&nbsp;days = 100<br>
+                                &nbsp;&nbsp;for day in range(days):<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;code.build()<br>
+                                &nbsp;&nbsp;return "Master!"
+                            </div>
+
+                            <!-- Play Button -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div
+                                    class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-white/30 border border-white/50 shadow-lg">
+                                    <i class="fa-solid fa-play text-2xl text-white ml-1"></i>
+                                </div>
+                            </div>
+                            <!-- Preview Tag -->
+                            <div
+                                class="absolute bottom-3 left-0 w-full text-center text-white font-bold tracking-wide text-sm drop-shadow-md">
+                                Preview this course
+                            </div>
+                        </div>
+
+                        <div class="p-6 md:p-8">
+                            <!-- Pricing -->
+                            <div class="flex items-end gap-3 mb-6">
+                                <span class="text-4xl font-black text-slate-900">Free</span>
+                                <span class="text-slate-400 line-through text-lg font-medium">₹3,499</span>
+                                <span class="text-green-600 font-bold text-sm mb-1">100% off</span>
+                            </div>
+
+                            <!-- CTAs -->
+                            <div class="flex flex-col gap-3 mb-6">
+                                <button
+                                    class="w-full py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-xl shadow-md shadow-brand-500/20 transition-all hover:-translate-y-0.5 whitespace-nowrap text-lg">
+                                    Enroll Now
+                                </button>
+                                <button
+                                    class="w-full py-3.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-bold rounded-xl transition-all whitespace-nowrap text-lg shadow-sm">
+                                    Add to Cart
+                                </button>
+                            </div>
+
+                            <!-- Guarantee/Info -->
+                            <p class="text-center text-xs text-slate-500 font-medium mb-6">30-Day Money-Back Guarantee
+                            </p>
+
+                            <!-- Course Features -->
+                            <h3 class="font-bold text-slate-900 mb-4">This course includes:</h3>
+                            <ul class="text-sm text-slate-600 space-y-3 font-medium">
+                                <li class="flex items-center gap-3"><i
+                                        class="fa-solid fa-video w-4 text-center text-slate-400"></i> 60.5 hours
+                                    on-demand video</li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fa-solid fa-code w-4 text-center text-slate-400"></i> 110 coding
+                                    exercises</li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fa-solid fa-file-lines w-4 text-center text-slate-400"></i> 140 articles
+                                </li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fa-solid fa-download w-4 text-center text-slate-400"></i> 122
+                                    downloadable resources</li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fa-solid fa-mobile-screen w-4 text-center text-slate-400"></i> Access on
+                                    mobile and TV</li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fa-solid fa-infinity w-4 text-center text-slate-400"></i> Full lifetime
+                                    access</li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fa-solid fa-trophy w-4 text-center text-slate-400"></i> Certificate of
+                                    completion</li>
+                            </ul>
+
+                            <div
+                                class="mt-8 pt-6 border-t border-slate-200 flex justify-between items-center text-sm font-bold text-slate-700">
+                                <a href="#" class="hover:text-brand-500 transition-colors flex items-center gap-2"><i
+                                        class="fa-solid fa-share"></i> Share</a>
+                                <a href="#" class="hover:text-brand-500 transition-colors flex items-center gap-2">Gift
+                                    this course</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 pt-16 pb-8 border-t border-slate-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+
+                <!-- Brand Col -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="text-brand-500 font-bold text-2xl"><i class="fa-solid fa-code"></i></div>
+                        <span class="font-bold text-2xl text-slate-900 tracking-tight">Coding <span
+                                class="text-brand-500">Tamilan</span></span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 max-w-sm">
+                        Empowering the next generation of developers with high-quality, accessible programming education
+                        and a supportive community.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-50 hover:text-brand-500 hover:border-brand-200 transition-all shadow-sm">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-50 hover:text-brand-500 hover:border-brand-200 transition-all shadow-sm">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-50 hover:text-brand-500 hover:border-brand-200 transition-all shadow-sm">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-50 hover:text-brand-500 hover:border-brand-200 transition-all shadow-sm">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Col 1 -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-6">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-brand-500 transition-colors">Browse
+                                Courses</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-brand-500 transition-colors">Learning
+                                Paths</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-brand-500 transition-colors">Student
+                                Success</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-brand-500 transition-colors">Community
+                                Forum</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links Col 2 -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-brand-500 transition-colors">About
+                                Us</a></li>
+                        <li><a href="#"
+                                class="text-sm text-slate-500 hover:text-brand-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-brand-500 transition-colors">Privacy
+                                Policy</a></li>
+                        <li><a href="#" class="text-sm text-slate-500 hover:text-brand-500 transition-colors">Terms of
+                                Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Col -->
+                <div class="lg:col-span-1">
+                    <h4 class="font-bold text-slate-900 mb-6">Stay Updated</h4>
+                    <p class="text-sm text-slate-500 mb-4">Subscribe to our newsletter for the latest courses and tech
+                        news.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Email address"
+                            class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm">
+                        <button type="submit"
+                            class="w-full bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-colors shadow-md">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-400 text-sm">© 2024 Coding Tamilan. All rights reserved.</p>
+                <div class="flex items-center gap-2 text-sm text-slate-400">
+                    Made with <i class="fa-solid fa-heart text-red-500"></i> in Tamil Nadu
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

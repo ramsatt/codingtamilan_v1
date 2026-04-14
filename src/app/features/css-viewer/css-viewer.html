@@ -1,0 +1,144 @@
+<div class="bg-slate-50 text-slate-800 font-sans flex flex-col overflow-hidden" style="height: 100dvh">
+
+  <!-- ═══════════════ TOP NAV ═══════════════ -->
+  <nav class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-6 shrink-0 z-20 shadow-sm">
+    <!-- Left: Logo + mobile toggle -->
+    <div class="flex items-center gap-4">
+      <button (click)="toggleSidebar()" class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-brand-500 focus:outline-none transition-colors">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+      <a routerLink="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm shadow-brand-500/30">
+          <i class="fa-solid fa-bolt text-white text-sm"></i>
+        </div>
+        <span class="font-black text-lg text-slate-900 tracking-tight hidden sm:block">Coding <span class="text-brand-500">Tamilan</span></span>
+      </a>
+    </div>
+
+    <!-- Center: Breadcrumbs -->
+    <div class="hidden lg:flex items-center gap-2 text-sm font-medium text-slate-400">
+      <a routerLink="/" class="hover:text-slate-700 transition-colors">Home</a>
+      <i class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i>
+      <span class="text-brand-500 font-semibold">CSS Styling Pro</span>
+      <i class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i>
+      <span class="text-slate-700 font-semibold">{{ currentLessonTitle }}</span>
+    </div>
+
+    <!-- Right: Prev/Next -->
+    <div class="flex items-center gap-2">
+      @if (prevLesson) {
+        <button (click)="navigateTo(prevLesson.id)"
+          class="hidden md:flex items-center gap-1.5 text-xs text-slate-500 hover:text-brand-500 font-medium bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 transition-colors">
+          <i class="fa-solid fa-arrow-left text-[10px]"></i> Prev
+        </button>
+      }
+      @if (nextLesson) {
+        <button (click)="navigateTo(nextLesson.id)"
+          class="hidden md:flex items-center gap-1.5 text-xs text-slate-500 hover:text-brand-500 font-medium bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 transition-colors">
+          Next <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      }
+    </div>
+  </nav>
+
+  <!-- ═══════════════ MAIN BODY ═══════════════ -->
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="absolute md:relative w-72 lg:w-80 h-full bg-white border-r border-slate-200 flex flex-col shrink-0 z-10 transition-transform duration-300 md:translate-x-0 shadow-2xl md:shadow-none"
+      [class.-translate-x-full]="!sidebarOpen">
+
+      <!-- Sidebar Header -->
+      <div class="p-5 border-b border-slate-100 bg-white shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center shadow-lg shadow-blue-900/20 shrink-0">
+            <i class="fa-brands fa-css3-alt text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-sm font-black text-slate-900 leading-tight">CSS Styling Pro</h2>
+            <p class="text-[10px] font-bold text-brand-500 mt-0.5 uppercase tracking-widest">{{ lessons.length }} Lessons</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson List -->
+      <div class="flex-1 overflow-y-auto py-4 px-3">
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest px-2 mb-3">Course Content</p>
+        <ul class="space-y-1">
+          @for (l of lessons; track l.id) {
+            <li>
+              <button (click)="navigateTo(l.id)"
+                class="w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-150 group relative"
+                [class.bg-orange-50]="isCurrentLesson(l.id)"
+                [class.border]="isCurrentLesson(l.id)"
+                [class.border-brand-100]="isCurrentLesson(l.id)"
+                [class.shadow-sm]="isCurrentLesson(l.id)"
+                [class.hover:bg-slate-50]="!isCurrentLesson(l.id)">
+
+                @if (isCurrentLesson(l.id)) {
+                  <div class="absolute left-0 top-2 bottom-2 w-1 bg-brand-500 rounded-r-full"></div>
+                }
+
+                <div class="w-7 h-7 rounded-lg flex items-center justify-center text-xs shrink-0 transition-all"
+                  [class.bg-brand-500]="isCurrentLesson(l.id)"
+                  [class.text-white]="isCurrentLesson(l.id)"
+                  [class.bg-slate-100]="!isCurrentLesson(l.id)"
+                  [class.text-slate-500]="!isCurrentLesson(l.id)"
+                  [class.group-hover:bg-brand-50]="!isCurrentLesson(l.id)"
+                  [class.group-hover:text-brand-500]="!isCurrentLesson(l.id)">
+                  <i class="fa-brands fa-css3-alt text-[10px]"></i>
+                </div>
+
+                <span class="text-sm font-medium leading-tight"
+                  [class.text-brand-600]="isCurrentLesson(l.id)"
+                  [class.font-bold]="isCurrentLesson(l.id)"
+                  [class.text-slate-700]="!isCurrentLesson(l.id)">
+                  {{ l.title }}
+                </span>
+              </button>
+            </li>
+          }
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Mobile overlay -->
+    @if (sidebarOpen) {
+      <div class="md:hidden fixed inset-0 bg-slate-900/40 z-[5] backdrop-blur-sm" (click)="sidebarOpen = false"></div>
+    }
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="flex-1 overflow-y-auto">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        @if (currentLab) {
+          <ng-container [ngComponentOutlet]="currentLab" />
+        }
+
+        <!-- Bottom navigation -->
+        <div class="flex items-center justify-between mt-12 pt-8 border-t border-slate-200">
+          @if (prevLesson) {
+            <button (click)="navigateTo(prevLesson.id)"
+              class="flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-200 bg-white hover:border-brand-300 hover:text-brand-600 text-slate-600 font-medium text-sm transition-all shadow-sm hover:shadow-md">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span class="hidden sm:inline">{{ prevLesson.title }}</span>
+              <span class="sm:hidden">Previous</span>
+            </button>
+          } @else {
+            <div></div>
+          }
+
+          @if (nextLesson) {
+            <button (click)="navigateTo(nextLesson.id)"
+              class="flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-md shadow-brand-500/20 hover:-translate-y-0.5">
+              <span class="hidden sm:inline">{{ nextLesson.title }}</span>
+              <span class="sm:hidden">Next</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          } @else {
+            <div></div>
+          }
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

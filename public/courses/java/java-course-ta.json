@@ -1,0 +1,3621 @@
+{
+  "intro": {
+    "title": "Java அறிமுகம்",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java ஒரு popular-ஆன, powerful programming language — 1995-ல உருவாச்சு."
+      },
+      {
+        "type": "paragraph",
+        "text": "Oracle கம்பெனி இதை maintain பண்றாங்க. உலகத்துல <strong>3 billion-க்கும் அதிகமான</strong> devices-ல Java ரன் ஆகுது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java எதுக்கெல்லாம் use ஆகுதுன்னா:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Mobile apps — குறிப்பா Android apps",
+          "Desktop applications",
+          "Web applications",
+          "Web servers மற்றும் application servers",
+          "Games",
+          "Database connection",
+          "இன்னும் நிறைய இருக்கு!"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java ஏன் படிக்கணும்?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Windows, Mac, Linux எல்லா platforms-லயும் ரன் ஆகும்",
+          "உலகத்துல மிகவும் popular-ஆன programming languages-ல ஒண்ணு",
+          "Job market-ல demand மிகவும் அதிகமா இருக்கு",
+          "கத்துக்கணும்னா easy, use பண்ணாலும் simple",
+          "Open-source, free-யா கிடைக்கும்",
+          "Secure, fast, powerful — மூணுமே ஒரே language-ல",
+          "கோடிக்கணக்கான developers இருக்காங்க — community support மிகவும் strong",
+          "Object-oriented language — code-ஐ reuse பண்ண easy-யா இருக்கும்",
+          "C++ மற்றும் C#-க்கு similar-ஆ இருக்கும், switch பண்ண convenient"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "How Java Works — Write Once, Run Anywhere"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java compiles your code to <strong>bytecode</strong> (a <code>.class</code> file). The <strong>JVM</strong> runs that bytecode on any device. This is Java's famous <em>Write Once, Run Anywhere</em> (WORA) promise."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Tool",
+          "What it does",
+          "Handles"
+        ],
+        "rows": [
+          [
+            "<strong>JDK</strong> — Java Development Kit",
+            "Full developer toolkit — compiler, debugger, and JRE bundled together",
+            "Writing &amp; compiling Java code"
+          ],
+          [
+            "<strong>JRE</strong> — Java Runtime Environment",
+            "Runs Java programs — includes JVM and standard class libraries",
+            "Running existing Java apps"
+          ],
+          [
+            "<strong>JVM</strong> — Java Virtual Machine",
+            "Executes bytecode on your operating system — makes WORA possible",
+            "Cross-platform execution"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<strong>Rule of thumb:</strong> <strong>Develop</strong> with the JDK. <strong>Deploy</strong> with the JRE. The JVM lives inside the JRE."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Example"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல user-கிட்ட hello சொல்றது மாதிரி simple task கூட எழுதலாம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "தொடங்குவோம்"
+      },
+      {
+        "type": "paragraph",
+        "text": "இந்த tutorial-ஓட கடைசில, basic Java programs எழுத தெரியும், real-life examples-ல apply பண்ண தெரியும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "முன்னாடி programming தெரியல-ன்னாலும் பரவாயில்லை — curiosity மட்டும் போதும்!"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n        System.out.println(\"Java is fun!\");\n    }\n}\n// Output:\n// Hello, World!\n// Java is fun!"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "get-started": {
+    "title": "Java தொடங்குவோம்",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java-வை தொடங்குவோம்"
+      },
+      {
+        "type": "paragraph",
+        "text": "Coding Tamilan-ல Java-வை எந்த installation-உம் இல்லாம try பண்ணலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "நம்ம Online Java Editor browser-லயே ரன் ஆகும் — code-உம் result-உம் ஒரே நேரத்துல பாக்கலாம்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "இந்த editor-ஐ tutorial-ல எல்லா examples-க்கும் use பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Install பண்றது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "உன்னோட computer-ல Java install பண்ணணும்னா கீழே இருக்குற steps follow பண்ணு."
+      },
+      {
+        "type": "paragraph",
+        "text": "சில PC-கள்ல Java already install ஆகியிருக்கும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Windows-ல Java இருக்கான்னு check பண்ண Command Prompt-ல இதை type பண்ணு:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "C:\\Users\\Your Name>java -version"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java இருந்தா version number show ஆகும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java இல்லன்னா <a href=\"https://www.oracle.com/java/technologies/downloads/\" target=\"_blank\">oracle.com</a>-ல download பண்ணிக்கோ."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>குறிப்பு:</strong> IntelliJ IDEA, Netbeans, Eclipse மாதிரி IDE use பண்ணலாம் — பெரிய projects-க்கு மிகவும் useful."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Quickstart"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல எந்த program-உம் ஒரு class-ல ஆரம்பிக்கும். Class பேரும் file பேரும் ஒண்ணாத்தான் இருக்கணும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">Main.java</code>ன்னு file create பண்ணு — Notepad மாதிரி எந்த text editor-லயும் செய்யலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "கீழே இருக்குற code-ஐ எழுது — \"Hello World\" print ஆகும்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Code-ஐ இப்போ முழுசா புரிஞ்சுக்கணும்னு இல்ல — பிறகு detail-ஆ பார்ப்போம். <strong>எப்படி run பண்றதுன்னு</strong> மட்டும் கவனி."
+      },
+      {
+        "type": "paragraph",
+        "text": "File-ஐ \"Main.java\"-ன்னு save பண்ணு. Command Prompt-ல file இருக்குற folder-க்கு navigate பண்ணி இதை type பண்ணு:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "C:\\Users\\Your Name>javac Main.java"
+      },
+      {
+        "type": "paragraph",
+        "text": "Compile ஆகும். Error இல்லன்னா next line-க்கு போகும். இப்போ run பண்ண:"
+      },
+      {
+        "type": "example",
+        "title": "Example",
+        "code": "C:\\Users\\Your Name>java Main"
+      },
+      {
+        "type": "paragraph",
+        "text": "Output-ல \"Hello World\" தெரியும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>Congrats!</strong> உன்னோட first Java program எழுதி run பண்ணிட்ட!"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Main.java — இந்த file-ஐ save பண்ணி compile மற்றும் run பண்ணு\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello World\");\n    }\n}\n// Compile: javac Main.java\n// Run:     java Main\n// Output:  Hello World"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "syntax": {
+    "title": "Java Syntax",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Syntax என்னன்னு பார்ப்போம்"
+      },
+      {
+        "type": "paragraph",
+        "text": "முந்தைய chapter-ல <code class=\"w3-codespan\">Main.java</code> file create பண்ணி \"Hello World\" print பண்ணினோம். அந்த code-ஐ இப்போ explain பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 3,
+        "text": "Example விளக்கம்"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல run ஆகுற எல்லா code-உம் ஒரு <code class=\"w3-codespan\">class</code>-க்கு உள்ளே இருக்கணும். Class பேர் capital letter-ல ஆரம்பிக்கணும். நம்ம example-ல <strong>Main</strong>-ன்னு வச்சிருக்கோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "<strong>குறிப்பு:</strong> Java case-sensitive — <code class=\"w3-codespan\">MyClass</code>-உம் <code class=\"w3-codespan\">myclass</code>-உம் different-ஆ treat ஆகும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java file பேர் class பேரோட <strong>exactly match</strong> ஆகணும். Class பேர் <code class=\"w3-codespan\">Main</code>-ன்னா file <code class=\"w3-codespan\">Main.java</code>-ன்னுதான் save ஆகணும். இல்லன்னா Java error குடுக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "main() Method"
+      },
+      {
+        "type": "paragraph",
+        "text": "எல்லா Java program-லயும் <code class=\"w3-codespan\">main()</code> method இருக்கணும் — program இங்கிருந்துதான் start ஆகும்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">main()</code>-க்கு உள்ளே வர்ற எல்லா code-உம் execute ஆகும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "இப்போதைக்கு <code class=\"w3-codespan\">public</code>, <code class=\"w3-codespan\">static</code>, <code class=\"w3-codespan\">void</code> keywords பத்தி கவலைப்படாத. பிறகு கத்துப்போம். நினைவு வச்சுக்க: <code class=\"w3-codespan\">main()</code>தான் ஆரம்ப point."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "System.out.println()"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">main()</code>-க்கு உள்ளே <code class=\"w3-codespan\">println()</code> use பண்ணி screen-ல text print பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p><strong>குறிப்பு:</strong> <code class=\"w3-codespan\">{}</code> ஒரு block-ஓட ஆரம்பத்தையும் முடிவையும் mark பண்றது.</p><p><code class=\"w3-codespan\">System.out.println()</code> long-ஆ தெரியுது, ஆனா இதை ஒரே command மாதிரி நினைங்க: <strong>\"இந்த text-ஐ screen-ல போடு\"</strong></p><ul><li><code class=\"w3-codespan\">System</code> — built-in Java class</li><li><code class=\"w3-codespan\">out</code> — output-ஐ represent பண்றது</li><li><code class=\"w3-codespan\">println()</code> — \"print line\" என்று அர்த்தம்</li></ul><p>ஒவ்வொரு Java statement-உம் semicolon (<code class=\"w3-codespan\">;</code>)-ல முடியணும்.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        int age = 25;\n        String name = \"Alice\";\n        System.out.println(\"Name: \" + name + \", Age: \" + age);\n        // Output: Name: Alice, Age: 25\n    }\n}"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "output": {
+    "title": "Java Output / Print",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Text Print பண்றது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "முந்தைய chapter-ல பார்த்தோம் — <code class=\"w3-codespan\">println()</code> use பண்ணி values print பண்ணலாம்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "எத்தனை வேணும்னாலும் <code class=\"w3-codespan\">println()</code> போடலாம். ஒவ்வொரு method-உம் new line-ல print ஆகும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Double Quotes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Text-ஐ double quotes-க்கு உள்ளே வைக்கணும்: <code class=\"w3-codespan\">\"\"</code>."
+      },
+      {
+        "type": "paragraph",
+        "text": "Quotes மறந்தா error வரும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "print() Method"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">print()</code>ன்னு ஒரு method இருக்கு — <code class=\"w3-codespan\">println()</code> மாதிரியே ஆனா வித்தியாசம் ஒண்ணு இருக்கு."
+      },
+      {
+        "type": "paragraph",
+        "text": "Output-ஓட கடைசில new line add பண்றதில்ல — அடுத்த print அதே line-ல வரும்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Readability-க்கு text-க்கு கடைசில ஒரு space போட்டா நல்லா இருக்கும்."
+      },
+      {
+        "type": "note",
+        "text": "<p>இந்த tutorial-ல <code class=\"w3-codespan\">println()</code>-மட்டுமே use பண்றோம் — output-ஐ read பண்ண easy-ஆ இருக்கும்.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "print vs println vs printf"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Method",
+          "Newline?",
+          "Best for"
+        ],
+        "rows": [
+          [
+            "<code>print()</code>",
+            "No",
+            "Same line output"
+          ],
+          [
+            "<code>println()</code>",
+            "Yes",
+            "One value per line"
+          ],
+          [
+            "<code>printf()</code>",
+            "No (<code>%n</code> use)",
+            "Formatted output"
+          ]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "System.out.print(\"Hello \");\nSystem.out.println(\"World!\");    // Hello World!\nSystem.out.printf(\"Name: %s, Age: %d%n\", \"Alice\", 25);\n// Name: Alice, Age: 25\n\nint x = 42;\nSystem.out.println(\"Value: \" + x);    // concatenation\nSystem.out.printf(\"Value: %d%n\", x);  // formatted"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "comments": {
+    "title": "Java Comments",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Comments என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Comments என்பது code-ஐ explain பண்ணவும், readable-ஆ வைக்கவும் use ஆகுது. Testing-ஓட போது சில code-ஐ skip பண்ணவும் use பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Single-line Comments"
+      },
+      {
+        "type": "paragraph",
+        "text": "Single-line comment <code class=\"w3-codespan\">//</code>-ல ஆரம்பிக்கும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">//</code>-க்கு பக்கத்துல இருக்குற எல்லாத்தையும் Java ignore பண்ணும் — execute ஆகாது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Code-க்கு முன்னாடி single-line comment எழுதலாம்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "அல்லது code-ஓட கடைசில போடலாம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multi-line Comments"
+      },
+      {
+        "type": "paragraph",
+        "text": "Multi-line comment <code class=\"w3-codespan\">/*</code>-ல ஆரம்பிக்கும், <code class=\"w3-codespan\">*/</code>-ல முடியும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "அந்த இரண்டுக்கும் நடுவுல இருக்குற எல்லாத்தையும் Java ignore பண்ணும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Code-ஐ explain பண்ண multi-line comment use பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<h4>எது use பண்றது?</h4><p>Short comment-க்கு <code class=\"w3-codespan\">//</code> — long explanation-க்கு <code class=\"w3-codespan\">/* */</code> use பண்றோம்.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Single-line comment: Java இதை ignore பண்ணும்\nint x = 10;  // x-ல 10 store ஆகும்\n\n/* Multi-line comment:\n   இந்த அணைத்தும் தெரியும்.\n   எதுவும் execute ஆகாது. */\nSystem.out.println(x);  // 10\n\n// Tip: temporarily disable code\n// System.out.println(\"Skipped line\");"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "variables": {
+    "title": "Java Variables",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Variables என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Variables என்பது data values-ஐ store பண்ண உதவுற containers மாதிரி."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல different types of variables இருக்கு, உதாரணமா:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">String</code> — text store பண்றதுக்கு, உதா: \"Hello\". Double quotes-ல வரும்",
+          "<code class=\"w3-codespan\">int</code> — integers (whole numbers) store பண்றதுக்கு, உதா: 123 or -123",
+          "<code class=\"w3-codespan\">float</code> — decimal numbers store பண்றதுக்கு, உதா: 19.99",
+          "<code class=\"w3-codespan\">char</code> — single character store பண்றதுக்கு, உதா: 'a'. Single quotes-ல வரும்",
+          "<code class=\"w3-codespan\">boolean</code> — true or false மட்டுமே store ஆகும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Variable Declare பண்றது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல variable create பண்ண:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "ஒரு <strong>type</strong> choose பண்ணு (<code class=\"w3-codespan\">int</code> அல்லது <code class=\"w3-codespan\">String</code> மாதிரி)",
+          "Variable-க்கு ஒரு <strong>பேர்</strong> வை (<code class=\"w3-codespan\">x</code>, <code class=\"w3-codespan\">age</code>, <code class=\"w3-codespan\">name</code> மாதிரி)",
+          "Optional-ஆ <code class=\"w3-codespan\">=</code> use பண்ணி ஒரு <strong>value</strong> assign பண்ணு"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Basic syntax இப்படி இருக்கும்:"
+      },
+      {
+        "type": "playground",
+        "subtype": "syntax-anatomy",
+        "title": "Variable Syntax Breakdown",
+        "config": {
+          "tokens": [
+            {
+              "text": "int",
+              "type": "keyword",
+              "explanation": "Data type. இந்த variable ஒரு whole number (integer) store பண்ணும்னு Java-க்கு சொல்கிறோம்."
+            },
+            {
+              "text": " "
+            },
+            {
+              "text": "myAge",
+              "type": "variable",
+              "explanation": "Variable பேர். நீயே வைக்கணும். என்ன value store பண்றோம்னு தெரியும்படி வையுங்க. Java-ல camelCase பயன்படுத்துவது convention."
+            },
+            {
+              "text": " "
+            },
+            {
+              "text": "=",
+              "type": "operator",
+              "explanation": "Assignment operator. வலது பக்கம் இருக்கற value-ஐ இடது பக்கம் உள்ள variable-க்கு assign பண்றோம்."
+            },
+            {
+              "text": " "
+            },
+            {
+              "text": "25",
+              "type": "value",
+              "explanation": "Variable-ல store ஆகற value. int type ஆனதால் இது ஒரு whole number (decimal இல்லாம)."
+            },
+            {
+              "text": ";",
+              "type": "operator",
+              "explanation": "Semicolon statement-ஐ முடிக்கிறது. Java-ல ஒவ்வொரு statement-உம் semicolon-ல முடியணும்."
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "Text store பண்ண <code class=\"w3-codespan\">String</code> use பண்ணலாம்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Number store பண்ண <code class=\"w3-codespan\">int</code> use பண்ணலாம்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Value இல்லாம declare பண்ணி, பிறகு assign பண்ணலாம்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Existing variable-க்கு new value assign பண்ணா, பழைய value overwrite ஆகும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Final Variables"
+      },
+      {
+        "type": "paragraph",
+        "text": "Value change ஆகவே கூடாதுன்னா <code class=\"w3-codespan\">final</code> keyword use பண்ணு — constant-ஆ ஆகிடும், read-only:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Other Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Different types-ல variables declare பண்றதுக்கு example:"
+      },
+      {
+        "type": "note",
+        "text": "<p><a href=\"#/java/data-types\">Data types</a> பத்தி அடுத்த chapter-ல விரிவா பார்ப்போம்.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "variable",
+        "title": "Interactive Variable Lab",
+        "config": {
+          "type": "int",
+          "name": "myAge",
+          "value": "25"
+        }
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Declare then assign\nint age;\nage = 25;\n\n// Declare and initialize\nString name = \"Alice\";\ndouble salary = 45000.50;\nboolean isActive = true;\nchar grade = 'A';\n\n// Multiple vars same type\nint x = 10, y = 20, z = 30;\n\n// var — type inferred (Java 10+)\nvar city = \"Chennai\";  // String\nvar count = 100;        // int\nSystem.out.println(city + \" \" + count); // Chennai 100"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "data-types": {
+    "title": "Java Data Types",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Data Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "முந்தைய chapter-ல பார்த்தோம் — Java-ல <a href=\"#/java/variables\">variable</a> declare பண்ணும்போது data type specify பண்றது அவசியம்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Data types இரண்டு groups-ஆ பிரியும்:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Primitive data types — <code class=\"w3-codespan\">byte</code>, <code class=\"w3-codespan\">short</code>, <code class=\"w3-codespan\">int</code>, <code class=\"w3-codespan\">long</code>, <code class=\"w3-codespan\">float</code>, <code class=\"w3-codespan\">double</code>, <code class=\"w3-codespan\">boolean</code>, <code class=\"w3-codespan\">char</code>",
+          "Non-primitive data types — <code class=\"w3-codespan\">String</code>, Arrays, Classes (பிறகு பார்ப்போம்)"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Primitive Data Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "Primitive type 8 வகை இருக்கு:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Data Type",
+          "Size",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "byte",
+            "1 byte",
+            "முழு எண்கள் -128 முதல் 127 வரை"
+          ],
+          [
+            "short",
+            "2 bytes",
+            "முழு எண்கள் -32,768 முதல் 32,767 வரை"
+          ],
+          [
+            "int",
+            "4 bytes",
+            "முழு எண்கள் -2 billion முதல் 2 billion வரை"
+          ],
+          [
+            "long",
+            "8 bytes",
+            "மிகவும் பெரிய முழு எண்கள்"
+          ],
+          [
+            "float",
+            "4 bytes",
+            "Decimal numbers, 6-7 digits precision"
+          ],
+          [
+            "double",
+            "8 bytes",
+            "Decimal numbers, 15 digits precision"
+          ],
+          [
+            "boolean",
+            "1 bit",
+            "true அல்லது false மட்டுமே"
+          ],
+          [
+            "char",
+            "2 bytes",
+            "Single character அல்லது ASCII value"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<p>Decimal numbers-க்கு <code class=\"w3-codespan\">double</code>-ஐதான் prefer பண்றோம் — ஏன்னா <code class=\"w3-codespan\">float</code>-ஐ விட precise-ஆ இருக்கும்.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "byte   small  = 127;              // -128 to 127\nshort  medium = 32767;            // -32,768 to 32,767\nint    num    = 2_000_000;        // underscores for readability\nlong   big    = 9_876_543_210L;   // append L\nfloat  price  = 9.99f;            // append f\ndouble pi     = 3.14159265358979;\nboolean flag  = true;\nchar   ch     = 'J';\n\nSystem.out.println(Integer.MAX_VALUE);       // 2147483647\nSystem.out.println(Character.isLetter(ch));  // true"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "type-casting": {
+    "title": "Java Type Casting",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Casting என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Type casting என்பது ஒரு data type-ஐ இன்னொரு type-ஆ மாத்துறது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல இரண்டு வகை casting இருக்கு:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Widening Casting</strong> (automatic) — small type-ல இருந்து big type-க்கு மாத்றது: byte → short → char → int → long → float → double",
+          "<strong>Narrowing Casting</strong> (manual) — big type-ல இருந்து small type-க்கு மாத்றது: double → float → long → int → char → short → byte"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Widening Casting"
+      },
+      {
+        "type": "paragraph",
+        "text": "இது automatically நடக்கும் — manually எதுவும் பண்ணவேண்டியதில்ல:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Narrowing Casting"
+      },
+      {
+        "type": "paragraph",
+        "text": "இதை manually பண்ணணும் — target type-ஐ parentheses-ல போடணும்:"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Widening (automatic): small → large type\nint myInt = 9;\ndouble myDouble = myInt;   // automatic\nSystem.out.println(myDouble);  // 9.0\n\n// Narrowing (manual): large → small type\ndouble pi = 3.14159;\nint piInt = (int) pi;      // decimal truncated\nSystem.out.println(piInt); // 3\n\n// Real use: percentage\nint score = 700, max = 1000;\ndouble pct = (double) score / max * 100;\nSystem.out.println(pct + \"%\");  // 70.0%"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "operators": {
+    "title": "Java Operators",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Operators என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Operators-ஐ use பண்ணி variables மற்றும் values-ல operations perform பண்ணலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல பல வகை operators இருக்கு:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Arithmetic operators — கணக்கு பண்றதுக்கு (+, -, *, /, %, ++, --)",
+          "Assignment operators — value assign பண்றதுக்கு (=, +=, -=, *=, /=)",
+          "Comparison operators — values compare பண்றதுக்கு (==, !=, >, <, >=, <=)",
+          "Logical operators — conditions combine பண்றதுக்கு (&&, ||, !)",
+          "Bitwise operators — bit-level operations-க்கு"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arithmetic Operators"
+      },
+      {
+        "type": "paragraph",
+        "text": "Common arithmetic operators:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Operator",
+          "பெயர்",
+          "Example"
+        ],
+        "rows": [
+          [
+            "+",
+            "Addition",
+            "x + y"
+          ],
+          [
+            "-",
+            "Subtraction",
+            "x - y"
+          ],
+          [
+            "*",
+            "Multiplication",
+            "x * y"
+          ],
+          [
+            "/",
+            "Division",
+            "x / y"
+          ],
+          [
+            "%",
+            "Modulus (மீதி)",
+            "x % y"
+          ],
+          [
+            "++",
+            "Increment",
+            "++x"
+          ],
+          [
+            "--",
+            "Decrement",
+            "--x"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Compound Assignment Operators"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Operator",
+          "Example",
+          "Equivalent to",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "<code>+=</code>",
+            "<code>x += 5</code>",
+            "<code>x = x + 5</code>",
+            "Add and assign"
+          ],
+          [
+            "<code>-=</code>",
+            "<code>x -= 3</code>",
+            "<code>x = x - 3</code>",
+            "Subtract and assign"
+          ],
+          [
+            "<code>*=</code>",
+            "<code>x *= 2</code>",
+            "<code>x = x * 2</code>",
+            "Multiply and assign"
+          ],
+          [
+            "<code>/=</code>",
+            "<code>x /= 4</code>",
+            "<code>x = x / 4</code>",
+            "Divide and assign"
+          ],
+          [
+            "<code>%=</code>",
+            "<code>x %= 3</code>",
+            "<code>x = x % 3</code>",
+            "Modulus and assign"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Ternary Operator"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "int age = 20;\nString status = (age >= 18) ? \"Adult\" : \"Minor\";\nSystem.out.println(status);   // Adult\n\nint a = 10, b = 25;\nint max = (a > b) ? a : b;\nSystem.out.println(\"Max: \" + max);  // Max: 25"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "strings": {
+    "title": "Java Strings",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Strings என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Strings என்பது characters-ஓட sequence — text-ஐ store பண்ணவும் manipulate பண்ணவும் use ஆகுது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல String double quotes-க்கு உள்ளே இருக்கும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "String Length"
+      },
+      {
+        "type": "paragraph",
+        "text": "String-ஓட length தெரிஞ்சுக்க <code class=\"w3-codespan\">length()</code> method use பண்ணு:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Useful String Methods"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">toUpperCase()</code> — எல்லா letters-உம் uppercase ஆகும்",
+          "<code class=\"w3-codespan\">toLowerCase()</code> — எல்லா letters-உம் lowercase ஆகும்",
+          "<code class=\"w3-codespan\">indexOf()</code> — குறிப்பிட்ட character-ஓட position கொடுக்கும்",
+          "<code class=\"w3-codespan\">concat()</code> — இரண்டு strings-ஐ join பண்றதுக்கு",
+          "<code class=\"w3-codespan\">trim()</code> — ஆரம்பம் மற்றும் முடிவுல இருக்குற spaces remove ஆகும்",
+          "<code class=\"w3-codespan\">replace()</code> — ஒரு value-ஐ இன்னொரு value-ஆ மாத்துது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "String Concatenation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Strings-ஐ <code class=\"w3-codespan\">+</code> operator use பண்ணி join பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>String-ஐ number-உடன் add பண்ணா, result string ஆகும் — numeric addition நடக்காது.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "String s = \"Hello, Java!\";\nSystem.out.println(s.length());           // 12\nSystem.out.println(s.toUpperCase());      // HELLO, JAVA!\nSystem.out.println(s.substring(7, 11));   // Java\nSystem.out.println(s.contains(\"Java\"));   // true\nSystem.out.println(s.replace(\"Java\", \"World\")); // Hello, World!\nSystem.out.println(s.charAt(0));          // H\n\n// Comparing — always use .equals()\nString a = \"hello\", b = \"hello\";\nSystem.out.println(a.equals(b));                  // true ✓\nSystem.out.println(a.equalsIgnoreCase(\"HELLO\")); // true"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "math": {
+    "title": "Java Math",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Math"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல <code class=\"w3-codespan\">Math</code> class use பண்ணி mathematical operations பண்ணலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Useful Math methods:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">Math.max(x, y)</code> — இரண்டுல பெரியதை return பண்றது",
+          "<code class=\"w3-codespan\">Math.min(x, y)</code> — இரண்டுல சிறியதை return பண்றது",
+          "<code class=\"w3-codespan\">Math.sqrt(x)</code> — square root கொடுக்கும்",
+          "<code class=\"w3-codespan\">Math.abs(x)</code> — absolute value (positive) கொடுக்கும்",
+          "<code class=\"w3-codespan\">Math.random()</code> — 0.0 முதல் 1.0 வரை random number கொடுக்கும்",
+          "<code class=\"w3-codespan\">Math.pow(x, y)</code> — x-ஐ y-ஆல power பண்றது"
+        ]
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "System.out.println(Math.max(15, 42));   // 42\nSystem.out.println(Math.min(15, 42));   // 15\nSystem.out.println(Math.abs(-64));      // 64\nSystem.out.println(Math.sqrt(144));     // 12.0\nSystem.out.println(Math.pow(2, 10));    // 1024.0\nSystem.out.println(Math.round(4.6));    // 5\nSystem.out.println(Math.ceil(4.2));     // 5.0\nSystem.out.println(Math.floor(4.9));    // 4.0\n\nint rand = (int)(Math.random() * 100);\nSystem.out.println(rand);  // e.g. 73"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "booleans": {
+    "title": "Java Booleans",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Booleans"
+      },
+      {
+        "type": "paragraph",
+        "text": "Programming-ல நிறைய நேரம் yes/no answer மட்டும் போதும் — அதுக்குத்தான் <code class=\"w3-codespan\">boolean</code>."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java boolean <code class=\"w3-codespan\">true</code> அல்லது <code class=\"w3-codespan\">false</code> மட்டுமே return பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Boolean Values"
+      },
+      {
+        "type": "paragraph",
+        "text": "Boolean variable-ஐ declare பண்றது:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Boolean Expression"
+      },
+      {
+        "type": "paragraph",
+        "text": "Boolean expression என்பது true அல்லது false return பண்றது — comparison operators use பண்றோம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Booleans-ஐ conditions மற்றும் loops-ல மிகவும் அதிகமா use பண்றோம் — அடுத்த chapters-ல பார்ப்போம்.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "int age = 20;\nboolean isAdult   = (age >= 18);  // true\nboolean hasTicket = true;\n\nboolean canEnter = isAdult && hasTicket;  // true\nboolean eitherOr = isAdult || hasTicket;  // true\nboolean notKid   = !isAdult;             // false\n\nSystem.out.println(isAdult);    // true\nSystem.out.println(canEnter);   // true\nSystem.out.println(notKid);     // false"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "if-else": {
+    "title": "Java If...Else",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Conditions மற்றும் If Statements"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல different conditions-க்கு different actions execute பண்ண if statements use பண்றோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல இருக்குற conditional statements:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">if</code> — condition true-ஆ இருந்தா execute ஆகும்",
+          "<code class=\"w3-codespan\">else</code> — condition false-ஆ இருந்தா execute ஆகும்",
+          "<code class=\"w3-codespan\">else if</code> — முந்தைய condition false-ஆ இருந்தா new condition test பண்றதுக்கு",
+          "<code class=\"w3-codespan\">switch</code> — நிறைய possible values test பண்றதுக்கு"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "if Statement"
+      },
+      {
+        "type": "paragraph",
+        "text": "Condition true-ஆ இருந்தா மட்டும் code execute ஆகும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "else Statement"
+      },
+      {
+        "type": "paragraph",
+        "text": "Condition false-ஆ இருந்தா இந்த block execute ஆகும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "else if Statement"
+      },
+      {
+        "type": "paragraph",
+        "text": "Multiple conditions test பண்றதுக்கு:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Short Hand If...Else (Ternary Operator)"
+      },
+      {
+        "type": "paragraph",
+        "text": "If-else-ஐ ஒரே line-ல எழுதலாம்:"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "int score = 75;\nif (score &gt;= 90) {\n    System.out.println(\"A\");\n} else if (score &gt;= 80) {\n    System.out.println(\"B\");\n} else if (score &gt;= 70) {\n    System.out.println(\"C\");\n} else {\n    System.out.println(\"Below C\");\n}\n// Output: C\n\n// Ternary shorthand\nString result = (score &gt;= 50) ? \"Pass\" : \"Fail\";\nSystem.out.println(result);  // Pass"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "switch": {
+    "title": "Java Switch",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Switch Statements"
+      },
+      {
+        "type": "paragraph",
+        "text": "Many-ஆ இருக்குற conditions-ஐ if-else-ஐ விட சுலபமா handle பண்ண <code class=\"w3-codespan\">switch</code> use பண்றோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Switch ஒரு expression-ஐ evaluate பண்ணும், value-ஐ cases-உடன் compare பண்ணும்:"
+      },
+      {
+        "type": "note",
+        "text": "<p><code class=\"w3-codespan\">break</code> keyword மிகவும் important — இல்லன்னா அடுத்த case-உம் execute ஆகும் (fall-through).</p><p><code class=\"w3-codespan\">default</code> — எந்த case-உம் match ஆகலன்னா இது execute ஆகும்.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "int day = 3;\nswitch (day) {\n    case 1: System.out.println(\"Monday\");    break;\n    case 2: System.out.println(\"Tuesday\");   break;\n    case 3: System.out.println(\"Wednesday\"); break;\n    default: System.out.println(\"Weekend!\");\n}\n// Wednesday\n\nString type = switch (day) {\n    case 1, 2, 3, 4, 5 -&gt; \"Weekday\";\n    default -&gt; \"Weekend\";\n};\nSystem.out.println(type);  // Weekday"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "while-loop": {
+    "title": "Java While Loop",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Loops"
+      },
+      {
+        "type": "paragraph",
+        "text": "Loops-ஐ use பண்ணி ஒரே code-ஐ பல தடவை execute பண்ணலாம் — நிறைய time மிச்சமாகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "While Loop"
+      },
+      {
+        "type": "paragraph",
+        "text": "Condition true-ஆ இருக்குற வரைக்கும் code block execute ஆகும்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Loop-க்கு உள்ளே இருக்குற code-ஐ ஒவ்வொரு தடவையும் update பண்றதை மறக்காத — இல்லன்னா infinite loop-ஆ ஆகிடும்!</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Do/While Loop"
+      },
+      {
+        "type": "paragraph",
+        "text": "While loop-ஓட variant — condition check பண்றதுக்கு முன்னாடி code ஒரு தடவை execute ஆகும்:"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// while loop\nint i = 1;\nwhile (i &lt;= 5) {\n    System.out.print(i + \" \");  // 1 2 3 4 5\n    i++;\n}\n\n// do-while — executes at least once\nint n = 0;\ndo {\n    System.out.println(\"Attempt: \" + n);\n    n++;\n} while (n &lt; 3);\n\n// Sum using while\nint sum = 0, num = 1;\nwhile (num &lt;= 10) { sum += num; num++; }\nSystem.out.println(\"Sum 1-10: \" + sum);  // 55"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "for-loop": {
+    "title": "Java For Loop",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java For Loop"
+      },
+      {
+        "type": "paragraph",
+        "text": "Loop எத்தனை தடவை ஓடணும்னு தெரியும்போது <code class=\"w3-codespan\">for</code> loop use பண்றோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "For loop-ல மூணு parts இருக்கு:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "<strong>Statement 1</strong> — loop ஆரம்பிக்கும்போது ஒரு தடவை execute ஆகும்",
+          "<strong>Statement 2</strong> — loop execute ஆகணும்னா இந்த condition true-ஆ இருக்கணும்",
+          "<strong>Statement 3</strong> — ஒவ்வொரு iteration-க்கும் கடைசில execute ஆகும்"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "For-Each Loop"
+      },
+      {
+        "type": "paragraph",
+        "text": "Arrays-ல உள்ள elements-ஐ iterate பண்றதுக்கு for-each loop மிகவும் convenient:"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Count from 1 to 5\nfor (int i = 1; i &lt;= 5; i++) {\n    System.out.print(i + \" \");   // 1 2 3 4 5\n}\n\n// Enhanced for-each\nint[] nums = {10, 20, 30, 40, 50};\nfor (int n : nums) {\n    System.out.print(n + \" \");   // 10 20 30 40 50\n}\n\n// Nested loops\nfor (int i = 1; i &lt;= 3; i++) {\n    for (int j = 1; j &lt;= 3; j++) {\n        System.out.printf(\"%3d\", i * j);\n    }\n    System.out.println();\n}"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "break-continue": {
+    "title": "Java Break/Continue",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Break Statement"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">break</code> statement-ஐ use பண்ணி loop-ஐ நடுவுல நிறுத்தலாம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Continue Statement"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">continue</code> statement ஒரு iteration-ஐ skip பண்ணும் — loop நிற்காது, அடுத்த iteration-க்கு போகும்:"
+      },
+      {
+        "type": "note",
+        "text": "<p><code class=\"w3-codespan\">break</code> — loop-ஐ completely stop பண்றது.<br><code class=\"w3-codespan\">continue</code> — current iteration-ஐ மட்டும் skip பண்றது.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// break\nfor (int i = 1; i &lt;= 9; i++) {\n    if (i == 5) break;\n    System.out.print(i + \" \");  // 1 2 3 4\n}\n\n// continue\nfor (int i = 1; i &lt;= 9; i++) {\n    if (i % 2 == 0) continue;\n    System.out.print(i + \" \");  // 1 3 5 7 9\n}"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "arrays": {
+    "title": "Java Arrays",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Arrays என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Array என்பது ஒரே type-ஓட multiple values-ஐ ஒரே variable-ல store பண்றதுக்கு use ஆகுது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Array declare பண்றதுக்கு square brackets use பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Array Elements Access பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Index number use பண்ணி element access பண்ணலாம் — index 0-ல ஆரம்பிக்கும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Array Length"
+      },
+      {
+        "type": "paragraph",
+        "text": "Array-ல எத்தனை elements இருக்குன்னு தெரிஞ்சுக்க <code class=\"w3-codespan\">length</code> property use பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Array Loop"
+      },
+      {
+        "type": "paragraph",
+        "text": "Array-ல உள்ள எல்லா elements-ஐயும் loop-ல access பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Array index 0-ல ஆரம்பிக்கும் — 5 elements இருந்தா index 0 முதல் 4 வரை இருக்கும். 5-ல try பண்ணா ArrayIndexOutOfBoundsException வரும்!</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "int[] nums = {10, 20, 30, 40, 50};\nSystem.out.println(nums.length);      // 5\nSystem.out.println(nums[2]);          // 30\nnums[2] = 99;\n\nfor (int n : nums) System.out.print(n + \" \");  // 10 20 99 40 50\n\njava.util.Arrays.sort(nums);\nSystem.out.println(java.util.Arrays.toString(nums));  // [10, 20, 40, 50, 99]\n\nint[][] grid = {{1,2,3},{4,5,6},{7,8,9}};\nSystem.out.println(grid[1][2]);  // 6"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "methods": {
+    "title": "Java Methods",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Methods என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Method என்பது ஒரு குறிப்பிட்ட task-ஐ பண்றதுக்கான code block — only when called ஆகும்போது மட்டுமே run ஆகும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Method declare பண்றதுக்கு:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Method பேர் வை",
+          "Parentheses <code class=\"w3-codespan\">()</code> போடு",
+          "Curly braces-க்கு <code class=\"w3-codespan\">{}</code> உள்ளே code எழுது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Method Call பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Method-ஐ use பண்றதுக்கு அதோட பேரை call பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Static vs. Public Methods"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">static</code> method — object create பண்ணாமலே call பண்ணலாம்.<br><code class=\"w3-codespan\">public</code> method — object create பண்ணி call பண்ணணும்."
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "static int multiply(int a, int b) {\n    return a * b;\n}\n\nstatic void greet(String name) {\n    System.out.println(\"Hello, \" + name + \"!\");\n}\n\nSystem.out.println(multiply(4, 7));  // 28\ngreet(\"Alice\");                       // Hello, Alice!\n\n// Overloading\nstatic double multiply(double a, double b) { return a * b; }\nSystem.out.println(multiply(2.5, 4.0));  // 10.0"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "method-parameters": {
+    "title": "Java Method Parameters",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Method Parameters மற்றும் Arguments"
+      },
+      {
+        "type": "paragraph",
+        "text": "Information-ஐ method-க்கு pass பண்றதுக்கு parameters use பண்றோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Parameters method signature-ல specify ஆகும். Method call பண்ணும்போது values-ஐ pass பண்ணோம் — அதை arguments கிறோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multiple Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "ஒரு method-க்கு multiple parameters இருக்கலாம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Return Values"
+      },
+      {
+        "type": "paragraph",
+        "text": "Method ஒரு value return பண்றதுக்கு <code class=\"w3-codespan\">return</code> keyword use பண்றோம். Return type-ஐ method signature-ல போடணும் (<code class=\"w3-codespan\">void</code>-க்கு பதில்):"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Pass by value\nstatic void doubleIt(int n) { n = n * 2; }\nint x = 5;\ndoubleIt(x);\nSystem.out.println(x);  // 5 — unchanged\n\nstatic int square(int n) { return n * n; }\nSystem.out.println(square(7));  // 49\n\nstatic int sum(int... nums) {\n    int total = 0;\n    for (int n : nums) total += n;\n    return total;\n}\nSystem.out.println(sum(1, 2, 3, 4, 5));  // 15"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "method-overloading": {
+    "title": "Java Method Overloading",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Method Overloading"
+      },
+      {
+        "type": "paragraph",
+        "text": "Method Overloading என்பது ஒரே பேர்ல different parameters-உடன் multiple methods வைக்கலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Overloaded methods-ல different number of parameters இருக்கலாம், அல்லது different data types இருக்கலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Method Overloading code-ஐ cleaner-ஆ வைக்கும். Same task-ஐ different inputs-உடன் handle பண்ண convenient-ஆ இருக்கும்.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Overloading Rules"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Methods must have the <strong>same name</strong>",
+          "They must differ in <strong>number of parameters</strong>, <strong>type of parameters</strong>, or <strong>both</strong>",
+          "Return type alone is <em>not enough</em> to distinguish overloaded methods",
+          "Overloading is resolved at <strong>compile time</strong> (static dispatch)"
+        ]
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Overloaded area() — same name, different parameters\nstatic double area(double r) {\n    return Math.PI * r * r;          // circle\n}\nstatic double area(double w, double h) {\n    return w * h;                    // rectangle\n}\nstatic double area(double b, double h, boolean triangle) {\n    return 0.5 * b * h;             // triangle\n}\n\n// Java picks the right version automatically\nSystem.out.println(area(5.0));           // 78.54 (circle)\nSystem.out.println(area(4.0, 6.0));      // 24.0  (rectangle)"
+      },
+      {
+        "type": "playground",
+        "subtype": "method-overloading"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "When to Use Method Overloading"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "When the <strong>same logical operation</strong> should work on different data types",
+          "When varying numbers of arguments make sense for the same action",
+          "To provide <strong>convenience versions</strong> of a method with sensible defaults",
+          "Avoid overloading when the methods do fundamentally different things — use distinct names instead"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "scope": {
+    "title": "Java Scope",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Scope என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Scope என்பது variable எங்கே accessible-ஆ இருக்கும்னு define பண்றது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Method Scope"
+      },
+      {
+        "type": "paragraph",
+        "text": "Method-க்கு உள்ளே declare ஆன variable அந்த method-க்கு உள்ளே மட்டுமே accessible ஆகும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Block Scope"
+      },
+      {
+        "type": "paragraph",
+        "text": "Block-க்கு ({}) உள்ளே declare ஆன variable அந்த block-க்கு உள்ளே மட்டுமே accessible ஆகும்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Variable-ஐ use பண்றதுக்கு முன்னாடி, அது அந்த scope-ல இருக்கான்னு உறுதிப்படுத்திக்கோ — இல்லன்னா compile error வரும்.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Class Scope (Fields)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class-ல declare ஆன variables (fields) எல்லா methods-லயும் accessible — object இருக்கும் வரை live ஆகும்."
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class Counter {\n    int count = 0;   // class-scope field\n\n    void increment() { count++; }\n    void reset()     { count = 0; }\n    void show()      { System.out.println(\"Count: \" + count); }\n}\n\nCounter c = new Counter();\nc.increment();\nc.increment();\nc.show();    // Count: 2\nc.reset();\nc.show();    // Count: 0"
+      },
+      {
+        "type": "playground",
+        "subtype": "scope"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Scope Summary"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Scope Level",
+          "Declared in",
+          "Accessible in",
+          "Lifespan"
+        ],
+        "rows": [
+          [
+            "Class (field)",
+            "Class body, outside methods",
+            "All methods of the class",
+            "As long as the object exists"
+          ],
+          [
+            "Method",
+            "Directly inside a method",
+            "Anywhere in that method (after declaration)",
+            "Until method returns"
+          ],
+          [
+            "Block",
+            "Inside <code>{ }</code> (if, for, while…)",
+            "Only inside that block",
+            "Until block ends"
+          ],
+          [
+            "Loop",
+            "For-loop header",
+            "Only inside the loop body",
+            "Destroyed when loop ends"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "recursion": {
+    "title": "Java Recursion",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Recursion என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Recursion என்பது ஒரு method தன்னையே call பண்றது. Complex problems-ஐ சுலபமா solve பண்றதுக்கு use ஆகுது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Recursion-க்கு ஒரு base case இருக்கணும் — இல்லன்னா infinite recursion ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Recursion Example — Factorial"
+      },
+      {
+        "type": "paragraph",
+        "text": "5! = 5 × 4 × 3 × 2 × 1 = 120 — Recursion-ல எப்படி calculate பண்றதுன்னு பாரு:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Recursion elegant-ஆ இருக்கும், ஆனா careful-ஆ use பண்ணணும். Base case இல்லன்னா StackOverflowError வரும்!</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Fibonacci Sequence with Recursion"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "static int fibonacci(int n) {\n    if (n &lt;= 1) return n;  // base cases\n    return fibonacci(n - 1) + fibonacci(n - 2);\n}\n\nfor (int i = 0; i &lt; 8; i++) {\n    System.out.print(fibonacci(i) + \" \");\n}\n// Output: 0 1 1 2 3 5 8 13"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Golden Rules of Recursion"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "<strong>Always have a base case</strong> — the condition that stops recursion",
+          "<strong>Move toward the base case</strong> — every recursive call must bring you closer to stopping",
+          "<strong>Trust the recursion</strong> — assume the recursive call correctly solves the smaller sub-problem",
+          "<strong>Watch for stack overflow</strong> — deeply nested calls consume memory"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "recursion"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "oop": {
+    "title": "Java OOP",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java OOP என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "OOP — Object-Oriented Programming. Procedural programming-ல functions-ல focus பண்றோம். OOP-ல objects-ல focus பண்றோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "OOP advantages:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Code-ஐ faster-ஆ, easier-ஆ execute பண்ணலாம்",
+          "Clear structure கிடைக்கும்",
+          "Code DRY — Don't Repeat Yourself — code reuse பண்ண easy",
+          "Debug பண்றதும் maintain பண்றதும் easy"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "OOP-ஓட 4 Principles"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Encapsulation</strong> — data-ஐ ஒரே unit-ல வைக்குறது",
+          "<strong>Inheritance</strong> — ஒரு class-ல இருந்து இன்னொரு class properties inherit பண்றது",
+          "<strong>Polymorphism</strong> — same method different forms-ல behave பண்றது",
+          "<strong>Abstraction</strong> — unnecessary details hide பண்றது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The 4 Pillars of OOP"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Pillar",
+          "What it means",
+          "Java feature"
+        ],
+        "rows": [
+          [
+            "<strong>Encapsulation</strong>",
+            "Bundle data + methods; hide internal details",
+            "<code>private</code> fields + <code>public</code> getters/setters"
+          ],
+          [
+            "<strong>Inheritance</strong>",
+            "A child class reuses and extends a parent class",
+            "<code>extends</code> keyword"
+          ],
+          [
+            "<strong>Polymorphism</strong>",
+            "Same method name behaves differently per object",
+            "Method overriding (<code>@Override</code>)"
+          ],
+          [
+            "<strong>Abstraction</strong>",
+            "Expose only what the caller needs; hide complexity",
+            "Abstract classes &amp; interfaces"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<strong>Real-world analogy:</strong> A smartphone is a perfect OOP example — it <em>encapsulates</em> hardware, <em>inherits</em> common phone behaviour, supports <em>polymorphic</em> apps, and <em>abstracts</em> away battery management from the user."
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Define a class (blueprint)\nclass Car {\n    String brand;\n    int speed;\n\n    void drive() {\n        System.out.println(brand + \" driving at \" + speed + \" km/h\");\n    }\n}\n\n// Create objects (instances)\nCar car1 = new Car();\ncar1.brand = \"Toyota\"; car1.speed = 80;\ncar1.drive();  // Toyota driving at 80 km/h\n\nCar car2 = new Car();\ncar2.brand = \"BMW\"; car2.speed = 120;\ncar2.drive();  // BMW driving at 120 km/h"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "classes-objects": {
+    "title": "Java Classes/Objects",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Classes மற்றும் Objects"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java ஒரு object-oriented language — எல்லாமே classes மற்றும் objects-ஐ சுத்தி revolve ஆகும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Class என்பது object-களுக்கான blueprint. Object என்பது class-ஓட instance."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Class Create பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">class</code> keyword use பண்ணி class create பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Object Create பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class-ல இருந்து object create பண்றதுக்கு <code class=\"w3-codespan\">new</code> keyword use பண்றோம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>ஒரு class-ல இருந்து எத்தனை objects வேணும்னாலும் create பண்ணலாம். ஒவ்வொரு object-உம் அதன் சொந்த attributes values வைக்கலாம்.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class Dog {\n    String breed;\n    int age;\n\n    void bark() {\n        System.out.println(breed + \" says: Woof!\");\n    }\n}\n\nDog d = new Dog();\nd.breed = \"Labrador\";\nd.age = 3;\nSystem.out.println(d.breed + \", age \" + d.age);  // Labrador, age 3\nd.bark();   // Labrador says: Woof!"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "class-attributes": {
+    "title": "Java Class Attributes",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Class Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Class attributes என்பது class-க்கு உள்ளே இருக்குற variables — fields என்றும் சொல்வோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Attribute values-ஐ access பண்ண dot (.) syntax use பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Attributes Modify பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "Attribute value-ஐ மாத்துவது:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "final Attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Attribute மாறவே கூடாதுன்னா <code class=\"w3-codespan\">final</code> use பண்ணு:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Final Fields (Constants)"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class Circle {\n    final double PI = 3.14159;  // constant\n    double radius;\n\n    double area() { return PI * radius * radius; }\n}\n\nCircle c = new Circle();\nc.radius = 5;\nSystem.out.println(c.area());  // 78.53975\n// c.PI = 3.0;  // ERROR: cannot assign to final variable"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "class-methods": {
+    "title": "Java Class Methods",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Class Methods"
+      },
+      {
+        "type": "paragraph",
+        "text": "Methods-ஐ class-க்கு உள்ளே declare பண்றோம் — object அல்லது class-ஐ use பண்ணி call பண்ணலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">static</code> methods object இல்லாமலே call ஆகும். <code class=\"w3-codespan\">public</code> methods object-ஐ use பண்ணி call பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Static vs Instance Methods"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class MathHelper {\n    static int square(int n) { return n * n; }  // Static\n}\nclass Car {\n    String brand;\n    void describe() { System.out.println(\"I am a \" + brand); } // Instance\n}\n\nSystem.out.println(MathHelper.square(4));  // 16 — no object\nCar c = new Car();\nc.brand = \"Toyota\";\nc.describe();  // I am a Toyota"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Feature",
+          "Static Method",
+          "Instance Method"
+        ],
+        "rows": [
+          [
+            "Called on",
+            "Class name: <code>MathHelper.square()</code>",
+            "Object: <code>c.describe()</code>"
+          ],
+          [
+            "Access attributes?",
+            "No (no <code>this</code>)",
+            "Yes (has <code>this</code>)"
+          ],
+          [
+            "Keyword",
+            "<code>static</code>",
+            "(no keyword needed)"
+          ],
+          [
+            "Best for",
+            "Utility / helper logic",
+            "Object behaviour"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "constructors": {
+    "title": "Java Constructors",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Constructors என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Constructor என்பது ஒரு special method — object create ஆகும்போது automatically call ஆகும். Object-ஐ initialize பண்றதுக்கு use ஆகுது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Constructor-ஓட பேர் class பேரோட same-ஆ இருக்கும். Return type இல்லாது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Constructor Parameters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Constructor-க்கு parameters குடுக்கலாம் — object create பண்ணும்போது values pass பண்ணோம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Constructor-ஐ explicitly define பண்ணல-ன்னா Java ஒரு default (empty) constructor provide பண்ணும்.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class Person {\n    String name;\n    int age;\n\n    Person(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    void greet() {\n        System.out.println(\"Hi, I'm \" + name + \", age \" + age);\n    }\n}\n\nPerson p1 = new Person(\"Alice\", 25);\nPerson p2 = new Person(\"Bob\", 30);\np1.greet();  // Hi, I'm Alice, age 25\np2.greet();  // Hi, I'm Bob, age 30"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "modifiers": {
+    "title": "Java Modifiers",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Modifiers என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Modifiers என்பது classes, methods, attributes-ஓட access-ஐ control பண்றதுக்கு use ஆகுது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Access Modifiers"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Modifier",
+          "விளக்கம்"
+        ],
+        "rows": [
+          [
+            "public",
+            "எல்லாரும் access பண்ணலாம்"
+          ],
+          [
+            "private",
+            "அந்த class-ல மட்டுமே access பண்ணலாம்"
+          ],
+          [
+            "protected",
+            "அதே package அல்லது subclass-ல access பண்ணலாம்"
+          ],
+          [
+            "(default)",
+            "அதே package-ல மட்டுமே access பண்ணலாம்"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Non-Access Modifiers"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">final</code> — class inherit ஆகாது, method override ஆகாது, variable மாறாது",
+          "<code class=\"w3-codespan\">static</code> — class-க்கு சொந்தமானது, object-க்கு இல்ல",
+          "<code class=\"w3-codespan\">abstract</code> — abstract class அல்லது method-க்கு"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "modifiers"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Non-Access Modifiers"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Modifier",
+          "Applies to",
+          "Effect"
+        ],
+        "rows": [
+          [
+            "<code>static</code>",
+            "Fields, methods",
+            "Belongs to the class, not an instance"
+          ],
+          [
+            "<code>final</code>",
+            "Classes, methods, variables",
+            "Cannot be extended, overridden, or changed"
+          ],
+          [
+            "<code>abstract</code>",
+            "Classes, methods",
+            "No body — must be implemented by a subclass"
+          ],
+          [
+            "<code>synchronized</code>",
+            "Methods, blocks",
+            "Thread-safe — only one thread at a time"
+          ],
+          [
+            "<code>transient</code>",
+            "Fields",
+            "Skipped during object serialization"
+          ],
+          [
+            "<code>volatile</code>",
+            "Fields",
+            "Always read from main memory — safe across threads"
+          ]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// static — shared by all instances\nclass Counter {\n    static int count = 0;\n    Counter() { count++; }\n}\n\n// final — cannot change\nfinal double PI = 3.14159;\n// PI = 3.0;  // ERROR\n\n// abstract — must override\nabstract class Shape {\n    abstract double area();\n}\nclass Square extends Shape {\n    double side;\n    double area() { return side * side; }\n}"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "encapsulation": {
+    "title": "Java Encapsulation",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Encapsulation என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Encapsulation என்பது sensitive data-ஐ users-கிட்ட இருந்து hide பண்றது. இதுக்கு:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Class attributes-ஐ <code class=\"w3-codespan\">private</code>-ஆ declare பண்ணு",
+          "Attributes-ஐ access பண்றதுக்கு <code class=\"w3-codespan\">get</code> methods (getters) use பண்ணு",
+          "Attributes-ஐ update பண்றதுக்கு <code class=\"w3-codespan\">set</code> methods (setters) use பண்ணு"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Encapsulation-ஓட Benefits"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Class attributes-ஐ better control பண்ணலாம்",
+          "Attributes read-only அல்லது write-only-ஆ வைக்கலாம்",
+          "Flexible — code change பண்றது easy",
+          "Data security — invalid data assign ஆகாம தடுக்கலாம்"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "encapsulation"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class BankAccount {\n    private double balance;  // private — direct access blocked\n\n    BankAccount(double initial) { this.balance = initial; }\n\n    public double getBalance()          { return balance; }\n    public void deposit(double amount)  { if (amount &gt; 0) balance += amount; }\n    public void withdraw(double amount) { if (amount &lt;= balance) balance -= amount; }\n}\n\nBankAccount acc = new BankAccount(1000);\nacc.deposit(500);\nacc.withdraw(200);\nSystem.out.println(acc.getBalance());  // 1300.0"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "packages": {
+    "title": "Java Packages",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Packages என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Package என்பது related classes-ஐ group பண்றதுக்குள்ள folder மாதிரி. Name conflicts avoid பண்றதுக்கும், code-ஐ maintain பண்றதுக்கும் help ஆகும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java இரண்டு வகை packages வைக்கும்:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Built-in packages — Java API-ல இருக்கு",
+          "User-defined packages — நாமே create பண்றது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Package Import பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">import</code> keyword use பண்ணி package-ஐ use பண்ணலாம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Built-in Java Packages"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Package",
+          "What it provides",
+          "Example classes"
+        ],
+        "rows": [
+          [
+            "<code>java.lang</code>",
+            "Core Java classes — imported automatically",
+            "<code>String</code>, <code>Math</code>, <code>System</code>, <code>Integer</code>"
+          ],
+          [
+            "<code>java.util</code>",
+            "Data structures, date/time, random numbers",
+            "<code>ArrayList</code>, <code>HashMap</code>, <code>Scanner</code>"
+          ],
+          [
+            "<code>java.io</code>",
+            "Reading and writing files / streams",
+            "<code>File</code>, <code>FileWriter</code>, <code>BufferedReader</code>"
+          ],
+          [
+            "<code>java.nio.file</code>",
+            "Modern file &amp; path API (Java 7+)",
+            "<code>Files</code>, <code>Path</code>, <code>Paths</code>"
+          ],
+          [
+            "<code>java.net</code>",
+            "Networking — URLs, sockets, HTTP",
+            "<code>URL</code>, <code>HttpURLConnection</code>"
+          ],
+          [
+            "<code>java.sql</code>",
+            "Database connectivity (JDBC)",
+            "<code>Connection</code>, <code>Statement</code>, <code>ResultSet</code>"
+          ]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Step 1: Declare the package at TOP of file\npackage com.myapp.utils;\n\n// Step 2: Define your class\npublic class StringHelper {\n    public static String shout(String s) {\n        return s.toUpperCase() + \"!\";\n    }\n}\n\n// Step 3: Use it elsewhere\nimport com.myapp.utils.StringHelper;\nSystem.out.println(StringHelper.shout(\"hello\"));  // HELLO!"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "inheritance": {
+    "title": "Java Inheritance",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Inheritance என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Inheritance என்பது ஒரு class-ல இருந்து attributes மற்றும் methods-ஐ inherit பண்றது — code reuse பண்றதுக்கு மிகவும் useful."
+      },
+      {
+        "type": "paragraph",
+        "text": "Two types of classes:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<strong>Subclass (child)</strong> — ஒரு class-ல இருந்து inherit பண்றது. <code class=\"w3-codespan\">extends</code> keyword use பண்றோம்",
+          "<strong>Superclass (parent)</strong> — யாரால் inherit ஆகுதோ அந்த class"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inheritance Example"
+      },
+      {
+        "type": "paragraph",
+        "text": "Vehicle class-ல இருந்து Car class inherit பண்றதுக்கு:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Final class-ஐ இன்னொரு class inherit பண்ண முடியாது — security மற்றும் performance-க்கு use ஆகுது.</p>"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class Animal {\n    String name;\n    void eat() { System.out.println(name + \" eats.\"); }\n}\n\nclass Dog extends Animal {\n    @Override\n    void eat()  { System.out.println(name + \" eats dog food.\"); }\n    void bark() { System.out.println(name + \" says: Woof!\"); }\n}\n\nDog d = new Dog();\nd.name = \"Rex\";\nd.eat();   // Rex eats dog food.\nd.bark();  // Rex says: Woof!"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "polymorphism": {
+    "title": "Java Polymorphism",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Polymorphism என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Polymorphism என்பது \"many forms\" — ஒரே method-ஐ different classes differently use பண்றது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Inherited methods-ஐ override பண்றதுக்கு use ஆகுது. Animal class-ல <code class=\"w3-codespan\">animalSound()</code> இருக்கு — Dog மற்றும் Cat different sounds குடுக்கும்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Polymorphism code-ஐ flexible மற்றும் extensible-ஆ வைக்கும். Inheritance-உடன் சேர்ந்து use பண்ணும்போது மிகவும் powerful.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Polymorphism in Action — List of Animals"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "ArrayList&lt;Animal&gt; animals = new ArrayList&lt;&gt;();\nanimals.add(new Dog());\nanimals.add(new Cat());\n\nfor (Animal a : animals) {\n    a.sound();  // Java calls Dog.sound() or Cat.sound() automatically\n}\n// Output: Woof! Meow!"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Type",
+          "When resolved",
+          "Mechanism",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Compile-time (static)",
+            "At compile time",
+            "Method overloading",
+            "<code>area(r)</code> vs <code>area(w, h)</code>"
+          ],
+          [
+            "Runtime (dynamic)",
+            "At run time",
+            "Method overriding (<code>@Override</code>)",
+            "<code>a.sound()</code> dispatches to <code>Dog</code> or <code>Cat</code>"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "inner-classes": {
+    "title": "Java Inner Classes",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Inner Classes என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Inner class என்பது ஒரு class-க்கு உள்ளே இருக்குற இன்னொரு class. Outer class-ஓட members-ஐ access பண்றதுக்கும் classes-ஐ group பண்றதுக்கும் use ஆகுது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inner Class Access"
+      },
+      {
+        "type": "paragraph",
+        "text": "Outer class-ஓட object create பண்ணி, பிறகு inner class-ஐ access பண்ணலாம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Static Inner Class"
+      },
+      {
+        "type": "paragraph",
+        "text": "Static inner class-ஐ outer class-ஓட object இல்லாமலே access பண்ணலாம்:"
+      },
+      {
+        "type": "playground",
+        "subtype": "inner-class"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "class OuterClass {\n    int x = 10;\n\n    class InnerClass {\n        void show() {\n            System.out.println(\"Outer x = \" + x);\n        }\n    }\n\n    static class StaticInner {\n        void greet() {\n            System.out.println(\"Hello from static inner!\");\n        }\n    }\n}\n\nOuterClass outer = new OuterClass();\nOuterClass.InnerClass inner = outer.new InnerClass();\ninner.show();   // Outer x = 10\n\nOuterClass.StaticInner si = new OuterClass.StaticInner();\nsi.greet();     // Hello from static inner!"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "abstraction": {
+    "title": "Java Abstraction",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Abstraction என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Abstraction என்பது unnecessary details hide பண்ணி essential information மட்டும் show பண்றது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Abstract class மற்றும் interface use பண்ணி achieve பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Abstract Class"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">abstract</code> keyword use பண்ணி abstract class create பண்றோம். Abstract class-ஐ instantiate பண்ண முடியாது — subclass-ல inherit பண்ணணும்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Abstract method-க்கு body இல்லாது — subclass-ல implement பண்ணணும்.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "abstraction"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "abstract class Shape {\n    String color;\n    abstract double area();  // no body\n\n    void describe() {\n        System.out.println(color + \" shape, area = \" + area());\n    }\n}\n\nclass Circle extends Shape {\n    double r;\n    Circle(String c, double r) { this.color = c; this.r = r; }\n    double area() { return 3.14159 * r * r; }\n}\n\nnew Circle(\"red\", 5).describe();  // red shape, area = 78.53975"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "interface": {
+    "title": "Java Interface",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Interface என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Interface என்பது completely abstract class மாதிரி — அதுல methods இருக்கும், ஆனா body இல்லாது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Interface implement பண்றதுக்கு <code class=\"w3-codespan\">implements</code> keyword use பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multiple Interfaces"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல multiple inheritance directly support ஆகல — ஆனா multiple interfaces implement பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Interface-ல attributes automatically <code class=\"w3-codespan\">public</code>, <code class=\"w3-codespan\">static</code>, மற்றும் <code class=\"w3-codespan\">final</code>-ஆ இருக்கும். Methods automatically <code class=\"w3-codespan\">public</code> மற்றும் <code class=\"w3-codespan\">abstract</code>-ஆ இருக்கும்.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "interface"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "interface Drawable {\n    void draw();\n    default String type() { return \"2D\"; }\n}\n\ninterface Resizable {\n    void resize(int factor);\n}\n\nclass Square implements Drawable, Resizable {\n    int side;\n    Square(int s) { this.side = s; }\n    public void draw()        { System.out.println(\"Square \" + side + \"x\" + side); }\n    public void resize(int f) { side *= f; }\n}\n\nSquare sq = new Square(4);\nsq.draw();    // Square 4x4\nsq.resize(3);\nsq.draw();    // Square 12x12"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "enums": {
+    "title": "Java Enums",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Enums என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Enum என்பது constants-ஓட group-ஐ represent பண்றது — உதா: days of the week, directions, seasons."
+      },
+      {
+        "type": "paragraph",
+        "text": "Enum-ஐ <code class=\"w3-codespan\">enum</code> keyword use பண்ணி create பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Enum in Switch"
+      },
+      {
+        "type": "paragraph",
+        "text": "Enum-ஐ switch statement-ல use பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Enum constants-ஐ uppercase-ல எழுதுவது convention — இதுவே best practice.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "enum"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "enum Day { MON, TUE, WED, THU, FRI, SAT, SUN }\n\nDay today = Day.WED;\nSystem.out.println(today);           // WED\nSystem.out.println(today.name());    // WED\nSystem.out.println(today.ordinal()); // 2\n\nswitch (today) {\n    case SAT: case SUN:\n        System.out.println(\"Weekend!\"); break;\n    default:\n        System.out.println(\"Weekday\");\n}\n\nfor (Day d : Day.values()) {\n    System.out.print(d + \" \");\n}\n// MON TUE WED THU FRI SAT SUN"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "user-input": {
+    "title": "Java User Input",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java User Input"
+      },
+      {
+        "type": "paragraph",
+        "text": "User-கிட்ட இருந்து input பெறதுக்கு <code class=\"w3-codespan\">Scanner</code> class use பண்றோம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "முதல்ல <code class=\"w3-codespan\">java.util.Scanner</code>-ஐ import பண்ணணும்:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Different input types-க்கு different Scanner methods:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Method",
+          "Description"
+        ],
+        "rows": [
+          [
+            "nextBoolean()",
+            "boolean value படிக்கும்"
+          ],
+          [
+            "nextByte()",
+            "byte value படிக்கும்"
+          ],
+          [
+            "nextDouble()",
+            "double value படிக்கும்"
+          ],
+          [
+            "nextFloat()",
+            "float value படிக்கும்"
+          ],
+          [
+            "nextInt()",
+            "int value படிக்கும்"
+          ],
+          [
+            "nextLine()",
+            "String value படிக்கும்"
+          ],
+          [
+            "nextLong()",
+            "long value படிக்கும்"
+          ],
+          [
+            "nextShort()",
+            "short value படிக்கும்"
+          ]
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "user-input"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "import java.util.Scanner;\n\nScanner sc = new Scanner(System.in);\n\nSystem.out.print(\"Enter your name: \");\nString name = sc.nextLine();\n\nSystem.out.print(\"Enter your age: \");\nint age = sc.nextInt();\n\nSystem.out.println(\"Hi \" + name + \"! Age: \" + age);\nsc.close();"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "date": {
+    "title": "Java Date",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Dates"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல dates-ஐ work பண்றதுக்கு <code class=\"w3-codespan\">java.time</code> package use பண்றோம் (Java 8-ல introduce ஆச்சு)."
+      },
+      {
+        "type": "paragraph",
+        "text": "Key classes:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">LocalDate</code> — date மட்டும் (time இல்ல): 2024-03-15",
+          "<code class=\"w3-codespan\">LocalTime</code> — time மட்டும் (date இல்ல): 14:30:00",
+          "<code class=\"w3-codespan\">LocalDateTime</code> — date மற்றும் time: 2024-03-15T14:30:00",
+          "<code class=\"w3-codespan\">DateTimeFormatter</code> — date/time-ஐ format பண்றதுக்கு"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Current Date மற்றும் Time"
+      },
+      {
+        "type": "paragraph",
+        "text": "Current date/time-ஐ <code class=\"w3-codespan\">now()</code> method-ல get பண்ணலாம்:"
+      },
+      {
+        "type": "playground",
+        "subtype": "date"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Date Format Patterns"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Pattern",
+          "Meaning",
+          "Example output"
+        ],
+        "rows": [
+          [
+            "<code>yyyy</code>",
+            "4-digit year",
+            "<code>2025</code>"
+          ],
+          [
+            "<code>MM</code>",
+            "2-digit month (01–12)",
+            "<code>04</code>"
+          ],
+          [
+            "<code>dd</code>",
+            "2-digit day (01–31)",
+            "<code>14</code>"
+          ],
+          [
+            "<code>HH</code>",
+            "Hour in 24-hour format",
+            "<code>15</code>"
+          ],
+          [
+            "<code>mm</code>",
+            "Minutes (00–59)",
+            "<code>30</code>"
+          ],
+          [
+            "<code>EEEE</code>",
+            "Full day name",
+            "<code>Monday</code>"
+          ],
+          [
+            "<code>MMMM</code>",
+            "Full month name",
+            "<code>April</code>"
+          ]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "LocalDateTime now = LocalDateTime.now();\nDateTimeFormatter f1 = DateTimeFormatter.ofPattern(\"dd/MM/yyyy\");\nDateTimeFormatter f2 = DateTimeFormatter.ofPattern(\"EEEE, MMMM dd yyyy\");\nDateTimeFormatter f3 = DateTimeFormatter.ofPattern(\"dd-MM-yyyy HH:mm:ss\");\n\nSystem.out.println(now.format(f1));  // 14/04/2025\nSystem.out.println(now.format(f2));  // Monday, April 14 2025\nSystem.out.println(now.format(f3));  // 14-04-2025 15:30:05"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "arraylist": {
+    "title": "Java ArrayList",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java ArrayList என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "ArrayList என்பது resizable array — elements add/remove பண்றதுக்கு மிகவும் convenient. Normal arrays-ஓட size fixed, ஆனா ArrayList-ஓட size dynamic."
+      },
+      {
+        "type": "paragraph",
+        "text": "ArrayList use பண்றதுக்கு <code class=\"w3-codespan\">java.util</code> package-ஐ import பண்ணணும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ArrayList Methods"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">add()</code> — element add பண்றதுக்கு",
+          "<code class=\"w3-codespan\">get()</code> — element access பண்றதுக்கு",
+          "<code class=\"w3-codespan\">set()</code> — element modify பண்றதுக்கு",
+          "<code class=\"w3-codespan\">remove()</code> — element remove பண்றதுக்கு",
+          "<code class=\"w3-codespan\">size()</code> — list size தெரிஞ்சுக்கவுக்கு",
+          "<code class=\"w3-codespan\">clear()</code> — எல்லாத்தையும் remove பண்றதுக்கு",
+          "<code class=\"w3-codespan\">sort()</code> — list-ஐ sort பண்றதுக்கு"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "arraylist"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ArrayList Quick-Reference Methods"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Method",
+          "What it does"
+        ],
+        "rows": [
+          [
+            "<code>add(item)</code>",
+            "Append to end"
+          ],
+          [
+            "<code>add(index, item)</code>",
+            "Insert at position"
+          ],
+          [
+            "<code>get(index)</code>",
+            "Read element at index"
+          ],
+          [
+            "<code>set(index, item)</code>",
+            "Replace element at index"
+          ],
+          [
+            "<code>remove(index)</code>",
+            "Delete element at index"
+          ],
+          [
+            "<code>remove(Object)</code>",
+            "Delete first matching element"
+          ],
+          [
+            "<code>size()</code>",
+            "Total number of elements"
+          ],
+          [
+            "<code>contains(item)</code>",
+            "Check if element exists"
+          ],
+          [
+            "<code>indexOf(item)</code>",
+            "Position of first match (-1 if absent)"
+          ],
+          [
+            "<code>clear()</code>",
+            "Remove all elements"
+          ],
+          [
+            "<code>isEmpty()</code>",
+            "True if no elements"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 3,
+        "text": "Sorting &amp; Streams"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "ArrayList&lt;Integer&gt; nums = new ArrayList&lt;&gt;(List.of(5, 2, 8, 1, 9));\n\nCollections.sort(nums);               // [1, 2, 5, 8, 9]\nnums.sort(Comparator.reverseOrder()); // [9, 8, 5, 2, 1]\n\n// Stream API\nList&lt;Integer&gt; evens = nums.stream()\n    .filter(n -&gt; n % 2 == 0)\n    .collect(Collectors.toList()); // [8, 2]"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "linkedlist": {
+    "title": "Java LinkedList",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java LinkedList என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "LinkedList-உம் ArrayList மாதிரியே ஆனா internally different-ஆ work ஆகும். ஒவ்வொரு element-உம் next element-ஐ point பண்றது."
+      },
+      {
+        "type": "paragraph",
+        "text": "LinkedList use பண்றதுக்கு:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "ArrayList vs LinkedList"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "நிறைய data store பண்றதுக்கு ArrayList better",
+          "Frequent add/remove operations-க்கு LinkedList better",
+          "Random access (index-ல) ArrayList faster",
+          "Sequential access LinkedList efficient"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "linkedlist"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "LinkedList&lt;String&gt; cars = new LinkedList&lt;&gt;();\ncars.add(\"Volvo\");\ncars.add(\"BMW\");\ncars.add(\"Ford\");\n\ncars.addFirst(\"Mazda\");\ncars.addLast(\"Toyota\");\ncars.removeFirst();\ncars.removeLast();\n\nSystem.out.println(cars.getFirst()); // Volvo\nSystem.out.println(cars.getLast());  // Ford\nSystem.out.println(cars);            // [Volvo, BMW, Ford]"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "hashmap": {
+    "title": "Java HashMap",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java HashMap என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "HashMap key-value pairs-ல data store பண்றது. Key unique-ஆ இருக்கணும், value duplicate ஆகலாம்."
+      },
+      {
+        "type": "paragraph",
+        "text": "HashMap use பண்றதுக்கு <code class=\"w3-codespan\">java.util</code>-ஐ import பண்ணணும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HashMap Methods"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">put()</code> — key-value pair add பண்றதுக்கு",
+          "<code class=\"w3-codespan\">get()</code> — key-ல value access பண்றதுக்கு",
+          "<code class=\"w3-codespan\">remove()</code> — entry remove பண்றதுக்கு",
+          "<code class=\"w3-codespan\">containsKey()</code> — key இருக்கான்னு check பண்றதுக்கு",
+          "<code class=\"w3-codespan\">size()</code> — entries count",
+          "<code class=\"w3-codespan\">keySet()</code> — எல்லா keys-உம் கிடைக்கும்",
+          "<code class=\"w3-codespan\">values()</code> — எல்லா values-உம் கிடைக்கும்"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "hashmap"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HashMap Time Complexity"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Operation",
+          "Average Case",
+          "Worst Case"
+        ],
+        "rows": [
+          [
+            "<code>put(key, value)</code>",
+            "O(1)",
+            "O(n) — hash collision"
+          ],
+          [
+            "<code>get(key)</code>",
+            "O(1)",
+            "O(n) — hash collision"
+          ],
+          [
+            "<code>remove(key)</code>",
+            "O(1)",
+            "O(n) — hash collision"
+          ],
+          [
+            "<code>containsKey(key)</code>",
+            "O(1)",
+            "O(n)"
+          ],
+          [
+            "<code>containsValue(v)</code>",
+            "O(n)",
+            "O(n)"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 3,
+        "text": "Iterating a HashMap"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "HashMap&lt;String, Integer&gt; scores = new HashMap&lt;&gt;();\nscores.put(\"Alice\", 95);\nscores.put(\"Bob\", 88);\nscores.put(\"Carol\", 72);\n\n// entrySet loop\nfor (Map.Entry&lt;String, Integer&gt; e : scores.entrySet()) {\n    System.out.println(e.getKey() + \": \" + e.getValue());\n}\n\n// forEach (Java 8+)\nscores.forEach((name, score) -&gt; System.out.println(name + \": \" + score));\n\n// getOrDefault\nint val = scores.getOrDefault(\"Zara\", 0);  // 0 if not found"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "hashset": {
+    "title": "Java HashSet",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java HashSet என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "HashSet-ல duplicate values இல்ல — unique values மட்டுமே store ஆகும். Order guarantee இல்ல."
+      },
+      {
+        "type": "paragraph",
+        "text": "HashSet use பண்றதுக்கு:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "HashSet Methods"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">add()</code> — element add பண்றதுக்கு (duplicate ignore ஆகும்)",
+          "<code class=\"w3-codespan\">contains()</code> — element இருக்கான்னு check பண்றதுக்கு",
+          "<code class=\"w3-codespan\">remove()</code> — element remove பண்றதுக்கு",
+          "<code class=\"w3-codespan\">size()</code> — element count",
+          "<code class=\"w3-codespan\">clear()</code> — எல்லாத்தையும் remove பண்றதுக்கு"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "hashset"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "HashSet&lt;String&gt; cars = new HashSet&lt;&gt;();\ncars.add(\"Volvo\");\ncars.add(\"BMW\");\ncars.add(\"BMW\");  // duplicate — ignored\n\nSystem.out.println(cars.size());          // 2\nSystem.out.println(cars.contains(\"BMW\")); // true\ncars.remove(\"Volvo\");\n\nfor (String c : cars) {\n    System.out.println(c);\n}"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "iterator": {
+    "title": "Java Iterator",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Iterator என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Iterator என்பது collection-ஐ loop பண்றதுக்கு use ஆகும் — while iterating elements remove பண்றது possible."
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">iterator()</code> method call பண்ணி Iterator get பண்ணலாம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Iterator Methods"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">hasNext()</code> — அடுத்த element இருக்கான்னு check பண்றது",
+          "<code class=\"w3-codespan\">next()</code> — அடுத்த element return பண்றது",
+          "<code class=\"w3-codespan\">remove()</code> — current element remove பண்றது"
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "iterator"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "ArrayList&lt;String&gt; cars = new ArrayList&lt;&gt;();\ncars.add(\"Volvo\");\ncars.add(\"BMW\");\ncars.add(\"Ford\");\n\nIterator&lt;String&gt; it = cars.iterator();\nwhile (it.hasNext()) {\n    System.out.println(it.next());\n}\n// Volvo, BMW, Ford\n\n// Safe removal\nIterator&lt;String&gt; it2 = cars.iterator();\nwhile (it2.hasNext()) {\n    if (it2.next().equals(\"BMW\")) it2.remove();\n}\nSystem.out.println(cars);  // [Volvo, Ford]"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "wrapper-classes": {
+    "title": "Java Wrapper Classes",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Wrapper Classes என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Wrapper classes primitive data types-ஐ objects-ஆ மாத்துது. Collections-ல primitives-ஐ use பண்ண முடியாது — wrapper classes வேணும்."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Primitive Type",
+          "Wrapper Class"
+        ],
+        "rows": [
+          [
+            "byte",
+            "Byte"
+          ],
+          [
+            "short",
+            "Short"
+          ],
+          [
+            "int",
+            "Integer"
+          ],
+          [
+            "long",
+            "Long"
+          ],
+          [
+            "float",
+            "Float"
+          ],
+          [
+            "double",
+            "Double"
+          ],
+          [
+            "boolean",
+            "Boolean"
+          ],
+          [
+            "char",
+            "Character"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Autoboxing மற்றும் Unboxing"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java automatically primitive-ஐ wrapper-ஆ (autoboxing) மற்றும் wrapper-ஐ primitive-ஆ (unboxing) convert பண்ணும்:"
+      },
+      {
+        "type": "playground",
+        "subtype": "wrapper-classes"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// Autoboxing & unboxing\nint num = 42;\nInteger boxed = num;    // autoboxing\nint unboxed = boxed;    // unboxing\n\n// Useful static methods\nSystem.out.println(Integer.MAX_VALUE);         // 2147483647\nSystem.out.println(Integer.parseInt(\"123\"));   // 123\nSystem.out.println(Double.parseDouble(\"3.14\")); // 3.14\nSystem.out.println(Integer.toBinaryString(10)); // 1010\n\nString s = Integer.toString(255);\nSystem.out.println(s.length()); // 3"
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "exceptions": {
+    "title": "Java Exceptions",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Exceptions என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Exception என்பது program run ஆகும்போது occur ஆகுற unexpected event — program crash ஆகாம handle பண்றதுக்கு try-catch use பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Try-Catch"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">try</code> block-ல risky code போடறோம். Error வந்தா <code class=\"w3-codespan\">catch</code> block execute ஆகும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Finally Block"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">finally</code> block எப்பவும் execute ஆகும் — exception வந்தாலும் இல்லன்னாலும்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Throw மற்றும் Throws"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">throw</code> keyword-ல manually exception throw பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Common exceptions: <code class=\"w3-codespan\">ArithmeticException</code>, <code class=\"w3-codespan\">NullPointerException</code>, <code class=\"w3-codespan\">ArrayIndexOutOfBoundsException</code>, <code class=\"w3-codespan\">NumberFormatException</code>.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "exceptions"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Exception Hierarchy"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Exception",
+          "Cause"
+        ],
+        "rows": [
+          [
+            "<code>IOException</code>",
+            "File read/write failure"
+          ],
+          [
+            "<code>NullPointerException</code>",
+            "Accessing a null object"
+          ],
+          [
+            "<code>ArrayIndexOutOfBoundsException</code>",
+            "Array index out of range"
+          ],
+          [
+            "<code>NumberFormatException</code>",
+            "Cannot parse string to number"
+          ],
+          [
+            "<code>ArithmeticException</code>",
+            "Math error (e.g., divide by zero)"
+          ]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 3,
+        "text": "throw vs throws"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// throw — manually raise an exception\nvoid checkAge(int age) {\n    if (age &lt; 18) throw new IllegalArgumentException(\"Too young!\");\n}\n\n// throws — declare that a method may throw\nvoid readFile(String path) throws IOException {\n    // risky file operation\n}"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Best practice:</strong> Catch specific exceptions (not just <code>Exception</code>), always close resources in <code>finally</code> or use <em>try-with-resources</em>, and never swallow exceptions silently."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "regex": {
+    "title": "Java Regex",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Regular Expressions (Regex)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Regex என்பது characters-ஓட pattern — strings-ல search, replace, validate பண்றதுக்கு use ஆகுது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல <code class=\"w3-codespan\">java.util.regex</code> package use பண்றோம்:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">Pattern</code> — regex pattern compile பண்றதுக்கு",
+          "<code class=\"w3-codespan\">Matcher</code> — pattern-ஐ string-ல match பண்றதுக்கு",
+          "<code class=\"w3-codespan\">PatternSyntaxException</code> — invalid pattern-க்கு exception"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Email validate பண்ற simple regex example:"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "import java.util.regex.*;\n\n// Basic find\nPattern p = Pattern.compile(\"codingtamilan\", Pattern.CASE_INSENSITIVE);\nMatcher m = p.matcher(\"I love CodingTamilan!\");\nSystem.out.println(m.find());   // true\n\n// Full-string match\nSystem.out.println(\"Hello\".matches(\"[A-Z][a-z]+\"));  // true\n\n// replaceAll — remove non-digits\nString cleaned = \"Phone: 98-765-43210\".replaceAll(\"\\\\D\", \"\");\nSystem.out.println(cleaned);   // 9876543210"
+      },
+      {
+        "type": "playground",
+        "subtype": "regex"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real-World Regex Examples"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Use case",
+          "Pattern",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "Email",
+            "<code>[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}</code>",
+            "Basic; use a library for production"
+          ],
+          [
+            "Indian phone",
+            "<code>[6-9]\\d{9}</code>",
+            "10-digit, starts 6–9"
+          ],
+          [
+            "Digits only",
+            "<code>\\d+</code>",
+            "One or more digits"
+          ],
+          [
+            "Alphanumeric",
+            "<code>[a-zA-Z0-9]+</code>",
+            "Letters and digits"
+          ],
+          [
+            "Date dd/mm/yyyy",
+            "<code>(0[1-9]|[12]\\d|3[01])/(0[1-9]|1[0-2])/\\d{4}</code>",
+            "Strict day/month range"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "threads": {
+    "title": "Java Threads",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Threads என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Thread என்பது program-ஓட ஒரு execution path. Multithreading என்பது ஒரே நேரத்துல multiple tasks execute பண்றது."
+      },
+      {
+        "type": "paragraph",
+        "text": "Thread create பண்ண இரண்டு ways இருக்கு:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "<code class=\"w3-codespan\">Thread</code> class-ஐ extend பண்றது",
+          "<code class=\"w3-codespan\">Runnable</code> interface implement பண்றது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Thread Create — Extend Thread Class"
+      },
+      {
+        "type": "paragraph",
+        "text": "Thread class extend பண்ணி <code class=\"w3-codespan\">run()</code> method override பண்றோம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Thread-ஐ start பண்ண <code class=\"w3-codespan\">start()</code> method call பண்ணணும் — <code class=\"w3-codespan\">run()</code>-ஐ directly call பண்ணா multithreading நடக்காது.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "threads"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Three Ways to Create a Thread"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "// 1. Extend Thread\nclass MyThread extends Thread {\n    public void run() { System.out.println(\"Thread running\"); }\n}\nnew MyThread().start();\n\n// 2. Implement Runnable\nclass MyTask implements Runnable {\n    public void run() { System.out.println(\"Task running\"); }\n}\nnew Thread(new MyTask()).start();\n\n// 3. Lambda (Java 8+)\nnew Thread(() -&gt; System.out.println(\"Lambda thread\")).start();"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Thread Lifecycle"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "State",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "<strong>New</strong>",
+            "Thread object created, not started yet"
+          ],
+          [
+            "<strong>Runnable</strong>",
+            "Ready to run, waiting for CPU"
+          ],
+          [
+            "<strong>Running</strong>",
+            "Currently executing"
+          ],
+          [
+            "<strong>Blocked/Waiting</strong>",
+            "Waiting for a lock, I/O, or sleep to finish"
+          ],
+          [
+            "<strong>Terminated</strong>",
+            "Execution completed or exception thrown"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Always call <code>start()</code>, not <code>run()</code>. Calling <code>run()</code> directly executes on the <em>current thread</em> — no new thread is created."
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "lambda": {
+    "title": "Java Lambda",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Lambda Expressions என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Lambda expression என்பது anonymous function-ஐ concise-ஆ எழுதுவது. Java 8-ல introduce ஆச்சு."
+      },
+      {
+        "type": "paragraph",
+        "text": "Lambda syntax:"
+      },
+      {
+        "type": "code",
+        "code": "parameter -> expression\n(parameter1, parameter2) -> expression\n(parameter1, parameter2) -> { code block }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Lambda with ArrayList"
+      },
+      {
+        "type": "paragraph",
+        "text": "ArrayList-ஐ forEach-ல iterate பண்றதுக்கு lambda use பண்ணலாம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>Lambda expressions code-ஐ shorter-ஆ, readable-ஆ வைக்கும். Functional interfaces-உடன் use பண்றோம்.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "lambda"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Lambdas with Stream API"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "List&lt;String&gt; names = List.of(\"Alice\", \"Bob\", \"Charlie\", \"Anna\");\n\n// filter + map + collect\nList&lt;String&gt; result = names.stream()\n    .filter(n -&gt; n.startsWith(\"A\"))\n    .map(String::toUpperCase)\n    .collect(Collectors.toList());\n// [ALICE, ANNA]\n\n// reduce\nint total = List.of(1,2,3,4,5).stream()\n    .reduce(0, Integer::sum);  // 15"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Method References"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Reference type",
+          "Syntax",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Static method",
+            "<code>ClassName::method</code>",
+            "<code>Math::sqrt</code>"
+          ],
+          [
+            "Instance method (on object)",
+            "<code>instance::method</code>",
+            "<code>str::toUpperCase</code>"
+          ],
+          [
+            "Instance method (on type)",
+            "<code>ClassName::method</code>",
+            "<code>String::toUpperCase</code>"
+          ],
+          [
+            "Constructor",
+            "<code>ClassName::new</code>",
+            "<code>ArrayList::new</code>"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  },
+  "files": {
+    "title": "Java Files",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Java Files என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Java-ல files-ஐ create, read, write, delete பண்றதுக்கு <code class=\"w3-codespan\">java.io</code> package use பண்றோம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Create பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">File</code> class-ஐ use பண்ணி file create பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Write பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">FileWriter</code> use பண்ணி file-ல write பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Read பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">Scanner</code> use பண்ணி file-ஐ read பண்றோம்:"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "File Delete பண்றது"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code class=\"w3-codespan\">delete()</code> method use பண்ணி file delete பண்றோம்:"
+      },
+      {
+        "type": "note",
+        "text": "<p>File operations-ல always IOException handle பண்றது important — try-catch use பண்ணு.</p>"
+      },
+      {
+        "type": "playground",
+        "subtype": "files"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modern File I/O with java.nio.file.Files"
+      },
+      {
+        "type": "code",
+        "language": "java",
+        "code": "import java.nio.file.*;\n\nPath path = Path.of(\"demo.txt\");\n\n// Write\nFiles.writeString(path, \"Hello, NIO!\");\n\n// Read all content\nString content = Files.readString(path);\nSystem.out.println(content);\n\n// Read all lines\nList&lt;String&gt; lines = Files.readAllLines(path);\nlines.forEach(System.out::println);\n\n// Check existence\nboolean exists = Files.exists(path);\n\n// Delete\nFiles.deleteIfExists(path);"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Approach",
+          "API",
+          "Best for"
+        ],
+        "rows": [
+          [
+            "Classic streams",
+            "<code>FileReader</code>, <code>BufferedReader</code>",
+            "Java 7 and earlier, character streams"
+          ],
+          [
+            "NIO.2 (recommended)",
+            "<code>Files</code>, <code>Path</code>",
+            "Modern code, cleaner API, better error handling"
+          ],
+          [
+            "Scanner",
+            "<code>Scanner</code>",
+            "Simple line-by-line reading, user input"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "assets/images/java/yt_logo_rgb_dark.png",
+        "alt": "Java Tutorial on YouTube"
+      }
+    ]
+  }
+}
