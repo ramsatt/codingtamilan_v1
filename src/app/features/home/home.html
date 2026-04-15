@@ -18,7 +18,7 @@
                     projects, secure certifications, and launch your dream career.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                    <a routerLink="/courses"
+                    <a routerLink="" fragment="courses"
                         class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white px-8 py-3.5 rounded-full font-medium text-lg shadow-material hover:shadow-material-hover transition-all flex items-center justify-center gap-2 whitespace-nowrap">
                         Explore Courses <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
@@ -141,24 +141,24 @@
 </section>
 
 <!-- Courses Section -->
-<section class="py-20 bg-white border-t border-slate-100">
+<section id="courses" class="py-20 bg-white border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Pick Your Path</h2>
             <p class="text-slate-600 max-w-2xl mx-auto mb-8">Choose from our most popular learning paths and start your journey today.</p>
             <div class="flex flex-wrap justify-center gap-3">
-                <button class="px-6 py-2 rounded-full bg-slate-900 text-white font-medium text-sm shadow-md transition-all">All</button>
-                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">Frontend</button>
-                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">Backend</button>
-                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">AI &amp; ML</button>
-                <button class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 font-medium text-sm transition-all">Database</button>
+                <button (click)="setFilter('all')" [ngClass]="selectedFilter() === 'all' ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'" class="px-6 py-2 rounded-full font-medium text-sm transition-all">All</button>
+                <button (click)="setFilter('frontend')" [ngClass]="selectedFilter() === 'frontend' ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'" class="px-6 py-2 rounded-full font-medium text-sm transition-all">Frontend</button>
+                <button (click)="setFilter('backend')" [ngClass]="selectedFilter() === 'backend' ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'" class="px-6 py-2 rounded-full font-medium text-sm transition-all">Backend</button>
+                <button (click)="setFilter('ai-ml')" [ngClass]="selectedFilter() === 'ai-ml' ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'" class="px-6 py-2 rounded-full font-medium text-sm transition-all">AI &amp; ML</button>
+                <button (click)="setFilter('database')" [ngClass]="selectedFilter() === 'database' ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'" class="px-6 py-2 rounded-full font-medium text-sm transition-all">Database</button>
             </div>
         </div>
 
         <!-- Course Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @for (course of courses; track course.id) {
-            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-material hover:shadow-material-hover transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+            @for (course of filteredCourses(); track course.id) {
+            <a [routerLink]="course.link ?? ['/course', course.id]" class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-material hover:shadow-material-hover transition-all duration-300 hover:-translate-y-1 flex flex-col h-full group cursor-pointer">
                 <div class="p-6 flex-grow">
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" [ngClass]="course.iconBg">
@@ -166,7 +166,7 @@
                         </div>
                         <span class="text-xs font-bold px-3 py-1 rounded-full" [ngClass]="course.badgeClass">{{ course.level }}</span>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">{{ course.title }}</h3>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-500 transition-colors">{{ course.title }}</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">{{ course.description }}</p>
                 </div>
                 <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
@@ -176,19 +176,19 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-green-600 font-bold text-sm">Free</span>
-                        <a [routerLink]="course.link ?? ['/course', course.id]" class="text-brand-500 hover:text-brand-600 font-medium text-sm flex items-center gap-1 group">
+                        <span class="text-brand-500 font-medium text-sm flex items-center gap-1">
                             View <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
-                        </a>
+                        </span>
                     </div>
                 </div>
-            </div>
+            </a>
             }
         </div>
 
         <div class="mt-12 text-center">
-            <a routerLink="/courses" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-slate-200 text-slate-700 font-medium hover:border-brand-500 hover:text-brand-500 transition-colors bg-white">
-                Explore All Courses <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <button (click)="setFilter('all')" routerLink="" fragment="courses" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-slate-200 text-slate-700 font-medium hover:border-brand-500 hover:text-brand-500 transition-colors bg-white">
+                Show All Courses <i class="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 </section>
@@ -198,16 +198,19 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-2xl font-bold text-slate-900 mb-8">Browse by Topic</h2>
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-php text-indigo-500"></i> PHP</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-react text-blue-400"></i> React</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-aws text-orange-500"></i> AWS Cloud</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-node-js text-green-500"></i> Node.js</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-git-alt text-orange-600"></i> Git &amp; Github</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-shield-halved text-red-500"></i> Cybersecurity</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-server text-slate-500"></i> REST APIs</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-docker text-blue-500"></i> Docker</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-slate-600"></i> Mobile Dev</a>
-            <a href="#" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-figma text-purple-500"></i> UI/UX Design</a>
+            <a [routerLink]="['/js', 'intro']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-js text-yellow-500"></i> JavaScript</a>
+            <a [routerLink]="['/css', 'intro']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-css3-alt text-blue-500"></i> CSS</a>
+            <a [routerLink]="['/course', 'html']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-html5 text-orange-500"></i> HTML</a>
+            <a [routerLink]="['/course', 'python']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-python text-blue-600"></i> Python</a>
+            <a [routerLink]="['/sql', 'home']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-database text-cyan-600"></i> SQL</a>
+            <a [routerLink]="['/course', 'java']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-java text-red-500"></i> Java</a>
+            <a [routerLink]="['/course', 'typescript']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-js text-blue-700"></i> TypeScript</a>
+            <a [routerLink]="['/course', 'react']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-react text-cyan-500"></i> React</a>
+            <a [routerLink]="['/course', 'node-js']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-brands fa-node-js text-green-500"></i> Node.js</a>
+            <a [routerLink]="['/course', 'ai']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-brain text-purple-600"></i> AI</a>
+            <a [routerLink]="['/course', 'llm']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-microchip text-violet-600"></i> LLM Engineering</a>
+            <a [routerLink]="['/course', 'prompt-engineering']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-indigo-600"></i> Prompt Engineering</a>
+            <a [routerLink]="['/course', 'context-engineering']" class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-500 hover:border-brand-200 shadow-sm transition-all flex items-center gap-2"><i class="fa-solid fa-layer-group text-teal-600"></i> Context Engineering</a>
         </div>
     </div>
 </section>

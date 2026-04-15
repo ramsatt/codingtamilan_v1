@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb040"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White rounded square background -->
+  <rect width="512" height="512" rx="96" fill="white"/>
+
+  <!-- Subtle kolam-inspired dots (left side) -->
+  <g fill="#f97316" opacity="0.07">
+    <circle cx="68" cy="256" r="13"/>
+    <circle cx="88" cy="196" r="9"/>
+    <circle cx="88" cy="316" r="9"/>
+    <circle cx="132" cy="152" r="7"/>
+    <circle cx="132" cy="360" r="7"/>
+    <circle cx="184" cy="118" r="5"/>
+    <circle cx="184" cy="394" r="5"/>
+  </g>
+
+  <!--
+    Orange C (donut arc) — opens to the right at ±45°
+    Outer r=210, Inner r=120, Center=(256,256)
+    At ±45°:
+      Outer tips: (404, 404) lower / (404, 108) upper
+      Inner tips: (341, 341) lower / (341, 171) upper
+    Outer: CW large arc  (sweep=1, large=1)
+    Inner: CCW large arc (sweep=0, large=1), traced back through C body
+  -->
+  <path d="M 404,404
+           A 210,210 0 1 1 404,108
+           L 341,171
+           A 120,120 0 1 0 341,341
+           Z"
+        fill="url(#g)"/>
+
+  <!-- White left-pointing chevron (back/left arrow shape) -->
+  <polygon points="308,178 255,178 168,256 255,334 308,334 232,256" fill="white"/>
+</svg>
