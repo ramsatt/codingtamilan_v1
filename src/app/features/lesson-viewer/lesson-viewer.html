@@ -123,6 +123,27 @@
           }
         </ul>
       </div>
+
+      <!-- Certificate Button -->
+      <div class="p-4 border-t border-slate-100 shrink-0">
+        <a [routerLink]="['/certificate', courseId]"
+          class="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5"
+          [class.bg-amber-500]="completedCount === lessons.length"
+          [class.hover:bg-amber-600]="completedCount === lessons.length"
+          [class.text-white]="completedCount === lessons.length"
+          [class.shadow-md]="completedCount === lessons.length"
+          [class.shadow-amber-500\/25]="completedCount === lessons.length"
+          [class.bg-slate-100]="completedCount < lessons.length"
+          [class.hover:bg-slate-200]="completedCount < lessons.length"
+          [class.text-slate-500]="completedCount < lessons.length">
+          <i class="fa-solid fa-trophy"></i>
+          @if (completedCount === lessons.length) {
+            Get Certificate
+          } @else {
+            {{ completedCount }}/{{ lessons.length }} complete
+          }
+        </a>
+      </div>
     </aside>
 
     <!-- Mobile overlay -->

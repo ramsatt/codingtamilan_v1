@@ -23,6 +23,8 @@
     "alasql": "^4.17.2",
     "express": "^5.1.0",
     "highlight.js": "^11.11.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.1",
     "ngx-highlightjs": "^14.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"

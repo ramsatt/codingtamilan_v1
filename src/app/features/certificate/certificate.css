@@ -1,0 +1,25 @@
+/* Certificate page wrapper */
+.cert-display-wrapper {
+  width: 540px;
+  height: 540px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cert-scale-wrap {
+  transform: scale(0.5);
+  transform-origin: top left;
+  display: inline-block;
+  line-height: 0;
+}
+
+@media (max-width: 600px) {
+  .cert-display-wrapper {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .cert-scale-wrap {
+    transform: scale(calc(90vw / 1080px));
+  }
+}

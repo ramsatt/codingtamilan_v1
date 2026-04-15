@@ -110,20 +110,55 @@ export class LessonViewer implements OnInit, OnDestroy {
     });
   }
 
+  private storageKey(): string {
+    return `ct_completed_${this.courseId}`;
+  }
+
+  private loadCompleted(): Set<string> {
+    if (!isPlatformBrowser(this.platformId)) return new Set();
+    try {
+      const raw = localStorage.getItem(this.storageKey());
+      return raw ? new Set(JSON.parse(raw)) : new Set();
+    } catch {
+      return new Set();
+    }
+  }
+
+  private saveCompleted(ids: Set<string>): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    try {
+      localStorage.setItem(this.storageKey(), JSON.stringify([...ids]));
+    } catch { /* quota */ }
+  }
+
+  markCurrentLessonDone(): void {
+    const ids = this.loadCompleted();
+    ids.add(this.currentLessonId);
+    this.saveCompleted(ids);
+    this.lessons = this.lessons.map(l => ({
+      ...l,
+      completed: ids.has(l.id),
+    }));
+  }
+
   private updateLessonList(list: CourseMeta[]): void {
+    const ids = this.loadCompleted();
+    // Also auto-mark all lessons before current as completed (backward compat)
     const currentIdx = list.findIndex(l => l.id === this.currentLessonId);
+    list.slice(0, currentIdx).forEach(l => ids.add(l.id));
+    this.saveCompleted(ids);
     this.lessons = list.map((l, i) => ({
       ...l,
       number: i + 1,
-      completed: i < currentIdx,
+      completed: ids.has(l.id),
     }));
   }
 
   private updateCompletedState(): void {
-    const currentIdx = this.lessons.findIndex(l => l.id === this.currentLessonId);
-    this.lessons = this.lessons.map((l, i) => ({
+    const ids = this.loadCompleted();
+    this.lessons = this.lessons.map(l => ({
       ...l,
-      completed: i < currentIdx
+      completed: ids.has(l.id),
     }));
   }
 
@@ -139,11 +174,20 @@ export class LessonViewer implements OnInit, OnDestroy {
   }
 
   toggleSidebar(): void { this.sidebarOpen = !this.sidebarOpen; }
-  goToSlide(index: number): void { this.currentSlide = index; }
-  nextSlide(): void { if (this.currentSlide < this.totalSlides - 1) this.currentSlide++; }
+  goToSlide(index: number): void {
+    this.currentSlide = index;
+    if (index === this.totalSlides - 1) this.markCurrentLessonDone();
+  }
+  nextSlide(): void {
+    if (this.currentSlide < this.totalSlides - 1) {
+      this.currentSlide++;
+      if (this.currentSlide === this.totalSlides - 1) this.markCurrentLessonDone();
+    }
+  }
   prevSlide(): void { if (this.currentSlide > 0) this.currentSlide--; }
 
   navigateToLesson(id: string): void {
+    this.markCurrentLessonDone();
     this.router.navigate(['/learning', this.courseId, id]);
     this.sidebarOpen = false;
   }
