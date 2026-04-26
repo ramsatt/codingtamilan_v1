@@ -1,146 +1,98 @@
 {
   "intro": {
-    "title": "Java அறிமுகம்",
+    "title": "Java: ஓர் அறிமுகம் (Introduction)",
     "blocks": [
       {
         "type": "header",
         "level": 2,
-        "text": "Java என்னன்னு தெரியுமா?"
+        "text": "Java என்றால் என்ன?"
       },
       {
         "type": "paragraph",
-        "text": "Java ஒரு popular-ஆன, powerful programming language — 1995-ல உருவாச்சு."
+        "text": "Java என்பது உலகளவில் மிகவும் பிரபலமான, சக்திவாய்ந்த மற்றும் பாதுகாப்பான (secure) programming language ஆகும். 1995-ல் உருவாக்கப்பட்ட இது, தற்போது Oracle நிறுவனத்தால் நிர்வகிக்கப்படுகிறது."
       },
       {
         "type": "paragraph",
-        "text": "Oracle கம்பெனி இதை maintain பண்றாங்க. உலகத்துல <strong>3 billion-க்கும் அதிகமான</strong> devices-ல Java ரன் ஆகுது."
-      },
-      {
-        "type": "paragraph",
-        "text": "Java எதுக்கெல்லாம் use ஆகுதுன்னா:"
+        "text": "உலகெங்கிலும் <strong>3 பில்லியனுக்கும் அதிகமான</strong> சாதனங்களில் (devices) Java இயங்குகிறது. இதன் முக்கிய பயன்பாடுகள்:"
       },
       {
         "type": "list",
         "ordered": false,
         "items": [
-          "Mobile apps — குறிப்பா Android apps",
-          "Desktop applications",
-          "Web applications",
-          "Web servers மற்றும் application servers",
-          "Games",
-          "Database connection",
-          "இன்னும் நிறைய இருக்கு!"
+          "Enterprise Web Applications (நிறுவன அளவிலான இணையதளங்கள்)",
+          "Mobile Apps (குறிப்பாக Android செயலிகள்)",
+          "Cloud-based Applications மற்றும் Microservices",
+          "Big Data Technologies (உதா: Apache Hadoop)",
+          "Database Connections மற்றும் Web Servers"
         ]
       },
       {
         "type": "header",
         "level": 2,
-        "text": "Java ஏன் படிக்கணும்?"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          "Windows, Mac, Linux எல்லா platforms-லயும் ரன் ஆகும்",
-          "உலகத்துல மிகவும் popular-ஆன programming languages-ல ஒண்ணு",
-          "Job market-ல demand மிகவும் அதிகமா இருக்கு",
-          "கத்துக்கணும்னா easy, use பண்ணாலும் simple",
-          "Open-source, free-யா கிடைக்கும்",
-          "Secure, fast, powerful — மூணுமே ஒரே language-ல",
-          "கோடிக்கணக்கான developers இருக்காங்க — community support மிகவும் strong",
-          "Object-oriented language — code-ஐ reuse பண்ண easy-யா இருக்கும்",
-          "C++ மற்றும் C#-க்கு similar-ஆ இருக்கும், switch பண்ண convenient"
-        ]
-      },
-      {
-        "type": "header",
-        "level": 2,
-        "text": "How Java Works — Write Once, Run Anywhere"
+        "text": "How Java Works — Write Once, Run Anywhere (WORA)"
       },
       {
         "type": "paragraph",
-        "text": "Java compiles your code to <strong>bytecode</strong> (a <code>.class</code> file). The <strong>JVM</strong> runs that bytecode on any device. This is Java's famous <em>Write Once, Run Anywhere</em> (WORA) promise."
+        "text": "Java-வின் மாபெரும் வெற்றிக்குக் காரணம் அதன் WORA கோட்பாடு ஆகும். நீங்கள் எழுதும் Java code முதலில் <strong>Bytecode</strong>-ஆக (<code>.class</code> file) மாற்றப்படும். பின்னர், அந்த Bytecode-ஐ எந்த Operating System-ல் வேண்டுமானாலும் <strong>JVM</strong> இயக்கும்."
       },
       {
         "type": "table",
         "headers": [
           "Tool",
-          "What it does",
-          "Handles"
+          "விரிவாக்கம் மற்றும் செயல்பாடு",
+          "பயன்பாடு"
         ],
         "rows": [
           [
-            "<strong>JDK</strong> — Java Development Kit",
-            "Full developer toolkit — compiler, debugger, and JRE bundled together",
-            "Writing &amp; compiling Java code"
+            "<strong>JDK</strong>",
+            "Java Development Kit: Compiler, Debugger மற்றும் JRE அடங்கிய முழுமையான Toolkit.",
+            "புதிய Java code எழுத மற்றும் compile செய்ய."
           ],
           [
-            "<strong>JRE</strong> — Java Runtime Environment",
-            "Runs Java programs — includes JVM and standard class libraries",
-            "Running existing Java apps"
+            "<strong>JRE</strong>",
+            "Java Runtime Environment: JVM மற்றும் அடிப்படை class libraries-ஐ உள்ளடக்கியது.",
+            "உருவாக்கப்பட்ட Java program-ஐ இயக்க (Run)."
           ],
           [
-            "<strong>JVM</strong> — Java Virtual Machine",
-            "Executes bytecode on your operating system — makes WORA possible",
-            "Cross-platform execution"
+            "<strong>JVM</strong>",
+            "Java Virtual Machine: Bytecode-ஐ அந்தந்த OS-க்கு ஏற்றவாறு இயக்குகிறது.",
+            "Cross-platform execution (WORA-வை சாத்தியமாக்குவது)."
           ]
         ]
       },
       {
-        "type": "note",
-        "text": "<strong>Rule of thumb:</strong> <strong>Develop</strong> with the JDK. <strong>Deploy</strong> with the JRE. The JVM lives inside the JRE."
-      },
-      {
-        "type": "header",
-        "level": 2,
-        "text": "Java Example"
-      },
-      {
-        "type": "paragraph",
-        "text": "Java-ல user-கிட்ட hello சொல்றது மாதிரி simple task கூட எழுதலாம்:"
-      },
-      {
-        "type": "header",
-        "level": 2,
-        "text": "தொடங்கலாம்"
-      },
-      {
-        "type": "paragraph",
-        "text": "இந்த tutorial-ஓட கடைசில, basic Java programs எழுத தெரியும், real-life examples-ல apply பண்ண தெரியும்."
-      },
-      {
-        "type": "paragraph",
-        "text": "முன்னாடி programming தெரியல-ன்னாலும் பரவாயில்லை — curiosity மட்டும் போதும்!"
+        "type": "pro-tip",
+        "text": "Development சூழலில் (உங்கள் லேப்டாப்பில்) <strong>JDK</strong> தேவைப்படும். ஆனால், ஒரு Application-ஐ Server-ல் deploy செய்யும்போது, அதை இயக்குவதற்கு <strong>JRE</strong> மட்டுமே போதுமானது. நினைவில் கொள்க: JVM ஆனது JRE-க்குள் இயங்குகிறது!"
       },
       {
         "type": "code",
         "language": "java",
-        "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n        System.out.println(\"Java is fun!\");\n    }\n}\n// Output:\n// Hello, World!\n// Java is fun!"
+        "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n        System.out.println(\"Welcome to Coding Tamilan!\");\n    }\n}\n// Output:\n// Hello, World!\n// Welcome to Coding Tamilan!"
       },
       {
         "type": "quiz",
-        "question": "Java-வின் 'Write Once, Run Anywhere' (WORA) திறனுக்கு முக்கிய காரணம் என்ன?",
+        "question": "Interview Question: Java-வின் 'Write Once, Run Anywhere' (WORA) திறனுக்குக் காரணமான முக்கிய தொழில்நுட்பம் எது?",
         "options": [
           {
             "text": "அது ஒரு Object-oriented language என்பதால்"
           },
           {
-            "text": "JVM (Java Virtual Machine) bytecode-ஐ ரன் செய்வதால்"
+            "text": "JVM (Java Virtual Machine) bytecode-ஐ execute செய்வதால்"
           },
           {
-            "text": "Oracle கம்பெனி maintain பண்ணுவதால்"
+            "text": "Oracle நிறுவனம் அதை update செய்வதால்"
           },
           {
-            "text": "HTML-ல directly ரன் ஆகுவதால்"
+            "text": "அது HTML-உடன் இணைந்து செயல்படுவதால்"
           }
         ],
         "answer": 1,
-        "explanation": "Java code முதலில் Bytecode-ஆக compile ஆகிறது. இந்த Bytecode-ஐ எந்த Operating System-லிலும் உள்ள JVM ரன் செய்யும். இதுதான் WORA!"
+        "explanation": "சரியான விடை! Java compiler உருவாக்கும் Bytecode ஆனது Platform-independent ஆகும். இந்த Bytecode-ஐ அந்தந்த Operating System-ல் உள்ள JVM வாசித்து இயக்குகிறது."
       },
       {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
-        "alt": "Java Tutorial on YouTube"
+        "alt": "Java Tutorial on YouTube - Coding Tamilan"
       }
     ]
   },
@@ -567,53 +519,30 @@
     ]
   },
   "variables": {
-    "title": "Java Variables",
+    "title": "Java Variables & Basics",
     "blocks": [
       {
         "type": "header",
         "level": 2,
-        "text": "Java Variables என்னன்னு தெரியுமா?"
+        "text": "Variables (மாறிலிகள்) என்றால் என்ன?"
       },
       {
         "type": "paragraph",
-        "text": "Variables என்பது data values-ஐ store பண்ண உதவுற containers மாதிரி."
-      },
-      {
-        "type": "paragraph",
-        "text": "Java-ல different types of variables இருக்கு, உதாரணமா:"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          "<code class=\"w3-codespan\">String</code> — text store பண்றதுக்கு, உதா: \"Hello\". Double quotes-ல வரும்",
-          "<code class=\"w3-codespan\">int</code> — integers (whole numbers) store பண்றதுக்கு, உதா: 123 or -123",
-          "<code class=\"w3-codespan\">float</code> — decimal numbers store பண்றதுக்கு, உதா: 19.99",
-          "<code class=\"w3-codespan\">char</code> — single character store பண்றதுக்கு, உதா: 'a'. Single quotes-ல வரும்",
-          "<code class=\"w3-codespan\">boolean</code> — true or false மட்டுமே store ஆகும்"
-        ]
+        "text": "Variables என்பது தரவுகளை (Data values) சேமித்து வைப்பதற்கான பெட்டிகள் (Containers) போன்றது. Java-வில் ஒரு Variable-ஐ உருவாக்கும்போது, அது எத்தகைய தரவைச் சேமிக்கப் போகிறது (Data Type) என்பதை முன்கூட்டியே குறிப்பிட வேண்டும்."
       },
       {
         "type": "header",
         "level": 2,
-        "text": "Variable Declare பண்றது எப்படி?"
-      },
-      {
-        "type": "paragraph",
-        "text": "Java-ல variable create பண்ண:"
+        "text": "Variable-ஐ உருவாக்குவது (Declaration) எப்படி?"
       },
       {
         "type": "list",
         "ordered": false,
         "items": [
-          "ஒரு <strong>type</strong> choose பண்ணு (<code class=\"w3-codespan\">int</code> அல்லது <code class=\"w3-codespan\">String</code> மாதிரி)",
-          "Variable-க்கு ஒரு <strong>பேர்</strong> வை (<code class=\"w3-codespan\">x</code>, <code class=\"w3-codespan\">age</code>, <code class=\"w3-codespan\">name</code> மாதிரி)",
-          "Optional-ஆ <code class=\"w3-codespan\">=</code> use பண்ணி ஒரு <strong>value</strong> assign பண்ணு"
+          "முதலில் ஒரு <strong>Type</strong>-ஐ தேர்ந்தெடுக்கவும் (உதா: <code>int</code>, <code>String</code>).",
+          "Variable-க்கு ஒரு <strong>பெயரை</strong> வழங்கவும் (உதா: <code>age</code>, <code>userName</code>).",
+          "விருப்பப்பட்டால், <code>=</code> குறியீட்டைப் பயன்படுத்தி ஒரு <strong>மதிப்பை (Value)</strong> assign செய்யவும்."
         ]
-      },
-      {
-        "type": "paragraph",
-        "text": "Basic syntax இப்படி இருக்கும்:"
       },
       {
         "type": "playground",
@@ -624,15 +553,15 @@
             {
               "text": "int",
               "type": "keyword",
-              "explanation": "Data type. இந்த variable ஒரு whole number (integer) store பண்ணும்னு Java-க்கு சொல்கிறோம்."
+              "explanation": "Data type: இது முழு எண்களை (integer) சேமிக்கும் என்பதை Java-விடம் கூறுகிறது."
             },
             {
               "text": " "
             },
             {
-              "text": "myAge",
+              "text": "userAge",
               "type": "variable",
-              "explanation": "Variable பேர். நீயே வையுங்கள்க்கணும். என்ன value store பண்றோம்னு தெரியும்படி வையுங்கள்யுங்க. Java-ல camelCase பயன்படுத்துவது convention."
+              "explanation": "Variable Name: தரவை அடையாளம் காணப் பயன்படும் பெயர்."
             },
             {
               "text": " "
@@ -640,7 +569,7 @@
             {
               "text": "=",
               "type": "operator",
-              "explanation": "Assignment operator. வலது பக்கம் இருக்கற value-ஐ இடது பக்கம் உள்ள variable-க்கு assign பண்றோம்."
+              "explanation": "Assignment Operator: வலதுபுறம் உள்ள மதிப்பை, இடதுபுறம் உள்ள variable-ல் சேமிக்கிறது."
             },
             {
               "text": " "
@@ -648,97 +577,44 @@
             {
               "text": "25",
               "type": "value",
-              "explanation": "Variable-ல store ஆகற value. int type ஆனதால் இது ஒரு whole number (decimal இல்லாம)."
+              "explanation": "Value: Variable-ல் சேமிக்கப்படும் தரவு (தகவல்)."
             },
             {
               "text": ";",
               "type": "operator",
-              "explanation": "Semicolon statement-ஐ முடிக்கிறது. Java-ல ஒவ்வொரு statement-உம் semicolon-ல முடியணும்."
+              "explanation": "Statement Terminator: ஒவ்வொரு Java statement-உம் Semicolon-ல் முடிவடைய வேண்டும்."
             }
           ]
         }
       },
       {
-        "type": "paragraph",
-        "text": "Text store பண்ண <code class=\"w3-codespan\">String</code> use பண்ணலாம்:"
-      },
-      {
-        "type": "paragraph",
-        "text": "Number store பண்ண <code class=\"w3-codespan\">int</code> use பண்ணலாம்:"
-      },
-      {
-        "type": "paragraph",
-        "text": "Value இல்லாம declare பண்ணி, பிறகு assign பண்ணலாம்:"
-      },
-      {
-        "type": "paragraph",
-        "text": "Existing variable-க்கு new value assign பண்ணா, பழைய value overwrite ஆகும்:"
-      },
-      {
-        "type": "header",
-        "level": 2,
-        "text": "Final Variables"
-      },
-      {
-        "type": "paragraph",
-        "text": "Value change ஆகவே கூடாதுன்னா <code class=\"w3-codespan\">final</code> keyword பயன்படுத்தலாம் — constant-ஆ ஆகிடும், read-only:"
-      },
-      {
-        "type": "header",
-        "level": 2,
-        "text": "Other Types"
-      },
-      {
-        "type": "paragraph",
-        "text": "Different types-ல variables declare பண்றதுக்கு example:"
-      },
-      {
-        "type": "note",
-        "text": "<p><a href=\"#/java/data-types\">Data types</a> பத்தி அடுத்த chapter-ல விரிவா பார்க்கலாம்.</p>"
-      },
-      {
-        "type": "playground",
-        "subtype": "variable",
-        "title": "Interactive Variable Lab",
-        "config": {
-          "type": "int",
-          "name": "myAge",
-          "value": "25"
-        }
+        "type": "pro-tip",
+        "text": "Variables-க்கு பெயரிடும்போது எப்போதும் <strong>camelCase</strong> முறையைப் பின்பற்றுங்கள் (உதா: <code>employeeSalary</code>, <code>firstName</code>). மேலும், <code>x</code> அல்லது <code>y</code> போன்ற பெயர்களைத் தவிர்த்து, தரவின் தன்மையைப் பிரதிபலிக்கும் அர்த்தமுள்ள பெயர்களை (Meaningful names) வழங்குவது தலைசிறந்த மென்பொருள் பொறியாளரின் (Good Software Engineer) அடையாளமாகும்."
       },
       {
         "type": "code",
         "language": "java",
-        "code": "// Declare then assign\nint age;\nage = 25;\n\n// Declare and initialize\nString name = \"Alice\";\ndouble salary = 45000.50;\nboolean isActive = true;\nchar grade = 'A';\n\n// Multiple vars same type\nint x = 10, y = 20, z = 30;\n\n// var — type inferred (Java 10+)\nvar city = \"Chennai\";  // String\nvar count = 100;        // int\nSystem.out.println(city + \" \" + count); // Chennai 100"
+        "code": "// Declare and Initialize\nString developerName = \"Sathish\";\nint experienceYears = 8;\ndouble hourlyRate = 45.50;\nboolean isAvailable = true;\n\n// Java 10+ Feature: Local Variable Type Inference (var)\nvar framework = \"Spring Boot\";  // Java தானாகவே இதை String என உணர்ந்து கொள்ளும்\n\nSystem.out.println(developerName + \" uses \" + framework);"
       },
       {
         "type": "quiz",
-        "question": "Java-வில் ஒரு variable-இன் value மாறவே கூடாது (constant) என்றால் என்ன keyword பயன்படுத்த வேண்டும்?",
+        "question": "Interview Question: ஒரு Variable-க்கு வழங்கப்பட்ட மதிப்பை, ப்ரோக்ராம் முழுவதும் மாற்ற முடியாதபடி (Constant-ஆக) பாதுகாக்க எந்த Keyword பயன்படுத்தப்படுகிறது?",
         "options": [
           {
             "text": "static"
           },
           {
-            "text": "constant"
+            "text": "const"
           },
           {
             "text": "final"
           },
           {
-            "text": "void"
+            "text": "immutable"
           }
         ],
         "answer": 2,
-        "explanation": "`final` keyword-ஐ பயன்படுத்தினால் அந்த variable-க்கு ஒரு முறை assign செய்த value-ஐ பின்பு மாற்ற முடியாது."
-      },
-      {
-        "type": "pro-tip",
-        "text": "<strong>camelCase பெயரிடல் convention:</strong> Variables-க்கு பெயர் வைக்கும்போது <code>x</code>, <code>a1</code> போன்ற short names avoid செய்யவும். <code>userAge</code>, <code>totalPrice</code>, <code>isLoggedIn</code> போன்ற descriptive camelCase names பயன்படுத்தவும். Code-ஐ நீங்களே 6 மாதம் கழித்து படிக்கும்போது, descriptive names மிகவும் உதவும்!"
-      },
-      {
-        "type": "image",
-        "src": "assets/images/java/yt_logo_rgb_dark.png",
-        "alt": "Java Tutorial on YouTube"
+        "explanation": "சரியான விடை! `final` keyword-ஐ பயன்படுத்தினால் அந்த variable-க்கான மதிப்பை பின்பு மாற்ற முடியாது. (உதா: `final double PI = 3.14;`). Java-வில் `const` என்ற வார்த்தை பயன்பாட்டில் இல்லை."
       }
     ]
   },
@@ -3471,119 +3347,83 @@
     ]
   },
   "arraylist": {
-    "title": "Java ArrayList",
+    "title": "Java Collections: ArrayList",
     "blocks": [
       {
         "type": "header",
         "level": 2,
-        "text": "Java ArrayList என்னன்னு தெரியுமா?"
+        "text": "ArrayList என்றால் என்ன?"
       },
       {
         "type": "paragraph",
-        "text": "ArrayList என்பது resizable array — elements add/remove பண்றதுக்கு மிகவும் convenient. Normal arrays-ஓட size fixed, ஆனா ArrayList-ஓட size dynamic."
+        "text": "<code>ArrayList</code> என்பது Java-வின் Collections Framework-ல் உள்ள ஒரு முக்கியமான class ஆகும். சாதாரண Arrays-களின் அளவு (size) நிலையானது; அதை மாற்ற முடியாது. ஆனால், <code>ArrayList</code> ஆனது <strong>Dynamic Array</strong> ஆக செயல்படுகிறது. தரவுகளைச் சேர்க்கச் சேர்க்க, இது தானாகவே தன் அளவை விரிவாக்கிக் கொள்ளும்."
       },
       {
         "type": "paragraph",
-        "text": "ArrayList use பண்றதுக்கு <code class=\"w3-codespan\">java.util</code> package-ஐ import பண்ணணும்:"
+        "text": "இதனைப் பயன்படுத்த <code>java.util.ArrayList</code> package-ஐ import செய்ய வேண்டும்."
       },
       {
         "type": "header",
         "level": 2,
-        "text": "ArrayList Methods"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          "<code class=\"w3-codespan\">add()</code> — element add பண்றதுக்கு",
-          "<code class=\"w3-codespan\">get()</code> — element access பண்றதுக்கு",
-          "<code class=\"w3-codespan\">set()</code> — element modify பண்றதுக்கு",
-          "<code class=\"w3-codespan\">remove()</code> — element remove பண்றதுக்கு",
-          "<code class=\"w3-codespan\">size()</code> — list size தெரிஞ்சுக்கவுக்கு",
-          "<code class=\"w3-codespan\">clear()</code> — எல்லாத்தையும் remove பண்றதுக்கு",
-          "<code class=\"w3-codespan\">sort()</code> — list-ஐ sort பண்றதுக்கு"
-        ]
-      },
-      {
-        "type": "playground",
-        "subtype": "arraylist"
-      },
-      {
-        "type": "header",
-        "level": 2,
-        "text": "ArrayList Quick-Reference Methods"
+        "text": "முக்கியமான ArrayList Methods"
       },
       {
         "type": "table",
         "headers": [
           "Method",
-          "What it does"
+          "செயல்பாடு"
         ],
         "rows": [
           [
-            "<code>add(item)</code>",
-            "Append to end"
-          ],
-          [
-            "<code>add(index, item)</code>",
-            "Insert at position"
+            "<code>add(element)</code>",
+            "பட்டியலின் இறுதியில் புதிய தரவைச் சேர்க்கும்."
           ],
           [
             "<code>get(index)</code>",
-            "Read element at index"
+            "குறிப்பிட்ட index-ல் உள்ள தரவைப் பெற உதவும்."
           ],
           [
-            "<code>set(index, item)</code>",
-            "Replace element at index"
+            "<code>set(index, element)</code>",
+            "குறிப்பிட்ட index-ல் உள்ள தரவை மாற்றியமைக்கும் (Update/Replace)."
           ],
           [
             "<code>remove(index)</code>",
-            "Delete element at index"
-          ],
-          [
-            "<code>remove(Object)</code>",
-            "Delete first matching element"
+            "குறிப்பிட்ட index-ல் உள்ள தரவை நீக்கும்."
           ],
           [
             "<code>size()</code>",
-            "Total number of elements"
-          ],
-          [
-            "<code>contains(item)</code>",
-            "Check if element exists"
-          ],
-          [
-            "<code>indexOf(item)</code>",
-            "Position of first match (-1 if absent)"
-          ],
-          [
-            "<code>clear()</code>",
-            "Remove all elements"
-          ],
-          [
-            "<code>isEmpty()</code>",
-            "True if no elements"
+            "பட்டியலில் உள்ள மொத்த elements-களின் எண்ணிக்கையை வழங்கும்."
           ]
         ]
       },
       {
-        "type": "header",
-        "level": 3,
-        "text": "Sorting &amp; Streams"
+        "type": "pro-tip",
+        "text": "ArrayList-ல் தரவை எடுப்பது (<code>get</code>) மிகவும் வேகமானது — இதன் Time Complexity <strong>O(1)</strong> ஆகும். ஆனால், பட்டியலின் நடுவில் தரவைச் சேர்ப்பதோ அல்லது நீக்குவதோ (<code>add</code>/<code>remove</code> at index) சற்று தாமதமானது (O(n)), ஏனெனில் மற்ற elements அனைத்தையும் நகர்த்த வேண்டி இருக்கும். அவ்வாறான தேவைகளுக்கு <code>LinkedList</code> சிறந்த தேர்வாகும்."
       },
       {
         "type": "code",
         "language": "java",
-        "code": "ArrayList&lt;Integer&gt; nums = new ArrayList&lt;&gt;(List.of(5, 2, 8, 1, 9));\n\nCollections.sort(nums);               // [1, 2, 5, 8, 9]\nnums.sort(Comparator.reverseOrder()); // [9, 8, 5, 2, 1]\n\n// Stream API\nList&lt;Integer&gt; evens = nums.stream()\n    .filter(n -&gt; n % 2 == 0)\n    .collect(Collectors.toList()); // [8, 2]"
+        "code": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Generics (<String>) பயன்படுத்துவதன் மூலம் Type Safety உறுதி செய்யப்படுகிறது\n        List<String> frameworks = new ArrayList<>();\n        \n        frameworks.add(\"Angular\");\n        frameworks.add(\"React\");\n        frameworks.add(\"Spring Boot\");\n\n        frameworks.set(1, \"Vue.js\");  // React-ஐ Vue.js ஆக மாற்றுகிறோம்\n        frameworks.remove(\"Angular\");   // Angular-ஐ நீக்குகிறோம்\n\n        System.out.println(\"Total frameworks: \" + frameworks.size());\n        \n        // Enhanced For-Loop மூலம் Iteration\n        for (String fw : frameworks) {\n            System.out.println(fw);\n        }\n    }\n}"
       },
       {
-        "type": "pro-tip",
-        "text": "<strong>சரியான Collection-ஐ தேர்ந்தெடுங்கள்:</strong> <code>ArrayList</code> — random access (index-by-index) fast. <code>LinkedList</code> — frequent insert/delete operations fast. <code>HashMap</code> — key-value lookup O(1). <code>TreeMap</code> — sorted order வேண்டும் என்றால். Interview-ல் இந்த time complexity comparison மிக முக்கியமான question!"
-      },
-      {
-        "type": "image",
-        "src": "assets/images/java/yt_logo_rgb_dark.png",
-        "alt": "Java Tutorial on YouTube"
+        "type": "quiz",
+        "question": "Interview Question: சாதாரண Array மற்றும் ArrayList இடையே உள்ள மிக முக்கிய வேறுபாடு என்ன?",
+        "options": [
+          {
+            "text": "Array-ல் எண்கள் மட்டுமே சேமிக்க முடியும்; ArrayList-ல் Strings மட்டுமே சேமிக்க முடியும்."
+          },
+          {
+            "text": "Array-இன் அளவு (size) நிலையானது (Fixed); ArrayList-இன் அளவு மாறும் தன்மை கொண்டது (Dynamic)."
+          },
+          {
+            "text": "Array-ஐ loop செய்ய முடியாது; ArrayList-ஐ மட்டுமே loop செய்ய முடியும்."
+          },
+          {
+            "text": "எந்த வேறுபாடும் இல்லை, இரண்டும் ஒன்றுதான்."
+          }
+        ],
+        "answer": 1,
+        "explanation": "சரியான விடை! சாதாரண Array-ஐ உருவாக்கும்போதே அதன் அளவைக் குறிப்பிட்டு விட வேண்டும், பின்னர் அளவை மாற்ற முடியாது. ஆனால் ArrayList தேவைக்கேற்ப தானாகவே சுருங்கி விரியும் (resizable) தன்மையுடையது."
       }
     ]
   },
