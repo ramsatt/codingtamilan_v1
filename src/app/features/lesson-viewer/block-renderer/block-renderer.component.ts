@@ -401,6 +401,20 @@ import { FilesPlaygroundComponent } from '../playground/files-playground.compone
         </div>
       }
 
+      @case ('pro-tip') {
+        <div class="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-200 border-l-4 border-l-violet-500 rounded-xl p-5">
+          <div class="flex gap-3 items-start">
+            <div class="w-9 h-9 bg-violet-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+              <span class="text-lg">💡</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-violet-500 mb-1">Pro Tip — Industry Best Practice</p>
+              <div class="text-sm text-violet-900 leading-relaxed pro-tip-content" [innerHTML]="safe(block.text)"></div>
+            </div>
+          </div>
+        </div>
+      }
+
       @case ('interactive') {
         @if (block.demo === 'tokenizer') {
           <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">

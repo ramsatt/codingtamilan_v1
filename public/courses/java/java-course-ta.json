@@ -102,7 +102,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "தொடங்குவோம்"
+        "text": "தொடங்கலாம்"
       },
       {
         "type": "paragraph",
@@ -121,10 +121,18 @@
         "type": "quiz",
         "question": "Java-வின் 'Write Once, Run Anywhere' (WORA) திறனுக்கு முக்கிய காரணம் என்ன?",
         "options": [
-          { "text": "அது ஒரு Object-oriented language என்பதால்" },
-          { "text": "JVM (Java Virtual Machine) bytecode-ஐ ரன் செய்வதால்" },
-          { "text": "Oracle கம்பெனி maintain பண்ணுவதால்" },
-          { "text": "HTML-ல directly ரன் ஆகுவதால்" }
+          {
+            "text": "அது ஒரு Object-oriented language என்பதால்"
+          },
+          {
+            "text": "JVM (Java Virtual Machine) bytecode-ஐ ரன் செய்வதால்"
+          },
+          {
+            "text": "Oracle கம்பெனி maintain பண்ணுவதால்"
+          },
+          {
+            "text": "HTML-ல directly ரன் ஆகுவதால்"
+          }
         ],
         "answer": 1,
         "explanation": "Java code முதலில் Bytecode-ஆக compile ஆகிறது. இந்த Bytecode-ஐ எந்த Operating System-லிலும் உள்ள JVM ரன் செய்யும். இதுதான் WORA!"
@@ -137,12 +145,12 @@
     ]
   },
   "get-started": {
-    "title": "Java தொடங்குவோம்",
+    "title": "Java தொடங்கலாம்",
     "blocks": [
       {
         "type": "header",
         "level": 2,
-        "text": "Java-வை தொடங்குவோம்"
+        "text": "Java-வை தொடங்கலாம்"
       },
       {
         "type": "paragraph",
@@ -163,7 +171,7 @@
       },
       {
         "type": "paragraph",
-        "text": "உன்னோட computer-ல Java install பண்ணணும்னா கீழே இருக்குற steps follow பண்ணு."
+        "text": "உன்னோட computer-ல Java install பண்ணணும்னா கீழே இருக்குற steps follow செய்யவும்."
       },
       {
         "type": "paragraph",
@@ -171,7 +179,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Windows-ல Java இருக்கான்னு check பண்ண Command Prompt-ல இதை type பண்ணு:"
+        "text": "Windows-ல Java இருக்கான்னு check பண்ண Command Prompt-ல இதை type செய்யவும்:"
       },
       {
         "type": "example",
@@ -201,7 +209,7 @@
       },
       {
         "type": "paragraph",
-        "text": "<code class=\"w3-codespan\">Main.java</code>ன்னு file create பண்ணு — Notepad மாதிரி எந்த text editor-லயும் செய்யலாம்."
+        "text": "<code class=\"w3-codespan\">Main.java</code>ன்னு file create செய்யவும் — Notepad மாதிரி எந்த text editor-லயும் செய்யலாம்."
       },
       {
         "type": "paragraph",
@@ -209,11 +217,11 @@
       },
       {
         "type": "paragraph",
-        "text": "Code-ஐ இப்போ முழுசா புரிஞ்சுக்கணும்னு இல்ல — பிறகு detail-ஆ பார்ப்போம். <strong>எப்படி run பண்றதுன்னு</strong> மட்டும் கவனி."
+        "text": "Code-ஐ இப்போ முழுசா புரிஞ்சுக்கணும்னு இல்ல — பிறகு detail-ஆ பார்க்கலாம். <strong>எப்படி run பண்றதுன்னு</strong> மட்டும் கவனி."
       },
       {
         "type": "paragraph",
-        "text": "File-ஐ \"Main.java\"-ன்னு save பண்ணு. Command Prompt-ல file இருக்குற folder-க்கு navigate பண்ணி இதை type பண்ணு:"
+        "text": "File-ஐ \"Main.java\"-ன்னு save செய்யவும். Command Prompt-ல file இருக்குற folder-க்கு navigate பண்ணி இதை type செய்யவும்:"
       },
       {
         "type": "example",
@@ -240,7 +248,27 @@
       {
         "type": "code",
         "language": "java",
-        "code": "// Main.java — இந்த file-ஐ save பண்ணி compile மற்றும் run பண்ணு\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello World\");\n    }\n}\n// Compile: javac Main.java\n// Run:     java Main\n// Output:  Hello World"
+        "code": "// Main.java — இந்த file-ஐ save பண்ணி compile மற்றும் run செய்யவும்\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello World\");\n    }\n}\n// Compile: javac Main.java\n// Run:     java Main\n// Output:  Hello World"
+      },
+      {
+        "type": "quiz",
+        "question": "Java program-ஐ compile செய்ய எந்த command பயன்படுத்துவோம்?",
+        "options": [
+          {
+            "text": "java Main.java"
+          },
+          {
+            "text": "javac Main.java"
+          },
+          {
+            "text": "run Main.java"
+          },
+          {
+            "text": "compile Main.java"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`javac` என்பது Java Compiler. இது .java file-ஐ .class (bytecode) file-ஆக மாற்றும். பிறகு `java Main` என்று run செய்யலாம்."
       },
       {
         "type": "image",
@@ -255,7 +283,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Syntax என்னன்னு பார்ப்போம்"
+        "text": "Java Syntax என்னன்னு பார்க்கலாம்"
       },
       {
         "type": "paragraph",
@@ -293,7 +321,7 @@
       },
       {
         "type": "paragraph",
-        "text": "இப்போதைக்கு <code class=\"w3-codespan\">public</code>, <code class=\"w3-codespan\">static</code>, <code class=\"w3-codespan\">void</code> keywords பத்தி கவலைப்படாத. பிறகு கத்துப்போம். நினைவு வச்சுக்க: <code class=\"w3-codespan\">main()</code>தான் ஆரம்ப point."
+        "text": "இப்போதைக்கு <code class=\"w3-codespan\">public</code>, <code class=\"w3-codespan\">static</code>, <code class=\"w3-codespan\">void</code> keywords பத்தி கவலைப்படவேண்டாம். பிறகு கற்றுக்கொள்வோம். நினைவு வச்சுக்க: <code class=\"w3-codespan\">main()</code>தான் ஆரம்ப point."
       },
       {
         "type": "header",
@@ -306,7 +334,7 @@
       },
       {
         "type": "note",
-        "text": "<p><strong>குறிப்பு:</strong> <code class=\"w3-codespan\">{}</code> ஒரு block-ஓட ஆரம்பத்தையும் முடிவையும் mark பண்றது.</p><p><code class=\"w3-codespan\">System.out.println()</code> long-ஆ தெரியுது, ஆனா இதை ஒரே command மாதிரி நினைங்க: <strong>\"இந்த text-ஐ screen-ல போடு\"</strong></p><ul><li><code class=\"w3-codespan\">System</code> — built-in Java class</li><li><code class=\"w3-codespan\">out</code> — output-ஐ represent பண்றது</li><li><code class=\"w3-codespan\">println()</code> — \"print line\" என்று அர்த்தம்</li></ul><p>ஒவ்வொரு Java statement-உம் semicolon (<code class=\"w3-codespan\">;</code>)-ல முடியணும்.</p>"
+        "text": "<p><strong>குறிப்பு:</strong> <code class=\"w3-codespan\">{}</code> ஒரு block-ஓட ஆரம்பத்தையும் முடிவையுங்கள்யும் mark பண்றது.</p><p><code class=\"w3-codespan\">System.out.println()</code> long-ஆ தெரியுது, ஆனா இதை ஒரே command மாதிரி நினைவில் வையுங்கள்த்துக்கொள்ளுங்கள்: <strong>\"இந்த text-ஐ screen-ல போடு\"</strong></p><ul><li><code class=\"w3-codespan\">System</code> — built-in Java class</li><li><code class=\"w3-codespan\">out</code> — output-ஐ represent பண்றது</li><li><code class=\"w3-codespan\">println()</code> — \"print line\" என்று அர்த்தம்</li></ul><p>ஒவ்வொரு Java statement-உம் semicolon (<code class=\"w3-codespan\">;</code>)-ல முடியணும்.</p>"
       },
       {
         "type": "code",
@@ -317,10 +345,18 @@
         "type": "quiz",
         "question": "எந்த ஒரு Java program-உம் எதிலிருந்து execute ஆக தொடங்குகிறது?",
         "options": [
-          { "text": "public class லிருந்து" },
-          { "text": "System.out.println() லிருந்து" },
-          { "text": "main() method-லிருந்து" },
-          { "text": "முதல் line-லிருந்து" }
+          {
+            "text": "public class லிருந்து"
+          },
+          {
+            "text": "System.out.println() லிருந்து"
+          },
+          {
+            "text": "main() method-லிருந்து"
+          },
+          {
+            "text": "முதல் line-லிருந்து"
+          }
         ],
         "answer": 2,
         "explanation": "Java-வில் execution எப்போதும் `main()` method-லிருந்து தான் தொடங்கும். இதுவே program-இன் starting point."
@@ -355,7 +391,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Text-ஐ double quotes-க்கு உள்ளே வைக்கணும்: <code class=\"w3-codespan\">\"\"</code>."
+        "text": "Text-ஐ double quotes-க்கு உள்ளே வையுங்கள்க்கணும்: <code class=\"w3-codespan\">\"\"</code>."
       },
       {
         "type": "paragraph",
@@ -418,6 +454,26 @@
         "code": "System.out.print(\"Hello \");\nSystem.out.println(\"World!\");    // Hello World!\nSystem.out.printf(\"Name: %s, Age: %d%n\", \"Alice\", 25);\n// Name: Alice, Age: 25\n\nint x = 42;\nSystem.out.println(\"Value: \" + x);    // concatenation\nSystem.out.printf(\"Value: %d%n\", x);  // formatted"
       },
       {
+        "type": "quiz",
+        "question": "`println()` மற்றும் `print()` -ல் என்ன முக்கிய வித்தியாசம்?",
+        "options": [
+          {
+            "text": "println() faster-ஆக இருக்கும்"
+          },
+          {
+            "text": "println() output-க்கு கடைசில new line add செய்யும்"
+          },
+          {
+            "text": "print() strings மட்டும் print செய்யும்"
+          },
+          {
+            "text": "எந்த வித்தியாசமும் இல்லை"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`println()` ஒவ்வொரு output-க்கும் கடைசில newline (\\n) add செய்யும். `print()` அதே line-ல் தொடரும்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -434,7 +490,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Comments என்பது code-ஐ explain பண்ணவும், readable-ஆ வைக்கவும் use ஆகுது. Testing-ஓட போது சில code-ஐ skip பண்ணவும் use பண்ணலாம்."
+        "text": "Comments என்பது code-ஐ explain பண்ணவும், readable-ஆ வையுங்கள்க்கவும் use ஆகுது. Testing-ஓட போது சில code-ஐ skip பண்ணவும் use பண்ணலாம்."
       },
       {
         "type": "header",
@@ -482,6 +538,26 @@
         "type": "code",
         "language": "java",
         "code": "// Single-line comment: Java இதை ignore பண்ணும்\nint x = 10;  // x-ல 10 store ஆகும்\n\n/* Multi-line comment:\n   இந்த அணைத்தும் தெரியும்.\n   எதுவும் execute ஆகாது. */\nSystem.out.println(x);  // 10\n\n// Tip: temporarily disable code\n// System.out.println(\"Skipped line\");"
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் multi-line comment எப்படி எழுதுவோம்?",
+        "options": [
+          {
+            "text": "// இது comment"
+          },
+          {
+            "text": "# இது comment"
+          },
+          {
+            "text": "/* இது comment */"
+          },
+          {
+            "text": "<!-- இது comment -->"
+          }
+        ],
+        "answer": 2,
+        "explanation": "`/* ... */` என்பது Java-வின் multi-line comment syntax. `//` single-line, `/** */` JavaDoc-க்கு பயன்படுத்துவோம்."
       },
       {
         "type": "image",
@@ -556,7 +632,7 @@
             {
               "text": "myAge",
               "type": "variable",
-              "explanation": "Variable பேர். நீயே வைக்கணும். என்ன value store பண்றோம்னு தெரியும்படி வையுங்க. Java-ல camelCase பயன்படுத்துவது convention."
+              "explanation": "Variable பேர். நீயே வையுங்கள்க்கணும். என்ன value store பண்றோம்னு தெரியும்படி வையுங்கள்யுங்க. Java-ல camelCase பயன்படுத்துவது convention."
             },
             {
               "text": " "
@@ -605,7 +681,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Value change ஆகவே கூடாதுன்னா <code class=\"w3-codespan\">final</code> keyword use பண்ணு — constant-ஆ ஆகிடும், read-only:"
+        "text": "Value change ஆகவே கூடாதுன்னா <code class=\"w3-codespan\">final</code> keyword பயன்படுத்தலாம் — constant-ஆ ஆகிடும், read-only:"
       },
       {
         "type": "header",
@@ -618,7 +694,7 @@
       },
       {
         "type": "note",
-        "text": "<p><a href=\"#/java/data-types\">Data types</a> பத்தி அடுத்த chapter-ல விரிவா பார்ப்போம்.</p>"
+        "text": "<p><a href=\"#/java/data-types\">Data types</a> பத்தி அடுத்த chapter-ல விரிவா பார்க்கலாம்.</p>"
       },
       {
         "type": "playground",
@@ -639,13 +715,25 @@
         "type": "quiz",
         "question": "Java-வில் ஒரு variable-இன் value மாறவே கூடாது (constant) என்றால் என்ன keyword பயன்படுத்த வேண்டும்?",
         "options": [
-          { "text": "static" },
-          { "text": "constant" },
-          { "text": "final" },
-          { "text": "void" }
+          {
+            "text": "static"
+          },
+          {
+            "text": "constant"
+          },
+          {
+            "text": "final"
+          },
+          {
+            "text": "void"
+          }
         ],
         "answer": 2,
         "explanation": "`final` keyword-ஐ பயன்படுத்தினால் அந்த variable-க்கு ஒரு முறை assign செய்த value-ஐ பின்பு மாற்ற முடியாது."
+      },
+      {
+        "type": "pro-tip",
+        "text": "<strong>camelCase பெயரிடல் convention:</strong> Variables-க்கு பெயர் வைக்கும்போது <code>x</code>, <code>a1</code> போன்ற short names avoid செய்யவும். <code>userAge</code>, <code>totalPrice</code>, <code>isLoggedIn</code> போன்ற descriptive camelCase names பயன்படுத்தவும். Code-ஐ நீங்களே 6 மாதம் கழித்து படிக்கும்போது, descriptive names மிகவும் உதவும்!"
       },
       {
         "type": "image",
@@ -675,7 +763,7 @@
         "ordered": false,
         "items": [
           "Primitive data types — <code class=\"w3-codespan\">byte</code>, <code class=\"w3-codespan\">short</code>, <code class=\"w3-codespan\">int</code>, <code class=\"w3-codespan\">long</code>, <code class=\"w3-codespan\">float</code>, <code class=\"w3-codespan\">double</code>, <code class=\"w3-codespan\">boolean</code>, <code class=\"w3-codespan\">char</code>",
-          "Non-primitive data types — <code class=\"w3-codespan\">String</code>, Arrays, Classes (பிறகு பார்ப்போம்)"
+          "Non-primitive data types — <code class=\"w3-codespan\">String</code>, Arrays, Classes (பிறகு பார்க்கலாம்)"
         ]
       },
       {
@@ -685,7 +773,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Primitive type 8 வகை இருக்கு. இதை புரிஞ்சுக்க 'Boxes' (பெட்டிகள்) உதாரணத்தை எடுத்துப்போம். சின்ன பொருளை வைக்க சின்ன பெட்டி போதும், பெரிய பொருளுக்கு பெரிய பெட்டி வேணும் இல்லையா? அதே போல தான் Data Types!"
+        "text": "Primitive type 8 வகை இருக்கு. இதை புரிஞ்சுக்க 'Boxes' (பெட்டிகள்) உதாரணத்தை எடுத்துப்போம். சின்ன பொருளை வையுங்கள்க்க சின்ன பெட்டி போதும், பெரிய பொருளுக்கு பெரிய பெட்டி வேணும் இல்லையா? அதே போல தான் Data Types!"
       },
       {
         "type": "table",
@@ -718,12 +806,12 @@
           [
             "float",
             "4 bytes",
-            "புள்ளி வைத்த எண்கள் (Decimal) - 6 முதல் 7 digits துல்லியம்"
+            "புள்ளி வையுங்கள்த்த எண்கள் (Decimal) - 6 முதல் 7 digits துல்லியம்"
           ],
           [
             "double",
             "8 bytes",
-            "புள்ளி வைத்த எண்கள் (Decimal) - 15 digits அதிக துல்லியம் (உதா: Bank Balance)"
+            "புள்ளி வையுங்கள்த்த எண்கள் (Decimal) - 15 digits அதிக துல்லியம் (உதா: Bank Balance)"
           ],
           [
             "boolean",
@@ -745,6 +833,26 @@
         "type": "code",
         "language": "java",
         "code": "byte   small  = 127;              // -128 to 127\nshort  medium = 32767;            // -32,768 to 32,767\nint    num    = 2_000_000;        // underscores for readability\nlong   big    = 9_876_543_210L;   // append L\nfloat  price  = 9.99f;            // append f\ndouble pi     = 3.14159265358979;\nboolean flag  = true;\nchar   ch     = 'J';\n\nSystem.out.println(Integer.MAX_VALUE);       // 2147483647\nSystem.out.println(Character.isLetter(ch));  // true"
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் decimal numbers-க்கு எந்த data type prefer செய்வோம்?",
+        "options": [
+          {
+            "text": "float"
+          },
+          {
+            "text": "int"
+          },
+          {
+            "text": "double"
+          },
+          {
+            "text": "long"
+          }
+        ],
+        "answer": 2,
+        "explanation": "`double` என்பது 15 digits precision கொடுக்கும். `float` 6-7 digits மட்டுமே. Bank calculations, scientific values-க்கு `double` அவசியம்."
       },
       {
         "type": "image",
@@ -799,6 +907,26 @@
         "type": "code",
         "language": "java",
         "code": "// Widening (automatic): small → large type\nint myInt = 9;\ndouble myDouble = myInt;   // automatic\nSystem.out.println(myDouble);  // 9.0\n\n// Narrowing (manual): large → small type\ndouble pi = 3.14159;\nint piInt = (int) pi;      // decimal truncated\nSystem.out.println(piInt); // 3\n\n// Real use: percentage\nint score = 700, max = 1000;\ndouble pct = (double) score / max * 100;\nSystem.out.println(pct + \"%\");  // 70.0%"
+      },
+      {
+        "type": "quiz",
+        "question": "Widening casting-க்கு manually cast செய்ய வேண்டுமா?",
+        "options": [
+          {
+            "text": "ஆம், எப்போதும்"
+          },
+          {
+            "text": "இல்லை, Java automatically செய்யும்"
+          },
+          {
+            "text": "Only for String types"
+          },
+          {
+            "text": "Only in loops"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Widening casting (int → double போன்று) Java automatically செய்யும் — data loss இல்லாததால். ஆனால் Narrowing casting (double → int) manually `(int)` என்று செய்ய வேண்டும்."
       },
       {
         "type": "image",
@@ -945,6 +1073,26 @@
         "code": "int age = 20;\nString status = (age >= 18) ? \"Adult\" : \"Minor\";\nSystem.out.println(status);   // Adult\n\nint a = 10, b = 25;\nint max = (a > b) ? a : b;\nSystem.out.println(\"Max: \" + max);  // Max: 25"
       },
       {
+        "type": "quiz",
+        "question": "Java-வில் `==` operator objects-க்கு என்ன compare செய்யும்?",
+        "options": [
+          {
+            "text": "Object-ன் content-ஐ compare செய்யும்"
+          },
+          {
+            "text": "Memory address (reference)-ஐ compare செய்யும்"
+          },
+          {
+            "text": "Object size-ஐ compare செய்யும்"
+          },
+          {
+            "text": "Object type-ஐ compare செய்யும்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Objects-க்கு `==` memory reference compare செய்யும். Content compare செய்ய `.equals()` method பயன்படுத்தவும். Interview-ல் இது மிக முக்கியமான question!"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -974,7 +1122,7 @@
       },
       {
         "type": "paragraph",
-        "text": "String-ஓட length தெரிஞ்சுக்க <code class=\"w3-codespan\">length()</code> method use பண்ணு:"
+        "text": "String-ஓட length தெரிஞ்சுக்க <code class=\"w3-codespan\">length()</code> method பயன்படுத்தலாம்:"
       },
       {
         "type": "header",
@@ -1010,6 +1158,10 @@
         "type": "code",
         "language": "java",
         "code": "String s = \"Hello, Java!\";\nSystem.out.println(s.length());           // 12\nSystem.out.println(s.toUpperCase());      // HELLO, JAVA!\nSystem.out.println(s.substring(7, 11));   // Java\nSystem.out.println(s.contains(\"Java\"));   // true\nSystem.out.println(s.replace(\"Java\", \"World\")); // Hello, World!\nSystem.out.println(s.charAt(0));          // H\n\n// Comparing — always use .equals()\nString a = \"hello\", b = \"hello\";\nSystem.out.println(a.equals(b));                  // true ✓\nSystem.out.println(a.equalsIgnoreCase(\"HELLO\")); // true"
+      },
+      {
+        "type": "pro-tip",
+        "text": "<strong>Loop-க்கு உள்ளே String Concatenation avoid செய்யவும்:</strong> <code>str = str + value</code> என்று loop-ல் use செய்தால் ஒவ்வொரு iteration-லும் புதிய String object create ஆகும் — memory waste! இதற்கு பதில் <code>StringBuilder</code> பயன்படுத்தவும்: <code>StringBuilder sb = new StringBuilder();</code> பிறகு <code>sb.append(value);</code> — இது production code-ல் ஒரு standard practice."
       },
       {
         "type": "image",
@@ -1050,6 +1202,26 @@
         "type": "code",
         "language": "java",
         "code": "System.out.println(Math.max(15, 42));   // 42\nSystem.out.println(Math.min(15, 42));   // 15\nSystem.out.println(Math.abs(-64));      // 64\nSystem.out.println(Math.sqrt(144));     // 12.0\nSystem.out.println(Math.pow(2, 10));    // 1024.0\nSystem.out.println(Math.round(4.6));    // 5\nSystem.out.println(Math.ceil(4.2));     // 5.0\nSystem.out.println(Math.floor(4.9));    // 4.0\n\nint rand = (int)(Math.random() * 100);\nSystem.out.println(rand);  // e.g. 73"
+      },
+      {
+        "type": "quiz",
+        "question": "`Math.random()` என்ன return செய்யும்?",
+        "options": [
+          {
+            "text": "0 முதல் 100 வரை random integer"
+          },
+          {
+            "text": "0.0 முதல் 1.0 வரை random double"
+          },
+          {
+            "text": "1 முதல் 10 வரை random number"
+          },
+          {
+            "text": "Negative number"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`Math.random()` 0.0 (inclusive) முதல் 1.0 (exclusive) வரை random double return செய்யும். 1-10 range வேண்டுமென்றால்: `(int)(Math.random() * 10) + 1`"
       },
       {
         "type": "image",
@@ -1094,12 +1266,32 @@
       },
       {
         "type": "note",
-        "text": "<p>Booleans-ஐ conditions மற்றும் loops-ல மிகவும் அதிகமா use பண்றோம் — அடுத்த chapters-ல பார்ப்போம்.</p>"
+        "text": "<p>Booleans-ஐ conditions மற்றும் loops-ல மிகவும் அதிகமா use பண்றோம் — அடுத்த chapters-ல பார்க்கலாம்.</p>"
       },
       {
         "type": "code",
         "language": "java",
         "code": "int age = 20;\nboolean isAdult   = (age >= 18);  // true\nboolean hasTicket = true;\n\nboolean canEnter = isAdult && hasTicket;  // true\nboolean eitherOr = isAdult || hasTicket;  // true\nboolean notKid   = !isAdult;             // false\n\nSystem.out.println(isAdult);    // true\nSystem.out.println(canEnter);   // true\nSystem.out.println(notKid);     // false"
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் எந்த value boolean context-ல் `false`-ஆக கருதப்படும்?",
+        "options": [
+          {
+            "text": "0"
+          },
+          {
+            "text": "Empty string \"\""
+          },
+          {
+            "text": "null"
+          },
+          {
+            "text": "Java-வில் explicit `false` மட்டுமே false"
+          }
+        ],
+        "answer": 3,
+        "explanation": "JavaScript-போல் Java-வில் truthy/falsy இல்லை. `boolean` type `true` அல்லது `false` மட்டுமே. `0` அல்லது `\"\"` automatically false ஆகாது — type mismatch error வரும்."
       },
       {
         "type": "image",
@@ -1176,6 +1368,26 @@
         "code": "int score = 75;\nif (score &gt;= 90) {\n    System.out.println(\"A\");\n} else if (score &gt;= 80) {\n    System.out.println(\"B\");\n} else if (score &gt;= 70) {\n    System.out.println(\"C\");\n} else {\n    System.out.println(\"Below C\");\n}\n// Output: C\n\n// Ternary shorthand\nString result = (score &gt;= 50) ? \"Pass\" : \"Fail\";\nSystem.out.println(result);  // Pass"
       },
       {
+        "type": "quiz",
+        "question": "Ternary operator-ன் syntax என்ன?",
+        "options": [
+          {
+            "text": "if(condition) ? value1 : value2"
+          },
+          {
+            "text": "condition ? value1 : value2"
+          },
+          {
+            "text": "condition then value1 else value2"
+          },
+          {
+            "text": "(condition) { value1 } else { value2 }"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Ternary operator: `condition ? valueIfTrue : valueIfFalse`. Example: `String result = age >= 18 ? \"Adult\" : \"Minor\";` — simple if-else-ஐ one line-ல் எழுதலாம்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1208,6 +1420,30 @@
         "code": "int day = 3;\nswitch (day) {\n    case 1: System.out.println(\"Monday\");    break;\n    case 2: System.out.println(\"Tuesday\");   break;\n    case 3: System.out.println(\"Wednesday\"); break;\n    default: System.out.println(\"Weekend!\");\n}\n// Wednesday\n\nString type = switch (day) {\n    case 1, 2, 3, 4, 5 -&gt; \"Weekday\";\n    default -&gt; \"Weekend\";\n};\nSystem.out.println(type);  // Weekday"
       },
       {
+        "type": "quiz",
+        "question": "Switch statement-ல் `break` மறந்தால் என்ன நடக்கும்?",
+        "options": [
+          {
+            "text": "Compile error வரும்"
+          },
+          {
+            "text": "Program crash ஆகும்"
+          },
+          {
+            "text": "Fall-through — அடுத்த case-உம் execute ஆகும்"
+          },
+          {
+            "text": "எந்த case-உம் execute ஆகாது"
+          }
+        ],
+        "answer": 2,
+        "explanation": "Break இல்லாமல் matching case-ல் இருந்து அடுத்த அடுத்த cases எல்லாம் execute ஆகும் — இதை 'fall-through' என்பார்கள். Modern Java switch expressions (`->`) இந்த problem-ஐ தீர்க்கின்றன."
+      },
+      {
+        "type": "note",
+        "text": "<strong>Modern Java Switch (Java 14+):</strong> Arrow syntax (<code>case X -></code>) modern switch expression-ன் feature. இது fall-through இல்லாமல் cleaner code தரும். நீங்கள் இப்போது கற்றுக்கொண்டது cutting-edge Java — industry-ல் இன்று actively use ஆகிறது!"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1237,7 +1473,7 @@
       },
       {
         "type": "note",
-        "text": "<p>Loop-க்கு உள்ளே இருக்குற code-ஐ ஒவ்வொரு தடவையும் update பண்றதை மறக்காத — இல்லன்னா infinite loop-ஆ ஆகிடும்!</p>"
+        "text": "<p>Loop-க்கு உள்ளே இருக்குற code-ஐ ஒவ்வொரு தடவையுங்கள்யும் update பண்றதை மறக்காத — இல்லன்னா infinite loop-ஆ ஆகிடும்!</p>"
       },
       {
         "type": "header",
@@ -1252,6 +1488,26 @@
         "type": "code",
         "language": "java",
         "code": "// while loop\nint i = 1;\nwhile (i &lt;= 5) {\n    System.out.print(i + \" \");  // 1 2 3 4 5\n    i++;\n}\n\n// do-while — executes at least once\nint n = 0;\ndo {\n    System.out.println(\"Attempt: \" + n);\n    n++;\n} while (n &lt; 3);\n\n// Sum using while\nint sum = 0, num = 1;\nwhile (num &lt;= 10) { sum += num; num++; }\nSystem.out.println(\"Sum 1-10: \" + sum);  // 55"
+      },
+      {
+        "type": "quiz",
+        "question": "`do-while` loop `while` loop-ல் இருந்து எப்படி வேறுபடுகிறது?",
+        "options": [
+          {
+            "text": "do-while faster-ஆக இருக்கும்"
+          },
+          {
+            "text": "do-while loop body-ஐ குறைந்தது ஒரு முறை execute செய்யும்"
+          },
+          {
+            "text": "do-while infinite loop create செய்யாது"
+          },
+          {
+            "text": "வித்தியாசம் இல்லை"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`do-while` loop condition-ஐ check செய்வதற்கு முன் body-ஐ execute செய்யும். அதனால் condition false-ஆக இருந்தாலும் ஒரு முறை run ஆகும். User input validation-க்கு ideal."
       },
       {
         "type": "image",
@@ -1300,6 +1556,26 @@
         "code": "// Count from 1 to 5\nfor (int i = 1; i &lt;= 5; i++) {\n    System.out.print(i + \" \");   // 1 2 3 4 5\n}\n\n// Enhanced for-each\nint[] nums = {10, 20, 30, 40, 50};\nfor (int n : nums) {\n    System.out.print(n + \" \");   // 10 20 30 40 50\n}\n\n// Nested loops\nfor (int i = 1; i &lt;= 3; i++) {\n    for (int j = 1; j &lt;= 3; j++) {\n        System.out.printf(\"%3d\", i * j);\n    }\n    System.out.println();\n}"
       },
       {
+        "type": "quiz",
+        "question": "Enhanced for loop (`for-each`) எதற்கு சிறந்தது?",
+        "options": [
+          {
+            "text": "Index-based access-க்கு"
+          },
+          {
+            "text": "Array/Collection-ன் எல்லா elements-ஐயும் iterate செய்ய"
+          },
+          {
+            "text": "Reverse order iteration-க்கு"
+          },
+          {
+            "text": "Nested loops-க்கு"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Enhanced for loop (`for (String item : list)`) collection-ன் elements-ஐ clean-ஆக iterate செய்யும். ஆனால் index தேவைப்பட்டால் அல்லது modify செய்ய வேண்டுமென்றால் traditional for loop பயன்படுத்தவும்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1337,6 +1613,26 @@
         "code": "// break\nfor (int i = 1; i &lt;= 9; i++) {\n    if (i == 5) break;\n    System.out.print(i + \" \");  // 1 2 3 4\n}\n\n// continue\nfor (int i = 1; i &lt;= 9; i++) {\n    if (i % 2 == 0) continue;\n    System.out.print(i + \" \");  // 1 3 5 7 9\n}"
       },
       {
+        "type": "quiz",
+        "question": "`continue` statement என்ன செய்யும்?",
+        "options": [
+          {
+            "text": "Loop-ஐ முழுவதும் நிறுத்தும்"
+          },
+          {
+            "text": "Program-ஐ exit செய்யும்"
+          },
+          {
+            "text": "Current iteration-ஐ skip செய்து அடுத்ததற்கு போகும்"
+          },
+          {
+            "text": "Loop-ஐ restart செய்யும்"
+          }
+        ],
+        "answer": 2,
+        "explanation": "`continue` current iteration-ஐ skip செய்யும் — loop முடியாது. `break` loop-ஐயே exit செய்யும். Example: even numbers மட்டும் print செய்ய odd numbers-ஐ `continue` செய்யலாம்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1349,7 +1645,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Arrays என்னன்னு தெரியுமா?"
+        "text": "Java Arrays: ஓர் அறிமுகம்"
       },
       {
         "type": "paragraph",
@@ -1396,6 +1692,26 @@
         "code": "int[] nums = {10, 20, 30, 40, 50};\nSystem.out.println(nums.length);      // 5\nSystem.out.println(nums[2]);          // 30\nnums[2] = 99;\n\nfor (int n : nums) System.out.print(n + \" \");  // 10 20 99 40 50\n\njava.util.Arrays.sort(nums);\nSystem.out.println(java.util.Arrays.toString(nums));  // [10, 20, 40, 50, 99]\n\nint[][] grid = {{1,2,3},{4,5,6},{7,8,9}};\nSystem.out.println(grid[1][2]);  // 6"
       },
       {
+        "type": "quiz",
+        "question": "Java-வில் array-ன் default value என்ன (int array-க்கு)?",
+        "options": [
+          {
+            "text": "null"
+          },
+          {
+            "text": "0"
+          },
+          {
+            "text": "undefined"
+          },
+          {
+            "text": "-1"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Java-வில் int array declare செய்தால் எல்லா elements-உம் automatically `0`-ஆக initialize ஆகும். boolean arrays `false`, object arrays `null`-ஆக initialize ஆகும்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1408,7 +1724,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Methods என்னன்னு தெரியுமா?"
+        "text": "Methods-ஐ எப்படி பயன்படுத்துவது?"
       },
       {
         "type": "paragraph",
@@ -1449,6 +1765,26 @@
         "type": "code",
         "language": "java",
         "code": "static int multiply(int a, int b) {\n    return a * b;\n}\n\nstatic void greet(String name) {\n    System.out.println(\"Hello, \" + name + \"!\");\n}\n\nSystem.out.println(multiply(4, 7));  // 28\ngreet(\"Alice\");                       // Hello, Alice!\n\n// Overloading\nstatic double multiply(double a, double b) { return a * b; }\nSystem.out.println(multiply(2.5, 4.0));  // 10.0"
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் method overriding-க்கும் method overloading-க்கும் என்ன வித்தியாசம்?",
+        "options": [
+          {
+            "text": "வித்தியாசமே இல்லை"
+          },
+          {
+            "text": "Overloading — same name, different parameters. Overriding — subclass-ல் parent method-ஐ redefine செய்வது"
+          },
+          {
+            "text": "Overriding — compile time. Overloading — runtime"
+          },
+          {
+            "text": "Overloading only for constructors"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Overloading: same method name, different parameter types/count (compile-time). Overriding: subclass-ல் parent class method-ஐ new implementation-உடன் redefine செய்வது (runtime polymorphism)."
       },
       {
         "type": "image",
@@ -1497,6 +1833,26 @@
         "code": "// Pass by value\nstatic void doubleIt(int n) { n = n * 2; }\nint x = 5;\ndoubleIt(x);\nSystem.out.println(x);  // 5 — unchanged\n\nstatic int square(int n) { return n * n; }\nSystem.out.println(square(7));  // 49\n\nstatic int sum(int... nums) {\n    int total = 0;\n    for (int n : nums) total += n;\n    return total;\n}\nSystem.out.println(sum(1, 2, 3, 4, 5));  // 15"
       },
       {
+        "type": "quiz",
+        "question": "Java-வில் primitive types method-க்கு எப்படி pass ஆகும்?",
+        "options": [
+          {
+            "text": "Pass by reference"
+          },
+          {
+            "text": "Pass by value"
+          },
+          {
+            "text": "Pass by pointer"
+          },
+          {
+            "text": "Pass by name"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Java எப்போதும் 'Pass by Value'. Primitive types-க்கு value's copy pass ஆகும் — original மாறாது. Objects-க்கு reference-ன் copy pass ஆகும் — object's content மாறலாம், ஆனால் reference itself மாறாது."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1513,7 +1869,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Method Overloading என்பது ஒரே பேர்ல different parameters-உடன் multiple methods வைக்கலாம்."
+        "text": "Method Overloading என்பது ஒரே பேர்ல different parameters-உடன் multiple methods வையுங்கள்க்கலாம்."
       },
       {
         "type": "paragraph",
@@ -1521,7 +1877,7 @@
       },
       {
         "type": "note",
-        "text": "<p>Method Overloading code-ஐ cleaner-ஆ வைக்கும். Same task-ஐ different inputs-உடன் handle பண்ண convenient-ஆ இருக்கும்.</p>"
+        "text": "<p>Method Overloading code-ஐ cleaner-ஆ வையுங்கள்க்கும். Same task-ஐ different inputs-உடன் handle பண்ண convenient-ஆ இருக்கும்.</p>"
       },
       {
         "type": "header",
@@ -1561,6 +1917,26 @@
           "To provide <strong>convenience versions</strong> of a method with sensible defaults",
           "Avoid overloading when the methods do fundamentally different things — use distinct names instead"
         ]
+      },
+      {
+        "type": "quiz",
+        "question": "Method overloading எப்போது possible?",
+        "options": [
+          {
+            "text": "Different return type மட்டும் இருந்தால்"
+          },
+          {
+            "text": "Different parameter list (type அல்லது count) இருந்தால்"
+          },
+          {
+            "text": "Different access modifier இருந்தால்"
+          },
+          {
+            "text": "Different method name இருந்தால்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Method overloading-க்கு parameter list வித்தியாசமாக இருக்க வேண்டும் (type அல்லது number). Return type மட்டும் வேறாக இருந்தால் compile error வரும்."
       },
       {
         "type": "image",
@@ -1662,6 +2038,26 @@
         ]
       },
       {
+        "type": "quiz",
+        "question": "Java-வில் local variable-ஐ எங்கிருந்து access செய்யலாம்?",
+        "options": [
+          {
+            "text": "Class-ல் எங்கும்"
+          },
+          {
+            "text": "Program-ல் எங்கும்"
+          },
+          {
+            "text": "Declare செய்த block/method-க்குள் மட்டும்"
+          },
+          {
+            "text": "அதே package-ல் எங்கும்"
+          }
+        ],
+        "answer": 2,
+        "explanation": "Local variables declared inside a method or block are only accessible within that block. Method ends → variable destroyed. இதை 'block scope' என்பார்கள்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1674,7 +2070,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Recursion என்னன்னு தெரியுமா?"
+        "text": "Recursion: Function தன்னை தானே அழைக்கும்"
       },
       {
         "type": "paragraph",
@@ -1727,6 +2123,26 @@
         "subtype": "recursion"
       },
       {
+        "type": "quiz",
+        "question": "Recursion-ல் 'base case' ஏன் அவசியம்?",
+        "options": [
+          {
+            "text": "Code faster-ஆக run ஆக"
+          },
+          {
+            "text": "Infinite recursion மற்றும் StackOverflowError-ஐ தடுக்க"
+          },
+          {
+            "text": "Memory save செய்ய"
+          },
+          {
+            "text": "Better readability-க்கு"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Base case இல்லாமல் function தன்னை infinite-ஆக call செய்யும் — StackOverflowError வரும். Base case என்பது recursion நிறுத்தும் condition."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1768,7 +2184,7 @@
         "type": "list",
         "ordered": false,
         "items": [
-          "<strong>Encapsulation</strong> — data-ஐ ஒரே unit-ல வைக்குறது",
+          "<strong>Encapsulation</strong> — data-ஐ ஒரே unit-ல வையுங்கள்க்குறது",
           "<strong>Inheritance</strong> — ஒரு class-ல இருந்து இன்னொரு class properties inherit பண்றது",
           "<strong>Polymorphism</strong> — same method different forms-ல behave பண்றது",
           "<strong>Abstraction</strong> — unnecessary details hide பண்றது"
@@ -1819,6 +2235,10 @@
         "code": "// Define a class (blueprint)\nclass Car {\n    String brand;\n    int speed;\n\n    void drive() {\n        System.out.println(brand + \" driving at \" + speed + \" km/h\");\n    }\n}\n\n// Create objects (instances)\nCar car1 = new Car();\ncar1.brand = \"Toyota\"; car1.speed = 80;\ncar1.drive();  // Toyota driving at 80 km/h\n\nCar car2 = new Car();\ncar2.brand = \"BMW\"; car2.speed = 120;\ncar2.drive();  // BMW driving at 120 km/h"
       },
       {
+        "type": "pro-tip",
+        "text": "<strong>Composition > Inheritance:</strong> OOP-ல் ஒரு golden rule: <em>\"Favour composition over inheritance\"</em>. ஒரு class-ஐ extend செய்வதை விட, அந்த class-ஐ member variable-ஆக வைத்து பயன்படுத்துவது flexible-ஆக இருக்கும். Spring Boot, Angular போன்ற modern frameworks இந்த principle-ஐ heavily follow செய்கின்றன."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -1861,12 +2281,36 @@
       },
       {
         "type": "note",
-        "text": "<p>ஒரு class-ல இருந்து எத்தனை objects வேணும்னாலும் create பண்ணலாம். ஒவ்வொரு object-உம் அதன் சொந்த attributes values வைக்கலாம்.</p>"
+        "text": "<p>ஒரு class-ல இருந்து எத்தனை objects வேணும்னாலும் create பண்ணலாம். ஒவ்வொரு object-உம் அதன் சொந்த attributes values வையுங்கள்க்கலாம்.</p>"
       },
       {
         "type": "code",
         "language": "java",
         "code": "class Dog {\n    String breed;\n    int age;\n\n    void bark() {\n        System.out.println(breed + \" says: Woof!\");\n    }\n}\n\nDog d = new Dog();\nd.breed = \"Labrador\";\nd.age = 3;\nSystem.out.println(d.breed + \", age \" + d.age);  // Labrador, age 3\nd.bark();   // Labrador says: Woof!"
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் object create செய்ய எந்த keyword பயன்படுத்துவோம்?",
+        "options": [
+          {
+            "text": "create"
+          },
+          {
+            "text": "object"
+          },
+          {
+            "text": "new"
+          },
+          {
+            "text": "make"
+          }
+        ],
+        "answer": 2,
+        "explanation": "`new` keyword heap memory-ல் object create செய்து constructor-ஐ call செய்யும். Example: `Car myCar = new Car();` — Java 16+ Records-ல் data classes-க்கு boilerplate குறைக்கலாம்."
+      },
+      {
+        "type": "note",
+        "text": "<strong>Java Records (Java 16+):</strong> Data-only classes-க்கு boilerplate குறைக்க Java 16 Records வந்தது. <code>record Point(int x, int y) {}</code> — ஒரே line-ல் constructor, getters, equals(), hashCode(), toString() எல்லாம் automatic-ஆக கிடைக்கும். DTOs மற்றும் value objects-க்கு மிக ideal."
       },
       {
         "type": "image",
@@ -1907,7 +2351,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Attribute மாறவே கூடாதுன்னா <code class=\"w3-codespan\">final</code> use பண்ணு:"
+        "text": "Attribute மாறவே கூடாதுன்னா <code class=\"w3-codespan\">final</code> பயன்படுத்தலாம்:"
       },
       {
         "type": "header",
@@ -1918,6 +2362,26 @@
         "type": "code",
         "language": "java",
         "code": "class Circle {\n    final double PI = 3.14159;  // constant\n    double radius;\n\n    double area() { return PI * radius * radius; }\n}\n\nCircle c = new Circle();\nc.radius = 5;\nSystem.out.println(c.area());  // 78.53975\n// c.PI = 3.0;  // ERROR: cannot assign to final variable"
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் `static` variable என்றால் என்ன?",
+        "options": [
+          {
+            "text": "ஒரு object-க்கு மட்டும் சொந்தமானது"
+          },
+          {
+            "text": "Class-க்கே சொந்தமானது — எல்லா objects-உம் share செய்யும்"
+          },
+          {
+            "text": "Constant variable"
+          },
+          {
+            "text": "Private variable"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`static` variables class-level-ல் இருக்கும் — எல்லா instances-உம் ஒரே value share செய்யும். Example: `Student.count` — எத்தனை students create ஆனார்கள் என்று track செய்ய."
       },
       {
         "type": "image",
@@ -1983,6 +2447,26 @@
         ]
       },
       {
+        "type": "quiz",
+        "question": "`static` method-ஐ எப்படி call செய்வோம்?",
+        "options": [
+          {
+            "text": "Object create செய்து call செய்வோம்"
+          },
+          {
+            "text": "ClassName.methodName() என்று directly call செய்வோம்"
+          },
+          {
+            "text": "super.methodName() என்று call செய்வோம்"
+          },
+          {
+            "text": "this.methodName() என்று call செய்வோம்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`static` methods class-க்கே சொந்தம். Object create செய்யாமல் `Math.sqrt()`, `Arrays.sort()` போல் ClassName.method() என்று call செய்யலாம்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -2012,7 +2496,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Constructor-க்கு parameters குடுக்கலாம் — object create பண்ணும்போது values pass பண்ணோம்:"
+        "text": "Constructor-க்கு parameters குடுக்கலாம் — object create செய்யவும்ம்போது values pass பண்ணோம்:"
       },
       {
         "type": "note",
@@ -2022,6 +2506,26 @@
         "type": "code",
         "language": "java",
         "code": "class Person {\n    String name;\n    int age;\n\n    Person(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    void greet() {\n        System.out.println(\"Hi, I'm \" + name + \", age \" + age);\n    }\n}\n\nPerson p1 = new Person(\"Alice\", 25);\nPerson p2 = new Person(\"Bob\", 30);\np1.greet();  // Hi, I'm Alice, age 25\np2.greet();  // Hi, I'm Bob, age 30"
+      },
+      {
+        "type": "quiz",
+        "question": "Default constructor என்றால் என்ன?",
+        "options": [
+          {
+            "text": "Empty method"
+          },
+          {
+            "text": "Programmer எழுதாவிட்டால் Java automatically provide செய்யும் no-argument constructor"
+          },
+          {
+            "text": "Static method"
+          },
+          {
+            "text": "Private constructor"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Constructor எழுதாவிட்டால் Java automatically no-argument default constructor தரும். ஆனால் parameterized constructor ஒன்று எழுதினால், default constructor automatically கிடைக்காது — explicitly எழுத வேண்டும்."
       },
       {
         "type": "image",
@@ -2141,6 +2645,26 @@
         "code": "// static — shared by all instances\nclass Counter {\n    static int count = 0;\n    Counter() { count++; }\n}\n\n// final — cannot change\nfinal double PI = 3.14159;\n// PI = 3.0;  // ERROR\n\n// abstract — must override\nabstract class Shape {\n    abstract double area();\n}\nclass Square extends Shape {\n    double side;\n    double area() { return side * side; }\n}"
       },
       {
+        "type": "quiz",
+        "question": "`private` access modifier என்ன செய்யும்?",
+        "options": [
+          {
+            "text": "எல்லா classes-லும் access கொடுக்கும்"
+          },
+          {
+            "text": "Same package-ல் மட்டும் access கொடுக்கும்"
+          },
+          {
+            "text": "அந்த class-க்குள் மட்டும் access கொடுக்கும்"
+          },
+          {
+            "text": "Subclasses-க்கு access கொடுக்கும்"
+          }
+        ],
+        "answer": 2,
+        "explanation": "`private` — most restrictive. அந்த class-க்குள் மட்டுமே access. Encapsulation implement செய்ய இதை use செய்வோம். Getter/setter methods மூலம் controlled access கொடுக்கலாம்."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -2153,7 +2677,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Encapsulation என்னன்னு தெரியுமா?"
+        "text": "Encapsulation: Data-ஐ பாதுகாப்போம்"
       },
       {
         "type": "paragraph",
@@ -2164,8 +2688,8 @@
         "ordered": false,
         "items": [
           "Class attributes-ஐ <code class=\"w3-codespan\">private</code>-ஆ declare பண்ணு",
-          "Attributes-ஐ access பண்றதுக்கு <code class=\"w3-codespan\">get</code> methods (getters) use பண்ணு",
-          "Attributes-ஐ update பண்றதுக்கு <code class=\"w3-codespan\">set</code> methods (setters) use பண்ணு"
+          "Attributes-ஐ access பண்றதுக்கு <code class=\"w3-codespan\">get</code> methods (getters) பயன்படுத்தலாம்",
+          "Attributes-ஐ update பண்றதுக்கு <code class=\"w3-codespan\">set</code> methods (setters) பயன்படுத்தலாம்"
         ]
       },
       {
@@ -2178,7 +2702,7 @@
         "ordered": false,
         "items": [
           "Class attributes-ஐ better control பண்ணலாம்",
-          "Attributes read-only அல்லது write-only-ஆ வைக்கலாம்",
+          "Attributes read-only அல்லது write-only-ஆ வையுங்கள்க்கலாம்",
           "Flexible — code change பண்றது easy",
           "Data security — invalid data assign ஆகாம தடுக்கலாம்"
         ]
@@ -2191,6 +2715,26 @@
         "type": "code",
         "language": "java",
         "code": "class BankAccount {\n    private double balance;  // private — direct access blocked\n\n    BankAccount(double initial) { this.balance = initial; }\n\n    public double getBalance()          { return balance; }\n    public void deposit(double amount)  { if (amount &gt; 0) balance += amount; }\n    public void withdraw(double amount) { if (amount &lt;= balance) balance -= amount; }\n}\n\nBankAccount acc = new BankAccount(1000);\nacc.deposit(500);\nacc.withdraw(200);\nSystem.out.println(acc.getBalance());  // 1300.0"
+      },
+      {
+        "type": "quiz",
+        "question": "Encapsulation-ன் main benefit என்ன?",
+        "options": [
+          {
+            "text": "Code faster-ஆக run ஆகும்"
+          },
+          {
+            "text": "Data hiding — internal state-ஐ outside access-ல் இருந்து protect செய்யும்"
+          },
+          {
+            "text": "Code reuse-ஐ enable செய்யும்"
+          },
+          {
+            "text": "Multiple inheritance-ஐ allow செய்யும்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Encapsulation data-ஐ `private`-ஆக வைத்து, controlled access-க்கு `public` getters/setters தரும். Object-ன் internal state-ஐ protect செய்வது — bugs குறையும், maintainability கூடும்."
       },
       {
         "type": "image",
@@ -2213,7 +2757,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Java இரண்டு வகை packages வைக்கும்:"
+        "text": "Java இரண்டு வகை packages வையுங்கள்க்கும்:"
       },
       {
         "type": "list",
@@ -2283,6 +2827,26 @@
         "code": "// Step 1: Declare the package at TOP of file\npackage com.myapp.utils;\n\n// Step 2: Define your class\npublic class StringHelper {\n    public static String shout(String s) {\n        return s.toUpperCase() + \"!\";\n    }\n}\n\n// Step 3: Use it elsewhere\nimport com.myapp.utils.StringHelper;\nSystem.out.println(StringHelper.shout(\"hello\"));  // HELLO!"
       },
       {
+        "type": "quiz",
+        "question": "Java-வில் package ஏன் பயன்படுத்துவோம்?",
+        "options": [
+          {
+            "text": "Program fast-ஆக run ஆக"
+          },
+          {
+            "text": "Related classes-ஐ organize செய்ய மற்றும் name conflicts avoid செய்ய"
+          },
+          {
+            "text": "Memory save செய்ய"
+          },
+          {
+            "text": "Loops faster-ஆக run ஆக"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Packages related classes-ஐ organize செய்யும், name conflicts avoid செய்யும். `com.company.project.service` போன்ற naming convention follow செய்வது professional Java development-ன் standard."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -2332,6 +2896,26 @@
         "code": "class Animal {\n    String name;\n    void eat() { System.out.println(name + \" eats.\"); }\n}\n\nclass Dog extends Animal {\n    @Override\n    void eat()  { System.out.println(name + \" eats dog food.\"); }\n    void bark() { System.out.println(name + \" says: Woof!\"); }\n}\n\nDog d = new Dog();\nd.name = \"Rex\";\nd.eat();   // Rex eats dog food.\nd.bark();  // Rex says: Woof!"
       },
       {
+        "type": "quiz",
+        "question": "Java-வில் multiple inheritance (multiple classes-ஐ extend செய்வது) possible-ஆ?",
+        "options": [
+          {
+            "text": "ஆம், extends keyword-உடன்"
+          },
+          {
+            "text": "இல்லை, Java classes-க்கு multiple inheritance support செய்யாது"
+          },
+          {
+            "text": "Only for abstract classes"
+          },
+          {
+            "text": "Only with static methods"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Java classes-க்கு multiple inheritance இல்லை — diamond problem avoid செய்ய. ஆனால் multiple interfaces implement செய்யலாம்! `class Dog extends Animal implements Runnable, Serializable`"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -2344,7 +2928,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Polymorphism என்னன்னு தெரியுமா?"
+        "text": "Polymorphism: ஒரு interface, பல வடிவங்கள்"
       },
       {
         "type": "paragraph",
@@ -2356,7 +2940,7 @@
       },
       {
         "type": "note",
-        "text": "<p>Polymorphism code-ஐ flexible மற்றும் extensible-ஆ வைக்கும். Inheritance-உடன் சேர்ந்து use பண்ணும்போது மிகவும் powerful.</p>"
+        "text": "<p>Polymorphism code-ஐ flexible மற்றும் extensible-ஆ வையுங்கள்க்கும். Inheritance-உடன் சேர்ந்து பயன்படுத்தலாம்ம்போது மிகவும் powerful.</p>"
       },
       {
         "type": "header",
@@ -2390,6 +2974,26 @@
             "<code>a.sound()</code> dispatches to <code>Dog</code> or <code>Cat</code>"
           ]
         ]
+      },
+      {
+        "type": "quiz",
+        "question": "Runtime polymorphism எப்படி achieve செய்வோம்?",
+        "options": [
+          {
+            "text": "Method overloading மூலம்"
+          },
+          {
+            "text": "Method overriding மற்றும் parent reference மூலம்"
+          },
+          {
+            "text": "Static methods மூலம்"
+          },
+          {
+            "text": "Final methods மூலம்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Parent class reference-ல் child object வைத்து, overridden method call செய்தால் child-ன் version run ஆகும் — இதுவே runtime polymorphism. `Animal a = new Dog(); a.sound();` — Dog-ன் sound() run ஆகும்."
       },
       {
         "type": "image",
@@ -2438,6 +3042,26 @@
         "code": "class OuterClass {\n    int x = 10;\n\n    class InnerClass {\n        void show() {\n            System.out.println(\"Outer x = \" + x);\n        }\n    }\n\n    static class StaticInner {\n        void greet() {\n            System.out.println(\"Hello from static inner!\");\n        }\n    }\n}\n\nOuterClass outer = new OuterClass();\nOuterClass.InnerClass inner = outer.new InnerClass();\ninner.show();   // Outer x = 10\n\nOuterClass.StaticInner si = new OuterClass.StaticInner();\nsi.greet();     // Hello from static inner!"
       },
       {
+        "type": "quiz",
+        "question": "Anonymous inner class எப்போது பயன்படுத்துவோம்?",
+        "options": [
+          {
+            "text": "Large complex classes-க்கு"
+          },
+          {
+            "text": "ஒரு interface/abstract class-ஐ ஒரே இடத்தில் use செய்ய, தனியே class எழுதாமல்"
+          },
+          {
+            "text": "Static methods-க்கு"
+          },
+          {
+            "text": "Multiple inheritance-க்கு"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Anonymous inner class ஒரே இடத்தில் use ஆகும் போது தனியே class எழுதாமல் inline-ல் define செய்யும். Java 8+ Lambda expressions இதை மேலும் simple-ஆக்கின."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -2450,7 +3074,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Abstraction என்னன்னு தெரியுமா?"
+        "text": "Abstraction: Implementation-ஐ மறைப்போம்"
       },
       {
         "type": "paragraph",
@@ -2483,6 +3107,26 @@
         "code": "abstract class Shape {\n    String color;\n    abstract double area();  // no body\n\n    void describe() {\n        System.out.println(color + \" shape, area = \" + area());\n    }\n}\n\nclass Circle extends Shape {\n    double r;\n    Circle(String c, double r) { this.color = c; this.r = r; }\n    double area() { return 3.14159 * r * r; }\n}\n\nnew Circle(\"red\", 5).describe();  // red shape, area = 78.53975"
       },
       {
+        "type": "quiz",
+        "question": "Abstract class-ஐ directly instantiate செய்ய முடியுமா?",
+        "options": [
+          {
+            "text": "ஆம், new keyword-உடன்"
+          },
+          {
+            "text": "இல்லை — subclass மூலம் மட்டுமே use செய்யலாம்"
+          },
+          {
+            "text": "Only if it has a constructor"
+          },
+          {
+            "text": "Only for static methods"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Abstract class-ஐ `new AbstractClass()` என்று create செய்ய முடியாது. Concrete subclass மூலம் மட்டுமே instantiate செய்யலாம். Interview-ல் இது மிக அடிக்கடி கேட்கப்படும் question!"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -2495,7 +3139,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Interface என்னன்னு தெரியுமா?"
+        "text": "Java Interface: OOP-ன் ஒப்பந்தம்"
       },
       {
         "type": "paragraph",
@@ -2526,6 +3170,10 @@
         "type": "code",
         "language": "java",
         "code": "interface Drawable {\n    void draw();\n    default String type() { return \"2D\"; }\n}\n\ninterface Resizable {\n    void resize(int factor);\n}\n\nclass Square implements Drawable, Resizable {\n    int side;\n    Square(int s) { this.side = s; }\n    public void draw()        { System.out.println(\"Square \" + side + \"x\" + side); }\n    public void resize(int f) { side *= f; }\n}\n\nSquare sq = new Square(4);\nsq.draw();    // Square 4x4\nsq.resize(3);\nsq.draw();    // Square 12x12"
+      },
+      {
+        "type": "pro-tip",
+        "text": "<strong>Interfaces — Microservices-ன் அடிப்படை:</strong> Real-world Java development-ல், குறிப்பாக Spring Boot microservices-ல், Interfaces மிகவும் critical. Service layer-ல் <code>UserService</code> interface define பண்ணி, <code>UserServiceImpl</code>-ல் implement செய்வது — testing, mocking, மற்றும் multiple implementations-க்கு மிகவும் உதவியாக இருக்கும்."
       },
       {
         "type": "image",
@@ -2561,7 +3209,7 @@
       },
       {
         "type": "note",
-        "text": "<p>Enum constants-ஐ uppercase-ல எழுதுவது convention — இதுவே best practice.</p>"
+        "text": "<p>Enum constants-ஐ uppercase-ல எழுதுங்கள்வது convention — இதுவே best practice.</p>"
       },
       {
         "type": "playground",
@@ -2571,6 +3219,26 @@
         "type": "code",
         "language": "java",
         "code": "enum Day { MON, TUE, WED, THU, FRI, SAT, SUN }\n\nDay today = Day.WED;\nSystem.out.println(today);           // WED\nSystem.out.println(today.name());    // WED\nSystem.out.println(today.ordinal()); // 2\n\nswitch (today) {\n    case SAT: case SUN:\n        System.out.println(\"Weekend!\"); break;\n    default:\n        System.out.println(\"Weekday\");\n}\n\nfor (Day d : Day.values()) {\n    System.out.print(d + \" \");\n}\n// MON TUE WED THU FRI SAT SUN"
+      },
+      {
+        "type": "quiz",
+        "question": "Java Enum-ன் முக்கிய advantage என்ன?",
+        "options": [
+          {
+            "text": "Memory குறைவாக use செய்யும்"
+          },
+          {
+            "text": "Type-safe constants — invalid values compile time-லேயே catch ஆகும்"
+          },
+          {
+            "text": "Faster execution"
+          },
+          {
+            "text": "Multiple inheritance support"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Enum type-safe constants தரும். `DayOfWeek day = DayOfWeek.MONDAY;` — `\"MONDAYY\"` போன்ற typos compile time-லேயே error காட்டும். String constants use செய்வதை விட மிகவும் safe."
       },
       {
         "type": "image",
@@ -2648,6 +3316,26 @@
         "type": "code",
         "language": "java",
         "code": "import java.util.Scanner;\n\nScanner sc = new Scanner(System.in);\n\nSystem.out.print(\"Enter your name: \");\nString name = sc.nextLine();\n\nSystem.out.print(\"Enter your age: \");\nint age = sc.nextInt();\n\nSystem.out.println(\"Hi \" + name + \"! Age: \" + age);\nsc.close();"
+      },
+      {
+        "type": "quiz",
+        "question": "`Scanner` class-ஐ use முடிந்ததும் என்ன செய்ய வேண்டும்?",
+        "options": [
+          {
+            "text": "எதுவும் செய்ய வேண்டாம்"
+          },
+          {
+            "text": "scanner.close() call செய்ய வேண்டும்"
+          },
+          {
+            "text": "System.exit() call செய்ய வேண்டும்"
+          },
+          {
+            "text": "scanner.reset() call செய்ய வேண்டும்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`scanner.close()` அல்லது try-with-resources பயன்படுத்துவது best practice. Resource leak avoid செய்யும். `try (Scanner sc = new Scanner(System.in)) { ... }` — automatically close ஆகும்."
       },
       {
         "type": "image",
@@ -2749,6 +3437,26 @@
         "type": "code",
         "language": "java",
         "code": "LocalDateTime now = LocalDateTime.now();\nDateTimeFormatter f1 = DateTimeFormatter.ofPattern(\"dd/MM/yyyy\");\nDateTimeFormatter f2 = DateTimeFormatter.ofPattern(\"EEEE, MMMM dd yyyy\");\nDateTimeFormatter f3 = DateTimeFormatter.ofPattern(\"dd-MM-yyyy HH:mm:ss\");\n\nSystem.out.println(now.format(f1));  // 14/04/2025\nSystem.out.println(now.format(f2));  // Monday, April 14 2025\nSystem.out.println(now.format(f3));  // 14-04-2025 15:30:05"
+      },
+      {
+        "type": "quiz",
+        "question": "Modern Java-வில் date/time-க்கு எந்த class prefer செய்வோம்?",
+        "options": [
+          {
+            "text": "java.util.Date"
+          },
+          {
+            "text": "java.util.Calendar"
+          },
+          {
+            "text": "java.time.LocalDate (Java 8+)"
+          },
+          {
+            "text": "java.sql.Date"
+          }
+        ],
+        "answer": 2,
+        "explanation": "`java.time` package (Java 8+) immutable, thread-safe, மற்றும் intuitive. `LocalDate`, `LocalDateTime`, `ZonedDateTime` — modern applications-ல் இதையே பயன்படுத்தவும். Old `Date` class deprecated."
       },
       {
         "type": "image",
@@ -2864,6 +3572,10 @@
         "code": "ArrayList&lt;Integer&gt; nums = new ArrayList&lt;&gt;(List.of(5, 2, 8, 1, 9));\n\nCollections.sort(nums);               // [1, 2, 5, 8, 9]\nnums.sort(Comparator.reverseOrder()); // [9, 8, 5, 2, 1]\n\n// Stream API\nList&lt;Integer&gt; evens = nums.stream()\n    .filter(n -&gt; n % 2 == 0)\n    .collect(Collectors.toList()); // [8, 2]"
       },
       {
+        "type": "pro-tip",
+        "text": "<strong>சரியான Collection-ஐ தேர்ந்தெடுங்கள்:</strong> <code>ArrayList</code> — random access (index-by-index) fast. <code>LinkedList</code> — frequent insert/delete operations fast. <code>HashMap</code> — key-value lookup O(1). <code>TreeMap</code> — sorted order வேண்டும் என்றால். Interview-ல் இந்த time complexity comparison மிக முக்கியமான question!"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -2909,6 +3621,26 @@
         "type": "code",
         "language": "java",
         "code": "LinkedList&lt;String&gt; cars = new LinkedList&lt;&gt;();\ncars.add(\"Volvo\");\ncars.add(\"BMW\");\ncars.add(\"Ford\");\n\ncars.addFirst(\"Mazda\");\ncars.addLast(\"Toyota\");\ncars.removeFirst();\ncars.removeLast();\n\nSystem.out.println(cars.getFirst()); // Volvo\nSystem.out.println(cars.getLast());  // Ford\nSystem.out.println(cars);            // [Volvo, BMW, Ford]"
+      },
+      {
+        "type": "quiz",
+        "question": "`LinkedList` எப்போது `ArrayList`-ஐ விட சிறந்தது?",
+        "options": [
+          {
+            "text": "Random access (index) operations-க்கு"
+          },
+          {
+            "text": "Frequent insertions/deletions-க்கு, குறிப்பாக list-ன் நடுவில்"
+          },
+          {
+            "text": "Memory குறைவாக use செய்ய"
+          },
+          {
+            "text": "Sorting-க்கு"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`LinkedList` middle insertions/deletions O(1) (node pointer change மட்டும்). `ArrayList` middle insert O(n) (shift required). ஆனால் random access-க்கு ArrayList O(1), LinkedList O(n)."
       },
       {
         "type": "image",
@@ -3006,6 +3738,26 @@
         "code": "HashMap&lt;String, Integer&gt; scores = new HashMap&lt;&gt;();\nscores.put(\"Alice\", 95);\nscores.put(\"Bob\", 88);\nscores.put(\"Carol\", 72);\n\n// entrySet loop\nfor (Map.Entry&lt;String, Integer&gt; e : scores.entrySet()) {\n    System.out.println(e.getKey() + \": \" + e.getValue());\n}\n\n// forEach (Java 8+)\nscores.forEach((name, score) -&gt; System.out.println(name + \": \" + score));\n\n// getOrDefault\nint val = scores.getOrDefault(\"Zara\", 0);  // 0 if not found"
       },
       {
+        "type": "quiz",
+        "question": "`HashMap` thread-safe-ஆ?",
+        "options": [
+          {
+            "text": "ஆம், always thread-safe"
+          },
+          {
+            "text": "இல்லை — multi-threaded environments-ல் ConcurrentHashMap பயன்படுத்தவும்"
+          },
+          {
+            "text": "Only with synchronized keyword"
+          },
+          {
+            "text": "Java 11-ல் இருந்து thread-safe"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`HashMap` thread-safe இல்லை. Multiple threads simultaneously modify செய்தால் data corruption வரலாம். Thread-safe alternative: `ConcurrentHashMap` அல்லது `Collections.synchronizedMap()`. Interview-ல் இது அடிக்கடி கேட்கப்படும்!"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -3054,6 +3806,26 @@
         "code": "HashSet&lt;String&gt; cars = new HashSet&lt;&gt;();\ncars.add(\"Volvo\");\ncars.add(\"BMW\");\ncars.add(\"BMW\");  // duplicate — ignored\n\nSystem.out.println(cars.size());          // 2\nSystem.out.println(cars.contains(\"BMW\")); // true\ncars.remove(\"Volvo\");\n\nfor (String c : cars) {\n    System.out.println(c);\n}"
       },
       {
+        "type": "quiz",
+        "question": "`HashSet` duplicate values-ஐ எப்படி handle செய்யும்?",
+        "options": [
+          {
+            "text": "Exception throw செய்யும்"
+          },
+          {
+            "text": "Duplicate-ஐ silently ignore செய்யும்"
+          },
+          {
+            "text": "Duplicate-ஐ replace செய்யும்"
+          },
+          {
+            "text": "Both values-ஐயும் வைத்திருக்கும்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`HashSet` duplicate add செய்தால் silently ignore செய்யும் — no exception, no error. `add()` method false return செய்யும். Uniqueness enforce செய்ய `HashSet` ideal."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -3098,6 +3870,26 @@
         "type": "code",
         "language": "java",
         "code": "ArrayList&lt;String&gt; cars = new ArrayList&lt;&gt;();\ncars.add(\"Volvo\");\ncars.add(\"BMW\");\ncars.add(\"Ford\");\n\nIterator&lt;String&gt; it = cars.iterator();\nwhile (it.hasNext()) {\n    System.out.println(it.next());\n}\n// Volvo, BMW, Ford\n\n// Safe removal\nIterator&lt;String&gt; it2 = cars.iterator();\nwhile (it2.hasNext()) {\n    if (it2.next().equals(\"BMW\")) it2.remove();\n}\nSystem.out.println(cars);  // [Volvo, Ford]"
+      },
+      {
+        "type": "quiz",
+        "question": "Iteration-ல் `ConcurrentModificationException` எப்போது வரும்?",
+        "options": [
+          {
+            "text": "Large collections iterate செய்யும்போது"
+          },
+          {
+            "text": "Iterator-ஐ use செய்து iterate செய்யும்போது collection-ஐ modify செய்தால்"
+          },
+          {
+            "text": "Empty collection iterate செய்தால்"
+          },
+          {
+            "text": "Nested loops பயன்படுத்தினால்"
+          }
+        ],
+        "answer": 1,
+        "explanation": "for-each loop-ல் iterate செய்யும்போது collection modify செய்தால் `ConcurrentModificationException` வரும். Remove செய்ய Iterator-ன் `iterator.remove()` method பயன்படுத்தவும்."
       },
       {
         "type": "image",
@@ -3178,6 +3970,26 @@
         "code": "// Autoboxing & unboxing\nint num = 42;\nInteger boxed = num;    // autoboxing\nint unboxed = boxed;    // unboxing\n\n// Useful static methods\nSystem.out.println(Integer.MAX_VALUE);         // 2147483647\nSystem.out.println(Integer.parseInt(\"123\"));   // 123\nSystem.out.println(Double.parseDouble(\"3.14\")); // 3.14\nSystem.out.println(Integer.toBinaryString(10)); // 1010\n\nString s = Integer.toString(255);\nSystem.out.println(s.length()); // 3"
       },
       {
+        "type": "quiz",
+        "question": "Autoboxing என்றால் என்ன?",
+        "options": [
+          {
+            "text": "Manual type casting"
+          },
+          {
+            "text": "Primitive type-ஐ automatically Wrapper class object-ஆக convert செய்வது"
+          },
+          {
+            "text": "Object-ஐ String-ஆக convert செய்வது"
+          },
+          {
+            "text": "Array-ஐ List-ஆக convert செய்வது"
+          }
+        ],
+        "answer": 1,
+        "explanation": "Autoboxing: Java automatically `int → Integer`, `double → Double` convert செய்யும். Unboxing: `Integer → int`. Collections primitives accept செய்யாததால் இது மிக useful — `List<Integer> list = new ArrayList<>(); list.add(5);`"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -3190,7 +4002,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Exceptions என்னன்னு தெரியுமா?"
+        "text": "Java Exceptions: பிழைகளை எப்படி கையாள்வது?"
       },
       {
         "type": "paragraph",
@@ -3280,6 +4092,10 @@
         "text": "<strong>Best practice:</strong> Catch specific exceptions (not just <code>Exception</code>), always close resources in <code>finally</code> or use <em>try-with-resources</em>, and never swallow exceptions silently."
       },
       {
+        "type": "pro-tip",
+        "text": "<strong>Broad Exception-ஐ catch செய்யாதீர்கள்:</strong> <code>catch (Exception e)</code> என்று எழுதுவது anti-pattern. இது hidden bugs-ஐ suppress செய்யும். எப்போதும் specific exceptions மட்டும் catch செய்யவும் — <code>catch (IOException e)</code>, <code>catch (NumberFormatException e)</code> போன்று. Production code review-ல் இது மிக முக்கியமான point."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -3365,6 +4181,26 @@
         ]
       },
       {
+        "type": "quiz",
+        "question": "Java-வில் regex match செய்ய எந்த method பயன்படுத்துவோம்?",
+        "options": [
+          {
+            "text": "String.match()"
+          },
+          {
+            "text": "String.matches() அல்லது Pattern.compile()"
+          },
+          {
+            "text": "String.find()"
+          },
+          {
+            "text": "String.regex()"
+          }
+        ],
+        "answer": 1,
+        "explanation": "`str.matches(regex)` whole string match செய்யும். Complex patterns-க்கு `Pattern.compile(regex)` மற்றும் `Matcher` class பயன்படுத்துவோம். Email validation, phone number validation-க்கு regex essential."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -3377,7 +4213,7 @@
       {
         "type": "header",
         "level": 2,
-        "text": "Java Threads என்னன்னு தெரியுமா?"
+        "text": "Java Threads: Concurrency அறிமுகம்"
       },
       {
         "type": "paragraph",
@@ -3461,6 +4297,10 @@
         "text": "Always call <code>start()</code>, not <code>run()</code>. Calling <code>run()</code> directly executes on the <em>current thread</em> — no new thread is created."
       },
       {
+        "type": "pro-tip",
+        "text": "<strong>Production-ல் Raw Thread avoid செய்யவும்:</strong> <code>new Thread()</code> directly create செய்வதை production code-ல் avoid செய்யவும். <code>ExecutorService</code> பயன்படுத்தவும்: <code>ExecutorService pool = Executors.newFixedThreadPool(10);</code> — இது thread reuse, error handling, மற்றும் graceful shutdown-ஐ handle செய்யும். Spring Boot-ல் <code>@Async</code> annotation இன்னும் எளிதாக்குகிறது."
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -3477,7 +4317,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Lambda expression என்பது anonymous function-ஐ concise-ஆ எழுதுவது. Java 8-ல introduce ஆச்சு."
+        "text": "Lambda expression என்பது anonymous function-ஐ concise-ஆ எழுதுங்கள்வது. Java 8-ல introduce ஆச்சு."
       },
       {
         "type": "paragraph",
@@ -3498,7 +4338,7 @@
       },
       {
         "type": "note",
-        "text": "<p>Lambda expressions code-ஐ shorter-ஆ, readable-ஆ வைக்கும். Functional interfaces-உடன் use பண்றோம்.</p>"
+        "text": "<p>Lambda expressions code-ஐ shorter-ஆ, readable-ஆ வையுங்கள்க்கும். Functional interfaces-உடன் use பண்றோம்.</p>"
       },
       {
         "type": "playground",
@@ -3548,6 +4388,10 @@
             "<code>ArrayList::new</code>"
           ]
         ]
+      },
+      {
+        "type": "pro-tip",
+        "text": "<strong>Lambda + Streams = Modern Java:</strong> Java 8-ல் வந்த Lambdas மற்றும் Streams API, modern Java development-ன் backbone. <code>list.stream().filter().map().collect()</code> pattern — for loops-ஐ விட readable, declarative, மற்றும் parallel execution-க்கு ready. Interview-ல் இதை fluently பேசுவது Senior Developer level-ஐ demonstrate செய்யும்."
       },
       {
         "type": "image",
@@ -3606,7 +4450,7 @@
       },
       {
         "type": "note",
-        "text": "<p>File operations-ல always IOException handle பண்றது important — try-catch use பண்ணு.</p>"
+        "text": "<p>File operations-ல always IOException handle பண்றது important — try-catch பயன்படுத்தலாம்.</p>"
       },
       {
         "type": "playground",
@@ -3646,6 +4490,26 @@
             "Simple line-by-line reading, user input"
           ]
         ]
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் file operations-க்கு modern best practice என்ன?",
+        "options": [
+          {
+            "text": "FileInputStream directly use செய்வது"
+          },
+          {
+            "text": "try-with-resources பயன்படுத்துவது — automatic resource closing"
+          },
+          {
+            "text": "finally block-ல் close செய்வது"
+          },
+          {
+            "text": "Static methods பயன்படுத்துவது"
+          }
+        ],
+        "answer": 1,
+        "explanation": "try-with-resources (`try (BufferedReader br = new BufferedReader(...)) {}`) automatically close() call செய்யும் — exception வந்தாலும். Resource leak avoid செய்வதற்கான modern Java best practice."
       },
       {
         "type": "image",
