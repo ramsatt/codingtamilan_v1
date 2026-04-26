@@ -2150,98 +2150,103 @@
     ]
   },
   "oop": {
-    "title": "Java OOP",
+    "title": "Java OOP: Object-Oriented Programming",
     "blocks": [
       {
         "type": "header",
         "level": 2,
-        "text": "Java OOP என்னன்னு தெரியுமா?"
+        "text": "Object-Oriented Programming (OOP) என்றால் என்ன?"
       },
       {
         "type": "paragraph",
-        "text": "OOP — Object-Oriented Programming. Procedural programming-ல functions-ல focus பண்றோம். OOP-ல objects-ல focus பண்றோம்."
+        "text": "Java ஒரு முழுமையான Object-Oriented Programming (OOP) language. Procedural programming-ல் functions மற்றும் logic-க்கு முக்கியத்துவம் அளிக்கப்படுகிறது. ஆனால், OOP-ல் data மற்றும் methods-ஐ உள்ளடக்கிய <strong>Objects</strong>-க்கு முக்கியத்துவம் அளிக்கப்படுகிறது."
       },
       {
         "type": "paragraph",
-        "text": "OOP advantages:"
+        "text": "Development-ல் OOP-ஐ பயன்படுத்துவதன் முக்கிய நன்மைகள்:"
       },
       {
         "type": "list",
         "ordered": false,
         "items": [
-          "Code-ஐ faster-ஆ, easier-ஆ execute பண்ணலாம்",
-          "Clear structure கிடைக்கும்",
-          "Code DRY — Don't Repeat Yourself — code reuse பண்ண easy",
-          "Debug பண்றதும் maintain பண்றதும் easy"
+          "Code-ஐ விரைவாகவும் எளிதாகவும் execute செய்ய முடியும்.",
+          "பெரிய Projects-க்கு மிகவும் தெளிவான structure கிடைக்கிறது.",
+          "<strong>DRY (Don't Repeat Yourself)</strong> principle-ஐ பின்பற்றி, code-ஐ எளிதாக reuse செய்யலாம்.",
+          "Complex applications-ஐ maintain மற்றும் debug செய்வது மிகவும் சுலபம்."
         ]
       },
       {
         "type": "header",
         "level": 2,
-        "text": "OOP-ஓட 4 Principles"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          "<strong>Encapsulation</strong> — data-ஐ ஒரே unit-ல வையுங்கள்க்குறது",
-          "<strong>Inheritance</strong> — ஒரு class-ல இருந்து இன்னொரு class properties inherit பண்றது",
-          "<strong>Polymorphism</strong> — same method different forms-ல behave பண்றது",
-          "<strong>Abstraction</strong> — unnecessary details hide பண்றது"
-        ]
-      },
-      {
-        "type": "header",
-        "level": 2,
-        "text": "The 4 Pillars of OOP"
+        "text": "OOP-இன் 4 முக்கிய தூண்கள் (The 4 Pillars of OOP)"
       },
       {
         "type": "table",
         "headers": [
-          "Pillar",
-          "What it means",
-          "Java feature"
+          "Pillar (தூண்)",
+          "விளக்கம்",
+          "Java-வில் பயன்பாடு"
         ],
         "rows": [
           [
             "<strong>Encapsulation</strong>",
-            "Bundle data + methods; hide internal details",
-            "<code>private</code> fields + <code>public</code> getters/setters"
+            "Data மற்றும் methods-ஐ ஒரே unit-ஆக பாதுகாப்பது; sensitive data-ஐ மறைப்பது.",
+            "<code>private</code> fields மற்றும் <code>public</code> getters/setters"
           ],
           [
             "<strong>Inheritance</strong>",
-            "A child class reuses and extends a parent class",
+            "ஒரு Parent class-இன் பண்புகளை Child class பெற்றுக்கொள்வது (Code Reusability).",
             "<code>extends</code> keyword"
           ],
           [
             "<strong>Polymorphism</strong>",
-            "Same method name behaves differently per object",
-            "Method overriding (<code>@Override</code>)"
+            "ஒரே method வெவ்வேறு Objects-ல் பல வடிவங்களில் செயல்படுவது.",
+            "Method overriding (<code>@Override</code>) மற்றும் Overloading"
           ],
           [
             "<strong>Abstraction</strong>",
-            "Expose only what the caller needs; hide complexity",
-            "Abstract classes &amp; interfaces"
+            "தேவையான தகவல்களை மட்டும் வெளிப்படுத்தி, பின்னணி வேலைகளை மறைப்பது.",
+            "Abstract classes மற்றும் Interfaces"
           ]
         ]
       },
       {
         "type": "note",
-        "text": "<strong>Real-world analogy:</strong> A smartphone is a perfect OOP example — it <em>encapsulates</em> hardware, <em>inherits</em> common phone behaviour, supports <em>polymorphic</em> apps, and <em>abstracts</em> away battery management from the user."
+        "text": "<strong>Real-world Analogy:</strong> உங்களின் Smartphone ஒரு சிறந்த OOP உதாரணம்! அது வன்பொருளை <em>encapsulate</em> செய்கிறது, பொதுவான தொலைபேசி பண்புகளை <em>inherit</em> செய்கிறது, பலவகைப்பட்ட <em>polymorphic</em> apps-ஐ ஆதரிக்கிறது, மற்றும் பேட்டரி மேலாண்மை போன்ற சிக்கலான தொழில்நுட்பங்களை பயனர்களிடமிருந்து <em>abstract</em> செய்கிறது."
+      },
+      {
+        "type": "pro-tip",
+        "text": "Spring Boot மற்றும் Microservices போன்ற நவீன Enterprise Frameworks முழுமையாக இந்த 4 OOP principles-ஐ அடிப்படையாகக் கொண்டே செயல்படுகின்றன. எனவே OOP-ல் வலுவான அடித்தளம் அமைப்பது ஒரு <strong>Senior Full-Stack Developer</strong>-ஆக மாறுவதற்கு மிகவும் அவசியமாகும்."
       },
       {
         "type": "code",
         "language": "java",
-        "code": "// Define a class (blueprint)\nclass Car {\n    String brand;\n    int speed;\n\n    void drive() {\n        System.out.println(brand + \" driving at \" + speed + \" km/h\");\n    }\n}\n\n// Create objects (instances)\nCar car1 = new Car();\ncar1.brand = \"Toyota\"; car1.speed = 80;\ncar1.drive();  // Toyota driving at 80 km/h\n\nCar car2 = new Car();\ncar2.brand = \"BMW\"; car2.speed = 120;\ncar2.drive();  // BMW driving at 120 km/h"
+        "code": "// Define a class (Blueprint)\nclass Car {\n    String brand;\n    int speed;\n\n    void drive() {\n        System.out.println(brand + \" driving at \" + speed + \" km/h\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // Create objects (Instances)\n        Car car1 = new Car();\n        car1.brand = \"Toyota\";\n        car1.speed = 80;\n        car1.drive();  // Output: Toyota driving at 80 km/h\n\n        Car car2 = new Car();\n        car2.brand = \"BMW\";\n        car2.speed = 120;\n        car2.drive();  // Output: BMW driving at 120 km/h\n    }\n}"
       },
       {
-        "type": "pro-tip",
-        "text": "<strong>Composition > Inheritance:</strong> OOP-ல் ஒரு golden rule: <em>\"Favour composition over inheritance\"</em>. ஒரு class-ஐ extend செய்வதை விட, அந்த class-ஐ member variable-ஆக வைத்து பயன்படுத்துவது flexible-ஆக இருக்கும். Spring Boot, Angular போன்ற modern frameworks இந்த principle-ஐ heavily follow செய்கின்றன."
+        "type": "quiz",
+        "question": "Interview Question: OOP-ல் உள்ள 'Encapsulation' கோட்பாட்டின் முக்கிய நோக்கம் என்ன?",
+        "options": [
+          {
+            "text": "ஒரே பெயரில் பல methods-ஐ உருவாக்குவது"
+          },
+          {
+            "text": "Child class-ஐ Parent class-ல் இருந்து பிரிப்பது"
+          },
+          {
+            "text": "Sensitive data-ஐ பாதுகாத்து, direct access-ஐ தடுப்பது"
+          },
+          {
+            "text": "Code-ஐ run ஆவதற்கு முன்பே compile செய்வது"
+          }
+        ],
+        "answer": 2,
+        "explanation": "சரியான விடை! Encapsulation என்பது data-ஐ பாதுகாப்பதற்கான ஒரு கவசம். `private` variables மற்றும் `public` getters/setters மூலம் data integrity-ஐ உறுதி செய்வதே இதன் முக்கிய நோக்கமாகும்."
       },
       {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
-        "alt": "Java Tutorial on YouTube"
+        "alt": "Java OOP Tutorial on YouTube - Coding Tamilan"
       }
     ]
   },
