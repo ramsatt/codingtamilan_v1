@@ -64,6 +64,10 @@ export class CourseOverview implements OnInit {
       title: 'Context Engineering',
       description: 'Master the art of building context for LLMs. Covers context windows, memory, RAG, agentic systems, and production patterns.',
     },
+    javascript: {
+      title: 'JS Bootcamp: Zero to Advanced',
+      description: 'Master JavaScript from the ground up. Covers ES6+, DOM, events, classes, async/await, Fetch API, and Web APIs across 23 hands-on lessons.',
+    },
     html: {
       title: 'HTML Complete',
       description: 'Learn HTML from the ground up. Covers elements, forms, tables, semantic HTML, media, responsive design, and more.',

@@ -42,6 +42,7 @@ export class LessonViewer implements OnInit, OnDestroy {
     'node-js': { title: 'Node.js Masterclass', icon: 'fa-brands fa-node-js' },
     react: { title: 'React Complete Guide', icon: 'fa-brands fa-react' },
     'context-engineering': { title: 'Context Engineering', icon: 'fa-solid fa-layer-group' },
+    javascript: { title: 'JS Bootcamp', icon: 'fa-brands fa-js' },
     html: { title: 'HTML Complete', icon: 'fa-brands fa-html5' },
   };
 

@@ -1,0 +1,1702 @@
+{
+  "intro": {
+    "title": "JavaScript அறிமுகம்",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript என்பது Web-ன் programming language. இது lightweight-ஆ இருக்கும், browser-லயே directly run ஆகும், functions-ஐ first-class citizens-ஆ treat பண்ணும்."
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript எதுக்கெல்லாம் use ஆகுதுன்னா:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Web pages-ஐ interactive மற்றும் dynamic-ஆ மாத்துறது",
+          "Web applications build பண்றது — front-end-லயும் Node.js-ல back-end-லயும்",
+          "Mobile apps — React Native, Ionic",
+          "Desktop applications — Electron",
+          "Game development",
+          "Server-side programming"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript ஏன் கத்துக்கணும்?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Browser-ல natively run ஆகுற ஒரே language இதுதான்",
+          "உலகத்துல மிகவும் popular-ஆன languages-ல ஒண்ணு",
+          "Job market-ல demand மிகவும் அதிகமா இருக்கு",
+          "Versatile — frontend, backend, mobile, desktop எல்லாத்துலயும் use ஆகும்",
+          "npm-ல 1M+ packages இருக்கு — huge ecosystem",
+          "Active community, ஒவ்வொரு வருஷமும் புதுசா evolve ஆகுது"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript எப்படி வேலை செய்யுது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript browser-ன் JavaScript engine-ல (Chrome-ல V8, Firefox-ல SpiderMonkey) directly run ஆகும். Compile பண்ண தேவையில்ல — code எழுதினதும் browser run பண்ணிடும்."
+      },
+      {
+        "type": "table",
+        "headers": ["Engine", "Browser / Platform", "Notes"],
+        "rows": [
+          ["V8", "Chrome, Edge, Node.js", "மிக fast engine, Node.js-ஐ power பண்றது"],
+          ["SpiderMonkey", "Firefox", "முதல் JavaScript engine"],
+          ["JavaScriptCore", "Safari", "Nitro என்றும் சொல்வாங்க"],
+          ["Chakra", "Legacy Edge", "Modern Edge-ல V8-ஆல replace ஆச்சு"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "உன்னோட முதல் JavaScript Program"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Browser console-ல output பாக்க\nconsole.log(\"Hello, World!\");\n\n// Popup காட்ட\nalert(\"Welcome to JavaScript!\");\n\n// Page-ல எழுத\ndocument.write(\"<h1>Hello from JS!</h1>\");"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Tip:</strong> Browser-ல <strong>F12</strong> press பண்ணி Console tab-ல போ — அங்க JavaScript directly try பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript எங்க எழுதணும்?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ஐ HTML-ல மூணு விதமா add பண்ணலாம்:"
+      },
+      {
+        "type": "code",
+        "language": "html",
+        "code": "<!-- 1. Inline -->\n<button onclick=\"alert('Clicked!')\">Click Me</button>\n\n<!-- 2. Internal -->\n<script>\n  console.log(\"Internal script\");\n</script>\n\n<!-- 3. External (best practice) -->\n<script src=\"script.js\"></script>"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Best Practice:</strong> External scripts use பண்றது நல்லது. <code>&lt;script&gt;</code> tag-ஐ <code>&lt;/body&gt;</code>-க்கு முன்னாடி வை — page fast load ஆகும்."
+      }
+    ]
+  },
+  "get-started": {
+    "title": "JavaScript தொடங்குவோம்",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript எப்படி Run பண்றது?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript எங்கயும் run ஆகும் — browser-ல, Node.js-ல server-ல, desktop apps-லயும் கூட. Start பண்ண எந்த installation-உம் தேவையில்ல."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "1. Browser Console"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript try பண்ண fastest way — browser-ல built-in console."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "எந்த browser-உம் open பண்ணு (Chrome, Firefox, Edge)",
+          "<strong>F12</strong> press பண்ணு (அல்லது right-click → Inspect)",
+          "<strong>Console</strong> tab-ல click பண்ணு",
+          "JavaScript type பண்ணி Enter press பண்ணு"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "DevTools Console",
+        "code": "> console.log(\"Hello, World!\");\nHello, World!\n< undefined\n\n> 2 + 2\n< 4\n\n> [1,2,3].map(x => x * 2)\n< [2, 4, 6]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "2. HTML-ல JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "எந்த HTML page-லயும் <code>&lt;script&gt;</code> tag மூலம் JavaScript add பண்ணலாம்."
+      },
+      {
+        "type": "code",
+        "language": "html",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>My Page</title>\n</head>\n<body>\n  <h1 id=\"title\">Hello</h1>\n\n  <!-- Script-ஐ </body>-க்கு முன்னாடி வை -->\n  <script src=\"script.js\"></script>\n</body>\n</html>"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// script.js\ndocument.getElementById(\"title\").textContent = \"Hello from JavaScript!\";"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "3. Node.js (Server-side)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Node.js-ஐ use பண்ணா JavaScript-ஐ browser இல்லாம — உன்னோட computer-லயோ server-லயோ run பண்ணலாம்."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "<strong>nodejs.org</strong>-ல இருந்து Node.js download பண்ணு",
+          "<code>hello.js</code>ன்னு file create பண்ணு",
+          "Terminal-ல run பண்ணு: <code>node hello.js</code>"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Terminal",
+        "code": "$ node hello.js\nHello from Node.js!\nNode version: v21.0.0"
+      },
+      {
+        "type": "table",
+        "headers": ["Environment", "எப்படி run பண்றது", "Use case"],
+        "rows": [
+          ["Browser Console", "F12 → Console tab", "Quick experiments"],
+          ["HTML + Script tag", ".html-ஐ browser-ல open பண்ணு", "Web pages"],
+          ["Node.js", "node filename.js", "Server, scripts, CLIs"],
+          ["Online editors", "codepen.io, jsfiddle.net", "Sharing & demos"]
+        ]
+      }
+    ]
+  },
+  "syntax": {
+    "title": "JavaScript Syntax",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Syntax என்னன்னு பார்ப்போம்"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript syntax என்பது ஒரு JS program எப்படி எழுதணும், எப்படி interpret ஆகும்னு சொல்ற rules. இந்த basics தெரிஞ்சா hard-to-find bugs வராம தடுக்கலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Statements மற்றும் Semicolons"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript programs statements-ஆல ஆனது. Semicolon (;) ஒரு statement-ன் முடிவை குறிக்கும். JavaScript-ல <strong>Automatic Semicolon Insertion (ASI)</strong> இருக்கு — ஆனா அதை நம்பி விட்டா bugs வரும்."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// ஒவ்வொரு statement-உம் ; -ல முடிக்கணும்\nlet x = 5;\nlet y = 10;\nlet sum = x + y;\n\n// ASI gotcha — line-ஐ ( அல்லது [ -ல ஆரம்பிக்காதே\nconst fn = () => console.log(\"hi\")\n(function() { /* இது fn()-ஆ call ஆகிடும்! */ })()"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Case Sensitivity"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// JavaScript CASE-SENSITIVE — கவனமா இரு\nlet name = \"Alice\";\nlet Name = \"Bob\";     // முற்றிலும் வேற variable!\nlet NAME = \"Charlie\"; // இதுவும் வேற!\n\n// Keywords lowercase-ல இருக்கணும்\n// Let x = 5;  // ❌ SyntaxError\nlet x = 5;     // ✅"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Whitespace மற்றும் Indentation"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// JavaScript extra whitespace-ஐ ignore பண்ணும்\nlet x=5;       // works\nlet y = 5;     // works (இப்படி எழுதுவது readable!)\n\n// 2 அல்லது 4 spaces indentation use பண்ணு\nif (x > 0) {\n  console.log(\"positive\");\n  if (x > 10) {\n    console.log(\"large\");\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Identifiers — பெயர் வைக்குற விதிகள்"
+      },
+      {
+        "type": "table",
+        "headers": ["Convention", "எதுக்கு use பண்றோம்", "Example"],
+        "rows": [
+          ["camelCase", "Variables, functions", "userName, getTotal()"],
+          ["PascalCase", "Classes, constructors", "UserAccount, ShoppingCart"],
+          ["UPPER_SNAKE_CASE", "Constants", "MAX_SIZE, API_URL"],
+          ["_prefix", "Private (convention)", "_internalState"],
+          ["$prefix", "DOM elements, libraries", "$element, jQuery"]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<strong>Tip:</strong> Descriptive names use பண்ணு. <code>getUserById</code> என்பது <code>g</code> அல்லது <code>func1</code>-ஐ விட மிகவும் better."
+      }
+    ]
+  },
+  "output": {
+    "title": "JavaScript Output",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Output Methods"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ல output காட்ட பல வழிகள் இருக்கு — எங்க காட்டணும்னு பொறுத்து method மாறும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "console Methods (Developer Tool)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Standard log\nconsole.log(\"Hello, World!\");\nconsole.log(42, true, [1, 2, 3], { name: \"Alice\" });\n\n// Levels — DevTools-ல வேற வேற icon/color காட்டும்\nconsole.info(\"ℹ Information\");\nconsole.warn(\"⚠ Warning message\");\nconsole.error(\"❌ Error message\");\n\n// Table — objects array-க்கு super useful\nconst users = [\n  { name: \"Alice\", age: 30 },\n  { name: \"Bob\", age: 25 },\n];\nconsole.table(users);\n\n// Grouping\nconsole.group(\"User Details\");\nconsole.log(\"Name: Alice\");\nconsole.log(\"Role: Admin\");\nconsole.groupEnd();\n\n// Timing — performance check-க்கு\nconsole.time(\"loop\");\nfor (let i = 0; i < 1e6; i++) {}\nconsole.timeEnd(\"loop\"); // \"loop: 2.5ms\"\n\n// Assertion — false-ஆ இருந்தா மட்டும் log பண்ணும்\nconsole.assert(2 + 2 === 5, \"Math is broken!\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Browser Dialog Boxes"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// alert — message காட்டும் (execution block ஆகும்)\nalert(\"Hello!\");\n\n// confirm — true (OK) அல்லது false (Cancel) return பண்ணும்\nconst agreed = confirm(\"சம்மதமா?\");\nif (agreed) console.log(\"User agreed\");\n\n// prompt — user input string-ஆ return பண்ணும் (null-உம் வரலாம்)\nconst name = prompt(\"உன் பேர் என்ன?\", \"Guest\");\nconsole.log(\"Hello,\", name);"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Production-ல dialog boxes avoid பண்ணு.</strong> இவை browser-ஐ block பண்ணும், style பண்ண முடியாது, சில environments-ல disabled-ஆ இருக்கும். Custom UI use பண்றது better."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "DOM-ல எழுதுவது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// textContent — safe, plain text-ஆ treat பண்ணும்\ndocument.getElementById(\"output\").textContent = \"Hello!\";\n\n// innerHTML — HTML parse பண்ணும் (கவனமா use பண்ணு!)\ndocument.getElementById(\"output\").innerHTML = \"<strong>Bold!</strong>\";\n\n// document.write — AVOID பண்ணு\n// Page load ஆன பிறகு call பண்ணா entire document overwrite ஆகும்\ndocument.write(\"Hello\");"
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "Use case", "Notes"],
+        "rows": [
+          ["console.log()", "Development & debugging", "Best practice"],
+          ["alert()", "Simple notification", "Production-ல avoid பண்ணு"],
+          ["confirm()", "Yes/No decision", "Production-ல avoid பண்ணு"],
+          ["prompt()", "Simple user input", "Production-ல avoid பண்ணு"],
+          ["element.textContent", "Page content safely update", "HTML-ஐ escape பண்ணும்"],
+          ["element.innerHTML", "HTML insert பண்ண", "User input-ல XSS risk"],
+          ["document.write()", "Legacy — initial load மட்டும்", "Modern code-ல never use"]
+        ]
+      }
+    ]
+  },
+  "comments": {
+    "title": "JavaScript Comments",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Comments"
+      },
+      {
+        "type": "paragraph",
+        "text": "Comments என்பது JavaScript execute பண்ணாத code lines. அவை code-ஐ மத்த developers-கிட்ட explain பண்ண use ஆகும் — உன்னோட future self-கிட்டயும் கூட!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Single-Line Comments"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// இது single-line comment\nconsole.log(\"Hello\"); // line-ன் கடைசியிலயும் வரலாம்\n\n// WHAT-ஐ விட WHY-ஐ explain பண்றது நல்லது\nconst TAX_RATE = 0.08; // 8% sales tax — state law படி\n\n// Code-ஐ temporarily disable பண்ண\n// console.log(\"debug output\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multi-Line Comments"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "/*\n  இது multi-line comment.\n  பல lines span பண்ணும்.\n  நீண்ட explanations-க்கு useful.\n*/\n\n/*\n  Code block-ஐ temporarily disable பண்ண:\n  const result = oldSlowFunction();\n  process(result);\n*/"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSDoc Comments"
+      },
+      {
+        "type": "paragraph",
+        "text": "JSDoc என்பது JavaScript-க்கான documentation standard. VS Code மாதிரி IDEs இந்த comments-ஐ படிச்சு inline hints மற்றும் type information காட்டும்."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "/**\n * Tax சேர்த்து total price calculate பண்ணும்.\n * @param {number} price - Base price (dollars-ல)\n * @param {number} taxRate - Tax rate as decimal (e.g. 0.08 for 8%)\n * @returns {number} Tax சேர்த்த total price\n */\nfunction calculateTotal(price, taxRate) {\n  return price * (1 + taxRate);\n}\n\n// இப்போ VS Code hints காட்டும்:\ncalculateTotal(100, 0.08); // returns 108"
+      },
+      {
+        "type": "note",
+        "text": "<strong>நல்ல comments:</strong> Code என்ன செய்யுதுன்னு சொல்லாதே — variable/function names அதை already சொல்லும். WHY என்னன்னு சொல்லு. Code-ஐ repeat பண்ற comments noise மட்டுமே."
+      }
+    ]
+  },
+  "variables": {
+    "title": "JavaScript Variables",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Variables என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Variables என்பது data values store பண்ண இருக்குற containers. Modern JavaScript (ES6+)-ல variables declare பண்ண மூணு ways இருக்கு: <code>var</code>, <code>let</code>, <code>const</code>."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "var, let, மற்றும் const"
+      },
+      {
+        "type": "table",
+        "headers": ["Keyword", "Scope", "Reassignable", "Hoisted", "எப்போ use பண்றது"],
+        "rows": [
+          ["<code>var</code>", "Function", "Yes", "Yes (undefined)", "Avoid — legacy code மட்டும்"],
+          ["<code>let</code>", "Block", "Yes", "No (TDZ)", "மாறுற values-க்கு"],
+          ["<code>const</code>", "Block", "No", "No (TDZ)", "மாறாத values-க்கு"]
+        ]
+      },
+      {
+        "type": "playground",
+        "subtype": "syntax-anatomy",
+        "title": "Interactive Variable Breakdown",
+        "config": {
+          "tokens": [
+            { "text": "let", "type": "keyword", "explanation": "Keyword used to declare a variable that can change." },
+            { "text": " " },
+            { "text": "score", "type": "variable", "explanation": "The variable name." },
+            { "text": " " },
+            { "text": "=", "type": "operator", "explanation": "Assignment operator." },
+            { "text": " " },
+            { "text": "100", "type": "value", "explanation": "The value being assigned." },
+            { "text": ";", "type": "operator", "explanation": "Ends the statement." }
+          ]
+        }
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// var — function-scoped, modern code-ல avoid பண்ணு\nvar name = \"Alice\";\n\n// let — block-scoped, reassign பண்ணலாம்\nlet score = 100;\nscore = 200; // ✅ Allowed\n\n// const — block-scoped, reassign பண்ண முடியாது\nconst PI = 3.14159;\n// PI = 3; // ❌ TypeError: Assignment to constant variable"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Data Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript dynamically typed — variables எந்த type of data-வையும் hold பண்ணலாம், runtime-ல type மாறலாம்."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Primitive Types\nlet text = \"Hello\";           // String\nlet age = 25;                  // Number\nlet price = 19.99;             // Number\nlet isActive = true;           // Boolean\nlet nothing = null;            // Null\nlet notDefined;                // Undefined\nlet id = Symbol(\"id\");         // Symbol (ES6)\nlet bigNum = 9007199254740991n; // BigInt (ES2020)\n\n// Reference Types\nlet arr = [1, 2, 3];           // Array\nlet obj = { name: \"Bob\" };     // Object\nlet fn = () => {};             // Function\n\nconsole.log(typeof text);      // \"string\"\nconsole.log(typeof age);       // \"number\"\nconsole.log(typeof nothing);   // \"object\" (historical quirk!)"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Quirk:</strong> <code>typeof null</code> என்பது <code>\"object\"</code> return பண்ணும் — இது JavaScript-ன் பழைய bug, backward compatibility-க்காக இன்னும் இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Variable Naming Rules"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Letter, underscore (_), அல்லது dollar sign ($)-ல ஆரம்பிக்கணும்",
+          "Letters, digits, underscores, dollar signs use பண்ணலாம்",
+          "Case-sensitive — myVar-உம் myvar-உம் different",
+          "Reserved keywords use பண்ண முடியாது",
+          "camelCase convention follow பண்ணு: myVariableName"
+        ]
+      }
+    ]
+  },
+  "operators": {
+    "title": "JavaScript Operators",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Operators"
+      },
+      {
+        "type": "paragraph",
+        "text": "Operators என்பது variables மற்றும் values-ல operations perform பண்ண use ஆகுற symbols. JavaScript-ல பல types of operators இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arithmetic Operators"
+      },
+      {
+        "type": "table",
+        "headers": ["Operator", "பெயர்", "Example", "Result"],
+        "rows": [
+          ["+", "Addition", "5 + 3", "8"],
+          ["-", "Subtraction", "5 - 3", "2"],
+          ["*", "Multiplication", "5 * 3", "15"],
+          ["/", "Division", "10 / 4", "2.5"],
+          ["%", "Modulus (Remainder)", "10 % 3", "1"],
+          ["**", "Exponentiation", "2 ** 8", "256"],
+          ["++", "Increment", "x++", "x + 1"],
+          ["--", "Decrement", "x--", "x - 1"]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let a = 10, b = 3;\nconsole.log(a + b);   // 13\nconsole.log(a - b);   // 7\nconsole.log(a * b);   // 30\nconsole.log(a / b);   // 3.3333...\nconsole.log(a % b);   // 1\nconsole.log(a ** b);  // 1000 (10^3)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Comparison Operators"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ல இரண்டு equality operators இருக்கு: <code>==</code> (loose) மற்றும் <code>===</code> (strict). எப்பவும் <code>===</code> use பண்ணு."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Loose equality (==) — type coercion பண்ணும்\nconsole.log(5 == \"5\");   // true  ← string coerced to number\nconsole.log(0 == false); // true  ← false coerced to 0\n\n// Strict equality (===) — type coercion இல்ல\nconsole.log(5 === \"5\");  // false ← different types\nconsole.log(5 === 5);    // true\n\nconsole.log(10 > 5);     // true\nconsole.log(10 !== 5);   // true"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Rule:</strong> Modern JavaScript-ல எப்பவும் <code>===</code> மற்றும் <code>!==</code> use பண்ணு. Loose equality <code>==</code> confusing edge cases கொண்டுவரும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Logical Operators"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// && (AND) — இரண்டும் true-ஆ இருக்கணும்\nconsole.log(true && true);   // true\nconsole.log(true && false);  // false\n\n// || (OR) — ஒண்ணு true-ஆ இருந்தாலும் போதும்\nconsole.log(false || true);  // true\n\n// ! (NOT) — value-ஐ invert பண்ணும்\nconsole.log(!true);  // false\n\n// ?? (Nullish Coalescing — ES2020)\nconst name = null ?? \"Guest\"; // null/undefined-க்கு மட்டும் trigger\nconst port = 0 ?? 3000;       // 0 (0 is NOT null/undefined)"
+      }
+    ]
+  },
+  "booleans": {
+    "title": "Booleans",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Booleans"
+      },
+      {
+        "type": "paragraph",
+        "text": "Boolean என்பது இரண்டு values மட்டுமே represent பண்ணும்: <code>true</code> அல்லது <code>false</code>. Conditions, comparisons மற்றும் logical operations-ல இது use ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Boolean Values"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let isLoggedIn = true;\nlet hasErrors = false;\n\n// Boolean() எந்த value-ஐயும் true/false-ஆ convert பண்ணும்\nBoolean(1);          // true\nBoolean(0);          // false\nBoolean(\"hello\");    // true\nBoolean(\"\");         // false\nBoolean(null);       // false\nBoolean(undefined);  // false\nBoolean([]);         // true  ← empty array truthy-ஆ இருக்கு!\nBoolean({});         // true  ← empty object-உம் truthy!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Falsy மற்றும் Truthy Values"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ல எந்த value-உம் boolean context-ல (if condition மாதிரி) use ஆகும்போது <strong>truthy</strong> அல்லது <strong>falsy</strong>-ஆ இருக்கும்."
+      },
+      {
+        "type": "table",
+        "headers": ["Falsy Values (8 மட்டுமே)", "Truthy (மத்த எல்லாமே)"],
+        "rows": [
+          ["<code>false</code>", "Non-empty string: <code>\"hello\"</code>, <code>\"false\"</code>"],
+          ["<code>0</code>", "Non-zero number: <code>1</code>, <code>-1</code>, <code>3.14</code>"],
+          ["<code>-0</code>", "Empty array: <code>[]</code>"],
+          ["<code>0n</code> (BigInt zero)", "Empty object: <code>{}</code>"],
+          ["<code>\"\"</code> (empty string)", "எந்த function-உம்"],
+          ["<code>null</code>", ""],
+          ["<code>undefined</code>", ""],
+          ["<code>NaN</code>", ""]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Falsy — if block run ஆகாது\nif (0)         { /* run ஆகாது */ }\nif (\"\")        { /* run ஆகாது */ }\nif (null)      { /* run ஆகாது */ }\n\n// Truthy — if block run ஆகும்\nif (\"0\")  { /* WILL run — non-empty string */ }\nif ([])   { /* WILL run — empty array truthy! */ }\nif ({})   { /* WILL run — empty object truthy! */ }\n\n// Double negation trick — boolean-ஆ convert பண்ண\nconsole.log(!!\"hello\"); // true\nconsole.log(!!\"\");      // false\nconsole.log(!!0);       // false"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Common gotcha:</strong> <code>[]</code> மற்றும் <code>{}</code> empty-யா இருந்தாலும் truthy. Array empty-யா இருக்கான்னு check பண்ண <code>arr.length === 0</code> use பண்ணு — <code>if (arr)</code> மட்டும் போதாது."
+      }
+    ]
+  },
+  "type-conversion": {
+    "title": "Type Conversion",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Conversion என்னன்னு பார்ப்போம்"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ல values ஒரு type-ல இருந்து இன்னொரு type-க்கு convert ஆகலாம். இது <strong>explicit</strong>-ஆ (நீயே பண்றது) அல்லது <strong>implicit</strong>-ஆ (JavaScript automatically பண்றது — type coercion) நடக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Explicit Conversion"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Number-க்கு convert\nNumber(\"42\");        // 42\nNumber(\"\");          // 0\nNumber(\"hello\");     // NaN\nNumber(true);        // 1\nNumber(null);        // 0\nNumber(undefined);   // NaN\n\nparseInt(\"42px\");    // 42  — first non-digit-ல நிக்கும்\nparseFloat(\"3.14em\"); // 3.14\n\n// String-க்கு convert\nString(42);          // \"42\"\nString(true);        // \"true\"\nString(null);        // \"null\"\n(255).toString(16);  // \"ff\" (hex)\n\n// Boolean-க்கு convert\nBoolean(1);          // true\nBoolean(0);          // false"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Implicit Coercion (Automatic)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// String + anything = string concatenation\n\"5\" + 3;       // \"53\"  ← number string-ஆ coerce ஆகும்\n\"5\" + true;    // \"5true\"\n\n// Arithmetic operators (+ தவிர) number-க்கு coerce பண்ணும்\n\"5\" - 3;       // 2\n\"5\" * \"2\";     // 10\ntrue + true;   // 2    ← booleans 1-ஆ coerce ஆகும்\n\n// Comparison coercion\n\"5\" == 5;      // true  ← == coercion பண்ணும்\n\"5\" === 5;     // false ← === coercion இல்ல"
+      },
+      {
+        "type": "table",
+        "headers": ["Expression", "Result", "ஏன்?"],
+        "rows": [
+          ["<code>\"2\" + 2</code>", "<code>\"22\"</code>", "String + number → concatenation"],
+          ["<code>\"2\" - 2</code>", "<code>0</code>", "Subtraction number-க்கு coerce பண்ணும்"],
+          ["<code>true + 1</code>", "<code>2</code>", "true → 1"],
+          ["<code>false + 1</code>", "<code>1</code>", "false → 0"],
+          ["<code>null + 1</code>", "<code>1</code>", "null → 0"],
+          ["<code>undefined + 1</code>", "<code>NaN</code>", "undefined → NaN"]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<strong>Rule:</strong> Coercion-ஐ நம்புவதை விட explicit conversion use பண்றது better. Comparisons-ல <code>===</code> use பண்ணு — surprise type coercion வராது."
+      }
+    ]
+  },
+  "control-flow": {
+    "title": "Control Flow",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Control Flow"
+      },
+      {
+        "type": "paragraph",
+        "text": "Control flow என்பது statements எந்த order-ல execute ஆகும்னு decide பண்றது. JavaScript-ல conditional statements மற்றும் loops மூலம் program flow-ஐ control பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "if / else if / else"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let score = 85;\n\nif (score >= 90) {\n  console.log(\"Grade: A\");\n} else if (score >= 80) {\n  console.log(\"Grade: B\");  // ← இது run ஆகும்\n} else if (score >= 70) {\n  console.log(\"Grade: C\");\n} else {\n  console.log(\"Grade: F\");\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Ternary Operator"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// condition ? valueIfTrue : valueIfFalse\nlet age = 20;\nlet status = age >= 18 ? \"Adult\" : \"Minor\";\nconsole.log(status); // \"Adult\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "switch Statement"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let day = \"Monday\";\n\nswitch (day) {\n  case \"Monday\":\n  case \"Tuesday\":\n  case \"Wednesday\":\n  case \"Thursday\":\n  case \"Friday\":\n    console.log(\"Weekday\");\n    break;\n  case \"Saturday\":\n  case \"Sunday\":\n    console.log(\"Weekend\");\n    break;\n  default:\n    console.log(\"Unknown day\");\n}"
+      },
+      {
+        "type": "note",
+        "text": "<strong>break மறக்காதே!</strong> இல்லன்னா next case-க்கும் execution போயிடும் (fall-through)."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Loops"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// for loop\nfor (let i = 0; i < 5; i++) {\n  console.log(i); // 0, 1, 2, 3, 4\n}\n\n// while loop\nlet count = 0;\nwhile (count < 3) {\n  console.log(count++);\n}\n\n// for...of — values-ஐ iterate பண்ண\nconst fruits = [\"apple\", \"banana\", \"cherry\"];\nfor (const fruit of fruits) {\n  console.log(fruit);\n}\n\n// for...in — keys/indices-ஐ iterate பண்ண\nconst user = { name: \"Alice\", age: 25 };\nfor (const key in user) {\n  console.log(key, user[key]);\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "break மற்றும் continue"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// break — loop-ஐ முழுவதும் exit பண்ணும்\nfor (let i = 0; i < 10; i++) {\n  if (i === 5) break;\n  console.log(i); // 0, 1, 2, 3, 4\n}\n\n// continue — current iteration skip பண்ணும்\nfor (let i = 0; i < 5; i++) {\n  if (i === 2) continue;\n  console.log(i); // 0, 1, 3, 4 (2 skip ஆகும்)\n}"
+      }
+    ]
+  },
+  "functions": {
+    "title": "JavaScript Functions",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Functions என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Functions என்பது ஒரு குறிப்பிட்ட task perform பண்ண எழுதுற reusable code blocks. JavaScript-ல பல function syntax இருக்கு, closures மற்றும் higher-order functions மாதிரி powerful features இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Declaration vs Expression"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Function Declaration — hoisted, define பண்றதுக்கு முன்னாடியே call பண்ணலாம்\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\nconsole.log(greet(\"Alice\")); // \"Hello, Alice!\"\n\n// Function Expression — hoisted இல்ல\nconst greet2 = function(name) {\n  return `Hi, ${name}!`;\n};\n\n// Arrow Function (ES6) — concise syntax\nconst greet3 = (name) => `Hey, ${name}!`;\nconst double = n => n * 2;   // single param\nconst add = (a, b) => a + b; // implicit return"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Parameters & Default Values"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Default parameters (ES6)\nfunction createUser(name, role = \"viewer\", active = true) {\n  return { name, role, active };\n}\nconsole.log(createUser(\"Bob\"));           // { name: 'Bob', role: 'viewer', active: true }\nconsole.log(createUser(\"Alice\", \"admin\")); // { name: 'Alice', role: 'admin', active: true }\n\n// Rest parameters — remaining args-ஐ array-ல collect பண்ணும்\nfunction sum(...numbers) {\n  return numbers.reduce((acc, n) => acc + n, 0);\n}\nconsole.log(sum(1, 2, 3, 4, 5)); // 15"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Closures"
+      },
+      {
+        "type": "paragraph",
+        "text": "Closure என்பது outer scope finish ஆன பிறகும் அந்த scope-ஐ remember பண்றது inner function."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "function createCounter() {\n  let count = 0; // private variable\n  return {\n    increment: () => ++count,\n    decrement: () => --count,\n    value: () => count\n  };\n}\n\nconst counter = createCounter();\nconsole.log(counter.increment()); // 1\nconsole.log(counter.increment()); // 2\nconsole.log(counter.value());     // 2"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Higher-Order Functions"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const numbers = [1, 2, 3, 4, 5];\n\n// map — ஒவ்வொரு element-ஐயும் transform பண்ணும்\nconst doubled = numbers.map(n => n * 2);\nconsole.log(doubled); // [2, 4, 6, 8, 10]\n\n// filter — condition pass ஆகுறவற்றை மட்டும் வை\nconst evens = numbers.filter(n => n % 2 === 0);\nconsole.log(evens); // [2, 4]\n\n// reduce — single value-ஆ accumulate பண்ணும்\nconst total = numbers.reduce((acc, n) => acc + n, 0);\nconsole.log(total); // 15"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Arrow functions-க்கு</strong> own <code>this</code> இல்ல — enclosing scope-ல இருந்து inherit பண்ணும். Callbacks-க்கு ideal, object methods-க்கு not suitable."
+      },
+      {
+        "type": "quiz",
+        "question": "Arrow function-ன் முக்கிய property என்ன?",
+        "options": [
+          { "text": "அது எப்பவும் string return பண்ணும்" },
+          { "text": "அதில் 'this' keyword own scope-ஐ bind பண்ணாது" },
+          { "text": "Hoisting support பண்ணும்" },
+          { "text": "அதை delete பண்ண முடியாது" }
+        ],
+        "answer": 1,
+        "explanation": "Arrow functions-க்கு own 'this' கிடையாது, அவை enclosing scope-ல் இருந்து 'this'-ஐ inherit செய்யும்."
+      }
+    ]
+  },
+  "scope": {
+    "title": "Scope & Hoisting",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Scope"
+      },
+      {
+        "type": "paragraph",
+        "text": "Scope என்பது ஒரு variable code-ல எங்கெல்லாம் accessible-ஆ இருக்கும்னு determine பண்றது. JavaScript-ல மூணு levels of scope இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Global, Function, மற்றும் Block Scope"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Global scope — எங்கயும் accessible\nconst globalVar = \"நான் global\";\n\nfunction myFunction() {\n  // Function scope — இந்த function-க்கு உள்ளே மட்டும்\n  const funcVar = \"நான் function-scoped\";\n\n  if (true) {\n    // Block scope — இந்த {} block-க்கு உள்ளே மட்டும்\n    const blockVar = \"நான் block-scoped\";\n    var funcScoped = \"நான் function-scoped (var!)\";\n  }\n\n  // console.log(blockVar); // ❌ ReferenceError\n  console.log(funcScoped);   // ✅ var block-ஐ leak பண்ணும்!\n}"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Key rule:</strong> <code>const</code> மற்றும் <code>let</code> use பண்ணு — இவை block scope respect பண்ணும். <code>var</code> blocks-ஐ ignore பண்ணி enclosing function-க்கு leak ஆகும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Hoisting"
+      },
+      {
+        "type": "paragraph",
+        "text": "Hoisting என்பது declarations-ஐ scope-ன் top-க்கு move பண்றது JavaScript-ன் behaviour. <code>var</code> vs <code>let</code>/<code>const</code> vs functions எப்படி hoist ஆகுதுன்னு வேற வேறா இருக்கு."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// var — hoisted, undefined-ஆ initialise ஆகும்\nconsole.log(x); // undefined (ReferenceError இல்ல!)\nvar x = 5;\n\n// let/const — hoisted ஆனா initialise ஆகல (Temporal Dead Zone)\n// console.log(y); // ❌ ReferenceError\nlet y = 10;\n\n// Function declarations — fully hoisted\ngreet(); // ✅ works\nfunction greet() { console.log(\"Hello!\"); }\n\n// Function expressions — hoisted இல்ல\n// sayHi(); // ❌ ReferenceError\nconst sayHi = () => console.log(\"Hi!\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Temporal Dead Zone (TDZ)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// TDZ — block ஆரம்பிக்கிறதிலிருந்து declaration வரை\n{\n  // TDZ for 'name' இங்க ஆரம்பிக்கும்\n  console.log(typeof name); // ❌ ReferenceError\n  const name = \"Alice\";     // TDZ இங்க முடியும்\n  console.log(name);        // ✅ \"Alice\"\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Scope Chain"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const level1 = \"outer\";\n\nfunction outer() {\n  const level2 = \"middle\";\n\n  function inner() {\n    const level3 = \"inner\";\n    // Outer scopes எல்லாத்தையும் access பண்ணலாம்\n    console.log(level1); // ✅ \"outer\"\n    console.log(level2); // ✅ \"middle\"\n    console.log(level3); // ✅ \"inner\"\n  }\n\n  inner();\n  // console.log(level3); // ❌ ReferenceError\n}"
+      }
+    ]
+  },
+  "objects": {
+    "title": "JavaScript Objects",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Objects என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Object என்பது key-value pairs (properties)-ஆல ஆன ஒரு collection. Objects JavaScript-ன் fundamental building blocks — கிட்டத்தட்ட எல்லாமே object."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Objects Create பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Object literal (most common)\nconst person = {\n  name: \"Alice\",\n  age: 30,\n  isAdmin: false,\n  greet() {                    // shorthand method\n    return `Hi, I'm ${this.name}`;\n  }\n};\n\n// Properties access பண்றது\nconsole.log(person.name);      // dot notation\nconsole.log(person[\"age\"]);    // bracket notation\nconsole.log(person.greet());   // \"Hi, I'm Alice\"\n\n// Properties add மற்றும் delete பண்றது\nperson.email = \"alice@example.com\";\ndelete person.isAdmin;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Destructuring"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const { name, age, email = \"unknown\" } = person;\nconsole.log(name);  // \"Alice\"\nconsole.log(age);   // 30\n\n// Destructuring-ல rename பண்றது\nconst { name: fullName } = person;\nconsole.log(fullName); // \"Alice\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Spread மற்றும் Object Methods"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const defaults = { theme: \"light\", lang: \"en\" };\nconst userPrefs = { theme: \"dark\" };\n\n// Spread — objects merge பண்ண (later keys win)\nconst settings = { ...defaults, ...userPrefs };\n// { theme: 'dark', lang: 'en' }\n\nconst car = { make: \"Toyota\", model: \"Camry\", year: 2023 };\n\nObject.keys(car);    // [\"make\", \"model\", \"year\"]\nObject.values(car);  // [\"Toyota\", \"Camry\", 2023]\nObject.entries(car); // [[\"make\",\"Toyota\"], ...]\n\nfor (const [key, value] of Object.entries(car)) {\n  console.log(`${key}: ${value}`);\n}"
+      }
+    ]
+  },
+  "arrays": {
+    "title": "JavaScript Arrays",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arrays என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Arrays என்பது ordered lists of values. JavaScript-ல arrays mixed types hold பண்ணலாம், built-in methods மிகவும் rich-ஆ இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Array Create மற்றும் Access"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const fruits = [\"apple\", \"banana\", \"cherry\"];\nconsole.log(fruits[0]);        // \"apple\"\nconsole.log(fruits.length);    // 3\nconsole.log(fruits.at(-1));    // \"cherry\" (ES2022 — last element)\n\n// Destructuring\nconst [first, second, ...rest] = fruits;\nconsole.log(first);  // \"apple\"\nconsole.log(rest);   // [\"cherry\"]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Mutating Methods (original-ஐ மாத்தும்)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const arr = [1, 2, 3];\n\narr.push(4);       // end-ல add    → [1, 2, 3, 4]\narr.pop();         // end-ல remove  → [1, 2, 3]\narr.unshift(0);    // start-ல add  → [0, 1, 2, 3]\narr.shift();       // start-ல remove → [1, 2, 3]\narr.splice(1, 1);  // index 1-ல 1 element remove → [1, 3]\narr.reverse();     // in place reverse → [3, 1]\narr.sort();        // in place sort"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Non-Mutating Methods (புது array return பண்ணும்)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const nums = [1, 2, 3, 4, 5];\n\nnums.map(n => n * 2);            // [2, 4, 6, 8, 10]\nnums.filter(n => n > 3);         // [4, 5]\nnums.reduce((acc, n) => acc + n, 0); // 15\nnums.find(n => n > 3);           // 4\nnums.some(n => n > 4);           // true\nnums.every(n => n > 0);          // true\nnums.slice(1, 3);                // [2, 3]\n[1, 2].concat([3, 4]);           // [1, 2, 3, 4]"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Modern JavaScript-ல non-mutating methods prefer பண்ணு.</strong> இவை code-ஐ reason பண்றதை easy-யா பண்ணும், functional programming patterns-உடன் நன்னா work ஆகும்."
+      }
+    ]
+  },
+  "strings": {
+    "title": "JavaScript Strings",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Strings"
+      },
+      {
+        "type": "paragraph",
+        "text": "Strings என்பது characters-ன் sequences. JavaScript strings immutable — string methods எப்பவும் new string return பண்ணும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "String Create பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const single = 'Hello';\nconst double = \"World\";\nconst template = `Hello, ${\"World\"}!`; // Template literal (ES6)\n\n// Multi-line string\nconst html = `\n  <div>\n    <h1>Title</h1>\n  </div>\n`;\n\nconsole.log(\"Hello\".length); // 5"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common String Methods"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const str = \"  Hello, World!  \";\n\nstr.toUpperCase();      // \"  HELLO, WORLD!  \"\nstr.toLowerCase();      // \"  hello, world!  \"\nstr.trim();             // \"Hello, World!\"\nstr.includes(\"World\");  // true\nstr.startsWith(\"  He\"); // true\nstr.indexOf(\"o\");       // 5\nstr.slice(2, 7);        // \"Hello\"\nstr.replace(\"World\", \"JS\");\nstr.replaceAll(\"l\", \"L\");\n\"a-b-c\".split(\"-\");     // [\"a\", \"b\", \"c\"]\n\"5\".padStart(3, \"0\");   // \"005\"\n\"ha\".repeat(3);         // \"hahaha\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Template Literals"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const name = \"Alice\";\nconst age = 30;\n\n// Expression interpolation\nconst msg = `My name is ${name} and I am ${age} years old.`;\n\nconsole.log(`2 + 2 = ${2 + 2}`);\nconsole.log(`Is adult: ${age >= 18 ? 'Yes' : 'No'}`);"
+      }
+    ]
+  },
+  "numbers": {
+    "title": "JavaScript Numbers",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Numbers"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript-ல ஒரே ஒரு Number type இருக்கு — IEEE 754 double-precision floating-point standard. Integers மற்றும் floats ஒரே type."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Number Basics"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const integer = 42;\nconst float = 3.14;\nconst hex = 0xFF;          // 255\nconst binary = 0b1010;     // 10\nconst scientific = 1.5e6;  // 1500000\n\n// Special values\nconsole.log(Infinity);          // Infinity\nconsole.log(NaN);               // Not a Number\nconsole.log(Number.MAX_SAFE_INTEGER); // 9007199254740991"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Pitfalls"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Floating point precision issue\nconsole.log(0.1 + 0.2);         // 0.30000000000000004\nconsole.log(0.1 + 0.2 === 0.3); // false!\n\n// Fix with toFixed\nconsole.log((0.1 + 0.2).toFixed(1)); // \"0.3\" (string!)\nconsole.log(+(0.1 + 0.2).toFixed(1)); // 0.3 (number)\n\n// NaN எதுவுமே equal இல்ல — தன்னோடே கூட\nconsole.log(NaN === NaN);  // false\nconsole.log(Number.isNaN(NaN)); // true"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Number Methods"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const n = 3.14159;\nn.toFixed(2);        // \"3.14\" (string)\nn.toPrecision(4);    // \"3.142\" (string)\n\nNumber(\"42\");        // 42\nNumber(\"\");          // 0\nNumber(\"abc\");       // NaN\nparseInt(\"42px\");    // 42\nparseFloat(\"3.14kg\"); // 3.14"
+      }
+    ]
+  },
+  "math": {
+    "title": "JavaScript Math",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Math Object"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>Math</code> object mathematical constants மற்றும் functions provide பண்றது. இது constructor இல்ல — எல்லா properties மற்றும் methods-உம் static."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "Math.PI;       // 3.141592653589793\nMath.E;        // 2.718281828459045\n\n// Rounding\nMath.round(4.5);   // 5\nMath.ceil(4.1);    // 5\nMath.floor(4.9);   // 4\nMath.trunc(4.9);   // 4\n\n// Power & Root\nMath.pow(2, 8);    // 256\nMath.sqrt(16);     // 4\n\n// Min / Max\nMath.min(1, 2, 3);         // 1\nMath.max(1, 2, 3);         // 3\nMath.min(...[5, 2, 8, 1]); // 1 (spread use பண்ணு)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Random Numbers"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Math.random() → [0, 1) — 1 தவிர\nMath.random();\n\n// min மற்றும் max-க்கு இடையே random integer\nfunction randomInt(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nconsole.log(randomInt(1, 6));   // dice roll: 1-6\n\n// Array-ல random element\nconst items = [\"rock\", \"paper\", \"scissors\"];\nconst pick = items[randomInt(0, items.length - 1)];"
+      }
+    ]
+  },
+  "dates": {
+    "title": "JavaScript Dates",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Date Object"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>Date</code> object dates மற்றும் times-உடன் work பண்ண use ஆகும். Internally January 1, 1970-ல இருந்து milliseconds count பண்றது (Unix epoch)."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const now = new Date();                    // current date & time\nconst specific = new Date(\"2024-01-15\");   // ISO string-ல இருந்து\nconst fromParts = new Date(2024, 0, 15);   // year, month(0-indexed), day\n\nconsole.log(Date.now()); // milliseconds-ல current time"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Date Components Get பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const d = new Date();\n\nd.getFullYear();   // 2024\nd.getMonth();      // 0-11 (0 = January!)\nd.getDate();       // 1-31\nd.getDay();        // 0-6 (0 = Sunday)\nd.getHours();      // 0-23\nd.getMinutes();    // 0-59"
+      },
+      {
+        "type": "note",
+        "text": "<strong>கவனம்!</strong> Months 0-indexed: January = 0, December = 11."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Date Formatting"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const d = new Date();\nd.toISOString();        // \"2024-01-15T10:30:00.000Z\"\nd.toLocaleDateString(); // \"1/15/2024\"\n\n// Custom formatting\nconst formatter = new Intl.DateTimeFormat(\"en-US\", {\n  year: \"numeric\",\n  month: \"long\",\n  day: \"numeric\"\n});\nconsole.log(formatter.format(d)); // \"January 15, 2024\""
+      }
+    ]
+  },
+  "classes": {
+    "title": "JavaScript Classes",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Classes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Classes (ES6-ல introduce ஆனது) JavaScript-ன் prototype-based inheritance-க்கு syntactic sugar. Objects create பண்றதற்கும் inheritance handle பண்றதற்கும் cleaner syntax கொடுக்குது."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "class Animal {\n  #name;\n  #sound;\n\n  constructor(name, sound) {\n    this.#name = name;\n    this.#sound = sound;\n  }\n\n  get name() { return this.#name; }\n\n  speak() {\n    return `${this.#name} says ${this.#sound}!`;\n  }\n\n  static create(name, sound) {\n    return new Animal(name, sound);\n  }\n}\n\nconst dog = new Animal(\"Rex\", \"woof\");\nconsole.log(dog.speak());  // \"Rex says woof!\"\n// console.log(dog.#name); // ❌ Private!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inheritance"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "class Dog extends Animal {\n  #tricks = [];\n\n  constructor(name) {\n    super(name, \"woof\"); // super-ஐ முதல்ல call பண்ணணும்\n  }\n\n  learn(trick) {\n    this.#tricks.push(trick);\n    return this;\n  }\n\n  speak() {\n    return super.speak() + \" (Good dog!)\";\n  }\n}\n\nconst buddy = new Dog(\"Buddy\");\nbuddy.learn(\"sit\").learn(\"shake\");\nconsole.log(buddy instanceof Dog);    // true\nconsole.log(buddy instanceof Animal); // true"
+      }
+    ]
+  },
+  "this-keyword": {
+    "title": "this Keyword",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "this Keyword என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>this</code> என்பது currently function-ஐ execute பண்றது எந்த object-ன்னு refer பண்றது. இதன் value function எப்படி call ஆகுதுன்னு பொறுத்து மாறும் — arrow functions தவிர."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "வேற வேற Contexts-ல this"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// 1. Global context\nconsole.log(this); // Window {} (browser-ல)\n\n// 2. Object method — object-ஐ refer பண்ணும்\nconst user = {\n  name: \"Alice\",\n  greet() {\n    console.log(`Hi, I'm ${this.name}`);\n  }\n};\nuser.greet(); // \"Hi, I'm Alice\"\n\n// 3. Constructor / class — new instance-ஐ refer பண்ணும்\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    return `Hello, I'm ${this.name}`;\n  }\n}\nconst alice = new Person(\"Alice\");\nalice.greet(); // \"Hello, I'm Alice\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arrow Functions மற்றும் this"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const timer = {\n  count: 0,\n  // Regular function — callback-ல 'this' lost ஆகும்\n  startBroken() {\n    setInterval(function() {\n      this.count++; // ❌ 'this' is Window!\n    }, 1000);\n  },\n  // Arrow function — surrounding scope-ல இருந்து inherit பண்ணும்\n  start() {\n    setInterval(() => {\n      this.count++; // ✅ 'this' is timer\n      console.log(this.count);\n    }, 1000);\n  }\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "call(), apply(), bind()"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "function introduce(greeting, punctuation) {\n  return `${greeting}, I'm ${this.name}${punctuation}`;\n}\n\nconst person = { name: \"Alice\" };\n\n// call() — immediately invoke, args separately\nintroduce.call(person, \"Hello\", \"!\");  // \"Hello, I'm Alice!\"\n\n// apply() — immediately invoke, args as array\nintroduce.apply(person, [\"Hi\", \".\"]); // \"Hi, I'm Alice.\"\n\n// bind() — 'this' lock பண்ணி new function return பண்ணும்\nconst aliceIntro = introduce.bind(person);\naliceIntro(\"Hey\", \"?\"); // \"Hey, I'm Alice?\""
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "எப்போ use பண்றது", "Returns"],
+        "rows": [
+          ["call(ctx, a, b)", "Method borrow பண்ண, args தெரியும்போது", "Function result"],
+          ["apply(ctx, [a,b])", "Method borrow பண்ண, args array-ல", "Function result"],
+          ["bind(ctx)", "Callbacks-க்கு 'this' fix பண்ண", "New function"]
+        ]
+      }
+    ]
+  },
+  "dom": {
+    "title": "DOM Manipulation",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "DOM என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "DOM (Document Object Model) என்பது HTML document-ன் tree-like representation. JavaScript DOM-ஐ read மற்றும் modify பண்ணி page content, structure, styles dynamically update பண்ணலாம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Elements Select பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Modern selectors (first match return பண்ணும்)\ndocument.querySelector(\".btn\");     // class-ல\ndocument.querySelector(\"#title\");   // id-ல\ndocument.querySelector(\"h1\");       // tag-ல\n\n// All matches — NodeList return பண்ணும்\ndocument.querySelectorAll(\".card\");\n\n// Legacy\ndocument.getElementById(\"title\");\ndocument.getElementsByClassName(\"btn\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Content Modify பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const el = document.querySelector(\"#title\");\n\nel.textContent = \"New Title\";                    // safe — HTML இல்ல\nel.innerHTML = \"<strong>Bold Title</strong>\";    // HTML parse பண்ணும்\n\nel.setAttribute(\"data-id\", \"42\");\nel.classList.add(\"active\");\nel.classList.remove(\"hidden\");\nel.classList.toggle(\"visible\");\n\nel.style.color = \"red\";\nel.style.backgroundColor = \"#f0f0f0\";"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Elements Create மற்றும் Insert பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const li = document.createElement(\"li\");\nli.textContent = \"New Item\";\nli.classList.add(\"list-item\");\n\nconst ul = document.querySelector(\"ul\");\nul.appendChild(li);   // end-ல\nul.prepend(li);       // start-ல\n\nli.remove();"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Security:</strong> User data-உடன் <code>innerHTML</code> never use பண்ணாதே — XSS attack வரும். Plain text-க்கு <code>textContent</code> use பண்ணு."
+      },
+      {
+        "type": "quiz",
+        "question": "User input-ஐ page-ல் காட்ட எது பாதுகாப்பானது?",
+        "options": [
+          { "text": "element.innerHTML" },
+          { "text": "element.insertAdjacentHTML" },
+          { "text": "element.textContent" },
+          { "text": "document.write" }
+        ],
+        "answer": 2,
+        "explanation": "textContent user input-ஐ plain text ஆக மாற்றுவதால், அதை XSS (Cross Site Scripting) தாக்குதல்களில் இருந்து பாதுகாக்கிறது."
+      }
+    ]
+  },
+  "events": {
+    "title": "JavaScript Events",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Events என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Events என்பது browser-ல நடக்குற சம்பவங்கள் — user button click பண்றது, mouse move பண்றது, key press பண்றது. JavaScript இந்த events-க்கு react பண்ண வழி கொடுக்குது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Event Listeners Add பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const btn = document.querySelector(\"#myBtn\");\n\n// Preferred way\nbtn.addEventListener(\"click\", (e) => {\n  console.log(e.target);      // click ஆன element\n  console.log(e.type);        // \"click\"\n  console.log(e.clientX, e.clientY); // mouse position\n});\n\n// Listener remove பண்றது\nconst handler = () => console.log(\"clicked\");\nbtn.addEventListener(\"click\", handler);\nbtn.removeEventListener(\"click\", handler);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Event Types"
+      },
+      {
+        "type": "table",
+        "headers": ["Category", "Event", "எப்போ fire ஆகும்"],
+        "rows": [
+          ["Mouse", "click", "Element click ஆகும்போது"],
+          ["Mouse", "mouseover / mouseout", "Mouse enter/leave ஆகும்போது"],
+          ["Keyboard", "keydown / keyup", "Key press/release ஆகும்போது"],
+          ["Form", "submit", "Form submit ஆகும்போது"],
+          ["Form", "input / change", "Input value மாறும்போது"],
+          ["Window", "DOMContentLoaded", "HTML parse ஆன பிறகு"],
+          ["Window", "resize / scroll", "Window resize/scroll ஆகும்போது"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Event Delegation"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// ஒவ்வொரு item-கும் attach பண்றதுக்கு பதிலா parent-ல attach பண்ணு\nconst list = document.querySelector(\"#todo-list\");\n\nlist.addEventListener(\"click\", (e) => {\n  if (e.target.matches(\"li\")) {\n    e.target.classList.toggle(\"done\");\n  }\n});\n\n// Default behaviour தடுக்க\ndocument.querySelector(\"a\").addEventListener(\"click\", (e) => {\n  e.preventDefault(); // navigation தடுக்கும்\n});"
+      }
+    ]
+  },
+  "es6-features": {
+    "title": "ES6+ Features",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modern JavaScript (ES6 and Beyond)"
+      },
+      {
+        "type": "paragraph",
+        "text": "ES6 (ECMAScript 2015) JavaScript-க்கு ஒரு major update. அதுக்கு பிறகு ஒவ்வொரு வருஷமும் new features வருது. Daily use-க்கு மிகவும் important-ஆனவற்றை பார்ப்போம்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Destructuring & Spread / Rest"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Array destructuring\nconst [a, b, ...rest] = [1, 2, 3, 4, 5];\nconsole.log(a, b, rest); // 1, 2, [3, 4, 5]\n\n// Object destructuring\nconst { name, age = 25 } = { name: \"Alice\", city: \"NYC\" };\n\n// Spread — iterable-ஐ expand பண்ணும்\nconst merged = [...[1, 2], ...[3, 4]]; // [1, 2, 3, 4]\nconst combined = { ...{ a: 1 }, ...{ b: 2 } }; // { a: 1, b: 2 }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional Chaining & Nullish Coalescing"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const user = { profile: { name: \"Alice\" } };\n\n// Optional chaining (?.) — ES2020\nconsole.log(user?.profile?.name);  // \"Alice\"\nconsole.log(user?.address?.city);  // undefined (error இல்ல!)\n\n// Nullish coalescing (??) — null/undefined-க்கு மட்டும்\nconst port = null ?? 3000;   // 3000\nconst count = 0 ?? 100;      // 0 (0 is not null/undefined)\n\n// Logical assignment — ES2021\nlet a = null;\na ??= \"default\"; // a is now \"default\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modules (import / export)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// math.js — Named exports\nexport const PI = 3.14159;\nexport function add(a, b) { return a + b; }\n\n// utils.js — Default export\nexport default function formatDate(date) {\n  return date.toLocaleDateString();\n}\n\n// main.js — Importing\nimport formatDate from \"./utils.js\";\nimport { PI, add } from \"./math.js\";\nimport * as MathUtils from \"./math.js\";\n\n// Dynamic import (lazy loading)\nconst module = await import(\"./heavy-module.js\");"
+      }
+    ]
+  },
+  "json": {
+    "title": "JSON",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSON என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JSON (JavaScript Object Notation) என்பது lightweight data-interchange format. Web APIs-ல standard format இதுதான். Humans-க்கும் machines-க்கும் படிக்கவும் parse பண்றதுக்கும் easy."
+      },
+      {
+        "type": "code",
+        "language": "json",
+        "code": "{\n  \"name\": \"Alice\",\n  \"age\": 30,\n  \"isAdmin\": false,\n  \"address\": { \"city\": \"New York\" },\n  \"hobbies\": [\"reading\", \"coding\"],\n  \"spouse\": null\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSON.stringify மற்றும் JSON.parse"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const user = { name: \"Alice\", age: 30, active: true };\n\n// JavaScript object → JSON string\nconst json = JSON.stringify(user);\nconsole.log(json); // '{\"name\":\"Alice\",\"age\":30,\"active\":true}'\n\n// Pretty print\nconst pretty = JSON.stringify(user, null, 2);\n\n// JSON string → JavaScript object\nconst parsed = JSON.parse(json);\nconsole.log(parsed.name); // \"Alice\""
+      },
+      {
+        "type": "note",
+        "text": "<strong>JSON limitations:</strong> Functions, <code>undefined</code>, <code>Symbol</code>, circular references — இவை JSON-ல support ஆகல, stringify-ல drop ஆகும் அல்லது error வரும்."
+      }
+    ]
+  },
+  "errors": {
+    "title": "Error Handling",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Error Handling"
+      },
+      {
+        "type": "paragraph",
+        "text": "Errors inevitable. நல்ல error handling app crash ஆகாம தடுக்கும், users-க்கு meaningful feedback கொடுக்கும்."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "try / catch / finally"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "try {\n  // Error வரலாம்ன்னு நினைக்குற code\n  const data = JSON.parse(\"invalid json\");\n} catch (error) {\n  console.error(\"Error:\", error.message);\n  console.error(\"Type:\", error.name); // \"SyntaxError\"\n} finally {\n  // எப்பவும் run ஆகும் — cleanup-க்கு\n  console.log(\"Done.\");\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Error Types"
+      },
+      {
+        "type": "table",
+        "headers": ["Error Type", "எப்போ வருது"],
+        "rows": [
+          ["SyntaxError", "Invalid JavaScript syntax"],
+          ["ReferenceError", "Declare ஆகாத variable use பண்ணும்போது"],
+          ["TypeError", "Wrong type (non-function-ஐ call பண்ணும்போது)"],
+          ["RangeError", "Value valid range-க்கு வெளியே இருக்கும்போது"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Custom Errors Throw பண்றது"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "class ValidationError extends Error {\n  constructor(message, field) {\n    super(message);\n    this.name = \"ValidationError\";\n    this.field = field;\n  }\n}\n\nfunction validateAge(age) {\n  if (typeof age !== \"number\") {\n    throw new ValidationError(\"Age must be a number\", \"age\");\n  }\n}\n\ntry {\n  validateAge(\"old\");\n} catch (err) {\n  if (err instanceof ValidationError) {\n    console.log(`Field: ${err.field} — ${err.message}`);\n  } else {\n    throw err; // unexpected errors-ஐ re-throw பண்ணு\n  }\n}"
+      }
+    ]
+  },
+  "regexp": {
+    "title": "Regular Expressions",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Regular Expressions (RegExp)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Regular expressions என்பது strings-ல character combinations match பண்ண use ஆகுற patterns. Validation, searching, replacing-க்கு மிகவும் powerful."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Literal syntax (preferred)\nconst re1 = /hello/;\nconst re2 = /hello/gi; // g=global, i=case-insensitive\n\n// Constructor\nconst re3 = new RegExp(\"hello\", \"gi\");"
+      },
+      {
+        "type": "table",
+        "headers": ["Pattern", "என்ன match பண்ணும்", "Example Match"],
+        "rows": [
+          [".", "Newline தவிர எந்த character-உம்", "a, 1, !"],
+          ["\\d", "Digit [0-9]", "5"],
+          ["\\w", "Word char [a-zA-Z0-9_]", "a, Z, 3"],
+          ["\\s", "Whitespace", "space, tab"],
+          ["^", "String ஆரம்பம்", "^Hello"],
+          ["$", "String முடிவு", "World$"],
+          ["+", "One or more", "\\d+"],
+          ["?", "Zero or one", "colou?r"]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const text = \"Hello World, hello JavaScript!\";\n\n/hello/i.test(text);           // true\ntext.match(/hello/gi);         // [\"Hello\", \"hello\"]\ntext.replace(/hello/gi, \"Hi\"); // replaces all\ntext.search(/World/);          // 6\n\n// Real-world examples\nconst emailRe = /^[\\w.-]+@[\\w.-]+\\.[a-z]{2,}$/i;\nconsole.log(emailRe.test(\"user@example.com\")); // true"
+      }
+    ]
+  },
+  "maps": {
+    "title": "Maps",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Map"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>Map</code> என்பது key-value pairs-ன் collection — keys <strong>எந்த type-உம்</strong> ஆகலாம் (strings மட்டும் இல்ல). Insertion order maintain பண்ணும், iterable."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Map vs Object"
+      },
+      {
+        "type": "table",
+        "headers": ["Feature", "Map", "Object"],
+        "rows": [
+          ["Key types", "எந்த type-உம் (objects, functions)", "Strings/symbols மட்டும்"],
+          ["Order", "Insertion order", "Mostly insertion order"],
+          ["Size", "map.size", "Object.keys(obj).length"],
+          ["Iteration", "Directly iterable", "Object.keys() தேவை"]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const map = new Map();\n\nmap.set(\"name\", \"Alice\");\nmap.set(42, \"the answer\");\nmap.set(true, \"boolean key\");\n\nconsole.log(map.get(\"name\"));    // \"Alice\"\nmap.has(\"name\");   // true\nmap.delete(42);\nmap.size;          // 2\n\nfor (const [key, value] of map) {\n  console.log(key, value);\n}\n\n// Array-ல இருந்து initialize பண்றது\nconst map2 = new Map([[\"a\", 1], [\"b\", 2]]);\n\nmap.clear();"
+      }
+    ]
+  },
+  "sets": {
+    "title": "Sets",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript-ல Set"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>Set</code> என்பது <strong>unique values</strong> மட்டுமே இருக்குற collection. Duplicates automatically remove ஆகும், insertion order maintain ஆகும்."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const set = new Set([1, 2, 3, 2, 1]);\nconsole.log(set); // Set { 1, 2, 3 } — duplicates போயிடும்\n\nset.add(4);\nset.add(3); // ignored — already exists\nset.delete(1);\nset.has(2);    // true\nset.size;      // 3\n\n// Array-க்கு convert\nconst arr = [...set];\n\n// Most common use: duplicates remove பண்ண\nconst nums = [1, 2, 2, 3, 3, 4];\nconst unique = [...new Set(nums)]; // [1, 2, 3, 4]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Set Operations"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const a = new Set([1, 2, 3, 4]);\nconst b = new Set([3, 4, 5, 6]);\n\n// Union — இரண்டிலும் இருக்குறவை எல்லாம்\nconst union = new Set([...a, ...b]);\n\n// Intersection — இரண்டிலும் உள்ளவை\nconst intersection = new Set([...a].filter(x => b.has(x)));\n\n// Difference — a-ல மட்டும் இருக்குறவை\nconst difference = new Set([...a].filter(x => !b.has(x)));"
+      }
+    ]
+  },
+  "async": {
+    "title": "Async / Await",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Asynchronous JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript single-threaded ஆனாலும் event loop மூலம் async operations (network requests, timers) handle பண்ணும். Promises மற்றும் async/await modern async code-க்கான tools."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Promises"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const fetchData = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    const success = Math.random() > 0.3;\n    if (success) resolve({ data: \"Hello!\" });\n    else reject(new Error(\"Network error\"));\n  }, 1000);\n});\n\nfetchData\n  .then(result => console.log(result.data))\n  .catch(err => console.error(err.message))\n  .finally(() => console.log(\"Request complete\"));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "async / await"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// async function எப்பவும் Promise return பண்ணும்\nasync function getUser(id) {\n  try {\n    const response = await fetch(`/api/users/${id}`);\n    if (!response.ok) {\n      throw new Error(`HTTP error: ${response.status}`);\n    }\n    return await response.json();\n  } catch (err) {\n    console.error(\"Failed:\", err.message);\n    throw err;\n  }\n}\n\nconst user = await getUser(1);\nconsole.log(user.name);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Promise Combinators"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Promise.all — எல்லாமே wait பண்ணும், ஒண்ணு fail ஆனா fail\nconst [users, posts] = await Promise.all([fetch(\"/api/users\"), fetch(\"/api/posts\")]);\n\n// Promise.allSettled — எல்லாமே wait பண்ணும், never fails\nconst results = await Promise.allSettled([p1, p2, p3]);\n\n// Promise.race — முதல்ல finish ஆகுறது win\nconst first = await Promise.race([p1, p2, p3]);"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Best practice:</strong> Failures பொருட்படுத்தாம எல்லா results-உம் வேணும்னா <code>Promise.allSettled</code> use பண்ணு. எல்லாமே succeed ஆகணும்னா <code>Promise.all</code> use பண்ணு."
+      }
+    ]
+  },
+  "fetch-api": {
+    "title": "Fetch API",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Fetch API என்னன்னு தெரியுமா?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Fetch API browser-ல HTTP requests பண்ண modern, promise-based way. பழைய XMLHttpRequest (XHR)-ஐ replace பண்ணது."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "GET Request"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "async function getPost(id) {\n  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);\n\n  if (!response.ok) {\n    throw new Error(`HTTP ${response.status}: ${response.statusText}`);\n  }\n\n  return await response.json();\n}\n\nconst post = await getPost(1);\nconsole.log(post.title);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "POST, PUT, DELETE Requests"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// POST — புதுசா create பண்ண\nasync function createPost(data) {\n  const response = await fetch(\"https://jsonplaceholder.typicode.com/posts\", {\n    method: \"POST\",\n    headers: { \"Content-Type\": \"application/json\" },\n    body: JSON.stringify(data)\n  });\n  return response.json();\n}\n\n// DELETE\nasync function deletePost(id) {\n  const res = await fetch(`/api/posts/${id}`, { method: \"DELETE\" });\n  return res.ok;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Response Reading"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const response = await fetch(\"/api/data\", {\n  signal: AbortSignal.timeout(5000) // 5s-ல cancel\n});\n\nconsole.log(response.status);     // 200\nconsole.log(response.ok);         // true (200-299)\n\n// Body read பண்றது (ஒரே ஒரு தரம் மட்டும்)\nconst json = await response.json();\nconst text = await response.text();\nconst blob = await response.blob();"
+      }
+    ]
+  },
+  "debugging": {
+    "title": "Debugging JavaScript",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Debug பண்றது எப்படி?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Debugging என்பது code-ல இருக்குற errors கண்டுபிடிச்சு fix பண்றது. JavaScript-ல powerful built-in tools மற்றும் browser DevTools இருக்கு."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "debugger Statement"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "function calculateTotal(items) {\n  let total = 0;\n  for (const item of items) {\n    debugger; // ← DevTools-ல execution இங்க PAUSE ஆகும்\n    total += item.price;\n  }\n  return total;\n}\n\n// Function call பண்றதுக்கு முன்னாடி DevTools (F12) open பண்ணு\ncalculateTotal([{ price: 10 }, { price: 20 }]);"
+      },
+      {
+        "type": "note",
+        "text": "<strong>நினைவு வச்சுக்கோ:</strong> Code commit பண்றதுக்கு முன்னாடி <code>debugger</code> statements remove பண்ணு. DevTools closed-ஆ இருந்தா effect இல்ல."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Advanced console Techniques"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Named groups\nconsole.group(\"📦 Order Processing\");\nconsole.log(\"Validating...\");\nconsole.groupEnd();\n\n// எத்தனை தரம் call ஆச்சுன்னு count பண்ணு\nfor (let i = 0; i < 5; i++) {\n  console.count(\"loop\"); // \"loop: 1\", \"loop: 2\" ...\n}\n\n// Call stack trace\nfunction a() { b(); }\nfunction b() { console.trace(\"How did I get here?\"); }\na();\n\n// Variable name-உடன் log பண்ண (shorthand trick)\nconst x = 10, y = 20;\nconsole.log({ x, y }); // { x: 10, y: 20 }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common JavaScript Errors"
+      },
+      {
+        "type": "table",
+        "headers": ["Error", "காரணம்", "Fix"],
+        "rows": [
+          ["ReferenceError: x is not defined", "Declare பண்ணாத variable use", "let/const/var-ல declare பண்ணு"],
+          ["TypeError: x is not a function", "Non-function value-ஐ call பண்றது", "Variable type check பண்ணு"],
+          ["TypeError: Cannot read properties of null", "null/undefined-ன் property access", "Access-க்கு முன்னாடி null check பண்ணு"],
+          ["RangeError: Maximum call stack exceeded", "Infinite recursion", "Recursion-ல base case add பண்ணு"]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Defensive debugging patterns\nfunction process(data) {\n  if (!Array.isArray(data)) {\n    console.error(\"Expected array, got:\", typeof data, data);\n    return;\n  }\n}\n\n// Optional chaining — deeply nested access-க்கு\nconst city = user?.address?.city ?? \"Unknown\";\n\n// Structured error logging\ntry {\n  riskyOperation();\n} catch (err) {\n  console.error(\"[riskyOperation] Failed:\", {\n    message: err.message,\n    stack: err.stack\n  });\n}"
+      }
+    ]
+  },
+  "web-api": {
+    "title": "Web APIs",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Browser Web APIs"
+      },
+      {
+        "type": "paragraph",
+        "text": "Browsers DOM-க்கு அப்பறமும் நிறைய built-in APIs expose பண்றாங்க — storage, geolocation, notifications, timers மற்றும் இன்னும் நிறைய."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Web Storage"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// localStorage — clear பண்ணும் வரை persist ஆகும்\nlocalStorage.setItem(\"user\", JSON.stringify({ name: \"Alice\" }));\nconst user = JSON.parse(localStorage.getItem(\"user\"));\nlocalStorage.removeItem(\"user\");\nlocalStorage.clear();\n\n// sessionStorage — tab close ஆகும் வரை persist ஆகும்\nsessionStorage.setItem(\"token\", \"abc123\");\nconst token = sessionStorage.getItem(\"token\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Timers"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// setTimeout — delay-க்கு பிறகு ஒரே ஒரு தரம் run\nconst timeoutId = setTimeout(() => {\n  console.log(\"2 seconds-க்கு பிறகு run ஆகும்\");\n}, 2000);\nclearTimeout(timeoutId); // cancel பண்ண\n\n// setInterval — repeatedly run\nconst intervalId = setInterval(() => {\n  console.log(\"ஒவ்வொரு second-உம் run ஆகும்\");\n}, 1000);\nclearInterval(intervalId); // நிறுத்த"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "மத்த Useful APIs"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Geolocation\nnavigator.geolocation.getCurrentPosition(\n  pos => console.log(pos.coords.latitude, pos.coords.longitude),\n  err => console.error(err.message)\n);\n\n// Clipboard\nawait navigator.clipboard.writeText(\"Copied text!\");\n\n// URL API\nconst url = new URL(\"https://example.com/path?q=hello&page=2\");\nconsole.log(url.hostname);               // \"example.com\"\nconsole.log(url.searchParams.get(\"q\")); // \"hello\""
+      },
+      {
+        "type": "note",
+        "text": "<strong>Web Workers</strong> background thread-ல JavaScript run பண்ண allow பண்ணும் — main thread UI rendering-க்காக free-ஆ இருக்கும். CPU-intensive tasks-க்கு use பண்ணு."
+      }
+    ]
+  }
+}

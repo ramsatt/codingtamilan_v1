@@ -1,0 +1,1800 @@
+{
+  "intro": {
+    "title": "JavaScript Introduction",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What is JavaScript?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript is the programming language of the Web. It is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions."
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript is used for:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Making web pages interactive and dynamic",
+          "Building web applications (front-end and back-end with Node.js)",
+          "Mobile app development (React Native, Ionic)",
+          "Desktop applications (Electron)",
+          "Game development",
+          "Server-side programming"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Why Learn JavaScript?"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "It is the only language that runs natively in browsers",
+          "It is one of the most popular languages in the world",
+          "Huge job market demand",
+          "Versatile — works on frontend, backend, mobile, and desktop",
+          "Large ecosystem with npm (1M+ packages)",
+          "Active community and constant evolution (ES6, ES7, ES2023+)"
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "How JavaScript Works"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript runs directly in the browser's JavaScript engine (like V8 in Chrome or SpiderMonkey in Firefox). There is no compilation step needed — you write the code and the browser runs it."
+      },
+      {
+        "type": "table",
+        "headers": ["Engine", "Browser / Platform", "Notes"],
+        "rows": [
+          ["V8", "Chrome, Edge, Node.js", "Fastest engine, powers Node.js"],
+          ["SpiderMonkey", "Firefox", "First-ever JavaScript engine"],
+          ["JavaScriptCore", "Safari", "Also called Nitro"],
+          ["Chakra", "Legacy Edge", "Replaced by V8 in modern Edge"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Your First JavaScript Program"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Output to the browser console\nconsole.log(\"Hello, World!\");\n\n// Show a popup\nalert(\"Welcome to JavaScript!\");\n\n// Write to the page\ndocument.write(\"<h1>Hello from JS!</h1>\");"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Tip:</strong> Open your browser's developer tools (press <strong>F12</strong>) and go to the Console tab to run JavaScript live."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Where Does JavaScript Go?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript can be placed inside HTML in three ways:"
+      },
+      {
+        "type": "code",
+        "language": "html",
+        "code": "<!-- 1. Inline (inside an element) -->\n<button onclick=\"alert('Clicked!')\">Click Me</button>\n\n<!-- 2. Internal (inside a script tag) -->\n<script>\n  console.log(\"Internal script\");\n</script>\n\n<!-- 3. External (best practice) -->\n<script src=\"script.js\"></script>"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Best Practice:</strong> Always use external scripts. Place the <code>&lt;script&gt;</code> tag just before <code>&lt;/body&gt;</code> for best performance."
+      }
+    ]
+  },
+  "get-started": {
+    "title": "JavaScript Get Started",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Running JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript runs anywhere — in the browser, on the server with Node.js, or even inside desktop apps. You don't need to install anything to get started."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "1. The Browser Console"
+      },
+      {
+        "type": "paragraph",
+        "text": "The fastest way to try JavaScript is your browser's built-in console."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Open any browser (Chrome, Firefox, Edge)",
+          "Press <strong>F12</strong> (or right-click → Inspect)",
+          "Click the <strong>Console</strong> tab",
+          "Type JavaScript and press Enter"
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Try typing this in your browser console:\nconsole.log(\"Hello, World!\");\n2 + 2\n[1,2,3].map(x => x * 2)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "2. JavaScript in HTML"
+      },
+      {
+        "type": "paragraph",
+        "text": "Add JavaScript to any HTML page with a <code>&lt;script&gt;</code> tag."
+      },
+      {
+        "type": "code",
+        "language": "html",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>My Page</title>\n</head>\n<body>\n  <h1 id=\"title\">Hello</h1>\n\n  <!-- Always put script just before </body> -->\n  <script src=\"script.js\"></script>\n</body>\n</html>"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// script.js\ndocument.getElementById(\"title\").textContent = \"Hello from JavaScript!\";"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "3. Node.js (Server-side)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Node.js lets you run JavaScript outside the browser — on your computer or a server."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Download Node.js from <strong>nodejs.org</strong>",
+          "Create a file: <code>hello.js</code>",
+          "Run it: <code>node hello.js</code>"
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// hello.js\nconsole.log(\"Hello from Node.js!\");\nconsole.log(\"Node version:\", process.version);"
+      },
+      {
+        "type": "table",
+        "headers": ["Environment", "How to run", "Use case"],
+        "rows": [
+          ["Browser Console", "F12 → Console tab", "Quick experiments"],
+          ["HTML + Script tag", "Open .html in browser", "Web pages"],
+          ["Node.js", "node filename.js", "Server, scripts, CLIs"],
+          ["Online editors", "codepen.io, jsfiddle.net", "Sharing & demos"]
+        ]
+      }
+    ]
+  },
+  "syntax": {
+    "title": "JavaScript Syntax",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Syntax Basics"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript syntax is the set of rules that define how a JavaScript program is written and interpreted. Understanding the basics prevents hard-to-find bugs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Statements and Semicolons"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript programs are made up of statements. A semicolon marks the end of a statement. JavaScript has <strong>Automatic Semicolon Insertion (ASI)</strong> — but relying on it can cause bugs."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Each statement should end with ;\nlet x = 5;\nlet y = 10;\nlet sum = x + y;\n\n// Multiple statements per line (avoid — hard to read)\nlet a = 1; let b = 2; let c = 3;\n\n// ASI gotcha — never start a line with ( or [\nconst fn = () => console.log(\"hi\")\n(function() { /* this gets called as fn()! */ })()"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Case Sensitivity"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// JavaScript is CASE-SENSITIVE\nlet name = \"Alice\";\nlet Name = \"Bob\";    // completely different variable!\nlet NAME = \"Charlie\"; // yet another variable!\n\n// Keywords must be lowercase\n// Let x = 5;  // ❌ SyntaxError\nlet x = 5;     // ✅"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Whitespace and Indentation"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// JavaScript ignores extra whitespace\nlet x=5;       // works\nlet y = 5;     // works (readable!)\nlet z =   5;   // works\n\n// Use 2 or 4 spaces for indentation (be consistent)\nif (x > 0) {\n  console.log(\"positive\");\n  if (x > 10) {\n    console.log(\"large\");\n  }\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Identifiers"
+      },
+      {
+        "type": "paragraph",
+        "text": "An identifier is a name for a variable, function, or class."
+      },
+      {
+        "type": "table",
+        "headers": ["Convention", "Usage", "Example"],
+        "rows": [
+          ["camelCase", "Variables, functions", "userName, getTotal()"],
+          ["PascalCase", "Classes, constructors", "UserAccount, ShoppingCart"],
+          ["UPPER_SNAKE_CASE", "Constants", "MAX_SIZE, API_URL"],
+          ["_prefix", "Private (convention)", "_internalState"],
+          ["$prefix", "DOM elements, libraries", "$element, jQuery"]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<strong>Tip:</strong> Use descriptive names. <code>getUserById</code> is better than <code>g</code> or <code>func1</code>."
+      }
+    ]
+  },
+  "output": {
+    "title": "JavaScript Output",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Output Methods"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript can display output in several ways depending on where and how you want to show the data."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "console Methods (Developer Tool)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Standard log\nconsole.log(\"Hello, World!\");\nconsole.log(42, true, [1, 2, 3], { name: \"Alice\" });\n\n// Levels — each has a different icon/color in DevTools\nconsole.info(\"ℹ Information\");\nconsole.warn(\"⚠ Warning message\");\nconsole.error(\"❌ Error message\");\n\n// Table — great for arrays of objects\nconst users = [\n  { name: \"Alice\", age: 30 },\n  { name: \"Bob\", age: 25 },\n];\nconsole.table(users);\n\n// Grouping\nconsole.group(\"User Details\");\nconsole.log(\"Name: Alice\");\nconsole.log(\"Role: Admin\");\nconsole.groupEnd();\n\n// Timing\nconsole.time(\"loop\");\nfor (let i = 0; i < 1e6; i++) {}\nconsole.timeEnd(\"loop\"); // \"loop: 2.5ms\"\n\n// Assertion (logs only if false)\nconsole.assert(2 + 2 === 5, \"Math is broken!\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Browser Dialog Boxes"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// alert — displays a message (blocks execution)\nalert(\"Hello!\");\n\n// confirm — returns true (OK) or false (Cancel)\nconst agreed = confirm(\"Do you agree?\");\nif (agreed) console.log(\"User agreed\");\n\n// prompt — returns user input as string (or null)\nconst name = prompt(\"What is your name?\", \"Guest\");\nconsole.log(\"Hello,\", name);"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Avoid dialog boxes in production.</strong> They block the browser, can't be styled, and are disabled in some environments. Use custom UI instead."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Writing to the DOM"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// textContent — safe, treats value as plain text\ndocument.getElementById(\"output\").textContent = \"Hello!\";\n\n// innerHTML — parses HTML (use carefully!)\ndocument.getElementById(\"output\").innerHTML = \"<strong>Bold!</strong>\";\n\n// document.write — AVOID in modern code\n// It overwrites the entire document if called after load\ndocument.write(\"Hello\"); // only safe during initial parse"
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "Use case", "Notes"],
+        "rows": [
+          ["console.log()", "Development & debugging", "Best practice"],
+          ["alert()", "Simple user notification", "Avoid in production"],
+          ["confirm()", "Yes/No user decision", "Avoid in production"],
+          ["prompt()", "Get simple user input", "Avoid in production"],
+          ["element.textContent", "Update page content safely", "Escapes HTML"],
+          ["element.innerHTML", "Insert HTML into page", "XSS risk with user input"],
+          ["document.write()", "Legacy — initial page load only", "Never use in modern code"]
+        ]
+      }
+    ]
+  },
+  "comments": {
+    "title": "JavaScript Comments",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Comments in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Comments are lines of code that JavaScript will not execute. They explain the code to other developers — and to your future self."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Single-Line Comments"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// This is a single-line comment\nconsole.log(\"Hello\"); // This comment is at end of a line\n\n// Use // to explain WHY, not WHAT\nconst TAX_RATE = 0.08; // 8% sales tax as per state law\n\n// Temporarily disable code\n// console.log(\"debug output\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Multi-Line Comments"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "/*\n  This is a multi-line comment.\n  It spans multiple lines.\n  Useful for longer explanations.\n*/\n\n/*\n  Temporarily disabling a block of code:\n  const result = oldSlowFunction();\n  process(result);\n  display(result);\n*/"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSDoc Comments"
+      },
+      {
+        "type": "paragraph",
+        "text": "JSDoc is a documentation standard for JavaScript. IDEs like VS Code use these comments to show inline hints and type information."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "/**\n * Calculates the total price including tax.\n * @param {number} price - The base price in dollars\n * @param {number} taxRate - Tax rate as decimal (e.g. 0.08 for 8%)\n * @returns {number} The total price with tax\n */\nfunction calculateTotal(price, taxRate) {\n  return price * (1 + taxRate);\n}\n\n// VS Code will now show hints when you call this function:\ncalculateTotal(100, 0.08); // returns 108"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Good comments:</strong> Explain <em>why</em> something is done, not <em>what</em> the code does. Well-named variables and functions should already tell you what. Comments that repeat what the code says are noise."
+      }
+    ]
+  },
+  "variables": {
+    "title": "JavaScript Variables",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Variables in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Variables are containers for storing data values. In modern JavaScript (ES6+), we have three ways to declare variables: <code>var</code>, <code>let</code>, and <code>const</code>."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "var, let, and const"
+      },
+      {
+        "type": "table",
+        "headers": ["Keyword", "Scope", "Reassignable", "Hoisted", "Use Case"],
+        "rows": [
+          ["<code>var</code>", "Function", "Yes", "Yes (undefined)", "Avoid — legacy code only"],
+          ["<code>let</code>", "Block", "Yes", "No (TDZ)", "Variables that change"],
+          ["<code>const</code>", "Block", "No", "No (TDZ)", "Values that don't change"]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// var — function-scoped, avoid in modern code\nvar name = \"Alice\";\n\n// let — block-scoped, can be reassigned\nlet score = 100;\nscore = 200; // ✅ Allowed\n\n// const — block-scoped, cannot be reassigned\nconst PI = 3.14159;\n// PI = 3; // ❌ TypeError: Assignment to constant variable"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Data Types"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript is dynamically typed — variables can hold any type of data, and the type can change at runtime."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Primitive Types\nlet text = \"Hello\";          // String\nlet age = 25;                 // Number\nlet price = 19.99;            // Number (no separate float)\nlet isActive = true;          // Boolean\nlet nothing = null;           // Null\nlet notDefined;               // Undefined\nlet id = Symbol(\"id\");        // Symbol (ES6)\nlet bigNum = 9007199254740991n; // BigInt (ES2020)\n\n// Reference Types\nlet arr = [1, 2, 3];          // Array\nlet obj = { name: \"Bob\" };    // Object\nlet fn = () => {};            // Function\n\nconsole.log(typeof text);     // \"string\"\nconsole.log(typeof age);      // \"number\"\nconsole.log(typeof isActive); // \"boolean\"\nconsole.log(typeof nothing);  // \"object\" (historical quirk!)\nconsole.log(typeof notDefined); // \"undefined\""
+      },
+      {
+        "type": "note",
+        "text": "<strong>Quirk:</strong> <code>typeof null</code> returns <code>\"object\"</code> — this is a long-standing bug in JavaScript kept for backward compatibility."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Variable Naming Rules"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Must start with a letter, underscore (_), or dollar sign ($)",
+          "Can contain letters, digits, underscores, and dollar signs",
+          "Case-sensitive (myVar and myvar are different)",
+          "Cannot use reserved keywords (let, const, return, etc.)",
+          "Use camelCase by convention: myVariableName"
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let firstName = \"Alice\";    // ✅ camelCase (preferred)\nlet _private = 42;           // ✅ underscore prefix\nlet $price = 9.99;           // ✅ dollar sign\n\n// let 2fast = true;         // ❌ starts with digit\n// let my-name = \"Bob\";      // ❌ hyphens not allowed"
+      }
+    ]
+  },
+  "operators": {
+    "title": "JavaScript Operators",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JavaScript Operators"
+      },
+      {
+        "type": "paragraph",
+        "text": "Operators are used to perform operations on variables and values. JavaScript has several types of operators."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arithmetic Operators"
+      },
+      {
+        "type": "table",
+        "headers": ["Operator", "Name", "Example", "Result"],
+        "rows": [
+          ["+", "Addition", "5 + 3", "8"],
+          ["-", "Subtraction", "5 - 3", "2"],
+          ["*", "Multiplication", "5 * 3", "15"],
+          ["/", "Division", "10 / 4", "2.5"],
+          ["%", "Modulus (Remainder)", "10 % 3", "1"],
+          ["**", "Exponentiation", "2 ** 8", "256"],
+          ["++", "Increment", "x++", "x + 1"],
+          ["--", "Decrement", "x--", "x - 1"]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let a = 10, b = 3;\nconsole.log(a + b);   // 13\nconsole.log(a - b);   // 7\nconsole.log(a * b);   // 30\nconsole.log(a / b);   // 3.3333...\nconsole.log(a % b);   // 1\nconsole.log(a ** b);  // 1000 (10^3)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Comparison Operators"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript has two equality operators: <code>==</code> (loose) and <code>===</code> (strict). Always prefer <code>===</code>."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Loose equality (==) — performs type coercion\nconsole.log(5 == \"5\");   // true  ← string coerced to number\nconsole.log(0 == false); // true  ← false coerced to 0\n\n// Strict equality (===) — no type coercion\nconsole.log(5 === \"5\");  // false ← different types\nconsole.log(5 === 5);    // true\n\n// Other comparison operators\nconsole.log(10 > 5);     // true\nconsole.log(10 < 5);     // false\nconsole.log(10 >= 10);   // true\nconsole.log(10 !== 5);   // true"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Rule:</strong> Always use <code>===</code> and <code>!==</code> in modern JavaScript. The loose equality <code>==</code> has confusing edge cases."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Logical Operators"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// && (AND) — both must be true\nconsole.log(true && true);   // true\nconsole.log(true && false);  // false\n\n// || (OR) — at least one must be true\nconsole.log(false || true);  // true\nconsole.log(false || false); // false\n\n// ! (NOT) — inverts the value\nconsole.log(!true);  // false\nconsole.log(!false); // true\n\n// ?? (Nullish Coalescing — ES2020)\nconst name = null ?? \"Guest\"; // \"Guest\" (only null/undefined triggers this)\nconst port = 0 ?? 3000;       // 0 (0 is NOT null/undefined)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Assignment Operators"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let x = 10;\nx += 5;   // x = x + 5  → 15\nx -= 3;   // x = x - 3  → 12\nx *= 2;   // x = x * 2  → 24\nx /= 4;   // x = x / 4  → 6\nx **= 2;  // x = x ** 2 → 36\nx ??= \"default\"; // only assigns if x is null/undefined"
+      }
+    ]
+  },
+  "booleans": {
+    "title": "Booleans",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Booleans in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "A boolean represents one of two values: <code>true</code> or <code>false</code>. Booleans are used in conditions, comparisons, and logical operations."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Boolean Values"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let isLoggedIn = true;\nlet hasErrors = false;\n\n// Boolean() converts any value to true/false\nBoolean(1);          // true\nBoolean(0);          // false\nBoolean(\"hello\");    // true\nBoolean(\"\");         // false\nBoolean(null);       // false\nBoolean(undefined);  // false\nBoolean([]);         // true  ← empty array is truthy!\nBoolean({});         // true  ← empty object is truthy!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Falsy and Truthy Values"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every value in JavaScript is either <strong>truthy</strong> or <strong>falsy</strong> when used in a boolean context (like an <code>if</code> condition)."
+      },
+      {
+        "type": "table",
+        "headers": ["Falsy Values (only 8)", "Truthy (everything else)"],
+        "rows": [
+          ["<code>false</code>", "Any non-empty string: <code>\"hello\"</code>, <code>\"false\"</code>"],
+          ["<code>0</code>", "Any non-zero number: <code>1</code>, <code>-1</code>, <code>3.14</code>"],
+          ["<code>-0</code>", "Empty array: <code>[]</code>"],
+          ["<code>0n</code> (BigInt zero)", "Empty object: <code>{}</code>"],
+          ["<code>\"\"</code> (empty string)", "Any function"],
+          ["<code>null</code>", ""],
+          ["<code>undefined</code>", ""],
+          ["<code>NaN</code>", ""]
+        ]
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Falsy in if conditions\nif (0)         { /* won't run */ }\nif (\"\")        { /* won't run */ }\nif (null)      { /* won't run */ }\nif (undefined) { /* won't run */ }\n\n// Truthy in if conditions\nif (\"0\")  { /* WILL run — non-empty string */ }\nif ([])   { /* WILL run — empty array is truthy! */ }\nif ({})   { /* WILL run — empty object is truthy! */ }\n\n// Double negation trick — convert to boolean\nconst hasValue = !!someVariable;\nconsole.log(!!\"hello\"); // true\nconsole.log(!!\"\");      // false\nconsole.log(!!0);       // false\nconsole.log(!!null);    // false"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Common gotcha:</strong> <code>[]</code> and <code>{}</code> are truthy even though they're empty. To check if an array is empty, use <code>arr.length === 0</code>, not just <code>if (arr)</code>."
+      }
+    ]
+  },
+  "type-conversion": {
+    "title": "Type Conversion",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Type Conversion in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript can convert values from one type to another. This happens either <strong>explicitly</strong> (you do it intentionally) or <strong>implicitly</strong> (JavaScript does it automatically — called type coercion)."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Explicit Conversion"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// To Number\nNumber(\"42\");        // 42\nNumber(\"3.14\");      // 3.14\nNumber(\"\");          // 0\nNumber(\" \");         // 0\nNumber(\"hello\");     // NaN\nNumber(true);        // 1\nNumber(false);       // 0\nNumber(null);        // 0\nNumber(undefined);   // NaN\n\nparseInt(\"42px\");    // 42  — stops at first non-digit\nparseFloat(\"3.14em\"); // 3.14\nparseInt(\"0xFF\", 16); // 255 — parse hex\n\n// To String\nString(42);          // \"42\"\nString(true);        // \"true\"\nString(null);        // \"null\"\nString(undefined);   // \"undefined\"\n(255).toString(16);  // \"ff\" (hex)\n(255).toString(2);   // \"11111111\" (binary)\n\n// To Boolean\nBoolean(1);          // true\nBoolean(0);          // false\nBoolean(\"hi\");       // true\nBoolean(\"\");         // false"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Implicit Coercion (Automatic)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// String + anything = string concatenation\n\"5\" + 3;       // \"53\"  ← number coerced to string\n\"5\" + true;    // \"5true\"\n\"\" + null;     // \"null\"\n\n// Arithmetic operators (other than +) coerce to number\n\"5\" - 3;       // 2    ← string coerced to number\n\"5\" * \"2\";     // 10\n\"10\" / \"2\";    // 5\ntrue + true;   // 2    ← booleans coerced to 1\n\n// Comparison coercion\n\"5\" == 5;      // true  ← == does coercion\n\"5\" === 5;     // false ← === does NOT coerce\nnull == undefined; // true (special case)\nnull === undefined; // false"
+      },
+      {
+        "type": "table",
+        "headers": ["Expression", "Result", "Why"],
+        "rows": [
+          ["<code>\"2\" + 2</code>", "<code>\"22\"</code>", "String + number → concatenation"],
+          ["<code>\"2\" - 2</code>", "<code>0</code>", "Subtraction coerces to number"],
+          ["<code>true + 1</code>", "<code>2</code>", "true coerces to 1"],
+          ["<code>false + 1</code>", "<code>1</code>", "false coerces to 0"],
+          ["<code>null + 1</code>", "<code>1</code>", "null coerces to 0"],
+          ["<code>undefined + 1</code>", "<code>NaN</code>", "undefined coerces to NaN"],
+          ["<code>[] + []</code>", "<code>\"\"</code>", "Both coerce to empty string"],
+          ["<code>[] + {}</code>", "<code>\"[object Object]\"</code>", "[] → \"\", {} → string"]
+        ]
+      },
+      {
+        "type": "note",
+        "text": "<strong>Rule:</strong> Prefer explicit conversion over relying on coercion. Use <code>===</code> instead of <code>==</code> to avoid surprise type coercion in comparisons."
+      }
+    ]
+  },
+  "control-flow": {
+    "title": "Control Flow",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Control Flow in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Control flow determines the order in which statements are executed. JavaScript provides conditional statements and loops to control program flow."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "if / else if / else"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let score = 85;\n\nif (score >= 90) {\n  console.log(\"Grade: A\");\n} else if (score >= 80) {\n  console.log(\"Grade: B\");  // ← this runs\n} else if (score >= 70) {\n  console.log(\"Grade: C\");\n} else {\n  console.log(\"Grade: F\");\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Ternary Operator"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// condition ? valueIfTrue : valueIfFalse\nlet age = 20;\nlet status = age >= 18 ? \"Adult\" : \"Minor\";\nconsole.log(status); // \"Adult\"\n\n// Can be chained (but keep it readable)\nlet grade = score >= 90 ? \"A\" : score >= 80 ? \"B\" : \"C\";"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "switch Statement"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "let day = \"Monday\";\n\nswitch (day) {\n  case \"Monday\":\n  case \"Tuesday\":\n  case \"Wednesday\":\n  case \"Thursday\":\n  case \"Friday\":\n    console.log(\"Weekday\");\n    break;\n  case \"Saturday\":\n  case \"Sunday\":\n    console.log(\"Weekend\");\n    break;\n  default:\n    console.log(\"Unknown day\");\n}"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Don't forget break!</strong> Without it, execution falls through to the next case."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Loops"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// for loop\nfor (let i = 0; i < 5; i++) {\n  console.log(i); // 0, 1, 2, 3, 4\n}\n\n// while loop\nlet count = 0;\nwhile (count < 3) {\n  console.log(count++);\n}\n\n// do...while (runs at least once)\ndo {\n  console.log(\"Runs once even if false\");\n} while (false);\n\n// for...of (iterates over values)\nconst fruits = [\"apple\", \"banana\", \"cherry\"];\nfor (const fruit of fruits) {\n  console.log(fruit);\n}\n\n// for...in (iterates over keys/indices)\nconst user = { name: \"Alice\", age: 25 };\nfor (const key in user) {\n  console.log(key, user[key]);\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "break and continue"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// break — exit the loop entirely\nfor (let i = 0; i < 10; i++) {\n  if (i === 5) break;\n  console.log(i); // 0, 1, 2, 3, 4\n}\n\n// continue — skip the current iteration\nfor (let i = 0; i < 5; i++) {\n  if (i === 2) continue;\n  console.log(i); // 0, 1, 3, 4 (2 is skipped)\n}"
+      }
+    ]
+  },
+  "functions": {
+    "title": "JavaScript Functions",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Functions in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Functions are reusable blocks of code designed to perform a particular task. JavaScript supports multiple function syntaxes and powerful features like closures and higher-order functions."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Function Declaration vs Expression"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Function Declaration — hoisted, can be called before definition\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\nconsole.log(greet(\"Alice\")); // \"Hello, Alice!\"\n\n// Function Expression — not hoisted\nconst greet2 = function(name) {\n  return `Hi, ${name}!`;\n};\n\n// Arrow Function (ES6) — concise syntax\nconst greet3 = (name) => `Hey, ${name}!`;\nconst double = n => n * 2;   // single param, no parens needed\nconst add = (a, b) => a + b; // implicit return"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Parameters & Default Values"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Default parameters (ES6)\nfunction createUser(name, role = \"viewer\", active = true) {\n  return { name, role, active };\n}\nconsole.log(createUser(\"Bob\"));          // { name: 'Bob', role: 'viewer', active: true }\nconsole.log(createUser(\"Alice\", \"admin\")); // { name: 'Alice', role: 'admin', active: true }\n\n// Rest parameters — collect remaining args into an array\nfunction sum(...numbers) {\n  return numbers.reduce((acc, n) => acc + n, 0);\n}\nconsole.log(sum(1, 2, 3, 4, 5)); // 15"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Closures"
+      },
+      {
+        "type": "paragraph",
+        "text": "A closure is a function that remembers its outer scope even after that scope has finished executing."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "function createCounter() {\n  let count = 0; // private variable\n  return {\n    increment: () => ++count,\n    decrement: () => --count,\n    value: () => count\n  };\n}\n\nconst counter = createCounter();\nconsole.log(counter.increment()); // 1\nconsole.log(counter.increment()); // 2\nconsole.log(counter.decrement()); // 1\nconsole.log(counter.value());     // 1"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Higher-Order Functions"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Functions that take other functions as arguments\nconst numbers = [1, 2, 3, 4, 5];\n\n// map — transform each element\nconst doubled = numbers.map(n => n * 2);\nconsole.log(doubled); // [2, 4, 6, 8, 10]\n\n// filter — keep elements that pass the test\nconst evens = numbers.filter(n => n % 2 === 0);\nconsole.log(evens); // [2, 4]\n\n// reduce — accumulate into a single value\nconst total = numbers.reduce((acc, n) => acc + n, 0);\nconsole.log(total); // 15"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Arrow functions</strong> don't have their own <code>this</code> — they inherit <code>this</code> from the enclosing scope. This makes them ideal for callbacks but not for object methods."
+      }
+    ]
+  },
+  "scope": {
+    "title": "Scope & Hoisting",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Scope in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Scope determines where a variable is accessible in your code. JavaScript has three levels of scope."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Global, Function, and Block Scope"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Global scope — accessible everywhere\nconst globalVar = \"I'm global\";\n\nfunction myFunction() {\n  // Function scope — only accessible inside this function\n  const funcVar = \"I'm function-scoped\";\n  console.log(globalVar); // ✅ accessible\n  console.log(funcVar);   // ✅ accessible\n\n  if (true) {\n    // Block scope — only accessible inside this {}\n    const blockVar = \"I'm block-scoped\";\n    let blockLet = \"also block-scoped\";\n    var funcScoped = \"I'm function-scoped (var!)\";\n    console.log(blockVar);   // ✅ accessible\n  }\n\n  // console.log(blockVar); // ❌ ReferenceError\n  console.log(funcScoped);   // ✅ var leaks out of block!\n}\n\n// console.log(funcVar); // ❌ ReferenceError"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Key rule:</strong> Use <code>const</code> and <code>let</code> — they respect block scope. <code>var</code> ignores blocks and leaks into the enclosing function."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Hoisting"
+      },
+      {
+        "type": "paragraph",
+        "text": "Hoisting is JavaScript's behaviour of moving declarations to the top of their scope before code executes. What gets hoisted — and how — depends on <code>var</code> vs <code>let</code>/<code>const</code> vs functions."
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// var is hoisted and initialised as undefined\nconsole.log(x); // undefined (not ReferenceError!)\nvar x = 5;\nconsole.log(x); // 5\n\n// let/const — hoisted but NOT initialised (Temporal Dead Zone)\n// console.log(y); // ❌ ReferenceError: Cannot access 'y' before init\nlet y = 10;\n\n// Function declarations are fully hoisted\ngreet(); // ✅ works — function is hoisted\nfunction greet() {\n  console.log(\"Hello!\");\n}\n\n// Function expressions are NOT hoisted\n// sayHi(); // ❌ ReferenceError (const) or TypeError (var)\nconst sayHi = () => console.log(\"Hi!\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Temporal Dead Zone (TDZ)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// TDZ — the zone between the start of the block and\n// the point where let/const is declared\n{\n  // TDZ for 'name' starts here\n  console.log(typeof name); // ❌ ReferenceError (not \"undefined\"!)\n  const name = \"Alice\";     // TDZ ends here\n  console.log(name);        // ✅ \"Alice\"\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Scope Chain"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const level1 = \"outer\";\n\nfunction outer() {\n  const level2 = \"middle\";\n\n  function inner() {\n    const level3 = \"inner\";\n    // Can access ALL outer scopes\n    console.log(level1); // ✅ \"outer\"\n    console.log(level2); // ✅ \"middle\"\n    console.log(level3); // ✅ \"inner\"\n  }\n\n  inner();\n  // console.log(level3); // ❌ ReferenceError\n}\n\nouter();"
+      }
+    ]
+  },
+  "objects": {
+    "title": "JavaScript Objects",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Objects in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "An object is a collection of key-value pairs (properties). Objects are the fundamental building blocks of JavaScript — almost everything is an object."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Creating Objects"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Object literal (most common)\nconst person = {\n  name: \"Alice\",\n  age: 30,\n  isAdmin: false,\n  greet() {                    // shorthand method\n    return `Hi, I'm ${this.name}`;\n  }\n};\n\n// Accessing properties\nconsole.log(person.name);          // dot notation\nconsole.log(person[\"age\"]);        // bracket notation\nconsole.log(person.greet());       // \"Hi, I'm Alice\"\n\n// Adding and deleting properties\nperson.email = \"alice@example.com\";\ndelete person.isAdmin;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Destructuring"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const { name, age, email = \"unknown\" } = person;\nconsole.log(name);  // \"Alice\"\nconsole.log(age);   // 30\nconsole.log(email); // \"alice@example.com\"\n\n// Rename while destructuring\nconst { name: fullName } = person;\nconsole.log(fullName); // \"Alice\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Spread and Object.assign"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const defaults = { theme: \"light\", lang: \"en\", fontSize: 14 };\nconst userPrefs = { theme: \"dark\", fontSize: 16 };\n\n// Spread operator — merge objects (later keys win)\nconst settings = { ...defaults, ...userPrefs };\nconsole.log(settings);\n// { theme: 'dark', lang: 'en', fontSize: 16 }\n\n// Shallow clone\nconst clone = { ...person };"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Useful Object Methods"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const car = { make: \"Toyota\", model: \"Camry\", year: 2023 };\n\nObject.keys(car);    // [\"make\", \"model\", \"year\"]\nObject.values(car);  // [\"Toyota\", \"Camry\", 2023]\nObject.entries(car); // [[\"make\",\"Toyota\"],[\"model\",\"Camry\"],[\"year\",2023]]\n\n// Iterate over entries\nfor (const [key, value] of Object.entries(car)) {\n  console.log(`${key}: ${value}`);\n}\n\n// Freeze — prevent modifications\nconst config = Object.freeze({ apiUrl: \"https://api.example.com\" });\n// config.apiUrl = \"other\"; // silently fails in non-strict mode"
+      }
+    ]
+  },
+  "arrays": {
+    "title": "JavaScript Arrays",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arrays in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Arrays are ordered lists of values. In JavaScript, arrays can hold mixed types and have a rich set of built-in methods."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Creating and Accessing Arrays"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const fruits = [\"apple\", \"banana\", \"cherry\"];\nconsole.log(fruits[0]);        // \"apple\"\nconsole.log(fruits.length);    // 3\nconsole.log(fruits.at(-1));    // \"cherry\" (ES2022 — last element)\n\n// Destructuring\nconst [first, second, ...rest] = fruits;\nconsole.log(first);  // \"apple\"\nconsole.log(rest);   // [\"cherry\"]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Mutating Methods (change the original)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const arr = [1, 2, 3];\n\narr.push(4);       // add to end    → [1, 2, 3, 4]\narr.pop();         // remove from end → [1, 2, 3]\narr.unshift(0);    // add to start  → [0, 1, 2, 3]\narr.shift();       // remove from start → [1, 2, 3]\narr.splice(1, 1);  // remove 1 element at index 1 → [1, 3]\narr.reverse();     // reverse in place → [3, 1]\narr.sort();        // sort in place (alphabetical by default)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Non-Mutating Methods (return new array)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const nums = [1, 2, 3, 4, 5];\n\n// map — transform each element\nnums.map(n => n * 2);            // [2, 4, 6, 8, 10]\n\n// filter — keep matching elements\nnums.filter(n => n > 3);         // [4, 5]\n\n// reduce — accumulate to single value\nnums.reduce((acc, n) => acc + n, 0); // 15\n\n// find — first matching element\nnums.find(n => n > 3);           // 4\n\n// findIndex\nnums.findIndex(n => n > 3);      // 3\n\n// some / every\nnums.some(n => n > 4);           // true\nnums.every(n => n > 0);          // true\n\n// flat / flatMap\n[1, [2, [3]]].flat(Infinity);    // [1, 2, 3]\n\n// slice\nnums.slice(1, 3);                // [2, 3]\n\n// concat\n[1, 2].concat([3, 4]);           // [1, 2, 3, 4]\n// or with spread: [...arr1, ...arr2]"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Prefer non-mutating methods</strong> in modern JavaScript. They make code easier to reason about and work well with functional programming patterns."
+      }
+    ]
+  },
+  "strings": {
+    "title": "JavaScript Strings",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Strings in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Strings are sequences of characters. JavaScript strings are immutable — string methods always return a new string."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "String Creation"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const single = 'Hello';\nconst double = \"World\";\nconst template = `Hello, ${\"World\"}!`; // Template literal (ES6)\n\n// Multi-line string with template literal\nconst html = `\n  <div>\n    <h1>Title</h1>\n  </div>\n`;\n\n// String properties\nconsole.log(\"Hello\".length); // 5"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common String Methods"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const str = \"  Hello, World!  \";\n\n// Case\nstr.toUpperCase();      // \"  HELLO, WORLD!  \"\nstr.toLowerCase();      // \"  hello, world!  \"\n\n// Trimming\nstr.trim();             // \"Hello, World!\"\nstr.trimStart();        // \"Hello, World!  \"\nstr.trimEnd();          // \"  Hello, World!\"\n\n// Searching\nstr.includes(\"World\");  // true\nstr.startsWith(\"  He\"); // true\nstr.endsWith(\"  \");     // true\nstr.indexOf(\"o\");       // 5\nstr.lastIndexOf(\"o\");   // 9\n\n// Extracting\nstr.slice(2, 7);         // \"Hello\"\nstr.substring(2, 7);     // \"Hello\"\nstr.at(-3);              // \"!\"\n\n// Replacing\nstr.replace(\"World\", \"JS\");         // replaces first match\nstr.replaceAll(\"l\", \"L\");           // replaces all\n\"a-b-c\".split(\"-\");                 // [\"a\", \"b\", \"c\"]\n\n// Padding and Repeating\n\"5\".padStart(3, \"0\");  // \"005\"\n\"ha\".repeat(3);         // \"hahaha\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Template Literals"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const name = \"Alice\";\nconst age = 30;\n\n// Expression interpolation\nconst msg = `My name is ${name} and I am ${age} years old.`;\n\n// Expression evaluation\nconsole.log(`2 + 2 = ${2 + 2}`);\nconsole.log(`Is adult: ${age >= 18 ? 'Yes' : 'No'}`);\n\n// Tagged template literals\nfunction highlight(strings, ...values) {\n  return strings.reduce((result, str, i) =>\n    result + str + (values[i] ? `<b>${values[i]}</b>` : ''), '');\n}\nconst output = highlight`Hello ${name}, you are ${age} years old!`;\n// \"Hello <b>Alice</b>, you are <b>30</b> years old!\""
+      }
+    ]
+  },
+  "numbers": {
+    "title": "JavaScript Numbers",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Numbers in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript has a single Number type based on the IEEE 754 double-precision floating-point standard. This means integers and floats are the same type."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Number Basics"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const integer = 42;\nconst float = 3.14;\nconst negative = -7;\nconst hex = 0xFF;          // 255\nconst octal = 0o77;        // 63\nconst binary = 0b1010;     // 10\nconst scientific = 1.5e6;  // 1500000\n\n// Special values\nconsole.log(Infinity);          // Infinity\nconsole.log(-Infinity);         // -Infinity\nconsole.log(NaN);               // Not a Number\nconsole.log(Number.MAX_SAFE_INTEGER); // 9007199254740991\nconsole.log(Number.MIN_SAFE_INTEGER); // -9007199254740991"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Pitfalls"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Floating point precision issue\nconsole.log(0.1 + 0.2);         // 0.30000000000000004\nconsole.log(0.1 + 0.2 === 0.3); // false!\n\n// Fix with toFixed\nconsole.log((0.1 + 0.2).toFixed(1)); // \"0.3\" (string!)\nconsole.log(+(0.1 + 0.2).toFixed(1)); // 0.3 (number)\n\n// NaN is not equal to anything, including itself\nconsole.log(NaN === NaN);  // false\nconsole.log(isNaN(NaN));   // true\nconsole.log(Number.isNaN(NaN)); // true (more reliable)"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Number Methods"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const n = 3.14159;\nn.toFixed(2);        // \"3.14\" (string)\nn.toPrecision(4);    // \"3.142\" (string)\nn.toString();        // \"3.14159\"\nn.toString(2);       // convert to binary string\n\n// Converting to number\nNumber(\"42\");        // 42\nNumber(\"3.14\");      // 3.14\nNumber(\"\");          // 0\nNumber(\"abc\");       // NaN\nNumber(true);        // 1\nNumber(false);       // 0\nNumber(null);        // 0\nNumber(undefined);   // NaN\n\nparseInt(\"42px\");    // 42 (stops at non-digit)\nparseFloat(\"3.14kg\"); // 3.14\nparseInt(\"10\", 2);   // 2 (parse binary string)"
+      }
+    ]
+  },
+  "math": {
+    "title": "JavaScript Math",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Math Object"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code>Math</code> object provides mathematical constants and functions. It is not a constructor — all properties and methods are static."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Math Constants"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "Math.PI;       // 3.141592653589793\nMath.E;        // 2.718281828459045 (Euler's number)\nMath.SQRT2;    // 1.4142135623730951\nMath.LN2;      // 0.6931471805599453\nMath.LOG2E;    // 1.4426950408889634"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Math Methods"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Rounding\nMath.round(4.5);   // 5 (rounds to nearest)\nMath.ceil(4.1);    // 5 (always rounds up)\nMath.floor(4.9);   // 4 (always rounds down)\nMath.trunc(4.9);   // 4 (removes decimal part)\n\n// Absolute value\nMath.abs(-5);      // 5\n\n// Power & Root\nMath.pow(2, 8);    // 256\nMath.sqrt(16);     // 4\nMath.cbrt(27);     // 3 (cube root)\n\n// Min / Max\nMath.min(1, 2, 3);   // 1\nMath.max(1, 2, 3);   // 3\nMath.min(...[5, 2, 8, 1]); // 1 (use spread for arrays)\n\n// Logarithm\nMath.log(Math.E);  // 1\nMath.log2(8);      // 3\nMath.log10(1000);  // 3\n\n// Trigonometry (angles in radians)\nMath.sin(Math.PI / 2);  // 1\nMath.cos(0);             // 1"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Random Numbers"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Math.random() → [0, 1) exclusive of 1\nMath.random(); // e.g. 0.7823...\n\n// Random integer between min and max (inclusive)\nfunction randomInt(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nconsole.log(randomInt(1, 6));   // dice roll: 1-6\nconsole.log(randomInt(0, 100)); // 0-100\n\n// Random element from array\nconst items = [\"rock\", \"paper\", \"scissors\"];\nconst pick = items[randomInt(0, items.length - 1)];"
+      }
+    ]
+  },
+  "dates": {
+    "title": "JavaScript Dates",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Date Object in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "The <code>Date</code> object is used to work with dates and times. Internally it stores time as the number of milliseconds since January 1, 1970, 00:00:00 UTC (Unix epoch)."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Creating Dates"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const now = new Date();                    // current date & time\nconst specific = new Date(\"2024-01-15\");   // from ISO string\nconst fromParts = new Date(2024, 0, 15);   // year, month(0-indexed), day\nconst fromMs = new Date(0);               // Unix epoch: Jan 1, 1970\n\nconsole.log(Date.now()); // current time as milliseconds"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Getting Date Components"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const d = new Date();\n\nd.getFullYear();   // 2024\nd.getMonth();      // 0-11 (0 = January!)\nd.getDate();       // 1-31 (day of month)\nd.getDay();        // 0-6 (0 = Sunday)\nd.getHours();      // 0-23\nd.getMinutes();    // 0-59\nd.getSeconds();    // 0-59\nd.getMilliseconds(); // 0-999\nd.getTime();       // milliseconds since epoch"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Watch out!</strong> Months are 0-indexed: January = 0, December = 11."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Formatting Dates"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const d = new Date();\n\nd.toISOString();        // \"2024-01-15T10:30:00.000Z\"\nd.toLocaleDateString(); // \"1/15/2024\" (locale-dependent)\nd.toLocaleTimeString(); // \"10:30:00 AM\"\nd.toLocaleString();     // \"1/15/2024, 10:30:00 AM\"\n\n// Custom formatting with Intl.DateTimeFormat\nconst formatter = new Intl.DateTimeFormat(\"en-US\", {\n  year: \"numeric\",\n  month: \"long\",\n  day: \"numeric\"\n});\nconsole.log(formatter.format(d)); // \"January 15, 2024\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Date Arithmetic"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const start = new Date(\"2024-01-01\");\nconst end = new Date(\"2024-12-31\");\n\n// Difference in days\nconst diffMs = end - start; // milliseconds\nconst diffDays = diffMs / (1000 * 60 * 60 * 24);\nconsole.log(diffDays); // 365\n\n// Add 7 days\nconst nextWeek = new Date();\nnextWeek.setDate(nextWeek.getDate() + 7);"
+      }
+    ]
+  },
+  "classes": {
+    "title": "JavaScript Classes",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Classes in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Classes (introduced in ES6) are syntactic sugar over JavaScript's prototype-based inheritance. They provide a cleaner syntax for creating objects and handling inheritance."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Defining a Class"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "class Animal {\n  // Private field (ES2022)\n  #name;\n  #sound;\n\n  constructor(name, sound) {\n    this.#name = name;\n    this.#sound = sound;\n  }\n\n  // Getter\n  get name() { return this.#name; }\n\n  // Instance method\n  speak() {\n    return `${this.#name} says ${this.#sound}!`;\n  }\n\n  // Static method — called on the class, not instances\n  static create(name, sound) {\n    return new Animal(name, sound);\n  }\n}\n\nconst dog = new Animal(\"Rex\", \"woof\");\nconsole.log(dog.speak());        // \"Rex says woof!\"\nconsole.log(dog.name);           // \"Rex\"\n// console.log(dog.#name);       // ❌ SyntaxError — private!\n\nconst cat = Animal.create(\"Whiskers\", \"meow\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Inheritance"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "class Dog extends Animal {\n  #tricks = [];\n\n  constructor(name) {\n    super(name, \"woof\"); // must call super first\n  }\n\n  learn(trick) {\n    this.#tricks.push(trick);\n    return this;\n  }\n\n  showTricks() {\n    if (this.#tricks.length === 0) return `${this.name} knows no tricks.`;\n    return `${this.name} knows: ${this.#tricks.join(\", \")}`;\n  }\n\n  // Override parent method\n  speak() {\n    return super.speak() + \" (Good dog!)\";\n  }\n}\n\nconst buddy = new Dog(\"Buddy\");\nbuddy.learn(\"sit\").learn(\"shake\").learn(\"roll over\");\nconsole.log(buddy.showTricks()); // \"Buddy knows: sit, shake, roll over\"\nconsole.log(buddy.speak());      // \"Buddy says woof! (Good dog!)\"\nconsole.log(buddy instanceof Dog);    // true\nconsole.log(buddy instanceof Animal); // true"
+      }
+    ]
+  },
+  "this-keyword": {
+    "title": "The this Keyword",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The this Keyword"
+      },
+      {
+        "type": "paragraph",
+        "text": "<code>this</code> refers to the object that is currently executing the function. Its value depends entirely on <strong>how</strong> the function is called — not where it is defined (except for arrow functions)."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "this in Different Contexts"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// 1. Global context — refers to globalThis (window in browser)\nconsole.log(this); // Window {} in browser\n\n// 2. Regular function — depends on call site\nfunction show() {\n  console.log(this);\n}\nshow();            // Window (sloppy) or undefined (strict mode)\n\n// 3. Object method — refers to the object\nconst user = {\n  name: \"Alice\",\n  greet() {\n    console.log(`Hi, I'm ${this.name}`);\n  }\n};\nuser.greet(); // \"Hi, I'm Alice\"\n\n// 4. Constructor / class — refers to new instance\nclass Person {\n  constructor(name) {\n    this.name = name; // 'this' = the new object\n  }\n  greet() {\n    return `Hello, I'm ${this.name}`;\n  }\n}\nconst alice = new Person(\"Alice\");\nalice.greet(); // \"Hello, I'm Alice\""
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Arrow Functions and this"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const timer = {\n  count: 0,\n  // Regular function — 'this' is lost in callback\n  startBroken() {\n    setInterval(function() {\n      this.count++; // ❌ 'this' is Window, not timer!\n    }, 1000);\n  },\n  // Arrow function — 'this' is inherited from surrounding scope\n  start() {\n    setInterval(() => {\n      this.count++; // ✅ 'this' is timer object\n      console.log(this.count);\n    }, 1000);\n  }\n};"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "call(), apply(), bind()"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "function introduce(greeting, punctuation) {\n  return `${greeting}, I'm ${this.name}${punctuation}`;\n}\n\nconst person = { name: \"Alice\" };\n\n// call() — invoke immediately, args listed separately\nintroduce.call(person, \"Hello\", \"!\");   // \"Hello, I'm Alice!\"\n\n// apply() — invoke immediately, args as array\nintroduce.apply(person, [\"Hi\", \".\"]); // \"Hi, I'm Alice.\"\n\n// bind() — returns a NEW function with 'this' locked\nconst aliceIntro = introduce.bind(person);\naliceIntro(\"Hey\", \"?\"); // \"Hey, I'm Alice?\"\n\n// Practical bind — fix 'this' in event handlers\nclass Button {\n  constructor(label) {\n    this.label = label;\n    this.handleClick = this.handleClick.bind(this); // lock 'this'\n  }\n  handleClick() {\n    console.log(`${this.label} clicked`);\n  }\n}"
+      },
+      {
+        "type": "table",
+        "headers": ["Method", "When to use", "Returns"],
+        "rows": [
+          ["call(ctx, a, b)", "Borrow a method, known args", "Function result"],
+          ["apply(ctx, [a,b])", "Borrow a method, args as array", "Function result"],
+          ["bind(ctx)", "Fix 'this' for later use (callbacks)", "New function"]
+        ]
+      }
+    ]
+  },
+  "dom": {
+    "title": "DOM Manipulation",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Document Object Model (DOM)"
+      },
+      {
+        "type": "paragraph",
+        "text": "The DOM is a tree-like representation of an HTML document. JavaScript can read and modify the DOM to dynamically update the page content, structure, and styles."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Selecting Elements"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Modern selectors (returns first match)\ndocument.querySelector(\".btn\");      // by class\ndocument.querySelector(\"#title\");    // by id\ndocument.querySelector(\"h1\");        // by tag\ndocument.querySelector(\"ul > li\");   // CSS selector\n\n// Returns all matches as NodeList\ndocument.querySelectorAll(\".card\");\n\n// Legacy (still useful)\ndocument.getElementById(\"title\");\ndocument.getElementsByClassName(\"btn\"); // HTMLCollection\ndocument.getElementsByTagName(\"p\");    // HTMLCollection"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modifying Content"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const el = document.querySelector(\"#title\");\n\n// Text content (safe — no HTML)\nel.textContent = \"New Title\";\n\n// HTML content (use carefully — XSS risk!)\nel.innerHTML = \"<strong>Bold Title</strong>\";\n\n// Attributes\nel.setAttribute(\"data-id\", \"42\");\nel.getAttribute(\"data-id\");     // \"42\"\nel.removeAttribute(\"data-id\");\nel.id;                           // direct property access\n\n// CSS classes\nel.classList.add(\"active\");\nel.classList.remove(\"hidden\");\nel.classList.toggle(\"visible\");\nel.classList.contains(\"active\"); // true\n\n// Styles\nel.style.color = \"red\";\nel.style.backgroundColor = \"#f0f0f0\";"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Creating and Inserting Elements"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Create\nconst li = document.createElement(\"li\");\nli.textContent = \"New Item\";\nli.classList.add(\"list-item\");\n\n// Insert\nconst ul = document.querySelector(\"ul\");\nul.appendChild(li);           // at end\nul.prepend(li);               // at start\nul.insertBefore(li, ul.firstChild);\n\n// Modern: insertAdjacentHTML\nel.insertAdjacentHTML(\"beforeend\", \"<span>New</span>\");\n\n// Remove\nli.remove();\nul.removeChild(li);"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Security:</strong> Never use <code>innerHTML</code> with untrusted user data — it opens XSS attack vectors. Use <code>textContent</code> for plain text."
+      }
+    ]
+  },
+  "events": {
+    "title": "JavaScript Events",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Events in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Events are things that happen in the browser — a user clicks a button, moves the mouse, presses a key, or the page finishes loading. JavaScript lets you react to these events."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Adding Event Listeners"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const btn = document.querySelector(\"#myBtn\");\n\n// Preferred way: addEventListener\nbtn.addEventListener(\"click\", function(event) {\n  console.log(\"Clicked!\", event);\n});\n\n// Arrow function\nbtn.addEventListener(\"click\", (e) => {\n  console.log(e.target);      // the element clicked\n  console.log(e.type);        // \"click\"\n  console.log(e.clientX, e.clientY); // mouse position\n});\n\n// Remove listener (must reference same function)\nconst handler = () => console.log(\"clicked\");\nbtn.addEventListener(\"click\", handler);\nbtn.removeEventListener(\"click\", handler);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Event Types"
+      },
+      {
+        "type": "table",
+        "headers": ["Category", "Event", "When it fires"],
+        "rows": [
+          ["Mouse", "click", "Element clicked"],
+          ["Mouse", "mouseover / mouseout", "Mouse enters/leaves element"],
+          ["Mouse", "mousemove", "Mouse moves over element"],
+          ["Keyboard", "keydown / keyup", "Key is pressed/released"],
+          ["Keyboard", "keypress", "Character key pressed (deprecated)"],
+          ["Form", "submit", "Form is submitted"],
+          ["Form", "input / change", "Input value changes"],
+          ["Form", "focus / blur", "Element gains/loses focus"],
+          ["Window", "load", "Page fully loaded"],
+          ["Window", "DOMContentLoaded", "HTML parsed (before images)"],
+          ["Window", "resize / scroll", "Window resized/scrolled"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Event Delegation"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Instead of attaching to each item, attach to parent\nconst list = document.querySelector(\"#todo-list\");\n\nlist.addEventListener(\"click\", (e) => {\n  // Check if the clicked element is a list item\n  if (e.target.matches(\"li\")) {\n    e.target.classList.toggle(\"done\");\n  }\n  if (e.target.matches(\".delete-btn\")) {\n    e.target.closest(\"li\").remove();\n  }\n});\n\n// Prevent default behaviour\ndocument.querySelector(\"a\").addEventListener(\"click\", (e) => {\n  e.preventDefault(); // stop navigation\n});\n\n// Stop event bubbling\nbtn.addEventListener(\"click\", (e) => {\n  e.stopPropagation(); // don't bubble up to parent\n});"
+      }
+    ]
+  },
+  "es6-features": {
+    "title": "ES6+ Features",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modern JavaScript (ES6 and Beyond)"
+      },
+      {
+        "type": "paragraph",
+        "text": "ES6 (ECMAScript 2015) was a major update to JavaScript. Since then, new features are released every year. Here are the most important ones you'll use daily."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Destructuring & Spread / Rest"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Array destructuring\nconst [a, b, ...rest] = [1, 2, 3, 4, 5];\nconsole.log(a, b, rest); // 1, 2, [3, 4, 5]\n\n// Object destructuring\nconst { name, age = 25, ...others } = { name: \"Alice\", city: \"NYC\" };\n\n// Spread — expand iterable\nconst arr1 = [1, 2], arr2 = [3, 4];\nconst merged = [...arr1, ...arr2]; // [1, 2, 3, 4]\n\nconst obj1 = { a: 1 }, obj2 = { b: 2 };\nconst combined = { ...obj1, ...obj2 }; // { a: 1, b: 2 }"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Optional Chaining & Nullish Coalescing"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const user = { profile: { name: \"Alice\" } };\n\n// Optional chaining (?.) — ES2020\nconsole.log(user?.profile?.name);      // \"Alice\"\nconsole.log(user?.address?.city);      // undefined (no error!)\nconsole.log(user?.getInfo?.());        // undefined (method optional)\n\n// Nullish coalescing (??) — ES2020\n// Only triggers for null or undefined (NOT 0, false, \"\")\nconst port = null ?? 3000;   // 3000\nconst count = 0 ?? 100;      // 0 (0 is not null/undefined)\n\n// Logical assignment — ES2021\nlet a = null;\na ??= \"default\"; // a is now \"default\"\na ||= \"fallback\"; // only assigns if a is falsy\na &&= \"update\";  // only assigns if a is truthy"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Modules (import / export)"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// math.js — Named exports\nexport const PI = 3.14159;\nexport function add(a, b) { return a + b; }\nexport function subtract(a, b) { return a - b; }\n\n// utils.js — Default export\nexport default function formatDate(date) {\n  return date.toLocaleDateString();\n}\n\n// main.js — Importing\nimport formatDate from \"./utils.js\";           // default import\nimport { PI, add } from \"./math.js\";           // named imports\nimport { add as sum } from \"./math.js\";        // rename\nimport * as MathUtils from \"./math.js\";         // namespace import\n\n// Dynamic import (lazy loading)\nconst module = await import(\"./heavy-module.js\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Symbol, Iterators & Generators"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Symbol — unique primitive\nconst id1 = Symbol(\"id\");\nconst id2 = Symbol(\"id\");\nconsole.log(id1 === id2); // false — always unique\n\n// Generator function\nfunction* range(start, end) {\n  for (let i = start; i <= end; i++) {\n    yield i;\n  }\n}\n\nfor (const n of range(1, 5)) {\n  console.log(n); // 1, 2, 3, 4, 5\n}"
+      }
+    ]
+  },
+  "json": {
+    "title": "JSON",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "What is JSON?"
+      },
+      {
+        "type": "paragraph",
+        "text": "JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write, and easy for machines to parse. JSON is the standard format for web APIs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSON Syntax"
+      },
+      {
+        "type": "code",
+        "language": "json",
+        "code": "{\n  \"name\": \"Alice\",\n  \"age\": 30,\n  \"isAdmin\": false,\n  \"address\": {\n    \"city\": \"New York\",\n    \"zip\": \"10001\"\n  },\n  \"hobbies\": [\"reading\", \"coding\", \"hiking\"],\n  \"spouse\": null\n}"
+      },
+      {
+        "type": "table",
+        "headers": ["JSON Type", "Example", "Notes"],
+        "rows": [
+          ["String", "\"hello\"", "Must use double quotes"],
+          ["Number", "42, 3.14", "No NaN or Infinity"],
+          ["Boolean", "true, false", "Lowercase"],
+          ["Null", "null", "Lowercase"],
+          ["Array", "[1, 2, 3]", "Ordered list"],
+          ["Object", "{\"key\": \"val\"}", "Unordered key-value pairs"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "JSON.stringify and JSON.parse"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const user = { name: \"Alice\", age: 30, active: true };\n\n// JavaScript object → JSON string\nconst json = JSON.stringify(user);\nconsole.log(json); // '{\"name\":\"Alice\",\"age\":30,\"active\":true}'\n\n// Pretty print\nconst pretty = JSON.stringify(user, null, 2);\nconsole.log(pretty);\n// {\n//   \"name\": \"Alice\",\n//   \"age\": 30,\n//   \"active\": true\n// }\n\n// JSON string → JavaScript object\nconst parsed = JSON.parse(json);\nconsole.log(parsed.name); // \"Alice\"\n\n// With a reviver function\nconst dateJson = '{\"date\": \"2024-01-15\"}';\nconst obj = JSON.parse(dateJson, (key, value) => {\n  if (key === \"date\") return new Date(value);\n  return value;\n});\nconsole.log(obj.date instanceof Date); // true"
+      },
+      {
+        "type": "note",
+        "text": "<strong>JSON limitations:</strong> Functions, <code>undefined</code>, <code>Symbol</code>, and circular references are not supported in JSON and will be dropped or cause an error during stringification."
+      }
+    ]
+  },
+  "errors": {
+    "title": "Error Handling",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Error Handling in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Errors are inevitable. Good error handling prevents your app from crashing and gives users meaningful feedback."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "try / catch / finally"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "try {\n  // Code that might throw\n  const data = JSON.parse(\"invalid json\");\n  console.log(data);\n} catch (error) {\n  console.error(\"Error:\", error.message);\n  console.error(\"Type:\", error.name); // \"SyntaxError\"\n} finally {\n  // Always runs — for cleanup\n  console.log(\"Done.\");\n}\n\n// Optional catch binding (ES2019)\ntry {\n  riskyOperation();\n} catch {\n  console.log(\"Something went wrong\");\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Error Types"
+      },
+      {
+        "type": "table",
+        "headers": ["Error Type", "When it occurs"],
+        "rows": [
+          ["SyntaxError", "Invalid JavaScript syntax (parsing)"],
+          ["ReferenceError", "Using an undeclared variable"],
+          ["TypeError", "Wrong type (e.g., calling non-function)"],
+          ["RangeError", "Value out of valid range"],
+          ["URIError", "Invalid URI encoding/decoding"],
+          ["EvalError", "Error with eval() function"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Throwing Custom Errors"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Throw built-in error\nthrow new Error(\"Something went wrong\");\nthrow new TypeError(\"Expected a string\");\n\n// Custom error class\nclass ValidationError extends Error {\n  constructor(message, field) {\n    super(message);\n    this.name = \"ValidationError\";\n    this.field = field;\n  }\n}\n\nfunction validateAge(age) {\n  if (typeof age !== \"number\") {\n    throw new ValidationError(\"Age must be a number\", \"age\");\n  }\n  if (age < 0 || age > 150) {\n    throw new ValidationError(\"Age must be between 0 and 150\", \"age\");\n  }\n  return true;\n}\n\ntry {\n  validateAge(\"old\");\n} catch (err) {\n  if (err instanceof ValidationError) {\n    console.log(`Field: ${err.field} — ${err.message}`);\n  } else {\n    throw err; // re-throw unexpected errors\n  }\n}"
+      }
+    ]
+  },
+  "regexp": {
+    "title": "Regular Expressions",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Regular Expressions (RegExp)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Regular expressions are patterns used to match character combinations in strings. They are powerful for validation, searching, and replacing."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Creating RegExp"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Literal syntax (preferred)\nconst re1 = /hello/;\nconst re2 = /hello/gi; // flags: g=global, i=case-insensitive\n\n// Constructor (for dynamic patterns)\nconst pattern = \"hello\";\nconst re3 = new RegExp(pattern, \"gi\");"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Patterns"
+      },
+      {
+        "type": "table",
+        "headers": ["Pattern", "Meaning", "Example Match"],
+        "rows": [
+          [".", "Any character except newline", "a, 1, !"],
+          ["\\d", "Digit [0-9]", "5"],
+          ["\\w", "Word char [a-zA-Z0-9_]", "a, Z, 3"],
+          ["\\s", "Whitespace", "space, tab"],
+          ["^", "Start of string", "^Hello matches \"Hello World\""],
+          ["$", "End of string", "World$ matches \"Hello World\""],
+          ["+", "One or more", "\\d+ matches \"123\""],
+          ["*", "Zero or more", "\\d* matches \"\" or \"123\""],
+          ["?", "Zero or one", "colou?r matches color/colour"],
+          ["{n,m}", "Between n and m times", "\\d{2,4} matches 2-4 digits"],
+          ["[abc]", "Any of a, b, or c", "gr[ae]y matches gray/grey"],
+          ["(a|b)", "a or b", "cat|dog matches cat or dog"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Using RegExp with Strings"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const text = \"Hello World, hello JavaScript!\";\n\n// test — returns boolean\n/hello/i.test(text);             // true\n\n// match — returns matches\ntext.match(/hello/gi);           // [\"Hello\", \"hello\"]\ntext.match(/(\\w+)World/);        // with capture groups\n\n// matchAll — returns iterator of all matches\nconst matches = [...text.matchAll(/hello/gi)];\n\n// replace\ntext.replace(/hello/i, \"Hi\");           // replaces first\ntext.replace(/hello/gi, \"Hi\");          // replaces all\ntext.replaceAll(\"hello\", \"Hi\");         // string replaceAll\n\n// search — returns index of first match\ntext.search(/World/); // 6\n\n// split\n\"a1b2c3\".split(/\\d/); // [\"a\", \"b\", \"c\", \"\"]\n\n// Real-world examples\nconst emailRe = /^[\\w.-]+@[\\w.-]+\\.[a-z]{2,}$/i;\nconsole.log(emailRe.test(\"user@example.com\")); // true\n\nconst phoneRe = /^\\+?[\\d\\s-]{10,15}$/;\nconsole.log(phoneRe.test(\"+1 555-0123\")); // true"
+      }
+    ]
+  },
+  "maps": {
+    "title": "Maps",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Map in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <code>Map</code> is a collection of key-value pairs where keys can be <strong>any type</strong> (not just strings). Maps maintain insertion order and are iterable."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Map vs Object"
+      },
+      {
+        "type": "table",
+        "headers": ["Feature", "Map", "Object"],
+        "rows": [
+          ["Key types", "Any type (objects, functions)", "Only strings/symbols"],
+          ["Order", "Insertion order", "Mostly insertion order (ES2015+)"],
+          ["Size", "map.size", "Object.keys(obj).length"],
+          ["Iteration", "Directly iterable", "Need Object.keys() etc."],
+          ["Performance", "Better for frequent add/remove", "Better for simple lookups"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Working with Maps"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const map = new Map();\n\n// Setting values (any type as key)\nmap.set(\"name\", \"Alice\");\nmap.set(42, \"the answer\");\nmap.set(true, \"boolean key\");\n\nconst objKey = { id: 1 };\nmap.set(objKey, \"object as key\");\n\n// Getting values\nconsole.log(map.get(\"name\"));    // \"Alice\"\nconsole.log(map.get(42));        // \"the answer\"\nconsole.log(map.get(objKey));    // \"object as key\"\n\n// Checking and deleting\nmap.has(\"name\");   // true\nmap.delete(42);    // removes that entry\nmap.size;          // 3\n\n// Iteration\nfor (const [key, value] of map) {\n  console.log(key, value);\n}\n\nmap.forEach((value, key) => console.log(key, value));\n\n[...map.keys()];    // array of keys\n[...map.values()];  // array of values\n[...map.entries()]; // array of [key, value] pairs\n\n// Initialize from array\nconst map2 = new Map([[\"a\", 1], [\"b\", 2]]);\n\n// Convert to object\nconst obj = Object.fromEntries(map);\n\nmap.clear(); // remove all entries"
+      }
+    ]
+  },
+  "sets": {
+    "title": "Sets",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Set in JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "A <code>Set</code> is a collection of <strong>unique values</strong>. It automatically removes duplicates and maintains insertion order."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Working with Sets"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const set = new Set([1, 2, 3, 2, 1]);\nconsole.log(set); // Set { 1, 2, 3 } — duplicates removed\n\nset.add(4);\nset.add(3); // ignored — already exists\nset.delete(1);\nset.has(2);    // true\nset.size;      // 3\n\n// Iteration\nfor (const val of set) {\n  console.log(val);\n}\n\n// Convert to array\nconst arr = [...set];         // spread\nconst arr2 = Array.from(set); // Array.from\n\nset.clear(); // remove all\n\n// Most common use: remove duplicates from array\nconst nums = [1, 2, 2, 3, 3, 3, 4];\nconst unique = [...new Set(nums)]; // [1, 2, 3, 4]"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Set Operations"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const a = new Set([1, 2, 3, 4]);\nconst b = new Set([3, 4, 5, 6]);\n\n// Union — all elements from both\nconst union = new Set([...a, ...b]);\n// Set { 1, 2, 3, 4, 5, 6 }\n\n// Intersection — elements in both\nconst intersection = new Set([...a].filter(x => b.has(x)));\n// Set { 3, 4 }\n\n// Difference — elements in a but not b\nconst difference = new Set([...a].filter(x => !b.has(x)));\n// Set { 1, 2 }"
+      },
+      {
+        "type": "note",
+        "text": "ES2025 introduces native <code>Set.prototype.union()</code>, <code>intersection()</code>, and <code>difference()</code> methods — no manual implementation needed in modern environments."
+      }
+    ]
+  },
+  "async": {
+    "title": "Async / Await",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Asynchronous JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "JavaScript is single-threaded but handles async operations (network requests, timers, file I/O) using an event loop. Promises and async/await are the modern tools for writing async code."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Promises"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Creating a promise\nconst fetchData = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    const success = Math.random() > 0.3;\n    if (success) {\n      resolve({ data: \"Hello!\" });\n    } else {\n      reject(new Error(\"Network error\"));\n    }\n  }, 1000);\n});\n\n// Consuming with .then/.catch\nfetchData\n  .then(result => console.log(result.data))\n  .catch(err => console.error(err.message))\n  .finally(() => console.log(\"Request complete\"));"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "async / await"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// async function always returns a Promise\nasync function getUser(id) {\n  try {\n    const response = await fetch(`/api/users/${id}`);\n    if (!response.ok) {\n      throw new Error(`HTTP error: ${response.status}`);\n    }\n    const user = await response.json();\n    return user;\n  } catch (err) {\n    console.error(\"Failed to get user:\", err.message);\n    throw err; // re-throw if needed\n  }\n}\n\n// Using the async function\nconst user = await getUser(1);\nconsole.log(user.name);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Promise Combinators"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const p1 = fetch(\"/api/users\");\nconst p2 = fetch(\"/api/posts\");\nconst p3 = fetch(\"/api/comments\");\n\n// Promise.all — wait for ALL, fail fast on any rejection\nconst [users, posts, comments] = await Promise.all([p1, p2, p3]);\n\n// Promise.allSettled — wait for ALL, never fails\nconst results = await Promise.allSettled([p1, p2, p3]);\nresults.forEach(r => {\n  if (r.status === \"fulfilled\") console.log(r.value);\n  else console.error(r.reason);\n});\n\n// Promise.race — first one wins (resolved or rejected)\nconst first = await Promise.race([p1, p2, p3]);\n\n// Promise.any — first RESOLVED wins (ignores rejections)\nconst fastest = await Promise.any([p1, p2, p3]);"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Best practice:</strong> Use <code>Promise.allSettled</code> when you want all results regardless of failures. Use <code>Promise.all</code> when all must succeed."
+      }
+    ]
+  },
+  "fetch-api": {
+    "title": "Fetch API",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The Fetch API"
+      },
+      {
+        "type": "paragraph",
+        "text": "The Fetch API provides a modern, promise-based way to make HTTP requests in the browser. It replaced the older XMLHttpRequest (XHR)."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "GET Request"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Basic GET request\nasync function getPost(id) {\n  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);\n\n  if (!response.ok) {\n    throw new Error(`HTTP ${response.status}: ${response.statusText}`);\n  }\n\n  const post = await response.json();\n  return post;\n}\n\nconst post = await getPost(1);\nconsole.log(post.title);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "POST, PUT, DELETE Requests"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// POST — create new resource\nasync function createPost(data) {\n  const response = await fetch(\"https://jsonplaceholder.typicode.com/posts\", {\n    method: \"POST\",\n    headers: {\n      \"Content-Type\": \"application/json\",\n      \"Authorization\": \"Bearer your-token\"\n    },\n    body: JSON.stringify(data)\n  });\n  return response.json();\n}\n\n// PUT — update (full replacement)\nasync function updatePost(id, data) {\n  const res = await fetch(`/api/posts/${id}`, {\n    method: \"PUT\",\n    headers: { \"Content-Type\": \"application/json\" },\n    body: JSON.stringify(data)\n  });\n  return res.json();\n}\n\n// DELETE\nasync function deletePost(id) {\n  const res = await fetch(`/api/posts/${id}`, { method: \"DELETE\" });\n  return res.ok;\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Request Options & Headers"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "const response = await fetch(\"/api/data\", {\n  method: \"GET\",\n  headers: new Headers({\n    \"Accept\": \"application/json\",\n    \"Authorization\": `Bearer ${token}`\n  }),\n  // mode: \"cors\",       // cors, no-cors, same-origin\n  // cache: \"no-store\",  // default, no-store, reload, no-cache, force-cache\n  // credentials: \"include\", // include cookies cross-origin\n  signal: AbortSignal.timeout(5000) // cancel after 5s\n});\n\n// Response inspection\nconsole.log(response.status);      // 200\nconsole.log(response.ok);          // true (200-299)\nconsole.log(response.statusText);  // \"OK\"\nconsole.log(response.headers.get(\"content-type\"));\n\n// Reading the body (can only be read once)\nconst json = await response.json();    // parse as JSON\nconst text = await response.text();    // raw text\nconst blob = await response.blob();    // binary data\nconst buffer = await response.arrayBuffer();"
+      }
+    ]
+  },
+  "debugging": {
+    "title": "Debugging JavaScript",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Debugging JavaScript"
+      },
+      {
+        "type": "paragraph",
+        "text": "Debugging is the process of finding and fixing errors in your code. JavaScript has powerful built-in tools and browser DevTools to help."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "The debugger Statement"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "function calculateTotal(items) {\n  let total = 0;\n  for (const item of items) {\n    debugger; // ← execution PAUSES here in DevTools\n    total += item.price;\n  }\n  return total;\n}\n\n// Open DevTools (F12) BEFORE calling the function\ncalculateTotal([{ price: 10 }, { price: 20 }]);"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Remember:</strong> Remove <code>debugger</code> statements before committing code. They have no effect if DevTools is closed."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Advanced console Techniques"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Named groups\nconsole.group(\"📦 Order Processing\");\nconsole.log(\"Validating items...\");\nconsole.log(\"Calculating total...\");\nconsole.groupEnd();\n\n// Count how many times a line is reached\nfor (let i = 0; i < 5; i++) {\n  console.count(\"loop\"); // \"loop: 1\", \"loop: 2\" ...\n}\nconsole.countReset(\"loop\");\n\n// Trace the call stack\nfunction a() { b(); }\nfunction b() { console.trace(\"How did I get here?\"); }\na(); // shows full call stack\n\n// Styled output\nconsole.log(\n  \"%cError!\",\n  \"color: red; font-size: 20px; font-weight: bold\"\n);\n\n// Log with labels (object shorthand trick)\nconst x = 10, y = 20;\nconsole.log({ x, y }); // { x: 10, y: 20 } — shows variable names!"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common JavaScript Errors"
+      },
+      {
+        "type": "table",
+        "headers": ["Error", "Cause", "Fix"],
+        "rows": [
+          ["ReferenceError: x is not defined", "Using variable before declaring", "Declare with let/const/var"],
+          ["TypeError: x is not a function", "Calling a non-function value", "Check the variable type"],
+          ["TypeError: Cannot read properties of null", "Accessing property of null/undefined", "Add null check before access"],
+          ["SyntaxError: Unexpected token", "Invalid JS syntax", "Check for missing brackets or commas"],
+          ["RangeError: Maximum call stack exceeded", "Infinite recursion", "Add a base case to recursion"]
+        ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Defensive Debugging Patterns"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// 1. Type checking before use\nfunction process(data) {\n  if (!Array.isArray(data)) {\n    console.error(\"Expected array, got:\", typeof data, data);\n    return;\n  }\n  // safe to use data as array\n}\n\n// 2. Optional chaining for deeply nested access\nconst city = user?.address?.city ?? \"Unknown\";\n\n// 3. Structured error logging\ntry {\n  const result = riskyOperation();\n} catch (err) {\n  console.error(\"[riskyOperation] Failed:\", {\n    message: err.message,\n    stack: err.stack,\n    input: someInput\n  });\n}\n\n// 4. Assert-style helpers during development\nfunction assert(condition, message) {\n  if (!condition) throw new Error(`Assertion failed: ${message}`);\n}\nassert(Array.isArray(items), \"items must be an array\");"
+      }
+    ]
+  },
+  "web-api": {
+    "title": "Web APIs",
+    "blocks": [
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Browser Web APIs"
+      },
+      {
+        "type": "paragraph",
+        "text": "Browsers expose many built-in APIs beyond the DOM. These let you work with storage, geolocation, notifications, and much more."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Web Storage"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// localStorage — persists until cleared\nlocalStorage.setItem(\"user\", JSON.stringify({ name: \"Alice\" }));\nconst user = JSON.parse(localStorage.getItem(\"user\"));\nlocalStorage.removeItem(\"user\");\nlocalStorage.clear(); // clear all\n\n// sessionStorage — persists until tab closes\nsessionStorage.setItem(\"token\", \"abc123\");\nconst token = sessionStorage.getItem(\"token\");\n\n// Check storage capacity\nfunction getStorageUsed() {\n  let total = 0;\n  for (const key in localStorage) {\n    total += localStorage[key].length * 2; // bytes\n  }\n  return (total / 1024).toFixed(2) + \" KB\";\n}"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Timers"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// setTimeout — run once after delay\nconst timeoutId = setTimeout(() => {\n  console.log(\"Runs after 2 seconds\");\n}, 2000);\nclearTimeout(timeoutId); // cancel it\n\n// setInterval — run repeatedly\nconst intervalId = setInterval(() => {\n  console.log(\"Runs every second\");\n}, 1000);\nclearInterval(intervalId); // stop it\n\n// requestAnimationFrame — for smooth animations\nfunction animate() {\n  // update animation frame\n  requestAnimationFrame(animate);\n}\nrequestAnimationFrame(animate);"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Other Useful APIs"
+      },
+      {
+        "type": "code",
+        "language": "javascript",
+        "code": "// Geolocation\nnavigator.geolocation.getCurrentPosition(\n  pos => console.log(pos.coords.latitude, pos.coords.longitude),\n  err => console.error(err.message)\n);\n\n// Clipboard\nawait navigator.clipboard.writeText(\"Copied text!\");\nconst text = await navigator.clipboard.readText();\n\n// Notifications\nconst permission = await Notification.requestPermission();\nif (permission === \"granted\") {\n  new Notification(\"Hello!\", {\n    body: \"Notification message\",\n    icon: \"/icon.png\"\n  });\n}\n\n// History API\nhistory.pushState({ page: 1 }, \"Page 1\", \"/page1\");\nhistory.back();\nhistory.go(-2);\n\n// URL API\nconst url = new URL(\"https://example.com/path?q=hello&page=2\");\nconsole.log(url.hostname);              // \"example.com\"\nconsole.log(url.pathname);              // \"/path\"\nconsole.log(url.searchParams.get(\"q\")); // \"hello\"\nurl.searchParams.set(\"page\", \"3\");\nconsole.log(url.toString());"
+      },
+      {
+        "type": "note",
+        "text": "<strong>Web Workers</strong> let you run JavaScript in a background thread, keeping the main thread free for UI rendering. Use them for CPU-intensive tasks like data processing."
+      }
+    ]
+  }
+}
