@@ -118,6 +118,18 @@
         "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n        System.out.println(\"Java is fun!\");\n    }\n}\n// Output:\n// Hello, World!\n// Java is fun!"
       },
       {
+        "type": "quiz",
+        "question": "Java-வின் 'Write Once, Run Anywhere' (WORA) திறனுக்கு முக்கிய காரணம் என்ன?",
+        "options": [
+          { "text": "அது ஒரு Object-oriented language என்பதால்" },
+          { "text": "JVM (Java Virtual Machine) bytecode-ஐ ரன் செய்வதால்" },
+          { "text": "Oracle கம்பெனி maintain பண்ணுவதால்" },
+          { "text": "HTML-ல directly ரன் ஆகுவதால்" }
+        ],
+        "answer": 1,
+        "explanation": "Java code முதலில் Bytecode-ஆக compile ஆகிறது. இந்த Bytecode-ஐ எந்த Operating System-லிலும் உள்ள JVM ரன் செய்யும். இதுதான் WORA!"
+      },
+      {
         "type": "image",
         "src": "assets/images/java/yt_logo_rgb_dark.png",
         "alt": "Java Tutorial on YouTube"
@@ -300,6 +312,18 @@
         "type": "code",
         "language": "java",
         "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        int age = 25;\n        String name = \"Alice\";\n        System.out.println(\"Name: \" + name + \", Age: \" + age);\n        // Output: Name: Alice, Age: 25\n    }\n}"
+      },
+      {
+        "type": "quiz",
+        "question": "எந்த ஒரு Java program-உம் எதிலிருந்து execute ஆக தொடங்குகிறது?",
+        "options": [
+          { "text": "public class லிருந்து" },
+          { "text": "System.out.println() லிருந்து" },
+          { "text": "main() method-லிருந்து" },
+          { "text": "முதல் line-லிருந்து" }
+        ],
+        "answer": 2,
+        "explanation": "Java-வில் execution எப்போதும் `main()` method-லிருந்து தான் தொடங்கும். இதுவே program-இன் starting point."
       },
       {
         "type": "image",
@@ -610,6 +634,18 @@
         "type": "code",
         "language": "java",
         "code": "// Declare then assign\nint age;\nage = 25;\n\n// Declare and initialize\nString name = \"Alice\";\ndouble salary = 45000.50;\nboolean isActive = true;\nchar grade = 'A';\n\n// Multiple vars same type\nint x = 10, y = 20, z = 30;\n\n// var — type inferred (Java 10+)\nvar city = \"Chennai\";  // String\nvar count = 100;        // int\nSystem.out.println(city + \" \" + count); // Chennai 100"
+      },
+      {
+        "type": "quiz",
+        "question": "Java-வில் ஒரு variable-இன் value மாறவே கூடாது (constant) என்றால் என்ன keyword பயன்படுத்த வேண்டும்?",
+        "options": [
+          { "text": "static" },
+          { "text": "constant" },
+          { "text": "final" },
+          { "text": "void" }
+        ],
+        "answer": 2,
+        "explanation": "`final` keyword-ஐ பயன்படுத்தினால் அந்த variable-க்கு ஒரு முறை assign செய்த value-ஐ பின்பு மாற்ற முடியாது."
       },
       {
         "type": "image",
