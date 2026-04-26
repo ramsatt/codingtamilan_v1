@@ -685,7 +685,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Primitive type 8 வகை இருக்கு:"
+        "text": "Primitive type 8 வகை இருக்கு. இதை புரிஞ்சுக்க 'Boxes' (பெட்டிகள்) உதாரணத்தை எடுத்துப்போம். சின்ன பொருளை வைக்க சின்ன பெட்டி போதும், பெரிய பொருளுக்கு பெரிய பெட்டி வேணும் இல்லையா? அதே போல தான் Data Types!"
       },
       {
         "type": "table",
@@ -698,32 +698,32 @@
           [
             "byte",
             "1 byte",
-            "முழு எண்கள் -128 முதல் 127 வரை"
+            "மிகச்சிறிய பெட்டி (உதா: ஒரு மனிதனின் வயது 0-100)"
           ],
           [
             "short",
             "2 bytes",
-            "முழு எண்கள் -32,768 முதல் 32,767 வரை"
+            "சிறிய பெட்டி (உதா: ஒரு ஊரின் மக்கள் தொகை)"
           ],
           [
             "int",
             "4 bytes",
-            "முழு எண்கள் -2 billion முதல் 2 billion வரை"
+            "நடுத்தர பெட்டி (உதா: YouTube video views)"
           ],
           [
             "long",
             "8 bytes",
-            "மிகவும் பெரிய முழு எண்கள்"
+            "மிகப்பெரிய பெட்டி (உதா: பிரபஞ்சத்தின் தூரம்)"
           ],
           [
             "float",
             "4 bytes",
-            "Decimal numbers, 6-7 digits precision"
+            "புள்ளி வைத்த எண்கள் (Decimal) - 6 முதல் 7 digits துல்லியம்"
           ],
           [
             "double",
             "8 bytes",
-            "Decimal numbers, 15 digits precision"
+            "புள்ளி வைத்த எண்கள் (Decimal) - 15 digits அதிக துல்லியம் (உதா: Bank Balance)"
           ],
           [
             "boolean",
@@ -767,14 +767,14 @@
       },
       {
         "type": "paragraph",
-        "text": "Java-ல இரண்டு வகை casting இருக்கு:"
+        "text": "இதையும் அந்த 'பெட்டி' (Box) உதாரணத்தை வெச்சு ஈஸியா புரிஞ்சுக்கலாம். ஒரு சின்ன பெட்டியில இருக்குற பொருளை, பெரிய பெட்டிக்கு மாத்துறது ரொம்ப சுலபம் (Widening). ஆனா பெரிய பெட்டியில இருக்குறதை, சின்ன பெட்டிக்கு மாத்தணும்னா கொஞ்சம் force பண்ணனும் இல்லையா? அது தான் (Narrowing)."
       },
       {
         "type": "list",
         "ordered": false,
         "items": [
-          "<strong>Widening Casting</strong> (automatic) — small type-ல இருந்து big type-க்கு மாத்றது: byte → short → char → int → long → float → double",
-          "<strong>Narrowing Casting</strong> (manual) — big type-ல இருந்து small type-க்கு மாத்றது: double → float → long → int → char → short → byte"
+          "<strong>Widening Casting</strong> (automatic) — சின்ன type-ல இருந்து பெரிய type-க்கு மாத்றது: byte → short → char → int → long → float → double",
+          "<strong>Narrowing Casting</strong> (manual) — பெரிய type-ல இருந்து சின்ன type-க்கு மாத்றது: double → float → long → int → char → short → byte"
         ]
       },
       {
