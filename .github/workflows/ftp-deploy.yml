@@ -1,0 +1,48 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main # Deploys automatically when pushing to the main branch
+  workflow_dispatch: # Allows you to manually trigger the workflow from the GitHub UI
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Recommended version for Angular 18+
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🔨 Build Project
+        run: npm run build
+
+      - name: 🚀 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          
+          # The directory that gets uploaded. 
+          # For Angular 17+ SSR, the output is usually 'dist/codingtamilan/'.
+          # If you ONLY want to upload the static browser files, change this to 'dist/codingtamilan/browser/'
+          local-dir: dist/codingtamilan/
+          
+          # The destination folder on your FTP server. 
+          # Common examples: /public_html/, /www/, or /
+          server-dir: /
+          
+          # Optional: Exclude files/folders from being uploaded
+          # exclude: |
+          #   **/.git*
+          #   **/.git*/**
+          #   **/node_modules/**
