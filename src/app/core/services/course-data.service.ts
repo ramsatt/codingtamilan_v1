@@ -19,7 +19,7 @@ export interface QuizOption {
 }
 
 export interface Block {
-  type: 'paragraph' | 'header' | 'list' | 'note' | 'example' | 'intro' | 'image' | 'code' | 'playground' | 'table' | 'highlight' | 'comparison' | 'flow' | 'quiz' | 'callout' | 'interactive';
+  type: 'paragraph' | 'header' | 'list' | 'note' | 'example' | 'intro' | 'image' | 'code' | 'playground' | 'table' | 'highlight' | 'comparison' | 'flow' | 'quiz' | 'callout' | 'interactive' | 'pro-tip';
   variant?: 'info' | 'warning' | 'danger';
   demo?: string;
   level?: number;
