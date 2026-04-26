@@ -35,7 +35,7 @@ jobs:
           # The directory that gets uploaded. 
           # For Angular 17+ SSR, the output is usually 'dist/codingtamilan/'.
           # If you ONLY want to upload the static browser files, change this to 'dist/codingtamilan/browser/'
-          local-dir: dist/codingtamilan/
+          local-dir: dist/codingtamilan/browser/
           
           # The destination folder on your FTP server. 
           # Common examples: /public_html/, /www/, or /
