@@ -45,3 +45,7 @@ Thumbs.db
 
 # Capacitor Android
 android/
+
+# Environment Variables
+.env
+.env.*

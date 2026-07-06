@@ -1,8 +1,9 @@
 import { Component, signal, ElementRef, ViewChild, AfterViewChecked, input, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { environment } from '../../../../environments/environment';
 import { Slide } from '../../../core/services/course-data.service';
+import { httpsCallable } from 'firebase/functions';
+import { functions } from '../../../core/firebase/firebase.config';
 
 interface ChatMessage {
   role: 'user' | 'ai';
@@ -105,11 +106,6 @@ export class AiTutorComponent implements AfterViewChecked {
     this.isTyping.set(true);
 
     try {
-      const apiKey = environment.groqApiKey;
-      if (!apiKey) {
-        throw new Error('Groq API Key is missing in environment.ts');
-      }
-
       // Prepare context for the prompt
       const slide = this.currentSlideData();
       const slideContentText = slide
@@ -141,33 +137,16 @@ INSTRUCTIONS:
         }))
       ];
 
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: 'llama-3.1-8b-instant',
-          messages: apiMessages,
-          temperature: 0.7,
-          max_tokens: 1024
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error(`API returned status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      const aiText = data.choices[0]?.message?.content || 'Sorry, I could not generate a response.';
+      const chatWithAITutor = httpsCallable(functions, 'chatWithAITutor');
+      const response = await chatWithAITutor({ messages: apiMessages }) as any;
+      const aiText = response.data.reply || 'Sorry, I could not generate a response.';
 
       this.messages.update(m => [...m, { role: 'ai', text: aiText }]);
     } catch (error) {
-      console.error('Error fetching from Groq:', error);
+      console.error('Error fetching from Firebase Functions:', error);
       this.messages.update(m => [...m, {
         role: 'ai',
-        text: 'Oops! Something went wrong connecting to my brain. Please check your API key and try again later.'
+        text: 'Oops! Something went wrong connecting to my backend. Please check if the emulator/functions are running.'
       }]);
     } finally {
       this.isTyping.set(false);
