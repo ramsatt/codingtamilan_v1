@@ -2,7 +2,7 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SqlExecutorService } from '../../../services/sql-executor.service';
+import { SqlExecutorService } from '../../../core/services/sql-executor.service';
 
 @Component({
   selector: 'app-sql-views-lab',
@@ -182,7 +182,8 @@ GROUP BY c.CustomerName;`
 
   executeQuery() {
     try {
-      this.sqlService.execute(this.sqlQuery());
+      const response = this.sqlService.execute(this.sqlQuery());
+      if (response.error) throw new Error(response.error);
       this.error.set('');
       this.showSuccess.set(true);
       this.results.set([]);
@@ -194,7 +195,7 @@ GROUP BY c.CustomerName;`
 
   queryView() {
     try {
-      const result = this.sqlService.execute('SELECT * FROM CustomerView;');
+      const result = this.sqlService.execute('SELECT * FROM CustomerView;').result!;
       this.results.set(result.rows);
       this.columns.set(result.columns);
       this.error.set('');

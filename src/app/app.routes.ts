@@ -15,5 +15,5 @@ export const routes: Routes = [
   { path: 'js/:lessonId', component: JsViewer },
   { path: 'learning/:courseId/:lessonId', component: LessonViewer },
   { path: 'certificate/:courseId', component: Certificate },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];

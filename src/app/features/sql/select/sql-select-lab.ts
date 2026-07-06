@@ -2,7 +2,7 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SqlExecutorService } from '../../../services/sql-executor.service';
+import { SqlExecutorService } from '../../../core/services/sql-executor.service';
 
 @Component({
   selector: 'app-sql-select-lab',
@@ -197,17 +197,17 @@ export class SqlSelectLab implements OnInit {
   }
 
   executeQuery() {
-    try {
-      const result = this.sqlService.execute(this.sqlQuery());
-      this.results.set(result.rows);
-      this.columns.set(result.columns);
-      this.error.set('');
-      this.showSuccess.set(result.rows.length === 0);
-    } catch (e: any) {
-      this.error.set(e.message);
+    const response = this.sqlService.execute(this.sqlQuery());
+    if (response.error) {
+      this.error.set(response.error);
       this.results.set([]);
       this.columns.set([]);
       this.showSuccess.set(false);
+    } else if (response.result) {
+      this.results.set(response.result.rows);
+      this.columns.set(response.result.columns);
+      this.error.set('');
+      this.showSuccess.set(response.result.rows.length === 0);
     }
   }
 

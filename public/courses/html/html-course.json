@@ -196,6 +196,49 @@
       {
         "type": "note",
         "text": "<p>This tutorial follows the latest HTML5 standard.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real-World Example"
+      },
+      {
+        "type": "paragraph",
+        "text": "In the real world, HTML is the skeleton of every web application. Just like a house needs a solid frame before you add paint and furniture, a web application needs a semantic HTML structure before adding CSS and JavaScript."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "SEO & Accessibility",
+        "text": "Writing clean HTML isn't just about making things show up on screen. Search engines (like Google) and screen readers for visually impaired users rely entirely on your HTML tags to understand what your page is about."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html>\n<html><head><title>Page Title</title>\n </head>\n<body><h1>My First Heading</h1><p>My first paragraph.</p>\n    </body></html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is HTML and why do we need it?</strong><br>A: HTML (HyperText Markup Language) is the standard markup language used to create the structure and content of a webpage. We need it to instruct the web browser on how to display text, images, and links."
       }
     ]
   },
@@ -360,6 +403,43 @@
       {
         "type": "paragraph",
         "text": "Right-click on an element (or a blank area), and choose \"Inspect\" to see what elements are made up of (you will see both \nthe HTML and the CSS). You can also edit the HTML or CSS on-the-fly in the \nElements or Styles panel that opens."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real-World Example"
+      },
+      {
+        "type": "paragraph",
+        "text": "When building a news article page, you use <code>&lt;h1&gt;</code> for the main headline, <code>&lt;p&gt;</code> for paragraphs of text, and <code>&lt;a&gt;</code> tags to link to related articles. Using the correct basic tags ensures your page is parsed correctly by social media link previews."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html><html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the purpose of the <code>&lt;!DOCTYPE html&gt;</code> declaration?</strong><br>A: It tells the web browser that the document is written in HTML5. Without it, the browser might enter 'quirks mode' and render the page incorrectly."
       }
     ]
   },
@@ -585,6 +665,43 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Real-World Example"
+      },
+      {
+        "type": "paragraph",
+        "text": "Consider a navigation menu on an e-commerce site. It's essentially just a list of links. Developers structure this using a <code>&lt;nav&gt;</code> element containing a <code>&lt;ul&gt;</code> (unordered list), with <code>&lt;li&gt;</code> and <code>&lt;a&gt;</code> elements inside. Grouping elements logically is key to building maintainable UIs."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html>\n<html><body>\n <h1>My First Heading</h1><p>My first paragraph.</p>\n</body></html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the difference between an HTML element and an HTML tag?</strong><br>A: An HTML tag is the keyword enclosed in angle brackets (like <code>&lt;p&gt;</code>). An HTML element encompasses the opening tag, the content inside, and the closing tag (like <code>&lt;p&gt;Hello&lt;/p&gt;</code>)."
       }
     ]
   },
@@ -881,6 +998,34 @@
       {
         "type": "note",
         "text": "<p>A complete list of all attributes for each HTML element, is listed in our:\n<a href=\"../tags/ref_attributes.html\">HTML Attribute Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<a href=\"https://www.codingtamilan.com\">Visit Coding Tamilan</a>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -999,6 +1144,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -1051,7 +1224,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<p>This paragraphcontains a lot of linesin the source code,but \n the browser ignores it.</p><p>This paragraphcontains         \n a lot of spacesin the source         \n code,but the        browser ignores \n it.</p>"
+        "code": "<p>This paragraphcontains a lot of linesin the source code,but \n the browser ignores it.</p><p>This paragraphcontains\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \n a lot of spacesin the source\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \n code,but the\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 browser ignores \n it.</p>"
       },
       {
         "type": "header",
@@ -1109,7 +1282,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<p>  My Bonnie lies over \n the ocean.  My Bonnie lies over the sea.  My Bonnie \n lies over the ocean.  Oh, bring back my Bonnie to me.</p>"
+        "code": "<p>\u00a0 My Bonnie lies over \n the ocean.\u00a0 My Bonnie lies over the sea.\u00a0 My Bonnie \n lies over the ocean.\u00a0 Oh, bring back my Bonnie to me.</p>"
       },
       {
         "type": "header",
@@ -1127,7 +1300,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<pre>  My Bonnie lies over the ocean.\n  My Bonnie lies over the sea.  My Bonnie lies over the \nocean.  Oh, bring back my Bonnie to me.</pre>"
+        "code": "<pre>\u00a0 My Bonnie lies over the ocean.\n\u00a0 My Bonnie lies over the sea.\u00a0 My Bonnie lies over the \nocean.\u00a0 Oh, bring back my Bonnie to me.</pre>"
       },
       {
         "type": "header",
@@ -1166,6 +1339,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<p>This is a paragraph.</p>\n<p>This is another paragraph.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -1293,6 +1494,34 @@
           "Use <code class=\"w3-codespan\">font-size</code> for text sizes",
           "Use <code class=\"w3-codespan\">text-align</code> for text alignment"
         ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<tagname\nstyle=\"property:value;\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -1523,6 +1752,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<b>This text is bold</b>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -1694,6 +1951,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<p>Here is a quote from WWF's website:</p><blockquote cite=\"http://www.worldwildlife.org/who/index.html\">\n  For 60 years, WWF has worked to help people and nature thrive. As the world's \n  leading conservation organization, WWF works in nearly 100 countries. At every \n  level, we collaborate with people around the world to develop and deliver \n  innovative solutions that protect communities, wildlife, and the places in \n  which they live.</blockquote>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -1784,6 +2069,34 @@
         "type": "example",
         "title": "Example",
         "code": "<p>This <!-- great text --> is a paragraph.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!-- Write your comments here -->"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -1805,7 +2118,7 @@
       },
       {
         "type": "paragraph",
-        "text": "<a target=\"_blank\" href=\"tryit8c5f.html?filename=tryhtml_color_names\" class=\"ws-btn w3-margin-bottom\">Try it Yourself »</a>"
+        "text": "<a target=\"_blank\" href=\"tryit8c5f.html?filename=tryhtml_color_names\" class=\"ws-btn w3-margin-bottom\">Try it Yourself \u00bb</a>"
       },
       {
         "type": "paragraph",
@@ -1906,6 +2219,34 @@
       {
         "type": "note",
         "text": "<h3>Learn more about Color Values</h3>\n<p>You will learn more about <a href=\"html_colors_rgb.html\">RGB</a>, <a href=\"html_colors_hex.html\">HEX</a> and <a href=\"html_colors_hsl.html\">HSL</a> in the next chapters.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<h1 style=\"background-color:DodgerBlue;\">Hello World</h1><p style=\"background-color:Tomato;\">Lorem \n  ipsum...</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -2001,7 +2342,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head><style>\n body {background-color: powderblue;}h1   {color: blue;}p    {color: red;}\n</style></head><body><h1>This is a \n heading</h1><p>This is a paragraph.</p></body></html>"
+        "code": "<!DOCTYPE html><html><head><style>\n body {background-color: powderblue;}h1\u00a0\u00a0 {color: blue;}p\u00a0\u00a0\u00a0 {color: red;}\n</style></head><body><h1>This is a \n heading</h1><p>This is a paragraph.</p></body></html>"
       },
       {
         "type": "header",
@@ -2019,7 +2360,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head><body><h1>This is a heading</h1><p>This is a paragraph.</p></body></html>"
+        "code": "<!DOCTYPE html><html><head>\n\u00a0 <link rel=\"stylesheet\" href=\"styles.css\">\n</head><body><h1>This is a heading</h1><p>This is a paragraph.</p></body></html>"
       },
       {
         "type": "paragraph",
@@ -2032,7 +2373,7 @@
       {
         "type": "example",
         "title": "\"styles.css\":",
-        "code": "body {  background-color: powderblue;}h1 {  color: blue;}p {  color: red;}"
+        "code": "body {\u00a0\u00a0background-color: powderblue;}h1 {\u00a0 color: blue;}p {\u00a0\u00a0color: red;}"
       },
       {
         "type": "note",
@@ -2062,7 +2403,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html>\n <html><head><style>h1 {  color: blue;  font-family: verdana;  font-size: 300%;}p {\n    color: red;  \n font-family: courier;  font-size: 160%;}</style></head><body>\n <h1>This is a heading</h1><p>This is a paragraph.</p></body></html>"
+        "code": "<!DOCTYPE html>\n <html><head><style>h1 {\u00a0\u00a0color: blue;\u00a0\u00a0font-family: verdana;\u00a0\u00a0font-size: 300%;}p\u00a0{\n  \u00a0 color: red;\u00a0 \n font-family: courier;\u00a0 font-size: 160%;}</style></head><body>\n <h1>This is a heading</h1><p>This is a paragraph.</p></body></html>"
       },
       {
         "type": "header",
@@ -2080,7 +2421,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "p {  border: 2px \nsolid powderblue;}"
+        "code": "p {\u00a0\u00a0border: 2px \nsolid powderblue;}"
       },
       {
         "type": "header",
@@ -2094,7 +2435,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "p {  border: 2px \nsolid powderblue;  padding: 30px;}"
+        "code": "p {\u00a0 border: 2px \nsolid powderblue;\u00a0 padding: 30px;}"
       },
       {
         "type": "header",
@@ -2108,7 +2449,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "p {  border: 2px \nsolid powderblue;  margin: 50px;\n }"
+        "code": "p {\u00a0 border: 2px \nsolid powderblue;\u00a0\u00a0margin: 50px;\n }"
       },
       {
         "type": "header",
@@ -2188,6 +2529,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<h1 style=\"color:blue;\">A Blue Heading</h1><p \n  style=\"color:red;\">A red paragraph.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -2442,6 +2811,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<a href=\"url\">link text</a>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -2597,7 +2994,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head><style>img {   width: 100%; }\n </style></head><body><img src=\"html5.gif\" alt=\"HTML5 Icon\" width=\"128\" height=\"128\"><img src=\"html5.gif\" alt=\"HTML5 Icon\" style=\"width:128px;height:128px;\"></body></html>"
+        "code": "<!DOCTYPE html><html><head><style>img { \u00a0\u00a0width: 100%; }\n </style></head><body><img src=\"html5.gif\" alt=\"HTML5 Icon\" width=\"128\" height=\"128\"><img src=\"html5.gif\" alt=\"HTML5 Icon\" style=\"width:128px;height:128px;\"></body></html>"
       },
       {
         "type": "header",
@@ -2661,7 +3058,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<a href=\"default.asp\">  <img src=\"smiley.gif\" alt=\"HTML tutorial\" \nstyle=\"width:42px;height:42px;\"></a>"
+        "code": "<a href=\"default.asp\">\u00a0 <img src=\"smiley.gif\" alt=\"HTML tutorial\" \nstyle=\"width:42px;height:42px;\"></a>"
       },
       {
         "type": "header",
@@ -2788,6 +3185,34 @@
         "type": "header",
         "level": 2,
         "text": "Video: HTML Images"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<img src=\"pic_trulli.jpg\" \nalt=\"Italian Trulli\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -2810,7 +3235,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<table> \n<tr>    <th>Company</th>\n    <th>Contact</th>     <th>Country</th>\n \n</tr> \n<tr>    <td>Alfreds Futterkiste</td>\n    <td>Maria \n  Anders</td>     <td>Germany</td>\n \n</tr>  <tr>    <td>Centro \n  comercial Moctezuma</td>\n    <td>Francisco \n  Chang</td>     <td>Mexico</td>\n  </tr></table>"
+        "code": "<table>\u00a0\n<tr>\u00a0\u00a0\u00a0 <th>Company</th>\n\u00a0\u00a0\u00a0 <th>Contact</th> \u00a0\u00a0\u00a0 <th>Country</th>\n\u00a0\n</tr>\u00a0\n<tr>\u00a0 \u00a0 <td>Alfreds Futterkiste</td>\n\u00a0\u00a0\u00a0 <td>Maria \n  Anders</td> \u00a0\u00a0\u00a0 <td>Germany</td>\n\u00a0\n</tr>\u00a0 <tr>\u00a0\u00a0\u00a0 <td>Centro \n  comercial Moctezuma</td>\n\u00a0\u00a0\u00a0 <td>Francisco \n  Chang</td> \u00a0\u00a0\u00a0 <td>Mexico</td>\n\u00a0 </tr></table>"
       },
       {
         "type": "header",
@@ -2832,7 +3257,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<table> \n<tr>    <td>Emil</td>\n    <td>Tobias</td>     <td>Linus</td>\n \n</tr></table>"
+        "code": "<table>\u00a0\n<tr>\u00a0 \u00a0 <td>Emil</td>\n\u00a0\u00a0\u00a0 <td>Tobias</td> \u00a0\u00a0\u00a0 <td>Linus</td>\n\u00a0\n</tr></table>"
       },
       {
         "type": "note",
@@ -2854,7 +3279,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<table> \n<tr>    <td>Emil</td>\n    <td>Tobias</td>     <td>Linus</td>\n \n</tr> \n<tr>    <td>16</td>\n    <td>14</td>     <td>10</td>\n \n</tr></table>"
+        "code": "<table>\u00a0\n<tr>\u00a0 \u00a0 <td>Emil</td>\n\u00a0\u00a0\u00a0 <td>Tobias</td> \u00a0\u00a0\u00a0 <td>Linus</td>\n\u00a0\n</tr>\u00a0\n<tr>\u00a0 \u00a0 <td>16</td>\n\u00a0\u00a0\u00a0 <td>14</td> \u00a0\u00a0\u00a0 <td>10</td>\n\u00a0\n</tr></table>"
       },
       {
         "type": "paragraph",
@@ -2880,7 +3305,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<table> \n<tr>    <th>Person 1</th>\n    <th>Person 2</th>     <th>Person \n  3</th>\n \n</tr> \n<tr>    <td>Emil</td>\n    <td>Tobias</td>     <td>Linus</td>\n \n</tr> \n<tr>    <td>16</td>\n    <td>14</td>     <td>10</td>\n \n</tr></table>"
+        "code": "<table>\u00a0\n<tr>\u00a0 \u00a0 <th>Person 1</th>\n\u00a0\u00a0\u00a0 <th>Person 2</th> \u00a0\u00a0\u00a0 <th>Person \n  3</th>\n\u00a0\n</tr>\u00a0\n<tr>\u00a0 \u00a0 <td>Emil</td>\n\u00a0\u00a0\u00a0 <td>Tobias</td> \u00a0\u00a0\u00a0 <td>Linus</td>\n\u00a0\n</tr>\u00a0\n<tr>\u00a0 \u00a0 <td>16</td>\n\u00a0\u00a0\u00a0 <td>14</td> \u00a0\u00a0\u00a0 <td>10</td>\n\u00a0\n</tr></table>"
       },
       {
         "type": "paragraph",
@@ -2943,6 +3368,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<table>\u00a0\n<tr>\u00a0\u00a0\u00a0 <th>Company</th>\n\u00a0\u00a0\u00a0 <th>Contact</th> \u00a0\u00a0\u00a0 <th>Country</th>\n\u00a0\n</tr>\u00a0\n<tr>\u00a0 \u00a0 <td>Alfreds Futterkiste</td>\n\u00a0\u00a0\u00a0 <td>Maria \n  Anders</td> \u00a0\u00a0\u00a0 <td>Germany</td>\n\u00a0\n</tr>\u00a0 <tr>\u00a0\u00a0\u00a0 <td>Centro \n  comercial Moctezuma</td>\n\u00a0\u00a0\u00a0 <td>Francisco \n  Chang</td> \u00a0\u00a0\u00a0 <td>Mexico</td>\n\u00a0 </tr></table>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -2969,7 +3422,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<ul>\n \n<li>Coffee</li>  <li>Tea</li>\n \n<li>Milk</li>\n</ul>"
+        "code": "<ul>\n\u00a0\n<li>Coffee</li>\u00a0 <li>Tea</li>\n\u00a0\n<li>Milk</li>\n</ul>"
       },
       {
         "type": "header",
@@ -2987,7 +3440,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<ol>\n \n<li>Coffee</li>  <li>Tea</li>\n \n<li>Milk</li>\n</ol>"
+        "code": "<ol>\n\u00a0\n<li>Coffee</li>\u00a0 <li>Tea</li>\n\u00a0\n<li>Milk</li>\n</ol>"
       },
       {
         "type": "header",
@@ -3009,7 +3462,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<dl>\n \n<dt>Coffee</dt>\n \n<dd>- black hot drink</dd>\n \n<dt>Milk</dt>\n \n<dd>- white cold drink</dd>\n</dl>"
+        "code": "<dl>\n\u00a0\n<dt>Coffee</dt>\n\u00a0\n<dd>- black hot drink</dd>\n\u00a0\n<dt>Milk</dt>\n\u00a0\n<dd>- white cold drink</dd>\n</dl>"
       },
       {
         "type": "header",
@@ -3052,6 +3505,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<ul>\n\u00a0\n<li>Coffee</li>\u00a0 <li>Tea</li>\n\u00a0\n<li>Milk</li>\n</ul>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -3162,7 +3643,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<div style=\"background-color:black;color:white;padding:20px;\">\n   <h2>London</h2>  <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>\n </div>"
+        "code": "<div style=\"background-color:black;color:white;padding:20px;\">\n \u00a0 <h2>London</h2>\u00a0 <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>\n </div>"
       },
       {
         "type": "paragraph",
@@ -3230,6 +3711,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<p>Hello World</p><div>Hello World</div>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -3260,7 +3769,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head><style>\n  .city {  background-color: tomato;  color: white;  \n  border: 2px solid black;  margin: 20px;\n    padding: 20px;} </style>\n </head><body><div class=\"city\">\n  \n <h2>London</h2>  <p>London is the capital of England.</p>\n </div><div class=\"city\">\n  \n <h2>Paris</h2>  <p>Paris is the capital of France.</p></div><div class=\"city\">\n  \n <h2>Tokyo</h2>  <p>Tokyo is the capital of Japan.</p></div></body></html>"
+        "code": "<!DOCTYPE html><html><head><style>\n  .city {\u00a0\u00a0background-color: tomato;\u00a0 color: white;\u00a0 \n  border: 2px solid black;\u00a0 margin: 20px;\n  \u00a0 padding: 20px;} </style>\n </head><body><div class=\"city\">\n \u00a0\n <h2>London</h2>\u00a0 <p>London is the capital of England.</p>\n </div><div class=\"city\">\n \u00a0\n <h2>Paris</h2>\u00a0 <p>Paris is the capital of France.</p></div><div class=\"city\">\n \u00a0\n <h2>Tokyo</h2>\u00a0 <p>Tokyo is the capital of Japan.</p></div></body></html>"
       },
       {
         "type": "paragraph",
@@ -3269,7 +3778,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head><style>.note {\n    font-size: 120%;  color: red;}\n </style></head><body><h1>My <span class=\"note\">Important</span> Heading</h1><p>This is some <span class=\"note\">important</span> text.</p></body></html>"
+        "code": "<!DOCTYPE html><html><head><style>.note {\n  \u00a0 font-size: 120%;\u00a0\u00a0color: red;}\n </style></head><body><h1>My <span class=\"note\">Important</span> Heading</h1><p>This is some <span class=\"note\">important</span> text.</p></body></html>"
       },
       {
         "type": "note",
@@ -3287,7 +3796,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head><style>.city {  \n  background-color: tomato;  color: white;  padding: 10px;\n  }</style></head><body><h2 class=\"city\">London</h2>\n  <p>London is the capital of England.</p><h2 class=\"city\">Paris</h2>\n  <p>Paris is the capital of France.</p><h2 class=\"city\">Tokyo</h2>\n  <p>Tokyo is the capital of Japan.</p></body></html>"
+        "code": "<!DOCTYPE html><html><head><style>.city {\u00a0 \n  background-color: tomato;\u00a0 color: white;\u00a0 padding: 10px;\n  }</style></head><body><h2 class=\"city\">London</h2>\n  <p>London is the capital of England.</p><h2 class=\"city\">Paris</h2>\n  <p>Paris is the capital of France.</p><h2 class=\"city\">Tokyo</h2>\n  <p>Tokyo is the capital of Japan.</p></body></html>"
       },
       {
         "type": "header",
@@ -3345,7 +3854,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<script>function myFunction() {  var x = document.getElementsByClassName(\"city\");  for (var i = 0; i < x.length; \n  i++) {    x[i].style.display = \"none\";  }}</script>"
+        "code": "<script>function myFunction() {\u00a0 var x = document.getElementsByClassName(\"city\");\u00a0 for (var i = 0; i < x.length; \n  i++) {\u00a0\u00a0\u00a0 x[i].style.display = \"none\";\u00a0 }}</script>"
       },
       {
         "type": "note",
@@ -3367,6 +3876,34 @@
           "Different HTML elements can point to the same class name",
           "JavaScript can access elements with a specific class name with the <code class=\"w3-codespan\">getElementsByClassName()</code> \n  method"
         ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html><html><head><style>\n  .city {\u00a0\u00a0background-color: tomato;\u00a0 color: white;\u00a0 \n  border: 2px solid black;\u00a0 margin: 20px;\n  \u00a0 padding: 20px;} </style>\n </head><body><div class=\"city\">\n \u00a0\n <h2>London</h2>\u00a0 <p>London is the capital of England.</p>\n </div><div class=\"city\">\n \u00a0\n <h2>Paris</h2>\u00a0 <p>Paris is the capital of France.</p></div><div class=\"city\">\n \u00a0\n <h2>Tokyo</h2>\u00a0 <p>Tokyo is the capital of Japan.</p></div></body></html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -3405,7 +3942,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head><style>#myHeader {  \n  background-color: lightblue;  color: black;  padding: 40px;  \n  text-align: center;} </style></head><body><h1 id=\"myHeader\">My \n  Header</h1></body></html>"
+        "code": "<!DOCTYPE html><html><head><style>#myHeader {\u00a0 \n  background-color: lightblue;\u00a0 color: black;\u00a0 padding: 40px;\u00a0 \n  text-align: center;} </style></head><body><h1 id=\"myHeader\">My \n  Header</h1></body></html>"
       },
       {
         "type": "note",
@@ -3423,7 +3960,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<style>/* Style the element with the id \"myHeader\" \n  */\n  #myHeader {  background-color: lightblue;  \n  color: black;  padding: \n  40px;  text-align: center;}/* Style all \n  elements with the class name \"city\" */.city\n  {  background-color: tomato;  color: white;  padding: 10px;} </style>\n  <!-- An element with a unique id --><h1 id=\"myHeader\">My \n  Cities</h1><!-- Multiple elements with same class --><h2 class=\"city\">London</h2><p>London is the capital of England.</p>\n  <h2 class=\"city\">Paris</h2><p>Paris is the capital of France.</p>\n  <h2 class=\"city\">Tokyo</h2><p>Tokyo is the capital of Japan.</p>"
+        "code": "<style>/* Style the element with the id \"myHeader\" \n  */\n  #myHeader {\u00a0 background-color: lightblue;\u00a0 \n  color: black;\u00a0\u00a0padding: \n  40px;\u00a0\u00a0text-align: center;}/* Style all \n  elements with the class name \"city\" */.city\n  {\u00a0 background-color: tomato;\u00a0\u00a0color: white;\u00a0\u00a0padding: 10px;} </style>\n  <!-- An element with a unique id --><h1 id=\"myHeader\">My \n  Cities</h1><!-- Multiple elements with same class --><h2 class=\"city\">London</h2><p>London is the capital of England.</p>\n  <h2 class=\"city\">Paris</h2><p>Paris is the capital of France.</p>\n  <h2 class=\"city\">Tokyo</h2><p>Tokyo is the capital of Japan.</p>"
       },
       {
         "type": "note",
@@ -3498,7 +4035,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<script>function displayResult() {  document.getElementById(\"myHeader\").innerHTML = \"Have a nice day!\";}\n  </script>"
+        "code": "<script>function displayResult() {\u00a0\u00a0document.getElementById(\"myHeader\").innerHTML = \"Have a nice day!\";}\n  </script>"
       },
       {
         "type": "note",
@@ -3520,6 +4057,34 @@
           "The <code class=\"w3-codespan\">id</code> \n  attribute is also used to create HTML bookmarks",
           "JavaScript can access an element with a specific id with the <code class=\"w3-codespan\">getElementById()</code> \n  method"
         ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html><html><head><style>#myHeader {\u00a0 \n  background-color: lightblue;\u00a0 color: black;\u00a0 padding: 40px;\u00a0 \n  text-align: center;} </style></head><body><h1 id=\"myHeader\">My \n  Header</h1></body></html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -3661,6 +4226,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<iframe src=\"url\" title=\"description\"></iframe>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -3768,6 +4361,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<script>\n document.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";\n</script>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -3897,6 +4518,34 @@
       {
         "type": "paragraph",
         "text": "When using relative file paths, your web pages will not be bound to your current \nbase URL. All links will work on your own computer (localhost) as well as on \nyour current public domain and your future public domains."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<img src=\"https://www.codingtamilan.com/images/picture.jpg\" \n  alt=\"Mountain\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -3965,7 +4614,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html>\n<html><head>\n \n<title>A Meaningful Page \n Title</title>\n </head>\n<body>\n  The content of the document......\n  </body>\n</html>"
+        "code": "<!DOCTYPE html>\n<html><head>\n\u00a0\n<title>A Meaningful Page \n Title</title>\n </head>\n<body>\n  The content of the document......\n  </body>\n</html>"
       },
       {
         "type": "header",
@@ -3979,7 +4628,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<style>\n   \n  body {background-color: powderblue;}  h1 {color: red;}\n   \n  p {color: blue;}\n</style>"
+        "code": "<style>\n  \u00a0\n  body {background-color: powderblue;}\u00a0 h1 {color: red;}\n  \u00a0\n  p {color: blue;}\n</style>"
       },
       {
         "type": "header",
@@ -4132,7 +4781,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<script>function myFunction() {\n   \n document.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";\n }</script>"
+        "code": "<script>function myFunction() {\n  \u00a0\n document.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";\n }</script>"
       },
       {
         "type": "note",
@@ -4224,6 +4873,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html>\n<html><head>\n\u00a0\n<title>A Meaningful Page \n Title</title>\n </head>\n<body>\n  The content of the document......\n  </body>\n</html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -4283,7 +4960,7 @@
       },
       {
         "type": "note",
-        "text": "<p>Ever heard about <strong>Coding Tamilan Spaces</strong>? Here you can create your website from scratch or use a template.</p>\n  <a class=\"ws-btn\" href=\"https://www.codingtamilan.com/\" target=\"_blank\" title=\"Get Started With Coding Tamilan Spaces\">Get started for free ❯</a>\n  <p class=\"w3-small\"><em>* no credit card required</em></p>"
+        "text": "<p>Ever heard about <strong>Coding Tamilan Spaces</strong>? Here you can create your website from scratch or use a template.</p>\n  <a class=\"ws-btn\" href=\"https://www.codingtamilan.com/\" target=\"_blank\" title=\"Get Started With Coding Tamilan Spaces\">Get started for free \u276f</a>\n  <p class=\"w3-small\"><em>* no credit card required</em></p>"
       },
       {
         "type": "header",
@@ -4319,6 +4996,34 @@
       {
         "type": "paragraph",
         "text": "Learn more about CSS grids in our\n<a href=\"../css/css_grid.html\">CSS Grid Intro</a> chapter."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Practice</title>\n</head>\n<body>\n  <h1>Hello HTML!</h1>\n</body>\n</html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -4349,7 +5054,7 @@
       },
       {
         "type": "paragraph",
-        "text": "<a class=\"ws-btn w3-margin-bottom\" href=\"tryitffe9.html?filename=tryhtml_responsive_page\" target=\"_blank\">Try it Yourself »</a>"
+        "text": "<a class=\"ws-btn w3-margin-bottom\" href=\"tryitffe9.html?filename=tryhtml_responsive_page\" target=\"_blank\">Try it Yourself \u00bb</a>"
       },
       {
         "type": "header",
@@ -4454,7 +5159,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<picture>  <source srcset=\"img_smallflower.jpg\" media=\"(max-width: \n  600px)\">  <source srcset=\"img_flowers.jpg\" media=\"(max-width: \n  1500px)\">  <source srcset=\"flowers.jpg\">  <img src=\"img_smallflower.jpg\" \n  alt=\"Flowers\"></picture>"
+        "code": "<picture>\u00a0 <source srcset=\"img_smallflower.jpg\" media=\"(max-width: \n  600px)\">\u00a0 <source srcset=\"img_flowers.jpg\" media=\"(max-width: \n  1500px)\">\u00a0 <source srcset=\"flowers.jpg\">\u00a0 <img src=\"img_smallflower.jpg\" \n  alt=\"Flowers\"></picture>"
       },
       {
         "type": "header",
@@ -4498,7 +5203,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<style>.left, .right {  float: left;  \n  width: 20%; /* The width is 20%, by default */}.main {  float: left;  width: 60%; /* The width is 60%, by default */}/* Use a media query to \n  add a breakpoint at 800px: */@media screen and (max-width: 800px) {  .left, \n  .main, .right {    \n  width: 100%; /* The width is 100%, when the viewport is 800px or smaller */  \n  }}</style>"
+        "code": "<style>.left, .right {\u00a0 float: left;\u00a0 \n  width: 20%; /* The width is 20%, by default */}.main {\u00a0 float: left;\u00a0 width: 60%; /* The width is 60%, by default */}/* Use a media query to \n  add a breakpoint at 800px: */@media screen and (max-width: 800px) {\u00a0 .left, \n  .main, .right {\u00a0\u00a0\u00a0 \n  width: 100%; /* The width is 100%, when the viewport is 800px or smaller */\u00a0 \n  }}</style>"
       },
       {
         "type": "note",
@@ -4515,11 +5220,11 @@
       },
       {
         "type": "paragraph",
-        "text": "<a class=\"ws-btn w3-margin-top\" href=\"tryit9bb3.html?filename=tryhtml_responsive_media_query3\" target=\"_blank\">Try it Yourself »</a>"
+        "text": "<a class=\"ws-btn w3-margin-top\" href=\"tryit9bb3.html?filename=tryhtml_responsive_media_query3\" target=\"_blank\">Try it Yourself \u00bb</a>"
       },
       {
         "type": "note",
-        "text": "<p>Ever heard about <strong>Coding Tamilan Spaces</strong>? Here you can create your website from scratch or use a template.</p>\n  <a class=\"ws-btn\" href=\"https://www.codingtamilan.com/\" target=\"_blank\" title=\"Get Started With Coding Tamilan Spaces\">Get started for free ❯</a>\n  <p class=\"w3-small\"><em>* no credit card required</em></p>"
+        "text": "<p>Ever heard about <strong>Coding Tamilan Spaces</strong>? Here you can create your website from scratch or use a template.</p>\n  <a class=\"ws-btn\" href=\"https://www.codingtamilan.com/\" target=\"_blank\" title=\"Get Started With Coding Tamilan Spaces\">Get started for free \u276f</a>\n  <p class=\"w3-small\"><em>* no credit card required</em></p>"
       },
       {
         "type": "header",
@@ -4554,7 +5259,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html><head><title>W3.CSS</title><meta name=\"viewport\" \n content=\"width=device-width, initial-scale=1\"><link rel=\"stylesheet\" \n href=\"https://www.codingtamilan.com/w3css/4/w3.css\"></head><body><div \n class=\"w3-container w3-green\">  <h1>Coding Tamilan Demo</h1>   \n <p>Resize this responsive page!</p> </div><div \n class=\"w3-row-padding\">  <div class=\"w3-third\">    <h2>London</h2>    <p>London is the capital city of England.</p>    <p>It is the most populous city in the United Kingdom,    with a \n metropolitan area of over 13 million inhabitants.</p>  </div>  <div \n class=\"w3-third\">    <h2>Paris</h2>    <p>Paris is \n the capital of France.</p>     <p>The Paris area is one of the largest \n population centers in Europe,    with more than 12 million \n inhabitants.</p>  </div>  <div class=\"w3-third\">    \n <h2>Tokyo</h2>    <p>Tokyo is the capital of Japan.</p>    <p>It \n is the center of the Greater Tokyo Area,    and the most populous \n metropolitan area in the world.</p>  </div></div></body>\n </html>"
+        "code": "<!DOCTYPE html><html><head><title>W3.CSS</title><meta name=\"viewport\" \n content=\"width=device-width, initial-scale=1\"><link rel=\"stylesheet\" \n href=\"https://www.codingtamilan.com/w3css/4/w3.css\"></head><body><div \n class=\"w3-container w3-green\">\u00a0 <h1>Coding Tamilan Demo</h1> \u00a0 \n <p>Resize this responsive page!</p> </div><div \n class=\"w3-row-padding\">\u00a0 <div class=\"w3-third\">\u00a0\u00a0\u00a0 <h2>London</h2>\u00a0\u00a0\u00a0 <p>London is the capital city of England.</p>\u00a0\u00a0\u00a0 <p>It is the most populous city in the United Kingdom,\u00a0\u00a0\u00a0 with a \n metropolitan area of over 13 million inhabitants.</p>\u00a0 </div>\u00a0 <div \n class=\"w3-third\">\u00a0\u00a0\u00a0 <h2>Paris</h2>\u00a0\u00a0\u00a0 <p>Paris is \n the capital of France.</p> \u00a0\u00a0\u00a0 <p>The Paris area is one of the largest \n population centers in Europe,\u00a0\u00a0\u00a0 with more than 12 million \n inhabitants.</p>\u00a0 </div>\u00a0 <div class=\"w3-third\">\u00a0\u00a0\u00a0 \n <h2>Tokyo</h2>\u00a0\u00a0\u00a0 <p>Tokyo is the capital of Japan.</p>\u00a0\u00a0\u00a0 <p>It \n is the center of the Greater Tokyo Area,\u00a0\u00a0\u00a0 and the most populous \n metropolitan area in the world.</p>\u00a0 </div></div></body>\n </html>"
       },
       {
         "type": "paragraph",
@@ -4572,11 +5277,39 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html><html lang=\"en\"><head><title>Bootstrap 5 \n  Example</title><meta charset=\"utf-8\"><meta name=\"viewport\" \n  content=\"width=device-width, initial-scale=1\"><link \n  href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" \n  rel=\"stylesheet\"><script \n  src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js\"></script>\n  </head><body><div class=\"container-fluid p-5 bg-primary text-white \n  text-center\">  <h1>My First Bootstrap Page</h1>  <p>Resize \n  this responsive page to see the effect!</p> </div><div \n  class=\"container mt-5\">  <div class=\"row\">    <div \n  class=\"col-sm-4\">      <h3>Column 1</h3>      \n  <p>Lorem ipsum...</p>    </div>    <div \n  class=\"col-sm-4\">      <h3>Column 2</h3>      \n  <p>Lorem ipsum...</p>    </div>    <div \n  class=\"col-sm-4\">      <h3>Column 3</h3>       \n  <p>Lorem ipsum...</p>    </div>  </div></div>"
+        "code": "<!DOCTYPE html><html lang=\"en\"><head><title>Bootstrap 5 \n  Example</title><meta charset=\"utf-8\"><meta name=\"viewport\" \n  content=\"width=device-width, initial-scale=1\"><link \n  href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" \n  rel=\"stylesheet\"><script \n  src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js\"></script>\n  </head><body><div class=\"container-fluid p-5 bg-primary text-white \n  text-center\">\u00a0 <h1>My First Bootstrap Page</h1>\u00a0 <p>Resize \n  this responsive page to see the effect!</p> </div><div \n  class=\"container mt-5\">\u00a0 <div class=\"row\">\u00a0\u00a0\u00a0 <div \n  class=\"col-sm-4\">\u00a0\u00a0\u00a0\u00a0\u00a0 <h3>Column 1</h3>\u00a0\u00a0\u00a0\u00a0\u00a0 \n  <p>Lorem ipsum...</p>\u00a0\u00a0\u00a0 </div>\u00a0\u00a0\u00a0 <div \n  class=\"col-sm-4\">\u00a0\u00a0\u00a0\u00a0\u00a0 <h3>Column 2</h3>\u00a0\u00a0\u00a0\u00a0\u00a0 \n  <p>Lorem ipsum...</p>\u00a0\u00a0\u00a0 </div>\u00a0\u00a0\u00a0 <div \n  class=\"col-sm-4\">\u00a0\u00a0\u00a0\u00a0\u00a0 <h3>Column 3</h3> \u00a0\u00a0\u00a0\u00a0\u00a0 \n  <p>Lorem ipsum...</p>\u00a0\u00a0\u00a0 </div>\u00a0 </div></div>"
       },
       {
         "type": "paragraph",
         "text": "To learn more about Bootstrap, go to our <a href=\"../bootstrap/bootstrap_ver.html\">Bootstrap Tutorial</a>."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -4719,6 +5452,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<code>x = 5;y = 6;\n  z = x + y;</code>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -4836,7 +5597,7 @@
       {
         "type": "example",
         "title": "Example 2",
-        "code": "<html><head><style>.all-browsers {  margin: 0;  \n  padding: 5px;  background-color: lightgray;}.all-browsers \n  > h1, .browser {  margin: 10px;  padding: 5px;}\n  .browser {  background: white;}.browser > h2,  \n  p {  margin: 4px;  font-size: 90%;}</style>\n  </head><body><article class=\"all-browsers\">  <h1>Most \n  Popular Browsers</h1>  <article class=\"browser\">    \n  <h2>Google Chrome</h2>    <p>Google Chrome is a web browser \n  developed by Google, released in 2008. Chrome is the world's most popular web \n  browser today!</p>  </article>  <article class=\"browser\">    \n  <h2>Mozilla Firefox</h2>    <p>Mozilla Firefox is an \n  open-source web browser developed by Mozilla. Firefox has been the second most \n  popular web browser since January, 2018.</p>  </article>  \n  <article class=\"browser\">    <h2>Microsoft Edge</h2>    \n  <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. \n  Microsoft Edge replaced Internet Explorer.</p>  </article>\n  </article></body></html>"
+        "code": "<html><head><style>.all-browsers {\u00a0 margin: 0;\u00a0 \n  padding: 5px;\u00a0 background-color: lightgray;}.all-browsers \n  > h1, .browser {\u00a0 margin: 10px;\u00a0 padding: 5px;}\n  .browser {\u00a0 background: white;}.browser > h2,  \n  p {\u00a0 margin: 4px;\u00a0 font-size: 90%;}</style>\n  </head><body><article class=\"all-browsers\">\u00a0 <h1>Most \n  Popular Browsers</h1>\u00a0 <article class=\"browser\">\u00a0\u00a0\u00a0 \n  <h2>Google Chrome</h2>\u00a0\u00a0\u00a0 <p>Google Chrome is a web browser \n  developed by Google, released in 2008. Chrome is the world's most popular web \n  browser today!</p>\u00a0 </article>\u00a0 <article class=\"browser\">\u00a0\u00a0\u00a0 \n  <h2>Mozilla Firefox</h2>\u00a0\u00a0\u00a0 <p>Mozilla Firefox is an \n  open-source web browser developed by Mozilla. Firefox has been the second most \n  popular web browser since January, 2018.</p>\u00a0 </article>\u00a0 \n  <article class=\"browser\">\u00a0\u00a0\u00a0 <h2>Microsoft Edge</h2>\u00a0\u00a0\u00a0 \n  <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. \n  Microsoft Edge replaced Internet Explorer.</p>\u00a0 </article>\n  </article></body></html>"
       },
       {
         "type": "header",
@@ -4888,7 +5649,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<article>\n  <header>\n    \n <h1>What Does WWF Do?</h1>\n    <p>WWF's mission:</p>\n  </header>\n   <p>WWF's mission is to stop the degradation of our planet's natural environment,  and build a future in which humans live in harmony with nature.</p>\n </article>"
+        "code": "<article>\n\u00a0 <header>\n \u00a0\u00a0\u00a0\n <h1>What Does WWF Do?</h1>\n\u00a0\u00a0\u00a0 <p>WWF's mission:</p>\n\u00a0 </header>\n \u00a0 <p>WWF's mission is to stop the degradation of our planet's natural environment,\u00a0 and build a future in which humans live in harmony with nature.</p>\n </article>"
       },
       {
         "type": "header",
@@ -4922,7 +5683,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<footer>\n  <p>Author: Hege Refsnes</p>\n  <p><a href=\"mailto:hege@example.com\">hege@example.com</a></p>\n </footer>"
+        "code": "<footer>\n\u00a0 <p>Author: Hege Refsnes</p>\n\u00a0 <p><a href=\"mailto:hege@example.com\">hege@example.com</a></p>\n </footer>"
       },
       {
         "type": "header",
@@ -4940,7 +5701,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<nav>\n  \n <a href=\"/html/\">HTML</a> |\n  \n <a href=\"/css/\">CSS</a> |\n  \n <a href=\"/js/\">JavaScript</a> |\n  \n <a href=\"/jquery/\">jQuery</a>\n </nav>"
+        "code": "<nav>\n \u00a0\n <a href=\"/html/\">HTML</a> |\n \u00a0\n <a href=\"/css/\">CSS</a> |\n \u00a0\n <a href=\"/js/\">JavaScript</a> |\n \u00a0\n <a href=\"/jquery/\">jQuery</a>\n </nav>"
       },
       {
         "type": "header",
@@ -4963,7 +5724,7 @@
       {
         "type": "example",
         "title": "Example 2",
-        "code": "<html><head><style>aside {  width: 30%;  \n  padding-left: 15px;  margin-left: 15px;  float: right;  \n  font-style: italic;  background-color: lightgray;}</style></head><body>\n  <p>My family and I visited The Epcot \n  center this summer. The weather was nice, and Epcot was amazing! I had a great \n  summer together with my family!</p><aside><p>The Epcot center is a \n  theme park at Walt Disney World Resort featuring exciting attractions, \n  international pavilions, award-winning fireworks and seasonal special \n  events.</p></aside><p>My family and I visited The Epcot center \n  this summer. The weather was nice, and Epcot was amazing! I had a great summer \n  together with my family!</p><p>My family and I visited The Epcot center \n  this summer. The weather was nice, and Epcot was amazing! I had a great summer \n  together with my family!</p></body></html>"
+        "code": "<html><head><style>aside {\u00a0 width: 30%;\u00a0 \n  padding-left: 15px;\u00a0 margin-left: 15px;\u00a0 float: right;\u00a0 \n  font-style: italic;\u00a0 background-color: lightgray;}</style></head><body>\n  <p>My family and I visited The Epcot \n  center this summer. The weather was nice, and Epcot was amazing! I had a great \n  summer together with my family!</p><aside><p>The Epcot center is a \n  theme park at Walt Disney World Resort featuring exciting attractions, \n  international pavilions, award-winning fireworks and seasonal special \n  events.</p></aside><p>My family and I visited The Epcot center \n  this summer. The weather was nice, and Epcot was amazing! I had a great summer \n  together with my family!</p><p>My family and I visited The Epcot center \n  this summer. The weather was nice, and Epcot was amazing! I had a great summer \n  together with my family!</p></body></html>"
       },
       {
         "type": "header",
@@ -4985,7 +5746,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<figure>\n  <img src=\"pic_trulli.jpg\" alt=\"Trulli\">\n  <figcaption>Fig1. - Trulli, Puglia, Italy.</figcaption>\n</figure>"
+        "code": "<figure>\n\u00a0 <img src=\"pic_trulli.jpg\" alt=\"Trulli\">\n\u00a0 <figcaption>Fig1. - Trulli, Puglia, Italy.</figcaption>\n</figure>"
       },
       {
         "type": "header",
@@ -5069,6 +5830,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<section><h1>WWF</h1><p>The World Wide Fund for Nature (WWF) is an \n    international organization working on issues regarding the conservation, \n    research and restoration of the environment, formerly named the World \n    Wildlife Fund. WWF was founded in 1961.</p></section><section>\n    <h1>WWF's Panda symbol</h1><p>The Panda has become the symbol of WWF. \n    The well-known panda logo of WWF originated from a panda named Chi Chi that \n    was transferred from the Beijing Zoo to the London Zoo in the same year of \n    the establishment of WWF.</p></section>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -5155,7 +5944,7 @@
         "type": "list",
         "ordered": false,
         "items": [
-          "§ 10",
+          "\u00a7 10",
           "10 km/h",
           "10 PM"
         ]
@@ -5170,7 +5959,7 @@
       },
       {
         "type": "note",
-        "text": "<p>The non-breaking hyphen (<a href=\"../charsets/ref_utf_punctuation.html\">&amp;#8209;</a>) \nis used to define a hyphen character (‑) that does not break into a new \nline.</p>"
+        "text": "<p>The non-breaking hyphen (<a href=\"../charsets/ref_utf_punctuation.html\">&amp;#8209;</a>) \nis used to define a hyphen character (\u2011) that does not break into a new \nline.</p>"
       },
       {
         "type": "header",
@@ -5192,91 +5981,91 @@
             "non-breaking space",
             "&amp;nbsp;",
             "&amp;#160;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit4b7b.html?filename=tryhtml_ent_nbsp\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit4b7b.html?filename=tryhtml_ent_nbsp\">Try it \u00bb</a>"
           ],
           [
             "&lt;",
             "less than",
             "&amp;lt;",
             "&amp;#60;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8d43.html?filename=tryhtml_ent_lt\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8d43.html?filename=tryhtml_ent_lt\">Try it \u00bb</a>"
           ],
           [
             "&gt;",
             "greater than",
             "&amp;gt;",
             "&amp;#62;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryita8f9.html?filename=tryhtml_ent_gt\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryita8f9.html?filename=tryhtml_ent_gt\">Try it \u00bb</a>"
           ],
           [
             "&amp;",
             "ampersand",
             "&amp;amp;",
             "&amp;#38;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryita10d.html?filename=tryhtml_ent_amp\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryita10d.html?filename=tryhtml_ent_amp\">Try it \u00bb</a>"
           ],
           [
             "\"",
             "double quotation mark",
             "&amp;quot;",
             "&amp;#34;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit5a20.html?filename=tryhtml_ent_quot\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit5a20.html?filename=tryhtml_ent_quot\">Try it \u00bb</a>"
           ],
           [
             "'",
             "single quotation mark",
             "&amp;apos;",
             "&amp;#39;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8543.html?filename=tryhtml_ent_apos\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8543.html?filename=tryhtml_ent_apos\">Try it \u00bb</a>"
           ],
           [
-            "¢",
+            "\u00a2",
             "cent",
             "&amp;cent;",
             "&amp;#162;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit76ce.html?filename=tryhtml_ent_cent\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit76ce.html?filename=tryhtml_ent_cent\">Try it \u00bb</a>"
           ],
           [
-            "£",
+            "\u00a3",
             "pound",
             "&amp;pound;",
             "&amp;#163;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryite007.html?filename=tryhtml_ent_pound\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryite007.html?filename=tryhtml_ent_pound\">Try it \u00bb</a>"
           ],
           [
-            "¥",
+            "\u00a5",
             "yen",
             "&amp;yen;",
             "&amp;#165;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit4f4a.html?filename=tryhtml_ent_yen\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit4f4a.html?filename=tryhtml_ent_yen\">Try it \u00bb</a>"
           ],
           [
-            "€",
+            "\u20ac",
             "euro",
             "&amp;euro;",
             "&amp;#8364;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit7a7e.html?filename=tryhtml_ent_euro\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit7a7e.html?filename=tryhtml_ent_euro\">Try it \u00bb</a>"
           ],
           [
-            "©",
+            "\u00a9",
             "copyright",
             "&amp;copy;",
             "&amp;#169;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitb41f.html?filename=tryhtml_ent_copy\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitb41f.html?filename=tryhtml_ent_copy\">Try it \u00bb</a>"
           ],
           [
-            "®",
+            "\u00ae",
             "registered trademark",
             "&amp;reg;",
             "&amp;#174;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryita100.html?filename=tryhtml_ent_reg\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryita100.html?filename=tryhtml_ent_reg\">Try it \u00bb</a>"
           ],
           [
-            "™",
+            "\u2122",
             "trademark",
             "&amp;trade;",
             "&amp;#8482;",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit57bb.html?filename=tryhtml_ent_trad\">Try it »</a>"
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit57bb.html?filename=tryhtml_ent_trad\">Try it \u00bb</a>"
           ]
         ]
       },
@@ -5295,7 +6084,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Some diacritical marks, like grave (&nbsp; ̀) and acute (&nbsp; ́) are called accents."
+        "text": "Some diacritical marks, like grave (&nbsp; \u0300) and acute (&nbsp; \u0301) are called accents."
       },
       {
         "type": "paragraph",
@@ -5316,66 +6105,94 @@
         ],
         "rows": [
           [
-            "&nbsp;̀",
+            "&nbsp;\u0300",
             "a",
             "a&amp;#768;",
-            "à",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8bec.html?filename=tryhtml_ent_a768\">Try it »</a>"
+            "a\u0300",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8bec.html?filename=tryhtml_ent_a768\">Try it \u00bb</a>"
           ],
           [
-            "&nbsp;́",
+            "&nbsp;\u0301",
             "a",
             "a&amp;#769;",
-            "á",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitaaa0.html?filename=tryhtml_ent_a769\">Try it »</a>"
+            "a\u0301",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitaaa0.html?filename=tryhtml_ent_a769\">Try it \u00bb</a>"
           ],
           [
-            "̂",
+            "\u0302",
             "a",
             "a&amp;#770;",
-            "â",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit3960.html?filename=tryhtml_ent_a770\">Try it »</a>"
+            "a\u0302",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit3960.html?filename=tryhtml_ent_a770\">Try it \u00bb</a>"
           ],
           [
-            "&nbsp;̃",
+            "&nbsp;\u0303",
             "a",
             "a&amp;#771;",
-            "ã",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit7735.html?filename=tryhtml_ent_a771\">Try it »</a>"
+            "a\u0303",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit7735.html?filename=tryhtml_ent_a771\">Try it \u00bb</a>"
           ],
           [
-            "&nbsp;̀",
+            "&nbsp;\u0300",
             "O",
             "O&amp;#768;",
-            "Ò",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitedd7.html?filename=tryhtml_ent_o768\">Try it »</a>"
+            "O\u0300",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitedd7.html?filename=tryhtml_ent_o768\">Try it \u00bb</a>"
           ],
           [
-            "&nbsp;́",
+            "&nbsp;\u0301",
             "O",
             "O&amp;#769;",
-            "Ó",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitb2e3.html?filename=tryhtml_ent_o769\">Try it »</a>"
+            "O\u0301",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryitb2e3.html?filename=tryhtml_ent_o769\">Try it \u00bb</a>"
           ],
           [
-            "̂",
+            "\u0302",
             "O",
             "O&amp;#770;",
-            "Ô",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryite4f7.html?filename=tryhtml_ent_o770\">Try it »</a>"
+            "O\u0302",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryite4f7.html?filename=tryhtml_ent_o770\">Try it \u00bb</a>"
           ],
           [
-            "&nbsp;̃",
+            "&nbsp;\u0303",
             "O",
             "O&amp;#771;",
-            "Õ",
-            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8457.html?filename=tryhtml_ent_o771\">Try it »</a>"
+            "O\u0303",
+            "<a target=\"_blank\" class=\"w3-btn btnsmall\" href=\"tryit8457.html?filename=tryhtml_ent_o771\">Try it \u00bb</a>"
           ]
         ]
       },
       {
         "type": "note",
         "text": "<p>There are more examples in the next chapter.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "&entity_name;"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -5406,6 +6223,34 @@
         "type": "header",
         "level": 2,
         "text": "More Symbols"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<p>I will display &euro;</p>\n<p>I will display &#8364;</p>\n<p>I will display &#x20AC;</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -5492,9 +6337,9 @@
         "type": "list",
         "ordered": false,
         "items": [
-          "😄 is 128516",
-          "😍 is 128525",
-          "💗 is 128151"
+          "\ud83d\ude04 is 128516",
+          "\ud83d\ude0d is 128525",
+          "\ud83d\udc97 is 128151"
         ]
       },
       {
@@ -5510,6 +6355,34 @@
         "type": "example",
         "title": "Example",
         "code": "<!DOCTYPE html>\n<html>\n<meta charset=\"UTF-8\">\n<body>\n<h1>Sized Emojis</h1>\n  <p style=\"font-size:48px\">&#128512; &#128516; &#128525; &#128151;</p>\n</body></html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<meta charset=\"UTF-8\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -5625,6 +6498,34 @@
         "type": "header",
         "level": 2,
         "text": "HTML UTF-8 Characters"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<meta charset=\"Windows-1252\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -5780,52 +6681,52 @@
         ],
         "rows": [
           [
-            "€",
+            "\u20ac",
             "%80",
             "%E2%82%AC"
           ],
           [
-            "£",
+            "\u00a3",
             "%A3",
             "%C2%A3"
           ],
           [
-            "©",
+            "\u00a9",
             "%A9",
             "%C2%A9"
           ],
           [
-            "®",
+            "\u00ae",
             "%AE",
             "%C2%AE"
           ],
           [
-            "À",
+            "\u00c0",
             "%C0",
             "%C3%80"
           ],
           [
-            "Á",
+            "\u00c1",
             "%C1",
             "%C3%81"
           ],
           [
-            "Â",
+            "\u00c2",
             "%C2",
             "%C3%82"
           ],
           [
-            "Ã",
+            "\u00c3",
             "%C3",
             "%C3%83"
           ],
           [
-            "Ä",
+            "\u00c4",
             "%C4",
             "%C3%84"
           ],
           [
-            "Å",
+            "\u00c5",
             "%C5",
             "%C3%85"
           ]
@@ -5834,6 +6735,34 @@
       {
         "type": "paragraph",
         "text": "For a complete reference of all URL encodings, visit our\n<a href=\"../tags/ref_urlencode.html\">URL Encoding Reference</a>."
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "scheme://prefix.domain:port/path/filename"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -5912,7 +6841,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n \n<title>Title of document</title>\n</head>\n<body>  some content here... \n  </body>\n</html>"
+        "code": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n\u00a0\n<title>Title of document</title>\n</head>\n<body>\u00a0 some content here... \n  </body>\n</html>"
       },
       {
         "type": "header",
@@ -6051,6 +6980,34 @@
         "type": "header",
         "level": 2,
         "text": "Validate HTML With The W3C Validator"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"><html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n\u00a0\n<title>Title of document</title>\n</head>\n<body>\u00a0 some content here... \n  </body>\n</html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -6145,7 +7102,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>\n    <label for=\"fname\">First name:</label><br>  <input \n  type=\"text\" id=\"fname\" name=\"fname\"><br>  <label for=\"lname\">Last \n  name:</label><br>  <input type=\"text\" id=\"lname\" name=\"lname\"></form>"
+        "code": "<form>\n  \u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input \n  type=\"text\" id=\"fname\" name=\"fname\"><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\"></form>"
       },
       {
         "type": "paragraph",
@@ -6196,7 +7153,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<p>Choose your favorite Web language:</p>\n<form>  <input type=\"radio\" id=\"html\" name=\"fav_language\" \n  value=\"HTML\">  <label for=\"html\">HTML</label><br>  <input \n  type=\"radio\" id=\"css\" name=\"fav_language\" value=\"CSS\">  <label \n  for=\"css\">CSS</label><br>  <input type=\"radio\" id=\"javascript\" \n  name=\"fav_language\" value=\"JavaScript\">  <label for=\"javascript\">JavaScript</label></form>"
+        "code": "<p>Choose your favorite Web language:</p>\n<form>\u00a0 <input type=\"radio\" id=\"html\" name=\"fav_language\" \n  value=\"HTML\">\u00a0 <label for=\"html\">HTML</label><br>\u00a0 <input \n  type=\"radio\" id=\"css\" name=\"fav_language\" value=\"CSS\">\u00a0 <label \n  for=\"css\">CSS</label><br>\u00a0 <input type=\"radio\" id=\"javascript\" \n  name=\"fav_language\" value=\"JavaScript\">\u00a0 <label for=\"javascript\">JavaScript</label></form>"
       },
       {
         "type": "paragraph",
@@ -6222,7 +7179,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <input type=\"checkbox\" id=\"vehicle1\" name=\"vehicle1\" value=\"Bike\">  \n  <label for=\"vehicle1\"> I have a bike</label><br>  <input \n  type=\"checkbox\" id=\"vehicle2\" name=\"vehicle2\" value=\"Car\">  <label for=\"vehicle2\"> \n  I have a car</label><br>  <input type=\"checkbox\" \n  id=\"vehicle3\" name=\"vehicle3\" \n  value=\"Boat\">  <label for=\"vehicle3\"> I have a boat</label>\n </form>"
+        "code": "<form>\u00a0 <input type=\"checkbox\" id=\"vehicle1\" name=\"vehicle1\" value=\"Bike\">\u00a0 \n  <label for=\"vehicle1\"> I have a bike</label><br>\u00a0 <input \n  type=\"checkbox\" id=\"vehicle2\" name=\"vehicle2\" value=\"Car\">\u00a0 <label for=\"vehicle2\"> \n  I have a car</label><br>\u00a0 <input type=\"checkbox\" \n  id=\"vehicle3\" name=\"vehicle3\" \n  value=\"Boat\">\u00a0 <label for=\"vehicle3\"> I have a boat</label>\n </form>"
       },
       {
         "type": "paragraph",
@@ -6248,7 +7205,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\">  <label for=\"fname\">First \n  name:</label><br>  <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>  <label for=\"lname\">Last name:</label><br>  \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>  \n  <input type=\"submit\" value=\"Submit\"></form>"
+        "code": "<form action=\"/action_page.php\">\u00a0 <label for=\"fname\">First \n  name:</label><br>\u00a0 <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>\u00a0 <label for=\"lname\">Last name:</label><br>\u00a0 \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\u00a0 \n  <input type=\"submit\" value=\"Submit\"></form>"
       },
       {
         "type": "paragraph",
@@ -6270,7 +7227,35 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\">  <label for=\"fname\">First \n  name:</label><br>  <input type=\"text\" id=\"fname\" value=\"John\"><br><br>  \n  <input type=\"submit\" value=\"Submit\"></form>"
+        "code": "<form action=\"/action_page.php\">\u00a0 <label for=\"fname\">First \n  name:</label><br>\u00a0 <input type=\"text\" id=\"fname\" value=\"John\"><br><br>\u00a0 \n  <input type=\"submit\" value=\"Submit\"></form>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<form>\n .\nform elements\n .\n </form>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -6362,7 +7347,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<label for=\"cars\">Choose a car:</label><select id=\"cars\" name=\"cars\">  <option value=\"volvo\">Volvo</option>\n  \n <option value=\"saab\">Saab</option>  <option value=\"fiat\">Fiat</option>\n  \n <option value=\"audi\">Audi</option></select>"
+        "code": "<label for=\"cars\">Choose a car:</label><select id=\"cars\" name=\"cars\">\u00a0 <option value=\"volvo\">Volvo</option>\n \u00a0\n <option value=\"saab\">Saab</option>\u00a0 <option value=\"fiat\">Fiat</option>\n \u00a0\n <option value=\"audi\">Audi</option></select>"
       },
       {
         "type": "paragraph",
@@ -6393,7 +7378,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<label for=\"cars\">Choose a car:</label><select id=\"cars\" name=\"cars\" size=\"3\">  <option value=\"volvo\">Volvo</option>\n  \n <option value=\"saab\">Saab</option>  <option value=\"fiat\">Fiat</option>\n  \n <option value=\"audi\">Audi</option></select>"
+        "code": "<label for=\"cars\">Choose a car:</label><select id=\"cars\" name=\"cars\" size=\"3\">\u00a0 <option value=\"volvo\">Volvo</option>\n \u00a0\n <option value=\"saab\">Saab</option>\u00a0 <option value=\"fiat\">Fiat</option>\n \u00a0\n <option value=\"audi\">Audi</option></select>"
       },
       {
         "type": "header",
@@ -6407,7 +7392,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<label for=\"cars\">Choose a car:</label><select id=\"cars\" name=\"cars\" size=\"4\" multiple>  <option value=\"volvo\">Volvo</option>\n  \n <option value=\"saab\">Saab</option>  <option value=\"fiat\">Fiat</option>\n  \n <option value=\"audi\">Audi</option></select>"
+        "code": "<label for=\"cars\">Choose a car:</label><select id=\"cars\" name=\"cars\" size=\"4\" multiple>\u00a0 <option value=\"volvo\">Volvo</option>\n \u00a0\n <option value=\"saab\">Saab</option>\u00a0 <option value=\"fiat\">Fiat</option>\n \u00a0\n <option value=\"audi\">Audi</option></select>"
       },
       {
         "type": "header",
@@ -6482,7 +7467,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\">  <fieldset>    \n  <legend>Personalia:</legend>    <label for=\"fname\">First \n  name:</label><br>    <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>    <label for=\"lname\">Last name:</label><br>    \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>    \n  <input type=\"submit\" value=\"Submit\">  </fieldset></form>"
+        "code": "<form action=\"/action_page.php\">\u00a0 <fieldset>\u00a0\u00a0\u00a0 \n  <legend>Personalia:</legend>\u00a0\u00a0\u00a0 <label for=\"fname\">First \n  name:</label><br>\u00a0\u00a0\u00a0 <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>\u00a0\u00a0\u00a0 <label for=\"lname\">Last name:</label><br>\u00a0\u00a0\u00a0 \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\u00a0\u00a0\u00a0 \n  <input type=\"submit\" value=\"Submit\">\u00a0 </fieldset></form>"
       },
       {
         "type": "paragraph",
@@ -6508,7 +7493,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\">  <input list=\"browsers\">\n  \n <datalist id=\"browsers\">\n     <option value=\"Edge\">\n \n  <option value=\"Firefox\">\n    <option value=\"Chrome\">\n \n  <option value=\"Opera\">\n    <option value=\"Safari\">\n  \n </datalist> </form>"
+        "code": "<form action=\"/action_page.php\">\u00a0 <input list=\"browsers\">\n \u00a0\n <datalist id=\"browsers\">\n \u00a0\u00a0\u00a0 <option value=\"Edge\">\n\u00a0\n\u00a0 <option value=\"Firefox\">\n\u00a0\u00a0\u00a0 <option value=\"Chrome\">\n\u00a0\n\u00a0 <option value=\"Opera\">\n\u00a0\u00a0\u00a0 <option value=\"Safari\">\n \u00a0\n </datalist> </form>"
       },
       {
         "type": "header",
@@ -6522,7 +7507,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\"  oninput=\"x.value=parseInt(a.value)+parseInt(b.value)\">  0\n     \n    <input type=\"range\"  id=\"a\" name=\"a\" value=\"50\">  100 +\n     \n    <input type=\"number\" id=\"b\" name=\"b\" value=\"50\">  =\n     \n    <output name=\"x\" for=\"a b\"></output>  <br><br>  <input type=\"submit\">\n </form>"
+        "code": "<form action=\"/action_page.php\"\u00a0 oninput=\"x.value=parseInt(a.value)+parseInt(b.value)\">\u00a0 0\n    \u00a0\n    <input type=\"range\"\u00a0 id=\"a\" name=\"a\" value=\"50\">\u00a0 100 +\n    \u00a0\n    <input type=\"number\" id=\"b\" name=\"b\" value=\"50\">\u00a0 =\n    \u00a0\n    <output name=\"x\" for=\"a b\"></output>\u00a0 <br><br>\u00a0 <input type=\"submit\">\n </form>"
       },
       {
         "type": "header",
@@ -6589,6 +7574,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<label for=\"fname\">First name:</label><input type=\"text\" id=\"fname\" name=\"fname\">"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -6652,7 +7665,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>\n    <label for=\"fname\">First name:</label><br>  <input \n  type=\"text\" id=\"fname\" name=\"fname\"><br>  <label for=\"lname\">Last \n  name:</label><br>  <input type=\"text\" id=\"lname\" name=\"lname\">\n</form>"
+        "code": "<form>\n  \u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input \n  type=\"text\" id=\"fname\" name=\"fname\"><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\">\n</form>"
       },
       {
         "type": "paragraph",
@@ -6670,7 +7683,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>\n   <label for=\"username\">Username:</label><br>  <input type=\"text\" \n  id=\"username\" name=\"username\"><br>  <label for=\"pwd\">Password:</label><br>  \n  <input type=\"password\" id=\"pwd\" name=\"pwd\">\n</form>"
+        "code": "<form>\n \u00a0 <label for=\"username\">Username:</label><br>\u00a0 <input type=\"text\" \n  id=\"username\" name=\"username\"><br>\u00a0 <label for=\"pwd\">Password:</label><br>\u00a0 \n  <input type=\"password\" id=\"pwd\" name=\"pwd\">\n</form>"
       },
       {
         "type": "paragraph",
@@ -6700,7 +7713,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\">  <label for=\"fname\">First \n  name:</label><br>  <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>  <label for=\"lname\">Last name:</label><br>  \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>  \n  <input type=\"submit\" value=\"Submit\"></form>"
+        "code": "<form action=\"/action_page.php\">\u00a0 <label for=\"fname\">First \n  name:</label><br>\u00a0 <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>\u00a0 <label for=\"lname\">Last name:</label><br>\u00a0 \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\u00a0 \n  <input type=\"submit\" value=\"Submit\"></form>"
       },
       {
         "type": "paragraph",
@@ -6713,7 +7726,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\">  <label for=\"fname\">First \n  name:</label><br>  <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>  <label for=\"lname\">Last name:</label><br>  \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>  \n  <input type=\"submit\"></form>"
+        "code": "<form action=\"/action_page.php\">\u00a0 <label for=\"fname\">First \n  name:</label><br>\u00a0 <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>\u00a0 <label for=\"lname\">Last name:</label><br>\u00a0 \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\u00a0 \n  <input type=\"submit\"></form>"
       },
       {
         "type": "header",
@@ -6727,7 +7740,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\">  <label for=\"fname\">First \n  name:</label><br>  <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>  <label for=\"lname\">Last name:</label><br>  \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>  \n  <input type=\"submit\" value=\"Submit\">  <input type=\"reset\" \n  value=\"Reset\"></form>"
+        "code": "<form action=\"/action_page.php\">\u00a0 <label for=\"fname\">First \n  name:</label><br>\u00a0 <input type=\"text\" id=\"fname\" name=\"fname\" \n  value=\"John\"><br>\u00a0 <label for=\"lname\">Last name:</label><br>\u00a0 \n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\u00a0 \n  <input type=\"submit\" value=\"Submit\">\u00a0 <input type=\"reset\" \n  value=\"Reset\"></form>"
       },
       {
         "type": "paragraph",
@@ -6753,7 +7766,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<p>Choose your favorite Web language:</p>\n<form>  <input type=\"radio\" id=\"html\" name=\"fav_language\" \n  value=\"HTML\">  <label for=\"html\">HTML</label><br>  <input \n  type=\"radio\" id=\"css\" name=\"fav_language\" value=\"CSS\">  <label \n  for=\"css\">CSS</label><br>  <input type=\"radio\" id=\"javascript\" \n  name=\"fav_language\" value=\"JavaScript\">  <label for=\"javascript\">JavaScript</label></form>"
+        "code": "<p>Choose your favorite Web language:</p>\n<form>\u00a0 <input type=\"radio\" id=\"html\" name=\"fav_language\" \n  value=\"HTML\">\u00a0 <label for=\"html\">HTML</label><br>\u00a0 <input \n  type=\"radio\" id=\"css\" name=\"fav_language\" value=\"CSS\">\u00a0 <label \n  for=\"css\">CSS</label><br>\u00a0 <input type=\"radio\" id=\"javascript\" \n  name=\"fav_language\" value=\"JavaScript\">\u00a0 <label for=\"javascript\">JavaScript</label></form>"
       },
       {
         "type": "paragraph",
@@ -6775,7 +7788,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <input type=\"checkbox\" id=\"vehicle1\" name=\"vehicle1\" value=\"Bike\">  \n  <label for=\"vehicle1\"> I have a bike</label><br>  <input \n  type=\"checkbox\" id=\"vehicle2\" name=\"vehicle2\" value=\"Car\">  <label for=\"vehicle2\"> \n  I have a car</label><br>  <input type=\"checkbox\" \n  id=\"vehicle3\" name=\"vehicle3\" \n  value=\"Boat\">  <label for=\"vehicle3\"> I have a boat</label>\n </form>"
+        "code": "<form>\u00a0 <input type=\"checkbox\" id=\"vehicle1\" name=\"vehicle1\" value=\"Bike\">\u00a0 \n  <label for=\"vehicle1\"> I have a bike</label><br>\u00a0 <input \n  type=\"checkbox\" id=\"vehicle2\" name=\"vehicle2\" value=\"Car\">\u00a0 <label for=\"vehicle2\"> \n  I have a car</label><br>\u00a0 <input type=\"checkbox\" \n  id=\"vehicle3\" name=\"vehicle3\" \n  value=\"Boat\">\u00a0 <label for=\"vehicle3\"> I have a boat</label>\n </form>"
       },
       {
         "type": "paragraph",
@@ -6815,7 +7828,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"favcolor\">Select your favorite \n  color:</label>  <input type=\"color\" id=\"favcolor\" name=\"favcolor\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"favcolor\">Select your favorite \n  color:</label>\u00a0 <input type=\"color\" id=\"favcolor\" name=\"favcolor\">\n </form>"
       },
       {
         "type": "header",
@@ -6833,7 +7846,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"birthday\">Birthday:</label>  <input \n  type=\"date\" id=\"birthday\" name=\"birthday\"></form>"
+        "code": "<form>\u00a0 <label for=\"birthday\">Birthday:</label>\u00a0 <input \n  type=\"date\" id=\"birthday\" name=\"birthday\"></form>"
       },
       {
         "type": "paragraph",
@@ -6842,7 +7855,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"datemax\">Enter a date before \n  1980-01-01:</label>  <input type=\"date\" id=\"datemax\" name=\"datemax\" \n  max=\"1979-12-31\"><br><br>  <label for=\"datemin\">Enter a date after \n  2000-01-01:</label>  <input type=\"date\" id=\"datemin\" name=\"datemin\" \n  min=\"2000-01-02\"></form>"
+        "code": "<form>\u00a0 <label for=\"datemax\">Enter a date before \n  1980-01-01:</label>\u00a0 <input type=\"date\" id=\"datemax\" name=\"datemax\" \n  max=\"1979-12-31\"><br><br>\u00a0 <label for=\"datemin\">Enter a date after \n  2000-01-01:</label>\u00a0 <input type=\"date\" id=\"datemin\" name=\"datemin\" \n  min=\"2000-01-02\"></form>"
       },
       {
         "type": "header",
@@ -6860,7 +7873,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"birthdaytime\">Birthday (date and \n  time):</label>  <input type=\"datetime-local\" id=\"birthdaytime\" name=\"birthdaytime\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"birthdaytime\">Birthday (date and \n  time):</label>\u00a0 <input type=\"datetime-local\" id=\"birthdaytime\" name=\"birthdaytime\">\n </form>"
       },
       {
         "type": "header",
@@ -6882,7 +7895,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"email\">Enter your email:</label>  \n  <input type=\"email\" id=\"email\" name=\"email\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"email\">Enter your email:</label>\u00a0 \n  <input type=\"email\" id=\"email\" name=\"email\">\n </form>"
       },
       {
         "type": "header",
@@ -6914,7 +7927,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"myfile\">Select a file:</label>  \n  <input type=\"file\" id=\"myfile\" name=\"myfile\"></form>"
+        "code": "<form>\u00a0 <label for=\"myfile\">Select a file:</label>\u00a0 \n  <input type=\"file\" id=\"myfile\" name=\"myfile\"></form>"
       },
       {
         "type": "header",
@@ -6940,7 +7953,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"fname\">First name:</label>  \n  <input type=\"text\" id=\"fname\" name=\"fname\"><br><br>  <input \n  type=\"hidden\" id=\"custId\" name=\"custId\" value=\"3487\">  <input \n  type=\"submit\" value=\"Submit\"></form>"
+        "code": "<form>\u00a0 <label for=\"fname\">First name:</label>\u00a0 \n  <input type=\"text\" id=\"fname\" name=\"fname\"><br><br>\u00a0 <input \n  type=\"hidden\" id=\"custId\" name=\"custId\" value=\"3487\">\u00a0 <input \n  type=\"submit\" value=\"Submit\"></form>"
       },
       {
         "type": "header",
@@ -6958,7 +7971,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"bdaymonth\">Birthday (month and \n  year):</label>  <input type=\"month\" id=\"bdaymonth\" name=\"bdaymonth\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"bdaymonth\">Birthday (month and \n  year):</label>\u00a0 <input type=\"month\" id=\"bdaymonth\" name=\"bdaymonth\">\n </form>"
       },
       {
         "type": "header",
@@ -6980,7 +7993,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"quantity\">Quantity (between 1 and \n  5):</label>  <input type=\"number\" id=\"quantity\" name=\"quantity\" \n  min=\"1\" max=\"5\"></form>"
+        "code": "<form>\u00a0 <label for=\"quantity\">Quantity (between 1 and \n  5):</label>\u00a0 <input type=\"number\" id=\"quantity\" name=\"quantity\" \n  min=\"1\" max=\"5\"></form>"
       },
       {
         "type": "header",
@@ -7055,7 +8068,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"quantity\">Quantity:</label>  <input \n  type=\"number\" id=\"quantity\" name=\"quantity\" min=\"0\" max=\"100\" step=\"10\" \n  value=\"30\"></form>"
+        "code": "<form>\u00a0 <label for=\"quantity\">Quantity:</label>\u00a0 <input \n  type=\"number\" id=\"quantity\" name=\"quantity\" min=\"0\" max=\"100\" step=\"10\" \n  value=\"30\"></form>"
       },
       {
         "type": "header",
@@ -7069,7 +8082,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"vol\">Volume (between 0 and 50):</label>  \n    <input type=\"range\" id=\"vol\" name=\"vol\" min=\"0\" max=\"50\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"vol\">Volume (between 0 and 50):</label>\u00a0 \n    <input type=\"range\" id=\"vol\" name=\"vol\" min=\"0\" max=\"50\">\n </form>"
       },
       {
         "type": "header",
@@ -7083,7 +8096,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"gsearch\">Search Google:</label>  \n  <input type=\"search\" id=\"gsearch\" name=\"gsearch\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"gsearch\">Search Google:</label>\u00a0 \n  <input type=\"search\" id=\"gsearch\" name=\"gsearch\">\n </form>"
       },
       {
         "type": "header",
@@ -7097,7 +8110,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"phone\">Enter your phone number:</label>  \n    <input type=\"tel\" id=\"phone\" name=\"phone\" \n    pattern=\"[0-9]{3}-[0-9]{2}-[0-9]{3}\"></form>"
+        "code": "<form>\u00a0 <label for=\"phone\">Enter your phone number:</label>\u00a0 \n    <input type=\"tel\" id=\"phone\" name=\"phone\" \n    pattern=\"[0-9]{3}-[0-9]{2}-[0-9]{3}\"></form>"
       },
       {
         "type": "header",
@@ -7115,7 +8128,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"appt\">Select a time:</label>  \n  <input type=\"time\" id=\"appt\" name=\"appt\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"appt\">Select a time:</label>\u00a0 \n  <input type=\"time\" id=\"appt\" name=\"appt\">\n </form>"
       },
       {
         "type": "header",
@@ -7137,7 +8150,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"homepage\">Add your homepage:</label>  \n  <input type=\"url\" id=\"homepage\" name=\"homepage\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"homepage\">Add your homepage:</label>\u00a0 \n  <input type=\"url\" id=\"homepage\" name=\"homepage\">\n </form>"
       },
       {
         "type": "header",
@@ -7155,7 +8168,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"week\">Select a week:</label>  \n  <input type=\"week\" id=\"week\" name=\"week\">\n </form>"
+        "code": "<form>\u00a0 <label for=\"week\">Select a week:</label>\u00a0 \n  <input type=\"week\" id=\"week\" name=\"week\">\n </form>"
       },
       {
         "type": "header",
@@ -7174,6 +8187,34 @@
             "Specifies the input type to display"
           ]
         ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<form>\n  \u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input \n  type=\"text\" id=\"fname\" name=\"fname\"><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\">\n</form>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -7196,7 +8237,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>\n  <label for=\"fname\">First name:</label><br>  <input type=\"text\" \n  id=\"fname\" name=\"fname\" value=\"John\"><br>  <label for=\"lname\">Last \n  name:</label><br>  <input type=\"text\" id=\"lname\" name=\"lname\" \n  value=\"Doe\"></form>"
+        "code": "<form>\n\u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input type=\"text\" \n  id=\"fname\" name=\"fname\" value=\"John\"><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\" \n  value=\"Doe\"></form>"
       },
       {
         "type": "header",
@@ -7218,7 +8259,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>\n  <label for=\"fname\">First name:</label><br>  <input type=\"text\" \n  id=\"fname\" name=\"fname\" value=\"John\" readonly><br>  <label for=\"lname\">Last \n  name:</label><br>  <input type=\"text\" id=\"lname\" name=\"lname\" \n  value=\"Doe\"></form>"
+        "code": "<form>\n\u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input type=\"text\" \n  id=\"fname\" name=\"fname\" value=\"John\" readonly><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\" \n  value=\"Doe\"></form>"
       },
       {
         "type": "header",
@@ -7240,7 +8281,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>\n  <label for=\"fname\">First name:</label><br>  <input type=\"text\" \n  id=\"fname\" name=\"fname\" value=\"John\" disabled><br>  <label for=\"lname\">Last \n  name:</label><br>  <input type=\"text\" id=\"lname\" name=\"lname\" \n  value=\"Doe\"></form>"
+        "code": "<form>\n\u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input type=\"text\" \n  id=\"fname\" name=\"fname\" value=\"John\" disabled><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\" \n  value=\"Doe\"></form>"
       },
       {
         "type": "header",
@@ -7262,7 +8303,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"fname\">First name:</label><br>  <input \n  type=\"text\" id=\"fname\" name=\"fname\" size=\"50\"><br>  <label \n  for=\"pin\">PIN:</label><br>  <input type=\"text\" id=\"pin\" name=\"pin\" \n  size=\"4\"></form>"
+        "code": "<form>\u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input \n  type=\"text\" id=\"fname\" name=\"fname\" size=\"50\"><br>\u00a0 <label \n  for=\"pin\">PIN:</label><br>\u00a0 <input type=\"text\" id=\"pin\" name=\"pin\" \n  size=\"4\"></form>"
       },
       {
         "type": "header",
@@ -7280,7 +8321,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"fname\">First name:</label><br>  <input \n  type=\"text\" id=\"fname\" name=\"fname\" size=\"50\"><br>  <label \n  for=\"pin\">PIN:</label><br>  <input type=\"text\" id=\"pin\" name=\"pin\" \n  maxlength=\"4\" size=\"4\"></form>"
+        "code": "<form>\u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input \n  type=\"text\" id=\"fname\" name=\"fname\" size=\"50\"><br>\u00a0 <label \n  for=\"pin\">PIN:</label><br>\u00a0 <input type=\"text\" id=\"pin\" name=\"pin\" \n  maxlength=\"4\" size=\"4\"></form>"
       },
       {
         "type": "header",
@@ -7302,7 +8343,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"datemax\">Enter a date before \n  1980-01-01:</label>  <input type=\"date\" id=\"datemax\" name=\"datemax\" \n  max=\"1979-12-31\"><br><br>  <label for=\"datemin\">Enter a date \n  after 2000-01-01:</label>  <input type=\"date\" id=\"datemin\" name=\"datemin\" \n  min=\"2000-01-02\"><br><br>  <label for=\"quantity\">Quantity \n  (between 1 and 5):</label>  <input type=\"number\" id=\"quantity\" \n  name=\"quantity\" min=\"1\" max=\"5\"></form>"
+        "code": "<form>\u00a0 <label for=\"datemax\">Enter a date before \n  1980-01-01:</label>\u00a0 <input type=\"date\" id=\"datemax\" name=\"datemax\" \n  max=\"1979-12-31\"><br><br>\u00a0 <label for=\"datemin\">Enter a date \n  after 2000-01-01:</label>\u00a0 <input type=\"date\" id=\"datemin\" name=\"datemin\" \n  min=\"2000-01-02\"><br><br>\u00a0 <label for=\"quantity\">Quantity \n  (between 1 and 5):</label>\u00a0 <input type=\"number\" id=\"quantity\" \n  name=\"quantity\" min=\"1\" max=\"5\"></form>"
       },
       {
         "type": "header",
@@ -7320,7 +8361,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"files\">Select files:</label>  <input \n  type=\"file\" id=\"files\" name=\"files\" multiple></form>"
+        "code": "<form>\u00a0 <label for=\"files\">Select files:</label>\u00a0 <input \n  type=\"file\" id=\"files\" name=\"files\" multiple></form>"
       },
       {
         "type": "header",
@@ -7346,7 +8387,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"country_code\">Country code:</label>  \n  <input type=\"text\" id=\"country_code\" name=\"country_code\"  \n  pattern=\"[A-Za-z]{3}\" title=\"Three letter country code\"></form>"
+        "code": "<form>\u00a0 <label for=\"country_code\">Country code:</label>\u00a0 \n  <input type=\"text\" id=\"country_code\" name=\"country_code\"\u00a0 \n  pattern=\"[A-Za-z]{3}\" title=\"Three letter country code\"></form>"
       },
       {
         "type": "header",
@@ -7368,7 +8409,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"phone\">Enter a phone number:</label>  \n  <input type=\"tel\" id=\"phone\" name=\"phone\"  \n  placeholder=\"123-45-678\"  pattern=\"[0-9]{3}-[0-9]{2}-[0-9]{3}\">\n  </form>"
+        "code": "<form>\u00a0 <label for=\"phone\">Enter a phone number:</label>\u00a0 \n  <input type=\"tel\" id=\"phone\" name=\"phone\"\u00a0 \n  placeholder=\"123-45-678\"\u00a0 pattern=\"[0-9]{3}-[0-9]{2}-[0-9]{3}\">\n  </form>"
       },
       {
         "type": "header",
@@ -7386,7 +8427,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"username\">Username:</label>  <input \n  type=\"text\" id=\"username\" name=\"username\" required></form>"
+        "code": "<form>\u00a0 <label for=\"username\">Username:</label>\u00a0 <input \n  type=\"text\" id=\"username\" name=\"username\" required></form>"
       },
       {
         "type": "header",
@@ -7412,7 +8453,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"points\">Points:</label>  <input \n  type=\"number\" id=\"points\" name=\"points\" step=\"3\"></form>"
+        "code": "<form>\u00a0 <label for=\"points\">Points:</label>\u00a0 <input \n  type=\"number\" id=\"points\" name=\"points\" step=\"3\"></form>"
       },
       {
         "type": "note",
@@ -7430,7 +8471,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"fname\">First name:</label><br>  <input \n  type=\"text\" id=\"fname\" name=\"fname\" autofocus><br>  <label for=\"lname\">Last \n  name:</label><br>  <input type=\"text\" id=\"lname\" name=\"lname\">\n  </form>"
+        "code": "<form>\u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input \n  type=\"text\" id=\"fname\" name=\"fname\" autofocus><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\">\n  </form>"
       },
       {
         "type": "header",
@@ -7448,7 +8489,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form>  <label for=\"fname\">First name:</label>  <input \n  type=\"text\" id=\"fname\" name=\"fname\"><br><br>  <label for=\"lname\">Last \n  name:</label>  <input type=\"text\" id=\"lname\" name=\"lname\"><br><br>  \n  <input type=\"image\" src=\"img_submit.gif\" alt=\"Submit\" width=\"48\" height=\"48\">\n  </form>"
+        "code": "<form>\u00a0 <label for=\"fname\">First name:</label>\u00a0 <input \n  type=\"text\" id=\"fname\" name=\"fname\"><br><br>\u00a0 <label for=\"lname\">Last \n  name:</label>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\"><br><br>\u00a0 \n  <input type=\"image\" src=\"img_submit.gif\" alt=\"Submit\" width=\"48\" height=\"48\">\n  </form>"
       },
       {
         "type": "header",
@@ -7462,7 +8503,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form> \n<input list=\"browsers\"> \n <datalist id=\"browsers\">\n     <option value=\"Edge\">\n \n  <option value=\"Firefox\">\n \n  <option value=\"Chrome\">\n \n  <option value=\"Opera\">\n \n  <option value=\"Safari\">\n  \n </datalist></form>"
+        "code": "<form>\u00a0\n<input list=\"browsers\">\u00a0\n <datalist id=\"browsers\">\n \u00a0\u00a0\u00a0 <option value=\"Edge\">\n\u00a0\n\u00a0 <option value=\"Firefox\">\n\u00a0\n\u00a0 <option value=\"Chrome\">\n\u00a0\n\u00a0 <option value=\"Opera\">\n\u00a0\n\u00a0 <option value=\"Safari\">\n \u00a0\n </datalist></form>"
       },
       {
         "type": "header",
@@ -7484,7 +8525,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<form action=\"/action_page.php\" autocomplete=\"on\">  <label for=\"fname\">First \n    name:</label>  <input type=\"text\" id=\"fname\" name=\"fname\"><br><br>  \n    <label for=\"lname\">Last name:</label>  <input type=\"text\" id=\"lname\" \n    name=\"lname\"><br><br>  <label for=\"email\">Email:</label>  \n    <input type=\"email\" id=\"email\" name=\"email\" autocomplete=\"off\"><br><br>  \n    <input type=\"submit\" value=\"Submit\"></form>"
+        "code": "<form action=\"/action_page.php\" autocomplete=\"on\">\u00a0 <label for=\"fname\">First \n    name:</label>\u00a0 <input type=\"text\" id=\"fname\" name=\"fname\"><br><br>\u00a0 \n    <label for=\"lname\">Last name:</label>\u00a0 <input type=\"text\" id=\"lname\" \n    name=\"lname\"><br><br>\u00a0 <label for=\"email\">Email:</label>\u00a0 \n    <input type=\"email\" id=\"email\" name=\"email\" autocomplete=\"off\"><br><br>\u00a0 \n    <input type=\"submit\" value=\"Submit\"></form>"
       },
       {
         "type": "paragraph",
@@ -7515,6 +8556,34 @@
       {
         "type": "note",
         "text": "<p>For a complete list of all available HTML tags, visit our <a href=\"../tags/default.html\">HTML Tag Reference</a>.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<form>\n\u00a0 <label for=\"fname\">First name:</label><br>\u00a0 <input type=\"text\" \n  id=\"fname\" name=\"fname\" value=\"John\"><br>\u00a0 <label for=\"lname\">Last \n  name:</label><br>\u00a0 <input type=\"text\" id=\"lname\" name=\"lname\" \n  value=\"Doe\"></form>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -7703,6 +8772,34 @@
       {
         "type": "note",
         "text": "<p><strong>Note:</strong> Only MP3, WAV, and Ogg audio are supported by the HTML standard.</p>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Practice</title>\n</head>\n<body>\n  <h1>Hello HTML!</h1>\n</body>\n</html>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -7730,7 +8827,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<video width=\"320\" height=\"240\" controls>\n  <source src=\"movie.mp4\" type=\"video/mp4\">\n  <source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.\n</video>"
+        "code": "<video width=\"320\" height=\"240\" controls>\n\u00a0 <source src=\"movie.mp4\" type=\"video/mp4\">\n\u00a0 <source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.\n</video>"
       },
       {
         "type": "header",
@@ -7765,7 +8862,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<video width=\"320\" height=\"240\" autoplay>\n  <source src=\"movie.mp4\" type=\"video/mp4\">\n  <source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.\n</video>"
+        "code": "<video width=\"320\" height=\"240\" autoplay>\n\u00a0 <source src=\"movie.mp4\" type=\"video/mp4\">\n\u00a0 <source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.\n</video>"
       },
       {
         "type": "note",
@@ -7778,7 +8875,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<video width=\"320\" height=\"240\" autoplay muted>\n  <source src=\"movie.mp4\" type=\"video/mp4\">\n  <source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.\n</video>"
+        "code": "<video width=\"320\" height=\"240\" autoplay muted>\n\u00a0 <source src=\"movie.mp4\" type=\"video/mp4\">\n\u00a0 <source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.\n</video>"
       },
       {
         "type": "header",
@@ -7932,6 +9029,34 @@
             "Defines text tracks in media players"
           ]
         ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<video width=\"320\" height=\"240\" controls>\n\u00a0 <source src=\"movie.mp4\" type=\"video/mp4\">\n\u00a0 <source src=\"movie.ogg\" type=\"video/ogg\">\nYour browser does not support the video tag.\n</video>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -7954,7 +9079,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<audio controls>\n  <source src=\"horse.ogg\" type=\"audio/ogg\">\n  <source src=\"horse.mp3\" type=\"audio/mpeg\">\n Your browser does not support the audio element.\n </audio>"
+        "code": "<audio controls>\n\u00a0 <source src=\"horse.ogg\" type=\"audio/ogg\">\n\u00a0 <source src=\"horse.mp3\" type=\"audio/mpeg\">\n Your browser does not support the audio element.\n </audio>"
       },
       {
         "type": "header",
@@ -7985,7 +9110,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<audio controls autoplay>\n  <source src=\"horse.ogg\" type=\"audio/ogg\">\n  <source src=\"horse.mp3\" type=\"audio/mpeg\">\n Your browser does not support the audio element.\n </audio>"
+        "code": "<audio controls autoplay>\n\u00a0 <source src=\"horse.ogg\" type=\"audio/ogg\">\n\u00a0 <source src=\"horse.mp3\" type=\"audio/mpeg\">\n Your browser does not support the audio element.\n </audio>"
       },
       {
         "type": "note",
@@ -7998,7 +9123,7 @@
       {
         "type": "example",
         "title": "Example",
-        "code": "<audio controls autoplay muted>\n  <source src=\"horse.ogg\" type=\"audio/ogg\">\n  <source src=\"horse.mp3\" type=\"audio/mpeg\">\n Your browser does not support the audio element.\n </audio>"
+        "code": "<audio controls autoplay muted>\n\u00a0 <source src=\"horse.ogg\" type=\"audio/ogg\">\n\u00a0 <source src=\"horse.mp3\" type=\"audio/mpeg\">\n Your browser does not support the audio element.\n </audio>"
       },
       {
         "type": "header",
@@ -8152,6 +9277,34 @@
             "Defines multiple media resources for media elements, such as &lt;video&gt; and \n&lt;audio&gt;"
           ]
         ]
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<audio controls>\n\u00a0 <source src=\"horse.ogg\" type=\"audio/ogg\">\n\u00a0 <source src=\"horse.mp3\" type=\"audio/mpeg\">\n Your browser does not support the audio element.\n </audio>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   },
@@ -8288,6 +9441,34 @@
         "type": "example",
         "title": "YouTube - Controls",
         "code": "<iframe width=\"420\" height=\"315\"src=\"https://www.youtube.com/embed/tgbNymZ7vqY?controls=0\">\n</iframe>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Interactive Practice"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try it yourself! Modify the code below to see how it works in real-time."
+      },
+      {
+        "type": "playground",
+        "code": "<iframe width=\"420\" height=\"315\"src=\"https://www.youtube.com/embed/tgbNymZ7vqY\">\n</iframe>"
+      },
+      {
+        "type": "header",
+        "level": 2,
+        "text": "Common Interview Questions"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here are some common interview questions related to this topic."
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Interview Question 1",
+        "text": "<strong>Q: What is the main purpose of the concepts covered in this lesson?</strong><br>A: <em>[To be updated with concrete question and answer]</em>"
       }
     ]
   }

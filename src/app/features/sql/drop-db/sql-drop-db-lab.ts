@@ -2,7 +2,7 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SqlExecutorService } from '../../../services/sql-executor.service';
+import { SqlExecutorService } from '../../../core/services/sql-executor.service';
 
 @Component({
   selector: 'app-sql-drop-db-lab',

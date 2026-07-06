@@ -2,7 +2,7 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SqlExecutorService } from '../../../services/sql-executor.service';
+import { SqlExecutorService } from '../../../core/services/sql-executor.service';
 
 @Component({
   selector: 'app-sql-or-lab',
@@ -144,7 +144,9 @@ WHERE Country='Germany' AND (City='Berlin' OR City='Frankfurt');`
 
   executeQuery() {
     try {
-      const result = this.sqlService.execute(this.sqlQuery());
+      const response = this.sqlService.execute(this.sqlQuery());
+      if (response.error) throw new Error(response.error);
+      const result = response.result!;
       this.results.set(result.rows);
       this.columns.set(result.columns);
       this.error.set('');

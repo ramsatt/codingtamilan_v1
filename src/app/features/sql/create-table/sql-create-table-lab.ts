@@ -2,7 +2,7 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SqlExecutorService } from '../../../services/sql-executor.service';
+import { SqlExecutorService } from '../../../core/services/sql-executor.service';
 
 @Component({
   selector: 'app-sql-create-table-lab',
@@ -140,7 +140,7 @@ import { SqlExecutorService } from '../../../services/sql-executor.service';
 })
 export class SqlCreateTableLab implements OnInit {
   sqlService = inject(SqlExecutorService);
-  
+
   sqlQuery = signal(`CREATE TABLE Persons (
     PersonID INTEGER PRIMARY KEY,
     LastName VARCHAR(255),
@@ -194,7 +194,8 @@ export class SqlCreateTableLab implements OnInit {
 
   executeQuery() {
     try {
-      this.sqlService.execute(this.sqlQuery());
+      const response = this.sqlService.execute(this.sqlQuery());
+      if (response.error) throw new Error(response.error);
       this.error.set('');
       this.showSuccess.set(true);
       this.results.set([]);
@@ -207,8 +208,8 @@ export class SqlCreateTableLab implements OnInit {
   viewTable() {
     try {
       const result = this.sqlService.execute(`SELECT * FROM ${this.currentTable()};`);
-      this.results.set(result.rows);
-      this.columns.set(result.columns);
+      this.results.set(result.result!.rows);
+      this.columns.set(result.result!.columns);
       this.error.set('');
       this.showSuccess.set(false);
     } catch (e: any) {

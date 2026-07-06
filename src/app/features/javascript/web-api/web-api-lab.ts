@@ -1,7 +1,7 @@
 import { Component, inject, NgZone, PLATFORM_ID, OnInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ContentStateService } from '../../../services/content-state';
+import { ContentStateService } from '../../../core/services/content-state';
 
 @Component({
     selector: 'app-js-web-api-lab',

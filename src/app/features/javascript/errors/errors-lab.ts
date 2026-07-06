@@ -1,7 +1,7 @@
 
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContentStateService } from '../../../services/content-state';
+import { ContentStateService } from '../../../core/services/content-state';
 
 @Component({
   selector: 'app-js-errors-lab',
