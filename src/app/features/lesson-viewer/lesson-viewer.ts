@@ -3,7 +3,9 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { Subject, BehaviorSubject, combineLatest, takeUntil, switchMap } from 'rxjs';
 import { CourseDataService, Lesson, CourseMeta, Slide } from '../../core/services/course-data.service';
+import { UserService } from '../../core/services/user.service';
 import { BlockRendererComponent } from './block-renderer/block-renderer.component';
+import { AiTutorComponent } from '../../shared/components/ai-tutor/ai-tutor.component';
 
 export interface SidebarLesson extends CourseMeta {
   number: number;
@@ -12,7 +14,7 @@ export interface SidebarLesson extends CourseMeta {
 
 @Component({
   selector: 'app-lesson-viewer',
-  imports: [RouterLink, BlockRendererComponent],
+  imports: [RouterLink, BlockRendererComponent, AiTutorComponent],
   templateUrl: './lesson-viewer.html',
   styleUrl: './lesson-viewer.css',
 })
@@ -77,6 +79,7 @@ export class LessonViewer implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private courseData: CourseDataService,
+    private userService: UserService,
     @Inject(PLATFORM_ID) private platformId: object
   ) {}
 
@@ -140,6 +143,9 @@ export class LessonViewer implements OnInit, OnDestroy {
       ...l,
       completed: ids.has(l.id),
     }));
+    
+    // Gamification
+    this.userService.markModuleComplete(`${this.courseId}_${this.currentLessonId}`);
   }
 
   private updateLessonList(list: CourseMeta[]): void {

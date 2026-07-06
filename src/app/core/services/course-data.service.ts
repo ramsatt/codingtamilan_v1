@@ -56,13 +56,40 @@ export interface Lesson {
 export interface CourseMeta {
   id: string;
   title: string;
+  description?: string;
+  level?: string;
+  icon?: string;
+  iconBg?: string;
+  iconColor?: string;
+  badgeClass?: string;
+  category?: string;
+  link?: string[];
+  whatYouWillLearn?: string[];
+  requirements?: string[];
+  longDescription?: string[];
+  codeSnippet?: string;
 }
 
 export const COURSE_LIST = [
-  { id: 'java', title: 'Java Masterclass', description: 'Master Java programming from scratch. Covers OOP, collections, multithreading, and basic UI design.', level: 'Beginner', icon: 'fa-brands fa-java', iconBg: 'bg-red-50', iconColor: 'text-red-500', badgeClass: 'bg-slate-100 text-slate-600', category: 'backend' },
-  { id: 'javascript', title: 'JS Bootcamp', description: 'Deep dive into JavaScript ES6+, DOM manipulation, asynchronous programming, and Web APIs.', level: 'Intermediate', icon: 'fa-brands fa-js', iconBg: 'bg-yellow-50', iconColor: 'text-yellow-500', badgeClass: 'bg-slate-100 text-slate-600', category: 'frontend' },
+  { id: 'java', title: 'Java Masterclass', description: 'Master Java programming from scratch. Covers OOP, collections, multithreading, and basic UI design.', level: 'Beginner', icon: 'fa-brands fa-java', iconBg: 'bg-red-50', iconColor: 'text-red-500', badgeClass: 'bg-slate-100 text-slate-600', category: 'backend',
+    whatYouWillLearn: ['Master Object-Oriented Programming (OOP) concepts in Java.', 'Build robust backend applications.', 'Understand Java Collections and Data Structures.', 'Implement Multithreading and Concurrency.', 'Prepare for Java developer interviews with real-world scenarios.'],
+    requirements: ['No prior programming experience required.', 'A computer with internet access.', 'Enthusiasm to learn and practice coding daily.'],
+    longDescription: ['Welcome to the Java Masterclass, the most comprehensive course to learn Java from scratch. Whether you are a complete beginner or looking to sharpen your skills, this course covers everything you need to become a professional Java developer.', 'Through interactive lessons, real-world examples, and hands-on playgrounds, you will build a strong foundation in Java programming.'],
+    codeSnippet: 'public class Main {\n  public static void main(String[] args) {\n    System.out.println("Master Java!");\n  }\n}'
+  },
+  { id: 'javascript', title: 'JS Bootcamp', description: 'Deep dive into JavaScript ES6+, DOM manipulation, asynchronous programming, and Web APIs.', level: 'Intermediate', icon: 'fa-brands fa-js', iconBg: 'bg-yellow-50', iconColor: 'text-yellow-500', badgeClass: 'bg-slate-100 text-slate-600', category: 'frontend',
+    whatYouWillLearn: ['Master modern JavaScript (ES6+).', 'Manipulate the DOM to build interactive web pages.', 'Understand Asynchronous JavaScript (Promises, async/await).', 'Work with Web APIs and fetch data.', 'Prepare for frontend developer interviews.'],
+    requirements: ['Basic understanding of HTML and CSS is recommended.', 'A computer with a modern web browser.'],
+    longDescription: ['Welcome to the JS Bootcamp. JavaScript is the language of the web, and this course will take you from the basics to advanced concepts.', 'You will learn by doing, with interactive code playgrounds and practical exercises that simulate real-world development.'],
+    codeSnippet: 'const learnJS = async () => {\n  const res = await fetch("/skills");\n  return await res.json();\n};\nlearnJS();'
+  },
   { id: 'css', title: 'CSS Styling Pro', description: 'Master layout techniques (Flexbox, Grid), animations, and responsive design principles.', level: 'Beginner', icon: 'fa-brands fa-css3-alt', iconBg: 'bg-blue-50', iconColor: 'text-blue-500', badgeClass: 'bg-slate-100 text-slate-600', category: 'frontend', link: ['/css', 'intro'] },
-  { id: 'python', title: 'Python Mastery', description: 'The complete Python developer course. Build real projects, automate tasks, and handle data.', level: 'Best Seller', icon: 'fa-brands fa-python', iconBg: 'bg-blue-50', iconColor: 'text-blue-600', badgeClass: 'bg-brand-50 text-brand-600 border border-brand-200', category: 'backend' },
+  { id: 'python', title: 'Python Mastery', description: 'The complete Python developer course. Build real projects, automate tasks, and handle data.', level: 'Best Seller', icon: 'fa-brands fa-python', iconBg: 'bg-blue-50', iconColor: 'text-blue-600', badgeClass: 'bg-brand-50 text-brand-600 border border-brand-200', category: 'backend',
+    whatYouWillLearn: ['Master Python programming by building real projects.', 'Automate boring tasks using Python scripts.', 'Handle and analyze data with Pandas.', 'Understand Object-Oriented Programming in Python.', 'Build web applications.'],
+    requirements: ['No programming experience needed.', 'A computer with internet access.'],
+    longDescription: ['Welcome to Python Mastery, the only course you need to learn to code with Python.', 'This comprehensive course will take you from beginner to professional, teaching you practical skills through interactive exercises and real-world examples.'],
+    codeSnippet: 'def learn_python():\n  days = 100\n  for day in range(days):\n    code.build()\n  return "Master!"'
+  },
   { id: 'sql', title: 'SQL Complete', description: 'Master database management. Learn queries, joins, subqueries, and database architecture techniques.', level: 'All Levels', icon: 'fa-solid fa-database', iconBg: 'bg-cyan-50', iconColor: 'text-cyan-600', badgeClass: 'bg-slate-100 text-slate-600', category: 'database', link: ['/sql', 'home'] },
   { id: 'ai', title: 'Artificial Intelligence', description: 'Dive into neural networks, machine learning models, and deep learning algorithms using TensorFlow.', level: 'Advanced', icon: 'fa-solid fa-brain', iconBg: 'bg-purple-50', iconColor: 'text-purple-600', badgeClass: 'bg-brand-50 text-brand-600 border border-brand-200', category: 'ai-ml' },
   { id: 'prompt-engineering', title: 'Prompt Engineering', description: 'Master the art of prompting LLMs. Covers zero-shot, few-shot, chain-of-thought, RAG, and production best practices.', level: 'New', icon: 'fa-solid fa-wand-magic-sparkles', iconBg: 'bg-indigo-50', iconColor: 'text-indigo-600', badgeClass: 'bg-brand-50 text-brand-600 border border-brand-200', category: 'ai-ml' },
@@ -71,7 +98,12 @@ export const COURSE_LIST = [
   { id: 'node-js', title: 'Node.js Masterclass', description: 'Master server-side JavaScript with Node.js. Covers modules, Express, REST APIs, MongoDB, authentication, and deployment.', level: 'Intermediate', icon: 'fa-brands fa-node-js', iconBg: 'bg-green-50', iconColor: 'text-green-600', badgeClass: 'bg-slate-100 text-slate-600', category: 'backend' },
   { id: 'react', title: 'React Complete Guide', description: 'Master React from scratch. Covers hooks, context, routing, data fetching, performance, TypeScript, and testing.', level: 'Best Seller', icon: 'fa-brands fa-react', iconBg: 'bg-cyan-50', iconColor: 'text-cyan-500', badgeClass: 'bg-brand-50 text-brand-600 border border-brand-200', category: 'frontend' },
   { id: 'context-engineering', title: 'Context Engineering', description: 'Master the art of building context for LLMs. Covers context windows, memory, RAG, agentic systems, and production patterns.', level: 'New', icon: 'fa-solid fa-layer-group', iconBg: 'bg-teal-50', iconColor: 'text-teal-600', badgeClass: 'bg-brand-50 text-brand-600 border border-brand-200', category: 'ai-ml' },
-  { id: 'html', title: 'HTML Complete', description: 'Learn HTML from the ground up. Covers elements, forms, tables, semantic HTML, media, responsive design, and more.', level: 'Beginner', icon: 'fa-brands fa-html5', iconBg: 'bg-orange-50', iconColor: 'text-orange-500', badgeClass: 'bg-slate-100 text-slate-600', category: 'frontend' },
+  { id: 'html', title: 'HTML Complete', description: 'Learn HTML from the ground up. Covers elements, forms, tables, semantic HTML, media, responsive design, and more.', level: 'Beginner', icon: 'fa-brands fa-html5', iconBg: 'bg-orange-50', iconColor: 'text-orange-500', badgeClass: 'bg-slate-100 text-slate-600', category: 'frontend',
+    whatYouWillLearn: ['Build the structure of web pages with HTML5.', 'Create forms and gather user input.', 'Structure tabular data with tables.', 'Use Semantic HTML for better SEO and accessibility.', 'Embed media like audio and video.'],
+    requirements: ['No prior programming experience required.', 'A text editor or just our interactive playground!'],
+    longDescription: ['HTML is the foundation of every website. In this complete HTML course, you will learn how to structure web content correctly from the ground up.', 'With our interactive playground, you can write HTML and see the results instantly, making learning fast and fun.'],
+    codeSnippet: '<!DOCTYPE html>\n<html>\n<head>\n  <title>HTML</title>\n</head>\n<body>\n  <h1>Master HTML</h1>\n</body>\n</html>'
+  },
 ];
 
 // Human-readable titles for the sidebar navigation
@@ -445,9 +477,65 @@ export class CourseDataService {
       const prefix = CourseDataService.FILE_PREFIX[courseId] ?? courseId;
       const langSuffix = lang === 'ta' ? '-ta' : '';
       const url = `/courses/${courseId}/${prefix}-course${langSuffix}.json`;
-      this.cache.set(key, this.http.get<Record<string, { title: string; blocks: Block[] }>>(url).pipe(shareReplay(1)));
+      
+      const request$ = new Observable<Record<string, { title: string; blocks: Block[] }>>(observer => {
+        // Try DB first
+        this.getFromIndexedDB(key).then(cachedData => {
+          if (cachedData) {
+            observer.next(cachedData);
+            observer.complete();
+          } else {
+            // Fetch from network and save to DB
+            this.http.get<Record<string, { title: string; blocks: Block[] }>>(url).subscribe({
+              next: (data) => {
+                this.saveToIndexedDB(key, data);
+                observer.next(data);
+                observer.complete();
+              },
+              error: (err) => observer.error(err)
+            });
+          }
+        });
+      }).pipe(shareReplay(1));
+
+      this.cache.set(key, request$);
     }
     return this.cache.get(key)!;
+  }
+
+  // Basic IndexedDB wrapper
+  private dbPromise = new Promise<IDBDatabase>((resolve, reject) => {
+    if (typeof indexedDB === 'undefined') {
+      reject('IndexedDB not available');
+      return;
+    }
+    const req = indexedDB.open('course-data-cache', 1);
+    req.onupgradeneeded = () => req.result.createObjectStore('courses');
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+
+  private async getFromIndexedDB(key: string): Promise<any> {
+    try {
+      const db = await this.dbPromise;
+      return new Promise((resolve) => {
+        const tx = db.transaction('courses', 'readonly');
+        const store = tx.objectStore('courses');
+        const req = store.get(key);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => resolve(null);
+      });
+    } catch {
+      return null;
+    }
+  }
+
+  private async saveToIndexedDB(key: string, data: any): Promise<void> {
+    try {
+      const db = await this.dbPromise;
+      const tx = db.transaction('courses', 'readwrite');
+      tx.objectStore('courses').put(data, key);
+    } catch {}
   }
 
   getLessonList(courseId: string, lang: 'en' | 'ta' = 'en'): Observable<CourseMeta[]> {

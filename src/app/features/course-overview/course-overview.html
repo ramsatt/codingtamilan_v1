@@ -56,12 +56,9 @@
             <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 mb-10">
                 <h2 class="text-2xl font-bold text-slate-900 mb-6">What you'll learn</h2>
                 <ul class="grid md:grid-cols-2 gap-4 text-slate-600 text-sm leading-relaxed">
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-500"></i><span>Master Python programming by building 100 unique projects over 100 days.</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-500"></i><span>Learn Selenium, Beautiful Soup, Flask, Pandas, NumPy, Scikit Learn, Plotly, and Matplotlib.</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-500"></i><span>Create a portfolio of 100 Python projects to apply for developer jobs.</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-500"></i><span>Build professional web applications using standard web technologies.</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-500"></i><span>Be able to use Python for data science and machine learning.</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-500"></i><span>Build GUIs and Desktop applications with Python projects.</span></li>
+                    @for (item of whatYouWillLearn; track $index) {
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-500"></i><span>{{ item }}</span></li>
+                    }
                 </ul>
             </div>
 
@@ -101,17 +98,18 @@
             <div class="mb-10">
                 <h2 class="text-2xl font-bold text-slate-900 mb-4">Requirements</h2>
                 <ul class="list-disc list-inside text-slate-600 space-y-2 text-sm md:text-base ml-2">
-                    <li>No programming experience needed - I'll teach you everything you need to know.</li>
-                    <li>A Mac or PC computer with access to the internet.</li>
-                    <li>No paid software required - I'll teach you how to use free text editors.</li>
+                    @for (req of requirements; track $index) {
+                        <li>{{ req }}</li>
+                    }
                 </ul>
             </div>
 
             <!-- Description -->
             <div class="mb-10 text-slate-600 text-sm md:text-base leading-relaxed space-y-4">
                 <h2 class="text-2xl font-bold text-slate-900 mb-4">Description</h2>
-                <p>Welcome to the 100 Days of Code - The Complete Python Pro Bootcamp, the only course you need to learn to code with Python. With over 500,000 reviews and a 4.8 average, my Python course is one of the HIGHEST RATED courses on the internet!</p>
-                <p>At 60+ hours, this Python course is without a doubt the most comprehensive Python course available anywhere online. Even if you have zero programming experience, this course will take you from beginner to professional.</p>
+                @for (desc of longDescription; track $index) {
+                    <p>{{ desc }}</p>
+                }
             </div>
         </div>
 
@@ -122,8 +120,8 @@
                     <!-- Video Thumbnail -->
                     <div class="relative w-full h-52 bg-slate-800 cursor-pointer group">
                         <div class="absolute inset-0 bg-gradient-to-tr from-brand-600/40 to-blue-600/40 opacity-80 mix-blend-overlay"></div>
-                        <div class="absolute inset-0 p-4 font-mono text-xs text-brand-300 opacity-30 overflow-hidden leading-relaxed">
-                            def learn_python():<br>&nbsp;&nbsp;days = 100<br>&nbsp;&nbsp;for day in range(days):<br>&nbsp;&nbsp;&nbsp;&nbsp;code.build()<br>&nbsp;&nbsp;return "Master!"
+                        <div class="absolute inset-0 p-4 font-mono text-xs text-brand-300 opacity-30 overflow-hidden leading-relaxed whitespace-pre-wrap">
+{{ codeSnippet }}
                         </div>
                         <div class="absolute inset-0 flex items-center justify-center">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-white/30 border border-white/50 shadow-lg">
@@ -148,11 +146,10 @@
                         <p class="text-center text-xs text-slate-500 font-medium mb-6">30-Day Money-Back Guarantee</p>
                         <h3 class="font-bold text-slate-900 mb-4">This course includes:</h3>
                         <ul class="text-sm text-slate-600 space-y-3 font-medium">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-video w-4 text-center text-slate-400"></i> 60.5 hours on-demand video</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-code w-4 text-center text-slate-400"></i> 110 coding exercises</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-file-lines w-4 text-center text-slate-400"></i> 140 articles</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-download w-4 text-center text-slate-400"></i> 122 downloadable resources</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-mobile-screen w-4 text-center text-slate-400"></i> Access on mobile and TV</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-code w-4 text-center text-slate-400"></i> Interactive coding playgrounds</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-briefcase w-4 text-center text-slate-400"></i> Real-world examples</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-clipboard-question w-4 text-center text-slate-400"></i> Technical interview questions</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-mobile-screen w-4 text-center text-slate-400"></i> Access on mobile and tablet</li>
                             <li class="flex items-center gap-3"><i class="fa-solid fa-infinity w-4 text-center text-slate-400"></i> Full lifetime access</li>
                             <li class="flex items-center gap-3"><i class="fa-solid fa-trophy w-4 text-center text-slate-400"></i> Certificate of completion</li>
                         </ul>

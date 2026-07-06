@@ -1,0 +1,70 @@
+<!-- Chat Sidebar Panel -->
+<div
+  class="h-full bg-slate-900 border-l border-slate-700 flex flex-col transition-all duration-300 ease-in-out shrink-0"
+  [class.w-0]="!isOpen()" [class.w-80]="isOpen()" [class.md:w-96]="isOpen()" [class.opacity-0]="!isOpen()"
+  [class.overflow-hidden]="!isOpen()">
+  <div class="w-80 md:w-96 h-full flex flex-col shrink-0 relative">
+    <!-- Header -->
+    <div class="px-4 py-3 bg-slate-800 border-b border-slate-700 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center text-lg">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">AI Tutor</h3>
+          <p class="text-[10px] text-green-400 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Online
+          </p>
+        </div>
+      </div>
+      <button (click)="toggleChat()" class="text-slate-400 hover:text-white transition-colors">
+        <i class="fa-solid fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Chat Area -->
+    <div #chatContainer class="flex-1 overflow-y-auto p-4 space-y-4">
+      <div *ngFor="let msg of messages()" class="flex flex-col max-w-[85%]"
+        [ngClass]="msg.role === 'user' ? 'self-end items-end' : 'self-start items-start'">
+        <span class="text-[10px] text-slate-500 mb-1 px-1">{{ msg.role === 'user' ? 'You' : 'AI Tutor' }}</span>
+        <div class="px-4 py-2.5 rounded-2xl text-sm leading-relaxed" [ngClass]="msg.role === 'user' 
+            ? 'bg-brand-500 text-white rounded-br-sm' 
+            : 'bg-slate-800 text-slate-200 border border-slate-700 rounded-bl-sm'">
+          {{ msg.text }}
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div *ngIf="isTyping()" class="flex flex-col self-start items-start max-w-[85%]">
+        <span class="text-[10px] text-slate-500 mb-1 px-1">AI Tutor</span>
+        <div
+          class="px-4 py-3 bg-slate-800 text-slate-200 border border-slate-700 rounded-2xl rounded-bl-sm flex gap-1.5">
+          <div class="w-2 h-2 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 0ms"></div>
+          <div class="w-2 h-2 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 150ms"></div>
+          <div class="w-2 h-2 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 300ms"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-3 bg-slate-800/50 border-t border-slate-700 shrink-0">
+      <div class="relative flex items-center">
+        <input type="text" [ngModel]="userInput()" (ngModelChange)="userInput.set($event)" (keyup.enter)="sendMessage()"
+          placeholder="Ask a question about this lesson..."
+          class="w-full bg-slate-900 border border-slate-700 rounded-full pl-4 pr-12 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all"
+          [disabled]="isTyping()">
+        <button (click)="sendMessage()" [disabled]="isTyping() || !userInput().trim()"
+          class="absolute right-1 w-8 h-8 flex items-center justify-center bg-brand-500 hover:bg-brand-400 text-white rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating FAB when closed -->
+<button *ngIf="!isOpen()" (click)="toggleChat()"
+  class="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-brand-600 to-brand-500 rounded-full shadow-2xl flex items-center justify-center text-white text-2xl hover:scale-110 hover:-translate-y-1 transition-all z-50 animate-bounce"
+  style="animation-duration: 2s;">
+  <i class="fa-solid fa-robot"></i>
+</button>

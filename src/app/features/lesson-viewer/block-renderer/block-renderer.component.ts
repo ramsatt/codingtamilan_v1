@@ -43,17 +43,21 @@ import { RegexPlaygroundComponent } from '../playground/regex-playground.compone
 import { ThreadsPlaygroundComponent } from '../playground/threads-playground.component';
 import { LambdaPlaygroundComponent } from '../playground/lambda-playground.component';
 import { FilesPlaygroundComponent } from '../playground/files-playground.component';
+import { HtmlPlaygroundComponent } from '../playground/html-playground.component';
 
 @Component({
   selector: 'app-block-renderer',
   standalone: true,
-  imports: [Highlight, NgClass, SyntaxAnatomyComponent, OutputPlaygroundComponent, VariablePlaygroundComponent, DataTypeExplorerComponent, TypeCastingPlaygroundComponent, OperatorPlaygroundComponent, IfElsePlaygroundComponent, SwitchPlaygroundComponent, WhileLoopPlaygroundComponent, ForLoopPlaygroundComponent, BreakContinuePlaygroundComponent, ArraysPlaygroundComponent, StringPlaygroundComponent, MathPlaygroundComponent, MethodPlaygroundComponent, ClassObjectPlaygroundComponent, ConstructorPlaygroundComponent, InheritancePlaygroundComponent, MethodOverloadingPlaygroundComponent, ScopePlaygroundComponent, RecursionPlaygroundComponent, ModifiersPlaygroundComponent, EncapsulationPlaygroundComponent, InnerClassPlaygroundComponent, AbstractionPlaygroundComponent, InterfacePlaygroundComponent, EnumPlaygroundComponent, UserInputPlaygroundComponent, DatePlaygroundComponent, ArrayListPlaygroundComponent, LinkedListPlaygroundComponent, HashMapPlaygroundComponent, HashSetPlaygroundComponent, IteratorPlaygroundComponent, WrapperClassesPlaygroundComponent, ExceptionsPlaygroundComponent, RegexPlaygroundComponent, ThreadsPlaygroundComponent, LambdaPlaygroundComponent, FilesPlaygroundComponent],
+  imports: [Highlight, NgClass, SyntaxAnatomyComponent, OutputPlaygroundComponent, VariablePlaygroundComponent, DataTypeExplorerComponent, TypeCastingPlaygroundComponent, OperatorPlaygroundComponent, IfElsePlaygroundComponent, SwitchPlaygroundComponent, WhileLoopPlaygroundComponent, ForLoopPlaygroundComponent, BreakContinuePlaygroundComponent, ArraysPlaygroundComponent, StringPlaygroundComponent, MathPlaygroundComponent, MethodPlaygroundComponent, ClassObjectPlaygroundComponent, ConstructorPlaygroundComponent, InheritancePlaygroundComponent, MethodOverloadingPlaygroundComponent, ScopePlaygroundComponent, RecursionPlaygroundComponent, ModifiersPlaygroundComponent, EncapsulationPlaygroundComponent, InnerClassPlaygroundComponent, AbstractionPlaygroundComponent, InterfacePlaygroundComponent, EnumPlaygroundComponent, UserInputPlaygroundComponent, DatePlaygroundComponent, ArrayListPlaygroundComponent, LinkedListPlaygroundComponent, HashMapPlaygroundComponent, HashSetPlaygroundComponent, IteratorPlaygroundComponent, WrapperClassesPlaygroundComponent, ExceptionsPlaygroundComponent, RegexPlaygroundComponent, ThreadsPlaygroundComponent, LambdaPlaygroundComponent, FilesPlaygroundComponent, HtmlPlaygroundComponent],
   template: `
     @switch (block.type) {
 
       @case ('playground') {
-        @switch (block.subtype) {
-          @case ('output') {
+        @if (!block.subtype || block.subtype === 'html') {
+          <app-html-playground [initialCode]="block.code || ''"></app-html-playground>
+        } @else {
+          @switch (block.subtype) {
+            @case ('output') {
             <app-output-playground [config]="block.config"></app-output-playground>
           }
           @case ('syntax-anatomy') {
@@ -172,6 +176,7 @@ import { FilesPlaygroundComponent } from '../playground/files-playground.compone
           }
           @case ('files') {
             <app-files-playground></app-files-playground>
+          }
           }
         }
       }

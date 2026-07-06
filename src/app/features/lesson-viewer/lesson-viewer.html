@@ -287,5 +287,13 @@
         </div>
       </div>
     </main>
+    
+    <!-- AI Tutor Side Panel -->
+    <app-ai-tutor 
+      class="h-full z-20 flex shrink-0 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]"
+      [lessonTitle]="lesson?.title || ''"
+      [currentSlideData]="currentSlideData"
+      [lang]="lang">
+    </app-ai-tutor>
   </div>
 </div>
